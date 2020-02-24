@@ -14,14 +14,10 @@ public class LineLayer : MonoBehaviour
  public string inputfile;
  
   // The prefab for the data points to be instantiated
- public GameObject PointPrefab;
+ public GameObject LinePrefab;
 
 [SerializeField]
  private AbstractMap _map;
-
- public float startAltitude = 50;
-
-
 
 
     // Start is called before the first frame update
@@ -35,13 +31,6 @@ public class LineLayer : MonoBehaviour
     
     _map.Initialize(new Vector2d(51.282433, 1.379470), 15);
 
-    Vector2d origin = _map.CenterLatitudeLongitude;
-    float originElevation = _map.QueryElevationInMetersAt(origin);
-    GameObject camera = GameObject.Find("Main Camera");
-    camera.transform.position = new Vector3(0, (originElevation + startAltitude)*_map.WorldRelativeScale,0);
-    //Debug.Log(_map.CenterMercator.x);
-    //Debug.Log(_map.CenterMercator.y);
-    //Debug.Log(_map.WorldRelativeScale);
     foreach (Feature feature in myFC.Features) 
         {
         // Get the geometry
@@ -58,7 +47,7 @@ public class LineLayer : MonoBehaviour
         float y = _map.QueryElevationInMetersAt(_location);
         
         //instantiate the prefab with coordinates defined above
-        GameObject dataPoint = Instantiate(PointPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject dataPoint = Instantiate(LinePrefab, new Vector3(0, 0, 0), Quaternion.identity);
         dataPoint.transform.parent = gameObject.transform;
         GameObject labelObject = new GameObject();
         labelObject.transform.parent = dataPoint.transform;
