@@ -37,7 +37,7 @@ public class LineLayer : MonoBehaviour
             string name = (string)properties["name"];
             string type = (string)properties["type"];
             ReadOnlyCollection<LineString> lines = geometry.Coordinates;
-            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(lines[0].Coordinates[0], 0 , _map), Quaternion.identity);
+            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(lines[0].Coordinates[0], _map), Quaternion.identity);
             dataLine.transform.parent = gameObject.transform;
             dataLine.GetComponent<DatalineCylinder>().Draw(lines[0], Color.red, 0.5f, LinePrefab, HandlePrefab, _map);
             dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;

@@ -18,13 +18,11 @@ public class Datapolygon : MonoBehaviour
 
     public void EditEndAction()
     {
-        LineRenderer lr = gameObject.GetComponentInChildren<LineRenderer>();
-        Vector3[] vertices = new Vector3[lr.positionCount];
-        lr.GetPositions(vertices);
+        DatalineCylinder perimeter = gameObject.GetComponentInChildren<DatalineCylinder>();
+        Vector3[] vertices = perimeter.GetVertices();
         Vector3 center = Poly.FindCenter(vertices);
-        GameObject shapeObject = gameObject.GetComponentInChildren<Datapolygon>().gameObject;
-        // Material mat = shapeObject.GetComponent<MeshRenderer>().material;
-        //shapeObject.Destroy();
+        GameObject shapeObject = gameObject.transform.Find("Polygon Shape").gameObject;
+        shapeObject.Destroy();
         Poly.Draw(vertices, center, gameObject, new Material(Shader.Find("Specular")) );
     }
 }

@@ -197,7 +197,6 @@ public class FlyingCam : MonoBehaviour
             editSelected = false;
             if (selectedRigibody != null) {
                 selectedRigibody.gameObject.SendMessage("Selected", false);
-                selectedRigibody.gameObject.SendMessage("EditEnd");
                 selectedRigibody = null;
             }
         }

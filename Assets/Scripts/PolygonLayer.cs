@@ -39,10 +39,10 @@ public class PolygonLayer : MonoBehaviour
 
             ReadOnlyCollection<LineString> LinearRings = geometry.Coordinates;
             LineString perimeter = LinearRings[0];
-            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(perimeter.Coordinates[0], 0, _map), Quaternion.identity);
+            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(perimeter.Coordinates[0], _map), Quaternion.identity);
             dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, Color.red, 0.5f, LinePrefab, HandlePrefab, _map);
             //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
-            Vector3[] poly = Tools.LS2Vect(perimeter, 0.0f, _map);
+            Vector3[] poly = Tools.LS2Vect(perimeter, _map);
             Vector3 center = Poly.FindCenter(poly);
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
             dataPoly.transform.parent = gameObject.transform;

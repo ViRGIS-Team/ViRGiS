@@ -11,16 +11,13 @@ public class DatalineCylinder : MonoBehaviour
     public Color color;
      public Color anticolor;
      private Renderer thisRenderer;
+
+    public GameObject CylinderObject;
+
     // Start is called before the first frame update
     void Start()
     {
-         thisRenderer = GetComponent<Renderer>();
-         if (color != null) {
-             thisRenderer.material.color = color;
-         }
     }
-
-    // Update is called once per frame
 
 
      void Selected(bool selected) {
@@ -40,31 +37,37 @@ public class DatalineCylinder : MonoBehaviour
     }
 
     void VertexMove(MoveArgs data) {
-        LineRenderer lr = gameObject.GetComponent<LineRenderer>();
-        lr.SetPosition(data.id, data.pos);
-    }
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            GameObject go = gameObject.transform.GetChild(i).gameObject;
+            CylinderLine goFunc = go.GetComponent<CylinderLine>();
+            if (goFunc != null && goFunc.id == data.id)
+            {
+                goFunc.MoveStart(data.pos);
+            } else if (goFunc != null && goFunc.id == data.id - 1)
+            {
+                goFunc.MoveEnd(data.pos);
+            }
+        }
+    } 
 
     public void Draw(LineString lineIn, Color color, float width, GameObject LinePrefab, GameObject HandlePrefab, AbstractMap _map)
     {
-        ReadOnlyCollection<IPosition> vertices = lineIn.Coordinates;
-        Vector3[] line = new Vector3[vertices.Count];
-        float y = 1.0f;
-        for (int j = 0; j < vertices.Count; j++)
-        {
-            line[j] = Tools.Ipos2Vect(vertices[j], y, _map);
-        };
-        //instantiate the prefab with coordinates defined above
-        LineRenderer lr = gameObject.AddComponent<LineRenderer>();
-        //lr.material = new Material(Shader.Find("Sprites/Default"));
-        lr.material.color = color;
-        lr.positionCount = line.Length;
+        Vector3[] line = Tools.LS2Vect(lineIn, _map);
+
         int i = 0;
         foreach (Vector3 vertex in line)
         {
-            lr.SetPosition(i, vertex);
             GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
             handle.transform.parent = gameObject.transform;
             handle.SendMessage("SetId", i);
+            if (i + 1 != line.Length)
+            {
+                GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
+                lineSegment.transform.parent = gameObject.transform;
+                lineSegment.GetComponent<CylinderLine>().SetId(i);
+                lineSegment.GetComponent<CylinderLine>().Draw(vertex, line[i + 1], 0.5f);
+            }
             i++;
         }
         GameObject labelObject = new GameObject();
@@ -72,12 +75,23 @@ public class DatalineCylinder : MonoBehaviour
         labelObject.transform.localPosition = new Vector3(0, 0, 0);
         labelObject.AddComponent(typeof(TextMesh));
         gameObject.transform.parent = gameObject.transform;
-        //lr.colorGradient = ColorGrad(Color.red);
-        //lr.widthCurve = WidthCurv(width);
-        //lr.widthMultiplier = width;
+
     }
 
-    static public Gradient ColorGrad(Color color1)
+    public Vector3[] GetVertices()
+    {
+        DatapointSphere[] data = gameObject.GetComponentsInChildren<DatapointSphere>();
+        Vector3[] result = new Vector3[data.Length];
+        for (int i = 0; i < data.Length; i++)
+        {
+            DatapointSphere datum = data[i];
+            result[i] = datum.position;
+        }
+        return result;
+
+    }
+
+    /* static public Gradient ColorGrad(Color color1)
     {
         float alpha = 1.0f;
         Gradient gradient = new Gradient();
@@ -86,12 +100,5 @@ public class DatalineCylinder : MonoBehaviour
             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.5f) }
         );
         return gradient;
-    }
-
-    static public AnimationCurve WidthCurv(float width)
-    {
-        AnimationCurve curve = new AnimationCurve();
-        curve.AddKey(1.0f, 0.5f);
-        return curve;
-    }
+    } */
 }

@@ -8,6 +8,7 @@ public class DatapointSphere : MonoBehaviour
      public Color color;
      public Color anticolor;
      private Renderer thisRenderer;
+     public Vector3 position;
 
      private int id;
     // Start is called before the first frame update
@@ -17,6 +18,8 @@ public class DatapointSphere : MonoBehaviour
          if (color != null) {
              thisRenderer.material.color = color;
          }
+
+        position = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -28,8 +31,10 @@ public class DatapointSphere : MonoBehaviour
      void Selected(bool selected) {
         if (selected) {
             thisRenderer.material.color = anticolor;
+            SendMessageUpwards("EditStartAction", SendMessageOptions.DontRequireReceiver);
         } else {
             thisRenderer.material.color = color;
+            SendMessageUpwards("EditEndAction", SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -42,6 +47,7 @@ public class DatapointSphere : MonoBehaviour
     }
 
     void MoveTo (Vector3 newPos) {
+        position = newPos;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.MovePosition(newPos);
         MoveArgs args = new MoveArgs();
@@ -56,6 +62,6 @@ public class DatapointSphere : MonoBehaviour
 
     public void EditEnd()
     {
-        SendMessageUpwards("EditEndAction", SendMessageOptions.DontRequireReceiver);
+        
     }
 }
