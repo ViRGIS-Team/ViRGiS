@@ -128,7 +128,9 @@ public class FlyingCam : MonoBehaviour
         } else {
             Ray ray = self.ScreenPointToRay(Input.mousePosition);
             Vector3 newPos = ray.GetPoint(selectedDistance);
-            selectedRigibody.MovePosition(newPos);
+            if (selectedRigibody != null) {
+                selectedRigibody.gameObject.SendMessage("MoveTo", newPos);
+            }
         }
     }
 
@@ -180,10 +182,12 @@ public class FlyingCam : MonoBehaviour
          if (hit) 
          {
              //Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-             editSelected = true;
              selectedRigibody = hitInfo.rigidbody;
-             selectedRigibody.gameObject.SendMessage("Selected", true);
-             selectedDistance = hitInfo.distance;
+             if (selectedRigibody != null) {
+                editSelected = true;
+                selectedRigibody.gameObject.SendMessage("Selected", true);
+                selectedDistance = hitInfo.distance;
+             }
          } else {
              //Debug.Log("No hit");
              editSelected = false;
@@ -193,6 +197,7 @@ public class FlyingCam : MonoBehaviour
             editSelected = false;
             if (selectedRigibody != null) {
                 selectedRigibody.gameObject.SendMessage("Selected", false);
+                selectedRigibody.gameObject.SendMessage("EditEnd");
                 selectedRigibody = null;
             }
         }

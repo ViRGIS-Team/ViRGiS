@@ -8,6 +8,8 @@ public class DatapointSphere : MonoBehaviour
      public Color color;
      public Color anticolor;
      private Renderer thisRenderer;
+
+     private int id;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +39,23 @@ public class DatapointSphere : MonoBehaviour
         if (thisRenderer != null) {
             thisRenderer.material.color = color;
         }
+    }
+
+    void MoveTo (Vector3 newPos) {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.MovePosition(newPos);
+        MoveArgs args = new MoveArgs();
+        args.id = id;
+        args.pos = newPos;
+        SendMessageUpwards("VertexMove", args, SendMessageOptions.DontRequireReceiver);
+    }
+
+    public void SetId(int value) {
+        id = value;
+    }
+
+    public void EditEnd()
+    {
+        SendMessageUpwards("EditEndAction", SendMessageOptions.DontRequireReceiver);
     }
 }

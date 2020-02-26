@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using System;
 using Mapbox.Unity.Utilities;
@@ -11,60 +12,37 @@ using GeoJSON.Net.Feature;
 public class LineLayer : MonoBehaviour
 {
     // Name of the input file, no extension
- public string inputfile;
- 
-  // The prefab for the data points to be instantiated
- public GameObject LinePrefab;
+    public string inputfile;
 
-[SerializeField]
- private AbstractMap _map;
+    // The prefab for the data points to be instantiated
+    public GameObject LinePrefab;
+    public GameObject HandlePrefab;
 
 
     // Start is called before the first frame update
-    void Start()
+    public void Init(AbstractMap _map)
     {
-    // get geojson data
+        // get geojson data
 
-    GeoJsonReader geoJsonReader= new GeoJsonReader();
-    geoJsonReader.Load(inputfile);
-    FeatureCollection myFC = geoJsonReader.getFeatureCollection();
-    
-    _map.Initialize(new Vector2d(51.282433, 1.379470), 15);
+        GeoJsonReader geoJsonReader = new GeoJsonReader();
+        geoJsonReader.Load(inputfile);
+        FeatureCollection myFC = geoJsonReader.getFeatureCollection();
 
-    foreach (Feature feature in myFC.Features) 
+
+        foreach (Feature feature in myFC.Features)
         {
-        // Get the geometry
-        Point geometry = feature.Geometry as Point;
-        IDictionary<string, object> properties = feature.Properties;
-        string name = (string)properties["name"];
-        string type = (string)properties["type"];
+            // Get the geometry
+            MultiLineString geometry = feature.Geometry as MultiLineString;
+            IDictionary<string, object> properties = feature.Properties;
+            string name = (string)properties["name"];
+            string type = (string)properties["type"];
+            ReadOnlyCollection<LineString> lines = geometry.Coordinates;
+            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(lines[0].Coordinates[0], 0 , _map), Quaternion.identity);
+            dataLine.transform.parent = gameObject.transform;
+            dataLine.GetComponent<DatalineCylinder>().Draw(lines[0], Color.red, 0.5f, LinePrefab, HandlePrefab, _map);
+            dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
 
-
-        IPosition in_position = geometry.Coordinates;
-        Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
-
-        //float y = (float)in_position.Altitude;
-        float y = _map.QueryElevationInMetersAt(_location);
-        
-        //instantiate the prefab with coordinates defined above
-        GameObject dataPoint = Instantiate(LinePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        dataPoint.transform.parent = gameObject.transform;
-        GameObject labelObject = new GameObject();
-        labelObject.transform.parent = dataPoint.transform;
-        TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
-        labelMesh.text = name + "," +type;
-        //Set the color
-        dataPoint.SendMessage("SetColor", Color.blue);
-        Vector3 scaleChange = new Vector3(1, 1, 1);
-        dataPoint.transform.localScale = scaleChange;
-        Vector2d pos = Conversions.GeoToWorldPosition(_location, _map.CenterMercator, _map.WorldRelativeScale);
-        dataPoint.transform.position = new Vector3((float)pos.x, y*_map.WorldRelativeScale, (float)pos.y); 
-        //Debug.Log(_location.x); 
-        //Debug.Log(pos.x);
         };
     }
 
-    void Update() {
-        
-    }  
 }
