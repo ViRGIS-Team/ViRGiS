@@ -7,6 +7,7 @@ using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
+using System.Threading.Tasks;
 
 public class DataPlotterJson : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class DataPlotterJson : MonoBehaviour
     // The prefab for the data points to be instantiated
     public GameObject PointPrefab;
 
-    public void Init(AbstractMap _map) { 
+    public async Task Init(AbstractMap _map, string source) {
         // get geojson data
 
+        inputfile = source;
+
         GeoJsonReader geoJsonReader = new GeoJsonReader();
-        geoJsonReader.Load(inputfile);
+        await geoJsonReader.Load(inputfile);
         FeatureCollection myFC = geoJsonReader.getFeatureCollection();
 
             foreach (Feature feature in myFC.Features)
