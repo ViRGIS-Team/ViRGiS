@@ -1,3 +1,4 @@
+// copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,7 @@ public struct GisProject
     public Point Origin;
 
     [JsonProperty(PropertyName = "zoom")]
-    public int Zoom; 
+    public int Zoom;
 
     [JsonProperty(PropertyName = "layers")]
     public IList<Layer> Layers;
@@ -75,4 +76,3 @@ public static class LineExtensionMethods
         return result;
     }
 }
-

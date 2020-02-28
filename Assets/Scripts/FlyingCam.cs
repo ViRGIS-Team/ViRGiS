@@ -1,5 +1,5 @@
 ﻿//https://stackoverflow.com/questions/58328209/how-to-make-a-free-fly-camera-script-in-unity-with-acceleration-and-decceleratio
-
+// copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -208,7 +208,7 @@ public class FlyingCam : MonoBehaviour
         {
             //left button
             ClickHandler(0);
-            
+
         }
         if (Input.GetMouseButtonUp(0))
         {

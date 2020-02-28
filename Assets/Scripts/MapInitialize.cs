@@ -1,4 +1,5 @@
-﻿using System.Collections;
+// copyright Runette Software Ltd, 2020. All rights reserved
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mapbox.Unity.Utilities;
@@ -56,6 +57,6 @@ public class MapInitialize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

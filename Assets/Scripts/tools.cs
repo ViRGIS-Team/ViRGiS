@@ -1,3 +1,4 @@
+// copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -34,5 +35,5 @@ static public IPosition Vect2Ipos(Vector3 position)
         Vector2d _latlng = VectorExtensions.GetGeoPosition(position, Global._map.CenterMercator, Global._map.WorldRelativeScale);
         return new Position(_latlng.x, _latlng.y, position.y / Global._map.WorldRelativeScale);
     }
-        
+
 }
