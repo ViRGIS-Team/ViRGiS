@@ -9,34 +9,32 @@ using Mapbox.Unity.Map;
 public class DatalineCylinder : MonoBehaviour
 {
     public Color color;
-     public Color anticolor;
-     private Renderer thisRenderer;
+    public Color anticolor;
+    private Renderer thisRenderer;
+    private bool BlockMove = false;
 
     public GameObject CylinderObject;
+
+    public string gisId;
+    public IDictionary<string, object> gisProperties;
 
     // Start is called before the first frame update
     void Start()
     {
     }
 
-
-     void Selected(bool selected) {
-        if (selected) {
-            thisRenderer.material.color = anticolor;
-        } else {
-            thisRenderer.material.color = color;
-        }
-    }
-
-    void SetColor (Color newColor) {
+    void SetColor(Color newColor)
+    {
         color = newColor;
         anticolor = Color.white - newColor;
-        if (thisRenderer != null) {
+        if (thisRenderer != null)
+        {
             thisRenderer.material.color = color;
         }
     }
 
-    void VertexMove(MoveArgs data) {
+    void VertexMove(MoveArgs data)
+    {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject go = gameObject.transform.GetChild(i).gameObject;
@@ -44,12 +42,13 @@ public class DatalineCylinder : MonoBehaviour
             if (goFunc != null && goFunc.id == data.id)
             {
                 goFunc.MoveStart(data.pos);
-            } else if (goFunc != null && goFunc.id == data.id - 1)
+            }
+            else if (goFunc != null && goFunc.id == data.id - 1)
             {
                 goFunc.MoveEnd(data.pos);
             }
         }
-    } 
+    }
 
     public void Draw(LineString lineIn, Color color, float width, GameObject LinePrefab, GameObject HandlePrefab, AbstractMap _map)
     {
@@ -61,6 +60,7 @@ public class DatalineCylinder : MonoBehaviour
             GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
             handle.transform.parent = gameObject.transform;
             handle.SendMessage("SetId", i);
+            handle.SendMessage("SetColor", color);
             if (i + 1 != line.Length)
             {
                 GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
@@ -80,7 +80,7 @@ public class DatalineCylinder : MonoBehaviour
 
     public Vector3[] GetVertices()
     {
-        DatapointSphere[] data = gameObject.GetComponentsInChildren<DatapointSphere>();
+        DatapointSphere[] data = GetHandles();
         Vector3[] result = new Vector3[data.Length];
         for (int i = 0; i < data.Length; i++)
         {
@@ -88,8 +88,39 @@ public class DatalineCylinder : MonoBehaviour
             result[i] = datum.position;
         }
         return result;
-
     }
+
+    public DatapointSphere[] GetHandles()
+    { 
+        return gameObject.GetComponentsInChildren<DatapointSphere>();
+    }
+
+    public void Selected(int button)
+    {
+        if (button == 1)
+        {
+            gameObject.BroadcastMessage("Selected", 100, SendMessageOptions.DontRequireReceiver);
+            BlockMove = true;
+        }
+    }
+
+    public void UnSelected(int button)
+    {
+        if (button != 100)
+        {
+            gameObject.BroadcastMessage("UnSelected", 100, SendMessageOptions.DontRequireReceiver);
+            BlockMove = false;
+        }
+    }
+
+    public void Translate(MoveArgs args)
+    {
+        if (BlockMove)
+        {
+            gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
 
     /* static public Gradient ColorGrad(Color color1)
     {

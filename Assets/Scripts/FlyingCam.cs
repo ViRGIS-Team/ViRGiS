@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mapbox.Unity.Utilities;
+using UnityEngine.Events;
 
 public class FlyingCam : MonoBehaviour
 {
@@ -25,12 +26,15 @@ public class FlyingCam : MonoBehaviour
 
     [Header("Controls")]
 
-    public KeyCode Forwards = KeyCode.W;
-    public KeyCode Backwards = KeyCode.S;
-    public KeyCode Left = KeyCode.A;
-    public KeyCode Right = KeyCode.D;
+    public KeyCode Forwards = KeyCode.UpArrow;
+    public KeyCode Backwards = KeyCode.DownArrow;
+    public KeyCode Left = KeyCode.LeftArrow;
+    public KeyCode Right = KeyCode.RightArrow;
     public KeyCode Up = KeyCode.Q;
-    public KeyCode Down = KeyCode.E;
+    public KeyCode Down = KeyCode.A;
+    public KeyCode EditSession = KeyCode.E;
+    public KeyCode ExitEditSession = KeyCode.D;
+    public KeyCode Exit = KeyCode.X;
 
     private Vector3 _moveSpeed;
 
@@ -39,12 +43,15 @@ public class FlyingCam : MonoBehaviour
     private Rigidbody selectedRigibody;
     private float selectedDistance;
 
+    //Events
+    public EventManager eventManager;
 
 
     private void Start()
     {
         _moveSpeed = Vector3.zero;
-        self = GetComponent<Camera>();
+        self = gameObject.GetComponent<Camera>();
+        eventManager = gameObject.AddComponent<EventManager>();
     }
 
     // Update is called once per frame
@@ -52,15 +59,15 @@ public class FlyingCam : MonoBehaviour
     {
         HandleMouseRotation();
         HandleMouseClick();
-
-        var acceleration = HandleKeyInput();
+        Vector3 acceleration = HandleMotionKeyInput();
+        HandleProceduralKeyInput();
 
         _moveSpeed += acceleration;
 
         HandleDeceleration(acceleration);
 
         // clamp the move speed
-        if(_moveSpeed.magnitude > MaximumMovementSpeed)
+        if (_moveSpeed.magnitude > MaximumMovementSpeed)
         {
             _moveSpeed = _moveSpeed.normalized * MaximumMovementSpeed;
         }
@@ -68,10 +75,9 @@ public class FlyingCam : MonoBehaviour
         transform.Translate(_moveSpeed);
     }
 
-    private Vector3 HandleKeyInput()
+    private Vector3 HandleMotionKeyInput()
     {
-        var acceleration = Vector3.zero;
-
+        Vector3 acceleration = Vector3.zero;
         //key input detection
         if (Input.GetKey(Forwards))
         {
@@ -110,25 +116,29 @@ public class FlyingCam : MonoBehaviour
 
     private void HandleMouseRotation()
     {
-        if (! editSelected) {
-        //mouse input
-        var rotationHorizontal = XAxisSensitivity * Input.GetAxis("Mouse X");
-        var rotationVertical = YAxisSensitivity * Input.GetAxis("Mouse Y");
+        if (!editSelected)
+        {
+            //mouse input
+            var rotationHorizontal = XAxisSensitivity * Input.GetAxis("Mouse X");
+            var rotationVertical = YAxisSensitivity * Input.GetAxis("Mouse Y");
 
-        //applying mouse rotation
-        // always rotate Y in global world space to avoid gimbal lock
-        transform.Rotate(Vector3.up * rotationHorizontal, Space.World);
+            //applying mouse rotation
+            // always rotate Y in global world space to avoid gimbal lock
+            transform.Rotate(Vector3.up * rotationHorizontal, Space.World);
 
-        var rotationY = transform.localEulerAngles.y;
+            var rotationY = transform.localEulerAngles.y;
 
-        _rotationX += rotationVertical;
-        _rotationX = Mathf.Clamp(_rotationX, -MaxXAngle, MaxXAngle);
+            _rotationX += rotationVertical;
+            _rotationX = Mathf.Clamp(_rotationX, -MaxXAngle, MaxXAngle);
 
-        transform.localEulerAngles = new Vector3(-_rotationX, rotationY, 0);
-        } else {
+            transform.localEulerAngles = new Vector3(-_rotationX, rotationY, 0);
+        }
+        else
+        {
             Ray ray = self.ScreenPointToRay(Input.mousePosition);
             Vector3 newPos = ray.GetPoint(selectedDistance);
-            if (selectedRigibody != null) {
+            if (selectedRigibody != null)
+            {
                 selectedRigibody.gameObject.SendMessage("MoveTo", newPos);
             }
         }
@@ -174,35 +184,78 @@ public class FlyingCam : MonoBehaviour
         }
     }
 
-    private void HandleMouseClick() {
-        if (Input.GetMouseButtonDown(0)){
-            //left button
-            RaycastHit hitInfo = new RaycastHit();
-            bool hit = Physics.Raycast(self.ScreenPointToRay(Input.mousePosition), out hitInfo);
-         if (hit) 
-         {
-             //Debug.Log("Hit " + hitInfo.transform.gameObject.name);
-             selectedRigibody = hitInfo.rigidbody;
-             if (selectedRigibody != null) {
-                editSelected = true;
-                selectedRigibody.gameObject.SendMessage("Selected", true);
-                selectedDistance = hitInfo.distance;
-             }
-         } else {
-             //Debug.Log("No hit");
-             editSelected = false;
-         }
+    private void HandleProceduralKeyInput()
+    {
+        if (Input.GetKey(EditSession) && !Global.EditSession)
+        {
+            Global.EditSession = true;
         }
-        if (Input.GetMouseButtonUp(0)){
-            editSelected = false;
-            if (selectedRigibody != null) {
-                selectedRigibody.gameObject.SendMessage("Selected", false);
-                selectedRigibody = null;
+        if (Input.GetKey(ExitEditSession) && Global.EditSession)
+        {
+            Global.EditSession = false;
+            eventManager.OnEditsessionEnd.Invoke();
+        }
+        if (Input.GetKey(Exit))
+        {
+            Debug.Log("Exit");
+            Application.Quit();
+        }
+    }
+
+    private void HandleMouseClick()
+    {
+        if (Input.GetMouseButtonDown(0) && Global.EditSession)
+        {
+            //left button
+            ClickHandler(0);
+            
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            //left button
+            UnClickHandler(0);
+        }
+        if (Input.GetMouseButtonDown(1) && Global.EditSession)
+        {
+            //right button
+            ClickHandler(1);
+        }
+        if (Input.GetMouseButtonUp(1)) {
+            //right button
+            UnClickHandler(1);
+        }
+    }
+
+    private void ClickHandler(int button)
+    {
+        RaycastHit hitInfo = new RaycastHit();
+        bool hit = Physics.Raycast(self.ScreenPointToRay(Input.mousePosition), out hitInfo);
+        if (hit)
+        {
+            //Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+            selectedRigibody = hitInfo.rigidbody;
+            if (selectedRigibody != null)
+            {
+                editSelected = true;
+                selectedRigibody.gameObject.SendMessage("Selected", button);
+                selectedDistance = hitInfo.distance;
             }
         }
-        if (Input.GetMouseButtonDown(1)){
-            //right button
+        else
+        {
+            //Debug.Log("No hit");
+            editSelected = false;
         }
-        if (Input.GetMouseButtonUp(1)){}
+    }
+
+
+    private void UnClickHandler(int button)
+    {
+        editSelected = false;
+        if (selectedRigibody != null)
+        {
+            selectedRigibody.gameObject.SendMessage("UnSelected", button);
+            selectedRigibody = null;
+        }
     }
 }

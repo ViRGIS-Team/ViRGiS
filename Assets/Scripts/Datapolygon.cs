@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Datapolygon : MonoBehaviour
 {
+
+    private bool BlockMove = false;
+    public string gisId;
+    public IDictionary<string, object> gisProperties;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +21,16 @@ public class Datapolygon : MonoBehaviour
         
     }
 
-    public void EditEndAction()
+    public void Selected(int button)
+    {
+        if (button == 1)
+        {
+            gameObject.BroadcastMessage("Selected", 100, SendMessageOptions.DontRequireReceiver);
+            BlockMove = true;
+        }
+    }
+
+    public void UnSelected(int button)
     {
         DatalineCylinder perimeter = gameObject.GetComponentInChildren<DatalineCylinder>();
         Vector3[] vertices = perimeter.GetVertices();

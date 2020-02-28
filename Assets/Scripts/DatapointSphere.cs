@@ -5,63 +5,99 @@ using UnityEngine;
 public class DatapointSphere : MonoBehaviour
 {
 
-     public Color color;
-     public Color anticolor;
-     private Renderer thisRenderer;
-     public Vector3 position;
+    public Color color;
+    public Color anticolor;
+    private Renderer thisRenderer;
+    public Vector3 position;
+    public Transform viewer;
 
-     private int id;
+    public string gisId;
+    public IDictionary<string, object> gisProperties;
+
+    private int id;
     // Start is called before the first frame update
     void Start()
     {
-         thisRenderer = GetComponent<Renderer>();
-         if (color != null) {
-             thisRenderer.material.color = color;
-         }
+        thisRenderer = GetComponent<Renderer>();
+        if (color != null)
+        {
+            thisRenderer.material.color = color;
+        }
 
         position = gameObject.transform.position;
+        viewer = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.transform.LookAt(viewer);
     }
 
-     void Selected(bool selected) {
-        if (selected) {
-            thisRenderer.material.color = anticolor;
-            SendMessageUpwards("EditStartAction", SendMessageOptions.DontRequireReceiver);
-        } else {
-            thisRenderer.material.color = color;
-            SendMessageUpwards("EditEndAction", SendMessageOptions.DontRequireReceiver);
+    void Selected(int button)
+    {
+        thisRenderer.material.color = anticolor;
+        if (button != 100)
+        {
+            gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
         }
     }
 
-    void SetColor (Color newColor) {
+    void UnSelected(int button)
+    {
+        thisRenderer.material.color = color;
+        if (button != 100)
+        {
+            gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
+        }
+
+    }
+
+    void SetColor(Color newColor)
+    {
         color = newColor;
         anticolor = Color.white - newColor;
-        if (thisRenderer != null) {
+        if (thisRenderer != null)
+        {
             thisRenderer.material.color = color;
         }
     }
 
-    void MoveTo (Vector3 newPos) {
+    void MoveTo(Vector3 newPos)
+    {
+        MoveArgs args = new MoveArgs();
+        args.translate = newPos - position;
         position = newPos;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.MovePosition(newPos);
-        MoveArgs args = new MoveArgs();
         args.id = id;
-        args.pos = newPos;
+        args.pos = position;
         SendMessageUpwards("VertexMove", args, SendMessageOptions.DontRequireReceiver);
+        SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
     }
 
-    public void SetId(int value) {
+    void TranslateHandle(MoveArgs argsin)
+    {
+        if (argsin.id != id)
+        {
+            MoveArgs argsout = new MoveArgs();
+            Vector3 newPos = position + argsin.translate;
+            position = newPos;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.MovePosition(newPos);
+            argsout.id = id;
+            argsout.pos = position;
+            SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);
+        }
+    }
+
+    public void SetId(int value)
+    {
         id = value;
     }
 
     public void EditEnd()
     {
-        
+
     }
 }

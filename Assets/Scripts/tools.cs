@@ -10,12 +10,13 @@ using Mapbox.Utils;
 
 public class Tools {
 
-static public Vector3 Ipos2Vect(IPosition position, AbstractMap _map) {
+static public Vector3 Ipos2Vect(Position position) {
         float Alt;
-        if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude; } ;
-        Vector2d _latlon = new Vector2d(position.Latitude, position.Longitude);
-        Vector2d _world = Conversions.GeoToWorldPosition(_latlon, _map.CenterMercator, _map.WorldRelativeScale);
-        return  new Vector3((float)_world.x, Alt *_map.WorldRelativeScale, (float)_world.y); 
+        if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude * Global._map.WorldRelativeScale; } ;
+        Vector2 _latlng = position.PointV2();
+        Vector3 _world = VectorExtensions.AsUnityPosition(_latlng, Global._map.CenterMercator, Global._map.WorldRelativeScale);
+        _world.y = Alt;
+        return _world;
     }
 
 static public Vector3[] LS2Vect(LineString line, AbstractMap _map)
@@ -23,9 +24,15 @@ static public Vector3[] LS2Vect(LineString line, AbstractMap _map)
         Vector3[] result = new Vector3[line.Coordinates.Count];
         for (int i = 0; i < line.Coordinates.Count; i++)
         {
-            result[i] = Ipos2Vect(line.Coordinates[i], _map);
+            result[i] = Ipos2Vect(line.Point(i));
         }
         return result;
     }
 
+static public IPosition Vect2Ipos(Vector3 position)
+    {
+        Vector2d _latlng = VectorExtensions.GetGeoPosition(position, Global._map.CenterMercator, Global._map.WorldRelativeScale);
+        return new Position(_latlng.x, _latlng.y, position.y / Global._map.WorldRelativeScale);
+    }
+        
 }

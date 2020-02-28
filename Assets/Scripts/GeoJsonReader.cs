@@ -8,21 +8,19 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-public class GeoJsonReader 
+public class GeoJsonReader
 {
     public string payload;
+    public string fileName;
 
-    //public void Load(string file){
-    //    payload = Resources.Load(file) as TextAsset;
-    //    //Debug.Log(payload);
-    //}
-    public FeatureCollection getFeatureCollection() {
-        return JsonConvert.DeserializeObject<FeatureCollection>(payload);  
+    public FeatureCollection getFeatureCollection()
+    {
+        return JsonConvert.DeserializeObject<FeatureCollection>(payload);
     }
 
     public async Task Load(string file)
     {
-        Debug.Log("hello");
+        fileName = file;
         char[] result;
         StringBuilder builder = new StringBuilder();
         using (StreamReader reader = File.OpenText(file))
@@ -36,11 +34,19 @@ public class GeoJsonReader
             builder.Append(c);
         }
         payload = builder.ToString();
-        Debug.Log(payload);
     }
 
     public GisProject GetProject()
     {
         return JsonConvert.DeserializeObject<GisProject>(payload);
+    }
+
+    public async Task Save(FeatureCollection contents)
+    {
+        payload = JsonConvert.SerializeObject(contents, Formatting.Indented);
+        using (StreamWriter writer = new StreamWriter(fileName, false))
+        {
+            await writer.WriteAsync(payload);
+        }
     }
 }
