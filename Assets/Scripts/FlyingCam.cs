@@ -35,6 +35,12 @@ public class FlyingCam : MonoBehaviour
     public KeyCode EditSession = KeyCode.E;
     public KeyCode ExitEditSession = KeyCode.D;
     public KeyCode Exit = KeyCode.X;
+    public KeyCode RotLeft = KeyCode.Comma;
+    public KeyCode RotRight = KeyCode.Period;
+    public KeyCode ScaleIn = KeyCode.L;
+    public KeyCode ScaleOut = KeyCode.M;
+    public KeyCode ZoomIn = KeyCode.Plus;
+    public KeyCode ZoomOut = KeyCode.Minus;
 
     private Vector3 _moveSpeed;
 
@@ -199,6 +205,30 @@ public class FlyingCam : MonoBehaviour
         {
             Debug.Log("Exit");
             Application.Quit();
+        }
+        if (Input.GetKey(RotLeft))
+        {
+            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, 10f);
+        }
+        if (Input.GetKey(RotRight))
+        {
+            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, -10f);
+        }
+        if (Input.GetKey(ScaleIn))
+        {
+            gameObject.transform.localScale = gameObject.transform.localScale * 0.9f;
+        }
+        if (Input.GetKey(ScaleOut))
+        {
+            gameObject.transform.localScale = gameObject.transform.localScale * 1.1f;
+        }
+        if (Input.GetKey(ZoomIn))
+        {
+            Global._map.SetZoom(Global._map.Zoom - 1.0f);
+        }
+        if (Input.GetKey(ZoomOut))
+        {
+            Global._map.SetZoom(Global._map.Zoom + 1.0f);
         }
     }
 

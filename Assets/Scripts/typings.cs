@@ -28,6 +28,9 @@ public struct GisProject
     [JsonProperty(PropertyName = "zoom")]
     public int Zoom;
 
+    [JsonProperty(PropertyName = "camera")]
+    public Point Camera;
+
     [JsonProperty(PropertyName = "layers")]
     public List<Layer> Layers;
 }
