@@ -68,9 +68,9 @@ public class DatapointSphere : MonoBehaviour
     {
         MoveArgs args = new MoveArgs();
         args.translate = newPos - position;
+        args.oldPos = position;
         position = newPos;
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.MovePosition(newPos);
+        gameObject.transform.position = position;
         args.id = id;
         args.pos = position;
         SendMessageUpwards("VertexMove", args, SendMessageOptions.DontRequireReceiver);
@@ -83,9 +83,9 @@ public class DatapointSphere : MonoBehaviour
         {
             MoveArgs argsout = new MoveArgs();
             Vector3 newPos = position + argsin.translate;
+            argsout.oldPos = position;
             position = newPos;
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.MovePosition(newPos);
+            gameObject.transform.position = position;
             argsout.id = id;
             argsout.pos = position;
             SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);

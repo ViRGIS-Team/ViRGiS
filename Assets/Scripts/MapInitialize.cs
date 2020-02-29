@@ -27,6 +27,7 @@ public class MapInitialize : MonoBehaviour
         //initialize space
         AbstractMap _map = GetComponent<AbstractMap>();
         _map.Initialize(origin, project.Zoom);
+        GameObject Map = _map.gameObject;
         float originElevation = _map.QueryElevationInMetersAt(origin);
         GameObject camera = GameObject.Find("Main Camera");
         camera.transform.position = new Vector3(0, (originElevation + startAltitude) * _map.WorldRelativeScale, 0);
@@ -40,15 +41,18 @@ public class MapInitialize : MonoBehaviour
         {
             if (layer.Type == "Point")
             {
-                _ = Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer.Source);
+                GameObject temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer.Source);
+                temp.transform.parent = Map.transform;
             }
             else if (layer.Type == "Line")
             {
-                _ = Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer.Source);
+                GameObject temp = await  Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer.Source);
+                temp.transform.parent = Map.transform;
             }
             else if (layer.Type == "Polygon")
             {
-                _ = Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer.Source);
+                GameObject temp = await  Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer.Source);
+                temp.transform.parent = Map.transform;
             }
         }
 

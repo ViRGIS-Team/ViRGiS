@@ -13,6 +13,7 @@ public struct MoveArgs {
     public int id;
     public Vector3 pos;
     public Vector3 translate;
+    public Vector3 oldPos;
 }
 
 
@@ -28,7 +29,7 @@ public struct GisProject
     public int Zoom;
 
     [JsonProperty(PropertyName = "layers")]
-    public IList<Layer> Layers;
+    public List<Layer> Layers;
 }
 
 public struct Layer
@@ -47,12 +48,12 @@ public static class Global
 
 public static class PositionExtensionMethods
 {
-   public static Vector2 PointV2(this IPosition position)
+   public static Vector2 PointV2(this Position position)
     {
         return new Vector2((float)position.Latitude, (float)position.Longitude);
     }
 
-    public static Position Point(this IPosition position)
+    public static Position Point(this Position position)
     {
         return position as Position;
     }
