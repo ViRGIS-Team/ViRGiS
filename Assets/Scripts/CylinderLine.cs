@@ -9,12 +9,16 @@ public class CylinderLine : MonoBehaviour
     private Vector3 start;
     private Vector3 end;
     private float diameter;
+    public int vStart;
+    public int vEnd;
 
-    public void Draw(Vector3 from, Vector3 to, float dia)
+    public void Draw(Vector3 from, Vector3 to, int vertStart, int vertEnd, float dia)
     {
         start = from;
         end = to;
         diameter = dia;
+        vStart = vertStart;
+        vEnd = vertEnd;
         _draw();
 
     }

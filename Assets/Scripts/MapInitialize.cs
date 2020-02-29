@@ -5,6 +5,7 @@ using UnityEngine;
 using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
+using GeoJSON.Net.Geometry;
 
 public class MapInitialize : MonoBehaviour
 {
@@ -27,28 +28,31 @@ public class MapInitialize : MonoBehaviour
         //initialize space
         AbstractMap _map = GetComponent<AbstractMap>();
         _map.Initialize(origin, project.Zoom);
-        float originElevation = _map.QueryElevationInMetersAt(origin);
-        GameObject camera = GameObject.Find("Main Camera");
-        camera.transform.position = new Vector3(0, (originElevation + startAltitude) * _map.WorldRelativeScale, 0);
 
         //set globals
         Global._map = _map;
         Global.EditSession = false;
+        GameObject Map = _map.gameObject;
+        GameObject camera = GameObject.Find("Main Camera");
+        camera.transform.position = Tools.Ipos2Vect(project.Camera.Coordinates as Position);
 
         //load the layers
         foreach (Layer layer in project.Layers)
         {
             if (layer.Type == "Point")
             {
-                _ = Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer.Source);
+                GameObject temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer.Source);
+                temp.transform.parent = Map.transform;
             }
             else if (layer.Type == "Line")
             {
-                _ = Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer.Source);
+                GameObject temp = await  Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer.Source);
+                temp.transform.parent = Map.transform;
             }
             else if (layer.Type == "Polygon")
             {
-                _ = Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer.Source);
+                GameObject temp = await  Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer.Source);
+                temp.transform.parent = Map.transform;
             }
         }
 

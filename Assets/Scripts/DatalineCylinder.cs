@@ -1,5 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-﻿using System.Collections;
+// parts from  https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.ObjectModel;
@@ -13,6 +14,7 @@ public class DatalineCylinder : MonoBehaviour
     public Color anticolor;
     private Renderer thisRenderer;
     private bool BlockMove = false;
+    private bool Lr = false;
 
     public GameObject CylinderObject;
 
@@ -40,11 +42,11 @@ public class DatalineCylinder : MonoBehaviour
         {
             GameObject go = gameObject.transform.GetChild(i).gameObject;
             CylinderLine goFunc = go.GetComponent<CylinderLine>();
-            if (goFunc != null && goFunc.id == data.id)
+            if (goFunc != null && goFunc.vStart == data.id)
             {
                 goFunc.MoveStart(data.pos);
             }
-            else if (goFunc != null && goFunc.id == data.id - 1)
+            else if (goFunc != null && goFunc.vEnd == data.id)
             {
                 goFunc.MoveEnd(data.pos);
             }
@@ -54,20 +56,26 @@ public class DatalineCylinder : MonoBehaviour
     public void Draw(LineString lineIn, Color color, float width, GameObject LinePrefab, GameObject HandlePrefab, AbstractMap _map)
     {
         Vector3[] line = Tools.LS2Vect(lineIn, _map);
+        Lr = lineIn.IsLinearRing();
 
         int i = 0;
         foreach (Vector3 vertex in line)
         {
-            GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
-            handle.transform.parent = gameObject.transform;
-            handle.SendMessage("SetId", i);
-            handle.SendMessage("SetColor", color);
+            if (!(i + 1 == line.Length && Lr))
+            {
+                GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
+                handle.transform.parent = gameObject.transform;
+                handle.SendMessage("SetId", i);
+                handle.SendMessage("SetColor", color);
+            }
             if (i + 1 != line.Length)
             {
                 GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
                 lineSegment.transform.parent = gameObject.transform;
-                lineSegment.GetComponent<CylinderLine>().SetId(i);
-                lineSegment.GetComponent<CylinderLine>().Draw(vertex, line[i + 1], 0.5f);
+                CylinderLine com = lineSegment.GetComponent<CylinderLine>();
+                com.SetId(i);
+                com.Draw(vertex, line[i + 1], i, i+1, 0.5f);
+                if (i + 2 == line.Length && Lr) com.vEnd = 0;
             }
             i++;
         }
@@ -87,6 +95,11 @@ public class DatalineCylinder : MonoBehaviour
         {
             DatapointSphere datum = data[i];
             result[i] = datum.position;
+        }
+        if(Lr)
+        {
+            Array.Resize<Vector3>(ref result, result.Length + 1);
+            result[result.Length - 1] = result[0];
         }
         return result;
     }

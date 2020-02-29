@@ -22,7 +22,7 @@ public class PointLayer : MonoBehaviour
         StartCoroutine(GetEvents());
     }
 
-    public async Task Init(string inputfile)
+    public async Task<GameObject> Init(string inputfile)
     {
         // get geojson data
         AbstractMap _map = Global._map;
@@ -63,8 +63,8 @@ public class PointLayer : MonoBehaviour
             dataPoint.transform.localScale = scaleChange;
             Vector2d pos = Conversions.GeoToWorldPosition(_location, _map.CenterMercator, _map.WorldRelativeScale);
             dataPoint.transform.position = new Vector3((float)pos.x, y * _map.WorldRelativeScale, (float)pos.y);
-
         };
+        return gameObject;
     }
 
     public void ExitEditsession()
