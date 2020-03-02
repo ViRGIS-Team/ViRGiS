@@ -78,7 +78,6 @@ public class PolygonLayer : MonoBehaviour
         List<Feature> features = new List<Feature>();
         foreach (Datapolygon dataFeature in dataFeatures)
         {
-            Debug.Log(dataFeature.ToString());
             DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
             Vector3[] vertices = perimeter.GetVertices();
             List<Position> positions = new List<Position>();
@@ -101,11 +100,11 @@ public class PolygonLayer : MonoBehaviour
 
     IEnumerator GetEvents()
     {
-        Camera camera = Camera.main;
+        GameObject Map = Global.Map;
         EventManager eventManager;
         do
         {
-            eventManager = camera.gameObject.GetComponent<EventManager>();
+            eventManager = Map.GetComponent<EventManager>();
             if (eventManager == null) { new WaitForSeconds(.5f); };
         } while (eventManager == null);
         eventManager.OnEditsessionEnd.AddListener(ExitEditsession);
