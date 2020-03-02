@@ -6,8 +6,8 @@ using UnityEngine;
 using System;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
-using Newtonsoft.Json;
-using Mapbox.Unity.Map;
+using Mapbox.Utils;
+
 
 public struct MoveArgs {
     public int id;
@@ -16,49 +16,26 @@ public struct MoveArgs {
     public Vector3 oldPos;
 }
 
-
-public struct GisProject
-{
-    [JsonProperty(PropertyName = "name")]
-    public string Name;
-
-    [JsonProperty(PropertyName = "origin")]
-    public Point Origin;
-
-    [JsonProperty(PropertyName = "zoom")]
-    public int Zoom;
-
-    [JsonProperty(PropertyName = "camera")]
-    public Point Camera;
-
-    [JsonProperty(PropertyName = "layers")]
-    public List<Layer> Layers;
-}
-
-public struct Layer
-{
-    [JsonProperty(PropertyName = "type")]
-    public string Type;
-    [JsonProperty(PropertyName = "source")]
-    public string Source;
-}
-
-public static class Global
-{
-    public static bool EditSession;
-    public static AbstractMap _map;
-}
-
 public static class PositionExtensionMethods
 {
-   public static Vector2 PointV2(this Position position)
+   public static Vector2d Vector2d(this IPosition position)
+    {
+        return new Vector2d((float)position.Latitude, (float)position.Longitude);
+    }
+
+    public static Vector2 Vector2(this IPosition position)
     {
         return new Vector2((float)position.Latitude, (float)position.Longitude);
     }
 
-    public static Position Point(this Position position)
+    public static Position Point(this IPosition position)
     {
         return position as Position;
+    }
+
+    public static Vector3 Vector3(this IPosition position)
+    {
+        return Tools.Ipos2Vect(position as Position);
     }
 }
 

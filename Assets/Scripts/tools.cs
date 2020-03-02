@@ -12,11 +12,9 @@ using Mapbox.Utils;
 public class Tools {
 
 static public Vector3 Ipos2Vect(Position position) {
-        Debug.Log(position.ToString());
-        Debug.Log(position.Altitude);
         float Alt;
         if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude * Global._map.WorldRelativeScale; } ;
-        Vector2 _latlng = position.PointV2();
+        Vector2 _latlng = position.Vector2();
         Vector3 _world = VectorExtensions.AsUnityPosition(_latlng, Global._map.CenterMercator, Global._map.WorldRelativeScale);
         _world.y = Alt;
         return _world;

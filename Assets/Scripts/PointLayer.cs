@@ -34,35 +34,43 @@ public class PointLayer : MonoBehaviour
         foreach (Feature feature in myFC.Features)
         {
             // Get the geometry
-            Point geometry = feature.Geometry as Point;
+            MultiPoint mPoint = null;
+            if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.Point) {
+                mPoint = new MultiPoint(new List<Point>() { feature.Geometry as Point });
+            } else if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.MultiPoint)
+            {
+                mPoint = feature.Geometry as MultiPoint;
+            }
+
             IDictionary<string, object> properties = feature.Properties;
             string gisId = feature.Id;
-            string name = (string)properties["name"];
-            string type = (string)properties["type"];
-            Position in_position = geometry.Coordinates as Position;
-            Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
+            foreach (Point geometry in mPoint.Coordinates)
+            {
+                Position in_position = geometry.Coordinates as Position;
+                Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
 
-            //float y = (float)in_position.Altitude;
-            float y = _map.QueryElevationInMetersAt(_location);
+                //float y = (float)in_position.Altitude;
+                float y = _map.QueryElevationInMetersAt(_location);
 
-            //instantiate the prefab with coordinates defined above
-            GameObject dataPoint = Instantiate(PointPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            dataPoint.transform.parent = gameObject.transform;
-            // add the gis data from geoJSON
-            DatapointSphere com = dataPoint.GetComponent<DatapointSphere>();
-            com.gisId = gisId;
-            com.gisProperties = properties;
-            GameObject labelObject = new GameObject();
-            labelObject.transform.parent = dataPoint.transform;
-            labelObject.transform.localRotation = Quaternion.Euler(0,180,0);
-            TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
-            labelMesh.text = name + "," + type;
-            //Set the color
-            dataPoint.SendMessage("SetColor", Color.blue);
-            Vector3 scaleChange = new Vector3(1, 1, 1);
-            dataPoint.transform.localScale = scaleChange;
-            Vector2d pos = Conversions.GeoToWorldPosition(_location, _map.CenterMercator, _map.WorldRelativeScale);
-            dataPoint.transform.position = new Vector3((float)pos.x, y * _map.WorldRelativeScale, (float)pos.y);
+                //instantiate the prefab with coordinates defined above
+                GameObject dataPoint = Instantiate(PointPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                dataPoint.transform.parent = gameObject.transform;
+                // add the gis data from geoJSON
+                DatapointSphere com = dataPoint.GetComponent<DatapointSphere>();
+                com.gisId = gisId;
+                com.gisProperties = properties;
+                GameObject labelObject = new GameObject();
+                labelObject.transform.parent = dataPoint.transform;
+                labelObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
+                //labelMesh.text = name + "," + type;
+                //Set the color
+                dataPoint.SendMessage("SetColor", Color.blue);
+                Vector3 scaleChange = new Vector3(1, 1, 1);
+                dataPoint.transform.localScale = scaleChange;
+                Vector2d pos = Conversions.GeoToWorldPosition(_location, _map.CenterMercator, _map.WorldRelativeScale);
+                dataPoint.transform.position = new Vector3((float)pos.x, y * _map.WorldRelativeScale, (float)pos.y);
+            }
         };
         return gameObject;
     }
@@ -87,11 +95,11 @@ public class PointLayer : MonoBehaviour
 
     IEnumerator GetEvents()
     {
-        Camera camera = Camera.main;
+        GameObject Map = Global.Map;
         EventManager eventManager;
         do
         {
-            eventManager = camera.gameObject.GetComponent<EventManager>();
+            eventManager = Map.GetComponent<EventManager>();
             if (eventManager == null) { new WaitForSeconds(.5f); };
         } while (eventManager == null);
         eventManager.OnEditsessionEnd.AddListener(ExitEditsession);

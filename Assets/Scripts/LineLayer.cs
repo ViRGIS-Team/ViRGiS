@@ -88,11 +88,11 @@ public class LineLayer : MonoBehaviour
 
     IEnumerator GetEvents()
     {
-        Camera camera = Camera.main;
+        GameObject Map = Global.Map;
         EventManager eventManager;
         do
         {
-            eventManager = camera.gameObject.GetComponent<EventManager>();
+            eventManager = Map.GetComponent<EventManager>();
             if (eventManager == null) { new WaitForSeconds(.5f); };
         } while (eventManager == null);
         eventManager.OnEditsessionEnd.AddListener(ExitEditsession);

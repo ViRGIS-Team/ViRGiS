@@ -3,8 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mapbox.Unity.Utilities;
-using UnityEngine.Events;
+
 
 public class FlyingCam : MonoBehaviour
 {
@@ -49,7 +48,6 @@ public class FlyingCam : MonoBehaviour
     private Rigidbody selectedRigibody;
     private float selectedDistance;
 
-    //Events
     public EventManager eventManager;
 
 
@@ -57,7 +55,7 @@ public class FlyingCam : MonoBehaviour
     {
         _moveSpeed = Vector3.zero;
         self = gameObject.GetComponent<Camera>();
-        eventManager = gameObject.AddComponent<EventManager>();
+
     }
 
     // Update is called once per frame
@@ -199,6 +197,7 @@ public class FlyingCam : MonoBehaviour
         if (Input.GetKey(ExitEditSession) && Global.EditSession)
         {
             Global.EditSession = false;
+            EventManager eventManager = Global.Map.GetComponent<EventManager>();
             eventManager.OnEditsessionEnd.Invoke();
         }
         if (Input.GetKey(Exit))
@@ -288,4 +287,5 @@ public class FlyingCam : MonoBehaviour
             selectedRigibody = null;
         }
     }
+
 }
