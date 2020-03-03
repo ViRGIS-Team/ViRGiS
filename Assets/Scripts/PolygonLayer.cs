@@ -31,7 +31,7 @@ public class PolygonLayer : MonoBehaviour
     }
 
 
-    public async Task Init(string source)
+    public async Task<GameObject> Init(string source)
     {
         // get geojson data
         AbstractMap _map = Global._map;
@@ -54,15 +54,16 @@ public class PolygonLayer : MonoBehaviour
             dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, Color.red, 0.5f, LinePrefab, HandlePrefab, _map);
             //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
             Vector3[] poly = Tools.LS2Vect(perimeter, _map);
-            Vector3 center = Poly.FindCenter(poly);
+            Vector3 center = Datapolygon.FindCenter(poly);
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
             Datapolygon com = dataPoly.GetComponent<Datapolygon>();
             com.gisId = gisId;
             com.gisProperties = properties;
             dataPoly.transform.parent = gameObject.transform;
             dataLine.transform.parent = dataPoly.transform;
-            Poly.Draw(poly, center, dataPoly, Mat);
+            com.Draw(poly, Mat);
         };
+        return gameObject;
 
     }
 
@@ -77,7 +78,6 @@ public class PolygonLayer : MonoBehaviour
         List<Feature> features = new List<Feature>();
         foreach (Datapolygon dataFeature in dataFeatures)
         {
-            Debug.Log(dataFeature.ToString());
             DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
             Vector3[] vertices = perimeter.GetVertices();
             List<Position> positions = new List<Position>();
@@ -88,7 +88,6 @@ public class PolygonLayer : MonoBehaviour
             LineString line = new LineString(positions);
             if (!line.IsLinearRing())
             {
-                Debug.LogError("This Polygon is not a Linear Ring");
                 throw new System.ArgumentException("This Polygon is not a Linear Ring", dataFeature.gisProperties.ToString());
             }
             List<LineString> LinearRings = new List<LineString>();
@@ -101,11 +100,11 @@ public class PolygonLayer : MonoBehaviour
 
     IEnumerator GetEvents()
     {
-        Camera camera = Camera.main;
+        GameObject Map = Global.Map;
         EventManager eventManager;
         do
         {
-            eventManager = camera.gameObject.GetComponent<EventManager>();
+            eventManager = Map.GetComponent<EventManager>();
             if (eventManager == null) { new WaitForSeconds(.5f); };
         } while (eventManager == null);
         eventManager.OnEditsessionEnd.AddListener(ExitEditsession);

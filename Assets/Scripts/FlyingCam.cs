@@ -3,8 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Mapbox.Unity.Utilities;
-using UnityEngine.Events;
+
 
 public class FlyingCam : MonoBehaviour
 {
@@ -35,6 +34,12 @@ public class FlyingCam : MonoBehaviour
     public KeyCode EditSession = KeyCode.E;
     public KeyCode ExitEditSession = KeyCode.D;
     public KeyCode Exit = KeyCode.X;
+    public KeyCode RotLeft = KeyCode.Comma;
+    public KeyCode RotRight = KeyCode.Period;
+    public KeyCode ScaleIn = KeyCode.L;
+    public KeyCode ScaleOut = KeyCode.M;
+    public KeyCode ZoomIn = KeyCode.Plus;
+    public KeyCode ZoomOut = KeyCode.Minus;
 
     private Vector3 _moveSpeed;
 
@@ -43,7 +48,6 @@ public class FlyingCam : MonoBehaviour
     private Rigidbody selectedRigibody;
     private float selectedDistance;
 
-    //Events
     public EventManager eventManager;
 
 
@@ -51,7 +55,7 @@ public class FlyingCam : MonoBehaviour
     {
         _moveSpeed = Vector3.zero;
         self = gameObject.GetComponent<Camera>();
-        eventManager = gameObject.AddComponent<EventManager>();
+
     }
 
     // Update is called once per frame
@@ -193,12 +197,37 @@ public class FlyingCam : MonoBehaviour
         if (Input.GetKey(ExitEditSession) && Global.EditSession)
         {
             Global.EditSession = false;
+            EventManager eventManager = Global.Map.GetComponent<EventManager>();
             eventManager.OnEditsessionEnd.Invoke();
         }
         if (Input.GetKey(Exit))
         {
             Debug.Log("Exit");
             Application.Quit();
+        }
+        if (Input.GetKey(RotLeft))
+        {
+            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, 10f);
+        }
+        if (Input.GetKey(RotRight))
+        {
+            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, -10f);
+        }
+        if (Input.GetKey(ScaleIn))
+        {
+            gameObject.transform.localScale = gameObject.transform.localScale * 0.9f;
+        }
+        if (Input.GetKey(ScaleOut))
+        {
+            gameObject.transform.localScale = gameObject.transform.localScale * 1.1f;
+        }
+        if (Input.GetKey(ZoomIn))
+        {
+            Global._map.SetZoom(Global._map.Zoom - 1.0f);
+        }
+        if (Input.GetKey(ZoomOut))
+        {
+            Global._map.SetZoom(Global._map.Zoom + 1.0f);
         }
     }
 
@@ -258,4 +287,5 @@ public class FlyingCam : MonoBehaviour
             selectedRigibody = null;
         }
     }
+
 }

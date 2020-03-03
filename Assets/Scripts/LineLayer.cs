@@ -29,7 +29,7 @@ public class LineLayer : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public async Task Init(string source)
+    public async Task<GameObject> Init(string source)
     {
         // get geojson data
         AbstractMap _map = Global._map;
@@ -58,6 +58,7 @@ public class LineLayer : MonoBehaviour
             dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
 
         };
+        return gameObject;
     }
 
     public void ExitEditsession()
@@ -87,11 +88,11 @@ public class LineLayer : MonoBehaviour
 
     IEnumerator GetEvents()
     {
-        Camera camera = Camera.main;
+        GameObject Map = Global.Map;
         EventManager eventManager;
         do
         {
-            eventManager = camera.gameObject.GetComponent<EventManager>();
+            eventManager = Map.GetComponent<EventManager>();
             if (eventManager == null) { new WaitForSeconds(.5f); };
         } while (eventManager == null);
         eventManager.OnEditsessionEnd.AddListener(ExitEditsession);
