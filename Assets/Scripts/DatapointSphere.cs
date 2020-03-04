@@ -58,7 +58,7 @@ public class DatapointSphere : MonoBehaviour
     {
         color = newColor;
         anticolor = Color.white - newColor;
-        if (thisRenderer != null)
+        if (thisRenderer)
         {
             thisRenderer.material.color = color;
         }

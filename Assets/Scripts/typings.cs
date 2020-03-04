@@ -57,3 +57,11 @@ public static class LineExtensionMethods
         return result;
     }
 }
+
+public class TestableObject
+{
+    public bool ContainsKey( string propName)
+    {
+        return GetType().GetMember(propName) != null;
+    }
+}
