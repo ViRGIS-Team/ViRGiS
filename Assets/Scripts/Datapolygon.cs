@@ -1,8 +1,10 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 // parts from https://answers.unity.com/questions/546473/create-a-plane-from-points.html
-﻿using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
+using GeoJSON.Net.Geometry;
+
 
 public class Datapolygon : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Datapolygon : MonoBehaviour
     private bool BlockMove = false;
     public string gisId;
     public IDictionary<string, object> gisProperties;
+    private GameObject shape;
 
     // Start is called before the first frame update
     void Start()
@@ -58,20 +61,38 @@ public class Datapolygon : MonoBehaviour
         }
     }
 
+    public void SetColor(Color newCol)
+    {
+        shape.GetComponent<Renderer>().material.SetColor("_BaseColor", newCol);
+    }
+
     public GameObject Draw(Vector3[] poly, Material mat = null)
     {
-        GameObject shape = new GameObject("Polygon Shape");
+
+        shape = new GameObject("Polygon Shape");
         shape.transform.parent = gameObject.transform;
         shape.transform.localPosition = Vector3.zero;
+
 
         if (poly == null || poly.Length < 3)
         {
             throw new System.ArgumentException("Invalid polygon vertices"); ;
         }
+        Vector3 center = Vector3.zero;
+        if (gisProperties.ContainsKey("polyhedral"))
+        {
+            Point centerPosition = gisProperties["polyhedral"] as Point;
+            center = centerPosition.Coordinates.Vector3();
+        }
+        else
+        {
+            center = FindCenter(poly);
+            gisProperties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+        }
 
         MeshFilter mf = shape.AddComponent<MeshFilter>();
 
-        mf.mesh = MakeMesh(poly);
+        mf.mesh = MakeMesh(poly, center);
 
         Renderer rend = shape.GetComponent<MeshRenderer>();
         if (rend == null)
@@ -84,12 +105,11 @@ public class Datapolygon : MonoBehaviour
 
     }
 
-    public GameObject RefreshMesh(Vector3[] poly)
+    public GameObject RefreshMesh(Vector3[] poly, Vector3 center)
     {
-        GameObject shape = gameObject.transform.Find("Polygon Shape").gameObject;
         Mesh mesh = shape.GetComponent<MeshFilter>().mesh;
         mesh.Clear();
-        Vector3[] vertices = Vertices(poly);
+        Vector3[] vertices = Vertices(poly, center);
         mesh.vertices = vertices;
         mesh.triangles = Triangles(poly.Length);
         mesh.uv = BuildUVs(vertices);
@@ -101,7 +121,6 @@ public class Datapolygon : MonoBehaviour
 
     public void ShapeMoveVertex(MoveArgs data)
     {
-        GameObject shape = gameObject.transform.Find("Polygon Shape").gameObject;
         Mesh mesh = shape.GetComponent<MeshFilter>().mesh;
         Vector3[] vertices = mesh.vertices;
         vertices[data.id + 1] = vertices[data.id + 1] + data.translate;
@@ -110,10 +129,9 @@ public class Datapolygon : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    public Vector3[] Vertices(Vector3[] poly)
+    public Vector3[] Vertices(Vector3[] poly, Vector3 center)
     {
         Mesh mesh = new Mesh();
-        Vector3 center = FindCenter(poly);
         Vector3[] vertices = new Vector3[poly.Length];
         vertices[0] = Vector3.zero;
 
@@ -145,10 +163,10 @@ public class Datapolygon : MonoBehaviour
         return triangles;
     }
 
-    public Mesh MakeMesh(Vector3[] poly)
+    public Mesh MakeMesh(Vector3[] poly, Vector3 center)
     {
         Mesh mesh = new Mesh();
-        Vector3[] vertices = Vertices(poly);
+        Vector3[] vertices = Vertices(poly, center);
         mesh.vertices = vertices;
         mesh.triangles = Triangles(poly.Length - 1);
         mesh.uv = BuildUVs(vertices);

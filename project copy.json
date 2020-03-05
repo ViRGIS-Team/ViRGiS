@@ -1,0 +1,68 @@
+{
+  "name": "test_project",
+  "origin": {"type": "Point", "coordinates":[ 1.377283, 51.299457]},
+  "mapscale": 15,
+  "cameras" : [{"type": "Point", "coordinates":[ 1.38, 51.29, 200]}],
+  "recordsets": [
+    {
+      "type": "GeographyCollection",
+      "datatype": "Point",
+      "source": "GIS Test Data/waypoint27092019up.geojson",
+      "properties": {
+        "units": {
+          "default": {
+            "color": [0,0,255,255],
+            "transform":{
+              "translate" : [0.0,0.0,0.0],
+              "rotate": [0.0,0.0,0.0,1.0],
+              "scale": [1,1,1]
+            },
+            "label": "name"
+          }
+        }
+      }
+    },
+    {
+      "type": "GeographyCollection",
+      "datatype": "Line",
+      "source": "GIS Test Data/lines.geojson",
+      "properties": {
+        "units": {
+          "default": {
+            "color": [255,0,0,255],
+            "transform":{
+              "translate" : [0.0,0.0,0.0],
+              "rotate": [0.0,0.0,0.0,1.0],
+              "scale": [0.5,0.5,0.5]
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "GeographyCollection",
+      "datatype": "Polygon",
+      "source": "GIS Test Data/polys.geojson",
+      "properties": {
+        "units": {
+          "line": {
+            "color": [0,255,255,255],
+            "transform":{
+              "translate" : [0.0,0.0,0.0],
+              "rotate": [0.0,0.0,0.0,1.0],
+              "scale": [0.5,0.5,0.5]
+            }
+          },
+          "body": {
+            "color": [0,255,0,255],
+            "transform":{
+              "translate" : [0.0,0.0,0.0],
+              "rotate": [0.0,0.0,0.0,1.0],
+              "scale": [0.5,0.5,0.5]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

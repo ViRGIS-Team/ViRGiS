@@ -53,17 +53,17 @@ public class MapInitialize : MonoBehaviour
         {
             if (layer.DataType == RecordSetDataType.Point)
             {
-                GameObject temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer.Source);
+                GameObject temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer as GeographyCollection);
                 temp.transform.parent = Map.transform;
             }
             else if (layer.DataType == RecordSetDataType.Line)
             {
-                GameObject temp = await  Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer.Source);
+                GameObject temp = await  Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer as GeographyCollection);
                 temp.transform.parent = Map.transform;
             }
             else if (layer.DataType == RecordSetDataType.Polygon)
             {
-                GameObject temp = await  Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer.Source);
+                GameObject temp = await  Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer as GeographyCollection);
                 temp.transform.parent = Map.transform;
             }
             else if (layer.DataType == RecordSetDataType.PointCloud)

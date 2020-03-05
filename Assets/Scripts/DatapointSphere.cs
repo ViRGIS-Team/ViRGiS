@@ -22,7 +22,7 @@ public class DatapointSphere : MonoBehaviour
         thisRenderer = GetComponent<Renderer>();
         if (color != null)
         {
-            thisRenderer.material.color = color;
+            thisRenderer.material.SetColor("_BaseColor", color);
         }
 
         position = gameObject.transform.position;
@@ -37,7 +37,7 @@ public class DatapointSphere : MonoBehaviour
 
     void Selected(int button)
     {
-        thisRenderer.material.color = anticolor;
+        thisRenderer.material.SetColor("_BaseColor", anticolor);
         if (button != 100)
         {
             gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
@@ -46,7 +46,7 @@ public class DatapointSphere : MonoBehaviour
 
     void UnSelected(int button)
     {
-        thisRenderer.material.color = color;
+        thisRenderer.material.SetColor("_BaseColor", color);
         if (button != 100)
         {
             gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
@@ -58,9 +58,10 @@ public class DatapointSphere : MonoBehaviour
     {
         color = newColor;
         anticolor = Color.white - newColor;
-        if (thisRenderer != null)
+        Renderer thisRenderer = GetComponent<Renderer>();
+        if (thisRenderer)
         {
-            thisRenderer.material.color = color;
+            thisRenderer.material.SetColor("_BaseColor", color);
         }
     }
 

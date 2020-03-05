@@ -11,7 +11,7 @@ using System.Collections.Generic;
  /// between Vector3 and SerializableVector3
  /// </summary>
  [System.Serializable]
- public struct SerializableVector3
+ public class SerializableVector3 : Updateable
  {
      /// <summary>
      /// x component
@@ -41,7 +41,9 @@ using System.Collections.Generic;
          z = rZ;
      }
 
-    public SerializableVector3(IList<float> r)
+    public SerializableVector3() { }
+
+    public override void Update(IList<float> r)
     {
         x = r[0];
         y = r[1];
@@ -79,7 +81,7 @@ using System.Collections.Generic;
  }
 
 [System.Serializable]
-public struct SerializableQuaternion
+public class SerializableQuaternion : Updateable
 {
     /// <summary>
     /// x component
@@ -116,7 +118,9 @@ public struct SerializableQuaternion
         w = rW;
     }
 
-    public SerializableQuaternion(IList<float> r)
+    public SerializableQuaternion() { }
+
+    public override void Update(IList<float> r)
     {
         x = r[0];
         y = r[1];
@@ -152,4 +156,55 @@ public struct SerializableQuaternion
     {
         return new SerializableQuaternion(rValue.x, rValue.y, rValue.z, rValue.w);
     }
+}
+
+[System.Serializable]
+public class SerializableColor : Updateable
+{
+
+    public float r;
+    public float g;
+    public float b;
+    public float a;
+
+
+    public SerializableColor(float rr, float rg, float rb, float ra)
+    {
+        r = rr;
+        g = rg;
+        b = rb;
+        a = ra;
+    }
+
+    public SerializableColor() { }
+
+    public override void Update(IList<float> color)
+    {
+        r = color[0]/255;
+        g = color[1]/255;
+        b = color[2]/255;
+        a = color[3]/255;
+    }
+
+    //makes this class usable as Color, Color normalColor = mySerializableColor;
+    public static implicit operator Color(SerializableColor r)
+    {
+        return  new Color(r.r, r.g, r.b, r.a); ;
+    }
+
+    //makes this class assignable by Color, SerializableColor myColor = Color.white;
+    public static implicit operator SerializableColor(Color color)
+    {
+        return new SerializableColor( color.r, color.g, color.b, color.a );
+    }
+
+    public override string ToString()
+    {
+        return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a*255f);
+    }
+}
+
+public abstract class Updateable
+{
+    public abstract void Update(IList<float> v);
 }

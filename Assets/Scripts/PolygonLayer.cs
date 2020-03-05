@@ -10,6 +10,8 @@ using Mapbox.Utils;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
+using Project;
+using Newtonsoft.Json.Linq;
 
 public class PolygonLayer : MonoBehaviour
 {
@@ -31,11 +33,13 @@ public class PolygonLayer : MonoBehaviour
     }
 
 
-    public async Task<GameObject> Init(string source)
+    public async Task<GameObject> Init(GeographyCollection layer)
     {
         // get geojson data
         AbstractMap _map = Global._map;
-        inputfile = source;
+        inputfile = layer.Source;
+        Dictionary<string, Unit> symbology = layer.Properties.Units;
+        //Material Mat = new Material(Shader.Find("PDT Shaders/TestGrid"));
 
         geoJsonReader = new GeoJsonReader();
         await geoJsonReader.Load(inputfile);
@@ -50,18 +54,56 @@ public class PolygonLayer : MonoBehaviour
             string gisId = feature.Id;
             ReadOnlyCollection<LineString> LinearRings = geometry.Coordinates;
             LineString perimeter = LinearRings[0];
-            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(perimeter.Coordinates[0] as Position), Quaternion.identity);
-            dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, Color.red, 0.5f, LinePrefab, HandlePrefab, _map);
-            //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
             Vector3[] poly = Tools.LS2Vect(perimeter, _map);
-            Vector3 center = Datapolygon.FindCenter(poly);
+            Vector3 center = Vector3.zero;
+            if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
+            {
+                JObject jobject = (JObject)properties["polyhedral"];
+                Point centerPoint = jobject.ToObject<Point>();
+                center = centerPoint.Coordinates.Vector3();
+                properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+            }
+            else
+            {
+                center = Datapolygon.FindCenter(poly);
+                properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+            }
+
+            //Create the GameObjects
+            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(perimeter.Coordinates[0] as Position), Quaternion.identity);
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
+            GameObject centroid = Instantiate(HandlePrefab, center, Quaternion.identity);
+            dataPoly.transform.parent = gameObject.transform;
+            dataLine.transform.parent = dataPoly.transform;
+            centroid.transform.parent = dataPoly.transform;
+
+            // add the gis data from geoJSON
             Datapolygon com = dataPoly.GetComponent<Datapolygon>();
             com.gisId = gisId;
             com.gisProperties = properties;
-            dataPoly.transform.parent = gameObject.transform;
-            dataLine.transform.parent = dataPoly.transform;
+
+            //Draw the Polygon
             com.Draw(poly, Mat);
+            dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, symbology["line"], LinePrefab, HandlePrefab, _map);
+            centroid.SendMessage("SetColor", (Color)symbology["line"].Color);
+            centroid.SendMessage("SetId", -1);
+            centroid.transform.localScale = symbology["line"].Transform.Scale;
+            centroid.transform.localRotation = symbology["line"].Transform.Rotate;
+            centroid.transform.localPosition = symbology["line"].Transform.Position;
+
+
+            //Set the label
+            GameObject labelObject = new GameObject();
+            labelObject.transform.parent = centroid.transform;
+            labelObject.transform.localPosition = Vector3.zero;
+            labelObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
+
+            if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
+            {
+                labelMesh.text = (string)properties[symbology["body"].Label];
+            }
+
         };
         return gameObject;
 
