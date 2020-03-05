@@ -29,7 +29,7 @@ public class CylinderLine : MonoBehaviour
 
     public void SetColor(Color newCol)
     {
-        gameObject.GetComponentInChildren<Renderer>().material.color = newCol; ;
+        gameObject.GetComponentInChildren<Renderer>().material.SetColor("_BaseColor", newCol); 
     }
 
     public void MoveStart(Vector3 newStart) {

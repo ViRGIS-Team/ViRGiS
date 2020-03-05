@@ -39,7 +39,7 @@ public class PolygonLayer : MonoBehaviour
         AbstractMap _map = Global._map;
         inputfile = layer.Source;
         Dictionary<string, Unit> symbology = layer.Properties.Units;
-        Material Mat = new Material(Shader.Find("PDT Shaders/TestGrid"));
+        //Material Mat = new Material(Shader.Find("PDT Shaders/TestGrid"));
 
         geoJsonReader = new GeoJsonReader();
         await geoJsonReader.Load(inputfile);

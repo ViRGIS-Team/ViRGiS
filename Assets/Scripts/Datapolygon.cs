@@ -63,7 +63,7 @@ public class Datapolygon : MonoBehaviour
 
     public void SetColor(Color newCol)
     {
-        shape.GetComponent<Renderer>().material.SetColor("_CellColor", newCol);
+        shape.GetComponent<Renderer>().material.SetColor("_BaseColor", newCol);
     }
 
     public GameObject Draw(Vector3[] poly, Material mat = null)

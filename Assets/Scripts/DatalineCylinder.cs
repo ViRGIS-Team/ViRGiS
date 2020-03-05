@@ -9,7 +9,7 @@ using System;
 using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Project;
-using g3;
+
 
 public class DatalineCylinder : MonoBehaviour
 {
@@ -27,10 +27,6 @@ public class DatalineCylinder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 unityVec = Vector3.zero;
-        Vector3f g3Vec = Vector3f.Zero;
-        unityVec = g3Vec;
-        g3Vec = unityVec;
     }
 
     void SetColor(Color newColor)
@@ -39,7 +35,7 @@ public class DatalineCylinder : MonoBehaviour
         anticolor = Color.white - newColor;
         if (thisRenderer != null)
         {
-            thisRenderer.material.color = color;
+            thisRenderer.material.SetColor("_BaseColor", color);
         }
     }
 
