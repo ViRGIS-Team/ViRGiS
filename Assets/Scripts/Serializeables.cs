@@ -11,7 +11,7 @@ using System.Collections.Generic;
  /// between Vector3 and SerializableVector3
  /// </summary>
  [System.Serializable]
- public class SerializableVector3 : Updateable
+ public class SerializableVector3 : Serializable
  {
      /// <summary>
      /// x component
@@ -46,8 +46,8 @@ using System.Collections.Generic;
     public override void Update(IList<float> r)
     {
         x = r[0];
-        y = r[1];
-        z = r[2];
+        y = r[2];
+        z = r[1];
     }
 
     /// <summary>
@@ -58,6 +58,11 @@ using System.Collections.Generic;
      {
          return String.Format("[{0}, {1}, {2}]", x, z, y);
      }
+
+    public override float[] ToArray()
+    {
+        return new float[3] { x, z, y };
+    }
      
      /// <summary>
      /// Automatic conversion from SerializableVector3 to Vector3
@@ -81,7 +86,7 @@ using System.Collections.Generic;
  }
 
 [System.Serializable]
-public class SerializableQuaternion : Updateable
+public class SerializableQuaternion : Serializable
 {
     /// <summary>
     /// x component
@@ -123,8 +128,8 @@ public class SerializableQuaternion : Updateable
     public override void Update(IList<float> r)
     {
         x = r[0];
-        y = r[1];
-        z = r[2];
+        y = r[2];
+        z = r[1];
         w = r[3];
     }
 
@@ -135,6 +140,11 @@ public class SerializableQuaternion : Updateable
     public override string ToString()
     {
         return String.Format("[{0}, {1}, {2}, {3}]", x, z, y, w);
+    }
+
+    public override float[] ToArray()
+    {
+        return new float[4] { x, z, y, w };
     }
 
     /// <summary>
@@ -159,7 +169,7 @@ public class SerializableQuaternion : Updateable
 }
 
 [System.Serializable]
-public class SerializableColor : Updateable
+public class SerializableColor : Serializable
 {
 
     public float r;
@@ -202,9 +212,15 @@ public class SerializableColor : Updateable
     {
         return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a*255f);
     }
+
+    public override float[] ToArray()
+    {
+        return new float[4] { r * 255, g * 255, b * 255, a * 255 };
+    }
 }
 
-public abstract class Updateable
+public abstract class Serializable
 {
     public abstract void Update(IList<float> v);
+    public abstract float[] ToArray();
 }

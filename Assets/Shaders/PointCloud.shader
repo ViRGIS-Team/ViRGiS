@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_MainTex ("Texture (RGB)", 2D) = "white" {}
+		_MainTex ("Texture (RGB)", 2D) = "black" {}
 		_Size ("Size", Float) = 0.1
 	}
 	SubShader
@@ -18,6 +18,7 @@
 			#pragma vertex vert
 			#pragma geometry geom
 			#pragma fragment frag
+            #pragma target 4.0
 			
 			#include "UnityCG.cginc"
 

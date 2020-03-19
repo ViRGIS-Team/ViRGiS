@@ -1,21 +1,19 @@
-
-// copyright Runette Software Ltd, 2020. All rights reserved﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class DatapointSphere : MonoBehaviour
+public class Datahandle : MonoBehaviour
 {
 
     public Color color;
     public Color anticolor;
     public Vector3 position;
-    public Transform viewer;
 
-    public string gisId;
-    public IDictionary<string, object> gisProperties;
-
-    private int id;
+    public int id;
     private Renderer thisRenderer;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +24,12 @@ public class DatapointSphere : MonoBehaviour
         }
 
         position = gameObject.transform.position;
-        viewer = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.LookAt(viewer);
+        
     }
 
     void Selected(int button)
@@ -68,30 +65,20 @@ public class DatapointSphere : MonoBehaviour
     void MoveTo(Vector3 newPos)
     {
         MoveArgs args = new MoveArgs();
-        args.translate = newPos - position;
-        args.oldPos = position;
-        position = newPos;
-        gameObject.transform.position = position;
+        args.rotate = Quaternion.identity;
+        if (id == 0)
+        {
+            args.translate = newPos - gameObject.transform.position;
+        } else
+        {
+            Vector3 newDir = newPos - gameObject.transform.parent.position;
+            args.scale =newDir.magnitude/(gameObject.transform.position - gameObject.transform.parent.position).magnitude;
+            args.rotate = Quaternion.FromToRotation(gameObject.transform.parent.right, newDir);
+        }
         args.id = id;
-        args.pos = position;
-        SendMessageUpwards("VertexMove", args, SendMessageOptions.DontRequireReceiver);
         SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
     }
 
-    void TranslateHandle(MoveArgs argsin)
-    {
-        if (argsin.id != id)
-        {
-            MoveArgs argsout = new MoveArgs();
-            Vector3 newPos = position + argsin.translate;
-            argsout.oldPos = position;
-            position = newPos;
-            gameObject.transform.position = position;
-            argsout.id = id;
-            argsout.pos = position;
-            SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);
-        }
-    }
 
     public void SetId(int value)
     {

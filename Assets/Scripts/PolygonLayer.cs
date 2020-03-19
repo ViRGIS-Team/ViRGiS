@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Project;
 using Newtonsoft.Json.Linq;
 
-public class PolygonLayer : MonoBehaviour
+public class PolygonLayer : MonoBehaviour, Layer
 {
 
     // Name of the input file, no extension
@@ -26,6 +26,8 @@ public class PolygonLayer : MonoBehaviour
     public Material Mat;
 
     private GeoJsonReader geoJsonReader;
+    public RecordSet layer { get; set; }
+    public bool changed { get; set; }
 
     private void Start()
     {
@@ -35,6 +37,8 @@ public class PolygonLayer : MonoBehaviour
 
     public async Task<GameObject> Init(GeographyCollection layer)
     {
+        this.layer = layer;
+
         // get geojson data
         AbstractMap _map = Global._map;
         inputfile = layer.Source;
@@ -81,6 +85,7 @@ public class PolygonLayer : MonoBehaviour
             Datapolygon com = dataPoly.GetComponent<Datapolygon>();
             com.gisId = gisId;
             com.gisProperties = properties;
+            com.centroid = centroid.GetComponent<DatapointSphere>();
 
             //Draw the Polygon
             com.Draw(poly, Mat);
@@ -105,6 +110,7 @@ public class PolygonLayer : MonoBehaviour
             }
 
         };
+        changed = false;
         return gameObject;
 
     }
@@ -134,10 +140,14 @@ public class PolygonLayer : MonoBehaviour
             }
             List<LineString> LinearRings = new List<LineString>();
             LinearRings.Add(line);
-            features.Add(new Feature(new Polygon(LinearRings), dataFeature.gisProperties, dataFeature.gisId));
+            IDictionary<string, object> properties = dataFeature.gisProperties;
+            DatapointSphere centroid = dataFeature.centroid;
+            properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.position));
+            features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
         };
         FeatureCollection FC = new FeatureCollection(features);
-        await geoJsonReader.Save(FC);
+        geoJsonReader.SetFeatureCollection(FC);
+        await geoJsonReader.Save();
     }
 
     IEnumerator GetEvents()

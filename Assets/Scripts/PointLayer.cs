@@ -11,12 +11,15 @@ using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-public class PointLayer : MonoBehaviour
+public class PointLayer : MonoBehaviour, Layer
 {
     // The prefab for the data points to be instantiated
     public GameObject PointPrefab;
 
     private GeoJsonReader geoJsonReader;
+
+    public bool changed { get; set; }
+    public RecordSet layer { get; set; }
 
     private void Start()
     {
@@ -26,6 +29,7 @@ public class PointLayer : MonoBehaviour
     public async Task<GameObject> Init (GeographyCollection layer)
     {
         // get geojson data
+        this.layer = layer;
         AbstractMap _map = Global._map;
         Dictionary<string, Unit> symbology = layer.Properties.Units;
 
@@ -69,7 +73,7 @@ public class PointLayer : MonoBehaviour
                 labelObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
                 TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
 
-                if (symbology["default"].ContainsKey("Label") && properties.ContainsKey(symbology["default"].Label))
+                if (symbology.ContainsKey("default") && symbology["default"].ContainsKey("Label") && symbology["default"].Label != null && properties.ContainsKey(symbology["default"].Label))
                 {
                     labelMesh.text = (string)properties[symbology["default"].Label];
                 }
@@ -84,6 +88,7 @@ public class PointLayer : MonoBehaviour
                 dataPoint.transform.position = new Vector3((float)pos.x, y * _map.WorldRelativeScale, (float)pos.y);
             }
         };
+        changed = false;
         return gameObject;
     }
 
@@ -101,7 +106,8 @@ public class PointLayer : MonoBehaviour
             features.Add( new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)),pointFunc.gisProperties, pointFunc.gisId));
         }
         FeatureCollection FC = new FeatureCollection(features);
-        await geoJsonReader.Save(FC);
+        geoJsonReader.SetFeatureCollection(FC);
+        await geoJsonReader.Save();
 
     }
 

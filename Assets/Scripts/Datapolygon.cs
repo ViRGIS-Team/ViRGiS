@@ -13,6 +13,7 @@ public class Datapolygon : MonoBehaviour
     public string gisId;
     public IDictionary<string, object> gisProperties;
     private GameObject shape;
+    public DatapointSphere centroid;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,8 @@ public class Datapolygon : MonoBehaviour
         {
             gameObject.BroadcastMessage("Selected", 100, SendMessageOptions.DontRequireReceiver);
             BlockMove = true;
+            DatalineCylinder com = gameObject.GetComponentInChildren<DatalineCylinder>();
+            com.Selected(1);
         }
     }
 
@@ -58,6 +61,11 @@ public class Datapolygon : MonoBehaviour
         {
             GameObject shape = gameObject.transform.Find("Polygon Shape").gameObject;
             shape.transform.Translate(data.translate);
+            if (data.id < 0)
+            {
+                DatalineCylinder com = gameObject.GetComponentInChildren<DatalineCylinder>();
+                com.Translate(data);
+            }
         }
     }
 

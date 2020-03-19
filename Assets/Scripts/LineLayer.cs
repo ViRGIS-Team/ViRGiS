@@ -12,7 +12,7 @@ using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-public class LineLayer : MonoBehaviour
+public class LineLayer : MonoBehaviour, Layer
 {
     // Name of the input file, no extension
     public string inputfile;
@@ -23,6 +23,9 @@ public class LineLayer : MonoBehaviour
 
     private GeoJsonReader geoJsonReader;
 
+    public bool changed { get; set; }
+    public RecordSet layer { get; set; }
+
     private void Start()
     {
         StartCoroutine(GetEvents());
@@ -32,6 +35,7 @@ public class LineLayer : MonoBehaviour
     // Start is called before the first frame update
     public async Task<GameObject> Init(GeographyCollection layer)
     {
+        this.layer = layer;
         // get geojson data
         AbstractMap _map = Global._map;
         inputfile = layer.Source;
@@ -66,6 +70,7 @@ public class LineLayer : MonoBehaviour
             //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
 
         };
+        changed = false;
         return gameObject;
     }
 
@@ -91,7 +96,8 @@ public class LineLayer : MonoBehaviour
             features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
         };
         FeatureCollection FC = new FeatureCollection(features);
-        await geoJsonReader.Save(FC);
+        geoJsonReader.SetFeatureCollection(FC);
+        await geoJsonReader.Save();
     }
 
     IEnumerator GetEvents()
