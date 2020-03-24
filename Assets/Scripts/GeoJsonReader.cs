@@ -43,12 +43,21 @@ public class GeoJsonReader
         return JsonConvert.DeserializeObject<GisProject>(payload);
     }
 
-    public async Task Save(FeatureCollection contents)
+    public async Task Save()
     {
-        payload = JsonConvert.SerializeObject(contents, Formatting.Indented);
         using (StreamWriter writer = new StreamWriter(fileName, false))
         {
             await writer.WriteAsync(payload);
         }
+    }
+
+    public void SetFeatureCollection(FeatureCollection contents)
+    {
+        payload = JsonConvert.SerializeObject(contents, Formatting.Indented);
+    }
+
+    public void SetProject(GisProject project)
+    {
+        payload = JsonConvert.SerializeObject(project, Formatting.Indented);
     }
 }

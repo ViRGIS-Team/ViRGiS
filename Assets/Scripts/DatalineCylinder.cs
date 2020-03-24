@@ -1,5 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 // parts from  https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using System.Collections.ObjectModel;
 using System;
 using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
+using Project;
+
 
 public class DatalineCylinder : MonoBehaviour
 {
@@ -32,29 +35,33 @@ public class DatalineCylinder : MonoBehaviour
         anticolor = Color.white - newColor;
         if (thisRenderer != null)
         {
-            thisRenderer.material.color = color;
+            thisRenderer.material.SetColor("_BaseColor", color);
         }
     }
 
     void VertexMove(MoveArgs data)
     {
-        for (int i = 0; i < gameObject.transform.childCount; i++)
+        if (data.id >= 0)
         {
-            GameObject go = gameObject.transform.GetChild(i).gameObject;
-            CylinderLine goFunc = go.GetComponent<CylinderLine>();
-            if (goFunc != null && goFunc.vStart == data.id)
+            for (int i = 0; i < gameObject.transform.childCount; i++)
             {
-                goFunc.MoveStart(data.pos);
-            }
-            else if (goFunc != null && goFunc.vEnd == data.id)
-            {
-                goFunc.MoveEnd(data.pos);
+                GameObject go = gameObject.transform.GetChild(i).gameObject;
+                CylinderLine goFunc = go.GetComponent<CylinderLine>();
+                if (goFunc != null && goFunc.vStart == data.id)
+                {
+                    goFunc.MoveStart(data.pos);
+                }
+                else if (goFunc != null && goFunc.vEnd == data.id)
+                {
+                    goFunc.MoveEnd(data.pos);
+                }
             }
         }
     }
 
-    public void Draw(LineString lineIn, Color color, float width, GameObject LinePrefab, GameObject HandlePrefab, AbstractMap _map)
+    public void Draw(LineString lineIn, Unit symbology, GameObject LinePrefab, GameObject HandlePrefab, AbstractMap _map)
     {
+
         Vector3[] line = Tools.LS2Vect(lineIn, _map);
         Lr = lineIn.IsLinearRing();
 
@@ -66,7 +73,8 @@ public class DatalineCylinder : MonoBehaviour
                 GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
                 handle.transform.parent = gameObject.transform;
                 handle.SendMessage("SetId", i);
-                handle.SendMessage("SetColor", color);
+                handle.SendMessage("SetColor", (Color)symbology.Color);
+                handle.transform.localScale = symbology.Transform.Scale;
             }
             if (i + 1 != line.Length)
             {
@@ -75,6 +83,7 @@ public class DatalineCylinder : MonoBehaviour
                 CylinderLine com = lineSegment.GetComponent<CylinderLine>();
                 com.SetId(i);
                 com.Draw(vertex, line[i + 1], i, i+1, 0.5f);
+                com.SetColor((Color)symbology.Color);
                 if (i + 2 == line.Length && Lr) com.vEnd = 0;
             }
             i++;
@@ -133,6 +142,26 @@ public class DatalineCylinder : MonoBehaviour
         {
             gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);
         }
+    }
+
+    public string GetWkt()
+    {
+        string result = "LINESTRING Z";
+        result += GetWktCoords();
+        return result;
+    }
+
+    public string GetWktCoords()
+    {
+
+        string result = "(";
+        foreach (Vector3 vertex in GetVertices())
+        {
+            result += "{vertex.x} {vertex.y} {vertex.z},";
+        }
+        result.TrimEnd(',');
+        result += ")";
+        return result;
     }
 
 

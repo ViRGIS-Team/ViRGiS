@@ -10,8 +10,9 @@ using Mapbox.Utils;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
+using Project;
 
-public class LineLayer : MonoBehaviour
+public class LineLayer : MonoBehaviour, Layer
 {
     // Name of the input file, no extension
     public string inputfile;
@@ -22,6 +23,9 @@ public class LineLayer : MonoBehaviour
 
     private GeoJsonReader geoJsonReader;
 
+    public bool changed { get; set; }
+    public RecordSet layer { get; set; }
+
     private void Start()
     {
         StartCoroutine(GetEvents());
@@ -29,11 +33,13 @@ public class LineLayer : MonoBehaviour
 
 
     // Start is called before the first frame update
-    public async Task<GameObject> Init(string source)
+    public async Task<GameObject> Init(GeographyCollection layer)
     {
+        this.layer = layer;
         // get geojson data
         AbstractMap _map = Global._map;
-        inputfile = source;
+        inputfile = layer.Source;
+        Dictionary<string, Unit> symbology = layer.Properties.Units;
 
         geoJsonReader = new GeoJsonReader();
         await geoJsonReader.Load(inputfile);
@@ -48,16 +54,23 @@ public class LineLayer : MonoBehaviour
             string gisId = feature.Id;
             string name = (string)properties["name"];
             string type = (string)properties["type"];
+
+            //create the GameObjects
             ReadOnlyCollection<LineString> lines = geometry.Coordinates;
             GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(lines[0].Point(0)), Quaternion.identity);
             dataLine.transform.parent = gameObject.transform;
+
+            //set the gisProject properties
             DatalineCylinder com = dataLine.GetComponent<DatalineCylinder>();
             com.gisId = gisId;
             com.gisProperties = properties;
-            com.Draw(lines[0], Color.red, 0.5f, LinePrefab, HandlePrefab, _map);
-            dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
+
+            //Draw the line
+            com.Draw(lines[0], symbology["default"], LinePrefab, HandlePrefab, _map);
+            //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
 
         };
+        changed = false;
         return gameObject;
     }
 
@@ -83,7 +96,8 @@ public class LineLayer : MonoBehaviour
             features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
         };
         FeatureCollection FC = new FeatureCollection(features);
-        await geoJsonReader.Save(FC);
+        geoJsonReader.SetFeatureCollection(FC);
+        await geoJsonReader.Save();
     }
 
     IEnumerator GetEvents()

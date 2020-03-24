@@ -11,7 +11,7 @@ using System.Collections.Generic;
  /// between Vector3 and SerializableVector3
  /// </summary>
  [System.Serializable]
- public struct SerializableVector3
+ public class SerializableVector3 : Serializable
  {
      /// <summary>
      /// x component
@@ -41,11 +41,13 @@ using System.Collections.Generic;
          z = rZ;
      }
 
-    public SerializableVector3(IList<float> r)
+    public SerializableVector3() { }
+
+    public override void Update(IList<float> r)
     {
         x = r[0];
-        y = r[1];
-        z = r[2];
+        y = r[2];
+        z = r[1];
     }
 
     /// <summary>
@@ -56,6 +58,11 @@ using System.Collections.Generic;
      {
          return String.Format("[{0}, {1}, {2}]", x, z, y);
      }
+
+    public override float[] ToArray()
+    {
+        return new float[3] { x, z, y };
+    }
      
      /// <summary>
      /// Automatic conversion from SerializableVector3 to Vector3
@@ -79,7 +86,7 @@ using System.Collections.Generic;
  }
 
 [System.Serializable]
-public struct SerializableQuaternion
+public class SerializableQuaternion : Serializable
 {
     /// <summary>
     /// x component
@@ -116,11 +123,13 @@ public struct SerializableQuaternion
         w = rW;
     }
 
-    public SerializableQuaternion(IList<float> r)
+    public SerializableQuaternion() { }
+
+    public override void Update(IList<float> r)
     {
         x = r[0];
-        y = r[1];
-        z = r[2];
+        y = r[2];
+        z = r[1];
         w = r[3];
     }
 
@@ -131,6 +140,11 @@ public struct SerializableQuaternion
     public override string ToString()
     {
         return String.Format("[{0}, {1}, {2}, {3}]", x, z, y, w);
+    }
+
+    public override float[] ToArray()
+    {
+        return new float[4] { x, z, y, w };
     }
 
     /// <summary>
@@ -152,4 +166,61 @@ public struct SerializableQuaternion
     {
         return new SerializableQuaternion(rValue.x, rValue.y, rValue.z, rValue.w);
     }
+}
+
+[System.Serializable]
+public class SerializableColor : Serializable
+{
+
+    public float r;
+    public float g;
+    public float b;
+    public float a;
+
+
+    public SerializableColor(float rr, float rg, float rb, float ra)
+    {
+        r = rr;
+        g = rg;
+        b = rb;
+        a = ra;
+    }
+
+    public SerializableColor() { }
+
+    public override void Update(IList<float> color)
+    {
+        r = color[0]/255;
+        g = color[1]/255;
+        b = color[2]/255;
+        a = color[3]/255;
+    }
+
+    //makes this class usable as Color, Color normalColor = mySerializableColor;
+    public static implicit operator Color(SerializableColor r)
+    {
+        return  new Color(r.r, r.g, r.b, r.a); ;
+    }
+
+    //makes this class assignable by Color, SerializableColor myColor = Color.white;
+    public static implicit operator SerializableColor(Color color)
+    {
+        return new SerializableColor( color.r, color.g, color.b, color.a );
+    }
+
+    public override string ToString()
+    {
+        return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a*255f);
+    }
+
+    public override float[] ToArray()
+    {
+        return new float[4] { r * 255, g * 255, b * 255, a * 255 };
+    }
+}
+
+public abstract class Serializable
+{
+    public abstract void Update(IList<float> v);
+    public abstract float[] ToArray();
 }

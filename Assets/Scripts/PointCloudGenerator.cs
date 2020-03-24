@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.Threading.Tasks;
+using Project;
 
 namespace PointCloudExporter
 {
-	public class PointCloudGenerator : MonoBehaviour
+	public class PointCloudGenerator : MonoBehaviour, Layer
 	{
 		[Header("Point Cloud")]
 		public string fileName;
@@ -41,6 +42,9 @@ namespace PointCloudExporter
 		private float displaceFiredAt = -1000f;
 		private Texture2D colorMapTexture;
 
+		public bool changed { get; set; }
+		public RecordSet layer { get; set; }
+
 		void Start ()
 		{
 			
@@ -48,19 +52,30 @@ namespace PointCloudExporter
 		
 		void Update ()
 		{
-			material.SetFloat("_Size", size);
-			material.SetTexture("_MainTex", sprite);
 
-			if (displaceFiredAt + time > Time.time) {
-				Displace(Time.deltaTime);
-			}
 		}
 
-        public async Task<GameObject> Init(string source, Quaternion rotate, Vector3 scale, Vector3 translate)
+        public void Save()
         {
-			fileName = source;
-			size = scale.magnitude;
+
+        }
+
+        public async Task<GameObject> Init(RecordSet layer)
+        {
+			this.layer = layer;
+
+			Quaternion rotate = (Quaternion)layer.Transform.Rotate;
+			Vector3 scale = (Vector3)layer.Transform.Scale;
+			Vector3 translate = (Vector3)layer.Transform.Position * Global._map.WorldRelativeScale;
+
+
+			fileName = layer.Source;
+			//size = scale.magnitude;
             await Generate();
+			gameObject.transform.Translate(translate);
+			gameObject.transform.localScale = scale;
+			gameObject.transform.localRotation = rotate;
+			changed = false;
 			return gameObject;
 		}
 
@@ -74,6 +89,8 @@ namespace PointCloudExporter
 		{
             points = await LoadPointCloud();
 			material = new Material(shader);
+			material.SetTexture("_MainTex", sprite);
+			material.SetFloat("_Size", size);
 			Generate(points, material, MeshTopology.Points);
 		}
 
@@ -105,8 +122,6 @@ namespace PointCloudExporter
 			int resolution = GetNearestPowerOfTwo(Mathf.Sqrt(vertexCount));
 
 			while (meshIndex < meshCount) {
-
-				Debug.Log(index);
 
 				int count = verticesMax;
 				if (vertexCount <= verticesMax) {
@@ -211,7 +226,6 @@ namespace PointCloudExporter
 
 		public GameObject CreateGameObjectWithMesh (Mesh mesh, Material materialToApply, string name = "GeneratedMesh", Transform parent = null)
 		{
-			Debug.Log("create gameobject with mesh");
             GameObject meshGameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
 			GameObject.DestroyImmediate(meshGameObject.GetComponent<Collider>());
 			meshGameObject.GetComponent<MeshFilter>().mesh = mesh;
