@@ -53,10 +53,11 @@ public class PointLayer : MonoBehaviour, Layer
             foreach (Point geometry in mPoint.Coordinates)
             {
                 Position in_position = geometry.Coordinates as Position;
-                Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
+                Vector3 position = Tools.Ipos2Vect(in_position);
+                //Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
 
                 //float y = (float)in_position.Altitude;
-                float y = _map.QueryElevationInMetersAt(_location);
+                //float y = _map.QueryElevationInMetersAt(_location);
 
                 //instantiate the prefab with coordinates defined above
                 GameObject dataPoint = Instantiate(PointPrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -84,8 +85,7 @@ public class PointLayer : MonoBehaviour, Layer
                 dataPoint.transform.localScale = symbology["default"].Transform.Scale;
                 dataPoint.transform.localRotation = symbology["default"].Transform.Rotate;
                 dataPoint.transform.localPosition = symbology["default"].Transform.Position;
-                Vector2d pos = Conversions.GeoToWorldPosition(_location, _map.CenterMercator, _map.WorldRelativeScale);
-                dataPoint.transform.position = new Vector3((float)pos.x, y * _map.WorldRelativeScale, (float)pos.y);
+                dataPoint.transform.position = position;
             }
         };
         changed = false;

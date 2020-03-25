@@ -142,6 +142,7 @@ namespace Project
                         {
                             result.Add(set.ToObject(typeof(GeologyCollection)) as GeologyCollection);
                         }
+
                     }
                     return result;
             }

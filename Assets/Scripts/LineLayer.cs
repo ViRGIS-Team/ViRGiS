@@ -52,8 +52,6 @@ public class LineLayer : MonoBehaviour, Layer
             MultiLineString geometry = feature.Geometry as MultiLineString;
             IDictionary<string, object> properties = feature.Properties;
             string gisId = feature.Id;
-            string name = (string)properties["name"];
-            string type = (string)properties["type"];
 
             //create the GameObjects
             ReadOnlyCollection<LineString> lines = geometry.Coordinates;
