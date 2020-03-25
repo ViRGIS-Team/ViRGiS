@@ -63,13 +63,22 @@ using System.Collections.Generic;
     {
         return new float[3] { x, z, y };
     }
-     
-     /// <summary>
-     /// Automatic conversion from SerializableVector3 to Vector3
-     /// </summary>
-     /// <param name="rValue"></param>
-     /// <returns></returns>
-     public static implicit operator Vector3(SerializableVector3 rValue)
+
+    public new float magnitude
+    {
+        get
+        {
+            Vector3 v = this;
+            return v.magnitude;
+        }
+    }
+
+    /// <summary>
+    /// Automatic conversion from SerializableVector3 to Vector3
+    /// </summary>
+    /// <param name="rValue"></param>
+    /// <returns></returns>
+    public static implicit operator Vector3(SerializableVector3 rValue)
      {
          return new Vector3(rValue.x, rValue.y, rValue.z);
      }
@@ -193,7 +202,7 @@ public class SerializableColor : Serializable
         r = color[0]/255;
         g = color[1]/255;
         b = color[2]/255;
-        a = color[3]/255;
+        a = color[3];
     }
 
     //makes this class usable as Color, Color normalColor = mySerializableColor;
@@ -210,7 +219,7 @@ public class SerializableColor : Serializable
 
     public override string ToString()
     {
-        return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a*255f);
+        return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a);
     }
 
     public override float[] ToArray()
@@ -223,4 +232,5 @@ public abstract class Serializable
 {
     public abstract void Update(IList<float> v);
     public abstract float[] ToArray();
+    public float magnitude;
 }

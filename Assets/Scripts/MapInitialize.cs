@@ -57,6 +57,7 @@ public class MapInitialize : MonoBehaviour
         //load the layers
         foreach (RecordSet layer in Global.project.RecordSets)
         {
+            Debug.Log(layer.ToString());
             switch (layer.DataType) {
                 case RecordSetDataType.Point:
                     temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer as GeographyCollection);
@@ -68,7 +69,7 @@ public class MapInitialize : MonoBehaviour
                     temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer as GeographyCollection);
                     break;
                 case RecordSetDataType.PointCloud:
-                    //temp = await Instantiate(PointCloud, layer.Position.Coordinates.Vector3(), Quaternion.identity).GetComponent<PointCloudExporter.PointCloudGenerator>().Init(layer as GeographyCollection);
+                    temp = await Instantiate(PointCloud, layer.Position.Coordinates.Vector3(), Quaternion.identity).GetComponent<PointCloudLayer>().Init(layer as GeographyCollection);
                     break;
                 case RecordSetDataType.Mesh:
                     temp = await Instantiate(MeshLayer, layer.Position.Coordinates.Vector3(), Quaternion.identity).GetComponent<MeshLayer>().Init(layer as GeographyCollection);

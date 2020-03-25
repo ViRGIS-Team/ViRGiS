@@ -53,8 +53,6 @@ public class PolygonLayer : MonoBehaviour, Layer
         {
             Polygon geometry = feature.Geometry as Polygon;
             IDictionary<string, object> properties = feature.Properties;
-            string name = (string)properties["name"];
-            string type = (string)properties["type"];
             string gisId = feature.Id;
             ReadOnlyCollection<LineString> LinearRings = geometry.Coordinates;
             LineString perimeter = LinearRings[0];
@@ -88,6 +86,7 @@ public class PolygonLayer : MonoBehaviour, Layer
             com.centroid = centroid.GetComponent<DatapointSphere>();
 
             //Draw the Polygon
+            Mat.SetColor("_BaseColor", symbology["body"].Color);
             com.Draw(poly, Mat);
             dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, symbology["line"], LinePrefab, HandlePrefab, _map);
             centroid.SendMessage("SetColor", (Color)symbology["line"].Color);
