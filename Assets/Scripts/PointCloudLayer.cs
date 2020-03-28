@@ -9,7 +9,7 @@ using Project;
 using g3;
 using Pcx;
 
-public class PointCloudLayer : MonoBehaviour, Layer
+public class PointCloudLayer : MonoBehaviour, ILayer
 {
     public string filename;
     public Material material;

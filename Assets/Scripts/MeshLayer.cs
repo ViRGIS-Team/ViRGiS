@@ -7,7 +7,7 @@ using System.Text;
 using Project;
 using g3;
 
-public class MeshLayer : MonoBehaviour, Layer
+public class MeshLayer : MonoBehaviour, ILayer
 {
 
     public string filename;

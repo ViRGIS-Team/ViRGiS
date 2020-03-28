@@ -12,7 +12,7 @@ using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-public class LineLayer : MonoBehaviour, Layer
+public class LineLayer : MonoBehaviour, ILayer
 {
     // Name of the input file, no extension
     public string inputfile;
