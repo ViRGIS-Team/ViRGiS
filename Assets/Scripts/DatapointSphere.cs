@@ -37,7 +37,7 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
 
     public void Selected(int button)
     {
-        thisRenderer.material.SetColor("_BaseColor", anticolor);
+         thisRenderer.material.SetColor("_BaseColor", anticolor);
         if (button != 100)
         {
             gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
@@ -58,6 +58,7 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     {
         color = newColor;
         anticolor = Color.white - newColor;
+        anticolor.a = color.a;
         Renderer thisRenderer = GetComponent<Renderer>();
         if (thisRenderer)
         {

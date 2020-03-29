@@ -79,9 +79,8 @@ public class FlyingCam : MonoBehaviour
         }
         else
         {
-            Ray ray = self.ScreenPointToRay(context.ReadValue<Vector2>());
+            Ray ray = self.ScreenPointToRay(Mouse.current.position.ReadValue());
             Vector3 newPos = ray.GetPoint(selectedDistance);
-            Debug.Log(newPos.ToString());
             if (selectedRigibody != null)
             {
                 selectedRigibody.gameObject.SendMessage("MoveTo", newPos);
@@ -132,13 +131,23 @@ public class FlyingCam : MonoBehaviour
     public void HandleMouseClick(InputAction.CallbackContext context)
     {
         InputAction action = context.action;
-        if (action.phase == InputActionPhase.Canceled)
+        int button = 0;
+        switch (action.name)
         {
-            UnClickHandler(1);
+            case "Select":
+                button = 0;
+                break;
+            case "MultiSelect":
+                button = 1;
+                break;
         }
-        else if (action.phase == InputActionPhase.Started && !editSelected)
+        if (action.phase == InputActionPhase.Canceled && Global.EditSession)
         {
-            ClickHandler(1);
+            UnClickHandler(button);
+        }
+        else if (action.phase == InputActionPhase.Started && !editSelected && Global.EditSession)
+        {
+            ClickHandler(button);
         }
     }
 
