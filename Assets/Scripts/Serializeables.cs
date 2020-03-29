@@ -224,7 +224,7 @@ public class SerializableColor : Serializable
 
     public override float[] ToArray()
     {
-        return new float[4] { r * 255, g * 255, b * 255, a * 255 };
+        return new float[4] { r * 255, g * 255, b * 255, a };
     }
 }
 
