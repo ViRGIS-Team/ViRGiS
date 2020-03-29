@@ -11,21 +11,25 @@ using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-public class PointLayer : MonoBehaviour
+public class PointLayer : MonoBehaviour, ILayer
 {
     // The prefab for the data points to be instantiated
     public GameObject PointPrefab;
 
     private GeoJsonReader geoJsonReader;
 
+    public bool changed { get; set; }
+    public RecordSet layer { get; set; }
+
     private void Start()
     {
         StartCoroutine(GetEvents());
     }
 
-    public async Task<GameObject> Init (GeographyCollection layer)
+    public async Task<GameObject> Init(GeographyCollection layer)
     {
         // get geojson data
+        this.layer = layer;
         AbstractMap _map = Global._map;
         Dictionary<string, Unit> symbology = layer.Properties.Units;
 
@@ -37,9 +41,11 @@ public class PointLayer : MonoBehaviour
         {
             // Get the geometry
             MultiPoint mPoint = null;
-            if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.Point) {
+            if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.Point)
+            {
                 mPoint = new MultiPoint(new List<Point>() { feature.Geometry as Point });
-            } else if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.MultiPoint)
+            }
+            else if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.MultiPoint)
             {
                 mPoint = feature.Geometry as MultiPoint;
             }
@@ -49,10 +55,11 @@ public class PointLayer : MonoBehaviour
             foreach (Point geometry in mPoint.Coordinates)
             {
                 Position in_position = geometry.Coordinates as Position;
-                Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
+                Vector3 position = Tools.Ipos2Vect(in_position);
+                //Vector2d _location = new Vector2d(in_position.Latitude, in_position.Longitude);
 
                 //float y = (float)in_position.Altitude;
-                float y = _map.QueryElevationInMetersAt(_location);
+                //float y = _map.QueryElevationInMetersAt(_location);
 
                 //instantiate the prefab with coordinates defined above
                 GameObject dataPoint = Instantiate(PointPrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -69,7 +76,7 @@ public class PointLayer : MonoBehaviour
                 labelObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
                 TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
 
-                if (symbology["default"].ContainsKey("Label") && properties.ContainsKey(symbology["default"].Label))
+                if (symbology.ContainsKey("default") && symbology["default"].ContainsKey("Label") && symbology["default"].Label != null && properties.ContainsKey(symbology["default"].Label))
                 {
                     labelMesh.text = (string)properties[symbology["default"].Label];
                 }
@@ -80,10 +87,10 @@ public class PointLayer : MonoBehaviour
                 dataPoint.transform.localScale = symbology["default"].Transform.Scale;
                 dataPoint.transform.localRotation = symbology["default"].Transform.Rotate;
                 dataPoint.transform.localPosition = symbology["default"].Transform.Position;
-                Vector2d pos = Conversions.GeoToWorldPosition(_location, _map.CenterMercator, _map.WorldRelativeScale);
-                dataPoint.transform.position = new Vector3((float)pos.x, y * _map.WorldRelativeScale, (float)pos.y);
+                dataPoint.transform.position = position;
             }
         };
+        changed = false;
         return gameObject;
     }
 
@@ -98,10 +105,11 @@ public class PointLayer : MonoBehaviour
         List<Feature> features = new List<Feature>();
         foreach (DatapointSphere pointFunc in pointFuncs)
         {
-            features.Add( new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)),pointFunc.gisProperties, pointFunc.gisId));
+            features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
         }
         FeatureCollection FC = new FeatureCollection(features);
-        await geoJsonReader.Save(FC);
+        geoJsonReader.SetFeatureCollection(FC);
+        await geoJsonReader.Save();
 
     }
 

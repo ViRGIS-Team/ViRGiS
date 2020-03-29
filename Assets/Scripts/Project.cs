@@ -8,6 +8,7 @@ using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Converters;
 
 
 
@@ -39,9 +40,13 @@ namespace Project
 
     public class RecordSet : TestableObject
     {
+
+        [JsonProperty(PropertyName = "id", Required = Required.Always)]
+        public string Id;
         [JsonProperty(PropertyName = "type", Required = Required.Always)]
         public string Type;
         [JsonProperty(PropertyName = "datatype", Required = Required.Always)]
+        [JsonConverter(typeof(StringEnumConverter))]
         public RecordSetDataType DataType;
         [JsonProperty(PropertyName = "source")]
         public string Source;
@@ -68,7 +73,7 @@ namespace Project
         public SerializableVector3 Scale;
     }
 
-    public class VectorConverter<T>  : JsonConverter where T: Updateable, new()
+    public class VectorConverter<T>  : JsonConverter where T: Serializable, new()
     {
         public VectorConverter()
         {
@@ -100,7 +105,8 @@ namespace Project
 
         public override void WriteJson(JsonWriter writer, object vector, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, vector);
+            T newvector = (T)vector;
+            serializer.Serialize(writer, newvector.ToArray());
         }
     }
 
@@ -136,6 +142,7 @@ namespace Project
                         {
                             result.Add(set.ToObject(typeof(GeologyCollection)) as GeologyCollection);
                         }
+
                     }
                     return result;
             }
@@ -181,8 +188,10 @@ namespace Project
         {
             [JsonProperty(PropertyName = "units", Required = Required.Always)]
             public Dictionary<string, Unit> Units;
-            [JsonProperty(PropertyName = "lines", Required = Required.Always)]
+            [JsonProperty(PropertyName = "lines")]
             public Dictionary<string, GeoTypes> Lines;
+            [JsonProperty(PropertyName = "x_sect_type")]
+            public string xSect;
         }
 
     }
@@ -195,6 +204,8 @@ namespace Project
         PointCloud,
         Mesh,
         Record,
+        XSect,
+        Tab
     }
 
     public enum GeoTypes
@@ -203,6 +214,7 @@ namespace Project
         Fract,
         Vein
     }
+
 
     public class Unit : TestableObject
     {

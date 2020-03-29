@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4807129451337367500}
   - component: {fileID: 6160087964356201377}
   - component: {fileID: 4939401561382303374}
-  - component: {fileID: 6079521656310816520}
   - component: {fileID: 4604835130195066635}
+  - component: {fileID: 9106624730937825730}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285119606501060951}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6160087964356201377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95,23 +95,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6079521656310816520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285119606501060951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6effb67995ef74462a27ce246007bd53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  anticolor: {r: 0, g: 0, b: 0, a: 0}
-  position: {x: 0, y: 0, z: 0}
-  viewer: {fileID: 0}
-  gisId: 
 --- !u!54 &4604835130195066635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,3 +111,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9106624730937825730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285119606501060951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb98f3b0cda8442b383f7e5c94e6f8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  anticolor: {r: 0, g: 0, b: 0, a: 0}
+  position: {x: 0, y: 0, z: 0}

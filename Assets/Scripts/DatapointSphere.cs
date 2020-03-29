@@ -3,12 +3,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DatapointSphere : MonoBehaviour
+public class DatapointSphere : MonoBehaviour, IVirgisComponent
 {
 
     public Color color;
     public Color anticolor;
-    private Renderer thisRenderer;
     public Vector3 position;
     public Transform viewer;
 
@@ -16,6 +15,7 @@ public class DatapointSphere : MonoBehaviour
     public IDictionary<string, object> gisProperties;
 
     private int id;
+    private Renderer thisRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +35,7 @@ public class DatapointSphere : MonoBehaviour
         gameObject.transform.LookAt(viewer);
     }
 
-    void Selected(int button)
+    public void Selected(int button)
     {
         thisRenderer.material.SetColor("_BaseColor", anticolor);
         if (button != 100)
@@ -44,7 +44,7 @@ public class DatapointSphere : MonoBehaviour
         }
     }
 
-    void UnSelected(int button)
+    public void UnSelected(int button)
     {
         thisRenderer.material.SetColor("_BaseColor", color);
         if (button != 100)
@@ -54,7 +54,7 @@ public class DatapointSphere : MonoBehaviour
 
     }
 
-    void SetColor(Color newColor)
+    public void SetColor(Color newColor)
     {
         color = newColor;
         anticolor = Color.white - newColor;
@@ -65,7 +65,7 @@ public class DatapointSphere : MonoBehaviour
         }
     }
 
-    void MoveTo(Vector3 newPos)
+    public void MoveTo(Vector3 newPos)
     {
         MoveArgs args = new MoveArgs();
         args.translate = newPos - position;

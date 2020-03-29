@@ -11,7 +11,7 @@ using System.Collections.Generic;
  /// between Vector3 and SerializableVector3
  /// </summary>
  [System.Serializable]
- public class SerializableVector3 : Updateable
+ public class SerializableVector3 : Serializable
  {
      /// <summary>
      /// x component
@@ -46,8 +46,8 @@ using System.Collections.Generic;
     public override void Update(IList<float> r)
     {
         x = r[0];
-        y = r[1];
-        z = r[2];
+        y = r[2];
+        z = r[1];
     }
 
     /// <summary>
@@ -58,13 +58,27 @@ using System.Collections.Generic;
      {
          return String.Format("[{0}, {1}, {2}]", x, z, y);
      }
-     
-     /// <summary>
-     /// Automatic conversion from SerializableVector3 to Vector3
-     /// </summary>
-     /// <param name="rValue"></param>
-     /// <returns></returns>
-     public static implicit operator Vector3(SerializableVector3 rValue)
+
+    public override float[] ToArray()
+    {
+        return new float[3] { x, z, y };
+    }
+
+    public new float magnitude
+    {
+        get
+        {
+            Vector3 v = this;
+            return v.magnitude;
+        }
+    }
+
+    /// <summary>
+    /// Automatic conversion from SerializableVector3 to Vector3
+    /// </summary>
+    /// <param name="rValue"></param>
+    /// <returns></returns>
+    public static implicit operator Vector3(SerializableVector3 rValue)
      {
          return new Vector3(rValue.x, rValue.y, rValue.z);
      }
@@ -81,7 +95,7 @@ using System.Collections.Generic;
  }
 
 [System.Serializable]
-public class SerializableQuaternion : Updateable
+public class SerializableQuaternion : Serializable
 {
     /// <summary>
     /// x component
@@ -123,8 +137,8 @@ public class SerializableQuaternion : Updateable
     public override void Update(IList<float> r)
     {
         x = r[0];
-        y = r[1];
-        z = r[2];
+        y = r[2];
+        z = r[1];
         w = r[3];
     }
 
@@ -135,6 +149,11 @@ public class SerializableQuaternion : Updateable
     public override string ToString()
     {
         return String.Format("[{0}, {1}, {2}, {3}]", x, z, y, w);
+    }
+
+    public override float[] ToArray()
+    {
+        return new float[4] { x, z, y, w };
     }
 
     /// <summary>
@@ -159,7 +178,7 @@ public class SerializableQuaternion : Updateable
 }
 
 [System.Serializable]
-public class SerializableColor : Updateable
+public class SerializableColor : Serializable
 {
 
     public float r;
@@ -183,7 +202,7 @@ public class SerializableColor : Updateable
         r = color[0]/255;
         g = color[1]/255;
         b = color[2]/255;
-        a = color[3]/255;
+        a = color[3];
     }
 
     //makes this class usable as Color, Color normalColor = mySerializableColor;
@@ -200,11 +219,18 @@ public class SerializableColor : Updateable
 
     public override string ToString()
     {
-        return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a*255f);
+        return String.Format("[{0}, {1}, {2}, {3}]", r*255f, g*255f, b*255f, a);
+    }
+
+    public override float[] ToArray()
+    {
+        return new float[4] { r * 255, g * 255, b * 255, a * 255 };
     }
 }
 
-public abstract class Updateable
+public abstract class Serializable
 {
     public abstract void Update(IList<float> v);
+    public abstract float[] ToArray();
+    public float magnitude;
 }
