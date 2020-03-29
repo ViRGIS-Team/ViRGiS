@@ -99,7 +99,7 @@ public class MapInitialize : MonoBehaviour
     {
         foreach (GameObject go in Global.layers)
         {
-            Layer com = go.GetComponent<Layer>();
+            ILayer com = go.GetComponent<ILayer>();
             if (com.changed)
             {
                 com.Save();

@@ -11,7 +11,7 @@ using Mapbox.Unity.Map;
 using Project;
 
 
-public class DatalineCylinder : MonoBehaviour
+public class DatalineCylinder : MonoBehaviour, IVirgisComponent
 {
     public Color color;
     public Color anticolor;
@@ -29,7 +29,7 @@ public class DatalineCylinder : MonoBehaviour
     {
     }
 
-    void SetColor(Color newColor)
+    public void SetColor(Color newColor)
     {
         color = newColor;
         anticolor = Color.white - newColor;
@@ -39,7 +39,7 @@ public class DatalineCylinder : MonoBehaviour
         }
     }
 
-    void VertexMove(MoveArgs data)
+    public void VertexMove(MoveArgs data)
     {
         if (data.id >= 0)
         {

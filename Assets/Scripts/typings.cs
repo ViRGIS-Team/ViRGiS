@@ -108,9 +108,21 @@ public static class SimpleMeshExtensions
     }
 }
 
-public interface Layer
+public interface ILayer
 {
     RecordSet layer { get; set; }
     bool changed { get; set; }
     void Save();
+}
+
+public interface IVirgisEntity
+{
+    void Selected(int button);
+    void UnSelected(int button);
+}
+
+public interface IVirgisComponent :IVirgisEntity
+{
+    void SetColor(Color color);
+    //void MoveTo(Vector3 newPos);
 }

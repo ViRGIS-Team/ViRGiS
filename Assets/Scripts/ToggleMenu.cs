@@ -5,36 +5,29 @@ using UnityEngine.UI;
 
 public class ToggleMenu : MonoBehaviour
 {
-    public GameObject HideMenu;
-    public GameObject ShowMenu;
-    public Button ToggleShowBtn;
-    public Button ToggleHideBtn;
+    public GameObject Menu;
     public bool MenuStatus;
+    private Button mainButton;
 
     void Start()
     {
-        HideMenu.SetActive(true);
-        ShowMenu.SetActive(false);
+        Menu.SetActive(false);
+        mainButton = gameObject.GetComponent<Button>();
     }
 
-    void MenuShowing()
+    void MenuShow()
     {
-        HideMenu.SetActive(false);
-        ShowMenu.SetActive(true);
+        Menu.SetActive(false);
     }
 
-    void MenuHidden()
+    void MenuHide()
     {
-        HideMenu.SetActive(true);
-        ShowMenu.SetActive(false);
+        Menu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Button btnShow = ToggleShowBtn.GetComponent<Button>();
-        Button btnHide = ToggleHideBtn.GetComponent<Button>();
-        btnShow.onClick.AddListener(MenuShowing);
-        btnHide.onClick.AddListener(MenuHidden);
+
     }
 }

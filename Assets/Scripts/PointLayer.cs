@@ -11,7 +11,7 @@ using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-public class PointLayer : MonoBehaviour, Layer
+public class PointLayer : MonoBehaviour, ILayer
 {
     // The prefab for the data points to be instantiated
     public GameObject PointPrefab;
@@ -26,7 +26,7 @@ public class PointLayer : MonoBehaviour, Layer
         StartCoroutine(GetEvents());
     }
 
-    public async Task<GameObject> Init (GeographyCollection layer)
+    public async Task<GameObject> Init(GeographyCollection layer)
     {
         // get geojson data
         this.layer = layer;
@@ -41,9 +41,11 @@ public class PointLayer : MonoBehaviour, Layer
         {
             // Get the geometry
             MultiPoint mPoint = null;
-            if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.Point) {
+            if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.Point)
+            {
                 mPoint = new MultiPoint(new List<Point>() { feature.Geometry as Point });
-            } else if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.MultiPoint)
+            }
+            else if (feature.Geometry.Type == GeoJSON.Net.GeoJSONObjectType.MultiPoint)
             {
                 mPoint = feature.Geometry as MultiPoint;
             }
@@ -103,7 +105,7 @@ public class PointLayer : MonoBehaviour, Layer
         List<Feature> features = new List<Feature>();
         foreach (DatapointSphere pointFunc in pointFuncs)
         {
-            features.Add( new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)),pointFunc.gisProperties, pointFunc.gisId));
+            features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
         }
         FeatureCollection FC = new FeatureCollection(features);
         geoJsonReader.SetFeatureCollection(FC);

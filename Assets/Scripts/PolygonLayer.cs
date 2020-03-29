@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Project;
 using Newtonsoft.Json.Linq;
 
-public class PolygonLayer : MonoBehaviour, Layer
+public class PolygonLayer : MonoBehaviour, ILayer
 {
 
     // Name of the input file, no extension
