@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099c2dc721fc400fa27c52dd4aaeb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AccelerationMod: 1
+  AccelerationMod: 5
   XAxisSensitivity: 0.5
   YAxisSensitivity: 0.5
   MaxXAngle: 60
@@ -1876,6 +1876,14 @@ PrefabInstance:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: enableAdaptiveResolution
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+      propertyPath: maxRenderScale
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: useFixedUpdateForTracking
       value: 1
@@ -3041,66 +3049,6 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 84915909}
-        m_MethodName: HandleKeyInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 2ba2f67e-cb93-4bc9-8e7e-36176e28d1b0
-    m_ActionName: Player/RotLeft[/Keyboard/comma,/Keyboard/comma,/Keyboard/comma,/Keyboard/comma,/Keyboard/comma,/Keyboard/comma]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 84915909}
-        m_MethodName: HandleKeyInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: aebf1dbe-beef-4970-813a-8729e0f4aba7
-    m_ActionName: Player/RotRight[/Keyboard/period,/Keyboard/period,/Keyboard/period,/Keyboard/period,/Keyboard/period,/Keyboard/period]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 84915909}
-        m_MethodName: HandleKeyInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b3ed8019-f1ea-4148-8be3-b8e71be71741
-    m_ActionName: Player/ScaleIn[/Keyboard/equals,/Keyboard/equals,/Keyboard/equals,/Keyboard/equals,/Keyboard/equals,/Keyboard/equals]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 84915909}
-        m_MethodName: HandleKeyInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3acde169-9957-405d-836e-8e9fc1f94a8c
-    m_ActionName: Player/ScaleOut[/Keyboard/minus,/Keyboard/minus,/Keyboard/minus,/Keyboard/minus,/Keyboard/minus,/Keyboard/minus]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 84915909}
         m_MethodName: HandleMouseClick
         m_Mode: 0
         m_Arguments:
@@ -3129,9 +3077,20 @@ MonoBehaviour:
     m_ActionId: 8ab25beb-6c5b-42d8-aa12-dcc316c387e3
     m_ActionName: Player/MultiSelect[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ef9445a2-9c1f-472d-82ff-a942f7f67f28
-    m_ActionName: Player/UnSelect[/Mouse/leftButton,/Mouse/rightButton]
+      m_Calls:
+      - m_Target: {fileID: 84915908}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9cd3addd-8717-403c-824a-67f29592586a
+    m_ActionName: Player/PanZoom[/Keyboard/minus,/Keyboard/equals,/Keyboard/comma,/Keyboard/period]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

@@ -41,6 +41,12 @@ public class FlyingCam : MonoBehaviour
     private void Update()
     {
         transform.Translate(speed);
+        OVRInput.Update();
+    }
+
+    private void FixedUpdate()
+    {
+        OVRInput.FixedUpdate();
     }
 
     public void HandleMove(InputAction.CallbackContext context)
@@ -53,6 +59,16 @@ public class FlyingCam : MonoBehaviour
     {
         Vector3 speed_input = context.ReadValue<Vector2>().normalized * AccelerationMod;
         speed = speed_input;
+    }
+
+    public void HandlePanZoom(InputAction.CallbackContext context)
+    {
+        Vector2 pz_input = context.ReadValue<Vector2>().normalized;
+        float pan = pz_input.x;
+        float zoom = pz_input.y;
+            transform.LookAt(Vector3.zero);
+            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, pan);
+            transform.Translate(Vector3.forward * Vector3.Distance(transform.position, Vector3.zero) * 0.1f * zoom);
     }
 
     private float _rotationX;
@@ -105,26 +121,6 @@ public class FlyingCam : MonoBehaviour
         {
             Debug.Log("Exit");
             Application.Quit();
-        }
-        if (action.name == "RotLeft")
-        {
-            transform.LookAt(Vector3.zero);
-            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, 10f);
-        }
-        if (action.name == "RotRight")
-        {
-            transform.LookAt(Vector3.zero);
-            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, -10f);
-        }
-        if (action.name == "ScaleIn")
-        {
-            transform.LookAt(Vector3.zero);
-            transform.Translate(Vector3.forward * Vector3.Distance(transform.position, Vector3.zero) * 0.1f);
-        }
-        if (action.name == "ScaleOut")
-        {
-            transform.LookAt(Vector3.zero);
-            transform.Translate(Vector3.back * Vector3.Distance(transform.position, Vector3.zero) * 0.1f);
         }
     }
 

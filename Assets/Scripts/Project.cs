@@ -218,12 +218,23 @@ namespace Project
 
     public class Unit : TestableObject
     {
-        [JsonProperty(PropertyName = "color")]
+        [JsonProperty(PropertyName = "color", Required = Required.Always)]
         [JsonConverter(typeof(VectorConverter<SerializableColor>))]
         public SerializableColor Color;
-        [JsonProperty(PropertyName = "transform")]
+        [JsonProperty(PropertyName = "shape", Required = Required.Always)]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Shapes Shape; 
+        [JsonProperty(PropertyName = "transform", Required = Required.Always)]
         public JsonTransform Transform;
+        [JsonProperty(PropertyName = "label")]
         public string Label;
+    }
+
+    public enum Shapes
+    {
+        Spheroid,
+        Cuboid,
+        Cylinder
     }
 
 }

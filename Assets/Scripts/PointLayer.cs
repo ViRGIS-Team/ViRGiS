@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
-using Mapbox.Utils;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
@@ -14,7 +12,9 @@ using Project;
 public class PointLayer : MonoBehaviour, ILayer
 {
     // The prefab for the data points to be instantiated
-    public GameObject PointPrefab;
+    public GameObject SpherePrefab;
+    public GameObject CubePrefab;
+    public GameObject CylinderPrefab;
 
     private GeoJsonReader geoJsonReader;
 
@@ -32,6 +32,26 @@ public class PointLayer : MonoBehaviour, ILayer
         this.layer = layer;
         AbstractMap _map = Global._map;
         Dictionary<string, Unit> symbology = layer.Properties.Units;
+        GameObject PointPrefab = new GameObject();
+        if (symbology.ContainsKey("default") && symbology["default"].ContainsKey("Shape"))
+        {
+            Shapes shape = symbology["default"].Shape;
+            switch (shape)
+            {
+                case Shapes.Spheroid:
+                    PointPrefab = SpherePrefab;
+                    break;
+                case Shapes.Cuboid:
+                    PointPrefab = CubePrefab;
+                    break;
+                case Shapes.Cylinder:
+                    PointPrefab = CylinderPrefab;
+                    break;
+            }
+        } else
+        {
+            PointPrefab = SpherePrefab;
+        }
 
         geoJsonReader = new GeoJsonReader();
         await geoJsonReader.Load(layer.Source);
@@ -73,7 +93,6 @@ public class PointLayer : MonoBehaviour, ILayer
                 //Set the label
                 GameObject labelObject = new GameObject();
                 labelObject.transform.parent = dataPoint.transform;
-                labelObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
                 TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
 
                 if (symbology.ContainsKey("default") && symbology["default"].ContainsKey("Label") && symbology["default"].Label != null && properties.ContainsKey(symbology["default"].Label))
@@ -83,11 +102,14 @@ public class PointLayer : MonoBehaviour, ILayer
 
 
                 //Set the symbology
-                dataPoint.SendMessage("SetColor", (Color)symbology["default"].Color);
-                dataPoint.transform.localScale = symbology["default"].Transform.Scale;
-                dataPoint.transform.localRotation = symbology["default"].Transform.Rotate;
-                dataPoint.transform.localPosition = symbology["default"].Transform.Position;
-                dataPoint.transform.position = position;
+                if (symbology.ContainsKey("default"))
+                {
+                    dataPoint.SendMessage("SetColor", (Color)symbology["default"].Color);
+                    dataPoint.transform.localScale = symbology["default"].Transform.Scale;
+                    dataPoint.transform.localRotation = symbology["default"].Transform.Rotate;
+                    dataPoint.transform.localPosition = symbology["default"].Transform.Position;
+                    dataPoint.transform.position = position;
+                }
             }
         };
         changed = false;
