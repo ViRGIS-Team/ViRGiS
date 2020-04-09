@@ -12,6 +12,7 @@ public class FlyingCam : MonoBehaviour
 
     //unity controls and constants input
     public float AccelerationMod;
+    public float DeccelerationMod;
     public float XAxisSensitivity;
     public float YAxisSensitivity;
 
@@ -42,6 +43,7 @@ public class FlyingCam : MonoBehaviour
     {
         transform.Translate(speed);
         OVRInput.Update();
+        speed -= speed / DeccelerationMod;
     }
 
     private void FixedUpdate()
@@ -52,13 +54,13 @@ public class FlyingCam : MonoBehaviour
     public void HandleMove(InputAction.CallbackContext context)
     {
         Vector3 speed_input = context.ReadValue<Vector2>().normalized * AccelerationMod;
-        speed = Quaternion.AngleAxis(90.0f, Vector3.right) * speed_input;
+        speed += Quaternion.AngleAxis(90.0f, Vector3.right) * speed_input;
     }
 
     public void HandleVertical(InputAction.CallbackContext context)
     {
         Vector3 speed_input = context.ReadValue<Vector2>().normalized * AccelerationMod;
-        speed = speed_input;
+        speed += speed_input;
     }
 
     public void HandlePanZoom(InputAction.CallbackContext context)
