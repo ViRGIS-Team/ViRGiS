@@ -10,11 +10,17 @@ public class FlyingCam : MonoBehaviour
 {
     [Header("Constants")]
 
-    //unity controls and constants input
+    //unity controls and constants input - keyboard
     public float AccelerationMod;
     public float DeccelerationMod;
     public float XAxisSensitivity;
     public float YAxisSensitivity;
+
+    //unity controls - VR
+    public float HorizontalMod;
+    public float VerticalMod;
+    public float PandSensitvity;
+    public float ZoomSensitivity;
 
     [Space]
 
@@ -57,6 +63,30 @@ public class FlyingCam : MonoBehaviour
         speed += Quaternion.AngleAxis(90.0f, Vector3.right) * speed_input;
     }
 
+    public void Move(Vector2 axis)
+    {
+        Vector3 speed_input = axis.normalized * HorizontalMod;
+        speed += Quaternion.AngleAxis(90.0f, Vector3.right) * speed_input;
+    }
+
+    public void Up(bool  thisEvent) 
+    {
+        if (thisEvent)
+        {
+            Vector3 speed_input = Vector3.up * VerticalMod;
+            speed += speed_input;
+        }
+    }
+
+    public void Down(bool thisEvent)
+    {
+        if (thisEvent)
+        {
+            Vector3 speed_input = Vector3.down * VerticalMod;
+            speed += speed_input;
+        }
+    }
+
     public void HandleVertical(InputAction.CallbackContext context)
     {
         Vector3 speed_input = context.ReadValue<Vector2>().normalized * AccelerationMod;
@@ -66,11 +96,29 @@ public class FlyingCam : MonoBehaviour
     public void HandlePanZoom(InputAction.CallbackContext context)
     {
         Vector2 pz_input = context.ReadValue<Vector2>().normalized;
+        transform.LookAt(Vector3.zero);
         float pan = pz_input.x;
-        float zoom = pz_input.y;
-            transform.LookAt(Vector3.zero);
-            gameObject.transform.RotateAround(Vector3.zero, Vector3.up, pan);
-            transform.Translate(Vector3.forward * Vector3.Distance(transform.position, Vector3.zero) * 0.1f * zoom);
+        Pan(pan);
+        float zoom = pz_input.y * 0.1f;
+        Zoom(zoom);
+    }
+    public void PanZoom(Vector2 axis)
+    {
+        Vector2 pz_input = axis.normalized;
+        float pan = pz_input.x * PandSensitvity;
+        Pan(pan);
+        float zoom = pz_input.y * ZoomSensitivity;
+        Zoom(zoom);
+    }
+
+    private void Pan(float pan)
+    {
+        gameObject.transform.RotateAround(Vector3.zero, Vector3.down, pan);
+    }
+
+    private void Zoom(float zoom)
+    {
+        transform.Translate(Vector3.forward * Vector3.Distance(transform.position, Vector3.zero) * zoom);
     }
 
     private float _rotationX;
