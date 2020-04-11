@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zinnia.Pointer;
 using Zinnia.Cast;
+using VRTK.Prefabs.Interactions.Interactables;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 
 public class FlyingCam : MonoBehaviour
@@ -232,9 +235,11 @@ public class FlyingCam : MonoBehaviour
         }
     }
 
-    public void MenuTouch(bool touch)
+    public void MenuTouch(InteractableFacade touch)
     {
-        Debug.Log(touch);
+        Transform selected = touch.ConsumerContainer.transform;
+        Button button = selected.GetComponentInChildren<Button>();
+        button.Select();
     }
 
     public void PointerHit(ObjectPointer.EventData data )
@@ -298,17 +303,6 @@ public class FlyingCam : MonoBehaviour
                 Vector3 newPos = data.Points[0] + dir;
                 currentPointerHit.gameObject.SendMessage("MoveTo", newPos);
             }
- 
-            //{
-
-            //}
-
-            //Vector3 ray = data.CurrentPointsCastData.
-            //Vector3 newPos = Vector3.ray.etPoint(selectedDistance);
-            //if (selectedRigibody != null)
-            //{
-            //    selectedRigibody.gameObject.SendMessage("MoveTo", newPos);
-            //}
         }
     }
 
