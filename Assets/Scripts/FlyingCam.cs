@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zinnia.Pointer;
+using Zinnia.Cast;
 
 
 public class FlyingCam : MonoBehaviour
@@ -38,6 +40,8 @@ public class FlyingCam : MonoBehaviour
     private Vector3 speed;
 
     public EventManager eventManager;
+
+    private Transform currentPointerHit;
 
 
     private void Start()
@@ -225,6 +229,86 @@ public class FlyingCam : MonoBehaviour
         {
             selectedRigibody.gameObject.SendMessage("UnSelected", button);
             selectedRigibody = null;
+        }
+    }
+
+    public void MenuTouch(bool touch)
+    {
+        Debug.Log(touch);
+    }
+
+    public void PointerHit(ObjectPointer.EventData data )
+    {
+        RaycastHit hitInfo = data.CurrentPointsCastData.HitData.Value;
+        currentPointerHit = hitInfo.transform;
+        selectedDistance = hitInfo.distance;
+
+    }
+
+    public void PointerUnhit(ObjectPointer.EventData data)
+    {
+        if (!editSelected)
+        {
+            currentPointerHit = null;
+            selectedDistance = 0;
+        }
+    }
+
+    public void triggerPressed(bool thisEvent)
+    {
+        if (currentPointerHit != null)
+        {
+            editSelected = true;
+            int button = 0;
+            currentPointerHit.gameObject.SendMessage("Selected", button);
+        }
+           
+    }
+
+    public void gripPressed(bool thisEvent)
+    {
+        if (currentPointerHit != null)
+        {
+            editSelected = true;
+            int button = 1;
+            currentPointerHit.gameObject.SendMessage("Selected", button);
+        }
+            
+    }
+
+    public void triggerReleased(bool thisEvent)
+    {
+        editSelected = false;
+        if (currentPointerHit != null)
+        {
+            int button = 0;
+            currentPointerHit.gameObject.SendMessage("UnSelected", button);
+        }
+    }
+
+    public void receiveRay(PointsCast.EventData data)
+    {
+        if (editSelected)
+        {
+
+            if (!data.IsValid)
+            {
+                Vector3 dir = data.Points[1] - data.Points[0];
+                dir = dir.normalized * selectedDistance;
+                Vector3 newPos = data.Points[0] + dir;
+                currentPointerHit.gameObject.SendMessage("MoveTo", newPos);
+            }
+ 
+            //{
+
+            //}
+
+            //Vector3 ray = data.CurrentPointsCastData.
+            //Vector3 newPos = Vector3.ray.etPoint(selectedDistance);
+            //if (selectedRigibody != null)
+            //{
+            //    selectedRigibody.gameObject.SendMessage("MoveTo", newPos);
+            //}
         }
     }
 
