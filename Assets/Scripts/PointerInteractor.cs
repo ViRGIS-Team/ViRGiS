@@ -10,19 +10,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Zinnia.Pointer;
 using Zinnia.Cast;
 
-public class PointerInteractable : XRBaseControllerInteractor, IUIInteractable
+public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     [SerializeField]
     bool m_EnableUIInteraction = true;
@@ -47,6 +37,8 @@ public class PointerInteractable : XRBaseControllerInteractor, IUIInteractable
     RaycastHit[] m_RaycastHits = new RaycastHit[1];
 
     Vector3[] m_LinePoints;
+
+    new bool isUISelectActive; 
 
 
     public bool enableUIInteraction
@@ -93,6 +85,20 @@ public class PointerInteractable : XRBaseControllerInteractor, IUIInteractable
             FindOrCreateXRUIInputModule();
             m_InputModule.RegisterInteractable(this);
         }
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        // clear lines
+        m_HitCount = 0;
+
+        if (m_EnableUIInteraction)
+        {
+            m_InputModule.UnregisterInteractable(this);
+        }
+        m_InputModule = null;
     }
 
     public override void GetValidTargets(List<XRBaseInteractable> validTargets)
@@ -159,26 +165,6 @@ public class PointerInteractable : XRBaseControllerInteractor, IUIInteractable
     /// <summary> This function implements the ILineRenderable interface and returns the sample points of the line. </summary>
     public bool GetLinePoints(ref Vector3[] linePoints, ref int noPoints)
     {
-
-        //if (m_SamplePoints == null || m_SamplePoints.Length < 2 || m_NoSamplePoints < 2)
-        //{
-        //    return false;
-        //}
-        //else
-        //{
-        //    if (linePoints == null)
-        //    {
-        //        linePoints = new Vector3[m_NoSamplePoints];
-        //    }
-
-        //    if (linePoints.Length < m_NoSamplePoints)
-        //    {
-        //        linePoints = new Vector3[m_NoSamplePoints];
-        //    }
-        // Array.Copy(m_SamplePoints, linePoints, m_NoSamplePoints);
-        //noPoints = m_NoSamplePoints;
-        // return true;
-
         if (m_HitCount <= 0)
         {
             return false;
@@ -233,20 +219,29 @@ public class PointerInteractable : XRBaseControllerInteractor, IUIInteractable
         return true;
     }
 
-    public void PointerHit(ObjectPointer.EventData data)
+
+    public void Selected(ObjectPointer.EventData data)
     {
-        m_RaycastHits[0] = data.CurrentPointsCastData.HitData.Value;
-        m_HitCount = 1;
-        m_LinePoints = data.CurrentPointsCastData.Points.ToArray<Vector3>();
-        //currentPointerHit = hitInfo.transform;
-        //selectedDistance = hitInfo.distance;
+        isUISelectActive = true;
     }
 
-    public void PointerUnhit(ObjectPointer.EventData data)
+    public void UnSelected(ObjectPointer.EventData data)
+    {
+        isUISelectActive = false;
+    }
+
+    public void receiveRay(PointsCast.EventData data)
     {
 
+        if (data.IsValid)
+        {
+            m_RaycastHits[0] = data.HitData.Value;
+            m_HitCount = 1;
+            m_LinePoints = data.Points.ToArray<Vector3>();
+        } else
         {
             m_HitCount = 0;
         }
     }
+
 }

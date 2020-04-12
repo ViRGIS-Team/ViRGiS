@@ -156,7 +156,7 @@ public class FlyingCam : MonoBehaviour
             Vector3 newPos = ray.GetPoint(selectedDistance);
             if (selectedRigibody != null)
             {
-                selectedRigibody.gameObject.SendMessage("MoveTo", newPos);
+                selectedRigibody.gameObject.SendMessage("MoveTo", newPos, SendMessageOptions.DontRequireReceiver);
             }
         }
     }
@@ -214,7 +214,7 @@ public class FlyingCam : MonoBehaviour
             if (selectedRigibody != null)
             {
                 editSelected = true;
-                selectedRigibody.gameObject.SendMessage("Selected", button);
+                selectedRigibody.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
                 selectedDistance = hitInfo.distance;
             }
         }
@@ -230,7 +230,7 @@ public class FlyingCam : MonoBehaviour
         editSelected = false;
         if (selectedRigibody != null)
         {
-            selectedRigibody.gameObject.SendMessage("UnSelected", button);
+            selectedRigibody.gameObject.SendMessage("UnSelected", button, SendMessageOptions.DontRequireReceiver);
             selectedRigibody = null;
         }
     }
@@ -265,7 +265,7 @@ public class FlyingCam : MonoBehaviour
         {
             editSelected = true;
             int button = 0;
-            currentPointerHit.gameObject.SendMessage("Selected", button);
+            currentPointerHit.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
         }
            
     }
@@ -276,7 +276,7 @@ public class FlyingCam : MonoBehaviour
         {
             editSelected = true;
             int button = 1;
-            currentPointerHit.gameObject.SendMessage("Selected", button);
+            currentPointerHit.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
         }
             
     }
@@ -287,7 +287,7 @@ public class FlyingCam : MonoBehaviour
         if (currentPointerHit != null)
         {
             int button = 0;
-            currentPointerHit.gameObject.SendMessage("UnSelected", button);
+            currentPointerHit.gameObject.SendMessage("UnSelected", button, SendMessageOptions.DontRequireReceiver);
         }
     }
 
@@ -301,7 +301,7 @@ public class FlyingCam : MonoBehaviour
                 Vector3 dir = data.Points[1] - data.Points[0];
                 dir = dir.normalized * selectedDistance;
                 Vector3 newPos = data.Points[0] + dir;
-                currentPointerHit.gameObject.SendMessage("MoveTo", newPos);
+                currentPointerHit.gameObject.SendMessage("MoveTo", newPos, SendMessageOptions.DontRequireReceiver);
             }
         }
     }
