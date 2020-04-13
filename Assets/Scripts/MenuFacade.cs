@@ -16,13 +16,10 @@ public class MenuFacade : MonoBehaviour
         
     }
 
-    void Selected(int button)
+    public void Visible(bool thisEvent) 
     {
-        Debug.Log(button);
+        gameObject.SetActive(thisEvent);
     }
 
-    void UnSelected(int button)
-    {
-        Debug.Log(button);
-    }
+
 }

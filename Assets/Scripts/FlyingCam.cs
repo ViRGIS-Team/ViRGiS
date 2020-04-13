@@ -207,7 +207,10 @@ public class FlyingCam : MonoBehaviour
     private void ClickHandler(int button)
     {
         RaycastHit hitInfo = new RaycastHit();
-        bool hit = Physics.Raycast(self.ScreenPointToRay(Mouse.current.position.ReadValue()), out hitInfo);
+        Vector3 mousePos = Input.mousePosition;
+        Ray ray = self.ViewportPointToRay(mousePos); //    ScreenPointToRay(mousePos);
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.yellow, 1000f);
+        bool hit = Physics.Raycast(ray, out hitInfo);
         if (hit)
         {
             selectedRigibody = hitInfo.rigidbody;
@@ -235,12 +238,7 @@ public class FlyingCam : MonoBehaviour
         }
     }
 
-    public void MenuTouch(InteractableFacade touch)
-    {
-        Transform selected = touch.ConsumerContainer.transform;
-        Button button = selected.GetComponentInChildren<Button>();
-        button.Select();
-    }
+
 
     public void PointerHit(ObjectPointer.EventData data )
     {

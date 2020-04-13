@@ -50,7 +50,7 @@ public class MapInitialize : MonoBehaviour
         Global.EditSession = false;
         GameObject Map = gameObject;
         Global.Map = Map;
-        GameObject camera = GameObject.Find("Main Camera");
+        GameObject camera = GameObject.Find("Cameras");
         camera.transform.position = Global.project.Camera.Coordinates.Vector3();
         GameObject temp = null;
 
