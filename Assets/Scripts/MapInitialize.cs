@@ -13,7 +13,7 @@ public class MapInitialize : MonoBehaviour
 
     public float startAltitude = 50f;
     public GameObject Map;
-    public Camera MainCamera;
+    public GameObject MainCamera;
     public GameObject PointLayer;
     public GameObject LineLayer;
     public GameObject PolygonLayer;

@@ -16,6 +16,7 @@ public class FlyingCam : MonoBehaviour
 {
     [Header("Constants")]
 
+    public Camera self;
     //unity controls and constants input - keyboard
     public float AccelerationMod;
     public float DeccelerationMod;
@@ -44,10 +45,6 @@ public class FlyingCam : MonoBehaviour
 
     private Transform currentPointerHit;
 
-
-    private void Start()
-    {
-    }
 
     // Update is called once per frame
     private void Update()
@@ -150,7 +147,7 @@ public class FlyingCam : MonoBehaviour
         }
         else
         {
-            Ray ray = Global.mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray ray = self.ScreenPointToRay(Mouse.current.position.ReadValue());
             Vector3 newPos = ray.GetPoint(selectedDistance);
             if (selectedRigibody != null)
             {
@@ -206,7 +203,7 @@ public class FlyingCam : MonoBehaviour
     {
         RaycastHit hitInfo = new RaycastHit();
         Vector3 mousePos = Input.mousePosition;
-        Ray ray = Global.mainCamera .ScreenPointToRay(mousePos);
+        Ray ray = self.ScreenPointToRay(mousePos);
         Debug.DrawRay(ray.origin, ray.direction * 100f, Color.yellow, 1000f);
         bool hit = Physics.Raycast(ray, out hitInfo);
         if (hit)

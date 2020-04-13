@@ -13,5 +13,5 @@ public static class Global
     public static GameObject Map;
     public static GisProject project;
     public static List<GameObject> layers;
-    public static Camera mainCamera;
+    public static GameObject mainCamera;
 }
