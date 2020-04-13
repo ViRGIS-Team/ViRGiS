@@ -11,6 +11,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 
+
 public class FlyingCam : MonoBehaviour
 {
     [Header("Constants")]
@@ -37,12 +38,9 @@ public class FlyingCam : MonoBehaviour
 
 
     private bool editSelected = false;
-    public Camera self;
     private Rigidbody selectedRigibody;
     private float selectedDistance;
     private Vector3 speed;
-
-    public EventManager eventManager;
 
     private Transform currentPointerHit;
 
@@ -152,7 +150,7 @@ public class FlyingCam : MonoBehaviour
         }
         else
         {
-            Ray ray = self.ScreenPointToRay(Mouse.current.position.ReadValue());
+            Ray ray = Global.mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             Vector3 newPos = ray.GetPoint(selectedDistance);
             if (selectedRigibody != null)
             {
@@ -208,7 +206,7 @@ public class FlyingCam : MonoBehaviour
     {
         RaycastHit hitInfo = new RaycastHit();
         Vector3 mousePos = Input.mousePosition;
-        Ray ray = self.ViewportPointToRay(mousePos); //    ScreenPointToRay(mousePos);
+        Ray ray = Global.mainCamera .ScreenPointToRay(mousePos);
         Debug.DrawRay(ray.origin, ray.direction * 100f, Color.yellow, 1000f);
         bool hit = Physics.Raycast(ray, out hitInfo);
         if (hit)
