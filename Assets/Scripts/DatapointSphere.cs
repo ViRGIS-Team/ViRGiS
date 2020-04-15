@@ -10,6 +10,7 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     public Color anticolor;
     public Vector3 position;
     public Transform viewer;
+    public Transform label;
 
     public string gisId;
     public IDictionary<string, object> gisProperties;
@@ -27,12 +28,13 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
 
         position = gameObject.transform.position;
         viewer = Camera.main.transform;
+        if (transform.childCount > 0) label = transform.GetChild(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.LookAt(viewer);
+        if (label) label.LookAt(viewer);
     }
 
     public void Selected(int button)
