@@ -10,9 +10,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Zinnia.Pointer;
 using Zinnia.Cast;
 
-public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable 
+public class PointerInteractor : XRBaseInteractor, IUIInteractable
 {
-
 
     [SerializeField]
     bool m_EnableUIInteraction = true;
@@ -38,7 +37,7 @@ public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable
 
     Vector3[] m_LinePoints;
 
-    new bool isUISelectActive; 
+    bool isUISelectActive; 
 
 
     public bool enableUIInteraction
@@ -61,8 +60,6 @@ public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable
         }
     }
 
-    protected override List<XRBaseInteractable> ValidTargets => throw new NotImplementedException();
-
     void FindOrCreateXRUIInputModule()
     {
         var eventSystem = UnityEngine.Object.FindObjectOfType<EventSystem>();
@@ -77,8 +74,6 @@ public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable
     protected override void OnEnable()
     {
         base.OnEnable();
-        //RebuildSamplePoints();
-        //FindReferenceFrame();
 
         if (m_EnableUIInteraction)
         {
@@ -103,7 +98,6 @@ public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable
 
     public override void GetValidTargets(List<XRBaseInteractable> validTargets)
     {
-
     }
     /// <summary>
     /// Updates the current UI Model to match the state of the Interactor
@@ -181,6 +175,8 @@ public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable
     /// <summary> This function implements the ILineRenderable interface, 
     /// if there is a raycast hit, it will return the world position and the normal vector
     /// of the hit point, and its position in linePoints. </summary>
+    //
+    //TODO Implemet this for full functionality 
     public bool TryGetHitInfo(ref Vector3 position, ref Vector3 normal, ref int positionInLine, ref bool isValidTarget)
     {
         //float distance = float.MaxValue;
@@ -219,17 +215,28 @@ public class PointerInteractor : XRBaseControllerInteractor, IUIInteractable
         return true;
     }
 
-
+    // 
+    // Connect this callback to the UnityEvent that shhould start the "Selected" state
+    // e.g the VRTK ObjectPointer Activated event
+    //
     public void Selected(ObjectPointer.EventData data)
     {
         isUISelectActive = true;
     }
 
+    // 
+    // Connect this callback to the UnityEvent that shhould stop the "Selected" state
+    // e.g the VRTK ObjectPointer Deactivated event
+    //
     public void UnSelected(ObjectPointer.EventData data)
     {
         isUISelectActive = false;
     }
 
+    
+    //
+    // Connect this to the ObjectPointer/StraightCaster ResultsChanged event to get the results of the latest ray cast
+    //
     public void receiveRay(PointsCast.EventData data)
     {
 

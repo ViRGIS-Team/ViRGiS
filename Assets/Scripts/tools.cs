@@ -13,9 +13,9 @@ public class Tools {
 
 static public Vector3 Ipos2Vect(Position position) {
         float Alt;
-        if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude * Global._map.WorldRelativeScale; } ;
+        if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude * Global.WorldRelativeScale; } ;
         Vector2 _latlng = position.Vector2();
-        Vector3 _world = VectorExtensions.AsUnityPosition(_latlng, Global._map.CenterMercator, Global._map.WorldRelativeScale);
+        Vector3 _world = VectorExtensions.AsUnityPosition(_latlng, Global._map.CenterMercator, Global.WorldRelativeScale);
         _world.y = Alt;
         return _world;
     }
@@ -32,8 +32,10 @@ static public Vector3[] LS2Vect(LineString line, AbstractMap _map)
 
 static public IPosition Vect2Ipos(Vector3 position)
     {
-        Vector2d _latlng = VectorExtensions.GetGeoPosition(position, Global._map.CenterMercator, Global._map.WorldRelativeScale);
-        return new Position(_latlng.x, _latlng.y, position.y / Global._map.WorldRelativeScale);
+        Vector2d _latlng = VectorExtensions.GetGeoPosition(position, Global._map.CenterMercator, Global.WorldRelativeScale);
+        return new Position(_latlng.x, _latlng.y, position.y / Global.WorldRelativeScale);
     }
+
+
 
 }
