@@ -1,44 +1,41 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 // parts from  https://answers.unity.com/questions/8338/how-to-draw-a-line-using-script.html
 
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.ObjectModel;
 using System;
 using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Project;
 
-
+/// <summary>
+/// Controls and Instance of a Line Component
+/// </summary>
 public class DatalineCylinder : MonoBehaviour, IVirgisComponent
 {
-    public Color color;
-    public Color anticolor;
-    private Renderer thisRenderer;
-    private bool BlockMove = false;
-    private bool Lr = false;
+    public Color color; // color for the line
+    public Color anticolor; // color for the vertces when selected
+    private bool BlockMove = false; // is this line in a block-move state
+    private bool Lr = false; // is this line a Linear Ring - i.e. used to define a polygon
 
-    public GameObject CylinderObject;
+    public GameObject CylinderObject; 
 
-    public string gisId;
-    public IDictionary<string, object> gisProperties;
+    public string gisId; // the ID for this line from the geoJSON
+    public IDictionary<string, object> gisProperties; // the properties for this 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
+    /// <summary>
+    /// Sets the Color of the line
+    /// </summary>
+    /// <param name="newColor"></param>
     public void SetColor(Color newColor)
     {
-        color = newColor;
-        anticolor = Color.white - newColor;
-        if (thisRenderer != null)
-        {
-            thisRenderer.material.SetColor("_BaseColor", color);
-        }
+        BroadcastMessage("SetColor", newColor, SendMessageOptions.DontRequireReceiver);
     }
 
+    /// <summary>
+    /// Called when a child Vertex moves to the point in the MoveArgs - which is in World Coordinates
+    /// </summary>
+    /// <param name="data">MOveArgs</param>
     public void VertexMove(MoveArgs data)
     {
         if (data.id >= 0)
@@ -59,10 +56,17 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
         }
     }
 
-    public void Draw(LineString lineIn, Unit symbology, GameObject LinePrefab, GameObject HandlePrefab, AbstractMap _map)
+    /// <summary>
+    /// Called to draw the line
+    /// </summary>
+    /// <param name="lineIn"> A LineString</param>
+    /// <param name="symbology">The symbo,logy to be applied to the loine</param>
+    /// <param name="LinePrefab"> The prefab to be used for the line</param>
+    /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
+    public void Draw(LineString lineIn, Unit symbology, GameObject LinePrefab, GameObject HandlePrefab)
     {
-
-        Vector3[] line = Tools.LS2Vect(lineIn, _map);
+        AbstractMap _map = Global._map;
+        Vector3[] line = Tools.LS2Vect(lineIn);
         Lr = lineIn.IsLinearRing();
 
         int i = 0;
@@ -96,14 +100,18 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
 
     }
 
-    public Vector3[] GetVertices()
+    /// <summary>
+    /// called to get the verteces of the LineString
+    /// </summary>
+    /// <returns>Vector3[] of verteces</returns>
+    public Vector3[] GetVerteces()
     {
         DatapointSphere[] data = GetHandles();
         Vector3[] result = new Vector3[data.Length];
         for (int i = 0; i < data.Length; i++)
         {
             DatapointSphere datum = data[i];
-            result[i] = datum.position;
+            result[i] = datum.transform.position;
         }
         if(Lr)
         {
@@ -113,29 +121,45 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
         return result;
     }
 
+    /// <summary>
+    /// called to get the handle ViRGIS Components for the Line
+    /// </summary>
+    /// <returns> DatapointSphere[]</returns>
     public DatapointSphere[] GetHandles()
     {
         return gameObject.GetComponentsInChildren<DatapointSphere>();
     }
 
-    public void Selected(int button)
+    /// <summary>
+    /// Called when a child component is selected
+    /// </summary>
+    /// <param name="button"> SelectionTypes </param>
+    public void Selected(SelectionTypes button)
     {
-        if (button == 1)
+        if (button == SelectionTypes.SELECTALL)
         {
-            gameObject.BroadcastMessage("Selected", 100, SendMessageOptions.DontRequireReceiver);
+            gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
             BlockMove = true;
         }
     }
 
-    public void UnSelected(int button)
+    /// <summary>
+    /// Called when a child component is unselected
+    /// </summary>
+    /// <param name="button"> SelectionTypes</param>
+    public void UnSelected(SelectionTypes button)
     {
-        if (button != 100)
+        if (button != SelectionTypes.BROADCAST)
         {
-            gameObject.BroadcastMessage("UnSelected", 100, SendMessageOptions.DontRequireReceiver);
+            gameObject.BroadcastMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
             BlockMove = false;
         }
     }
 
+    /// <summary>
+    /// Called when a child component is translated by User action
+    /// </summary>
+    /// <param name="args">MoveArgs</param>
     public void Translate(MoveArgs args)
     {
         if (BlockMove)
@@ -155,13 +179,21 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
     {
 
         string result = "(";
-        foreach (Vector3 vertex in GetVertices())
+        foreach (Vector3 vertex in GetVerteces())
         {
             result += "{vertex.x} {vertex.y} {vertex.z},";
         }
         result.TrimEnd(',');
         result += ")";
         return result;
+    }
+
+    /// <summary>
+    /// Callled on an ExitEditSession event
+    /// </summary>
+    public void EditEnd()
+    {
+
     }
 
 

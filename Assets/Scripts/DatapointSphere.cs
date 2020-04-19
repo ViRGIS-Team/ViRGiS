@@ -3,21 +3,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Controls an instance of a data pointor handle
+/// </summary>
 public class DatapointSphere : MonoBehaviour, IVirgisComponent
 {
 
-    public Color color;
-    public Color anticolor;
-    public Vector3 position;
-    public Transform viewer;
-    public Transform label;
+    public Color color; // color of the marker
+    public Color anticolor; // color of the market when selected
 
-    public string gisId;
-    public IDictionary<string, object> gisProperties;
+    public Transform viewer; // GO of the camera or a a direct parent - used to orient the billboards
+    public Transform label; //  Go of the label or billboard
 
-    private int id;
-    private Renderer thisRenderer;
-    // Start is called before the first frame update
+    public string gisId; // ID of this market in the geoJSON
+    public IDictionary<string, object> gisProperties; //  geoJSON properties of this marker
+
+    private int id; // internal ID for this marker - used when it is part of a larger structure
+    private Renderer thisRenderer; // convenience link to the rendere for this marker 
+    
+
     void Start()
     {
         thisRenderer = GetComponent<Renderer>();
@@ -25,37 +30,50 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
         {
             thisRenderer.material.SetColor("_BaseColor", color);
         }
-
-        position = gameObject.transform.position;
         viewer = Camera.main.transform;
         if (transform.childCount > 0) label = transform.GetChild(0);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Every frame - realign the billboard
+    /// </summary>
     void Update()
     {
         if (label) label.LookAt(viewer);
+
     }
 
-    public void Selected(int button)
+    /// <summary>
+    ///  On selected - change color and send message up the entity tree
+    /// </summary>
+    /// <param name="button">SelecetionType Identifies the user action type that led to selection</param>
+    public void Selected(SelectionTypes button)
     {
          thisRenderer.material.SetColor("_BaseColor", anticolor);
-        if (button != 100)
+        if (button != SelectionTypes.BROADCAST)
         {
             gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
         }
     }
 
-    public void UnSelected(int button)
+    /// <summary>
+    /// On unselected - change color and send message up the entity tree
+    /// </summary>
+    /// <param name="button">SelecetionType Identifies the user action type that led to selection</param>
+    public void UnSelected(SelectionTypes button)
     {
         thisRenderer.material.SetColor("_BaseColor", color);
-        if (button != 100)
+        if (button != SelectionTypes.BROADCAST)
         {
             gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
         }
 
     }
 
+    /// <summary>
+    /// Set the color for the marker
+    /// </summary>
+    /// <param name="newColor"> Color</param>
     public void SetColor(Color newColor)
     {
         color = newColor;
@@ -68,39 +86,51 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
         }
     }
 
+    /// <summary>
+    /// Sent by the UI to request this marker to move.
+    /// </summary>
+    /// <param name="newPos">Vector3 Worldspace Location to move to </param>
     public void MoveTo(Vector3 newPos)
     {
         MoveArgs args = new MoveArgs();
-        args.translate = newPos - position;
-        args.oldPos = position;
-        position = newPos;
-        gameObject.transform.position = position;
+        args.translate = newPos - transform.position;
+        args.oldPos = transform.position;
+        gameObject.transform.position = newPos;
         args.id = id;
-        args.pos = position;
+        args.pos = transform.position;
         SendMessageUpwards("VertexMove", args, SendMessageOptions.DontRequireReceiver);
         SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
     }
 
+    /// <summary>
+    ///  Sent by the parent entity to request this market to move as part of an entity move
+    /// </summary>
+    /// <param name="argsin">MoveArgs</param>
     void TranslateHandle(MoveArgs argsin)
     {
         if (argsin.id != id)
         {
             MoveArgs argsout = new MoveArgs();
-            Vector3 newPos = position + argsin.translate;
-            argsout.oldPos = position;
-            position = newPos;
-            gameObject.transform.position = position;
+            argsout.oldPos = transform.position;
+            gameObject.transform.position = transform.position + argsin.translate; ;
             argsout.id = id;
-            argsout.pos = position;
+            argsout.pos = transform.position;
             SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);
         }
     }
 
+    /// <summary>
+    /// Set the Id of the marker
+    /// </summary>
+    /// <param name="value">ID</param>
     public void SetId(int value)
     {
         id = value;
     }
 
+    /// <summary>
+    /// Callled on an ExitEditSession event
+    /// </summary>
     public void EditEnd()
     {
 

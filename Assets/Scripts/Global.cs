@@ -16,5 +16,7 @@ public static class Global
     public static GameObject mainCamera;
     public static GameObject trackingSpace;
 
-    public static float WorldRelativeScale { get { return _map.WorldRelativeScale * Map.transform.lossyScale.sqrMagnitude / Vector3.one.magnitude; } }
+    public static float WorldRelativeScale { get { return _map.WorldRelativeScale * Map.transform.lossyScale.magnitude / Vector3.one.magnitude; } }
+
+    public static float WorldAbsoluteScale { get { return Map.transform.lossyScale.magnitude / Vector3.one.magnitude; } }
 }

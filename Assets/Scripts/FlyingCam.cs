@@ -5,41 +5,45 @@ using UnityEngine.InputSystem;
 using Zinnia.Pointer;
 using Zinnia.Cast;
 
+
+/// <summary>
+/// Main Script for controlling the UI behaviour and the movement of the Camera
+/// </summary>
 public class FlyingCam : MonoBehaviour
 {
     [Header("Constants")]
 
-    public Camera self;
-    public GameObject trackingSpace;
+    public Camera self; // refernce to the active camera
+    public GameObject trackingSpace; // reference to the active tracking space
     //unity controls and constants input - keyboard
-    public float AccelerationMod;
-    public float DeccelerationMod;
-    public float XAxisSensitivity;
+    public float AccelerationMod; // controls how fast you speed up
+    public float DeccelerationMod; // controls how fast you slow down
+    public float XAxisSensitivity; // control mouse sensitivity
     public float YAxisSensitivity;
 
     //unity controls - VR
-    public float HorizontalMod;
-    public float VerticalMod;
-    public float PandSensitvity;
-    public float ZoomSensitivity;
-    public float SlideMod;
+    public float HorizontalMod; // controls how fast you speed up horizontally
+    public float VerticalMod; // controls how fast you speed up vertically
+    public float PanSensitvity; // controls sensitivity to Pan Control
+    public float ZoomSensitivity; // controls sensitivity for Zoom Control
+    public float SlideMod; // controls sensitivity to @slide@ control on selected marker
 
     [Space]
 
-    [Range(0, 89)] public float MaxXAngle = 60f;
+    [Range(0, 89)] public float MaxXAngle = 60f; // for mouse input - controls the max angle allowe din vertical axis to prevent roll-over
 
     [Space]
 
 
 
-    private bool editSelected = false;
-    private Transform  selectedRigibody;
-    private float selectedDistance;
-    private Vector3 speed;
-    private float _rotationX;
-    private Transform currentPointerHit;
-    private bool triggerState;
-    private bool gripState;
+    private bool editSelected = false; // edit state 
+    private Transform  selectedRigibody; // the selected marker
+    private float selectedDistance; // distance to the selected marker``
+    private Vector3 speed; // current speed of the camera
+    private float _rotationX; // sued when clamping vertical rotation
+    private Transform currentPointerHit; // current marker selected by pointer
+    private bool triggerState; // current state of the RH trigger
+    private bool gripState; // current state of the RH grip
 
 
     private void Start()
@@ -47,7 +51,6 @@ public class FlyingCam : MonoBehaviour
         Global.trackingSpace = trackingSpace;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         transform.Translate(speed);
@@ -146,7 +149,7 @@ public class FlyingCam : MonoBehaviour
             Global.EditSession = false;
             EventManager eventManager = Global.Map.GetComponent<EventManager>();
             eventManager.OnEditsessionEnd.Invoke();
-        }
+        } 
         if (action.name == "Exit")
         {
             Debug.Log("Exit");
@@ -161,14 +164,14 @@ public class FlyingCam : MonoBehaviour
     public void HandleMouseClick(InputAction.CallbackContext context)
     {
         InputAction action = context.action;
-        int button = 0;
+        SelectionTypes button = SelectionTypes.SELECT;
         switch (action.name)
         {
             case "Select":
-                button = 0;
+                button = SelectionTypes.SELECT;
                 break;
             case "MultiSelect":
-                button = 1;
+                button = SelectionTypes.SELECTALL;
                 break;
         }
         if (action.phase == InputActionPhase.Canceled && Global.EditSession)
@@ -181,7 +184,7 @@ public class FlyingCam : MonoBehaviour
         }
     }
 
-    private void ClickHandler(int button)
+    private void ClickHandler(SelectionTypes button)
     {
         RaycastHit hitInfo = new RaycastHit();
         Vector3 mousePos = Input.mousePosition;
@@ -205,7 +208,7 @@ public class FlyingCam : MonoBehaviour
     }
 
 
-    private void UnClickHandler(int button)
+    private void UnClickHandler(SelectionTypes button)
     {
         editSelected = false;
         if (selectedRigibody != null)
@@ -268,7 +271,7 @@ public class FlyingCam : MonoBehaviour
         Vector2 pz_input = axis.normalized;
         if (!editSelected)
         {
-            float pan = pz_input.x * PandSensitvity;
+            float pan = pz_input.x * PanSensitvity;
             Pan(pan);
             float zoom = pz_input.y * ZoomSensitivity;
             Zoom(zoom);
@@ -291,15 +294,15 @@ public class FlyingCam : MonoBehaviour
             RaycastHit hitInfo = data.CurrentPointsCastData.HitData.Value;
             currentPointerHit = hitInfo.transform;
             selectedDistance = hitInfo.distance;
-            if (triggerState)
+            if (triggerState && Global.EditSession)
             {
                 editSelected = true;
-                select(currentPointerHit, 0);
+                select(currentPointerHit, SelectionTypes.SELECT);
             }
-            if (gripState)
+            if (gripState && Global.EditSession)
             {
                 editSelected = true;
-                select(currentPointerHit, 1);
+                select(currentPointerHit, SelectionTypes.SELECTALL);
             }
         }
 
@@ -327,10 +330,10 @@ public class FlyingCam : MonoBehaviour
     public void triggerPressed(bool thisEvent)
     {
         triggerState = true;
-        if (currentPointerHit != null)
+        if (currentPointerHit != null && Global.EditSession)
         {
             editSelected = true;
-            select(currentPointerHit, 0);
+            select(currentPointerHit, SelectionTypes.SELECT);
         }
            
     }
@@ -338,10 +341,10 @@ public class FlyingCam : MonoBehaviour
     public void gripPressed(bool thisEvent)
     {
         gripState = true;
-        if (currentPointerHit != null)
+        if (currentPointerHit != null && Global.EditSession)
         {
             editSelected = true;
-            select(currentPointerHit, 1);
+            select(currentPointerHit, SelectionTypes.SELECTALL);
         }
             
     }
@@ -356,7 +359,7 @@ public class FlyingCam : MonoBehaviour
         selectedDistance = 0;
         if (currentPointerHit != null)
         {
-            unSelect(currentPointerHit, 0);
+            unSelect(currentPointerHit, SelectionTypes.SELECT);
             currentPointerHit = null;
         }
     }
@@ -368,7 +371,7 @@ public class FlyingCam : MonoBehaviour
         selectedDistance = 0;
         if (currentPointerHit != null)
         {
-            unSelect(currentPointerHit, 1);
+            unSelect(currentPointerHit, SelectionTypes.SELECTALL);
             currentPointerHit = null;
         }
     }
@@ -438,12 +441,12 @@ public class FlyingCam : MonoBehaviour
         target.gameObject.SendMessage("MoveTo", pos, SendMessageOptions.DontRequireReceiver);
     }
 
-    private void select(Transform target, int button)
+    private void select(Transform target, SelectionTypes button)
     {
         target.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
     }
 
-    private void unSelect(Transform target, int button)
+    private void unSelect(Transform target, SelectionTypes button)
     {
         target.gameObject.SendMessage("UnSelected", button, SendMessageOptions.DontRequireReceiver);
     }

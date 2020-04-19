@@ -13,28 +13,35 @@ using System.Threading.Tasks;
 using Project;
 using Newtonsoft.Json.Linq;
 
+/// <summary>
+/// Controls an instance of a Polygon Layer
+/// </summary>
 public class PolygonLayer : MonoBehaviour, ILayer
 {
 
     // Name of the input file, no extension
-    public string inputfile;
+    private string inputfile;
 
     // The prefab for the data points to be instantiated
-    public GameObject LinePrefab;
-    public GameObject HandlePrefab;
-    public GameObject PolygonPrefab;
-    public Material Mat;
+    public GameObject LinePrefab;   // Prefab to be used to build the perimeter line
+    public GameObject HandlePrefab; // prefab to be used for Vertex handles
+    public GameObject PolygonPrefab; // Prefab to be used for the polygons
+    public Material Mat; // Material to be used for the Polygon
 
     private GeoJsonReader geoJsonReader;
-    public RecordSet layer { get; set; }
-    public bool changed { get; set; }
-
+    public RecordSet layer { get; set; } // The layer RecordSet data
+    public bool changed { get; set; }  // whether the data is dirty and should be saved
+     
     private void Start()
     {
         StartCoroutine(GetEvents());
     }
 
-
+    /// <summary>
+    /// Fetch the data from the source fule in the GeogpraphyCollection and create the Features
+    /// </summary>
+    /// <param name="layer"> GeographyCollection</param>
+    /// <returns></returns>
     public async Task<GameObject> Init(GeographyCollection layer)
     {
         this.layer = layer;
@@ -56,7 +63,7 @@ public class PolygonLayer : MonoBehaviour, ILayer
             string gisId = feature.Id;
             ReadOnlyCollection<LineString> LinearRings = geometry.Coordinates;
             LineString perimeter = LinearRings[0];
-            Vector3[] poly = Tools.LS2Vect(perimeter, _map);
+            Vector3[] poly = Tools.LS2Vect(perimeter);
             Vector3 center = Vector3.zero;
             if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
             {
@@ -87,8 +94,8 @@ public class PolygonLayer : MonoBehaviour, ILayer
 
             //Draw the Polygon
             Mat.SetColor("_BaseColor", symbology["body"].Color);
-            com.Draw(poly, Mat);
-            dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, symbology["line"], LinePrefab, HandlePrefab, _map);
+            com.Draw(perimeter, Mat);
+            dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, symbology["line"], LinePrefab, HandlePrefab);
             centroid.SendMessage("SetColor", (Color)symbology["line"].Color);
             centroid.SendMessage("SetId", -1);
             centroid.transform.localScale = symbology["line"].Transform.Scale;
@@ -114,11 +121,17 @@ public class PolygonLayer : MonoBehaviour, ILayer
 
     }
 
+    /// <summary>
+    /// Called when an Edit Session ends
+    /// </summary>
     public void ExitEditsession()
     {
         Save();
     }
 
+    /// <summary>
+    /// Called when the layer is saved. Only Save Dirty data
+    /// </summary>
     public async void Save()
     {
         Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
@@ -126,7 +139,7 @@ public class PolygonLayer : MonoBehaviour, ILayer
         foreach (Datapolygon dataFeature in dataFeatures)
         {
             DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
-            Vector3[] vertices = perimeter.GetVertices();
+            Vector3[] vertices = perimeter.GetVerteces();
             List<Position> positions = new List<Position>();
             foreach (Vector3 vertex in vertices)
             {
@@ -141,7 +154,7 @@ public class PolygonLayer : MonoBehaviour, ILayer
             LinearRings.Add(line);
             IDictionary<string, object> properties = dataFeature.gisProperties;
             DatapointSphere centroid = dataFeature.centroid;
-            properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.position));
+            properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
             features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
         };
         FeatureCollection FC = new FeatureCollection(features);
@@ -149,6 +162,11 @@ public class PolygonLayer : MonoBehaviour, ILayer
         await geoJsonReader.Save();
     }
 
+    /// <summary>
+    /// Gets the EventManager, waiting for it to be instantiated if neccesary, and adds the appropriate events :
+    /// ExitEditSession,
+    /// </summary>
+    /// <returns>EventManager</returns>
     IEnumerator GetEvents()
     {
         GameObject Map = Global.Map;

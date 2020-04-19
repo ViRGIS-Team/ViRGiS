@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEngine;
-using System;
-using Mapbox.Unity.Utilities;
-using Mapbox.Unity.Map;
-using Mapbox.Utils;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
+
+/// <summary>
+/// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
+/// </summary>
 public class LineLayer : MonoBehaviour, ILayer
 {
     // Name of the input file, no extension
-    public string inputfile;
+    private string inputfile;
 
     // The prefab for the data points to be instantiated
     public GameObject LinePrefab;
@@ -23,21 +23,23 @@ public class LineLayer : MonoBehaviour, ILayer
 
     private GeoJsonReader geoJsonReader;
 
-    public bool changed { get; set; }
-    public RecordSet layer { get; set; }
+    public bool changed { get; set; } // shows if the data is dirty and should be saved
+    public RecordSet layer { get; set; } // the layer RecordSet data
 
     private void Start()
     {
         StartCoroutine(GetEvents());
     }
 
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// Loads the Layer data from the source file in the GeographyCollection data and draws the data
+    /// </summary>
+    /// <param name="layer"> A GeographyCollection</param>
+    /// <returns></returns>
     public async Task<GameObject> Init(GeographyCollection layer)
     {
         this.layer = layer;
         // get geojson data
-        AbstractMap _map = Global._map;
         inputfile = layer.Source;
         Dictionary<string, Unit> symbology = layer.Properties.Units;
 
@@ -64,7 +66,7 @@ public class LineLayer : MonoBehaviour, ILayer
             com.gisProperties = properties;
 
             //Draw the line
-            com.Draw(lines[0], symbology["default"], LinePrefab, HandlePrefab, _map);
+            com.Draw(lines[0], symbology["default"], LinePrefab, HandlePrefab);
             //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
 
         };
@@ -72,18 +74,24 @@ public class LineLayer : MonoBehaviour, ILayer
         return gameObject;
     }
 
+    /// <summary>
+    /// called when an Edit Session is ended
+    /// </summary>
     public void ExitEditsession()
     {
         Save();
     }
 
+    /// <summary>
+    /// called to save the data. Only saves data that is dirty
+    /// </summary>
     public async void Save()
     {
         DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
         List<Feature> features = new List<Feature>();
         foreach (DatalineCylinder dataFeature in dataFeatures)
         {
-            Vector3[] vertices = dataFeature.GetVertices();
+            Vector3[] vertices = dataFeature.GetVerteces();
             List<Position> positions = new List<Position>();
             foreach (Vector3 vertex in vertices)
             {
@@ -98,6 +106,11 @@ public class LineLayer : MonoBehaviour, ILayer
         await geoJsonReader.Save();
     }
 
+    /// <summary>
+    /// Gets the EventManager, waiting for it to instantiate if it does not exist. Adss the listerners required :
+    /// ExitEditSession,
+    /// </summary>
+    /// <returns>EventManager</returns>
     IEnumerator GetEvents()
     {
         GameObject Map = Global.Map;
