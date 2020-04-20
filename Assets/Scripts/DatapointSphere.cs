@@ -12,16 +12,13 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
 
     public Color color; // color of the marker
     public Color anticolor; // color of the market when selected
-
-    public Transform viewer; // GO of the camera or a a direct parent - used to orient the billboards
-    public Transform label; //  Go of the label or billboard
-
     public string gisId; // ID of this market in the geoJSON
     public IDictionary<string, object> gisProperties; //  geoJSON properties of this marker
 
     private int id; // internal ID for this marker - used when it is part of a larger structure
-    private Renderer thisRenderer; // convenience link to the rendere for this marker 
-    
+    private Renderer thisRenderer; // convenience link to the rendere for this marker
+    private Transform label; //  Go of the label or billboard
+
 
     void Start()
     {
@@ -30,7 +27,6 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
         {
             thisRenderer.material.SetColor("_BaseColor", color);
         }
-        viewer = Camera.main.transform;
         if (transform.childCount > 0) label = transform.GetChild(0);
     }
 
@@ -39,7 +35,7 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     /// </summary>
     void Update()
     {
-        if (label) label.LookAt(viewer);
+        if (label) label.LookAt(Global.mainCamera.transform);
 
     }
 

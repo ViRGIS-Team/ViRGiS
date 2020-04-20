@@ -67,6 +67,38 @@ public static class LineExtensionMethods
     }
 }
 
+public static class DcurveExtensions
+{
+    public static void Vector3(this DCurve3 curve, Vector3[] verteces, bool bClosed)
+    {
+        curve.Closed = bClosed;
+        foreach (Vector3 vertex in verteces)
+        {
+            curve.AppendVertex(vertex);
+        }
+    }
+
+    public static Vector3d Center(this DCurve3 curve)
+    {
+        Vector3d center = Vector3d.Zero;
+        int len = curve.SegmentCount;
+        if (!curve.Closed) len++;
+        for (int i=0; i<len; i++)
+            {
+            center += curve.GetVertex(i);
+            }
+        center /= len;
+        return center;
+    }
+
+    public static Vector3d CenterMark(this DCurve3 curve)
+    {
+        _ = curve.DistanceSquared(curve.Center(), out int iSeg, out double tangent);
+        Segment3d seg = curve.GetSegment(iSeg);
+        return seg.Center;
+    }
+}
+
 /// <summary>
 /// Generic class to an entity testabble - to allow the members to be tested for their presence
 /// </summary>

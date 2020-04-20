@@ -7,6 +7,8 @@ using System;
 using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Project;
+using g3;
+using UnityEngine.UI;
 
 /// <summary>
 /// Controls and Instance of a Line Component
@@ -15,13 +17,23 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
 {
     public Color color; // color for the line
     public Color anticolor; // color for the vertces when selected
+    public GameObject CylinderObject;
+    public string gisId; // the ID for this line from the geoJSON
+    public IDictionary<string, object> gisProperties; // the properties for this entity
+
+
     private bool BlockMove = false; // is this line in a block-move state
     private bool Lr = false; // is this line a Linear Ring - i.e. used to define a polygon
+    private Transform label; //  Go of the label or billboard
 
-    public GameObject CylinderObject; 
+    /// <summary>
+    /// Every frame - realign the billboard
+    /// </summary>
+    void Update()
+    {
+        if (label) label.LookAt(Global.mainCamera.transform);
 
-    public string gisId; // the ID for this line from the geoJSON
-    public IDictionary<string, object> gisProperties; // the properties for this 
+    }
 
     /// <summary>
     /// Sets the Color of the line
@@ -63,11 +75,15 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
     /// <param name="symbology">The symbo,logy to be applied to the loine</param>
     /// <param name="LinePrefab"> The prefab to be used for the line</param>
     /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
-    public void Draw(LineString lineIn, Unit symbology, GameObject LinePrefab, GameObject HandlePrefab)
+    /// <param name="LabelPrefab"> the prefab to used for the label</param>
+    public void Draw(LineString lineIn, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab)
     {
         AbstractMap _map = Global._map;
         Vector3[] line = Tools.LS2Vect(lineIn);
         Lr = lineIn.IsLinearRing();
+        DCurve3 curve = new DCurve3();
+        curve.Vector3(line, Lr);
+        Vector3 center = (Vector3)curve.CenterMark();
 
         int i = 0;
         foreach (Vector3 vertex in line)
@@ -75,29 +91,37 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
             if (!(i + 1 == line.Length && Lr))
             {
                 GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
-                handle.transform.parent = gameObject.transform;
+                handle.transform.parent = transform;
                 handle.SendMessage("SetId", i);
-                handle.SendMessage("SetColor", (Color)symbology.Color);
-                handle.transform.localScale = symbology.Transform.Scale;
+                handle.SendMessage("SetColor", (Color)symbology["point"].Color);
+                handle.transform.localScale = symbology["point"].Transform.Scale;
             }
             if (i + 1 != line.Length)
             {
                 GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
-                lineSegment.transform.parent = gameObject.transform;
+                lineSegment.transform.parent = transform;
                 CylinderLine com = lineSegment.GetComponent<CylinderLine>();
                 com.SetId(i);
-                com.Draw(vertex, line[i + 1], i, i+1, 0.5f);
-                com.SetColor((Color)symbology.Color);
+                com.Draw(vertex, line[i + 1], i, i+1, symbology["line"].Transform.Scale.magnitude);
+                com.SetColor((Color)symbology["line"].Color);
                 if (i + 2 == line.Length && Lr) com.vEnd = 0;
             }
             i++;
         }
-        GameObject labelObject = new GameObject();
-        labelObject.transform.parent = gameObject.transform;
-        labelObject.transform.localPosition = new Vector3(0, 0, 0);
-        labelObject.AddComponent(typeof(TextMesh));
-        gameObject.transform.parent = gameObject.transform;
 
+        //Set the label
+        if (LabelPrefab != null)
+        {
+            GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
+            labelObject.transform.parent = transform;
+            labelObject.transform.Translate(Vector3.up * symbology["line"].Transform.Scale.magnitude);
+            label = labelObject.transform;
+            Text labelText = labelObject.GetComponentInChildren<Text>();
+            if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
+            {
+                labelText.text = (string)gisProperties[symbology["line"].Label];
+            }
+        }
     }
 
     /// <summary>

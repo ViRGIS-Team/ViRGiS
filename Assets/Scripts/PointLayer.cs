@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using Mapbox.Unity.Map;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
+using UnityEngine.UI;
 
 public class PointLayer : MonoBehaviour, ILayer
 {
@@ -15,6 +15,7 @@ public class PointLayer : MonoBehaviour, ILayer
     public GameObject SpherePrefab;
     public GameObject CubePrefab;
     public GameObject CylinderPrefab;
+    public GameObject LabelPrefab;
 
     private GeoJsonReader geoJsonReader;
 
@@ -33,9 +34,10 @@ public class PointLayer : MonoBehaviour, ILayer
         AbstractMap _map = Global._map;
         Dictionary<string, Unit> symbology = layer.Properties.Units;
         GameObject PointPrefab = new GameObject();
-        if (symbology.ContainsKey("default") && symbology["default"].ContainsKey("Shape"))
+        float displacement = 1.0f;
+        if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
         {
-            Shapes shape = symbology["default"].Shape;
+            Shapes shape = symbology["point"].Shape;
             switch (shape)
             {
                 case Shapes.Spheroid:
@@ -46,6 +48,7 @@ public class PointLayer : MonoBehaviour, ILayer
                     break;
                 case Shapes.Cylinder:
                     PointPrefab = CylinderPrefab;
+                    displacement = 1.5f;
                     break;
             }
         } else
@@ -90,26 +93,27 @@ public class PointLayer : MonoBehaviour, ILayer
                 com.gisId = gisId;
                 com.gisProperties = properties;
 
-                //Set the label
-                GameObject labelObject = new GameObject();
-                labelObject.transform.parent = dataPoint.transform;
-                TextMesh labelMesh = labelObject.AddComponent(typeof(TextMesh)) as TextMesh;
-
-                if (symbology.ContainsKey("default") && symbology["default"].ContainsKey("Label") && symbology["default"].Label != null && properties.ContainsKey(symbology["default"].Label))
-                {
-                    labelMesh.text = (string)properties[symbology["default"].Label];
-                }
-
-
                 //Set the symbology
-                if (symbology.ContainsKey("default"))
+                if (symbology.ContainsKey("point"))
                 {
-                    dataPoint.SendMessage("SetColor", (Color)symbology["default"].Color);
-                    dataPoint.transform.localScale = symbology["default"].Transform.Scale;
-                    dataPoint.transform.localRotation = symbology["default"].Transform.Rotate;
-                    dataPoint.transform.localPosition = symbology["default"].Transform.Position;
+                    dataPoint.SendMessage("SetColor", (Color)symbology["point"].Color);
+                    dataPoint.transform.localScale = symbology["point"].Transform.Scale;
+                    dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
+                    dataPoint.transform.localPosition = symbology["point"].Transform.Position;
                     dataPoint.transform.position = position;
                 }
+
+                //Set the label
+                GameObject labelObject = Instantiate(LabelPrefab, Vector3.zero, Quaternion.identity);
+                labelObject.transform.parent = dataPoint.transform;
+                labelObject.transform.localPosition = Vector3.up * displacement;
+                Text labelText = labelObject.GetComponentInChildren<Text>();
+
+                if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && properties.ContainsKey(symbology["point"].Label))
+                {
+                    labelText.text = (string)properties[symbology["point"].Label];
+                }
+
             }
         };
         changed = false;

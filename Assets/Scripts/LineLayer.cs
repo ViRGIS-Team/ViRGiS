@@ -20,6 +20,7 @@ public class LineLayer : MonoBehaviour, ILayer
     // The prefab for the data points to be instantiated
     public GameObject LinePrefab;
     public GameObject HandlePrefab;
+    public GameObject LabelPrefab;
 
     private GeoJsonReader geoJsonReader;
 
@@ -66,7 +67,7 @@ public class LineLayer : MonoBehaviour, ILayer
             com.gisProperties = properties;
 
             //Draw the line
-            com.Draw(lines[0], symbology["default"], LinePrefab, HandlePrefab);
+            com.Draw(lines[0], symbology, LinePrefab, HandlePrefab, LabelPrefab);
             //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
 
         };
