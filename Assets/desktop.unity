@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 106905128}
   - component: {fileID: 106905126}
   - component: {fileID: 106905127}
-  - component: {fileID: 106905129}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -364,19 +363,6 @@ Transform:
   m_Father: {fileID: 8014837}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &106905129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106905125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16d94b69746aea4a97119c87ef87e08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 758461130}
 --- !u!21 &594123726
 Material:
   serializedVersion: 6
@@ -573,12 +559,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 758461128}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &758461130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6593164212492740810, guid: 435fbac754dd89c4d9ad621507160b15,
+--- !u!114 &758461131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6593164212492740808, guid: 435fbac754dd89c4d9ad621507160b15,
     type: 3}
   m_PrefabInstance: {fileID: 758461128}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61731b8d99f8600429dd68fbf8a17b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959037924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1257486800756004, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
@@ -2157,6 +2149,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9cd3addd-8717-403c-824a-67f29592586a
     m_ActionName: Player/PanZoom[/Keyboard/minus,/Keyboard/equals,/Keyboard/comma,/Keyboard/period]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 758461131}
+        m_MethodName: HandleKeyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0992050d-2039-43e2-b326-ece2f6f5a525
+    m_ActionName: Player/Show Menu[/Keyboard/m]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

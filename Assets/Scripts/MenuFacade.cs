@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MenuFacade : MonoBehaviour
 {
@@ -21,5 +22,12 @@ public class MenuFacade : MonoBehaviour
         gameObject.SetActive(thisEvent);
     }
 
+    public void HandleKeyInput(InputAction.CallbackContext context) {
+        InputAction action = context.action;
+        if (action.name == "ShowMenu") {
+            bool isActive = gameObject.activeSelf;
+            gameObject.SetActive(!isActive);
+        }
+    }
 
 }
