@@ -76,6 +76,27 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
     }
 
     /// <summary>
+    /// received when a Move Axis request is made by the user
+    /// </summary>
+    /// <param name="delta"> Vector representing this channge to the transform</param>
+    /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
+    public void MoveAxis(MoveArgs args)
+    {
+        args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
+        shape.transform.RotateAround(args.pos, axis, angle);
+        Vector3 A = shape.transform.localPosition;
+        Vector3 B = transform.InverseTransformPoint(args.pos);
+        Vector3 C = A - B;
+        float RS = args.scale;
+        Vector3 FP = B + C * RS;
+        if (FP.magnitude < float.MaxValue)
+        {
+            shape.transform.localScale = shape.transform.localScale * RS;
+            shape.transform.localPosition = FP;
+        }
+    }
+
+    /// <summary>
     /// Change the Color of the component
     /// </summary>
     /// <param name="newCol"></param>

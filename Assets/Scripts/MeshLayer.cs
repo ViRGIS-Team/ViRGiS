@@ -78,10 +78,30 @@ public class MeshLayer : MonoBehaviour, ILayer
     {
         foreach (GameObject mesh in meshes) {
             if (args.translate != Vector3.zero) mesh.transform.Translate(args.translate, Space.World);
-            if (args.rotate != Quaternion.identity) mesh.transform.rotation = mesh.transform.rotation * args.rotate;
-            if (args.scale != 0.0f) mesh.transform.localScale = mesh.transform.localScale * args.scale;
             changed = true;
         }
+    }
+
+    /// <summary>
+    /// received when a Move Axis request is made by the user
+    /// </summary>
+    /// <param name="delta"> Vector representing this channge to the transform</param>
+    /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
+    public void MoveAxis(MoveArgs args)
+    {
+        args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
+        transform.RotateAround(args.pos, axis, angle);
+        Vector3 A = transform.localPosition;
+        Vector3 B = transform.InverseTransformPoint(args.pos);
+        Vector3 C = A - B;
+        float RS = args.scale;
+        Vector3 FP = B + C * RS;
+        if (FP.magnitude < float.MaxValue)
+        {
+            transform.localScale = transform.localScale * RS;
+            transform.localPosition = FP;
+        }
+        changed = true;
     }
 
     public void Save()

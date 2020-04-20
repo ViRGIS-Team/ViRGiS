@@ -73,10 +73,11 @@ public class CylinderLine : MonoBehaviour, IVirgisComponent
     private void _draw()
     {
 
-        gameObject.transform.localPosition = start;
-        gameObject.transform.LookAt(transform.parent.TransformPoint(end));
+        transform.localPosition = start;
+        transform.LookAt(transform.parent.TransformPoint(end));
         float length = Vector3.Distance(start, end) / 2.0f;
-        gameObject.transform.localScale = new Vector3(diameter, diameter, length);
+        Vector3 linescale = transform.parent.localScale;
+        transform.localScale = new Vector3(diameter / linescale.x , diameter / linescale.y, length);
     }
 
     /// <summary>

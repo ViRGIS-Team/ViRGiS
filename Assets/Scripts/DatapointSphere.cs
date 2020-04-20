@@ -131,4 +131,14 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     {
 
     }
+
+    /// <summary>
+    /// received when a Move Axis request is made by the user
+    /// </summary>
+    /// <param name="delta"> Vector representing this channge to the transform</param>
+    public void MoveAxis(MoveArgs args) 
+    {
+        args.pos = transform.position;
+        transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
+    }
 }

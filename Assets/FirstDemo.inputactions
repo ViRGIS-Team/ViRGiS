@@ -76,6 +76,22 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LHPosition",
+                    "type": "Value",
+                    "id": "e661d522-723a-4a8d-86ea-ee0033c37533",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RHPosition",
+                    "type": "Value",
+                    "id": "8838b563-cab0-442c-9934-3aaee6c3da96",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -454,6 +470,61 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "c606309e-0944-4b96-bf1a-5adfda5a55b4",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MultiSelect",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "001408cc-86af-48ee-a2a1-e0e64cd34b7d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "6589643f-00c8-488b-b660-2d5a042892cc",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e3274da7-d489-418a-bf89-3dc2ff0a262d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "2e73ae53-8eca-498a-a59b-613ef1e73609",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "Pan/Zoom",
                     "id": "9f6da5b4-9985-476b-9aa5-9bfd1a541081",
                     "path": "2DVector",
@@ -516,6 +587,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "PanZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "811293e7-eca0-43e6-920e-22c84c60ea31",
+                    "path": "<XRController>{LeftHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "LHPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7847fc88-83ad-4f84-b571-2c9647fe1c68",
+                    "path": "<XRController>{RightHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "RHPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

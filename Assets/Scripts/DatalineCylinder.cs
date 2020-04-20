@@ -69,6 +69,42 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
     }
 
     /// <summary>
+    /// received when a Move Axis request is made by the user
+    /// </summary>
+    /// <param name="delta"> Vector representing this channge to the transform</param>
+    /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
+    public void MoveAxis(MoveArgs args)
+    {
+            args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
+            transform.RotateAround(args.pos, axis, angle);
+            Vector3 A = transform.localPosition;
+            Vector3 B = transform.parent.InverseTransformPoint(args.pos);
+            Vector3 C = A - B;
+            float RS = args.scale;
+            Vector3 FP = B + C * RS;
+            if (FP.magnitude < float.MaxValue)
+            {
+                transform.localScale = transform.localScale * RS;
+                transform.localPosition = FP;
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    Transform T = transform.GetChild(i);
+                    if (T.GetComponent<CylinderLine>() != null)
+                    {
+                        Vector3 local = T.localScale;
+                        local /= RS;
+                        local.z = T.localScale.z;
+                        T.localScale = local;
+                    }
+                    else
+                    {
+                        T.localScale /= RS;
+                    }
+                }
+            }
+    }
+
+    /// <summary>
     /// Called to draw the line
     /// </summary>
     /// <param name="lineIn"> A LineString</param>
