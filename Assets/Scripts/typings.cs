@@ -1,25 +1,28 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using System.Collections.ObjectModel;
 using UnityEngine;
-using System;
 using GeoJSON.Net.Geometry;
-using GeoJSON.Net.Feature;
-using Mapbox.Utils;
 using g3;
 using Project;
-using System.Threading.Tasks;
 
 
+/// <summary>
+/// Structure used to hold the details of a generic move request sent to a target enitity
+/// </summary>
 public struct MoveArgs {
-    public int id;
-    public Vector3 pos;
-    public Vector3 translate;
-    public Quaternion rotate;
-    public Vector3 oldPos;
-    public float scale;
+    public int id; // id of the sending entity
+    public Vector3 pos; // OPTIONAL point to move TO in world space coordinates
+    public Vector3 translate; // OPTIONSAL translation in world units to be applied to target
+    public Quaternion rotate; // OPTIONAL rotation to be applied to target
+    public Vector3 oldPos; // OPTIONAL point to move from
+    public float scale; // OPTIONAL change in scale to apply to target
+}
+
+public enum SelectionTypes
+{
+    SELECT,     // Select a sing;le vertex
+    SELECTALL,  // Select all verteces
+    BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
 }
 
 public static class PositionExtensionMethods
@@ -64,6 +67,41 @@ public static class LineExtensionMethods
     }
 }
 
+public static class DcurveExtensions
+{
+    public static void Vector3(this DCurve3 curve, Vector3[] verteces, bool bClosed)
+    {
+        curve.Closed = bClosed;
+        foreach (Vector3 vertex in verteces)
+        {
+            curve.AppendVertex(vertex);
+        }
+    }
+
+    public static Vector3d Center(this DCurve3 curve)
+    {
+        Vector3d center = Vector3d.Zero;
+        int len = curve.SegmentCount;
+        if (!curve.Closed) len++;
+        for (int i=0; i<len; i++)
+            {
+            center += curve.GetVertex(i);
+            }
+        center /= len;
+        return center;
+    }
+
+    public static Vector3d CenterMark(this DCurve3 curve)
+    {
+        _ = curve.DistanceSquared(curve.Center(), out int iSeg, out double tangent);
+        Segment3d seg = curve.GetSegment(iSeg);
+        return seg.Center;
+    }
+}
+
+/// <summary>
+/// Generic class to an entity testabble - to allow the members to be tested for their presence
+/// </summary>
 public class TestableObject
 {
     public bool ContainsKey( string propName)
@@ -108,6 +146,9 @@ public static class SimpleMeshExtensions
     }
 }
 
+/// <summary>
+/// Abstract parent for all Layer entities
+/// </summary>
 public interface ILayer
 {
     RecordSet layer { get; set; }
@@ -115,12 +156,19 @@ public interface ILayer
     void Save();
 }
 
+/// <summary>
+/// Abstract parent for all in game entities
+/// </summary>
 public interface IVirgisEntity
 {
-    void Selected(int button);
-    void UnSelected(int button);
+    void Selected(SelectionTypes button);
+    void UnSelected(SelectionTypes button);
+    void EditEnd();
 }
 
+/// <summary>
+/// Abstract Parent for all symbology relevant in game entities
+/// </summary>
 public interface IVirgisComponent :IVirgisEntity
 {
     void SetColor(Color color);
