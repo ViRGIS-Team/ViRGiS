@@ -75,6 +75,8 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
     /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
     public void MoveAxis(MoveArgs args)
     {
+
+            if (args.translate != null) transform.Translate(args.translate, Space.World);
             args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
             transform.RotateAround(args.pos, axis, angle);
             Vector3 A = transform.localPosition;
@@ -222,9 +224,12 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
     /// <param name="args">MoveArgs</param>
     public void Translate(MoveArgs args)
     {
-        if (BlockMove)
+        if (! BlockMove)
         {
             gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);
+        } else
+        {
+            transform.Translate(args.translate, Space.World);
         }
     }
 

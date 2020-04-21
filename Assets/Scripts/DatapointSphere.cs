@@ -91,10 +91,8 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
         MoveArgs args = new MoveArgs();
         args.translate = newPos - transform.position;
         args.oldPos = transform.position;
-        gameObject.transform.position = newPos;
         args.id = id;
-        args.pos = transform.position;
-        SendMessageUpwards("VertexMove", args, SendMessageOptions.DontRequireReceiver);
+        args.pos = newPos;
         SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
     }
 
@@ -104,7 +102,7 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     /// <param name="argsin">MoveArgs</param>
     void TranslateHandle(MoveArgs argsin)
     {
-        if (argsin.id != id)
+        if (argsin.id == id)
         {
             MoveArgs argsout = new MoveArgs();
             argsout.oldPos = transform.position;
@@ -138,7 +136,13 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     /// <param name="delta"> Vector representing this channge to the transform</param>
     public void MoveAxis(MoveArgs args) 
     {
-        args.pos = transform.position;
+       if (args.pos == null) 
+        {
+            args.translate = args.pos - transform.position;
+        } else
+        {
+            args.pos = transform.position;
+        }
         transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
     }
 }

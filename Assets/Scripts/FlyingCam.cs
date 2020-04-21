@@ -49,6 +49,7 @@ public class FlyingCam : MonoBehaviour
     private bool lhGripState = false; // current state of the RH grip
     private Vector3 axis; // axis represented by the line between the two ocntrollers
     private bool AxisEdit = false;
+    private Vector3 point;
 
 
     private void Start()
@@ -485,7 +486,11 @@ public class FlyingCam : MonoBehaviour
 
     private void moveTo(Transform target, Vector3 pos)
     {
-        target.gameObject.SendMessage("MoveTo", pos, SendMessageOptions.DontRequireReceiver);
+        point = pos;
+        if (!AxisEdit)
+        {
+            target.gameObject.SendMessage("MoveTo", pos, SendMessageOptions.DontRequireReceiver);
+        } 
     }
 
     private void select(Transform target, SelectionTypes button)
@@ -502,6 +507,7 @@ public class FlyingCam : MonoBehaviour
     {
         if (AxisEdit)
         {
+            args.pos = point;
             target.gameObject.SendMessage("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
         }
     }

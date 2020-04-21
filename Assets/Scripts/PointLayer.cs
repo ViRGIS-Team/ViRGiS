@@ -59,6 +59,7 @@ public class PointLayer : MonoBehaviour, ILayer
         geoJsonReader = new GeoJsonReader();
         await geoJsonReader.Load(layer.Source);
         FeatureCollection myFC = geoJsonReader.getFeatureCollection();
+        int id = 0;
 
         foreach (Feature feature in myFC.Features)
         {
@@ -92,6 +93,7 @@ public class PointLayer : MonoBehaviour, ILayer
                 DatapointSphere com = dataPoint.GetComponent<DatapointSphere>();
                 com.gisId = gisId;
                 com.gisProperties = properties;
+                com.SetId(id);
 
                 //Set the symbology
                 if (symbology.ContainsKey("point"))
@@ -113,6 +115,8 @@ public class PointLayer : MonoBehaviour, ILayer
                 {
                     labelText.text = (string)properties[symbology["point"].Label];
                 }
+
+                id++;
 
             }
         };
@@ -139,6 +143,20 @@ public class PointLayer : MonoBehaviour, ILayer
 
     }
 
+    /// <summary>
+    /// Called when a child component is translated by User action
+    /// </summary>
+    /// <param name="args">MoveArgs</param>
+    public void Translate(MoveArgs args)
+    {
+        gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);
+        changed = true;
+    }
+
+    /// <summary>
+    /// Get the Eventmanager and set up the event listerners
+    /// </summary>
+    /// <returns></returns>
     IEnumerator GetEvents()
     {
         GameObject Map = Global.Map;

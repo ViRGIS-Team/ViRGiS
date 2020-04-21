@@ -66,7 +66,7 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
         if (BlockMove)
         {
             GameObject shape = gameObject.transform.Find("Polygon Shape").gameObject;
-            shape.transform.Translate(data.translate);
+            shape.transform.Translate(data.translate, Space.World);
             if (data.id < 0)
             {
                 DatalineCylinder com = gameObject.GetComponentInChildren<DatalineCylinder>();
@@ -82,6 +82,7 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
     /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
     public void MoveAxis(MoveArgs args)
     {
+        if (args.translate != null) shape.transform.Translate(args.translate, Space.World);
         args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
         shape.transform.RotateAround(args.pos, axis, angle);
         Vector3 A = shape.transform.localPosition;
@@ -158,26 +159,6 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
 
     }
 
-    /*/// <summary>
-    /// refresh the polygon mesh after a vertex move
-    /// </summary>
-    /// <param name="poly"></param>
-    /// <param name="center"></param>
-    /// <returns></returns>
-    public GameObject RefreshMesh(Vector3[] poly, Vector3 center)
-    {
-        Mesh mesh = shape.GetComponent<MeshFilter>().mesh;
-        mesh.Clear();
-        Vector3[] vertices = Vertices(poly, center);
-        mesh.vertices = vertices;
-        mesh.triangles = Triangles(poly.Length);
-        mesh.uv = BuildUVs(vertices);
-
-        mesh.RecalculateBounds();
-        mesh.RecalculateNormals();
-        return gameObject;
-    }*/
-
     /// <summary>
     /// Move a vertex of the polygon and recreate the mesh
     /// </summary>
@@ -186,7 +167,9 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
     {
         Mesh mesh = shape.GetComponent<MeshFilter>().mesh;
         Vector3[] vertices = mesh.vertices;
-        vertices[data.id + 1] = vertices[data.id + 1] + transform.InverseTransformVector(data.translate);
+        Debug.Log("translate poly vertex");
+        Debug.Log(shape.transform.InverseTransformVector(data.translate));
+        vertices[data.id + 1] = shape.transform.InverseTransformVector(data.pos);
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
