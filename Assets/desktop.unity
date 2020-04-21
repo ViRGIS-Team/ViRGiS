@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -442,6 +442,18 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!1 &642938070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6593164212043792382, guid: 435fbac754dd89c4d9ad621507160b15,
+    type: 3}
+  m_PrefabInstance: {fileID: 758461128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &661546163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7412242567374631322, guid: 435fbac754dd89c4d9ad621507160b15,
+    type: 3}
+  m_PrefabInstance: {fileID: 758461128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &758461128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,11 +461,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8014837}
     m_Modifications:
+    - target: {fileID: 1948887143897960684, guid: 435fbac754dd89c4d9ad621507160b15,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661546163}
+    - target: {fileID: 1948887143897960684, guid: 435fbac754dd89c4d9ad621507160b15,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6593164211984152678, guid: 435fbac754dd89c4d9ad621507160b15,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 106905126}
+    - target: {fileID: 6593164212043792380, guid: 435fbac754dd89c4d9ad621507160b15,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 642938070}
+    - target: {fileID: 6593164212043792380, guid: 435fbac754dd89c4d9ad621507160b15,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6593164212492740809, guid: 435fbac754dd89c4d9ad621507160b15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -527,6 +559,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 758461128}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &758461131 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6593164212492740808, guid: 435fbac754dd89c4d9ad621507160b15,
+    type: 3}
+  m_PrefabInstance: {fileID: 758461128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61731b8d99f8600429dd68fbf8a17b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959037924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1257486800756004, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
@@ -2105,6 +2149,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9cd3addd-8717-403c-824a-67f29592586a
     m_ActionName: Player/PanZoom[/Keyboard/minus,/Keyboard/equals,/Keyboard/comma,/Keyboard/period]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 758461131}
+        m_MethodName: HandleKeyInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0992050d-2039-43e2-b326-ece2f6f5a525
+    m_ActionName: Player/Show Menu[/Keyboard/m]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
