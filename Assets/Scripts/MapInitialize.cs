@@ -78,7 +78,7 @@ public class MapInitialize : MonoBehaviour
             temp.transform.parent = Map.transform;
             Global.layers.Add(temp);
         }
-        eventManager.OnEditsessionEnd.AddListener(ExitEditsession);
+        eventManager.EditSessionEndEvent.AddListener(ExitEditsession);
     }
 
     public void ExitEditsession()
