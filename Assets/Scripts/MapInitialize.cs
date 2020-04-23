@@ -69,10 +69,10 @@ public class MapInitialize : MonoBehaviour
                     temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer as GeographyCollection);
                     break;
                 case RecordSetDataType.PointCloud:
-                    temp = await Instantiate(PointCloud, layer.Position.Coordinates.Vector3(), Quaternion.identity).GetComponent<PointCloudLayer>().Init(layer as GeographyCollection);
+                    temp = await Instantiate(PointCloud, Vector3.zero, Quaternion.identity).GetComponent<PointCloudLayer>().Init(layer as GeographyCollection);
                     break;
                 case RecordSetDataType.Mesh:
-                    temp = await Instantiate(MeshLayer, layer.Position.Coordinates.Vector3(), Quaternion.identity).GetComponent<MeshLayer>().Init(layer as GeographyCollection);
+                    temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(layer as GeographyCollection);
                     break;
             }
             temp.transform.parent = Map.transform;
@@ -86,20 +86,16 @@ public class MapInitialize : MonoBehaviour
         Save();
     }
 
-    async void Save()
+    public void Save()
     {
         foreach (GameObject go in Global.layers)
         {
             ILayer com = go.GetComponent<ILayer>();
-            if (com.changed)
-            {
-                com.Save();
-                RecordSet layer = com.layer;
-                int index = Global.project.RecordSets.FindIndex( x => x.Id == layer.Id);
-                Global.project.RecordSets[index] = layer;
-            }
+            RecordSet layer = com.Save();
+            int index = Global.project.RecordSets.FindIndex( x => x.Id == layer.Id);
+            Global.project.RecordSets[index] = layer;
         }
         geoJsonReader.SetProject(Global.project);
-        await geoJsonReader.Save();
+        geoJsonReader.Save();
     }
 }

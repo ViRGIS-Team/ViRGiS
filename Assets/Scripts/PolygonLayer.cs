@@ -31,7 +31,7 @@ public class PolygonLayer : MonoBehaviour, ILayer
 
     private GeoJsonReader geoJsonReader;
     public RecordSet layer { get; set; } // The layer RecordSet data
-    public bool changed { get; set; }  // whether the data is dirty and should be saved
+    public bool changed { get; set; } = false; // whether the data is dirty and should be saved
      
     private void Start()
     {
@@ -101,12 +101,12 @@ public class PolygonLayer : MonoBehaviour, ILayer
             }
 
             //Create the GameObjects
-            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(perimeter.Coordinates[0] as Position), Quaternion.identity);
+            GameObject dataLine = Instantiate(LinePrefab, center, Quaternion.identity);
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
             GameObject centroid = Instantiate(HandlePrefab, center, Quaternion.identity);
             dataPoly.transform.parent = gameObject.transform;
             dataLine.transform.parent = dataPoly.transform;
-            centroid.transform.parent = dataPoly.transform;
+            centroid.transform.parent = dataLine.transform;
 
             // add the gis data from geoJSON
             Datapolygon com = dataPoly.GetComponent<Datapolygon>();
@@ -149,40 +149,62 @@ public class PolygonLayer : MonoBehaviour, ILayer
     /// </summary>
     public void ExitEditsession()
     {
-        Save();
+        BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
     }
 
     /// <summary>
     /// Called when the layer is saved. Only Save Dirty data
     /// </summary>
-    public async void Save()
+    public RecordSet Save()
     {
-        Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
-        List<Feature> features = new List<Feature>();
-        foreach (Datapolygon dataFeature in dataFeatures)
+        if (changed)
         {
-            DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
-            Vector3[] vertices = perimeter.GetVerteces();
-            List<Position> positions = new List<Position>();
-            foreach (Vector3 vertex in vertices)
+            Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
+            List<Feature> features = new List<Feature>();
+            foreach (Datapolygon dataFeature in dataFeatures)
             {
-                positions.Add(Tools.Vect2Ipos(vertex) as Position);
-            }
-            LineString line = new LineString(positions);
-            if (!line.IsLinearRing())
-            {
-                throw new System.ArgumentException("This Polygon is not a Linear Ring", dataFeature.gisProperties.ToString());
-            }
-            List<LineString> LinearRings = new List<LineString>();
-            LinearRings.Add(line);
-            IDictionary<string, object> properties = dataFeature.gisProperties;
-            DatapointSphere centroid = dataFeature.centroid;
-            properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
-            features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
-        };
-        FeatureCollection FC = new FeatureCollection(features);
-        geoJsonReader.SetFeatureCollection(FC);
-        await geoJsonReader.Save();
+                DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
+                Vector3[] vertices = perimeter.GetVerteces();
+                List<Position> positions = new List<Position>();
+                foreach (Vector3 vertex in vertices)
+                {
+                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                }
+                LineString line = new LineString(positions);
+                if (!line.IsLinearRing())
+                {
+                    throw new System.ArgumentException("This Polygon is not a Linear Ring", dataFeature.gisProperties.ToString());
+                }
+                List<LineString> LinearRings = new List<LineString>();
+                LinearRings.Add(line);
+                IDictionary<string, object> properties = dataFeature.gisProperties;
+                DatapointSphere centroid = dataFeature.centroid;
+                properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
+                features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
+            };
+            FeatureCollection FC = new FeatureCollection(features);
+            geoJsonReader.SetFeatureCollection(FC);
+            geoJsonReader.Save();
+        }
+        return layer;
+    }
+
+    /// <summary>
+    /// Called when a child component is translated by User action
+    /// </summary>
+    /// <param name="args">MoveArgs</param>
+    public void Translate(MoveArgs args)
+    {
+        changed = true;
+    }
+
+    /// <summary>
+    /// received when a Move Axis request is made by the user
+    /// </summary>
+    /// <param name="args">MoveArgs</param>
+    public void MoveAxis(MoveArgs args)
+    {
+        changed = true;
     }
 
     /// <summary>

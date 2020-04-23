@@ -60,29 +60,28 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
     /// <summary>
     /// called when a child component is asked to move by the user
     /// </summary>
-    /// <param name="data"> MoveArgs</param>
-    public void Translate(MoveArgs data)
+    /// <param name="args"> MoveArgs</param>
+    public void Translate(MoveArgs args)
     {
         if (BlockMove)
         {
             GameObject shape = gameObject.transform.Find("Polygon Shape").gameObject;
-            shape.transform.Translate(data.translate, Space.World);
-            if (data.id < 0)
-            {
-                DatalineCylinder com = gameObject.GetComponentInChildren<DatalineCylinder>();
-                com.Translate(data);
-            }
-        }
+            shape.transform.Translate(args.translate, Space.World);
+        } 
+
     }
 
     /// <summary>
     /// received when a Move Axis request is made by the user
     /// </summary>
-    /// <param name="delta"> Vector representing this channge to the transform</param>
+    /// <param name="args"> MoveArgs</param>
     /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
     public void MoveAxis(MoveArgs args)
     {
-        if (args.translate != null) shape.transform.Translate(args.translate, Space.World);
+        if (args.translate != null)
+        {
+            shape.transform.Translate(args.translate, Space.World);
+        }
         args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
         shape.transform.RotateAround(args.pos, axis, angle);
         Vector3 A = shape.transform.localPosition;
@@ -167,9 +166,7 @@ public class Datapolygon : MonoBehaviour, IVirgisComponent
     {
         Mesh mesh = shape.GetComponent<MeshFilter>().mesh;
         Vector3[] vertices = mesh.vertices;
-        Debug.Log("translate poly vertex");
-        Debug.Log(shape.transform.InverseTransformVector(data.translate));
-        vertices[data.id + 1] = shape.transform.InverseTransformVector(data.pos);
+        vertices[data.id + 1] = shape.transform.InverseTransformPoint(data.pos);
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
