@@ -7,17 +7,34 @@ using UnityEngine.Events;
 public class EventManager : MonoBehaviour
 {
 
-    public UnityEvent OnEditsessionEnd;
+    public UnityEvent EditSessionEndEvent;
+    public UnityEvent EditSessionStartEvent;
+
     // Start is called before the first frame update
     void Start()
     {
-        OnEditsessionEnd = new UnityEvent();
+        EditSessionEndEvent = new UnityEvent();
+        EditSessionStartEvent = new UnityEvent();
 
+        EditSessionStartEvent.AddListener(StartEditSession);
+        EditSessionEndEvent.AddListener(EndEditSession);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    // TODO: Create a separate object to manage EditSession state and configs.
+
+    // Start EditSession
+    private void StartEditSession() {
+        Global.EditSession = true;
+    }
+
+    // End EditSession
+    private void EndEditSession() {
+        Global.EditSession = false;
     }
 }

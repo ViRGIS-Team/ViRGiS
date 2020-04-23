@@ -167,15 +167,15 @@ public class FlyingCam : MonoBehaviour
     public void HandleKeyInput(InputAction.CallbackContext context)
     {
         InputAction action = context.action;
-        if (action.name == "Edit" && !Global.EditSession)
+        if (action.name == "StartEdit")
         {
-            Global.EditSession = true;
-        }
-        if (action.name == "EndEdit" && Global.EditSession)
-        {
-            Global.EditSession = false;
             EventManager eventManager = Global.Map.GetComponent<EventManager>();
-            eventManager.OnEditsessionEnd.Invoke();
+            eventManager.EditSessionStartEvent.Invoke();
+        }
+        if (action.name == "EndEdit")
+        {
+            EventManager eventManager = Global.Map.GetComponent<EventManager>();
+            eventManager.EditSessionEndEvent.Invoke();
         } 
         if (action.name == "Exit")
         {
