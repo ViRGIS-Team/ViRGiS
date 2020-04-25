@@ -9,6 +9,7 @@ using Mapbox.Unity.Map;
 using Project;
 using g3;
 using UnityEngine.UI;
+using System.Linq;
 
 /// <summary>
 /// Controls and Instance of a Line Component
@@ -189,7 +190,8 @@ public class DatalineCylinder : MonoBehaviour, IVirgisComponent
     /// <returns> DatapointSphere[]</returns>
     public DatapointSphere[] GetHandles()
     {
-        return gameObject.GetComponentsInChildren<DatapointSphere>();
+        return gameObject.GetComponentsInChildren<DatapointSphere>().Where(item => item.id >= 0).ToArray();
+
     }
 
     /// <summary>

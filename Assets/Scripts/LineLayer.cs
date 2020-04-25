@@ -24,7 +24,7 @@ public class LineLayer : MonoBehaviour, ILayer
 
     private GeoJsonReader geoJsonReader;
 
-    public bool changed { get; set; } // shows if the data is dirty and should be saved
+    public bool changed { get; set; } = false; // shows if the data is dirty and should be saved
     public RecordSet layer { get; set; } // the layer RecordSet data
 
     private void Start()
@@ -80,31 +80,53 @@ public class LineLayer : MonoBehaviour, ILayer
     /// </summary>
     public void ExitEditsession()
     {
-        Save();
+        BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
     }
 
     /// <summary>
     /// called to save the data. Only saves data that is dirty
     /// </summary>
-    public async void Save()
+    public RecordSet Save()
     {
-        DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
-        List<Feature> features = new List<Feature>();
-        foreach (DatalineCylinder dataFeature in dataFeatures)
+        if (changed)
         {
-            Vector3[] vertices = dataFeature.GetVerteces();
-            List<Position> positions = new List<Position>();
-            foreach (Vector3 vertex in vertices)
+            DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
+            List<Feature> features = new List<Feature>();
+            foreach (DatalineCylinder dataFeature in dataFeatures)
             {
-                positions.Add(Tools.Vect2Ipos(vertex) as Position);
-            }
-            List<LineString> lines = new List<LineString>();
-            lines.Add(new LineString(positions));
-            features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
-        };
-        FeatureCollection FC = new FeatureCollection(features);
-        geoJsonReader.SetFeatureCollection(FC);
-        await geoJsonReader.Save();
+                Vector3[] vertices = dataFeature.GetVerteces();
+                List<Position> positions = new List<Position>();
+                foreach (Vector3 vertex in vertices)
+                {
+                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                }
+                List<LineString> lines = new List<LineString>();
+                lines.Add(new LineString(positions));
+                features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
+            };
+            FeatureCollection FC = new FeatureCollection(features);
+            geoJsonReader.SetFeatureCollection(FC);
+            geoJsonReader.Save();
+        }
+        return layer;
+    }
+
+    /// <summary>
+    /// Called when a child component is translated by User action
+    /// </summary>
+    /// <param name="args">MoveArgs</param>
+    public void Translate(MoveArgs args)
+    {
+        changed = true;
+    }
+
+    /// <summary>
+    /// received when a Move Axis request is made by the user
+    /// </summary>
+    /// <param name="args">MoveArgs</param>
+    public void MoveAxis(MoveArgs args)
+    {
+        changed = true;
     }
 
     /// <summary>

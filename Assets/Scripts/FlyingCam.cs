@@ -13,7 +13,7 @@ public class FlyingCam : MonoBehaviour
 {
     [Header("Constants")]
 
-    public Camera self; // refernce to the active camera
+    public Camera self; // reference to the active camera
     public GameObject trackingSpace; // reference to the active tracking space
     //unity controls and constants input - keyboard
     public float AccelerationMod; // controls how fast you speed up
@@ -41,15 +41,15 @@ public class FlyingCam : MonoBehaviour
     private Transform  selectedRigibody; // the selected marker
     private float selectedDistance; // distance to the selected marker``
     private Vector3 speed; // current speed of the camera
-    private float _rotationX; // sued when clamping vertical rotation
+    private float _rotationX; // used when clamping vertical rotation
     private Transform currentPointerHit; // current marker selected by pointer
     private bool rhTriggerState = false; // current state of the RH trigger
     private bool rhGripState = false; // current state of the RH grip
-    private bool lhTriggerState = false; // current state of the RH trigger
-    private bool lhGripState = false; // current state of the RH grip
+    private bool lhTriggerState = false; // current state of the LH trigger
+    private bool lhGripState = false; // current state of the LH grip
     private Vector3 axis; // axis represented by the line between the two ocntrollers
-    private bool AxisEdit = false;
-    private Vector3 point;
+    private bool AxisEdit = false; // Whether we are in AxisEdit mode
+    private Vector3 point; // caches the current position indicated by the user to which to move the selected component
     private AppState appState;
 
 

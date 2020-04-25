@@ -27,8 +27,9 @@ static public Vector3[] LS2Vect(LineString line)
 
 static public IPosition Vect2Ipos(Vector3 position)
     {
-        Vector2d _latlng = VectorExtensions.GetGeoPosition(position, Global._map.CenterMercator, Global._map.WorldRelativeScale);
-        return new Position(_latlng.x, _latlng.y, position.y / Global._map.WorldRelativeScale);
+        Vector3 mapLocal = Global.Map.transform.InverseTransformPoint(position);
+        Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, Global._map.CenterMercator, Global._map.WorldRelativeScale);
+        return new Position(_latlng.x, _latlng.y, mapLocal.y / Global._map.WorldRelativeScale);
     }
 
 

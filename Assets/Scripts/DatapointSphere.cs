@@ -15,7 +15,7 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     public string gisId; // ID of this market in the geoJSON
     public IDictionary<string, object> gisProperties; //  geoJSON properties of this marker
 
-    private int id; // internal ID for this marker - used when it is part of a larger structure
+    public int id; // internal ID for this marker - used when it is part of a larger structure
     private Renderer thisRenderer; // convenience link to the rendere for this marker
     private Transform label; //  Go of the label or billboard
 
@@ -102,11 +102,11 @@ public class DatapointSphere : MonoBehaviour, IVirgisComponent
     /// <param name="argsin">MoveArgs</param>
     void TranslateHandle(MoveArgs argsin)
     {
-        if (argsin.id == id)
+        if (argsin.id == id && argsin.pos != transform.position)
         {
             MoveArgs argsout = new MoveArgs();
             argsout.oldPos = transform.position;
-            gameObject.transform.position = transform.position + argsin.translate; ;
+            transform.position = argsin.pos;
             argsout.id = id;
             argsout.pos = transform.position;
             SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);
