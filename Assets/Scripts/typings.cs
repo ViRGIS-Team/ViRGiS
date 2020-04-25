@@ -153,7 +153,7 @@ public interface ILayer
 {
     RecordSet layer { get; set; }
     bool changed { get; set; }
-    void Save();
+    RecordSet Save();
 }
 
 /// <summary>

@@ -19,7 +19,7 @@ public class PointLayer : MonoBehaviour, ILayer
 
     private GeoJsonReader geoJsonReader;
 
-    public bool changed { get; set; }
+    public bool changed { get; set; } = false;
     public RecordSet layer { get; set; }
 
     private void Start()
@@ -126,21 +126,24 @@ public class PointLayer : MonoBehaviour, ILayer
 
     public void ExitEditsession()
     {
-        Save();
+        BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
     }
 
-    public async void Save()
+    public RecordSet Save()
     {
-        DatapointSphere[] pointFuncs = gameObject.GetComponentsInChildren<DatapointSphere>();
-        List<Feature> features = new List<Feature>();
-        foreach (DatapointSphere pointFunc in pointFuncs)
+        if (changed)
         {
-            features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
+            DatapointSphere[] pointFuncs = gameObject.GetComponentsInChildren<DatapointSphere>();
+            List<Feature> features = new List<Feature>();
+            foreach (DatapointSphere pointFunc in pointFuncs)
+            {
+                features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
+            }
+            FeatureCollection FC = new FeatureCollection(features);
+            geoJsonReader.SetFeatureCollection(FC);
+            geoJsonReader.Save();
         }
-        FeatureCollection FC = new FeatureCollection(features);
-        geoJsonReader.SetFeatureCollection(FC);
-        await geoJsonReader.Save();
-
+        return layer;
     }
 
     /// <summary>
