@@ -50,11 +50,13 @@ public class FlyingCam : MonoBehaviour
     private Vector3 axis; // axis represented by the line between the two ocntrollers
     private bool AxisEdit = false;
     private Vector3 point;
+    private AppState appState;
 
 
     private void Start()
     {
         Global.trackingSpace = trackingSpace;
+        appState = AppState.instance;
     }
 
     private void Update()
@@ -167,20 +169,16 @@ public class FlyingCam : MonoBehaviour
     public void HandleKeyInput(InputAction.CallbackContext context)
     {
         InputAction action = context.action;
-        if (action.name == "StartEdit")
-        {
-            EventManager eventManager = Global.Map.GetComponent<EventManager>();
-            eventManager.EditSessionStartEvent.Invoke();
-        }
-        if (action.name == "EndEdit")
-        {
-            EventManager eventManager = Global.Map.GetComponent<EventManager>();
-            eventManager.EditSessionEndEvent.Invoke();
-        } 
-        if (action.name == "Exit")
-        {
-            Debug.Log("Exit");
-            Application.Quit();
+        switch (action.name) {
+            case "StartEdit":
+                AppState.instance.StartEditSession();
+                break;
+            case "EndEdit":
+                AppState.instance.EndEditSession();
+                break;
+            case "Exit":
+                Application.Quit();
+                break;
         }
     }
 
@@ -201,11 +199,11 @@ public class FlyingCam : MonoBehaviour
                 button = SelectionTypes.SELECTALL;
                 break;
         }
-        if (action.phase == InputActionPhase.Canceled && Global.EditSession)
+        if (action.phase == InputActionPhase.Canceled && appState.InEditSession())
         {
             UnClickHandler(button);
         }
-        else if (action.phase == InputActionPhase.Started && !editSelected && Global.EditSession)
+        else if (action.phase == InputActionPhase.Started && !editSelected && appState.InEditSession())
         {
             ClickHandler(button);
         }
@@ -321,12 +319,12 @@ public class FlyingCam : MonoBehaviour
             RaycastHit hitInfo = data.CurrentPointsCastData.HitData.Value;
             currentPointerHit = hitInfo.transform;
             selectedDistance = hitInfo.distance;
-            if (rhTriggerState && Global.EditSession)
+            if (rhTriggerState && appState.InEditSession())
             {
                 editSelected = true;
                 select(currentPointerHit, SelectionTypes.SELECT);
             }
-            if (rhGripState && Global.EditSession)
+            if (rhGripState && appState.InEditSession())
             {
                 editSelected = true;
                 select(currentPointerHit, SelectionTypes.SELECTALL);
@@ -357,7 +355,7 @@ public class FlyingCam : MonoBehaviour
     public void triggerPressed(bool thisEvent)
     {
         rhTriggerState = true;
-        if (currentPointerHit != null && Global.EditSession)
+        if (currentPointerHit != null && appState.InEditSession())
         {
             editSelected = true;
             select(currentPointerHit, SelectionTypes.SELECT);
@@ -368,7 +366,7 @@ public class FlyingCam : MonoBehaviour
     public void gripPressed(bool thisEvent)
     {
         rhGripState = true;
-        if (currentPointerHit != null && Global.EditSession)
+        if (currentPointerHit != null && appState.InEditSession())
         {
             editSelected = true;
             select(currentPointerHit, SelectionTypes.SELECTALL);
