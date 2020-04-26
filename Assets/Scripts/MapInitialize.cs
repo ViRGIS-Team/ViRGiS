@@ -22,7 +22,6 @@ public class MapInitialize : MonoBehaviour
     public GameObject appState;
 
     public string inputfile;
-    // Start is called before the first frame update
 
     //Events
     public EventManager eventManager;
