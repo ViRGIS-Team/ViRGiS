@@ -1,150 +1,112 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using System.Collections;
+
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using UnityEngine;
 using GeoJSON.Net.Geometry;
+using GeoJSON.Net;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-
-/// <summary>
-/// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
-/// </summary>
-public class LineLayer : MonoBehaviour, ILayer
+namespace ViRGIS
 {
-    // Name of the input file, no extension
-    private string inputfile;
-
-    // The prefab for the data points to be instantiated
-    public GameObject LinePrefab;
-    public GameObject HandlePrefab;
-    public GameObject LabelPrefab;
-
-    private GeoJsonReader geoJsonReader;
-
-    public bool changed { get; set; } = false; // shows if the data is dirty and should be saved
-    public RecordSet layer { get; set; } // the layer RecordSet data
-
-    private void Start()
-    {
-        StartCoroutine(GetEvents());
-    }
 
     /// <summary>
-    /// Loads the Layer data from the source file in the GeographyCollection data and draws the data
+    /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    /// <param name="layer"> A GeographyCollection</param>
-    /// <returns></returns>
-    public async Task<GameObject> Init(GeographyCollection layer)
+    public class LineLayer : Layer
     {
-        this.layer = layer;
-        // get geojson data
-        inputfile = layer.Source;
-        Dictionary<string, Unit> symbology = layer.Properties.Units;
+        // The prefab for the data points to be instantiated
+        public GameObject LinePrefab;
+        public GameObject HandlePrefab;
+        public GameObject LabelPrefab;
 
-        geoJsonReader = new GeoJsonReader();
-        await geoJsonReader.Load(inputfile);
-        FeatureCollection myFC = geoJsonReader.getFeatureCollection();
+        // used to read the GeoJSON file for this layer
+        private GeoJsonReader geoJsonReader;
 
-
-        foreach (Feature feature in myFC.Features)
+        public override async Task _init(GeographyCollection layer)
         {
-            // Get the geometry
-            MultiLineString geometry = feature.Geometry as MultiLineString;
-            IDictionary<string, object> properties = feature.Properties;
-            string gisId = feature.Id;
-
-            //create the GameObjects
-            ReadOnlyCollection<LineString> lines = geometry.Coordinates;
-            GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(lines[0].Point(0)), Quaternion.identity);
-            dataLine.transform.parent = gameObject.transform;
-
-            //set the gisProject properties
-            DatalineCylinder com = dataLine.GetComponent<DatalineCylinder>();
-            com.gisId = gisId;
-            com.gisProperties = properties;
-
-            //Draw the line
-            com.Draw(lines[0], symbology, LinePrefab, HandlePrefab, LabelPrefab);
-            //dataLine.GetComponentInChildren<TextMesh>().text = name + "," + type;
-
-        };
-        changed = false;
-        return gameObject;
-    }
-
-    /// <summary>
-    /// called when an Edit Session is ended
-    /// </summary>
-    public void ExitEditsession()
-    {
-        BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
-    }
-
-    /// <summary>
-    /// called to save the data. Only saves data that is dirty
-    /// </summary>
-    public RecordSet Save()
-    {
-        if (changed)
-        {
-            DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
-            List<Feature> features = new List<Feature>();
-            foreach (DatalineCylinder dataFeature in dataFeatures)
-            {
-                Vector3[] vertices = dataFeature.GetVerteces();
-                List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices)
-                {
-                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
-                }
-                List<LineString> lines = new List<LineString>();
-                lines.Add(new LineString(positions));
-                features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
-            };
-            FeatureCollection FC = new FeatureCollection(features);
-            geoJsonReader.SetFeatureCollection(FC);
-            geoJsonReader.Save();
+            geoJsonReader = new GeoJsonReader();
+            await geoJsonReader.Load(layer.Source);
+            features = geoJsonReader.getFeatureCollection();
         }
-        return layer;
-    }
 
-    /// <summary>
-    /// Called when a child component is translated by User action
-    /// </summary>
-    /// <param name="args">MoveArgs</param>
-    public void Translate(MoveArgs args)
-    {
-        changed = true;
-    }
 
-    /// <summary>
-    /// received when a Move Axis request is made by the user
-    /// </summary>
-    /// <param name="args">MoveArgs</param>
-    public void MoveAxis(MoveArgs args)
-    {
-        changed = true;
-    }
-
-    /// <summary>
-    /// Gets the EventManager, waiting for it to instantiate if it does not exist. Adss the listerners required :
-    /// ExitEditSession,
-    /// </summary>
-    /// <returns>EventManager</returns>
-    IEnumerator GetEvents()
-    {
-        GameObject Map = Global.Map;
-        EventManager eventManager;
-        do
+        public override void _draw()
         {
-            eventManager = Map.GetComponent<EventManager>();
-            if (eventManager == null) { new WaitForSeconds(.5f); };
-        } while (eventManager == null);
-        eventManager.EditSessionEndEvent.AddListener(ExitEditsession);
-        yield return eventManager;
-    }
+            Dictionary<string, Unit> symbology = layer.Properties.Units;
 
+            foreach (Feature feature in features.Features)
+            {
+                // Get the geometry
+                MultiLineString mLines = null;
+                if (feature.Geometry.Type == GeoJSONObjectType.LineString)
+                {
+                    mLines = new MultiLineString(new List<LineString>() { feature.Geometry as LineString });
+                }
+                else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString)
+                {
+                    mLines = feature.Geometry as MultiLineString;
+                }
+
+                IDictionary<string, object> properties = feature.Properties;
+                string gisId = feature.Id;
+
+                foreach (LineString line in mLines.Coordinates)
+                {
+                    GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(line.Point(0)), Quaternion.identity);
+                    dataLine.transform.parent = gameObject.transform;
+
+                    //set the gisProject properties
+                    DatalineCylinder com = dataLine.GetComponent<DatalineCylinder>();
+                    com.gisId = gisId;
+                    com.gisProperties = properties;
+
+                    //Draw the line
+                    com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab);
+                }
+            };
+        }
+
+        public override void ExitEditsession()
+        {
+            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
+        }
+
+        public override GeographyCollection Save()
+        {
+            if (changed)
+            {
+                DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
+                List<Feature> features = new List<Feature>();
+                foreach (DatalineCylinder dataFeature in dataFeatures)
+                {
+                    Vector3[] vertices = dataFeature.GetVerteces();
+                    List<Position> positions = new List<Position>();
+                    foreach (Vector3 vertex in vertices)
+                    {
+                        positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                    }
+                    List<LineString> lines = new List<LineString>();
+                    lines.Add(new LineString(positions));
+                    features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
+                };
+                FeatureCollection FC = new FeatureCollection(features);
+                geoJsonReader.SetFeatureCollection(FC);
+                geoJsonReader.Save();
+            }
+            return layer;
+        }
+
+        public override void Translate(MoveArgs args)
+        {
+            changed = true;
+        }
+
+
+        public override void MoveAxis(MoveArgs args)
+        {
+            changed = true;
+        }
+    }
 }

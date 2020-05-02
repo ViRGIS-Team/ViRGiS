@@ -237,4 +237,15 @@ namespace Project
         Cylinder
     }
 
+    /// <summary>
+    /// Generic class to make an entity testabble - to allow the members to be tested for their presence
+    /// </summary>
+    public class TestableObject
+    {
+        public bool ContainsKey(string propName)
+        {
+            return GetType().GetMember(propName) != null;
+        }
+    }
+
 }

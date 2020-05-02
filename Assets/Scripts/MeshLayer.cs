@@ -4,44 +4,58 @@ using System.Threading.Tasks;
 using System.IO;
 using Project;
 using g3;
-using GeoJSON.Net;
+using System;
+using GeoJSON.Net.Geometry;
 
-public class MeshLayer : MonoBehaviour, ILayer
+namespace ViRGIS
 {
 
-    public string filename;
-    public Material material;
-    public GameObject handle;
-    public List<GameObject> meshes;
-    public bool changed { get; set; } = false;
-    public RecordSet layer { get; set; }
-
-
-
-    private async Task<SimpleMeshBuilder> loadObj(string filename)
+    public class MeshLayer : Layer
     {
-        using (StreamReader reader = File.OpenText(filename))
+        // The prefab for the data points to be instantiated
+        public Material material;
+        public GameObject handle;
+        public List<GameObject> meshes;
+
+        private async Task<SimpleMeshBuilder> loadObj(string filename)
         {
-            OBJReader objReader = new OBJReader();
-            SimpleMeshBuilder meshBuilder = new SimpleMeshBuilder();
-            IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
-            return meshBuilder;
+            using (StreamReader reader = File.OpenText(filename))
+            {
+                OBJReader objReader = new OBJReader();
+                SimpleMeshBuilder meshBuilder = new SimpleMeshBuilder();
+                try
+                {
+                    IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
+                }
+                catch (Exception e) when (
+                 e is UnauthorizedAccessException ||
+                 e is DirectoryNotFoundException ||
+                 e is FileNotFoundException ||
+                 e is NotSupportedException
+                 )
+                {
+                    Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
+                    meshBuilder = new SimpleMeshBuilder();
+                }
+                return meshBuilder;
+            }
         }
-    }
 
-    public async Task<GameObject> Init(GeographyCollection layer)
-    {
-        this.layer = layer;
-        string source = layer.Source;
-        transform.position = Tools.Ipos2Vect((GeoJSON.Net.Geometry.Position)layer.Position.Coordinates);
-        transform.Translate(Global.Map.transform.TransformVector((Vector3)layer.Transform.Position * Global._map.WorldRelativeScale));
-        Dictionary<string, Unit> symbology = layer.Properties.Units;
-        meshes = new List<GameObject>();
-
-        if (source != null)
+        public override async Task _init(GeographyCollection layer)
         {
-            SimpleMeshBuilder meshBuilder = await loadObj(source);
-            foreach (SimpleMesh simpleMesh in meshBuilder.Meshes)
+            MeshData Mesh = new MeshData();
+            Mesh.Mesh = await loadObj(layer.Source);
+            features = Mesh;
+        }
+
+        public override void _draw()
+        {
+            transform.position = Tools.Ipos2Vect((Position)layer.Position.Coordinates);
+            transform.Translate(Global.Map.transform.TransformVector((Vector3)layer.Transform.Position * Global._map.WorldRelativeScale));
+            Dictionary<string, Unit> symbology = layer.Properties.Units;
+            meshes = new List<GameObject>();
+
+            foreach (SimpleMesh simpleMesh in (features as MeshData).Mesh.Meshes)
             {
                 GameObject meshGameObject = new GameObject();
                 MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
@@ -60,59 +74,60 @@ public class MeshLayer : MonoBehaviour, ILayer
             centreHandle.SendMessage("SetColor", (Color)symbology["handle"].Color);
 
         }
-        return gameObject;
-    }
 
-    public void Translate(MoveArgs args)
-    {
-        foreach (GameObject mesh in meshes) {
-            if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
-            changed = true;
-        }
-    }
-
-    /// <summary>
-    /// received when a Move Axis request is made by the user
-    /// </summary>
-    /// <param name="delta"> Vector representing this channge to the transform</param>
-    /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-    public void MoveAxis(MoveArgs args)
-    {
-        if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
-        args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
-        transform.RotateAround(args.pos, axis, angle);
-        Vector3 A = transform.localPosition;
-        Vector3 B = transform.parent.InverseTransformPoint(args.pos);
-        Vector3 C = A - B;
-        float RS = args.scale;
-        Vector3 FP = B + C * RS;
-        if (FP.magnitude < float.MaxValue)
+        public override void Translate(MoveArgs args)
         {
-            transform.localScale = transform.localScale * RS;
-            transform.localPosition = FP;
-            for (int i = 0; i < transform.childCount; i++)
+            foreach (GameObject mesh in meshes)
             {
-                Transform T = transform.GetChild(i);
-                if (T.GetComponent<DatapointSphere>() != null)
-                {
-                    T.localScale /= RS;
-                }
+                if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
+                changed = true;
             }
         }
-        changed = true;
-    }
 
-    public RecordSet Save()
-    {
-        if (changed)
+        /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
+        public override void MoveAxis(MoveArgs args)
         {
-            layer.Position = new GeoJSON.Net.Geometry.Point(Tools.Vect2Ipos(transform.position));
-            layer.Transform.Position = Vector3.zero;
-            layer.Transform.Rotate = transform.rotation;
-            layer.Transform.Scale = transform.localScale;
+            if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
+            args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
+            transform.RotateAround(args.pos, axis, angle);
+            Vector3 A = transform.localPosition;
+            Vector3 B = transform.parent.InverseTransformPoint(args.pos);
+            Vector3 C = A - B;
+            float RS = args.scale;
+            Vector3 FP = B + C * RS;
+            if (FP.magnitude < float.MaxValue)
+            {
+                transform.localScale = transform.localScale * RS;
+                transform.localPosition = FP;
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    Transform T = transform.GetChild(i);
+                    if (T.GetComponent<DatapointSphere>() != null)
+                    {
+                        T.localScale /= RS;
+                    }
+                }
+            }
+            changed = true;
         }
 
-        return layer;
+        public override void ExitEditsession()
+        {
+
+        }
+
+        public override GeographyCollection Save()
+        {
+            if (changed)
+            {
+                layer.Position = new GeoJSON.Net.Geometry.Point(Tools.Vect2Ipos(transform.position));
+                layer.Transform.Position = Vector3.zero;
+                layer.Transform.Rotate = transform.rotation;
+                layer.Transform.Scale = transform.localScale;
+            }
+
+            return layer;
+        }
     }
 }
 
