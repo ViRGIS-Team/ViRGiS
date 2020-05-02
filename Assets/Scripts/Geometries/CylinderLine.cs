@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>

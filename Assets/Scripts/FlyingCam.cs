@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zinnia.Pointer;
 using Zinnia.Cast;
-using ViRGIS;
+using Virgis;
 
 /// <summary>
 /// Main Script for controlling the UI behaviour and the movement of the Camera

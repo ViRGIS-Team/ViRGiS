@@ -11,7 +11,7 @@ using g3;
 using UnityEngine.UI;
 using System.Linq;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>

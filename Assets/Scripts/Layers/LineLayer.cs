@@ -8,7 +8,7 @@ using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 using Project;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>
@@ -73,29 +73,25 @@ namespace ViRGIS
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        public override GeographyCollection Save()
+        public override void _save()
         {
-            if (changed)
+            DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
+            List<Feature> features = new List<Feature>();
+            foreach (DatalineCylinder dataFeature in dataFeatures)
             {
-                DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
-                List<Feature> features = new List<Feature>();
-                foreach (DatalineCylinder dataFeature in dataFeatures)
+                Vector3[] vertices = dataFeature.GetVerteces();
+                List<Position> positions = new List<Position>();
+                foreach (Vector3 vertex in vertices)
                 {
-                    Vector3[] vertices = dataFeature.GetVerteces();
-                    List<Position> positions = new List<Position>();
-                    foreach (Vector3 vertex in vertices)
-                    {
-                        positions.Add(Tools.Vect2Ipos(vertex) as Position);
-                    }
-                    List<LineString> lines = new List<LineString>();
-                    lines.Add(new LineString(positions));
-                    features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
-                };
-                FeatureCollection FC = new FeatureCollection(features);
-                geoJsonReader.SetFeatureCollection(FC);
-                geoJsonReader.Save();
-            }
-            return layer;
+                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                }
+                List<LineString> lines = new List<LineString>();
+                lines.Add(new LineString(positions));
+                features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
+            };
+            FeatureCollection FC = new FeatureCollection(features);
+            geoJsonReader.SetFeatureCollection(FC);
+            geoJsonReader.Save();
         }
 
         public override void Translate(MoveArgs args)

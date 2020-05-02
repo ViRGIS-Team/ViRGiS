@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     public class DataRotator : MonoBehaviour

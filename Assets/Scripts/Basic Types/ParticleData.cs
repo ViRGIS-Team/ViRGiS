@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ViRGIS
+namespace Virgis
 {
 
 	/// <summary>

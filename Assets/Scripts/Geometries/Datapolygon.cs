@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GeoJSON.Net.Geometry;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>

@@ -7,7 +7,7 @@ using g3;
 using System;
 using GeoJSON.Net.Geometry;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     public class MeshLayer : Layer
@@ -116,17 +116,12 @@ namespace ViRGIS
 
         }
 
-        public override GeographyCollection Save()
+        public override void _save()
         {
-            if (changed)
-            {
-                layer.Position = new GeoJSON.Net.Geometry.Point(Tools.Vect2Ipos(transform.position));
-                layer.Transform.Position = Vector3.zero;
-                layer.Transform.Rotate = transform.rotation;
-                layer.Transform.Scale = transform.localScale;
-            }
-
-            return layer;
+            layer.Position = new Point(Tools.Vect2Ipos(transform.position));
+            layer.Transform.Position = Vector3.zero;
+            layer.Transform.Rotate = transform.rotation;
+            layer.Transform.Scale = transform.localScale;
         }
     }
 }

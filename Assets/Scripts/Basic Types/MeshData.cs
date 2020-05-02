@@ -2,7 +2,7 @@
 using GeoJSON.Net.Feature;
 
 
-namespace ViRGIS
+namespace Virgis
 {
 
 	/// <summary>

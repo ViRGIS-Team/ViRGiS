@@ -10,7 +10,7 @@ using Project;
 using Newtonsoft.Json.Linq;
 using UnityEngine.UI;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>
@@ -144,38 +144,34 @@ namespace ViRGIS
         }
 
 
-        public override GeographyCollection Save()
+        public override void _save()
         {
-            if (changed)
+            Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
+            List<Feature> features = new List<Feature>();
+            foreach (Datapolygon dataFeature in dataFeatures)
             {
-                Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
-                List<Feature> features = new List<Feature>();
-                foreach (Datapolygon dataFeature in dataFeatures)
+                DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
+                Vector3[] vertices = perimeter.GetVerteces();
+                List<Position> positions = new List<Position>();
+                foreach (Vector3 vertex in vertices)
                 {
-                    DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
-                    Vector3[] vertices = perimeter.GetVerteces();
-                    List<Position> positions = new List<Position>();
-                    foreach (Vector3 vertex in vertices)
-                    {
-                        positions.Add(Tools.Vect2Ipos(vertex) as Position);
-                    }
-                    LineString line = new LineString(positions);
-                    if (!line.IsLinearRing())
-                    {
-                        throw new System.ArgumentException("This Polygon is not a Linear Ring", dataFeature.gisProperties.ToString());
-                    }
-                    List<LineString> LinearRings = new List<LineString>();
-                    LinearRings.Add(line);
-                    IDictionary<string, object> properties = dataFeature.gisProperties;
-                    DatapointSphere centroid = dataFeature.centroid;
-                    properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
-                    features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
-                };
-                FeatureCollection FC = new FeatureCollection(features);
-                geoJsonReader.SetFeatureCollection(FC);
-                geoJsonReader.Save();
-            }
-            return layer;
+                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                }
+                LineString line = new LineString(positions);
+                if (!line.IsLinearRing())
+                {
+                    throw new System.ArgumentException("This Polygon is not a Linear Ring", dataFeature.gisProperties.ToString());
+                }
+                List<LineString> LinearRings = new List<LineString>();
+                LinearRings.Add(line);
+                IDictionary<string, object> properties = dataFeature.gisProperties;
+                DatapointSphere centroid = dataFeature.centroid;
+                properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
+                features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
+            };
+            FeatureCollection FC = new FeatureCollection(features);
+            geoJsonReader.SetFeatureCollection(FC);
+            geoJsonReader.Save();
         }
 
         public override void Translate(MoveArgs args)

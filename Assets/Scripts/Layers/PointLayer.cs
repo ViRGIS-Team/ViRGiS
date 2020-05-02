@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Project;
 using UnityEngine.UI;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     public class PointLayer : Layer
@@ -119,21 +119,17 @@ namespace ViRGIS
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        public override GeographyCollection Save()
+        public override void _save()
         {
-            if (changed)
+            DatapointSphere[] pointFuncs = gameObject.GetComponentsInChildren<DatapointSphere>();
+            List<Feature> features = new List<Feature>();
+            foreach (DatapointSphere pointFunc in pointFuncs)
             {
-                DatapointSphere[] pointFuncs = gameObject.GetComponentsInChildren<DatapointSphere>();
-                List<Feature> features = new List<Feature>();
-                foreach (DatapointSphere pointFunc in pointFuncs)
-                {
-                    features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
-                }
-                FeatureCollection FC = new FeatureCollection(features);
-                geoJsonReader.SetFeatureCollection(FC);
-                geoJsonReader.Save();
+                features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
             }
-            return layer;
+            FeatureCollection FC = new FeatureCollection(features);
+            geoJsonReader.SetFeatureCollection(FC);
+            geoJsonReader.Save();
         }
 
 

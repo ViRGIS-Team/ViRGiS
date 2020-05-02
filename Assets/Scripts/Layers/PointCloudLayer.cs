@@ -6,7 +6,7 @@ using Project;
 using Pcx;
 using GeoJSON.Net.Geometry;
 
-namespace ViRGIS
+namespace Virgis
 {
 
 
@@ -95,16 +95,12 @@ namespace ViRGIS
 
         }
 
-        public override GeographyCollection Save()
+        public override void _save()
         {
-            if (changed)
-            {
-                layer.Position = new Point(Tools.Vect2Ipos(transform.position));
-                layer.Transform.Position = Vector3.zero;
-                layer.Transform.Rotate = transform.rotation;
-                layer.Transform.Scale = transform.localScale;
-            }
-            return layer;
+            layer.Position = new Point(Tools.Vect2Ipos(transform.position));
+            layer.Transform.Position = Vector3.zero;
+            layer.Transform.Rotate = transform.rotation;
+            layer.Transform.Scale = transform.localScale;
         }
     }
 }

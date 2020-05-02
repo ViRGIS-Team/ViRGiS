@@ -5,7 +5,7 @@ using Project;
 using GeoJSON.Net.Feature;
 using System.Threading.Tasks;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>
@@ -25,7 +25,7 @@ namespace ViRGIS
         /// </summary>
         private void Start()
         {
-            StartCoroutine(GetEvents());
+            AppState.instance.AddEndEditSessionListener(ExitEditsession);
         }
 
 
@@ -85,7 +85,20 @@ namespace ViRGIS
         /// Called to save the current layer data to source
         /// </summary>
         /// <returns>A copy of the data save dot the source</returns>
-        public abstract GeographyCollection Save();
+        public GeographyCollection Save() 
+        {
+            if (changed)
+            {
+                _save();
+            }
+            return layer;
+        }
+
+        /// <summary>
+        /// Implment the layer specific draw code in this method
+        /// </summary>
+        /// <returns></returns>
+        public abstract void _save();
 
         /// <summary>
         /// Called Whenever a member entity is asked to Translate
@@ -104,23 +117,7 @@ namespace ViRGIS
         /// </summary>
         public abstract void ExitEditsession();
 
-        /// <summary>
-        /// Gets the EventManager, waiting for it to instantiate if it does not exist. Adss the listerners required :
-        /// ExitEditSession,
-        /// </summary>
-        /// <returns>EventManager</returns>
-        IEnumerator GetEvents()
-        {
-            GameObject Map = Global.Map;
-            EventManager eventManager;
-            do
-            {
-                eventManager = Map.GetComponent<EventManager>();
-                if (eventManager == null) { new WaitForSeconds(.5f); };
-            } while (eventManager == null);
-            eventManager.EditSessionEndEvent.AddListener(ExitEditsession);
-            yield return eventManager;
-        }
+
     }
 }
 

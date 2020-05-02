@@ -5,7 +5,7 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     public class Tools

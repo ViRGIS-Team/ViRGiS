@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Project;
 using System;
 
-namespace ViRGIS
+namespace Virgis
 {
 
 

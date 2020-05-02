@@ -4,7 +4,7 @@ using UnityEngine;
 using GeoJSON.Net.Geometry;
 using g3;
 
-namespace ViRGIS
+namespace Virgis
 {
 
     /// <summary>

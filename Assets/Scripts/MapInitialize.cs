@@ -6,7 +6,7 @@ using Mapbox.Utils;
 using Project;
 using System.Threading.Tasks;
 
-namespace ViRGIS
+namespace Virgis
 {
 
 
@@ -26,12 +26,12 @@ namespace ViRGIS
         public GameObject PolygonLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
+        public GameObject appState;
 
         // Path to the Project File
         public string inputfile;
 
-        //Events
-        public EventManager eventManager;
+
 
         //File reader for Project and GeoJSON file
         private GeoJsonReader geoJsonReader;
@@ -67,7 +67,6 @@ namespace ViRGIS
             GameObject Map = gameObject;
             AbstractMap _map = Map.GetComponent<AbstractMap>();
             _map.Initialize(origin, Global.project.MapScale);
-            eventManager.EditSessionEndEvent.AddListener(ExitEditsession);
 
             //set globals
             Global._map = _map;
@@ -117,7 +116,7 @@ namespace ViRGIS
                 layer.GetComponent<Layer>().Draw();
             }
         }
-    }
+    
 
 
         public void ExitEditsession()
