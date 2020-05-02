@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace ViRGIS
 {
 
+
     /// <summary>
     /// This script initialises the project and loads the Project and Layer data.
     /// 
@@ -35,16 +36,25 @@ namespace ViRGIS
         //File reader for Project and GeoJSON file
         private GeoJsonReader geoJsonReader;
 
-        /// <summary>
+
+        ///<summary>
+        ///Instantiates all singletons.
+        /// </summary>
+        void Awake() {
+            print("Map awakens");
+            if (AppState.instance == null) {
+                Instantiate(appState);
+            }
+            AppState.instance.AddEndEditSessionListener(ExitEditsession);
+        }
+
+        /// 
         /// This is the initialisation script.
         /// 
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
         async void Start()
         {
-
-            eventManager = gameObject.AddComponent<EventManager>();
-
             // Fetch Project definition - return if the file cannot be read - this will lead to an empty world
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(inputfile);
@@ -65,6 +75,7 @@ namespace ViRGIS
             Global.Map = Map;
             Global.mainCamera = MainCamera;
             MainCamera.transform.position = Global.project.Camera.Coordinates.Vector3();
+
             await Init();
             Draw();
         }
@@ -106,6 +117,7 @@ namespace ViRGIS
                 layer.GetComponent<Layer>().Draw();
             }
         }
+    }
 
 
         public void ExitEditsession()
