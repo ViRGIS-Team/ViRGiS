@@ -20,7 +20,6 @@ public class MenuFacade : MonoBehaviour
     public void Visible(bool thisEvent) 
     {
         gameObject.SetActive(thisEvent);
-        Debug.Log(thisEvent);
     }
 
     public void HandleKeyInput(InputAction.CallbackContext context) {
