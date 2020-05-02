@@ -8,7 +8,10 @@ using System.Collections.Generic;
 
 public static class Global
 {
+    // use AppState to get/set EditSession
+    [Obsolete]
     public static bool EditSession;
+
     public static AbstractMap _map;
     public static GameObject Map;
     public static GisProject project;

@@ -169,7 +169,7 @@ public class PointLayer : MonoBehaviour, ILayer
             eventManager = Map.GetComponent<EventManager>();
             if (eventManager == null) { new WaitForSeconds(.5f); };
         } while (eventManager == null);
-        eventManager.EditSessionEndEvent.AddListener(ExitEditsession);
+        AppState.instance.AddEndEditSessionListener(ExitEditsession);
         yield return eventManager;
     }
 

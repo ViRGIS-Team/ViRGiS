@@ -19,14 +19,22 @@ public class MapInitialize : MonoBehaviour
     public GameObject PolygonLayer;
     public GameObject PointCloud;
     public GameObject MeshLayer;
+    public GameObject appState;
 
     public string inputfile;
-    // Start is called before the first frame update
 
     //Events
     public EventManager eventManager;
 
     private GeoJsonReader geoJsonReader;
+
+    // Instantiates all singletons.
+    void Awake() {
+        print("Map awakens");
+        if (AppState.instance == null) {
+            Instantiate(appState);
+        }
+    }
 
     async void Start()
     {
@@ -48,7 +56,6 @@ public class MapInitialize : MonoBehaviour
 
         //set globals
         Global._map = _map;
-        Global.EditSession = false;
         Global.Map = Map;
         Global.mainCamera = MainCamera;
         MainCamera.transform.position = Global.project.Camera.Coordinates.Vector3();
@@ -78,7 +85,7 @@ public class MapInitialize : MonoBehaviour
             temp.transform.parent = Map.transform;
             Global.layers.Add(temp);
         }
-        eventManager.EditSessionEndEvent.AddListener(ExitEditsession);
+        AppState.instance.AddEndEditSessionListener(ExitEditsession);
     }
 
     public void ExitEditsession()
