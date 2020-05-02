@@ -43,10 +43,22 @@ public class AppState : MonoBehaviour
         }
     }
 
-    public void EndEditSession() {
+    public void StopSaveEditSession() {
         if (this._editSession) {
             _editSession = false;
             _endEditSessionEvent.Invoke();
+            // save edits
+            print("Saving changes");
+            // throw exception if save failed
+        }
+    }
+
+    public void StopDiscardEditSession() {
+        if (this._editSession) {
+            _editSession = false;
+            _endEditSessionEvent.Invoke();
+            // discard edits
+            print("Discarding changes");
         }
     }
 

@@ -41,7 +41,7 @@ public class EditModeUI : MonoBehaviour
         // To avoid calling EndEditSession twice, 
         // we check if EditSession is still true
         // (meaning EndEditSession has not been called)
-        if (enabled && _appState.InEditSession()) _appState.EndEditSession();
+        if (enabled && _appState.InEditSession()) _appState.StopSaveEditSession();
     }
 
     // Select EditOff toggle button when EditSession ends.

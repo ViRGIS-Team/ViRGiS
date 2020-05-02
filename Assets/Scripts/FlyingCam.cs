@@ -171,10 +171,13 @@ public class FlyingCam : MonoBehaviour
         InputAction action = context.action;
         switch (action.name) {
             case "StartEdit":
-                AppState.instance.StartEditSession();
+                appState.StartEditSession();
                 break;
-            case "EndEdit":
-                AppState.instance.EndEditSession();
+            case "StopSaveEdit":
+                appState.StopSaveEditSession();
+                break;
+            case "StopDiscardEdit":
+                appState.StopDiscardEditSession();
                 break;
             case "Exit":
                 Application.Quit();
