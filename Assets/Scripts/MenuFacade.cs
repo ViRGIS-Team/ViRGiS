@@ -10,6 +10,7 @@ public class MenuFacade : MonoBehaviour
     public Button startEditButton;
     public Button stopSaveEditButton;
     public Button stopDiscardEditButton;
+    public Toggle showLayersToggle;
 
     private AppState _appState;
 
@@ -24,12 +25,8 @@ public class MenuFacade : MonoBehaviour
 
         _appState.AddStartEditSessionListener(OnEditSessionStart);
         _appState.AddEndEditSessionListener(OnEditSessionEnd);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        showLayersToggle.onValueChanged.AddListener(OnShowLayersValueChanged);
     }
 
     public void Visible(bool thisEvent) 
@@ -55,6 +52,10 @@ public class MenuFacade : MonoBehaviour
 
     public void OnStopDiscardEditButtonClicked() {
         _appState.StopDiscardEditSession();
+    }
+
+    public void OnShowLayersValueChanged(bool enabled) {
+        print($"OnShowLayersValueChanged: {enabled}");
     }
 
     // Changes the state of menu buttons when edit session starts.

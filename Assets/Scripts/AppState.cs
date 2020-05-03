@@ -12,10 +12,7 @@ public class AppState : MonoBehaviour
 {
     public static AppState instance = null;
 
-    private bool _editSession;
-
-    private UnityEvent _startEditSessionEvent;
-    private UnityEvent _endEditSessionEvent;
+    private EditSession _editSession;
 
     void Awake() {
         print("AppState awakens");
@@ -32,48 +29,36 @@ public class AppState : MonoBehaviour
         InitApp();
     }
 
+    public EditSession editSession {
+        get => _editSession;
+    }
+
     public bool InEditSession() {
-        return _editSession;
+        return _editSession.IsActive();
     }
 
     public void StartEditSession() {
-        if (!this._editSession) {
-            _editSession = true;
-            _startEditSessionEvent.Invoke();
-        }
+        _editSession.Start();
     }
 
     public void StopSaveEditSession() {
-        if (this._editSession) {
-            _editSession = false;
-            _endEditSessionEvent.Invoke();
-            // save edits
-            print("Saving changes");
-            // throw exception if save failed
-        }
+        _editSession.StopAndSave();
     }
 
     public void StopDiscardEditSession() {
-        if (this._editSession) {
-            _editSession = false;
-            _endEditSessionEvent.Invoke();
-            // discard edits
-            print("Discarding changes");
-        }
+        _editSession.StopAndDiscard();
     }
 
     public void AddStartEditSessionListener(UnityAction action) {
-        _startEditSessionEvent.AddListener(action);
+        _editSession.AddStartEditSessionListener(action);
     }
 
     public void AddEndEditSessionListener(UnityAction action) {
-        _endEditSessionEvent.AddListener(action);
+        _editSession.AddEndEditSessionListener(action);
     }
 
     private void InitApp() {
-        _editSession = false;
-        _startEditSessionEvent = new UnityEvent();
-        _endEditSessionEvent = new UnityEvent();
+        _editSession = new EditSession();
     }
 
 }
