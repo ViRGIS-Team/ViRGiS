@@ -14,15 +14,21 @@ namespace Virgis
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLayer : Layer
+    public class LineLayer : Layer<GeographyCollection, FeatureCollection>
     {
         // The prefab for the data points to be instantiated
-        public GameObject LinePrefab;
-        public GameObject HandlePrefab;
+        public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
+        public GameObject CuboidLinePrefab; // prefab to be used for cuboid lines
+        public GameObject SpherePrefab; // prefab to be used for Vertex handles
+        public GameObject CubePrefab; // prefab to be used for Vertex handles
+        public GameObject CylinderPrefab; // prefab to be used for Vertex handle
         public GameObject LabelPrefab;
 
         // used to read the GeoJSON file for this layer
         private GeoJsonReader geoJsonReader;
+
+        private GameObject HandlePrefab;
+        private GameObject LinePrefab;
 
         public override async Task _init(GeographyCollection layer)
         {
@@ -31,10 +37,59 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
+        public override void _add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public override void _draw()
         {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
+            {
+                Shapes shape = symbology["point"].Shape;
+                switch (shape)
+                {
+                    case Shapes.Spheroid:
+                        HandlePrefab = SpherePrefab;
+                        break;
+                    case Shapes.Cuboid:
+                        HandlePrefab = CubePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        HandlePrefab = CylinderPrefab;
+                        break;
+                    default:
+                        HandlePrefab = SpherePrefab;
+                        break;
+                }
+            }
+            else
+            {
+                HandlePrefab = SpherePrefab;
+            }
+
+            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
+            {
+                Shapes shape = symbology["line"].Shape;
+                switch (shape)
+                {
+                    case Shapes.Cuboid:
+                        LinePrefab = CuboidLinePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        LinePrefab = CylinderLinePrefab;
+                        break;
+                    default:
+                        LinePrefab = CylinderLinePrefab;
+                        break;
+                }
+            }
+            else
+            {
+                LinePrefab = CylinderLinePrefab;
+            }
+
 
             foreach (Feature feature in features.Features)
             {
@@ -58,7 +113,7 @@ namespace Virgis
                     dataLine.transform.parent = gameObject.transform;
 
                     //set the gisProject properties
-                    DatalineCylinder com = dataLine.GetComponent<DatalineCylinder>();
+                    Dataline com = dataLine.GetComponent<Dataline>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
 
@@ -73,11 +128,13 @@ namespace Virgis
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
+        public override void _cp() { }
+
         public override void _save()
         {
-            DatalineCylinder[] dataFeatures = gameObject.GetComponentsInChildren<DatalineCylinder>();
+            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> features = new List<Feature>();
-            foreach (DatalineCylinder dataFeature in dataFeatures)
+            foreach (Dataline dataFeature in dataFeatures)
             {
                 Vector3[] vertices = dataFeature.GetVerteces();
                 List<Position> positions = new List<Position>();

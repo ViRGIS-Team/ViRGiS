@@ -10,7 +10,7 @@ using GeoJSON.Net.Geometry;
 namespace Virgis
 {
 
-    public class MeshLayer : Layer
+    public class MeshLayer : Layer<GeographyCollection, MeshData>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -48,6 +48,10 @@ namespace Virgis
             features = Mesh;
         }
 
+        public override void _add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
         public override void _draw()
         {
             transform.position = Tools.Ipos2Vect((Position)layer.Position.Coordinates);
@@ -102,7 +106,7 @@ namespace Virgis
                 for (int i = 0; i < transform.childCount; i++)
                 {
                     Transform T = transform.GetChild(i);
-                    if (T.GetComponent<DatapointSphere>() != null)
+                    if (T.GetComponent<Datapoint>() != null)
                     {
                         T.localScale /= RS;
                     }
@@ -116,6 +120,7 @@ namespace Virgis
 
         }
 
+        public override void _cp() { }
         public override void _save()
         {
             layer.Position = new Point(Tools.Vect2Ipos(transform.position));

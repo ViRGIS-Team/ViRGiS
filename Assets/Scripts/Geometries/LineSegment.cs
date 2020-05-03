@@ -8,7 +8,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a line segment
     /// </summary>
-    public class CylinderLine : MonoBehaviour, IVirgisComponent
+    public class LineSegment : MonoBehaviour, IVirgisComponent
     {
         public int id; // id for the line
         private Vector3 start; // coords of the start of the line in Map.local space coordinates

@@ -16,17 +16,21 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon Layer
     /// </summary>
-    public class PolygonLayer : Layer
+    public class PolygonLayer : Layer<GeographyCollection, FeatureCollection>
     {
 
         // The prefab for the data points to be instantiated
-        public GameObject LinePrefab;   // Prefab to be used to build the perimeter line
+        public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
+        public GameObject CuboidLinePrefab; // prefab to be used for cuboid lines
         public GameObject SpherePrefab; // prefab to be used for Vertex handles
         public GameObject CubePrefab; // prefab to be used for Vertex handles
         public GameObject CylinderPrefab; // prefab to be used for Vertex handle
         public GameObject PolygonPrefab; // Prefab to be used for the polygons
         public GameObject LabelPrefab; // Prefab to used for the Labels
         public Material Mat; // Material to be used for the Polygon
+
+        private GameObject HandlePrefab;
+        private GameObject LinePrefab;
 
         private GeoJsonReader geoJsonReader;
 
@@ -38,10 +42,15 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
+        public override void _add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override void _draw()
         {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
-            GameObject HandlePrefab = new GameObject();
+
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
             {
                 Shapes shape = symbology["point"].Shape;
@@ -56,11 +65,35 @@ namespace Virgis
                     case Shapes.Cylinder:
                         HandlePrefab = CylinderPrefab;
                         break;
+                    default:
+                        HandlePrefab = SpherePrefab;
+                        break;
                 }
             }
             else
             {
                 HandlePrefab = SpherePrefab;
+            }
+
+            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
+            {
+                Shapes shape = symbology["line"].Shape;
+                switch (shape)
+                {
+                    case Shapes.Cuboid:
+                        LinePrefab = CuboidLinePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        LinePrefab = CylinderLinePrefab;
+                        break;
+                    default:
+                        LinePrefab = CylinderLinePrefab;
+                        break;
+                }
+            }
+            else
+            {
+                LinePrefab = CylinderLinePrefab;
             }
 
 
@@ -112,7 +145,7 @@ namespace Virgis
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
-                    com.centroid = centroid.GetComponent<DatapointSphere>();
+                    com.centroid = centroid.GetComponent<Datapoint>();
 
                     //Set the label
                     GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
@@ -128,7 +161,7 @@ namespace Virgis
                     //Draw the Polygon
                     Mat.SetColor("_BaseColor", symbology["body"].Color);
                     com.Draw(perimeter, Mat);
-                    dataLine.GetComponent<DatalineCylinder>().Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
+                    dataLine.GetComponent<Dataline>().Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
                     centroid.SendMessage("SetColor", (Color)symbology["point"].Color);
                     centroid.SendMessage("SetId", -1);
                     centroid.transform.localScale = symbology["point"].Transform.Scale;
@@ -143,14 +176,14 @@ namespace Virgis
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-
+        public override void _cp() { }
         public override void _save()
         {
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             List<Feature> features = new List<Feature>();
             foreach (Datapolygon dataFeature in dataFeatures)
             {
-                DatalineCylinder perimeter = dataFeature.GetComponentInChildren<DatalineCylinder>();
+                Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
                 Vector3[] vertices = perimeter.GetVerteces();
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices)
@@ -165,7 +198,7 @@ namespace Virgis
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
                 IDictionary<string, object> properties = dataFeature.gisProperties;
-                DatapointSphere centroid = dataFeature.centroid;
+                Datapoint centroid = dataFeature.centroid;
                 properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
                 features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };

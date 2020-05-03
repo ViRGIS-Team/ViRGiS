@@ -11,7 +11,7 @@ using UnityEngine.UI;
 namespace Virgis
 {
 
-    public class PointLayer : Layer
+    public class PointLayer : Layer<GeographyCollection, FeatureCollection>
     {
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
@@ -22,6 +22,8 @@ namespace Virgis
         // used to read the GeoJSON file for this layer
         private GeoJsonReader geoJsonReader;
 
+        private GameObject PointPrefab;
+
         public override async Task _init(GeographyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
@@ -29,10 +31,14 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
+        public override void _add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override void _draw()
         {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
-            GameObject PointPrefab = new GameObject();
             float displacement = 1.0f;
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
             {
@@ -48,6 +54,9 @@ namespace Virgis
                     case Shapes.Cylinder:
                         PointPrefab = CylinderPrefab;
                         displacement = 1.5f;
+                        break;
+                    default:
+                        PointPrefab = SpherePrefab;
                         break;
                 }
             }
@@ -83,7 +92,7 @@ namespace Virgis
                     dataPoint.transform.parent = gameObject.transform;
 
                     // add the gis data from geoJSON
-                    DatapointSphere com = dataPoint.GetComponent<DatapointSphere>();
+                    Datapoint com = dataPoint.GetComponent<Datapoint>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
                     com.SetId(id);
@@ -119,11 +128,12 @@ namespace Virgis
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
+        public override void _cp() { }
         public override void _save()
         {
-            DatapointSphere[] pointFuncs = gameObject.GetComponentsInChildren<DatapointSphere>();
+            Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             List<Feature> features = new List<Feature>();
-            foreach (DatapointSphere pointFunc in pointFuncs)
+            foreach (Datapoint pointFunc in pointFuncs)
             {
                 features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
             }

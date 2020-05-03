@@ -10,7 +10,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a data pointor handle
     /// </summary>
-    public class DatapointSphere : MonoBehaviour, IVirgisComponent
+    public class Datapoint : MonoBehaviour, IVirgisComponent
     {
 
         public Color color; // color of the marker

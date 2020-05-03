@@ -18,7 +18,7 @@ namespace Virgis
         public string gisId; // Feature ID from the geoJSON 
         public IDictionary<string, object> gisProperties; // featire properties from the geoJSON
         private GameObject shape; // gameObject to be used for the shape
-        public DatapointSphere centroid; // Polyhedral center vertex
+        public Datapoint centroid; // Polyhedral center vertex
 
         /// <summary>
         /// Called hwne a child component is selected
@@ -30,7 +30,7 @@ namespace Virgis
             {
                 gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = true;
-                DatalineCylinder com = gameObject.GetComponentInChildren<DatalineCylinder>();
+                Dataline com = gameObject.GetComponentInChildren<Dataline>();
                 com.Selected(SelectionTypes.SELECTALL);
             }
         }

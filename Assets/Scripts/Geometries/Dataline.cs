@@ -17,7 +17,7 @@ namespace Virgis
     /// <summary>
     /// Controls and Instance of a Line Component
     /// </summary>
-    public class DatalineCylinder : MonoBehaviour, IVirgisComponent
+    public class Dataline : MonoBehaviour, IVirgisComponent
     {
         public Color color; // color for the line
         public Color anticolor; // color for the vertces when selected
@@ -59,7 +59,7 @@ namespace Virgis
                 for (int i = 0; i < gameObject.transform.childCount; i++)
                 {
                     GameObject go = gameObject.transform.GetChild(i).gameObject;
-                    CylinderLine goFunc = go.GetComponent<CylinderLine>();
+                    LineSegment goFunc = go.GetComponent<LineSegment>();
                     if (goFunc != null && goFunc.vStart == data.id)
                     {
                         goFunc.MoveStart(data.pos);
@@ -95,7 +95,7 @@ namespace Virgis
                 for (int i = 0; i < transform.childCount; i++)
                 {
                     Transform T = transform.GetChild(i);
-                    if (T.GetComponent<CylinderLine>() != null)
+                    if (T.GetComponent<LineSegment>() != null)
                     {
                         Vector3 local = T.localScale;
                         local /= RS;
@@ -142,7 +142,7 @@ namespace Virgis
                 {
                     GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
                     lineSegment.transform.parent = transform;
-                    CylinderLine com = lineSegment.GetComponent<CylinderLine>();
+                    LineSegment com = lineSegment.GetComponent<LineSegment>();
                     com.SetId(i);
                     com.Draw(vertex, line[i + 1], i, i + 1, symbology["line"].Transform.Scale.magnitude);
                     com.SetColor((Color)symbology["line"].Color);
@@ -172,11 +172,11 @@ namespace Virgis
         /// <returns>Vector3[] of verteces</returns>
         public Vector3[] GetVerteces()
         {
-            DatapointSphere[] data = GetHandles();
+            Datapoint[] data = GetHandles();
             Vector3[] result = new Vector3[data.Length];
             for (int i = 0; i < data.Length; i++)
             {
-                DatapointSphere datum = data[i];
+                Datapoint datum = data[i];
                 result[i] = datum.transform.position;
             }
             if (Lr)
@@ -190,10 +190,10 @@ namespace Virgis
         /// <summary>
         /// called to get the handle ViRGIS Components for the Line
         /// </summary>
-        /// <returns> DatapointSphere[]</returns>
-        public DatapointSphere[] GetHandles()
+        /// <returns> Datapoint[]</returns>
+        public Datapoint[] GetHandles()
         {
-            return gameObject.GetComponentsInChildren<DatapointSphere>().Where(item => item.id >= 0).ToArray();
+            return gameObject.GetComponentsInChildren<Datapoint>().Where(item => item.id >= 0).ToArray();
 
         }
 

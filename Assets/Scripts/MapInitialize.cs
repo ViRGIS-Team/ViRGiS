@@ -15,7 +15,7 @@ namespace Virgis
     /// 
     /// It is run once at Startup
     /// </summary>
-    public class MapInitialize : MonoBehaviour
+    public class MapInitialize : Layer<RecordSet, DataObject>
     {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
@@ -30,8 +30,6 @@ namespace Virgis
 
         // Path to the Project File
         public string inputfile;
-
-
 
         //File reader for Project and GeoJSON file
         private GeoJsonReader geoJsonReader;
@@ -60,7 +58,7 @@ namespace Virgis
             await geoJsonReader.Load(inputfile);
             if (geoJsonReader.payload is null) return;
             Global.project = geoJsonReader.GetProject();
-            Global.layers = new List<GameObject>();
+            Global.layers = new List<Component>();
 
             //initialize space
             Vector2d origin = Global.project.Origin.Coordinates.Vector2d();
@@ -70,71 +68,106 @@ namespace Virgis
 
             //set globals
             Global._map = _map;
-            Global.EditSession = false;
             Global.Map = Map;
             Global.mainCamera = MainCamera;
             MainCamera.transform.position = Global.project.Camera.Coordinates.Vector3();
 
-            await Init();
+            await Init(null);
             Draw();
         }
 
-        async Task Init()
+        async new Task<Layer<RecordSet, DataObject>> Init(RecordSet layer)
         {
-            GameObject temp = null;
-            foreach (RecordSet layer in Global.project.RecordSets)
+            Component temp = null;
+            foreach (RecordSet thisLayer in Global.project.RecordSets)
             {
-                switch (layer.DataType)
+                switch (thisLayer.DataType)
                 {
                     case RecordSetDataType.Point:
-                        temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(layer as GeographyCollection);
+                        temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(thisLayer as GeographyCollection);
                         break;
                     case RecordSetDataType.Line:
-                        temp = await Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(layer as GeographyCollection);
+                        temp = await Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(thisLayer as GeographyCollection);
                         break;
                     case RecordSetDataType.Polygon:
-                        temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(layer as GeographyCollection);
+                        temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(thisLayer as GeographyCollection);
                         break;
                     case RecordSetDataType.PointCloud:
-                        temp = await Instantiate(PointCloud, Vector3.zero, Quaternion.identity).GetComponent<PointCloudLayer>().Init(layer as GeographyCollection);
+                        temp = await Instantiate(PointCloud, Vector3.zero, Quaternion.identity).GetComponent<PointCloudLayer>().Init(thisLayer as GeographyCollection);
                         break;
                     case RecordSetDataType.Mesh:
-                        temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(layer as GeographyCollection);
+                        temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
                         break;
                 }
-                Debug.Log("Loaded : " + layer.ToString() + " : " + layer.Id);
+                Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;
                 Global.layers.Add(temp);
             }
-
+            return this;
         }
 
-        void Draw()
+        public override Task _init(RecordSet layer)
         {
-            foreach (GameObject layer in Global.layers)
+            throw new System.NotImplementedException();
+        }
+
+        public new void Add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void _add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        new void Draw()
+        {                                 
+            foreach (ILayer layer in Global.layers)
             {
-                layer.GetComponent<Layer>().Draw();
+                layer.Draw();
             }
         }
-    
+
+        public override void _draw()
+        {
+            throw new System.NotImplementedException();
+        }
 
 
-        public void ExitEditsession()
+
+        public override void ExitEditsession()
         {
             Save();
         }
 
-        public void Save()
+        public override void _cp() { }
+
+        public new void Save()
         {
-            foreach (GameObject go in Global.layers)
+            foreach (ILayer com in Global.layers)
             {
-                Layer com = go.GetComponent<Layer>();
-                GeographyCollection layer = com.Save();
+                RecordSet layer = com.Save();
                 int index = Global.project.RecordSets.FindIndex(x => x.Id == layer.Id);
                 Global.project.RecordSets[index] = layer;
             }
             geoJsonReader.SetProject(Global.project);
             geoJsonReader.Save();
+        }
+
+        public override void _save()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Translate(MoveArgs args)
+        {
+            
+        }
+
+        public override void MoveAxis(MoveArgs args)
+        {
+            
         }
     }
 }

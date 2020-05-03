@@ -158,6 +158,11 @@ namespace Virgis
         void SetColor(Color color);
         //void MoveTo(Vector3 newPos);
     }
+
+    /// <summary>
+    /// abstract parent for generic datasets
+    /// </summary>
+    public abstract class DataObject { }
 }
 
 

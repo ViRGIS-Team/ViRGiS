@@ -10,7 +10,7 @@ namespace Virgis
 	/// 
 	/// Note - this extends FeatureCollection. This is a hack to allow typing. this type WILL NOT SAVE succesfully to GeoJSON as a FeatureCollection 
 	/// </summary>
-	public class ParticleData : FeatureCollection
+	public class ParticleData : DataObject
 	{
 		public List<Vector3> vertices;
 		public List<Vector3> normals;

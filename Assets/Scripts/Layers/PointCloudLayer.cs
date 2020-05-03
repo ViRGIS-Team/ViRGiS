@@ -10,7 +10,7 @@ namespace Virgis
 {
 
 
-    public class PointCloudLayer : Layer
+    public class PointCloudLayer : Layer<GeographyCollection, ParticleData>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -25,6 +25,11 @@ namespace Virgis
         {
             PlyImport reader = new PlyImport();
             features = await reader.Load(layer.Source); ;
+        }
+
+        public override void _add(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
         }
 
         public override void _draw()
@@ -81,7 +86,7 @@ namespace Virgis
                 for (int i = 0; i < transform.childCount; i++)
                 {
                     Transform T = transform.GetChild(i);
-                    if (T.GetComponent<DatapointSphere>() != null)
+                    if (T.GetComponent<Datapoint>() != null)
                     {
                         T.localScale /= RS;
                     }
@@ -95,6 +100,7 @@ namespace Virgis
 
         }
 
+        public override void _cp() { }
         public override void _save()
         {
             layer.Position = new Point(Tools.Vect2Ipos(transform.position));
