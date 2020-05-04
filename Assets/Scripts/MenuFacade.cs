@@ -4,84 +4,89 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class MenuFacade : MonoBehaviour
-{
+namespace Virgis {
 
-    public Button startEditButton;
-    public Button stopSaveEditButton;
-    public Button stopDiscardEditButton;
-    public Toggle showLayersToggle;
+    public class MenuFacade : MonoBehaviour {
 
-    private AppState _appState;
+        public Button startEditButton;
+        public Button stopSaveEditButton;
+        public Button stopDiscardEditButton;
+        public Toggle showLayersToggle;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _appState = AppState.instance;
+        private AppState _appState;
 
-        startEditButton.interactable = true;
-        stopSaveEditButton.interactable = false;
-        stopDiscardEditButton.interactable = false;
+        // Start is called before the first frame update
+        void Start() {
+            _appState = AppState.instance;
+            if (_appState.editSession.IsActive()) {
+                startEditButton.interactable = false;
+                stopSaveEditButton.interactable = true;
+                stopDiscardEditButton.interactable = true;
+            } else {
+                startEditButton.interactable = true;
+                stopSaveEditButton.interactable = false;
+                stopDiscardEditButton.interactable = false;
+            }
 
-        _appState.AddStartEditSessionListener(OnEditSessionStart);
-        _appState.AddEndEditSessionListener(OnEditSessionEnd);
+            _appState.AddStartEditSessionListener(OnEditSessionStart);
+            _appState.AddEndEditSessionListener(OnEditSessionEnd);
 
-        showLayersToggle.onValueChanged.AddListener(OnShowLayersValueChanged);
-    }
-
-    public void Visible(bool thisEvent) 
-    {
-        gameObject.SetActive(thisEvent);
-    }
-
-    public void HandleKeyInput(InputAction.CallbackContext context) {
-        InputAction action = context.action;
-        if (action.name == "ShowMenu") {
-            bool isActive = gameObject.activeSelf;
-            gameObject.SetActive(!isActive);
+            showLayersToggle.onValueChanged.AddListener(OnShowLayersValueChanged);
         }
-    }
 
-    public void OnStartEditButtonClicked() {
-        _appState.StartEditSession();
-    }
+        public void Visible(bool thisEvent) {
+            gameObject.SetActive(thisEvent);
+        }
 
-    public void OnStopSaveEditButtonClicked() {
-        _appState.StopSaveEditSession();
-    }
+        public void HandleKeyInput(InputAction.CallbackContext context) {
+            InputAction action = context.action;
+            if (action.name == "ShowMenu") {
+                bool isActive = gameObject.activeSelf;
+                gameObject.SetActive(!isActive);
+            }
+        }
 
-    public void OnStopDiscardEditButtonClicked() {
-        _appState.StopDiscardEditSession();
-    }
+        public void OnStartEditButtonClicked() {
+            _appState.StartEditSession();
+        }
 
-    public void OnShowLayersValueChanged(bool enabled) {
-        print($"OnShowLayersValueChanged: {enabled}");
-    }
+        public void OnStopSaveEditButtonClicked() {
+            _appState.StopSaveEditSession();
+        }
 
-    // Changes the state of menu buttons when edit session starts.
-    // 1) Disable Start Edit button
-    // 2) Enable both Stop Edit buttons
-    //
-    // This method is triggered when:
-    // 1) StartEdit action is triggered
-    // 2) Start Edit button is clicked
-    private void OnEditSessionStart() {
-        startEditButton.interactable = false;
-        stopSaveEditButton.interactable = true;
-        stopDiscardEditButton.interactable = true;
-    }
+        public void OnStopDiscardEditButtonClicked() {
+            _appState.StopDiscardEditSession();
+        }
 
-    // Changes the state of menu buttons when edit session ends.
-    // 1) Enable Start Edit button
-    // 2) Disable both Stop Edit buttons
-    //
-    // This method is triggered when:
-    // 1) EndEdit action is triggered
-    // 2) One of the Stop Edit buttons is clicked
-    private void OnEditSessionEnd() {
-        startEditButton.interactable = true;
-        stopSaveEditButton.interactable = false;
-        stopDiscardEditButton.interactable = false;
-    }
+        public void OnShowLayersValueChanged(bool enabled) {
+            print($"OnShowLayersValueChanged: {enabled}");
+        }
 
+        // Changes the state of menu buttons when edit session starts.
+        // 1) Disable Start Edit button
+        // 2) Enable both Stop Edit buttons
+        //
+        // This method is triggered when:
+        // 1) StartEdit action is triggered
+        // 2) Start Edit button is clicked
+        private void OnEditSessionStart() {
+            startEditButton.interactable = false;
+            stopSaveEditButton.interactable = true;
+            stopDiscardEditButton.interactable = true;
+        }
+
+        // Changes the state of menu buttons when edit session ends.
+        // 1) Enable Start Edit button
+        // 2) Disable both Stop Edit buttons
+        //
+        // This method is triggered when:
+        // 1) EndEdit action is triggered
+        // 2) One of the Stop Edit buttons is clicked
+        private void OnEditSessionEnd() {
+            startEditButton.interactable = true;
+            stopSaveEditButton.interactable = false;
+            stopDiscardEditButton.interactable = false;
+        }
+
+    }
 }
