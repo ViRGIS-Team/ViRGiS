@@ -65,8 +65,22 @@ namespace Virgis
             if (button != SelectionTypes.BROADCAST)
             {
                 gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
+                switch (AppState.instance.editSession.mode)
+                {
+                    case EditSession.EditMode.None:
+                        break;
+                    case EditSession.EditMode.SnapAnchor:
+                        break;
+                    case EditSession.EditMode.SnapGrid:
+                        MoveArgs args = new MoveArgs();
+                        args.oldPos = transform.position;
+                        args.pos = transform.position.Round(Global.project.ContainsKey("GridScale") && Global.project.GridScale != 0 ? Global.project.GridScale : 0.1f);
+                        args.id = id;
+                        args.translate = args.pos - transform.position;
+                        SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+                        break;
+                }
             }
-
         }
 
         /// <summary>

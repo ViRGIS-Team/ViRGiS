@@ -139,6 +139,18 @@ namespace Virgis
         }
     }
 
+    public static class VirgisVectorExtensions
+    {
+        public static Vector3 Round(this Vector3 vector3, float roundTo = 0.1f)
+        {
+            return new Vector3(
+                Mathf.Round(vector3.x / roundTo) * roundTo,
+                Mathf.Round(vector3.y / roundTo) * roundTo,
+                Mathf.Round(vector3.z / roundTo) * roundTo
+                );
+        }
+    }
+
 
     /// <summary>
     /// Abstract parent for all in game entities
