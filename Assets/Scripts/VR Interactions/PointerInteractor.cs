@@ -239,16 +239,7 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void receiveRay(PointsCast.EventData data)
     {
-
-        if (data.IsValid)
-        {
-            m_RaycastHits[0] = data.HitData.Value;
             m_HitCount = 1;
             m_LinePoints = data.Points.ToArray<Vector3>();
-        } else
-        {
-            m_HitCount = 0;
-        }
     }
-
 }
