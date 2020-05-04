@@ -39,9 +39,10 @@ namespace Project
 
     public class RecordSet : TestableObject
     {
-
         [JsonProperty(PropertyName = "id", Required = Required.Always)]
         public string Id;
+        [JsonProperty(PropertyName = "display-name")]
+        public string DisplayName;
         [JsonProperty(PropertyName = "type", Required = Required.Always)]
         public string Type;
         [JsonProperty(PropertyName = "datatype", Required = Required.Always)]
