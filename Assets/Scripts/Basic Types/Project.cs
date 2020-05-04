@@ -24,6 +24,9 @@ namespace Project
         [JsonProperty(PropertyName = "mapscale", Required = Required.Always)]
         public int MapScale;
 
+        [JsonProperty(PropertyName = "grid-scale")]
+        public float GridScale;
+
         [JsonProperty(PropertyName = "cameras", Required = Required.Always)]
         public List<Point> Cameras;
 
