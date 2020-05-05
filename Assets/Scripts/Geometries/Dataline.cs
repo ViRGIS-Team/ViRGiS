@@ -9,7 +9,6 @@ using Mapbox.Unity.Map;
 using Project;
 using g3;
 using UnityEngine.UI;
-using System.Linq;
 
 namespace Virgis
 {
@@ -24,6 +23,7 @@ namespace Virgis
 
         private bool BlockMove = false; // is this line in a block-move state
         private bool Lr = false; // is this line a Linear Ring - i.e. used to define a polygon
+        public List<VertexLookup> VertexTable = new List<VertexLookup>();
 
 
         /// <summary>
@@ -43,19 +43,23 @@ namespace Virgis
 
         public override void VertexMove(MoveArgs data)
         {
-            if (data.id >= 0)
+            if (VertexTable.Contains(new VertexLookup() { Id = data.id}))
             {
-                for (int i = 0; i < gameObject.transform.childCount; i++)
+                VertexLookup vdata = VertexTable.Find(item => item.Id == data.id);
+                if (vdata.isVertex)
                 {
-                    GameObject go = gameObject.transform.GetChild(i).gameObject;
-                    LineSegment goFunc = go.GetComponent<LineSegment>();
-                    if (goFunc != null && goFunc.vStart == data.id)
+                    for (int i = 0; i < gameObject.transform.childCount; i++)
                     {
-                        goFunc.MoveStart(data.pos);
-                    }
-                    else if (goFunc != null && goFunc.vEnd == data.id)
-                    {
-                        goFunc.MoveEnd(data.pos);
+                        GameObject go = gameObject.transform.GetChild(i).gameObject;
+                        LineSegment goFunc = go.GetComponent<LineSegment>();
+                        if (goFunc != null && goFunc.vStart == vdata.Vertex)
+                        {
+                            goFunc.MoveStart(data.pos);
+                        }
+                        else if (goFunc != null && goFunc.vEnd == vdata.Vertex)
+                        {
+                            goFunc.MoveEnd(data.pos);
+                        }
                     }
                 }
             }
@@ -118,9 +122,10 @@ namespace Virgis
                 if (!(i + 1 == line.Length && Lr))
                 {
                     GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
+                    VirgisComponent com = handle.GetComponent<VirgisComponent>();
                     handle.transform.parent = transform;
-                    handle.SendMessage("SetId", i);
-                    handle.SendMessage("SetColor", (Color)symbology["point"].Color);
+                    VertexTable.Add(new VertexLookup() { Id = com.id, Vertex = i, isVertex = true, Com = com });
+                    com.SetColor ((Color)symbology["point"].Color);
                     handle.transform.localScale = symbology["point"].Transform.Scale;
                 }
                 if (i + 1 != line.Length)
@@ -128,7 +133,6 @@ namespace Virgis
                     GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
                     lineSegment.transform.parent = transform;
                     LineSegment com = lineSegment.GetComponent<LineSegment>();
-                    com.SetId(i);
                     com.Draw(vertex, line[i + 1], i, i + 1, symbology["line"].Transform.Scale.magnitude);
                     com.SetColor((Color)symbology["line"].Color);
                     if (i + 2 == line.Length && Lr) com.vEnd = 0;
@@ -157,12 +161,10 @@ namespace Virgis
         /// <returns>Vector3[] of verteces</returns>
         public Vector3[] GetVerteces()
         {
-            Datapoint[] data = GetHandles();
-            Vector3[] result = new Vector3[data.Length];
-            for (int i = 0; i < data.Length; i++)
+            Vector3[] result = new Vector3[VertexTable.Count];
+            for (int i = 0; i < result.Length; i++)
             {
-                Datapoint datum = data[i];
-                result[i] = datum.transform.position;
+                result[i] = VertexTable.Find(item => item.Vertex == i).Com.transform.position;
             }
             if (Lr)
             {
@@ -172,15 +174,6 @@ namespace Virgis
             return result;
         }
 
-        /// <summary>
-        /// called to get the handle ViRGIS Components for the Line
-        /// </summary>
-        /// <returns> Datapoint[]</returns>
-        public Datapoint[] GetHandles()
-        {
-            return gameObject.GetComponentsInChildren<Datapoint>().Where(item => item.id >= 0).ToArray();
-
-        }
 
         public override void Selected(SelectionTypes button)
         {
@@ -242,6 +235,15 @@ namespace Virgis
             throw new NotImplementedException();
         }
 
+        public override Vector3 GetClosest(Vector3 coords)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override T GetGeometry<T>()
+        {
+            throw new NotImplementedException();
+        }
 
         /* static public Gradient ColorGrad(Color color1)
         {

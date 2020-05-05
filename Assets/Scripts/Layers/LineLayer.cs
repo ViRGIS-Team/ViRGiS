@@ -30,6 +30,7 @@ namespace Virgis
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
 
+
         public override async Task _init(GeographyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
@@ -167,9 +168,5 @@ namespace Virgis
             throw new System.NotImplementedException();
         }*/
 
-        public override VirgisComponent GetFeature(string id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

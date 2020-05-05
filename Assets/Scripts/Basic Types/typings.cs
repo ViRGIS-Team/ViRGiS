@@ -4,7 +4,7 @@ using UnityEngine;
 using GeoJSON.Net.Geometry;
 using g3;
 using System;
-using GeoJSON.Net.Feature;
+
 
 namespace Virgis
 {
@@ -14,7 +14,7 @@ namespace Virgis
     /// </summary>
     public struct MoveArgs
     {
-        public int id; // id of the sending entity
+        public Guid id; // id of the sending entity
         public Vector3 pos; // OPTIONAL point to move TO in world space coordinates
         public Vector3 translate; // OPTIONSAL translation in world units to be applied to target
         public Quaternion rotate; // OPTIONAL rotation to be applied to target
@@ -73,7 +73,7 @@ namespace Virgis
 
     public static class DcurveExtensions
     {
-        public static void Vector3(this DCurve3 curve, Vector3[] verteces, bool bClosed)
+        public static void Vector3(this g3.DCurve3 curve, Vector3[] verteces, bool bClosed)
         {
             curve.Closed = bClosed;
             foreach (Vector3 vertex in verteces)
@@ -151,6 +151,41 @@ namespace Virgis
                 Mathf.Round(vector3.z / roundTo) * roundTo
                 );
         }
+    }
+
+    public class VertexLookup
+    {
+        public Guid Id;
+        public int Vertex;
+        public bool isVertex;
+        public VirgisComponent Com;
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            VertexLookup com = obj as VertexLookup;
+            if (com == null) return false;
+            else return Equals(com);
+        }
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+        public bool Equals(VertexLookup other)
+        {
+            if (other == null) return false;
+            return (this.Id.Equals(other.Id));
+        }
+
+        public int CompareTo(VertexLookup other)
+        {
+            if (other == null)
+                return 1;
+
+            else
+                return Vertex.CompareTo(other.Vertex);
+        }
+
     }
 }
 

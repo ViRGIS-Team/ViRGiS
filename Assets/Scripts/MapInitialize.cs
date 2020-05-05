@@ -170,10 +170,5 @@ namespace Virgis
         {
             
         }
-
-        public override VirgisComponent GetFeature(string id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

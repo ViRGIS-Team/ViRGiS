@@ -107,5 +107,15 @@ namespace Virgis
         {
             throw new System.NotImplementedException();
         }
+
+        public override Vector3 GetClosest(Vector3 coords)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override T GetGeometry<T>()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

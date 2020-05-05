@@ -3,6 +3,10 @@
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
+using System;
+using GeoJSON.Net.Feature;
+using GeoJSON.Net.Geometry;
+
 
 namespace Virgis
 {
@@ -32,7 +36,6 @@ namespace Virgis
         void Update()
         {
             if (label) label.LookAt(Global.mainCamera.transform);
-
         }
 
 
@@ -156,5 +159,25 @@ namespace Virgis
         {
             
         }
+
+        public override Vector3 GetClosest(Vector3 coords)
+        {
+            return transform.position;
+        }
+
+        public override T GetGeometry<T>()
+        {
+            switch (typeof(T).Name)
+            {
+                case "Vector3":
+                    return (T)Convert.ChangeType("Hello there", typeof(T));
+                case "Vector3d":
+                    return (T)Convert.ChangeType("Hello there", typeof(T));
+                case "Point":
+                    return (T)Convert.ChangeType(new Point(Tools.Vect2Ipos(transform.position)), typeof(T));
+                default:
+                    throw new NotSupportedException(String.Format("TYpe {} is not support by the Datapoint class", typeof(T).Name));
+            }
+        }   
     }
 }

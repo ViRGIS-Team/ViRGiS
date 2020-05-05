@@ -65,8 +65,6 @@ namespace Virgis
                 PointPrefab = SpherePrefab;
             }
 
-            int id = 0;
-
             foreach (Feature feature in features.Features)
             {
                 // Get the geometry
@@ -95,7 +93,6 @@ namespace Virgis
                     Datapoint com = dataPoint.GetComponent<Datapoint>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
-                    com.SetId(id);
 
                     //Set the symbology
                     if (symbology.ContainsKey("point"))
@@ -117,8 +114,6 @@ namespace Virgis
                     {
                         labelText.text = (string)properties[symbology["point"].Label];
                     }
-
-                    id++;
                 }
             };
         }
@@ -159,9 +154,5 @@ namespace Virgis
             throw new System.NotImplementedException();
         }*/
 
-        public override VirgisComponent GetFeature(string id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

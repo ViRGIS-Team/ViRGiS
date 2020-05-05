@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +28,9 @@ namespace Virgis
         void Translate(MoveArgs args);
         void VertexMove(MoveArgs args);
 
+        Vector3 GetClosest(Vector3 coords);
+        T GetGeometry<T>();
+
     }
 
     public abstract class VirgisComponent : MonoBehaviour, IVirgisComponent
@@ -37,8 +40,14 @@ namespace Virgis
         public string gisId; // ID of this component in the geoJSON
         public IDictionary<string, object> gisProperties; //  geoJSON properties of this component
 
-        public int id; // internal ID for this component - used when it is part of a larger structure
+        public Guid id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
+
+
+        void Awake()
+        {
+            id = Guid.NewGuid();
+        }
 
 
         /// <summary>
@@ -77,16 +86,6 @@ namespace Virgis
         /// <param name="delta"> Vector representing this channge to the transform</param>
         public abstract void MoveAxis(MoveArgs args);
 
-
-        /// <summary>
-        /// Set the Id of the marker
-        /// </summary>
-        /// <param name="value">ID</param>
-        public void SetId(int value)
-        {
-            id = value;
-        }
-
         /// <summary>
         /// Called when a child component is translated by User action
         /// </summary>
@@ -98,5 +97,20 @@ namespace Virgis
         /// </summary>
         /// <param name="data">MoveArgs</param>
         public abstract void VertexMove(MoveArgs args);
+
+        /// <summary>
+        /// Gets the closest point of the faeture geometry to the coordinates
+        /// </summary>
+        /// <param name="coords"> Vector3 Target Coordinates </param>
+        /// <returns> Vector3 in world space coordinates </returns>
+        public abstract Vector3 GetClosest(Vector3 coords);
+
+
+        /// <summary>
+        /// Get Geometry from the Feature
+        /// </summary>
+        /// <typeparam name="T">The Type of the geometry</typeparam>
+        /// <returns> Gemoetry of type T </returns>
+        public abstract T GetGeometry<T>();
     }
 }
