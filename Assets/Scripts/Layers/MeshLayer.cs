@@ -128,6 +128,16 @@ namespace Virgis
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
         }
+
+        /*public override VirgisComponent GetClosest(Vector3 coords)
+        {
+            throw new System.NotImplementedException();
+        }*/
+
+        public override VirgisComponent GetFeature(string id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 

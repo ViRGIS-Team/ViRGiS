@@ -11,20 +11,14 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon ViRGIS component
     /// </summary>
-    public class Datapolygon : MonoBehaviour, IVirgisComponent
+    public class Datapolygon : VirgisComponent
     {
 
         private bool BlockMove = false; // Is this component in a block move state
-        public string gisId; // Feature ID from the geoJSON 
-        public IDictionary<string, object> gisProperties; // featire properties from the geoJSON
         private GameObject shape; // gameObject to be used for the shape
         public Datapoint centroid; // Polyhedral center vertex
 
-        /// <summary>
-        /// Called hwne a child component is selected
-        /// </summary>
-        /// <param name="button"></param>
-        public void Selected(SelectionTypes button)
+        public override void Selected(SelectionTypes button)
         {
             if (button == SelectionTypes.SELECTALL)
             {
@@ -35,11 +29,7 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Called when a child component is unselected
-        /// </summary>
-        /// <param name="button"></param>
-        public void UnSelected(SelectionTypes button)
+        public override void UnSelected(SelectionTypes button)
         {
             if (button != SelectionTypes.BROADCAST)
             {
@@ -48,11 +38,7 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Called when a child Vertex is asked to move by the user
-        /// </summary>
-        /// <param name="data">MoveArgs</param>
-        public void VertexMove(MoveArgs data)
+        public override void VertexMove(MoveArgs data)
         {
             if (!BlockMove)
             {
@@ -60,11 +46,7 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// called when a child component is asked to move by the user
-        /// </summary>
-        /// <param name="args"> MoveArgs</param>
-        public void Translate(MoveArgs args)
+        public override void Translate(MoveArgs args)
         {
             if (BlockMove)
             {
@@ -74,12 +56,8 @@ namespace Virgis
 
         }
 
-        /// <summary>
-        /// received when a Move Axis request is made by the user
-        /// </summary>
-        /// <param name="args"> MoveArgs</param>
-        /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public void MoveAxis(MoveArgs args)
+        // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
+        public override void MoveAxis(MoveArgs args)
         {
             if (args.translate != null)
             {
@@ -99,22 +77,21 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Change the Color of the component
-        /// </summary>
-        /// <param name="newCol"></param>
-        public void SetColor(Color newCol)
+        public override void SetColor(Color newCol)
         {
             shape.GetComponent<Renderer>().material.SetColor("_BaseColor", newCol);
         }
 
-        /// <summary>
-        /// Callled on an ExitEditSession event
-        /// </summary>
-        public void EditEnd()
+        public override void EditEnd()
         {
 
         }
+
+        public override void MoveTo(Vector3 newPos)
+        {
+            throw new System.NotImplementedException();
+        }
+
 
         /// <summary>
         /// Called to draw the Polygon based upon the 

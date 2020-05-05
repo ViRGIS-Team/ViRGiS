@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using GeoJSON.Net.Geometry;
 using g3;
+using System;
+using GeoJSON.Net.Feature;
 
 namespace Virgis
 {
@@ -150,31 +152,6 @@ namespace Virgis
                 );
         }
     }
-
-
-    /// <summary>
-    /// Abstract parent for all in game entities
-    /// </summary>
-    public interface IVirgisEntity
-    {
-        void Selected(SelectionTypes button);
-        void UnSelected(SelectionTypes button);
-        void EditEnd();
-    }
-
-    /// <summary>
-    /// Abstract Parent for all symbology relevant in game entities
-    /// </summary>
-    public interface IVirgisComponent : IVirgisEntity
-    {
-        void SetColor(Color color);
-        //void MoveTo(Vector3 newPos);
-    }
-
-    /// <summary>
-    /// abstract parent for generic datasets
-    /// </summary>
-    public abstract class DataObject { }
 }
 
 

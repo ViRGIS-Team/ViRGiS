@@ -17,18 +17,14 @@ namespace Virgis
     /// <summary>
     /// Controls and Instance of a Line Component
     /// </summary>
-    public class Dataline : MonoBehaviour, IVirgisComponent
+    public class Dataline : VirgisComponent
     {
-        public Color color; // color for the line
-        public Color anticolor; // color for the vertces when selected
         public GameObject CylinderObject;
-        public string gisId; // the ID for this line from the geoJSON
-        public IDictionary<string, object> gisProperties; // the properties for this entity
 
 
         private bool BlockMove = false; // is this line in a block-move state
         private bool Lr = false; // is this line a Linear Ring - i.e. used to define a polygon
-        private Transform label; //  Go of the label or billboard
+
 
         /// <summary>
         /// Every frame - realign the billboard
@@ -39,20 +35,13 @@ namespace Virgis
 
         }
 
-        /// <summary>
-        /// Sets the Color of the line
-        /// </summary>
-        /// <param name="newColor"></param>
-        public void SetColor(Color newColor)
+
+        public override void SetColor(Color newColor)
         {
             BroadcastMessage("SetColor", newColor, SendMessageOptions.DontRequireReceiver);
         }
 
-        /// <summary>
-        /// Called when a child Vertex moves to the point in the MoveArgs - which is in World Coordinates
-        /// </summary>
-        /// <param name="data">MOveArgs</param>
-        public void VertexMove(MoveArgs data)
+        public override void VertexMove(MoveArgs data)
         {
             if (data.id >= 0)
             {
@@ -72,12 +61,8 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// received when a Move Axis request is made by the user
-        /// </summary>
-        /// <param name="delta"> Vector representing this channge to the transform</param>
-        /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public void MoveAxis(MoveArgs args)
+        // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
+        public override void MoveAxis(MoveArgs args)
         {
 
             if (args.translate != null) transform.Translate(args.translate, Space.World);
@@ -197,11 +182,7 @@ namespace Virgis
 
         }
 
-        /// <summary>
-        /// Called when a child component is selected
-        /// </summary>
-        /// <param name="button"> SelectionTypes </param>
-        public void Selected(SelectionTypes button)
+        public override void Selected(SelectionTypes button)
         {
             if (button == SelectionTypes.SELECTALL)
             {
@@ -210,11 +191,7 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Called when a child component is unselected
-        /// </summary>
-        /// <param name="button"> SelectionTypes</param>
-        public void UnSelected(SelectionTypes button)
+        public override void UnSelected(SelectionTypes button)
         {
             if (button != SelectionTypes.BROADCAST)
             {
@@ -223,11 +200,7 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Called when a child component is translated by User action
-        /// </summary>
-        /// <param name="args">MoveArgs</param>
-        public void Translate(MoveArgs args)
+        public override void Translate(MoveArgs args)
         {
             if (!BlockMove)
             {
@@ -259,12 +232,14 @@ namespace Virgis
             return result;
         }
 
-        /// <summary>
-        /// Callled on an ExitEditSession event
-        /// </summary>
-        public void EditEnd()
+        public override void EditEnd()
         {
 
+        }
+
+        public override void MoveTo(Vector3 newPos)
+        {
+            throw new NotImplementedException();
         }
 
 

@@ -8,9 +8,8 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a line segment
     /// </summary>
-    public class LineSegment : MonoBehaviour, IVirgisComponent
+    public class LineSegment : VirgisComponent
     {
-        public int id; // id for the line
         private Vector3 start; // coords of the start of the line in Map.local space coordinates
         private Vector3 end;  // coords of the start of the line in Map.local space coordinates
         private float diameter; // Diameter of the vertex in Map.local units
@@ -35,7 +34,7 @@ namespace Virgis
             _draw();
 
         }
-        public void Selected(SelectionTypes button)
+        public override void Selected(SelectionTypes button)
         {
             if (button == SelectionTypes.SELECTALL)
             {
@@ -43,7 +42,7 @@ namespace Virgis
             }
         }
 
-        public void UnSelected(SelectionTypes button)
+        public override void UnSelected(SelectionTypes button)
         {
             if (button != SelectionTypes.BROADCAST)
             {
@@ -51,12 +50,8 @@ namespace Virgis
             }
         }
 
-        public void SetId(int newId)
-        {
-            id = newId;
-        }
 
-        public void SetColor(Color newCol)
+        public override void SetColor(Color newCol)
         {
             gameObject.GetComponentInChildren<Renderer>().material.SetColor("_BaseColor", newCol);
         }
@@ -88,9 +83,29 @@ namespace Virgis
         /// <summary>
         /// Callled on an ExitEditSession event
         /// </summary>
-        public void EditEnd()
+        public override void EditEnd()
         {
 
+        }
+
+        public override void Translate(MoveArgs args)
+        {
+            
+        }
+
+        public override void VertexMove(MoveArgs args)
+        {
+            
+        }
+
+        public override void MoveAxis(MoveArgs args)
+        {
+      
+        }
+
+        public override void MoveTo(Vector3 newPos)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

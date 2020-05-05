@@ -2,7 +2,9 @@
 using UnityEngine;
 using Project;
 using System.Threading.Tasks;
-
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Virgis
 {
@@ -13,6 +15,10 @@ namespace Virgis
         void Draw();
         void CheckPoint();
         RecordSet Save();
+
+        VirgisComponent GetClosest(Vector3 coords, String[] exclude);
+
+        VirgisComponent GetFeature(string id);
     }
 
     /// <summary>
@@ -21,6 +27,10 @@ namespace Virgis
     public abstract class Layer<T,S> : MonoBehaviour, ILayer where T : RecordSet
     {
 
+        readonly Type LayerType = typeof(T);
+        readonly Type DataType = typeof(S);
+
+        
         public T layer; // holds the RecordSet data for this layer
         public S features; // holds the feature data for this layer
         public bool changed = true; // true is this layer has been changed from the original file
@@ -156,7 +166,26 @@ namespace Virgis
         /// </summary>
         public abstract void ExitEditsession();
 
+        /// <summary>
+        ///  Get the Closest Feature to the coordinates
+        /// </summary>
+        /// <param name="coords"> coordinates </param>
+        /// <returns>returns the featue contained in an enitity of type S</returns>
+        public VirgisComponent GetClosest(Vector3 coords, String[] exclude) 
+        {
+            List<VirgisComponent> list = transform.GetComponentsInChildren<VirgisComponent>().ToList();
+            list = list.FindAll(item => exclude.Contains<String>(item.id.ToString()));
+            KdTree<VirgisComponent> tree = new KdTree<VirgisComponent>();
+            tree.AddAll(list);
+            return tree.FindClosest(transform.position) as VirgisComponent;
+        }
 
+        /// <summary>
+        /// Get the feature that matches the ID provided 
+        /// </summary>
+        /// <param name="id"> ID</param>
+        /// <returns>returns the featue contained in an enitity of type S</returns>
+        public abstract VirgisComponent GetFeature(string id);
     }
 }
 
