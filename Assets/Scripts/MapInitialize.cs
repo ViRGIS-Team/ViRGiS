@@ -5,6 +5,7 @@ using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using Project;
 using System.Threading.Tasks;
+using GeoJSON.Net.Feature;
 
 namespace Virgis
 {
@@ -15,7 +16,7 @@ namespace Virgis
     /// 
     /// It is run once at Startup
     /// </summary>
-    public class MapInitialize : Layer<RecordSet, DataObject>
+    public class MapInitialize : Layer<RecordSet, FeatureObject>
     {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
@@ -76,7 +77,7 @@ namespace Virgis
             Draw();
         }
 
-        async new Task<Layer<RecordSet, DataObject>> Init(RecordSet layer)
+        async new Task<Layer<RecordSet, FeatureObject>> Init(RecordSet layer)
         {
             Component temp = null;
             foreach (RecordSet thisLayer in Global.project.RecordSets)

@@ -2,7 +2,9 @@
 using UnityEngine;
 using Project;
 using System.Threading.Tasks;
-
+using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Virgis
 {
@@ -13,6 +15,10 @@ namespace Virgis
         void Draw();
         void CheckPoint();
         RecordSet Save();
+
+        VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
+
+        VirgisComponent GetFeature(Guid id);
     }
 
     /// <summary>
@@ -21,9 +27,19 @@ namespace Virgis
     public abstract class Layer<T,S> : MonoBehaviour, ILayer where T : RecordSet
     {
 
+        readonly Type LayerType = typeof(T);
+        readonly Type DataType = typeof(S);
+
+        
         public T layer; // holds the RecordSet data for this layer
         public S features; // holds the feature data for this layer
         public bool changed = true; // true is this layer has been changed from the original file
+        public Guid id;
+
+        void Awake()
+        {
+            id = Guid.NewGuid();
+        }
 
         /// <summary>
         /// Get the event Manager and register listeners
@@ -156,7 +172,29 @@ namespace Virgis
         /// </summary>
         public abstract void ExitEditsession();
 
+        /// <summary>
+        ///  Get the Closest Feature to the coordinates. Exclude any Component Ids in the Exclude Array. The exclude lis  is primarily used to avoid a GetClosest to a Faeture picking up the feature itself
+        /// </summary>
+        /// <param name="coords"> coordinates </param>
+        /// <returns>returns the featue contained in an enitity of type S</returns>
+        public VirgisComponent GetClosest(Vector3 coords, Guid[] exclude) 
+        {
+            List<VirgisComponent> list = transform.GetComponentsInChildren<VirgisComponent>().ToList();
+            list = list.FindAll(item => ! exclude.Contains(item.id));
+            KdTree<VirgisComponent> tree = new KdTree<VirgisComponent>();
+            tree.AddAll(list);
+            return tree.FindClosest(transform.position) as VirgisComponent;
+        }
 
+        /// <summary>
+        /// Get the feature that matches the ID provided 
+        /// </summary>
+        /// <param name="id"> ID</param>
+        /// <returns>returns the featue contained in an enitity of type S</returns>
+        public VirgisComponent GetFeature(Guid id)
+        {
+            return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
+        }
     }
 }
 
