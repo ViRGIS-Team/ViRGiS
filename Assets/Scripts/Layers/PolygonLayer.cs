@@ -145,7 +145,8 @@ namespace Virgis
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
-                    com.centroid = centroid.GetComponent<Datapoint>();
+                    com.Centroid = centroid.GetComponent<Datapoint>();
+                    com.Centroid.SetColor((Color)symbology["point"].Color);
 
                     //Set the label
                     GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
@@ -158,12 +159,16 @@ namespace Virgis
                         labelText.text = (string)properties[symbology["body"].Label];
                     }
 
+                    // Darw the LinearRing
+                    Dataline Lr = dataLine.GetComponent<Dataline>();
+                    Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
+
+
                     //Draw the Polygon
                     Mat.SetColor("_BaseColor", symbology["body"].Color);
-                    com.Draw(perimeter, Mat);
-                    dataLine.GetComponent<Dataline>().Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
-                    centroid.SendMessage("SetColor", (Color)symbology["point"].Color);
-                    centroid.SendMessage("SetId", -1);
+                    com.Draw(Lr.VertexTable, Mat);
+                    
+
                     centroid.transform.localScale = symbology["point"].Transform.Scale;
                     centroid.transform.localRotation = symbology["point"].Transform.Rotate;
                     centroid.transform.localPosition = symbology["point"].Transform.Position;
@@ -198,7 +203,7 @@ namespace Virgis
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
                 IDictionary<string, object> properties = dataFeature.gisProperties;
-                Datapoint centroid = dataFeature.centroid;
+                Datapoint centroid = dataFeature.Centroid;
                 properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
                 features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };
@@ -216,5 +221,10 @@ namespace Virgis
         {
             changed = true;
         }
+
+        /*public override VirgisComponent GetClosest(Vector3 coords)
+        {
+            throw new System.NotImplementedException();
+        }*/
     }
 }

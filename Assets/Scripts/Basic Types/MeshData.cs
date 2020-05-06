@@ -11,7 +11,7 @@ namespace Virgis
 	/// </summary>
 
 
-	public class MeshData : DataObject
+	public class MeshData
 	{
 		public SimpleMeshBuilder Mesh;
 	}

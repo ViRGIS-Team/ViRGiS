@@ -262,14 +262,14 @@ namespace Virgis {
         // Link this to a 2d axis control for pan and zoom and move away
         //
         public void PanZoom(Vector2 axis) {
-            Vector2 pz_input = axis.normalized;
+            Vector2 pz_input = axis;
             if (!editSelected) {
                 float pan = pz_input.x * PanSensitvity;
                 Pan(pan);
                 float zoom = pz_input.y * ZoomSensitivity;
                 Zoom(zoom);
             } else {
-                selectedDistance += pz_input.y * SlideMod;
+                selectedDistance += pz_input.y * Global.Map.transform.TransformVector(Vector3.one * SlideMod).magnitude;
             }
         }
 

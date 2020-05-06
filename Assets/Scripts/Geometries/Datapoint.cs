@@ -1,7 +1,12 @@
 
 // copyright Runette Software Ltd, 2020. All rights reserved﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System.Collections.Generic;
+using System;
+using GeoJSON.Net.Feature;
+using GeoJSON.Net.Geometry;
+
 
 namespace Virgis
 {
@@ -10,18 +15,11 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a data pointor handle
     /// </summary>
-    public class Datapoint : MonoBehaviour, IVirgisComponent
+    public class Datapoint : VirgisComponent
     {
-
-        public Color color; // color of the marker
-        public Color anticolor; // color of the market when selected
-        public string gisId; // ID of this market in the geoJSON
-        public IDictionary<string, object> gisProperties; //  geoJSON properties of this marker
-
-        public int id; // internal ID for this marker - used when it is part of a larger structure
         private Renderer thisRenderer; // convenience link to the rendere for this marker
-        private Transform label; //  Go of the label or billboard
-
+        private bool newSelect = false;
+        private Vector3 moveOffset = Vector3.zero;
 
         void Start()
         {
@@ -32,22 +30,18 @@ namespace Virgis
             }
             if (transform.childCount > 0) label = transform.GetChild(0);
         }
-
         /// <summary>
         /// Every frame - realign the billboard
         /// </summary>
         void Update()
         {
             if (label) label.LookAt(Global.mainCamera.transform);
-
         }
 
-        /// <summary>
-        ///  On selected - change color and send message up the entity tree
-        /// </summary>
-        /// <param name="button">SelecetionType Identifies the user action type that led to selection</param>
-        public void Selected(SelectionTypes button)
+
+        public override void Selected(SelectionTypes button)
         {
+            newSelect = true;
             thisRenderer.material.SetColor("_BaseColor", anticolor);
             if (button != SelectionTypes.BROADCAST)
             {
@@ -55,26 +49,32 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// On unselected - change color and send message up the entity tree
-        /// </summary>
-        /// <param name="button">SelecetionType Identifies the user action type that led to selection</param>
-        public void UnSelected(SelectionTypes button)
+
+        public override void UnSelected(SelectionTypes button)
         {
             thisRenderer.material.SetColor("_BaseColor", color);
             if (button != SelectionTypes.BROADCAST)
             {
                 gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
+                MoveArgs args = new MoveArgs();
                 switch (AppState.instance.editSession.mode)
                 {
                     case EditSession.EditMode.None:
                         break;
                     case EditSession.EditMode.SnapAnchor:
+                        List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2 ), Quaternion.identity).ToList().FindAll( item => item.transform.position != transform.position);
+                        if (hitColliders.Count > 0)
+                        {
+                            args.oldPos = transform.position;
+                            args.pos = hitColliders.First<Collider>().transform.position;
+                            args.id = id;
+                            args.translate = args.pos - args.oldPos;
+                            SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+                        }
                         break;
                     case EditSession.EditMode.SnapGrid:
-                        MoveArgs args = new MoveArgs();
                         args.oldPos = transform.position;
-                        args.pos = transform.position.Round(Global.project.ContainsKey("GridScale") && Global.project.GridScale != 0 ? Global.project.GridScale : 0.1f);
+                        args.pos = transform.position.Round(Global.Map.transform.TransformVector(Vector3.one * (Global.project.ContainsKey("GridScale") && Global.project.GridScale != 0 ? Global.project.GridScale :  1f)).magnitude);;
                         args.id = id;
                         args.translate = args.pos - transform.position;
                         SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
@@ -83,11 +83,8 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Set the color for the marker
-        /// </summary>
-        /// <param name="newColor"> Color</param>
-        public void SetColor(Color newColor)
+ 
+        public override void SetColor(Color newColor)
         {
             color = newColor;
             anticolor = Color.white - newColor;
@@ -99,18 +96,23 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Sent by the UI to request this marker to move.
-        /// </summary>
-        /// <param name="newPos">Vector3 Worldspace Location to move to </param>
-        public void MoveTo(Vector3 newPos)
+
+        public override void MoveTo(Vector3 newPos)
         {
-            MoveArgs args = new MoveArgs();
-            args.translate = newPos - transform.position;
-            args.oldPos = transform.position;
-            args.id = id;
-            args.pos = newPos;
-            SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+            if (newSelect)
+            {
+                newSelect = false;
+                moveOffset = newPos - transform.position;
+            }
+            else
+            {
+                MoveArgs args = new MoveArgs();
+                args.translate = newPos - transform.position - moveOffset;
+                args.oldPos = transform.position;
+                args.id = id;
+                args.pos = newPos;
+                SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+            }
         }
 
         /// <summary>
@@ -130,28 +132,12 @@ namespace Virgis
             }
         }
 
-        /// <summary>
-        /// Set the Id of the marker
-        /// </summary>
-        /// <param name="value">ID</param>
-        public void SetId(int value)
-        {
-            id = value;
-        }
-
-        /// <summary>
-        /// Callled on an ExitEditSession event
-        /// </summary>
-        public void EditEnd()
+        public override void EditEnd()
         {
 
         }
 
-        /// <summary>
-        /// received when a Move Axis request is made by the user
-        /// </summary>
-        /// <param name="delta"> Vector representing this channge to the transform</param>
-        public void MoveAxis(MoveArgs args)
+        public override void MoveAxis(MoveArgs args)
         {
             if (args.pos == null)
             {
@@ -163,5 +149,35 @@ namespace Virgis
             }
             transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
         }
+
+        public override void VertexMove(MoveArgs args)
+        {
+            
+        }
+
+        public override void Translate(MoveArgs args)
+        {
+            
+        }
+
+        public override Vector3 GetClosest(Vector3 coords)
+        {
+            return transform.position;
+        }
+
+        public override T GetGeometry<T>()
+        {
+            switch (typeof(T).Name)
+            {
+                case "Vector3":
+                    return (T)Convert.ChangeType("Hello there", typeof(T));
+                case "Vector3d":
+                    return (T)Convert.ChangeType("Hello there", typeof(T));
+                case "Point":
+                    return (T)Convert.ChangeType(new Point(Tools.Vect2Ipos(transform.position)), typeof(T));
+                default:
+                    throw new NotSupportedException(String.Format("TYpe {} is not support by the Datapoint class", typeof(T).Name));
+            }
+        }   
     }
 }

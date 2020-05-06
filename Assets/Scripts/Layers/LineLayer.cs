@@ -30,6 +30,7 @@ namespace Virgis
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
 
+
         public override async Task _init(GeographyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
@@ -161,5 +162,11 @@ namespace Virgis
         {
             changed = true;
         }
+
+       /* public override VirgisComponent GetClosest(Vector3 coords)
+        {
+            throw new System.NotImplementedException();
+        }*/
+
     }
 }
