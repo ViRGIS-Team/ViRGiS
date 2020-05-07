@@ -35,7 +35,7 @@ namespace Virgis
         /// </summary>
         void Update()
         {
-            if (label) label.LookAt(Global.mainCamera.transform);
+            if (label) label.LookAt(AppState.instance.mainCamera.transform);
         }
 
 
@@ -74,7 +74,7 @@ namespace Virgis
                         break;
                     case EditSession.EditMode.SnapGrid:
                         args.oldPos = transform.position;
-                        args.pos = transform.position.Round(Global.Map.transform.TransformVector(Vector3.one * (Global.project.ContainsKey("GridScale") && Global.project.GridScale != 0 ? Global.project.GridScale :  1f)).magnitude);;
+                        args.pos = transform.position.Round(AppState.instance.map.transform.TransformVector(Vector3.one * (AppState.instance.project.ContainsKey("GridScale") && AppState.instance.project.GridScale != 0 ? AppState.instance.project.GridScale :  1f)).magnitude);;
                         args.id = id;
                         args.translate = args.pos - transform.position;
                         SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);

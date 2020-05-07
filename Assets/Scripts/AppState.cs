@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mapbox.Unity.Map;
+using Project;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +16,7 @@ namespace Virgis {
         public static AppState instance = null;
 
         private EditSession _editSession;
+        private List<Component> _layers;
 
         void Awake() {
             print("AppState awakens");
@@ -32,6 +35,36 @@ namespace Virgis {
 
         public EditSession editSession {
             get => _editSession;
+        }
+
+        public AbstractMap abstractMap {
+            get; set;
+        }
+
+        public GameObject map {
+            get; set;
+        }
+
+        public GisProject project {
+            get; set;
+        }
+
+        public List<Component> layers {
+            get {
+                return _layers;            
+            }   
+        }
+
+        public void addLayer(Component layer) {
+            _layers.Add(layer);
+        }
+
+        public GameObject mainCamera {
+            get; set;
+        }
+
+        public GameObject trackingSpace {
+            get; set;
         }
 
         public bool InEditSession() {
@@ -54,12 +87,13 @@ namespace Virgis {
             _editSession.AddStartEditSessionListener(action);
         }
 
-        public void AddEndEditSessionListener(UnityAction action) {
+        public void AddEndEditSessionListener(UnityAction<bool> action) {
             _editSession.AddEndEditSessionListener(action);
         }
 
         private void InitApp() {
             _editSession = new EditSession();
+            _layers = new List<Component>();
         }
 
     }

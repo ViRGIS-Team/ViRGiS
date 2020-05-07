@@ -118,7 +118,7 @@ namespace Virgis
             };
         }
 
-        public override void ExitEditsession()
+        public override void ExitEditsession(bool saved)
         {
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
