@@ -102,7 +102,7 @@ namespace Virgis
                 for (int i = transform.childCount - 1; i >= 0; i--)
                 {
                     Transform child = transform.GetChild(i);
-                    child.Destroy();
+                    child.gameObject.Destroy();
                 }
 
                 _draw();
