@@ -127,14 +127,15 @@ namespace Virgis
         public override void _save()
         {
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
-            List<Feature> features = new List<Feature>();
+            List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapoint pointFunc in pointFuncs)
             {
-                features.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
+                thisFeatures.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
             }
-            FeatureCollection FC = new FeatureCollection(features);
+            FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
             geoJsonReader.Save();
+            features = FC;
         }
 
 

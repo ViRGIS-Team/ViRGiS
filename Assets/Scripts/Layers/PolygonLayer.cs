@@ -122,10 +122,16 @@ namespace Virgis
                     Vector3 center = Vector3.zero;
                     if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
                     {
-                        JObject jobject = (JObject)properties["polyhedral"];
-                        Point centerPoint = jobject.ToObject<Point>();
-                        center = centerPoint.Coordinates.Vector3();
-                        properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+                        if (properties["polyhedral"].GetType() != typeof(Point))
+                        {
+                            JObject jobject = (JObject)properties["polyhedral"];
+                            Point centerPoint = jobject.ToObject<Point>();
+                            center = centerPoint.Coordinates.Vector3();
+                            properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+                        } else
+                        {
+                            center = Tools.Ipos2Vect((properties["polyhedral"] as Point).Coordinates as Position);
+                        }
                     }
                     else
                     {
@@ -184,7 +190,7 @@ namespace Virgis
         public override void _save()
         {
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
-            List<Feature> features = new List<Feature>();
+            List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapolygon dataFeature in dataFeatures)
             {
                 Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
@@ -197,18 +203,20 @@ namespace Virgis
                 LineString line = new LineString(positions);
                 if (!line.IsLinearRing())
                 {
-                    throw new System.ArgumentException("This Polygon is not a Linear Ring", dataFeature.gisProperties.ToString());
+                    Debug.LogError("This Polygon is not a Linear Ring");
+                    return;
                 }
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
                 IDictionary<string, object> properties = dataFeature.gisProperties;
                 Datapoint centroid = dataFeature.Centroid;
                 properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
-                features.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
+                thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };
-            FeatureCollection FC = new FeatureCollection(features);
+            FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
             geoJsonReader.Save();
+            features = FC;
         }
 
         public override void Translate(MoveArgs args)
