@@ -148,14 +148,13 @@ namespace Virgis
                     com.Centroid = centroid.GetComponent<Datapoint>();
                     com.Centroid.SetColor((Color)symbology["point"].Color);
 
-                    //Set the label
-                    GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
-                    labelObject.transform.parent = centroid.transform;
-                    labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
-                    Text labelText = labelObject.GetComponentInChildren<Text>();
-
                     if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
                     {
+                        //Set the label
+                        GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
+                        labelObject.transform.parent = centroid.transform;
+                        labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
+                        Text labelText = labelObject.GetComponentInChildren<Text>();
                         labelText.text = (string)properties[symbology["body"].Label];
                     }
 
