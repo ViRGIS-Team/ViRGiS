@@ -134,7 +134,7 @@ namespace Virgis
         public override void _save()
         {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            List<Feature> features = new List<Feature>();
+            List<Feature> thisFeatures = new List<Feature>();
             foreach (Dataline dataFeature in dataFeatures)
             {
                 Vector3[] vertices = dataFeature.GetVerteces();
@@ -145,11 +145,12 @@ namespace Virgis
                 }
                 List<LineString> lines = new List<LineString>();
                 lines.Add(new LineString(positions));
-                features.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
+                thisFeatures.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
             };
-            FeatureCollection FC = new FeatureCollection(features);
+            FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
             geoJsonReader.Save();
+            features = FC;
         }
 
         public override void Translate(MoveArgs args)

@@ -105,6 +105,10 @@ namespace Virgis
                     child.gameObject.Destroy();
                 }
 
+                transform.rotation = Quaternion.identity;
+                transform.localPosition = Vector3.zero;
+                transform.localScale = Vector3.one;
+
                 _draw();
                 changed = false;
             }

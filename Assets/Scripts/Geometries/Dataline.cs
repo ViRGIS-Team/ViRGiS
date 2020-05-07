@@ -164,12 +164,13 @@ namespace Virgis
             Vector3[] result = new Vector3[VertexTable.Count];
             for (int i = 0; i < result.Length; i++)
             {
-                result[i] = VertexTable.Find(item => item.Vertex == i).Com.transform.position;
-            }
-            if (Lr)
-            {
-                Array.Resize<Vector3>(ref result, result.Length + 1);
-                result[result.Length - 1] = result[0];
+                if (Lr && (i == result.Length - 1))
+                {
+                    result[i] = result[0];
+                } else
+                {
+                    result[i] = VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position;
+                }
             }
             return result;
         }
