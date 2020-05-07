@@ -87,7 +87,7 @@ namespace Virgis {
             _editSession.AddStartEditSessionListener(action);
         }
 
-        public void AddEndEditSessionListener(UnityAction action) {
+        public void AddEndEditSessionListener(UnityAction<bool> action) {
             _editSession.AddEndEditSessionListener(action);
         }
 

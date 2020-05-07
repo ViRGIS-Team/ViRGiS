@@ -170,7 +170,8 @@ namespace Virgis
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
-        public abstract void ExitEditsession();
+        /// <param name="saved">true if stop and save, false if stop and discard</param>
+        public abstract void ExitEditsession(bool saved);
 
         /// <summary>
         ///  Get the Closest Feature to the coordinates. Exclude any Component Ids in the Exclude Array. The exclude lis  is primarily used to avoid a GetClosest to a Faeture picking up the feature itself

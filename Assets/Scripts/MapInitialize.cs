@@ -45,6 +45,7 @@ namespace Virgis
                 print("instantiate app state");
                 appState = Instantiate(appState);
             }
+            appState.AddStartEditSessionListener(StartEditSession);
             appState.AddEndEditSessionListener(ExitEditsession);
         }
 
@@ -137,9 +138,13 @@ namespace Virgis
 
 
 
-        public override void ExitEditsession()
+        public override void ExitEditsession(bool saved)
         {
-            Save();
+            if (saved) {
+                Save();
+            } else {
+                Draw();
+            }
         }
 
         public override void _cp() { }
@@ -169,6 +174,10 @@ namespace Virgis
         public override void MoveAxis(MoveArgs args)
         {
             
+        }
+
+        private void StartEditSession() {
+            CheckPoint();
         }
     }
 }

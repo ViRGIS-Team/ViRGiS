@@ -95,7 +95,7 @@ namespace Virgis
             changed = true;
         }
 
-        public override void ExitEditsession()
+        public override void ExitEditsession(bool saved)
         {
 
         }
