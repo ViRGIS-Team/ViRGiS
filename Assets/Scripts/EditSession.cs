@@ -6,6 +6,14 @@ using UnityEngine.Events;
 
 namespace Virgis {
 
+    // EndEditSessionEvent is triggered whenever user ends
+    // an edit session. This event carries one boolean parameter:
+    // true if the edit session is stopped and saved,
+    // false if the edit session is stopped and discarded.
+    [System.Serializable]
+    public class EndEditSessionEvent : UnityEvent<bool> {
+    }
+
     public class EditSession {
         public enum EditMode {
             None, SnapGrid, SnapAnchor
@@ -13,13 +21,13 @@ namespace Virgis {
 
         private bool _active;
         private UnityEvent _startEditSessionEvent;
-        private UnityEvent _endEditSessionEvent;
+        private EndEditSessionEvent _endEditSessionEvent;
         private EditMode _editMode;
 
         public EditSession() {
             _active = false;
             _startEditSessionEvent = new UnityEvent();
-            _endEditSessionEvent = new UnityEvent();
+            _endEditSessionEvent = new EndEditSessionEvent();
             _editMode = EditMode.None;
         }
 
@@ -29,25 +37,22 @@ namespace Virgis {
 
         public void Start() {
             if (!_active) {
-                _active = true;
                 _startEditSessionEvent.Invoke();
+                _active = true;
             }
         }
 
         public void StopAndSave() {
             if (_active) {
                 _active = false;
-                _endEditSessionEvent.Invoke();
-                // save edits
-                // throw exception if save failed
+                _endEditSessionEvent.Invoke(true);
             }
         }
 
         public void StopAndDiscard() {
             if (_active) {
                 _active = false;
-                _endEditSessionEvent.Invoke();
-                // discard edits
+                _endEditSessionEvent.Invoke(false);
             }
         }
 
@@ -55,7 +60,7 @@ namespace Virgis {
             _startEditSessionEvent.AddListener(action);
         }
 
-        public void AddEndEditSessionListener(UnityAction action) {
+        public void AddEndEditSessionListener(UnityAction<bool> action) {
             _endEditSessionEvent.AddListener(action);
         }
 

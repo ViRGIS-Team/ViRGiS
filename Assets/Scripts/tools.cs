@@ -14,8 +14,8 @@ namespace Virgis
         static public Vector3 Ipos2Vect(Position position)
         {
             float Alt;
-            if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude * Global._map.WorldRelativeScale; };
-            Vector3 _world = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, Global._map.CenterMercator, Global._map.WorldRelativeScale).ToVector3xz();
+            if (position.Altitude == null) { Alt = 0.0f; } else { Alt = (float)position.Altitude * AppState.instance.abstractMap.WorldRelativeScale; };
+            Vector3 _world = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
             _world.y = Alt;
             return _world;
         }
@@ -32,9 +32,9 @@ namespace Virgis
 
         static public IPosition Vect2Ipos(Vector3 position)
         {
-            Vector3 mapLocal = Global.Map.transform.InverseTransformPoint(position);
-            Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, Global._map.CenterMercator, Global._map.WorldRelativeScale);
-            return new Position(_latlng.x, _latlng.y, mapLocal.y / Global._map.WorldRelativeScale);
+            Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(position);
+            Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale);
+            return new Position(_latlng.x, _latlng.y, mapLocal.y / AppState.instance.abstractMap.WorldRelativeScale);
         }
     }
 }

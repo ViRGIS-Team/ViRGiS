@@ -82,7 +82,7 @@ namespace Virgis {
         // This method is triggered when:
         // 1) EndEdit action is triggered
         // 2) One of the Stop Edit buttons is clicked
-        private void OnEditSessionEnd() {
+        private void OnEditSessionEnd(bool saved) {
             startEditButton.interactable = true;
             stopSaveEditButton.interactable = false;
             stopDiscardEditButton.interactable = false;
