@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GeoJSON.Net.Geometry;
 using System;
+using System.Runtime.InteropServices;
 
 namespace Virgis
 {
@@ -105,6 +106,7 @@ namespace Virgis
         /// <returns></returns>
         public GameObject Draw( List<VertexLookup> verteces,  Material mat = null)
         {
+            
             VertexTable = verteces;
             VertexTable.Add(new VertexLookup() { Id = Centroid.id, Vertex = -1, Com = Centroid });
             
@@ -220,30 +222,57 @@ namespace Virgis
         {
 
             float xMin = Mathf.Infinity;
-            float zMin = Mathf.Infinity;
+            float yMin = Mathf.Infinity;
             float xMax = -Mathf.Infinity;
-            float zMax = -Mathf.Infinity;
+            float yMax = -Mathf.Infinity;
 
-            foreach (Vector3 v3 in vertices)
+            Vector3[] UVWs = new Vector3[vertices.Length];
+
+            Vector3[] edges = new Vector3[vertices.Length];
+
+            edges[0] = Vector3.zero;
+
+            for (int i = 1; i< vertices.Length; i++)
+            {
+                edges[i] = vertices[0] - vertices[i];
+            }
+
+            UVWs[1] = Vector3.zero;
+            Vector3 baselineEdge = vertices[vertices.Length - 1] - vertices[1];
+            UVWs[vertices.Length - 1] = Vector3.right * baselineEdge.magnitude;
+            float theta = Vector3.Angle(baselineEdge, edges[vertices.Length - 1]);
+            UVWs[0] = UVWs[vertices.Length - 1] + Quaternion.Euler(0, 0, theta) * Vector3.right * edges[vertices.Length - 1].magnitude;
+
+            float thetaStash = 0;
+  
+            for (int i = 2; i < vertices.Length -1 ; i++)
+            {
+                theta = Vector3.Angle(edges[1], edges[i]);
+                if (theta < thetaStash) theta = 360 - theta;
+                thetaStash = theta;
+                UVWs[i] = UVWs[0] + Quaternion.Euler(0, 0, 180 - theta) * UVWs[0].normalized * edges[i].magnitude;
+            }
+
+            foreach (Vector3 v3 in UVWs)
             {
                 if (v3.x < xMin)
                     xMin = v3.x;
-                if (v3.z < zMin)
-                    zMin = v3.y;
+                if (v3.y < yMin)
+                    yMin = v3.y;
                 if (v3.x > xMax)
                     xMax = v3.x;
-                if (v3.z > zMax)
-                    zMax = v3.y;
+                if (v3.y > yMax)
+                    yMax = v3.y;
             }
 
             float xRange = xMax - xMin;
-            float zRange = zMax - zMin;
+            float yRange = yMax - yMin;
 
             Vector2[] uvs = new Vector2[vertices.Length];
             for (int i = 0; i < vertices.Length; i++)
             {
-                uvs[i].x = (vertices[i].x - xMin) / xRange;
-                uvs[i].y = (vertices[i].z - zMin) / zRange;
+                uvs[i].x = (UVWs[i].x - xMin) / xRange;
+                uvs[i].y = (UVWs[i].y - yMin) / yRange;
 
 
             }
