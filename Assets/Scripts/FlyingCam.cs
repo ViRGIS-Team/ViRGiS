@@ -54,8 +54,8 @@ namespace Virgis {
 
 
         private void Start() {
-            Global.trackingSpace = trackingSpace;
             appState = AppState.instance;
+            appState.trackingSpace = trackingSpace;
         }
 
         private void Update() {
@@ -232,7 +232,7 @@ namespace Virgis {
         public void Move(Vector2 axis) {
             if (axis != Vector2.zero) {
                 Vector3 speed_input = Quaternion.AngleAxis(90.0f, Vector3.right) * axis * HorizontalMod;
-                Vector3 reference = Global.trackingSpace.transform.localRotation.eulerAngles;
+                Vector3 reference = appState.trackingSpace.transform.localRotation.eulerAngles;
                 speed += Quaternion.AngleAxis(reference.y, Vector3.up) * speed_input;
             }
         }
@@ -269,7 +269,7 @@ namespace Virgis {
                 float zoom = pz_input.y * ZoomSensitivity;
                 Zoom(zoom);
             } else {
-                selectedDistance += pz_input.y * Global.Map.transform.TransformVector(Vector3.one * SlideMod).magnitude;
+                selectedDistance += pz_input.y * AppState.instance.map.transform.TransformVector(Vector3.one * SlideMod).magnitude;
             }
         }
 
@@ -412,14 +412,14 @@ namespace Virgis {
 
         private void Zoom(float zoom) {
             if (zoom != 0) {
-                Global.Map.transform.localScale *= 1 + zoom;
+                AppState.instance.map.transform.localScale *= 1 + zoom;
             }
         }
 
         private void Scale(float scale) {
-            Vector3 here = Global.Map.transform.InverseTransformPoint(transform.position);
-            Global.Map.transform.localScale *= 1 + scale;
-            transform.position = Global.Map.transform.TransformPoint(here);
+            Vector3 here = AppState.instance.map.transform.InverseTransformPoint(transform.position);
+            AppState.instance.map.transform.localScale *= 1 + scale;
+            transform.position = AppState.instance.map.transform.TransformPoint(here);
         }
 
         private void moveTo(Transform target, Vector3 pos) {

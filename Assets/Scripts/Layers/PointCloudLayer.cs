@@ -35,7 +35,7 @@ namespace Virgis
         public override void _draw()
         {
             transform.position = Tools.Ipos2Vect((Position)layer.Position.Coordinates);
-            transform.Translate(Global.Map.transform.TransformVector((Vector3)layer.Transform.Position * Global._map.WorldRelativeScale));
+            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
             Dictionary<string, Unit> symbology = layer.Properties.Units;
 
             model = Instantiate(pointCloud, transform.position, Quaternion.identity);
@@ -56,7 +56,7 @@ namespace Virgis
             transform.localScale = layer.Transform.Scale;
             GameObject centreHandle = Instantiate(handle, gameObject.transform.position, Quaternion.identity);
             centreHandle.transform.parent = transform;
-            centreHandle.transform.localScale = transform.InverseTransformVector(Global.Map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * Global._map.WorldRelativeScale));
+            centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
             centreHandle.SendMessage("SetColor", (Color)symbology["handle"].Color);
         }
 

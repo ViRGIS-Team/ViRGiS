@@ -31,7 +31,7 @@ namespace Virgis
         /// </summary>
         void Update()
         {
-            if (label) label.LookAt(Global.mainCamera.transform);
+            if (label) label.LookAt(AppState.instance.mainCamera.transform);
 
         }
 
@@ -109,7 +109,7 @@ namespace Virgis
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
         public void Draw(LineString lineIn, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab)
         {
-            AbstractMap _map = Global._map;
+            AbstractMap _map = AppState.instance.abstractMap;
             Vector3[] line = Tools.LS2Vect(lineIn);
             Lr = lineIn.IsLinearRing();
             DCurve3 curve = new DCurve3();

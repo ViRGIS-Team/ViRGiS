@@ -27,7 +27,7 @@ namespace Virgis
         public GameObject PolygonLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
-        public GameObject appState;
+        public AppState appState;
 
         // Path to the Project File
         public string inputfile;
@@ -42,9 +42,10 @@ namespace Virgis
         void Awake() {
             print("Map awakens");
             if (AppState.instance == null) {
-                Instantiate(appState);
+                print("instantiate app state");
+                appState = Instantiate(appState);
             }
-            AppState.instance.AddEndEditSessionListener(ExitEditsession);
+            appState.AddEndEditSessionListener(ExitEditsession);
         }
 
         /// 
@@ -58,20 +59,19 @@ namespace Virgis
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(inputfile);
             if (geoJsonReader.payload is null) return;
-            Global.project = geoJsonReader.GetProject();
-            Global.layers = new List<Component>();
+            appState.project = geoJsonReader.GetProject();
 
             //initialize space
-            Vector2d origin = Global.project.Origin.Coordinates.Vector2d();
+            Vector2d origin = appState.project.Origin.Coordinates.Vector2d();
             GameObject Map = gameObject;
             AbstractMap _map = Map.GetComponent<AbstractMap>();
-            _map.Initialize(origin, Global.project.MapScale);
+            _map.Initialize(origin, appState.project.MapScale);
 
             //set globals
-            Global._map = _map;
-            Global.Map = Map;
-            Global.mainCamera = MainCamera;
-            MainCamera.transform.position = Global.project.Camera.Coordinates.Vector3();
+            appState.abstractMap = _map;
+            appState.map = Map;
+            appState.mainCamera = MainCamera;
+            MainCamera.transform.position = appState.project.Camera.Coordinates.Vector3();
 
             await Init(null);
             Draw();
@@ -80,7 +80,7 @@ namespace Virgis
         async new Task<Layer<RecordSet, FeatureObject>> Init(RecordSet layer)
         {
             Component temp = null;
-            foreach (RecordSet thisLayer in Global.project.RecordSets)
+            foreach (RecordSet thisLayer in appState.project.RecordSets)
             {
                 switch (thisLayer.DataType)
                 {
@@ -102,7 +102,7 @@ namespace Virgis
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;
-                Global.layers.Add(temp);
+                appState.addLayer(temp);
             }
             return this;
         }
@@ -124,7 +124,7 @@ namespace Virgis
 
         new void Draw()
         {                                 
-            foreach (ILayer layer in Global.layers)
+            foreach (ILayer layer in appState.layers)
             {
                 layer.Draw();
             }
@@ -146,13 +146,13 @@ namespace Virgis
 
         public new void Save()
         {
-            foreach (ILayer com in Global.layers)
+            foreach (ILayer com in appState.layers)
             {
                 RecordSet layer = com.Save();
-                int index = Global.project.RecordSets.FindIndex(x => x.Id == layer.Id);
-                Global.project.RecordSets[index] = layer;
+                int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
+                appState.project.RecordSets[index] = layer;
             }
-            geoJsonReader.SetProject(Global.project);
+            geoJsonReader.SetProject(appState.project);
             geoJsonReader.Save();
         }
 
