@@ -276,7 +276,6 @@ namespace Virgis {
         }
 
 
-
         //
         // Link this to a 2d axis control for pan and zoom and move away
         //
