@@ -1,6 +1,7 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+﻿// copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System;
 using UnityEngine;
 using GeoJSON.Net.Geometry;
 using GeoJSON.Net.Feature;
@@ -16,7 +17,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon Layer
     /// </summary>
-    public class PolygonLayer : Layer<GeographyCollection, FeatureCollection>
+    public class XsectLayer: Layer<GeologyCollection, FeatureCollection>
     {
 
         // The prefab for the data points to be instantiated
@@ -27,19 +28,29 @@ namespace Virgis
         public GameObject CylinderPrefab; // prefab to be used for Vertex handle
         public GameObject PolygonPrefab; // Prefab to be used for the polygons
         public GameObject LabelPrefab; // Prefab to used for the Labels
+        public GameObject CentroidPrefab;
         public Material Mat; // Material to be used for the Polygon
 
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
 
         private GeoJsonReader geoJsonReader;
+        private List<Texture> Textures = new List<Texture>();
 
 
-        public override async Task _init(GeographyCollection layer)
+        public override async Task _init(GeologyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
+            foreach (Feature feature in features.Features)
+            {
+               if (feature.Properties.ContainsKey("url") && feature.Properties["url"] != null) {
+                    Texture tex = await TextureImage.Get(new Uri(feature.Properties["url"] as string));
+                    tex.wrapMode = TextureWrapMode.Clamp;
+                    Textures.Add(tex);
+                }
+            }
         }
 
         public override void _add(MoveArgs args)
@@ -113,7 +124,7 @@ namespace Virgis
                 {
                     mPols = feature.Geometry as MultiPolygon;
                 }
-
+                int index = 0;
                 foreach (Polygon mPol in mPols.Coordinates)
                 {
                     ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
@@ -128,7 +139,8 @@ namespace Virgis
                             Point centerPoint = jobject.ToObject<Point>();
                             center = centerPoint.Coordinates.Vector3();
                             properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
-                        } else
+                        }
+                        else
                         {
                             center = Tools.Ipos2Vect((properties["polyhedral"] as Point).Coordinates as Position);
                         }
@@ -142,7 +154,7 @@ namespace Virgis
                     //Create the GameObjects
                     GameObject dataLine = Instantiate(LinePrefab, center, Quaternion.identity);
                     GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
-                    GameObject centroid = Instantiate(HandlePrefab, center, Quaternion.identity);
+                    GameObject centroid = Instantiate(CentroidPrefab, center, Quaternion.identity);
                     dataPoly.transform.parent = gameObject.transform;
                     dataLine.transform.parent = dataPoly.transform;
                     centroid.transform.parent = dataLine.transform;
@@ -170,13 +182,12 @@ namespace Virgis
 
 
                     //Draw the Polygon
-                    Mat.SetColor("_BaseColor", symbology["body"].Color);
+                    if (Textures.Count > 0) Mat.SetTexture("_BaseMap", Textures[index]);
                     com.Draw(Lr.VertexTable, Mat);
-                    
-
                     centroid.transform.localScale = symbology["point"].Transform.Scale;
                     centroid.transform.localRotation = symbology["point"].Transform.Rotate;
                     centroid.transform.localPosition = symbology["point"].Transform.Position;
+                    index++;
                 }
             };
         }
@@ -228,5 +239,10 @@ namespace Virgis
         {
             changed = true;
         }
+
+        /*public override VirgisComponent GetClosest(Vector3 coords)
+        {
+            throw new System.NotImplementedException();
+        }*/
     }
 }

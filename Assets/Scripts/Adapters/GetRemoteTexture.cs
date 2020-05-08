@@ -2,39 +2,45 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
+using System;
 
-public class Network { 
 
-    public static async Task<Texture2D> GetRemoteTexture(string url)
+namespace Virgis
+{
+    public class TextureImage
     {
-        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
+
+        public static async Task<Texture2D> Get(Uri url)
         {
-            //begin requenst:
-            var asyncOp = www.SendWebRequest();
-
-            //await until it's done: 
-            while (asyncOp.isDone == false)
+            using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
             {
-                await Task.Delay(1000 / 30);//30 hertz
-            }
+                //begin requenst:
+                var asyncOp = www.SendWebRequest();
 
-            //read results:
-            if (www.isNetworkError || www.isHttpError)
-            {
-                //log error:
-                #if DEBUG
-                Debug.Log($"{ www.error }, URL:{ www.url }");
-                #endif
+                //await until it's done: 
+                while (asyncOp.isDone == false)
+                {
+                    await Task.Delay(1000 / 30);//30 hertz
+                }
 
-                //nothing to return on error:
-                return null;
-            }
-            else
-            {
-                //return valid results:
-                return DownloadHandlerTexture.GetContent(www);
+                //read results:
+                if (www.isNetworkError || www.isHttpError)
+                {
+                    //log error:
+
+                    Debug.Log($"{ www.error }, URL:{ www.url }");
+
+
+                    //nothing to return on error:
+                    return null;
+                }
+                else
+                {
+                    //return valid results:
+                    return DownloadHandlerTexture.GetContent(www);
+                }
             }
         }
-    }
 
+    }
 }
