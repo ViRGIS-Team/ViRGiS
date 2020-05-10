@@ -2,8 +2,8 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zinnia.Pointer;
 using Zinnia.Cast;
+using Zinnia.Pointer;
 
 namespace Virgis {
 
@@ -51,6 +51,7 @@ namespace Virgis {
         private bool AxisEdit = false; // Whether we are in AxisEdit mode
         private Vector3 point; // caches the current position indicated by the user to which to move the selected component
         private AppState appState;
+        private bool brake; // is the brake currently on
 
 
         private void Start() {
@@ -232,8 +233,7 @@ namespace Virgis {
         public void Move(Vector2 axis) {
             if (axis != Vector2.zero) {
                 Vector3 speed_input = Quaternion.AngleAxis(90.0f, Vector3.right) * axis * HorizontalMod;
-                Vector3 reference = appState.trackingSpace.transform.localRotation.eulerAngles;
-                speed += Quaternion.AngleAxis(reference.y, Vector3.up) * speed_input;
+                speed += appState.trackingSpace.transform.localRotation * speed_input;
             }
         }
 
@@ -254,6 +254,20 @@ namespace Virgis {
             if (thisEvent) {
                 Vector3 speed_input = Vector3.down * VerticalMod;
                 speed += speed_input;
+            }
+        }
+
+        public void BrakeStart(bool thisEvent) {
+            if (thisEvent && !brake) {
+                brake = true;
+                DeccelerationMod /= 10f;
+            }
+        }
+
+        public void BrakeStop(bool thisEvent) {
+            if (thisEvent && brake) {
+                brake = false;
+                DeccelerationMod *= 10f;
             }
         }
 

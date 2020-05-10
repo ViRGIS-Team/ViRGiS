@@ -1,7 +1,5 @@
 ﻿using Mapbox.Unity.Map;
 using Project;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -51,8 +49,8 @@ namespace Virgis {
 
         public List<Component> layers {
             get {
-                return _layers;            
-            }   
+                return _layers;
+            }
         }
 
         public void addLayer(Component layer) {

@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class QuitButton : MonoBehaviour
-{
+public class QuitButton : MonoBehaviour {
 
-    public void OnClick()
-    {
+    public void OnClick() {
         Application.Quit();
     }
 }
