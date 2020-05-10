@@ -24,19 +24,19 @@ namespace Virgis
 
         private GameObject PointPrefab;
 
-        public override async Task _init(GeographyCollection layer)
+        protected override async Task _init(GeographyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
         }
 
-        public override void _add(MoveArgs args)
+        protected override void _add(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void _draw()
+        protected override void _draw()
         {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
             float displacement = 1.0f;
@@ -118,13 +118,13 @@ namespace Virgis
             };
         }
 
-        public override void ExitEditSession(bool saved)
+        protected override void ExitEditSession(bool saved)
         {
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        public override void _checkpoint() { }
-        public override void _save()
+        protected override void _checkpoint() { }
+        protected override void _save()
         {
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             List<Feature> thisFeatures = new List<Feature>();

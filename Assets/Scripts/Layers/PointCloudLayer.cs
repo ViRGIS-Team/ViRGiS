@@ -21,18 +21,18 @@ namespace Virgis
         private GameObject model;
 
 
-        public override async Task _init(GeographyCollection layer)
+        protected override async Task _init(GeographyCollection layer)
         {
             PlyImport reader = new PlyImport();
             features = await reader.Load(layer.Source); ;
         }
 
-        public override void _add(MoveArgs args)
+        protected override void _add(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void _draw()
+        protected override void _draw()
         {
             transform.position = Tools.Ipos2Vect((Position)layer.Position.Coordinates);
             transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
@@ -95,13 +95,9 @@ namespace Virgis
             changed = true;
         }
 
-        public override void ExitEditSession(bool saved)
-        {
+        protected override void _checkpoint() { }
 
-        }
-
-        public override void _checkpoint() { }
-        public override void _save()
+        protected override void _save()
         {
             layer.Position = new Point(Tools.Vect2Ipos(transform.position));
             layer.Transform.Position = Vector3.zero;
