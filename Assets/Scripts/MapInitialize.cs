@@ -102,7 +102,7 @@ namespace Virgis {
             return this;
         }
 
-        public override Task _init(RecordSet layer) {
+        protected override Task _init(RecordSet layer) {
             throw new System.NotImplementedException();
         }
 
@@ -110,7 +110,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        public override void _add(MoveArgs args) {
+        protected override void _add(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
@@ -120,13 +120,13 @@ namespace Virgis {
             }
         }
 
-        public override void _draw() {
+        protected override void _draw() {
             throw new System.NotImplementedException();
         }
 
 
 
-        public override void ExitEditSession(bool saved) {
+        protected override void ExitEditSession(bool saved) {
             if (saved) {
                 Save();
             } else {
@@ -134,20 +134,20 @@ namespace Virgis {
             }
         }
 
-        public override void _checkpoint() {
+        protected override void _checkpoint() {
         }
 
-        public new void Save() {
+        public new async void Save() {
             foreach (ILayer com in appState.layers) {
                 RecordSet layer = com.Save();
                 int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
                 appState.project.RecordSets[index] = layer;
             }
             geoJsonReader.SetProject(appState.project);
-            geoJsonReader.Save();
+            await geoJsonReader.Save();
         }
 
-        public override void _save() {
+        protected override void _save() {
             throw new System.NotImplementedException();
         }
 
@@ -159,7 +159,7 @@ namespace Virgis {
 
         }
 
-        private void StartEditSession() {
+        protected override void StartEditSession() {
             CheckPoint();
         }
     }
