@@ -38,19 +38,19 @@ namespace Virgis {
         }
 
         public void Visible(bool thisEvent) {
-            gameObject.SetActive(thisEvent);
+            bool isActive = gameObject.activeSelf;
+            if (isActive) {
+                gameObject.SetActive(false);
+            } else {
+                layersUI.SetActive(false);
+                gameObject.SetActive(true);
+            }
         }
 
         public void HandleKeyInput(InputAction.CallbackContext context) {
             InputAction action = context.action;
             if (action.name == "ShowMenu") {
-                bool isActive = gameObject.activeSelf;
-                if (isActive) {
-                    gameObject.SetActive(false);
-                } else {
-                    layersUI.SetActive(false);
-                    gameObject.SetActive(true);
-                }
+                Visible(true);
             }
         }
 
