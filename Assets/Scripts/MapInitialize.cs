@@ -27,6 +27,7 @@ namespace Virgis
         public GameObject PolygonLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
+        public GameObject XsectLayer;
         public AppState appState;
 
         // Path to the Project File
@@ -99,6 +100,12 @@ namespace Virgis
                         break;
                     case RecordSetDataType.Mesh:
                         temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
+                        break;
+                    case RecordSetDataType.XSect:
+                        temp = await Instantiate(XsectLayer, Vector3.zero, Quaternion.identity).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);
+                        break;
+                    default:
+                        Debug.LogError(layer.Type.ToString() + " is not known.");
                         break;
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
