@@ -1,14 +1,12 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using System.Collections.Generic;
-using UnityEngine;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using Project;
 using System.Threading.Tasks;
+using UnityEngine;
 
 
-namespace Virgis
-{
+namespace Virgis {
 
 
     /// <summary>
@@ -16,8 +14,7 @@ namespace Virgis
     /// 
     /// It is run once at Startup
     /// </summary>
-    public class MapInitialize : Layer<RecordSet, FeatureObject>
-    {
+    public class MapInitialize : Layer<RecordSet, FeatureObject> {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
 
@@ -54,12 +51,12 @@ namespace Virgis
         /// 
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
-        async void Start()
-        {
+        async void Start() {
             // Fetch Project definition - return if the file cannot be read - this will lead to an empty world
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(inputfile);
-            if (geoJsonReader.payload is null) return;
+            if (geoJsonReader.payload is null)
+                return;
             appState.project = geoJsonReader.GetProject();
 
             //initialize space
@@ -78,13 +75,10 @@ namespace Virgis
             Draw();
         }
 
-        async new Task<Layer<RecordSet, FeatureObject>> Init(RecordSet layer)
-        {
+        async new Task<Layer<RecordSet, FeatureObject>> Init(RecordSet layer) {
             Component temp = null;
-            foreach (RecordSet thisLayer in appState.project.RecordSets)
-            {
-                switch (thisLayer.DataType)
-                {
+            foreach (RecordSet thisLayer in appState.project.RecordSets) {
+                switch (thisLayer.DataType) {
                     case RecordSetDataType.Point:
                         temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(thisLayer as GeographyCollection);
                         break;
@@ -108,38 +102,31 @@ namespace Virgis
             return this;
         }
 
-        public override Task _init(RecordSet layer)
-        {
+        public override Task _init(RecordSet layer) {
             throw new System.NotImplementedException();
         }
 
-        public new void Add(MoveArgs args)
-        {
+        public new void Add(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
-        public override void _add(MoveArgs args)
-        {
+        public override void _add(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
-        new void Draw()
-        {                                 
-            foreach (ILayer layer in appState.layers)
-            {
+        new void Draw() {
+            foreach (ILayer layer in appState.layers) {
                 layer.Draw();
             }
         }
 
-        public override void _draw()
-        {
+        public override void _draw() {
             throw new System.NotImplementedException();
         }
 
 
 
-        public override void ExitEditsession(bool saved)
-        {
+        public override void ExitEditsession(bool saved) {
             if (saved) {
                 Save();
             } else {
@@ -147,12 +134,11 @@ namespace Virgis
             }
         }
 
-        public override void _cp() { }
+        public override void _cp() {
+        }
 
-        public new void Save()
-        {
-            foreach (ILayer com in appState.layers)
-            {
+        public new void Save() {
+            foreach (ILayer com in appState.layers) {
                 RecordSet layer = com.Save();
                 int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
                 appState.project.RecordSets[index] = layer;
@@ -161,19 +147,16 @@ namespace Virgis
             geoJsonReader.Save();
         }
 
-        public override void _save()
-        {
+        public override void _save() {
             throw new System.NotImplementedException();
         }
 
-        public override void Translate(MoveArgs args)
-        {
-            
+        public override void Translate(MoveArgs args) {
+
         }
 
-        public override void MoveAxis(MoveArgs args)
-        {
-            
+        public override void MoveAxis(MoveArgs args) {
+
         }
 
         private void StartEditSession() {

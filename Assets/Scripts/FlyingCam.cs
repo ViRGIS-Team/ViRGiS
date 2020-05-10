@@ -2,8 +2,8 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Zinnia.Pointer;
 using Zinnia.Cast;
+using Zinnia.Pointer;
 
 namespace Virgis {
 
@@ -257,19 +257,15 @@ namespace Virgis {
             }
         }
 
-        public void BrakeStart(bool thisEvent)
-        {
-            if (thisEvent && !brake)
-            {
+        public void BrakeStart(bool thisEvent) {
+            if (thisEvent && !brake) {
                 brake = true;
                 DeccelerationMod /= 10f;
             }
         }
 
-        public void BrakeStop(bool thisEvent)
-        {
-            if (thisEvent && brake)
-            {
+        public void BrakeStop(bool thisEvent) {
+            if (thisEvent && brake) {
                 brake = false;
                 DeccelerationMod *= 10f;
             }
