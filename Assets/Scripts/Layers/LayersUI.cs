@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 namespace Virgis {
 
+    // LayersUI is the mediator for all components within the Layers UI GO.
+    // For desktop Scene, the Layers UI GO is used in:
+    // 1) InputMapping
+    // 2) Menus GO
     public class LayersUI : MonoBehaviour {
         public GameObject layersScrollView;
         public GameObject layerPanelPrefab;
+        public GameObject menus;
 
         // Start is called before the first frame update
         void Start() {
@@ -24,8 +29,18 @@ namespace Virgis {
             InputAction action = context.action;
             if (action.name == "ShowLayers") {
                 bool isActive = gameObject.activeSelf;
-                gameObject.SetActive(!isActive);
+                if (isActive) {
+                    gameObject.SetActive(false);
+                } else {
+                    menus.SetActive(false);
+                    gameObject.SetActive(true);
+                }
             }
+        }
+
+        public void OnShowMenuButtonClicked() {
+            gameObject.SetActive(false);
+            menus.SetActive(true);
         }
 
     }
