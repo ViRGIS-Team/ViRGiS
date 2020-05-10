@@ -124,12 +124,12 @@ namespace Virgis
             };
         }
 
-        public override void ExitEditsession(bool saved)
+        public override void ExitEditSession(bool saved)
         {
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        public override void _cp() { }
+        public override void _checkpoint() { }
 
         public override void _save()
         {

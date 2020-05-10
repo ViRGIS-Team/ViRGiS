@@ -4,10 +4,13 @@ using UnityEngine.UI;
 
 namespace Virgis {
 
-    // MenuFacade is the mediator for all components within the Menus GO.
-    // For desktop Scene, the Menus GO is used in:
-    // 1) InputMapping
-    // 2) Layers UI GO
+    /// <summary>
+    /// MenuFacade is the mediator for all components within the Menus GO.
+    /// </summary>
+    /// 
+    /// For desktop Scene, the Menus GO is used in:
+    /// 1) InputMapping
+    /// 2) Layers UI GO
     public class MenuFacade : MonoBehaviour {
 
         public Button startEditButton;

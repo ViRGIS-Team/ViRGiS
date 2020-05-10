@@ -95,12 +95,12 @@ namespace Virgis
             changed = true;
         }
 
-        public override void ExitEditsession(bool saved)
+        public override void ExitEditSession(bool saved)
         {
 
         }
 
-        public override void _cp() { }
+        public override void _checkpoint() { }
         public override void _save()
         {
             layer.Position = new Point(Tools.Vect2Ipos(transform.position));

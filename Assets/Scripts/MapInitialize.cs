@@ -43,7 +43,7 @@ namespace Virgis {
                 appState = Instantiate(appState);
             }
             appState.AddStartEditSessionListener(StartEditSession);
-            appState.AddEndEditSessionListener(ExitEditsession);
+            appState.AddEndEditSessionListener(ExitEditSession);
         }
 
         /// 
@@ -126,7 +126,7 @@ namespace Virgis {
 
 
 
-        public override void ExitEditsession(bool saved) {
+        public override void ExitEditSession(bool saved) {
             if (saved) {
                 Save();
             } else {
@@ -134,7 +134,7 @@ namespace Virgis {
             }
         }
 
-        public override void _cp() {
+        public override void _checkpoint() {
         }
 
         public new void Save() {
