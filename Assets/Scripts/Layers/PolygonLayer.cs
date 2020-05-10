@@ -1,21 +1,23 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using GeoJSON.Net;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
-using Newtonsoft.Json.Linq;
-using Project;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using UnityEngine;
+using GeoJSON.Net.Geometry;
+using GeoJSON.Net.Feature;
+using GeoJSON.Net;
+using System.Threading.Tasks;
+using Project;
+using Newtonsoft.Json.Linq;
 using UnityEngine.UI;
 
-namespace Virgis {
+namespace Virgis
+{
 
     /// <summary>
     /// Controls an instance of a Polygon Layer
     /// </summary>
-    public class PolygonLayer : Layer<GeographyCollection, FeatureCollection> {
+    public class PolygonLayer : Layer<GeographyCollection, FeatureCollection>
+    {
 
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
@@ -33,22 +35,27 @@ namespace Virgis {
         private GeoJsonReader geoJsonReader;
 
 
-        protected override async Task _init(GeographyCollection layer) {
+        public override async Task _init(GeographyCollection layer)
+        {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args) {
+        public override void _add(MoveArgs args)
+        {
             throw new System.NotImplementedException();
         }
 
-        protected override void _draw() {
+        public override void _draw()
+        {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
 
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
+            {
                 Shapes shape = symbology["point"].Shape;
-                switch (shape) {
+                switch (shape)
+                {
                     case Shapes.Spheroid:
                         HandlePrefab = SpherePrefab;
                         break;
@@ -62,13 +69,17 @@ namespace Virgis {
                         HandlePrefab = SpherePrefab;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 HandlePrefab = SpherePrefab;
             }
 
-            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
+            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
+            {
                 Shapes shape = symbology["line"].Shape;
-                switch (shape) {
+                switch (shape)
+                {
                     case Shapes.Cuboid:
                         LinePrefab = CuboidLinePrefab;
                         break;
@@ -79,39 +90,51 @@ namespace Virgis {
                         LinePrefab = CylinderLinePrefab;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 LinePrefab = CylinderLinePrefab;
             }
 
 
-            foreach (Feature feature in features.Features) {
+            foreach (Feature feature in features.Features)
+            {
                 IDictionary<string, object> properties = feature.Properties;
                 string gisId = feature.Id;
 
 
                 // Get the geometry
                 MultiPolygon mPols = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.Polygon) {
+                if (feature.Geometry.Type == GeoJSONObjectType.Polygon)
+                {
                     mPols = new MultiPolygon(new List<Polygon>() { feature.Geometry as Polygon });
-                } else if (feature.Geometry.Type == GeoJSONObjectType.MultiPolygon) {
+                }
+                else if (feature.Geometry.Type == GeoJSONObjectType.MultiPolygon)
+                {
                     mPols = feature.Geometry as MultiPolygon;
                 }
 
-                foreach (Polygon mPol in mPols.Coordinates) {
+                foreach (Polygon mPol in mPols.Coordinates)
+                {
                     ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
                     LineString perimeter = LinearRings[0];
                     Vector3[] poly = Tools.LS2Vect(perimeter);
                     Vector3 center = Vector3.zero;
-                    if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null) {
-                        if (properties["polyhedral"].GetType() != typeof(Point)) {
-                            JObject jobject = (JObject) properties["polyhedral"];
+                    if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
+                    {
+                        if (properties["polyhedral"].GetType() != typeof(Point))
+                        {
+                            JObject jobject = (JObject)properties["polyhedral"];
                             Point centerPoint = jobject.ToObject<Point>();
                             center = centerPoint.Coordinates.Vector3();
                             properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
-                        } else {
+                        } else
+                        {
                             center = Tools.Ipos2Vect((properties["polyhedral"] as Point).Coordinates as Position);
                         }
-                    } else {
+                    }
+                    else
+                    {
                         center = Datapolygon.FindCenter(poly);
                         properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
                     }
@@ -129,15 +152,16 @@ namespace Virgis {
                     com.gisId = gisId;
                     com.gisProperties = properties;
                     com.Centroid = centroid.GetComponent<Datapoint>();
-                    com.Centroid.SetColor((Color) symbology["point"].Color);
+                    com.Centroid.SetColor((Color)symbology["point"].Color);
 
-                    if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label)) {
+                    if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
+                    {
                         //Set the label
                         GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
                         labelObject.transform.parent = centroid.transform;
                         labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
                         Text labelText = labelObject.GetComponentInChildren<Text>();
-                        labelText.text = (string) properties[symbology["body"].Label];
+                        labelText.text = (string)properties[symbology["body"].Label];
                     }
 
                     // Darw the LinearRing
@@ -148,7 +172,7 @@ namespace Virgis {
                     //Draw the Polygon
                     Mat.SetColor("_BaseColor", symbology["body"].Color);
                     com.Draw(Lr.VertexTable, Mat);
-
+                    
 
                     centroid.transform.localScale = symbology["point"].Transform.Scale;
                     centroid.transform.localRotation = symbology["point"].Transform.Rotate;
@@ -157,24 +181,28 @@ namespace Virgis {
             };
         }
 
-        protected override void ExitEditSession(bool saved) {
+        public override void ExitEditSession(bool saved)
+        {
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        protected override void _checkpoint() {
-        }
-        protected override async void _save() {
+        public override void _checkpoint() { }
+        public override void _save()
+        {
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             List<Feature> thisFeatures = new List<Feature>();
-            foreach (Datapolygon dataFeature in dataFeatures) {
+            foreach (Datapolygon dataFeature in dataFeatures)
+            {
                 Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
                 Vector3[] vertices = perimeter.GetVerteces();
                 List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices) {
+                foreach (Vector3 vertex in vertices)
+                {
                     positions.Add(Tools.Vect2Ipos(vertex) as Position);
                 }
                 LineString line = new LineString(positions);
-                if (!line.IsLinearRing()) {
+                if (!line.IsLinearRing())
+                {
                     Debug.LogError("This Polygon is not a Linear Ring");
                     return;
                 }
@@ -187,15 +215,17 @@ namespace Virgis {
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
-            await geoJsonReader.Save();
+            geoJsonReader.Save();
             features = FC;
         }
 
-        public override void Translate(MoveArgs args) {
+        public override void Translate(MoveArgs args)
+        {
             changed = true;
         }
 
-        public override void MoveAxis(MoveArgs args) {
+        public override void MoveAxis(MoveArgs args)
+        {
             changed = true;
         }
 

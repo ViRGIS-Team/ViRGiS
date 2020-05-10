@@ -1,19 +1,21 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
+using System.Collections.Generic;
+using UnityEngine;
+using GeoJSON.Net.Geometry;
 using GeoJSON.Net;
 using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
-using Project;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine;
+using Project;
 
-namespace Virgis {
+namespace Virgis
+{
 
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLayer : Layer<GeographyCollection, FeatureCollection> {
+    public class LineLayer : Layer<GeographyCollection, FeatureCollection>
+    {
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
         public GameObject CuboidLinePrefab; // prefab to be used for cuboid lines
@@ -29,21 +31,26 @@ namespace Virgis {
         private GameObject LinePrefab;
 
 
-        protected override async Task _init(GeographyCollection layer) {
+        public override async Task _init(GeographyCollection layer)
+        {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args) {
+        public override void _add(MoveArgs args)
+        {
             throw new System.NotImplementedException();
         }
 
-        protected override void _draw() {
+        public override void _draw()
+        {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
+            {
                 Shapes shape = symbology["point"].Shape;
-                switch (shape) {
+                switch (shape)
+                {
                     case Shapes.Spheroid:
                         HandlePrefab = SpherePrefab;
                         break;
@@ -57,13 +64,17 @@ namespace Virgis {
                         HandlePrefab = SpherePrefab;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 HandlePrefab = SpherePrefab;
             }
 
-            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
+            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
+            {
                 Shapes shape = symbology["line"].Shape;
-                switch (shape) {
+                switch (shape)
+                {
                     case Shapes.Cuboid:
                         LinePrefab = CuboidLinePrefab;
                         break;
@@ -74,24 +85,31 @@ namespace Virgis {
                         LinePrefab = CylinderLinePrefab;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 LinePrefab = CylinderLinePrefab;
             }
 
 
-            foreach (Feature feature in features.Features) {
+            foreach (Feature feature in features.Features)
+            {
                 // Get the geometry
                 MultiLineString mLines = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.LineString) {
+                if (feature.Geometry.Type == GeoJSONObjectType.LineString)
+                {
                     mLines = new MultiLineString(new List<LineString>() { feature.Geometry as LineString });
-                } else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString) {
+                }
+                else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString)
+                {
                     mLines = feature.Geometry as MultiLineString;
                 }
 
                 IDictionary<string, object> properties = feature.Properties;
                 string gisId = feature.Id;
 
-                foreach (LineString line in mLines.Coordinates) {
+                foreach (LineString line in mLines.Coordinates)
+                {
                     GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(line.Point(0)), Quaternion.identity);
                     dataLine.transform.parent = gameObject.transform;
 
@@ -106,20 +124,23 @@ namespace Virgis {
             };
         }
 
-        protected override void ExitEditSession(bool saved) {
+        public override void ExitEditSession(bool saved)
+        {
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        protected override void _checkpoint() {
-        }
+        public override void _checkpoint() { }
 
-        protected override async void _save() {
+        public override void _save()
+        {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
-            foreach (Dataline dataFeature in dataFeatures) {
+            foreach (Dataline dataFeature in dataFeatures)
+            {
                 Vector3[] vertices = dataFeature.GetVerteces();
                 List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices) {
+                foreach (Vector3 vertex in vertices)
+                {
                     positions.Add(Tools.Vect2Ipos(vertex) as Position);
                 }
                 List<LineString> lines = new List<LineString>();
@@ -128,23 +149,25 @@ namespace Virgis {
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
-            await geoJsonReader.Save();
+            geoJsonReader.Save();
             features = FC;
         }
 
-        public override void Translate(MoveArgs args) {
+        public override void Translate(MoveArgs args)
+        {
             changed = true;
         }
 
 
-        public override void MoveAxis(MoveArgs args) {
+        public override void MoveAxis(MoveArgs args)
+        {
             changed = true;
         }
 
-        /* public override VirgisComponent GetClosest(Vector3 coords)
-         {
-             throw new System.NotImplementedException();
-         }*/
+       /* public override VirgisComponent GetClosest(Vector3 coords)
+        {
+            throw new System.NotImplementedException();
+        }*/
 
     }
 }

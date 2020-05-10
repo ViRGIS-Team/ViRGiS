@@ -1,31 +1,39 @@
-﻿using GeoJSON.Net.Geometry;
-using Project;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
+using System.IO;
+using Project;
+using g3;
+using System;
+using GeoJSON.Net.Geometry;
 
-namespace Virgis {
+namespace Virgis
+{
 
-    public class MeshLayer : Layer<GeographyCollection, MeshData> {
+    public class MeshLayer : Layer<GeographyCollection, MeshData>
+    {
         // The prefab for the data points to be instantiated
         public Material material;
         public GameObject handle;
         public List<GameObject> meshes;
 
-        private Task<SimpleMeshBuilder> loadObj(string filename) {
-            using (StreamReader reader = File.OpenText(filename)) {
+        private async Task<SimpleMeshBuilder> loadObj(string filename)
+        {
+            using (StreamReader reader = File.OpenText(filename))
+            {
                 OBJReader objReader = new OBJReader();
                 SimpleMeshBuilder meshBuilder = new SimpleMeshBuilder();
-                try {
+                try
+                {
                     IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
-                } catch (Exception e) when (
-                   e is UnauthorizedAccessException ||
-                   e is DirectoryNotFoundException ||
-                   e is FileNotFoundException ||
-                   e is NotSupportedException
-                   ) {
+                }
+                catch (Exception e) when (
+                 e is UnauthorizedAccessException ||
+                 e is DirectoryNotFoundException ||
+                 e is FileNotFoundException ||
+                 e is NotSupportedException
+                 )
+                {
                     Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
                     meshBuilder = new SimpleMeshBuilder();
                 }
@@ -33,22 +41,26 @@ namespace Virgis {
             }
         }
 
-        protected override async Task _init(GeographyCollection layer) {
+        public override async Task _init(GeographyCollection layer)
+        {
             MeshData Mesh = new MeshData();
             Mesh.Mesh = await loadObj(layer.Source);
             features = Mesh;
         }
 
-        protected override void _add(MoveArgs args) {
+        public override void _add(MoveArgs args)
+        {
             throw new System.NotImplementedException();
         }
-        protected override void _draw() {
-            transform.position = Tools.Ipos2Vect((Position) layer.Position.Coordinates);
-            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
+        public override void _draw()
+        {
+            transform.position = Tools.Ipos2Vect((Position)layer.Position.Coordinates);
+            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
             Dictionary<string, Unit> symbology = layer.Properties.Units;
             meshes = new List<GameObject>();
 
-            foreach (SimpleMesh simpleMesh in (features as MeshData).Mesh.Meshes) {
+            foreach (SimpleMesh simpleMesh in (features as MeshData).Mesh.Meshes)
+            {
                 GameObject meshGameObject = new GameObject();
                 MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
                 MeshRenderer renderer = meshGameObject.AddComponent<MeshRenderer>();
@@ -62,23 +74,24 @@ namespace Virgis {
             transform.localScale = layer.Transform.Scale;
             GameObject centreHandle = Instantiate(handle, gameObject.transform.position, Quaternion.identity);
             centreHandle.transform.parent = transform;
-            centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3) symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
-            centreHandle.SendMessage("SetColor", (Color) symbology["handle"].Color);
+            centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
+            centreHandle.SendMessage("SetColor", (Color)symbology["handle"].Color);
 
         }
 
-        public override void Translate(MoveArgs args) {
-            foreach (GameObject mesh in meshes) {
-                if (args.translate != Vector3.zero)
-                    transform.Translate(args.translate, Space.World);
+        public override void Translate(MoveArgs args)
+        {
+            foreach (GameObject mesh in meshes)
+            {
+                if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
                 changed = true;
             }
         }
 
         /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public override void MoveAxis(MoveArgs args) {
-            if (args.translate != Vector3.zero)
-                transform.Translate(args.translate, Space.World);
+        public override void MoveAxis(MoveArgs args)
+        {
+            if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
             args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
             transform.RotateAround(args.pos, axis, angle);
             Vector3 A = transform.localPosition;
@@ -86,12 +99,15 @@ namespace Virgis {
             Vector3 C = A - B;
             float RS = args.scale;
             Vector3 FP = B + C * RS;
-            if (FP.magnitude < float.MaxValue) {
+            if (FP.magnitude < float.MaxValue)
+            {
                 transform.localScale = transform.localScale * RS;
                 transform.localPosition = FP;
-                for (int i = 0; i < transform.childCount; i++) {
+                for (int i = 0; i < transform.childCount; i++)
+                {
                     Transform T = transform.GetChild(i);
-                    if (T.GetComponent<Datapoint>() != null) {
+                    if (T.GetComponent<Datapoint>() != null)
+                    {
                         T.localScale /= RS;
                     }
                 }
@@ -99,10 +115,14 @@ namespace Virgis {
             changed = true;
         }
 
-        protected override void _checkpoint() {
+        public override void ExitEditSession(bool saved)
+        {
+
         }
 
-        protected override void _save() {
+        public override void _checkpoint() { }
+        public override void _save()
+        {
             layer.Position = new Point(Tools.Vect2Ipos(transform.position));
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
