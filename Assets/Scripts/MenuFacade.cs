@@ -1,17 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Virgis {
 
+    /// <summary>
+    /// MenuFacade is the mediator for all components within the Menus GO.
+    /// </summary>
+    /// 
+    /// For desktop Scene, the Menus GO is used in:
+    /// 1) InputMapping
+    /// 2) Layers UI GO
     public class MenuFacade : MonoBehaviour {
 
         public Button startEditButton;
         public Button stopSaveEditButton;
         public Button stopDiscardEditButton;
-        public Toggle showLayersToggle;
+        public GameObject layersUI;
 
         private AppState _appState;
 
@@ -30,20 +35,28 @@ namespace Virgis {
 
             _appState.AddStartEditSessionListener(OnEditSessionStart);
             _appState.AddEndEditSessionListener(OnEditSessionEnd);
-
-            showLayersToggle.onValueChanged.AddListener(OnShowLayersValueChanged);
         }
 
         public void Visible(bool thisEvent) {
-            gameObject.SetActive(thisEvent);
+            bool isActive = gameObject.activeSelf;
+            if (isActive) {
+                gameObject.SetActive(false);
+            } else {
+                layersUI.SetActive(false);
+                gameObject.SetActive(true);
+            }
         }
 
         public void HandleKeyInput(InputAction.CallbackContext context) {
             InputAction action = context.action;
             if (action.name == "ShowMenu") {
-                bool isActive = gameObject.activeSelf;
-                gameObject.SetActive(!isActive);
+                Visible(true);
             }
+        }
+
+        public void OnShowLayersButtonClicked() {
+            gameObject.SetActive(false);
+            layersUI.SetActive(true);
         }
 
         public void OnStartEditButtonClicked() {
@@ -56,10 +69,6 @@ namespace Virgis {
 
         public void OnStopDiscardEditButtonClicked() {
             _appState.StopDiscardEditSession();
-        }
-
-        public void OnShowLayersValueChanged(bool enabled) {
-            print($"OnShowLayersValueChanged: {enabled}");
         }
 
         // Changes the state of menu buttons when edit session starts.
