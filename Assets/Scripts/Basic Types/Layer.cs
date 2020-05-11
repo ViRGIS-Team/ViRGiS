@@ -9,14 +9,26 @@ using UnityEngine;
 namespace Virgis {
 
     public interface ILayer {
-        void Add(MoveArgs args);
+        
+        void AddFeature(MoveArgs args);
+        
         void Draw();
+        
         void CheckPoint();
+
         RecordSet Save();
 
         VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
 
         VirgisComponent GetFeature(Guid id);
+
+        void setVisible(bool visible);
+
+        bool isVisible();
+
+        void setEditSession(bool inSession);
+
+        bool isInEditSession();
     }
 
     /// <summary>
@@ -32,6 +44,9 @@ namespace Virgis {
         public S features; // holds the feature data for this layer
         public bool changed = true; // true is this layer has been changed from the original file
         public Guid id;
+
+        protected bool _visible;
+        protected bool _inEditSession;
 
         void Awake() {
             id = Guid.NewGuid();
@@ -70,9 +85,9 @@ namespace Virgis {
         /// Call this to create a new feature
         /// </summary>
         /// <param name="args">MOveArgs with details about whwre to create the new layer</param>
-        public void Add(MoveArgs args) {
+        public void AddFeature(MoveArgs args) {
             if (AppState.instance.InEditSession()) {
-                _add(args);
+                _addFeature(args);
             }
         }
 
@@ -80,7 +95,7 @@ namespace Virgis {
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
         /// <param name=args"></param>
-        protected abstract void _add(MoveArgs args);
+        protected abstract void _addFeature(MoveArgs args);
 
         /// <summary>
         /// Draw the layer based upon the features in the features GeographyCollection
@@ -191,6 +206,22 @@ namespace Virgis {
         /// <returns>returns the featue contained in an enitity of type S</returns>
         public VirgisComponent GetFeature(Guid id) {
             return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
+        }
+
+        public void setVisible(bool visible) {
+            _visible = visible;
+        }
+
+        public bool isVisible() {
+            return _visible;
+        }
+
+        public void setEditSession(bool inSession) {
+            _inEditSession = inSession;
+        }
+
+        public bool isInEditSession() {
+            return _inEditSession;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,11 +20,15 @@ namespace Virgis {
         public GameObject menus;
 
         private AppState appState;
+        private Dictionary<string, string> layersMap;
 
         // Start is called before the first frame update
         void Start() {
             appState = AppState.instance;
-            createLayerPanels();
+            layersMap = new Dictionary<string, string>();
+            appState.editSession.AddStartEditSessionListener(OnStartEditSession);
+            appState.editSession.AddEndEditSessionListener(OnEndEditSession);
+            CreateLayerPanels();
         }
 
         public void HandleKeyInput(InputAction.CallbackContext context) {
@@ -44,13 +49,22 @@ namespace Virgis {
             menus.SetActive(true);
         }
 
-        private void createLayerPanels() {
+        private void CreateLayerPanels() {
             GameObject newLayerPanel;
-            for (int i = 0; i < 10; i++) {
+
+            appState.project.RecordSets.ForEach(rs => {
                 newLayerPanel = (GameObject) Instantiate(layerPanelPrefab, transform);
-                newLayerPanel.GetComponentInChildren<LayerUIPanel>().layerDisplayName = $"Layer {i + 1}";
+                string displayName = String.IsNullOrEmpty(rs.DisplayName) ? $"ID: {rs.Id}" : rs.DisplayName;
+                layersMap.Add(rs.Id, displayName);
+                newLayerPanel.GetComponentInChildren<LayerUIPanel>().layerDisplayName = displayName;
                 newLayerPanel.transform.SetParent(layersScrollView.transform, false);
-            }
+            });
+        }
+
+        private void OnStartEditSession() {
+        }
+
+        private void OnEndEditSession(bool saved) {
         }
     }
 }
