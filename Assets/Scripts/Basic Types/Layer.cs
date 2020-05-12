@@ -22,13 +22,22 @@ namespace Virgis {
 
         VirgisComponent GetFeature(Guid id);
 
-        void setVisible(bool visible);
+        RecordSet GetMetadata();
 
-        bool isVisible();
+        void SetVisible(bool visible);
 
-        void setEditSession(bool inSession);
+        bool IsVisible();
 
-        bool isInEditSession();
+        /// <summary>
+        /// SetEditSession sets a marker that this particular layer is being edited.
+        /// </summary>
+        /// There can be only one layer being edited during an edit session.
+        /// 
+        /// <param name="inSession"></param> true to indicate that this layer is in edit session,
+        /// or false if otherwise.
+        void SetEditSession(bool inSession);
+
+        bool IsInEditSession();
     }
 
     /// <summary>
@@ -50,6 +59,8 @@ namespace Virgis {
 
         void Awake() {
             id = Guid.NewGuid();
+            _visible = true;
+            _inEditSession = false;
         }
 
         /// <summary>
@@ -208,19 +219,23 @@ namespace Virgis {
             return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
         }
 
-        public void setVisible(bool visible) {
+        public RecordSet GetMetadata() {
+            return layer;
+        }
+
+        public void SetVisible(bool visible) {
             _visible = visible;
         }
 
-        public bool isVisible() {
+        public bool IsVisible() {
             return _visible;
         }
 
-        public void setEditSession(bool inSession) {
+        public void SetEditSession(bool inSession) {
             _inEditSession = inSession;
         }
 
-        public bool isInEditSession() {
+        public bool IsInEditSession() {
             return _inEditSession;
         }
     }

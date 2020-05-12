@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GeoJSON.Net.Feature;
+using Project;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,11 +54,15 @@ namespace Virgis {
         private void CreateLayerPanels() {
             GameObject newLayerPanel;
 
-            appState.project.RecordSets.ForEach(rs => {
+            appState.layers.ForEach(comp => {
+                ILayer layer = comp.GetComponentInChildren<ILayer>();
+                print($"CreateLayerPanels: layer {layer.GetMetadata().Id ?? ""}, {layer.GetMetadata().DisplayName ?? ""}");
                 newLayerPanel = (GameObject) Instantiate(layerPanelPrefab, transform);
-                string displayName = String.IsNullOrEmpty(rs.DisplayName) ? $"ID: {rs.Id}" : rs.DisplayName;
-                layersMap.Add(rs.Id, displayName);
-                newLayerPanel.GetComponentInChildren<LayerUIPanel>().layerDisplayName = displayName;
+                string displayName = String.IsNullOrEmpty(layer.GetMetadata().DisplayName) ? $"ID: {layer.GetMetadata().Id}" : layer.GetMetadata().DisplayName;
+                layersMap.Add(layer.GetMetadata().Id, displayName);
+                LayerUIPanel panelScript = newLayerPanel.GetComponentInChildren<LayerUIPanel>();
+                panelScript.layerDisplayName = displayName;
+                if (layer.IsInEditSession()) panelScript.editLayerToggle.isOn = true;
                 newLayerPanel.transform.SetParent(layersScrollView.transform, false);
             });
         }

@@ -48,9 +48,7 @@ namespace Virgis {
         }
 
         public List<Component> layers {
-            get {
-                return _layers;
-            }
+            get => _layers;
         }
 
         public void addLayer(Component layer) {
