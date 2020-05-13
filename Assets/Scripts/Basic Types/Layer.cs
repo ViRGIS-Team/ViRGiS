@@ -9,11 +9,11 @@ using UnityEngine;
 namespace Virgis {
 
     public interface ILayer {
-        
+
         void AddFeature(MoveArgs args);
-        
+
         void Draw();
-        
+
         void CheckPoint();
 
         RecordSet Save();
@@ -21,6 +21,8 @@ namespace Virgis {
         VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
 
         VirgisComponent GetFeature(Guid id);
+
+        Guid GetId();
 
         RecordSet GetMetadata();
 
@@ -52,13 +54,13 @@ namespace Virgis {
         public T layer; // holds the RecordSet data for this layer
         public S features; // holds the feature data for this layer
         public bool changed = true; // true is this layer has been changed from the original file
-        public Guid id;
 
+        protected Guid _id;
         protected bool _visible;
         protected bool _inEditSession;
 
         void Awake() {
-            id = Guid.NewGuid();
+            _id = Guid.NewGuid();
             _visible = true;
             _inEditSession = false;
         }
@@ -67,6 +69,7 @@ namespace Virgis {
         /// Get the event Manager and register listeners
         /// </summary>
         void Start() {
+            AppState.instance.AddStartEditSessionListener(StartEditSession);
             AppState.instance.AddEndEditSessionListener(ExitEditSession);
         }
 
@@ -217,6 +220,10 @@ namespace Virgis {
         /// <returns>returns the featue contained in an enitity of type S</returns>
         public VirgisComponent GetFeature(Guid id) {
             return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
+        }
+
+        public Guid GetId() {
+            return _id;
         }
 
         public RecordSet GetMetadata() {

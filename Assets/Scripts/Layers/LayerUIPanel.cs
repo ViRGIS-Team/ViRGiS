@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace Virgis {
         public Toggle editLayerToggle;
         public Toggle viewLayerToggle;
 
-        private string _layerDisplayName;
+        private ILayer _layer;
 
         // Start is called before the first frame update
         void Start() {
@@ -21,11 +22,16 @@ namespace Virgis {
 
         }
 
-        public string layerDisplayName {
-            get => _layerDisplayName;
+        public ILayer layer {
+            get => _layer;
             set {
-                _layerDisplayName = value;
-                viewLayerToggle.GetComponentInChildren<Text>().text = value;
+                _layer = value;
+                // layer name to be displayed is RecordSet.DisplayName, 
+                // or RecordSet.Id as fallback
+                string displayName = String.IsNullOrEmpty(_layer.GetMetadata().DisplayName) 
+                    ? $"ID: {_layer.GetMetadata().Id}" 
+                    : _layer.GetMetadata().DisplayName;
+                viewLayerToggle.GetComponentInChildren<Text>().text = displayName;
             }
         }
     }

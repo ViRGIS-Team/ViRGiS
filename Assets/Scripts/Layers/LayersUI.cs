@@ -1,33 +1,31 @@
-﻿using GeoJSON.Net.Feature;
-using Project;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 namespace Virgis {
 
     /// <summary>
-    /// LayersUI is the mediator for all components within the Layers UI GO.
+    /// LayersUI is the mediator for all components within the Layers UI GO (i.e. Layers Menu).
     /// </summary>
     ///
     /// For desktop Scene, the Layers UI GO is used in:
     /// 1) InputMapping
     /// 2) Menus GO
+    /// 
+    /// 
     public class LayersUI : MonoBehaviour {
         public GameObject layersScrollView;
         public GameObject layerPanelPrefab;
         public GameObject menus;
 
         private AppState appState;
-        private Dictionary<string, string> layersMap;
+        private Dictionary<Guid, LayerUIPanel> layersMap;
 
         // Start is called before the first frame update
         void Start() {
             appState = AppState.instance;
-            layersMap = new Dictionary<string, string>();
+            layersMap = new Dictionary<Guid, LayerUIPanel>();
             appState.editSession.AddStartEditSessionListener(OnStartEditSession);
             appState.editSession.AddEndEditSessionListener(OnEndEditSession);
             CreateLayerPanels();
@@ -54,23 +52,45 @@ namespace Virgis {
         private void CreateLayerPanels() {
             GameObject newLayerPanel;
 
+            // appState.layers are actually Layer prefabs (Component)
             appState.layers.ForEach(comp => {
+                // obtain the actual Layer object
                 ILayer layer = comp.GetComponentInChildren<ILayer>();
                 print($"CreateLayerPanels: layer {layer.GetMetadata().Id ?? ""}, {layer.GetMetadata().DisplayName ?? ""}");
+                // create a view panel for this particular layer
                 newLayerPanel = (GameObject) Instantiate(layerPanelPrefab, transform);
-                string displayName = String.IsNullOrEmpty(layer.GetMetadata().DisplayName) ? $"ID: {layer.GetMetadata().Id}" : layer.GetMetadata().DisplayName;
-                layersMap.Add(layer.GetMetadata().Id, displayName);
+                // obtain the panel script
                 LayerUIPanel panelScript = newLayerPanel.GetComponentInChildren<LayerUIPanel>();
-                panelScript.layerDisplayName = displayName;
-                if (layer.IsInEditSession()) panelScript.editLayerToggle.isOn = true;
+                // set the layer in the panel
+                panelScript.layer = layer;
+                // when the Layers Menu screen is first displayed,
+                // edit session could already be active
+                if (appState.editSession.IsActive()) {
+                    // in edit session, layer can be set to edit
+                    panelScript.editLayerToggle.interactable = true;
+                    if (layer.IsInEditSession())
+                        panelScript.editLayerToggle.isOn = true;
+                } else {
+                    // not in edit session, layer cannot be set to edit
+                    panelScript.editLayerToggle.interactable = false;
+                }
+                layersMap.Add(layer.GetId(), panelScript);
                 newLayerPanel.transform.SetParent(layersScrollView.transform, false);
             });
         }
 
         private void OnStartEditSession() {
+            foreach (LayerUIPanel panel in layersMap.Values) {
+                panel.editLayerToggle.interactable = true;
+                if (panel.layer.IsInEditSession())
+                    panel.editLayerToggle.isOn = true;
+            }
         }
 
         private void OnEndEditSession(bool saved) {
+            foreach (LayerUIPanel panel in layersMap.Values) {
+                panel.editLayerToggle.interactable = false;
+            }
         }
     }
 }
