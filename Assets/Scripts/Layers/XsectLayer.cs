@@ -27,8 +27,6 @@ namespace Virgis
         public GameObject CubePrefab; // prefab to be used for Vertex handles
         public GameObject CylinderPrefab; // prefab to be used for Vertex handle
         public GameObject PolygonPrefab; // Prefab to be used for the polygons
-        public GameObject LabelPrefab; // Prefab to used for the Labels
-        public GameObject CentroidPrefab;
         public Material Mat; // Material to be used for the Polygon
 
         private GameObject HandlePrefab;
@@ -38,7 +36,7 @@ namespace Virgis
         private List<Texture> Textures = new List<Texture>();
 
 
-        public override async Task _init(GeologyCollection layer)
+        protected override async Task _init(GeologyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
@@ -53,12 +51,12 @@ namespace Virgis
             }
         }
 
-        public override void _add(MoveArgs args)
+        protected override void _add(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void _draw()
+        protected override void _draw()
         {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
 
@@ -115,49 +113,25 @@ namespace Virgis
 
 
                 // Get the geometry
-                MultiPolygon mPols = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.Polygon)
-                {
-                    mPols = new MultiPolygon(new List<Polygon>() { feature.Geometry as Polygon });
+                MultiLineString mLines = null;
+                if (feature.Geometry.Type == GeoJSONObjectType.LineString) {
+                    mLines = new MultiLineString(new List<LineString>() { feature.Geometry as LineString });
+                } else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString) {
+                    mLines = feature.Geometry as MultiLineString;
                 }
-                else if (feature.Geometry.Type == GeoJSONObjectType.MultiPolygon)
-                {
-                    mPols = feature.Geometry as MultiPolygon;
-                }
+
                 int index = 0;
-                foreach (Polygon mPol in mPols.Coordinates)
+                foreach(LineString line in mLines.Coordinates)
                 {
-                    ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
-                    LineString perimeter = LinearRings[0];
-                    Vector3[] poly = Tools.LS2Vect(perimeter);
-                    Vector3 center = Vector3.zero;
-                    if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
-                    {
-                        if (properties["polyhedral"].GetType() != typeof(Point))
-                        {
-                            JObject jobject = (JObject)properties["polyhedral"];
-                            Point centerPoint = jobject.ToObject<Point>();
-                            center = centerPoint.Coordinates.Vector3();
-                            properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
-                        }
-                        else
-                        {
-                            center = Tools.Ipos2Vect((properties["polyhedral"] as Point).Coordinates as Position);
-                        }
-                    }
-                    else
-                    {
-                        center = Datapolygon.FindCenter(poly);
-                        properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
-                    }
+                    Vector3 origin = Tools.Ipos2Vect(line.Point(0));
+
 
                     //Create the GameObjects
-                    GameObject dataLine = Instantiate(LinePrefab, center, Quaternion.identity);
-                    GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
-                    GameObject centroid = Instantiate(CentroidPrefab, center, Quaternion.identity);
+                    GameObject dataLine = Instantiate(LinePrefab, origin, Quaternion.identity);
+                    GameObject dataPoly = Instantiate(PolygonPrefab, origin, Quaternion.identity);
                     dataPoly.transform.parent = gameObject.transform;
                     dataLine.transform.parent = dataPoly.transform;
-                    centroid.transform.parent = dataLine.transform;
+m;
 
                     // add the gis data from geoJSON
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
@@ -192,13 +166,12 @@ namespace Virgis
             };
         }
 
-        public override void ExitEditsession(bool saved)
-        {
+        protected override void ExitEditSession(bool saved) {
             BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
-        public override void _cp() { }
-        public override void _save()
+        protected override void _checkpoint() { }
+        protected override void _save()
         {
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             List<Feature> thisFeatures = new List<Feature>();
