@@ -99,6 +99,7 @@ namespace Virgis {
                 temp.transform.parent = transform;
                 appState.addLayer(temp);
             }
+            appState.Init();
             return this;
         }
 

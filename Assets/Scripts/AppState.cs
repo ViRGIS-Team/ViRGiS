@@ -15,6 +15,7 @@ namespace Virgis {
 
         private EditSession _editSession;
         private List<Component> _layers;
+        private ILayer _editableLayer;
 
         void Awake() {
             print("AppState awakens");
@@ -28,7 +29,17 @@ namespace Virgis {
             }
 
             DontDestroyOnLoad(gameObject);
-            InitApp();
+            _editSession = new EditSession();
+            _layers = new List<Component>();
+        }
+
+        /// <summary>
+        /// Init is called after a project has been fully loaded.
+        /// </summary>
+        public void Init() {
+            ILayer firstLayer = (ILayer) _layers[0];
+            firstLayer.SetEditable(true);
+            _editableLayer = firstLayer;
         }
 
         public EditSession editSession {
@@ -53,6 +64,19 @@ namespace Virgis {
 
         public void addLayer(Component layer) {
             _layers.Add(layer);
+        }
+
+        public void clearLayers() {
+            _layers.Clear();
+        }
+
+        public ILayer editableLayer {
+            get => _editableLayer;
+            set {
+                value?.SetEditable(true);
+                _editableLayer?.SetEditable(false);
+                _editableLayer = value;
+            }
         }
 
         public GameObject mainCamera {
@@ -85,11 +109,6 @@ namespace Virgis {
 
         public void AddEndEditSessionListener(UnityAction<bool> action) {
             _editSession.AddEndEditSessionListener(action);
-        }
-
-        private void InitApp() {
-            _editSession = new EditSession();
-            _layers = new List<Component>();
         }
 
     }

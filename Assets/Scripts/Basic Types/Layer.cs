@@ -37,9 +37,9 @@ namespace Virgis {
         /// 
         /// <param name="inSession"></param> true to indicate that this layer is in edit session,
         /// or false if otherwise.
-        void SetEditSession(bool inSession);
+        void SetEditable(bool inSession);
 
-        bool IsInEditSession();
+        bool IsEditable();
     }
 
     /// <summary>
@@ -238,11 +238,11 @@ namespace Virgis {
             return _visible;
         }
 
-        public void SetEditSession(bool inSession) {
+        public void SetEditable(bool inSession) {
             _inEditSession = inSession;
         }
 
-        public bool IsInEditSession() {
+        public bool IsEditable() {
             return _inEditSession;
         }
     }

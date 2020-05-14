@@ -19,15 +19,15 @@ namespace Virgis {
         public GameObject layerPanelPrefab;
         public GameObject menus;
 
-        private AppState appState;
-        private Dictionary<Guid, LayerUIPanel> layersMap;
+        private AppState _appState;
+        private Dictionary<Guid, LayerUIPanel> _layersMap;
 
         // Start is called before the first frame update
         void Start() {
-            appState = AppState.instance;
-            layersMap = new Dictionary<Guid, LayerUIPanel>();
-            appState.editSession.AddStartEditSessionListener(OnStartEditSession);
-            appState.editSession.AddEndEditSessionListener(OnEndEditSession);
+            _appState = AppState.instance;
+            _layersMap = new Dictionary<Guid, LayerUIPanel>();
+            _appState.editSession.AddStartEditSessionListener(OnStartEditSession);
+            _appState.editSession.AddEndEditSessionListener(OnEndEditSession);
             CreateLayerPanels();
         }
 
@@ -52,10 +52,11 @@ namespace Virgis {
         private void CreateLayerPanels() {
             GameObject newLayerPanel;
 
-            // appState.layers are actually Layer prefabs (Component)
-            appState.layers.ForEach(comp => {
+            // appState.layers are actually Layer script (Component)
+            _appState.layers.ForEach(comp => {
                 // obtain the actual Layer object
-                ILayer layer = comp.GetComponentInChildren<ILayer>();
+//                ILayer layer = comp.GetComponentInChildren<ILayer>();
+                ILayer layer = (ILayer) comp;
                 print($"CreateLayerPanels: layer {layer.GetMetadata().Id ?? ""}, {layer.GetMetadata().DisplayName ?? ""}");
                 // create a view panel for this particular layer
                 newLayerPanel = (GameObject) Instantiate(layerPanelPrefab, transform);
@@ -63,34 +64,58 @@ namespace Virgis {
                 LayerUIPanel panelScript = newLayerPanel.GetComponentInChildren<LayerUIPanel>();
                 // set the layer in the panel
                 panelScript.layer = layer;
+                // listens to panel's edit selected event
+                panelScript.AddEditSelectedListener(OnLayerPanelEditSelected);
+                if (layer.IsEditable())
+                    panelScript.editLayerToggle.isOn = true;
                 // when the Layers Menu screen is first displayed,
                 // edit session could already be active
-                if (appState.editSession.IsActive()) {
+                if (_appState.editSession.IsActive()) {
                     // in edit session, layer can be set to edit
                     panelScript.editLayerToggle.interactable = true;
-                    if (layer.IsInEditSession())
-                        panelScript.editLayerToggle.isOn = true;
                 } else {
                     // not in edit session, layer cannot be set to edit
                     panelScript.editLayerToggle.interactable = false;
                 }
-                layersMap.Add(layer.GetId(), panelScript);
+                _layersMap.Add(layer.GetId(), panelScript);
                 newLayerPanel.transform.SetParent(layersScrollView.transform, false);
             });
+            printEditStatus();
         }
 
         private void OnStartEditSession() {
-            foreach (LayerUIPanel panel in layersMap.Values) {
+            foreach (LayerUIPanel panel in _layersMap.Values) {
                 panel.editLayerToggle.interactable = true;
-                if (panel.layer.IsInEditSession())
-                    panel.editLayerToggle.isOn = true;
             }
         }
 
         private void OnEndEditSession(bool saved) {
-            foreach (LayerUIPanel panel in layersMap.Values) {
+            foreach (LayerUIPanel panel in _layersMap.Values) {
                 panel.editLayerToggle.interactable = false;
             }
+        }
+
+        private void OnLayerPanelEditSelected(LayerUIPanel layerPanel, bool selected) {
+            if (selected) {
+                ILayer oldEditableLayer = _appState.editableLayer;
+                _appState.editableLayer = layerPanel.layer;
+                if (oldEditableLayer != null)
+                    _layersMap[oldEditableLayer.GetId()].editLayerToggle.isOn = false;
+            } else {
+                ILayer oldEditableLayer = _appState.editableLayer;
+                _appState.editableLayer = null;
+                if (oldEditableLayer != null)
+                    _layersMap[oldEditableLayer.GetId()].editLayerToggle.isOn = false;
+            }
+            printEditStatus();
+        }
+
+        private void printEditStatus() {
+            string msg = "edit status: ";
+            foreach (LayerUIPanel l in _layersMap.Values) {
+                msg += $"({l.layer.GetMetadata().Id}: {l.layer.IsEditable()}) ";
+            }
+            Debug.Log(msg);
         }
     }
 }
