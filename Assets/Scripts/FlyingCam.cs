@@ -52,6 +52,7 @@ namespace Virgis {
         private Vector3 point; // caches the current position indicated by the user to which to move the selected component
         private AppState appState;
         private bool brake; // is the brake currently on
+        private bool layerEditable;
 
 
         private void Start() {
@@ -201,7 +202,10 @@ namespace Virgis {
             bool hit = Physics.Raycast(ray, out hitInfo);
             if (hit) {
                 selectedRigibody = hitInfo.transform;
-                if (selectedRigibody != null) {
+                ILayer layer = selectedRigibody?.gameObject.GetComponentInParent<ILayer>();
+                layerEditable = layer?.IsEditable() ?? false;
+                //                if (selectedRigibody != null) {
+                if (layerEditable) {
                     editSelected = true;
                     select(selectedRigibody, button);
                     selectedDistance = hitInfo.distance;
@@ -297,12 +301,14 @@ namespace Virgis {
             if (!editSelected) {
                 RaycastHit hitInfo = data.CurrentPointsCastData.HitData.Value;
                 currentPointerHit = hitInfo.transform;
+                ILayer layer = currentPointerHit?.gameObject.GetComponentInParent<ILayer>();
+                layerEditable = layer?.IsEditable() ?? false;
                 selectedDistance = hitInfo.distance;
-                if (rhTriggerState && appState.InEditSession()) {
+                if (rhTriggerState && appState.InEditSession() && layerEditable) {
                     editSelected = true;
                     select(currentPointerHit, SelectionTypes.SELECT);
                 }
-                if (rhGripState && appState.InEditSession()) {
+                if (rhGripState && appState.InEditSession() && layerEditable) {
                     editSelected = true;
                     select(currentPointerHit, SelectionTypes.SELECTALL);
                 }
@@ -329,7 +335,7 @@ namespace Virgis {
         //
         public void triggerPressed(bool thisEvent) {
             rhTriggerState = true;
-            if (currentPointerHit != null && appState.InEditSession()) {
+            if (currentPointerHit != null && appState.InEditSession() && layerEditable) {
                 editSelected = true;
                 select(currentPointerHit, SelectionTypes.SELECT);
             }
@@ -338,7 +344,7 @@ namespace Virgis {
 
         public void gripPressed(bool thisEvent) {
             rhGripState = true;
-            if (currentPointerHit != null && appState.InEditSession()) {
+            if (currentPointerHit != null && appState.InEditSession() && layerEditable) {
                 editSelected = true;
                 select(currentPointerHit, SelectionTypes.SELECTALL);
             }

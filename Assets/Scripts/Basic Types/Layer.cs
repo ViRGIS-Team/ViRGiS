@@ -57,12 +57,12 @@ namespace Virgis {
 
         protected Guid _id;
         protected bool _visible;
-        protected bool _inEditSession;
+        protected bool _editable;
 
         void Awake() {
             _id = Guid.NewGuid();
             _visible = true;
-            _inEditSession = false;
+            _editable = false;
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="args">MOveArgs with details about whwre to create the new layer</param>
         public void AddFeature(MoveArgs args) {
-            if (AppState.instance.InEditSession()) {
+            if (AppState.instance.InEditSession() && IsEditable()) {
                 _addFeature(args);
             }
         }
@@ -239,11 +239,11 @@ namespace Virgis {
         }
 
         public void SetEditable(bool inSession) {
-            _inEditSession = inSession;
+            _editable = inSession;
         }
 
         public bool IsEditable() {
-            return _inEditSession;
+            return _editable;
         }
     }
 }
