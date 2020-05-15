@@ -34,6 +34,22 @@ namespace Virgis
             _draw();
 
         }
+        public override void Selected(SelectionTypes button)
+        {
+            if (button == SelectionTypes.SELECTALL)
+            {
+
+            }
+        }
+
+        public override void UnSelected(SelectionTypes button)
+        {
+            if (button != SelectionTypes.BROADCAST)
+            {
+
+            }
+        }
+
 
         public override void SetColor(Color newCol)
         {
