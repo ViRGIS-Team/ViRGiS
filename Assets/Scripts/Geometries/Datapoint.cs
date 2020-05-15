@@ -39,47 +39,49 @@ namespace Virgis
         }
 
 
-        public override void Selected(SelectionTypes button)
-        {
-            newSelect = true;
-            thisRenderer.material.SetColor("_BaseColor", anticolor);
-            if (button != SelectionTypes.BROADCAST)
-            {
-                gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
+        public override bool Selected(SelectionTypes button) {
+            if (button == SelectionTypes.BROADCAST || transform.parent.GetComponent<IVirgisEntity>().Selected(button)) {
+                newSelect = true;
+                thisRenderer.material.SetColor("_BaseColor", anticolor);
+                return true;
+            } else {
+                return false;
             }
         }
 
 
-        public override void UnSelected(SelectionTypes button)
+        public override bool UnSelected(SelectionTypes button)
         {
-            thisRenderer.material.SetColor("_BaseColor", color);
-            if (button != SelectionTypes.BROADCAST)
-            {
-                gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
-                MoveArgs args = new MoveArgs();
-                switch (AppState.instance.editSession.mode)
-                {
-                    case EditSession.EditMode.None:
-                        break;
-                    case EditSession.EditMode.SnapAnchor:
-                        List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2 ), Quaternion.identity).ToList().FindAll( item => item.transform.position != transform.position);
-                        if (hitColliders.Count > 0)
-                        {
+            if (button == SelectionTypes.BROADCAST || transform.parent.GetComponent<IVirgisEntity>().UnSelected(button)) {
+                thisRenderer.material.SetColor("_BaseColor", color);
+                if (button != SelectionTypes.BROADCAST) {
+                    MoveArgs args = new MoveArgs();
+                    switch (AppState.instance.editSession.mode) {
+                        case EditSession.EditMode.None:
+                            break;
+                        case EditSession.EditMode.SnapAnchor:
+                            List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2), Quaternion.identity).ToList().FindAll(item => item.transform.position != transform.position);
+                            if (hitColliders.Count > 0) {
+                                args.oldPos = transform.position;
+                                args.pos = hitColliders.First<Collider>().transform.position;
+                                args.id = id;
+                                args.translate = args.pos - args.oldPos;
+                                SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+                            }
+                            break;
+                        case EditSession.EditMode.SnapGrid:
                             args.oldPos = transform.position;
-                            args.pos = hitColliders.First<Collider>().transform.position;
+                            args.pos = transform.position.Round(AppState.instance.map.transform.TransformVector(Vector3.one * (AppState.instance.project.ContainsKey("GridScale") && AppState.instance.project.GridScale != 0 ? AppState.instance.project.GridScale : 1f)).magnitude);
+                            ;
                             args.id = id;
-                            args.translate = args.pos - args.oldPos;
+                            args.translate = args.pos - transform.position;
                             SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
-                        }
-                        break;
-                    case EditSession.EditMode.SnapGrid:
-                        args.oldPos = transform.position;
-                        args.pos = transform.position.Round(AppState.instance.map.transform.TransformVector(Vector3.one * (AppState.instance.project.ContainsKey("GridScale") && AppState.instance.project.GridScale != 0 ? AppState.instance.project.GridScale :  1f)).magnitude);;
-                        args.id = id;
-                        args.translate = args.pos - transform.position;
-                        SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
-                        break;
+                            break;
+                    }
                 }
+                return true;
+            } else {
+                return false;
             }
         }
 
@@ -135,6 +137,10 @@ namespace Virgis
         public override void EditEnd()
         {
 
+        }
+
+        public override void EditStart() {
+            
         }
 
         public override void MoveAxis(MoveArgs args)

@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Virgis {
 
     public interface ILayer {
-        void Add(MoveArgs args);
+    public interface ILayer : IVirgisEntity {
         void Draw();
         void CheckPoint();
         RecordSet Save();
@@ -17,6 +17,9 @@ namespace Virgis {
         VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
 
         VirgisComponent GetFeature(Guid id);
+
+        Guid GetId();
+
     }
 
     /// <summary>
@@ -41,7 +44,8 @@ namespace Virgis {
         /// Get the event Manager and register listeners
         /// </summary>
         void Start() {
-            AppState.instance.AddEndEditSessionListener(ExitEditSession);
+            AppState.instance.AddStartEditSessionListener(EditStart);
+            AppState.instance.AddEndEditSessionListener(EditEnd);
         }
 
 
@@ -159,16 +163,12 @@ namespace Virgis {
         /// <summary>
         /// Called when an edit session starts
         /// </summary>
-        protected virtual void StartEditSession() {
-            // do nothing
         }
 
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
         /// <param name="saved">true if stop and save, false if stop and discard</param>
-        protected virtual void ExitEditSession(bool saved) {
-            // do nothing
         }
 
         /// <summary>
@@ -192,6 +192,41 @@ namespace Virgis {
         public VirgisComponent GetFeature(Guid id) {
             return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
         }
+
+        public Guid GetId() {
+            return _id;
+        }
+
+        public RecordSet GetMetadata() {
+            return layer;
+        }
+
+        public void SetVisible(bool visible) {
+            _visible = visible;
+        }
+
+        public bool IsVisible() {
+            return _visible;
+        }
+
+        public void SetEditable(bool inSession) {
+            _inEditSession = inSession;
+        }
+
+        public bool IsEditable() {
+            return _inEditSession;
+        }
+
+
+        public bool Selected(SelectionTypes button) {
+            return IsEditable();
+        }
+
+        public bool UnSelected(SelectionTypes button) {
+            return true;
+        }
+
+
     }
 }
 

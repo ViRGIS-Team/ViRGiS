@@ -23,23 +23,31 @@ namespace Virgis
         public List<VertexLookup> VertexTable;
 
 
-        public override void Selected(SelectionTypes button)
+        public override bool Selected(SelectionTypes button)
         {
-            if (button == SelectionTypes.SELECTALL)
-            {
-                gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
-                BlockMove = true;
-                Dataline com = gameObject.GetComponentInChildren<Dataline>();
-                com.Selected(SelectionTypes.SELECTALL);
+            if (transform.parent.GetComponent<IVirgisEntity>().UnSelected(button)) {
+                if (button == SelectionTypes.SELECTALL) {
+                    gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+                    BlockMove = true;
+                    Dataline com = gameObject.GetComponentInChildren<Dataline>();
+                    com.Selected(SelectionTypes.SELECTALL);
+                }
+                return true;
+            } else {
+                return false;
             }
         }
 
-        public override void UnSelected(SelectionTypes button)
+        public override bool UnSelected(SelectionTypes button)
         {
-            if (button != SelectionTypes.BROADCAST)
-            {
-                gameObject.BroadcastMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
-                BlockMove = false;
+            if (transform.parent.GetComponent<IVirgisEntity>().UnSelected(button)) {
+                if (button != SelectionTypes.BROADCAST) {
+                    gameObject.BroadcastMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+                    BlockMove = false;
+                }
+                return true;
+            } else {
+                return false;
             }
         }
 

@@ -10,9 +10,19 @@ namespace Virgis
     /// </summary>
     public interface IVirgisEntity
     {
-        void Selected(SelectionTypes button);
-        void UnSelected(SelectionTypes button);
-        void EditEnd();
+        bool Selected(SelectionTypes button);
+        bool UnSelected(SelectionTypes button);
+
+        /// <summary>
+        /// Called when an edit session starts
+        /// </summary>
+        void EditStart();
+
+        /// <summary>
+        /// Called when an edit session ends
+        /// </summary>
+        /// <param name="saved">true if stop and save, false if stop and discard</param>
+        void EditEnd(bool saved);
     }
 
     /// <summary>
@@ -60,18 +70,33 @@ namespace Virgis
         /// Use to tell the Component that it is selected
         /// </summary>
         /// <param name="button"> SelectionType</param>
-        public abstract void Selected(SelectionTypes button);
+        public virtual bool Selected(SelectionTypes button) {
+            return true;
+        }
 
         /// <summary>
         /// Use to tell the Component that it is un selected
         /// </summary>
         /// <param name="button"> SelectionType</param>
-        public abstract void UnSelected(SelectionTypes button);
+        public virtual bool UnSelected(SelectionTypes button) {
+            return true;
+        }
 
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
-        public abstract void EditEnd();
+        public virtual void EditStart() {
+            //do nothing
+        }
+
+
+        /// <summary>
+        /// Called when an edit session ends
+        /// </summary>
+        public virtual void EditEnd(bool saved) { 
+            //do nothing
+        }
+
 
 
         /// <summary>
