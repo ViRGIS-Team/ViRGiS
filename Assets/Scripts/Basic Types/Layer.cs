@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public interface ILayer {
+    public interface ILayer : IVirgisEntity {
         void Add(MoveArgs args);
         void Draw();
         void CheckPoint();
@@ -159,15 +159,31 @@ namespace Virgis {
         /// <summary>
         /// Called when an edit session starts
         /// </summary>
-        protected virtual void StartEditSession() {
-            // do nothing
+        public virtual void StartEditSession() {
+           // do nothing
         }
 
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
         /// <param name="saved">true if stop and save, false if stop and discard</param>
-        protected virtual void ExitEditSession(bool saved) {
+        public virtual void ExitEditSession(bool saved) {
+            // do nothing
+        }
+
+        /// <summary>
+        /// called when a daughter IVirgisEntity is selected
+        /// </summary>
+        /// <param name="button"> SelectionType</param>
+        public virtual void Selected(SelectionTypes button) {
+            //do nothing
+        }
+
+        /// <summary>
+        /// Called when a daughter IVirgisEntity is UnSelected
+        /// </summary>
+        /// <param name="button">SelectionType</param>
+        public virtual void UnSelected(SelectionTypes button) {
             // do nothing
         }
 
