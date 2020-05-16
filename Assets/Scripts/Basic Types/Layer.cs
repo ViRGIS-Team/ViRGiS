@@ -33,6 +33,7 @@ namespace Virgis {
         /// <summary>
         /// SetEditSession sets a marker that this particular layer is being edited.
         /// </summary>
+        /// 
         /// There can be only one layer being edited during an edit session.
         /// 
         /// <param name="inSession"></param> true to indicate that this layer is in edit session,
@@ -127,7 +128,7 @@ namespace Virgis {
                 transform.localPosition = Vector3.zero;
                 transform.localScale = Vector3.one;
 
-                if (_visible) _draw();
+                _draw();
                 changed = false;
             }
         }
@@ -233,7 +234,9 @@ namespace Virgis {
         public void SetVisible(bool visible) {
             if (_visible != visible) {
                 _visible = visible;
-                changed = !changed;
+                for (int i = 0; i < transform.childCount; i++) {
+                    transform.GetChild(i).gameObject.SetActive(visible);
+                }
             }
         }
 

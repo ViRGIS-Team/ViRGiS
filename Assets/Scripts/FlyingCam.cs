@@ -456,7 +456,6 @@ namespace Virgis {
 
         private bool LayerIsEditable(Transform transform) {
             ILayer layer = transform?.GetComponentInParent<ILayer>();
-            Debug.Log($"selected layer: {layer?.GetMetadata().Id} - editable: {layer?.IsEditable()}");
             return layer?.IsEditable() ?? false;
         }
 
