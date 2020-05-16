@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using GeoJSON.Net.Feature;
-using UnityEngine.InputSystem.XR.Haptics;
+
 
 namespace Virgis
 {
@@ -15,6 +15,7 @@ namespace Virgis
         FeatureCollection FeatURes;
         MeshData mesh;
         ParticleData PointCloud;
+        CSVData CSVData;
 
         public Vector3 coords;
     }
