@@ -7,6 +7,8 @@ using GeoJSON.Net;
 using System.Threading.Tasks;
 using Project;
 using UnityEngine.UI;
+using Zinnia.Extension;
+using System.Reflection.Emit;
 
 namespace Virgis
 {
@@ -86,8 +88,7 @@ namespace Virgis
                     Vector3 position = Tools.Ipos2Vect(in_position);
 
                     //instantiate the prefab with coordinates defined above
-                    GameObject dataPoint = Instantiate(PointPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                    dataPoint.transform.parent = gameObject.transform;
+                    GameObject dataPoint = Instantiate(PointPrefab, transform, false);
 
                     // add the gis data from geoJSON
                     Datapoint com = dataPoint.GetComponent<Datapoint>();
@@ -105,8 +106,8 @@ namespace Virgis
                     }
 
                     //Set the label
-                    GameObject labelObject = Instantiate(LabelPrefab, Vector3.zero, Quaternion.identity);
-                    labelObject.transform.parent = dataPoint.transform;
+                    GameObject labelObject = Instantiate(LabelPrefab,  dataPoint.transform, false);
+                    labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
                     labelObject.transform.localPosition = Vector3.up * displacement;
                     Text labelText = labelObject.GetComponentInChildren<Text>();
 
@@ -149,11 +150,5 @@ namespace Virgis
         {
 
         }
-
-        /*public override VirgisComponent GetClosest(Vector3 coords)
-        {
-            throw new System.NotImplementedException();
-        }*/
-
     }
 }
