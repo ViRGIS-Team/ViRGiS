@@ -52,7 +52,6 @@ namespace Virgis {
         private Vector3 point; // caches the current position indicated by the user to which to move the selected component
         private AppState appState;
         private bool brake; // is the brake currently on
-        private bool layerEditable;
 
 
         private void Start() {
@@ -202,14 +201,8 @@ namespace Virgis {
             bool hit = Physics.Raycast(ray, out hitInfo);
             if (hit) {
                 selectedRigibody = hitInfo.transform;
-                ILayer layer = selectedRigibody?.gameObject.GetComponentInParent<ILayer>();
-                layerEditable = layer?.IsEditable() ?? false;
-                //                if (selectedRigibody != null) {
-                if (layerEditable) {
-                    editSelected = true;
-                    select(selectedRigibody, button);
-                    selectedDistance = hitInfo.distance;
-                }
+                select(selectedRigibody, button);
+                selectedDistance = hitInfo.distance;
             } else {
                 editSelected = false;
             }
@@ -301,15 +294,11 @@ namespace Virgis {
             if (!editSelected) {
                 RaycastHit hitInfo = data.CurrentPointsCastData.HitData.Value;
                 currentPointerHit = hitInfo.transform;
-                ILayer layer = currentPointerHit?.gameObject.GetComponentInParent<ILayer>();
-                layerEditable = layer?.IsEditable() ?? false;
                 selectedDistance = hitInfo.distance;
-                if (rhTriggerState && appState.InEditSession() && layerEditable) {
-                    editSelected = true;
+                if (rhTriggerState && appState.InEditSession()) {
                     select(currentPointerHit, SelectionTypes.SELECT);
                 }
-                if (rhGripState && appState.InEditSession() && layerEditable) {
-                    editSelected = true;
+                if (rhGripState && appState.InEditSession()) {
                     select(currentPointerHit, SelectionTypes.SELECTALL);
                 }
             }
@@ -335,8 +324,7 @@ namespace Virgis {
         //
         public void triggerPressed(bool thisEvent) {
             rhTriggerState = true;
-            if (currentPointerHit != null && appState.InEditSession() && layerEditable) {
-                editSelected = true;
+            if (currentPointerHit != null && appState.InEditSession()) {
                 select(currentPointerHit, SelectionTypes.SELECT);
             }
 
@@ -344,8 +332,7 @@ namespace Virgis {
 
         public void gripPressed(bool thisEvent) {
             rhGripState = true;
-            if (currentPointerHit != null && appState.InEditSession() && layerEditable) {
-                editSelected = true;
+            if (currentPointerHit != null && appState.InEditSession()) {
                 select(currentPointerHit, SelectionTypes.SELECTALL);
             }
 
@@ -450,7 +437,10 @@ namespace Virgis {
         }
 
         private void select(Transform target, SelectionTypes button) {
-            target.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
+            if (LayerIsEditable(target)) {
+                editSelected = true;
+                target.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
+            }
         }
 
         private void unSelect(Transform target, SelectionTypes button) {
@@ -464,6 +454,11 @@ namespace Virgis {
             }
         }
 
+        private bool LayerIsEditable(Transform transform) {
+            ILayer layer = transform?.GetComponentInParent<ILayer>();
+            Debug.Log($"selected layer: {layer?.GetMetadata().Id} - editable: {layer?.IsEditable()}");
+            return layer?.IsEditable() ?? false;
+        }
 
     }
 }
