@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 namespace Virgis {
 
+    [System.Serializable]
+    public class LayerVisibilityChangedEvent : UnityEvent<ILayer, bool> {
+    }
+
     // AppState is a global singleton object that stores
     // app states, such as EditSession, etc.
     //
@@ -16,6 +20,7 @@ namespace Virgis {
         private EditSession _editSession;
         private List<Component> _layers;
         private ILayer _editableLayer;
+        private LayerVisibilityChangedEvent _visibilityChangedEvent;
 
         void Awake() {
             print("AppState awakens");
@@ -31,11 +36,15 @@ namespace Virgis {
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
             _layers = new List<Component>();
+            _visibilityChangedEvent = new LayerVisibilityChangedEvent();
         }
 
         /// <summary>
         /// Init is called after a project has been fully loaded.
         /// </summary>
+        /// 
+        /// Call this method everytime a new project has been loaded,
+        /// e.g. New Project, Open Project
         public void Init() {
             ILayer firstLayer = (ILayer) _layers[0];
             firstLayer.SetEditable(true);
@@ -109,6 +118,14 @@ namespace Virgis {
 
         public void AddEndEditSessionListener(UnityAction<bool> action) {
             _editSession.AddEndEditSessionListener(action);
+        }
+
+        public void LayerVisibilityChanged(ILayer layer, bool visible) {
+            _visibilityChangedEvent.Invoke(layer, visible);
+        }
+
+        public void AddLayerVisibilityChangedListener(UnityAction<ILayer, bool> action) {
+            _visibilityChangedEvent.AddListener(action);
         }
 
     }

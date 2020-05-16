@@ -14,10 +14,12 @@ namespace Virgis {
         public Toggle editLayerToggle;
         public Toggle viewLayerToggle;
 
+        private AppState _appState;
         private ILayer _layer;
         private LayerPanelEditSelectedEvent _editSelectedEvent;
 
         void Awake() {
+            _appState = AppState.instance;
             _editSelectedEvent = new LayerPanelEditSelectedEvent();
             editLayerToggle.onValueChanged.AddListener(OnEditToggleValueChange);
             viewLayerToggle.onValueChanged.AddListener(OnViewToggleValueChange);
@@ -49,14 +51,15 @@ namespace Virgis {
             }
         }
 
-        private void OnViewToggleValueChange(bool enabled) {
-            if (enabled) {
+        private void OnViewToggleValueChange(bool visible) {
+            if (visible) {
                 viewLayerToggle.GetComponentInChildren<Text>().color = new Color32(0, 0, 245, 255);
                 _layer.SetVisible(true);
             } else {
                 viewLayerToggle.GetComponentInChildren<Text>().color = new Color32(100, 100, 100, 255);
                 _layer.SetVisible(false);
             }
+            _appState.LayerVisibilityChanged(_layer, visible);
         }
     }
 }

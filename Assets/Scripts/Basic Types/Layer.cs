@@ -127,7 +127,7 @@ namespace Virgis {
                 transform.localPosition = Vector3.zero;
                 transform.localScale = Vector3.one;
 
-                _draw();
+                if (_visible) _draw();
                 changed = false;
             }
         }
@@ -231,7 +231,10 @@ namespace Virgis {
         }
 
         public void SetVisible(bool visible) {
-            _visible = visible;
+            if (_visible != visible) {
+                _visible = visible;
+                changed = !changed;
+            }
         }
 
         public bool IsVisible() {

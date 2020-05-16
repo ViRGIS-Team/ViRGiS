@@ -44,6 +44,7 @@ namespace Virgis {
             }
             appState.AddStartEditSessionListener(StartEditSession);
             appState.AddEndEditSessionListener(ExitEditSession);
+            appState.AddLayerVisibilityChangedListener(OnLayerVisibilityChanged);
         }
 
         /// 
@@ -162,6 +163,11 @@ namespace Virgis {
 
         protected override void StartEditSession() {
             CheckPoint();
+        }
+
+        private void OnLayerVisibilityChanged(ILayer layer, bool visible) {
+            Debug.Log($"Visibility changed for layer {layer.GetMetadata().Id} - {visible}");
+            Draw();
         }
     }
 }
