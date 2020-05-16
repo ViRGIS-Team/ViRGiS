@@ -24,6 +24,7 @@ namespace Virgis {
         public GameObject PolygonLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
+        public GameObject CsvLayer;
         public AppState appState;
 
         // Path to the Project File
@@ -93,6 +94,9 @@ namespace Virgis {
                         break;
                     case RecordSetDataType.Mesh:
                         temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
+                        break;
+                    case RecordSetDataType.CSV:
+                        temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                         break;
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
