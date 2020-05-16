@@ -25,6 +25,7 @@ namespace Virgis {
         public GameObject PointCloud;
         public GameObject MeshLayer;
         public GameObject XsectLayer;
+        public GameObject CsvLayer;
         public AppState appState;
 
         // Path to the Project File
@@ -98,9 +99,11 @@ namespace Virgis {
                     case RecordSetDataType.XSect:
                         temp = await Instantiate(XsectLayer, Vector3.zero, Quaternion.identity).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);
                         break;
+                    case RecordSetDataType.CSV:
+                        temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
+                        break;
                     default:
                         Debug.LogError(layer.Type.ToString() + " is not known.");
-                        break;
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;

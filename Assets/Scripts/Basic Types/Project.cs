@@ -208,7 +208,8 @@ namespace Project
         Mesh,
         Record,
         XSect,
-        Tab
+        Tab,
+        CSV
     }
 
     public enum GeoTypes
