@@ -223,10 +223,6 @@ namespace Virgis
             return result;
         }
 
-        public override void EditEnd()
-        {
-
-        }
 
         public override void MoveTo(Vector3 newPos)
         {

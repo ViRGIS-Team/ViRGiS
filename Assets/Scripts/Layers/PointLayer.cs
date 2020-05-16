@@ -119,11 +119,6 @@ namespace Virgis
             };
         }
 
-        protected override void ExitEditSession(bool saved)
-        {
-            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
-        }
-
         protected override void _checkpoint() { }
         protected override void _save()
         {

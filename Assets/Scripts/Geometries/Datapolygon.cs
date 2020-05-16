@@ -87,10 +87,6 @@ namespace Virgis
             Shape.GetComponent<Renderer>().material.SetColor("_BaseColor", newCol);
         }
 
-        public override void EditEnd()
-        {
-
-        }
 
         public override void MoveTo(Vector3 newPos)
         {

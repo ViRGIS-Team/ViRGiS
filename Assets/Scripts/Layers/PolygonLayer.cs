@@ -177,11 +177,6 @@ namespace Virgis
             };
         }
 
-        protected override void ExitEditSession(bool saved)
-        {
-            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
-        }
-
         protected override void _checkpoint() { }
         protected override void _save()
         {
@@ -224,10 +219,5 @@ namespace Virgis
         {
             changed = true;
         }
-
-        /*public override VirgisComponent GetClosest(Vector3 coords)
-        {
-            throw new System.NotImplementedException();
-        }*/
     }
 }
