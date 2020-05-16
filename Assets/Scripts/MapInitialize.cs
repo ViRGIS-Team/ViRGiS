@@ -64,7 +64,9 @@ namespace Virgis {
             Vector2d origin = appState.project.Origin.Coordinates.Vector2d();
             GameObject Map = gameObject;
             AbstractMap _map = Map.GetComponent<AbstractMap>();
+            _map.UseWorldScale();
             _map.Initialize(origin, appState.project.MapScale);
+            Debug.Log(_map.WorldRelativeScale);
 
             //set globals
             appState.abstractMap = _map;

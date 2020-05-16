@@ -149,7 +149,7 @@ namespace Virgis
                 label = labelObject.transform;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
-                {
+                   {
                     labelText.text = (string)gisProperties[symbology["line"].Label];
                 }
             }

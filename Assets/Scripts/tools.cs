@@ -13,7 +13,7 @@ namespace Virgis {
             if (position.Altitude == null) {
                 Alt = 0.0f;
             } else {
-                Alt = (float) position.Altitude * AppState.instance.abstractMap.WorldRelativeScale;
+                Alt = (float) position.Altitude;
             };
             Vector3 _world = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
             _world.y = Alt;
