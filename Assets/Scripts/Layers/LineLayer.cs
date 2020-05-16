@@ -110,8 +110,7 @@ namespace Virgis
 
                 foreach (LineString line in mLines.Coordinates)
                 {
-                    GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(line.Point(0)), Quaternion.identity);
-                    dataLine.transform.parent = gameObject.transform;
+                    GameObject dataLine = Instantiate(LinePrefab, transform, false);
 
                     //set the gisProject properties
                     Dataline com = dataLine.GetComponent<Dataline>();

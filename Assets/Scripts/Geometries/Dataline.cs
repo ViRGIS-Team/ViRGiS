@@ -121,17 +121,15 @@ namespace Virgis
             {
                 if (!(i + 1 == line.Length && Lr))
                 {
-                    GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity);
+                    GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity, transform );
                     VirgisComponent com = handle.GetComponent<VirgisComponent>();
-                    handle.transform.parent = transform;
                     VertexTable.Add(new VertexLookup() { Id = com.id, Vertex = i, isVertex = true, Com = com });
                     com.SetColor ((Color)symbology["point"].Color);
                     handle.transform.localScale = symbology["point"].Transform.Scale;
                 }
                 if (i + 1 != line.Length)
                 {
-                    GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity);
-                    lineSegment.transform.parent = transform;
+                    GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity, transform);
                     LineSegment com = lineSegment.GetComponent<LineSegment>();
                     com.Draw(vertex, line[i + 1], i, i + 1, symbology["line"].Transform.Scale.magnitude);
                     com.SetColor((Color)symbology["line"].Color);
@@ -143,9 +141,8 @@ namespace Virgis
             //Set the label
             if (LabelPrefab != null)
             {
-                GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
-                labelObject.transform.parent = transform;
-                labelObject.transform.Translate(Vector3.up * symbology["line"].Transform.Scale.magnitude);
+                GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity, transform);
+                labelObject.transform.Translate(transform.TransformVector(Vector3.up) * symbology["line"].Transform.Scale.magnitude, Space.Self);
                 label = labelObject.transform;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
