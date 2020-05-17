@@ -131,43 +131,38 @@ namespace Virgis
                     GameObject dataPoly = Instantiate(PolygonPrefab, origin, Quaternion.identity);
                     dataPoly.transform.parent = gameObject.transform;
                     dataLine.transform.parent = dataPoly.transform;
-m;
 
                     // add the gis data from geoJSON
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
-                    com.Centroid = centroid.GetComponent<Datapoint>();
+                   // com.Centroid = centroid.GetComponent<Datapoint>();
                     com.Centroid.SetColor((Color)symbology["point"].Color);
 
                     if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
                     {
                         //Set the label
-                        GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
-                        labelObject.transform.parent = centroid.transform;
-                        labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
-                        Text labelText = labelObject.GetComponentInChildren<Text>();
-                        labelText.text = (string)properties[symbology["body"].Label];
+                       // GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
+                       // labelObject.transform.parent = centroid.transform;
+                        //labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
+                        //Text labelText = labelObject.GetComponentInChildren<Text>();
+                       //labelText.text = (string)properties[symbology["body"].Label];
                     }
 
                     // Darw the LinearRing
                     Dataline Lr = dataLine.GetComponent<Dataline>();
-                    Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
+                    //Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
 
 
                     //Draw the Polygon
                     if (Textures.Count > 0) Mat.SetTexture("_BaseMap", Textures[index]);
-                    com.Draw(Lr.VertexTable, Mat);
-                    centroid.transform.localScale = symbology["point"].Transform.Scale;
-                    centroid.transform.localRotation = symbology["point"].Transform.Rotate;
-                    centroid.transform.localPosition = symbology["point"].Transform.Position;
+                    //com.Draw(Lr.VertexTable, Mat);
+                    //centroid.transform.localScale = symbology["point"].Transform.Scale;
+                   // centroid.transform.localRotation = symbology["point"].Transform.Rotate;
+                   // centroid.transform.localPosition = symbology["point"].Transform.Position;
                     index++;
                 }
             };
-        }
-
-        protected override void ExitEditSession(bool saved) {
-            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
         protected override void _checkpoint() { }

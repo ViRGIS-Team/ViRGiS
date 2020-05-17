@@ -104,6 +104,7 @@ namespace Virgis {
                         break;
                     default:
                         Debug.LogError(layer.Type.ToString() + " is not known.");
+                        break;
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;
