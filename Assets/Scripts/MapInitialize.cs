@@ -44,8 +44,8 @@ namespace Virgis {
                 print("instantiate app state");
                 appState = Instantiate(appState);
             }
-            appState.AddStartEditSessionListener(StartEditSession);
-            appState.AddEndEditSessionListener(ExitEditSession);
+            appState.AddStartEditSessionListener(_onStartEditSession);
+            appState.AddEndEditSessionListener(_onExitEditSession);
         }
 
         /// 
@@ -136,7 +136,7 @@ namespace Virgis {
 
 
 
-        protected override void ExitEditSession(bool saved) {
+        public override void ExitEditSession(bool saved) {
             if (saved) {
                 Save();
             } else {
@@ -169,8 +169,20 @@ namespace Virgis {
 
         }
 
-        protected override void StartEditSession() {
+        public override void StartEditSession() {
             CheckPoint();
+        }
+
+        protected void _onStartEditSession() {
+            BroadcastMessage("StartEditSession", SendMessageOptions.DontRequireReceiver);
+        }
+
+        /// <summary>
+        /// Called when an edit session ends
+        /// </summary>
+        /// <param name="saved">true if stop and save, false if stop and discard</param>
+        protected void _onExitEditSession(bool saved) {
+            BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

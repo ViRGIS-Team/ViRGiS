@@ -106,14 +106,6 @@ namespace Virgis {
             throw new NotImplementedException();
         }
 
-        protected override void StartEditSession() {
-            
-        }
-
-        protected override void ExitEditSession(bool saved) {
-           
-        }
-
         public override void MoveAxis(MoveArgs args) {
             
         }
