@@ -12,7 +12,8 @@ namespace Virgis
     {
         void Selected(SelectionTypes button);
         void UnSelected(SelectionTypes button);
-        void EditEnd();
+        void StartEditSession();
+        void ExitEditSession(bool saved);
     }
 
     /// <summary>
@@ -69,10 +70,18 @@ namespace Virgis
         public abstract void UnSelected(SelectionTypes button);
 
         /// <summary>
+        /// Called when an edit session starts
+        /// </summary>
+        public virtual void StartEditSession() { 
+            //do nothing
+        }
+
+        /// <summary>
         /// Called when an edit session ends
         /// </summary>
-        public abstract void EditEnd();
-
+        public virtual void ExitEditSession(bool saved) {
+            // do nothing
+        }
 
         /// <summary>
         /// Sent by the UI to request this component to move.

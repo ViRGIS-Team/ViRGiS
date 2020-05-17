@@ -27,7 +27,7 @@ namespace Virgis
             features = await reader.Load(layer.Source); ;
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }

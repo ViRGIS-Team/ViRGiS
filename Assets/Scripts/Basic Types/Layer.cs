@@ -9,14 +9,38 @@ using UnityEngine;
 namespace Virgis {
 
     public interface ILayer {
-        void Add(MoveArgs args);
+
+        void AddFeature(MoveArgs args);
+
         void Draw();
+
         void CheckPoint();
+
         RecordSet Save();
 
         VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
 
         VirgisComponent GetFeature(Guid id);
+
+        Guid GetId();
+
+        RecordSet GetMetadata();
+
+        void SetVisible(bool visible);
+
+        bool IsVisible();
+
+        /// <summary>
+        /// SetEditSession sets a marker that this particular layer is being edited.
+        /// </summary>
+        /// 
+        /// There can be only one layer being edited during an edit session.
+        /// 
+        /// <param name="inSession"></param> true to indicate that this layer is in edit session,
+        /// or false if otherwise.
+        void SetEditable(bool inSession);
+
+        bool IsEditable();
     }
 
     /// <summary>
@@ -31,16 +55,22 @@ namespace Virgis {
         public T layer; // holds the RecordSet data for this layer
         public S features; // holds the feature data for this layer
         public bool changed = true; // true is this layer has been changed from the original file
-        public Guid id;
+
+        protected Guid _id;
+        protected bool _visible;
+        protected bool _editable;
 
         void Awake() {
-            id = Guid.NewGuid();
+            _id = Guid.NewGuid();
+            _visible = true;
+            _editable = false;
         }
 
         /// <summary>
         /// Get the event Manager and register listeners
         /// </summary>
         void Start() {
+            AppState.instance.AddStartEditSessionListener(StartEditSession);
             AppState.instance.AddEndEditSessionListener(ExitEditSession);
         }
 
@@ -70,9 +100,9 @@ namespace Virgis {
         /// Call this to create a new feature
         /// </summary>
         /// <param name="args">MOveArgs with details about whwre to create the new layer</param>
-        public void Add(MoveArgs args) {
-            if (AppState.instance.InEditSession()) {
-                _add(args);
+        public void AddFeature(MoveArgs args) {
+            if (AppState.instance.InEditSession() && IsEditable()) {
+                _addFeature(args);
             }
         }
 
@@ -80,7 +110,7 @@ namespace Virgis {
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
         /// <param name=args"></param>
-        protected abstract void _add(MoveArgs args);
+        protected abstract void _addFeature(MoveArgs args);
 
         /// <summary>
         /// Draw the layer based upon the features in the features GeographyCollection
@@ -159,15 +189,31 @@ namespace Virgis {
         /// <summary>
         /// Called when an edit session starts
         /// </summary>
-        protected virtual void StartEditSession() {
-            // do nothing
+        public virtual void StartEditSession() {
+           // do nothing
         }
 
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
         /// <param name="saved">true if stop and save, false if stop and discard</param>
-        protected virtual void ExitEditSession(bool saved) {
+        public virtual void ExitEditSession(bool saved) {
+            // do nothing
+        }
+
+        /// <summary>
+        /// called when a daughter IVirgisEntity is selected
+        /// </summary>
+        /// <param name="button"> SelectionType</param>
+        public virtual void Selected(SelectionTypes button) {
+            //do nothing
+        }
+
+        /// <summary>
+        /// Called when a daughter IVirgisEntity is UnSelected
+        /// </summary>
+        /// <param name="button">SelectionType</param>
+        public virtual void UnSelected(SelectionTypes button) {
             // do nothing
         }
 
@@ -191,6 +237,36 @@ namespace Virgis {
         /// <returns>returns the featue contained in an enitity of type S</returns>
         public VirgisComponent GetFeature(Guid id) {
             return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
+        }
+
+        public Guid GetId() {
+            return _id;
+        }
+
+        public RecordSet GetMetadata() {
+            return layer;
+        }
+
+        public void SetVisible(bool visible) {
+            if (_visible != visible) {
+                _visible = visible;
+                //for (int i = 0; i < transform.childCount; i++) {
+                //    transform.GetChild(i).gameObject.SetActive(visible);
+                //}
+                gameObject.SetActive(visible);
+            }
+        }
+
+        public bool IsVisible() {
+            return _visible;
+        }
+
+        public void SetEditable(bool inSession) {
+            _editable = inSession;
+        }
+
+        public bool IsEditable() {
+            return _editable;
         }
     }
 }

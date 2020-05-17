@@ -201,11 +201,8 @@ namespace Virgis {
             bool hit = Physics.Raycast(ray, out hitInfo);
             if (hit) {
                 selectedRigibody = hitInfo.transform;
-                if (selectedRigibody != null) {
-                    editSelected = true;
-                    select(selectedRigibody, button);
-                    selectedDistance = hitInfo.distance;
-                }
+                select(selectedRigibody, button);
+                selectedDistance = hitInfo.distance;
             } else {
                 editSelected = false;
             }
@@ -299,11 +296,9 @@ namespace Virgis {
                 currentPointerHit = hitInfo.transform;
                 selectedDistance = hitInfo.distance;
                 if (rhTriggerState && appState.InEditSession()) {
-                    editSelected = true;
                     select(currentPointerHit, SelectionTypes.SELECT);
                 }
                 if (rhGripState && appState.InEditSession()) {
-                    editSelected = true;
                     select(currentPointerHit, SelectionTypes.SELECTALL);
                 }
             }
@@ -330,7 +325,6 @@ namespace Virgis {
         public void triggerPressed(bool thisEvent) {
             rhTriggerState = true;
             if (currentPointerHit != null && appState.InEditSession()) {
-                editSelected = true;
                 select(currentPointerHit, SelectionTypes.SELECT);
             }
 
@@ -339,7 +333,6 @@ namespace Virgis {
         public void gripPressed(bool thisEvent) {
             rhGripState = true;
             if (currentPointerHit != null && appState.InEditSession()) {
-                editSelected = true;
                 select(currentPointerHit, SelectionTypes.SELECTALL);
             }
 
@@ -444,7 +437,10 @@ namespace Virgis {
         }
 
         private void select(Transform target, SelectionTypes button) {
-            target.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
+            if (LayerIsEditable(target)) {
+                editSelected = true;
+                target.gameObject.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
+            }
         }
 
         private void unSelect(Transform target, SelectionTypes button) {
@@ -458,6 +454,10 @@ namespace Virgis {
             }
         }
 
+        private bool LayerIsEditable(Transform transform) {
+            ILayer layer = transform?.GetComponentInParent<ILayer>();
+            return layer?.IsEditable() ?? false;
+        }
 
     }
 }

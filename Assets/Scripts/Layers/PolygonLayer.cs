@@ -42,7 +42,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -140,12 +140,9 @@ namespace Virgis
                     }
 
                     //Create the GameObjects
-                    GameObject dataLine = Instantiate(LinePrefab, center, Quaternion.identity);
-                    GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
-                    GameObject centroid = Instantiate(HandlePrefab, center, Quaternion.identity);
-                    dataPoly.transform.parent = gameObject.transform;
-                    dataLine.transform.parent = dataPoly.transform;
-                    centroid.transform.parent = dataLine.transform;
+                    GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
+                    GameObject dataLine = Instantiate(LinePrefab,  dataPoly.transform, false);
+                    GameObject centroid = Instantiate(HandlePrefab,  dataLine.transform, false);
 
                     // add the gis data from geoJSON
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
@@ -157,9 +154,8 @@ namespace Virgis
                     if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
                     {
                         //Set the label
-                        GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
-                        labelObject.transform.parent = centroid.transform;
-                        labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
+                        GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false );
+                        labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                         Text labelText = labelObject.GetComponentInChildren<Text>();
                         labelText.text = (string)properties[symbology["body"].Label];
                     }
@@ -179,11 +175,6 @@ namespace Virgis
                     centroid.transform.localPosition = symbology["point"].Transform.Position;
                 }
             };
-        }
-
-        protected override void ExitEditSession(bool saved)
-        {
-            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
         protected override void _checkpoint() { }
@@ -228,10 +219,5 @@ namespace Virgis
         {
             changed = true;
         }
-
-        /*public override VirgisComponent GetClosest(Vector3 coords)
-        {
-            throw new System.NotImplementedException();
-        }*/
     }
 }
