@@ -110,7 +110,7 @@ namespace Virgis
         public void Draw(LineString lineIn, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab)
         {
             AbstractMap _map = AppState.instance.abstractMap;
-            Vector3[] line = Tools.LS2Vect(lineIn);
+            Vector3[] line = lineIn.Vector3();
             Lr = lineIn.IsLinearRing();
             DCurve3 curve = new DCurve3();
             curve.Vector3(line, Lr);
@@ -146,7 +146,7 @@ namespace Virgis
                 label = labelObject.transform;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
-                {
+                   {
                     labelText.text = (string)gisProperties[symbology["line"].Label];
                 }
             }

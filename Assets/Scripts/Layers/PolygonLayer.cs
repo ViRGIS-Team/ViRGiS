@@ -42,7 +42,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -118,7 +118,7 @@ namespace Virgis
                 {
                     ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
                     LineString perimeter = LinearRings[0];
-                    Vector3[] poly = Tools.LS2Vect(perimeter);
+                    Vector3[] poly = perimeter.Vector3();
                     Vector3 center = Vector3.zero;
                     if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
                     {
@@ -127,16 +127,16 @@ namespace Virgis
                             JObject jobject = (JObject)properties["polyhedral"];
                             Point centerPoint = jobject.ToObject<Point>();
                             center = centerPoint.Coordinates.Vector3();
-                            properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+                            properties["polyhedral"] = center.ToPoint();
                         } else
                         {
-                            center = Tools.Ipos2Vect((properties["polyhedral"] as Point).Coordinates as Position);
+                            center = (properties["polyhedral"] as Point).Coordinates.Vector3();
                         }
                     }
                     else
                     {
                         center = Datapolygon.FindCenter(poly);
-                        properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+                        properties["polyhedral"] = center.ToPoint();
                     }
 
                     //Create the GameObjects
@@ -189,7 +189,7 @@ namespace Virgis
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices)
                 {
-                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                    positions.Add(vertex.ToPosition() as Position);
                 }
                 LineString line = new LineString(positions);
                 if (!line.IsLinearRing())
@@ -201,7 +201,7 @@ namespace Virgis
                 LinearRings.Add(line);
                 IDictionary<string, object> properties = dataFeature.gisProperties;
                 Datapoint centroid = dataFeature.Centroid;
-                properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
+                properties["polyhedral"] = centroid.transform.position.ToPoint();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);

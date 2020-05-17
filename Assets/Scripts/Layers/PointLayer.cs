@@ -33,7 +33,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -85,7 +85,7 @@ namespace Virgis
                 foreach (Point geometry in mPoint.Coordinates)
                 {
                     Position in_position = geometry.Coordinates as Position;
-                    Vector3 position = Tools.Ipos2Vect(in_position);
+                    Vector3 position = in_position.Vector3();
 
                     //instantiate the prefab with coordinates defined above
                     GameObject dataPoint = Instantiate(PointPrefab, transform, false);
@@ -126,7 +126,7 @@ namespace Virgis
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapoint pointFunc in pointFuncs)
             {
-                thisFeatures.Add(new Feature(new Point(Tools.Vect2Ipos(pointFunc.gameObject.transform.position)), pointFunc.gisProperties, pointFunc.gisId));
+                thisFeatures.Add(new Feature(pointFunc.gameObject.transform.position.ToPoint(), pointFunc.gisProperties, pointFunc.gisId));
             }
             FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);

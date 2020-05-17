@@ -38,7 +38,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -135,7 +135,7 @@ namespace Virgis
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices)
                 {
-                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                    positions.Add(vertex.ToPosition() as Position);
                 }
                 List<LineString> lines = new List<LineString>();
                 lines.Add(new LineString(positions));

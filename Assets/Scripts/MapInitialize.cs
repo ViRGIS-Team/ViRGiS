@@ -1,9 +1,11 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
+using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using Project;
 using System.Threading.Tasks;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 namespace Virgis {
@@ -65,11 +67,14 @@ namespace Virgis {
             Vector2d origin = appState.project.Origin.Coordinates.Vector2d();
             GameObject Map = gameObject;
             AbstractMap _map = Map.GetComponent<AbstractMap>();
+            _map.UseWorldScale();
             _map.Initialize(origin, appState.project.MapScale);
+
 
             //set globals
             appState.abstractMap = _map;
             appState.map = Map;
+            appState.ZoomChange(appState.project.Scale);
             appState.mainCamera = MainCamera;
             MainCamera.transform.position = appState.project.Camera.Coordinates.Vector3();
 
@@ -110,6 +115,7 @@ namespace Virgis {
                 temp.transform.parent = transform;
                 appState.addLayer(temp);
             }
+            appState.Init();
             return this;
         }
 
@@ -121,7 +127,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        protected override void _add(MoveArgs args) {
+        protected override void _addFeature(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
@@ -154,6 +160,8 @@ namespace Virgis {
                 int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
                 appState.project.RecordSets[index] = layer;
             }
+            appState.project.Scale = appState.GetScale();
+            appState.project.Cameras =  new List<Point>() { MainCamera.transform.position.ToPoint() };
             geoJsonReader.SetProject(appState.project);
             geoJsonReader.Save();
         }
