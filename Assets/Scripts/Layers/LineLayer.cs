@@ -38,7 +38,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }

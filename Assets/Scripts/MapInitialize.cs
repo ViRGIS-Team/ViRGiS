@@ -103,6 +103,7 @@ namespace Virgis {
                 temp.transform.parent = transform;
                 appState.addLayer(temp);
             }
+            appState.Init();
             return this;
         }
 
@@ -114,7 +115,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        protected override void _add(MoveArgs args) {
+        protected override void _addFeature(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 

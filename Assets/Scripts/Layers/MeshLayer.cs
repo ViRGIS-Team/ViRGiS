@@ -48,7 +48,7 @@ namespace Virgis
             features = Mesh;
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
