@@ -234,9 +234,10 @@ namespace Virgis {
         public void SetVisible(bool visible) {
             if (_visible != visible) {
                 _visible = visible;
-                for (int i = 0; i < transform.childCount; i++) {
-                    transform.GetChild(i).gameObject.SetActive(visible);
-                }
+                //for (int i = 0; i < transform.childCount; i++) {
+                //    transform.GetChild(i).gameObject.SetActive(visible);
+                //}
+                gameObject.SetActive(visible);
             }
         }
 
