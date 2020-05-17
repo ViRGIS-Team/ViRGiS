@@ -80,13 +80,6 @@ namespace Virgis
             transform.localScale = new Vector3(diameter / linescale.x, diameter / linescale.y, length);
         }
 
-        /// <summary>
-        /// Callled on an ExitEditSession event
-        /// </summary>
-        public override void EditEnd()
-        {
-
-        }
 
         public override void Translate(MoveArgs args)
         {

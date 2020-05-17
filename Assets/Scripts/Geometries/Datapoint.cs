@@ -132,10 +132,6 @@ namespace Virgis
             }
         }
 
-        public override void EditEnd()
-        {
-
-        }
 
         public override void MoveAxis(MoveArgs args)
         {
