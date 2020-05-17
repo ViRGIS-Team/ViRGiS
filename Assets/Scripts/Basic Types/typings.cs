@@ -4,6 +4,8 @@ using UnityEngine;
 using GeoJSON.Net.Geometry;
 using g3;
 using System;
+using Mapbox.Unity.Utilities;
+using Mapbox.Utils;
 
 
 namespace Virgis
@@ -30,6 +32,28 @@ namespace Virgis
         SELECT,     // Select a sing;le vertex
         SELECTALL,  // Select all verteces
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
+    }
+
+    public static class Vector3ExtebnsionMethods {
+        /// <summary>
+        /// Convert Vector3 World Space location to Position taking account of zoom, scale and mapscale
+        /// </summary>
+        /// <param name="position">Vector3 World Space coordinates</param>
+        /// <returns>Position</returns>
+        static public IPosition ToPosition(this Vector3 position) {
+            Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(position);
+            Mapbox.Utils.Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale);
+            return new Position(_latlng.x, _latlng.y, mapLocal.y);
+        }
+
+        /// <summary>
+        /// Converts Vector3 World Space Location to Point taking accoun t of zoom, scale and mapscale
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public static Point ToPoint(this Vector3 position) {
+            return new Point(position.ToPosition());
+        }
     }
 
     public static class PositionExtensionMethods
@@ -65,13 +89,21 @@ namespace Virgis
         }
 
         /// <summary>
-        /// Converts Iposition to Vector3
+        /// Converts Iposition to Vector3 World Space coordinates takling account of zoom, scale and mapscale
         /// </summary>
         /// <param name="position">IPosition</param>
         /// <returns>Vector3</returns>
         public static Vector3 Vector3(this IPosition position)
         {
-            return Tools.Ipos2Vect(position as Position);
+            float Alt;
+            if (position.Altitude == null) {
+                Alt = 0.0f;
+            } else {
+                Alt = (float) position.Altitude;
+            };
+            Vector3 mapLocal = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
+            mapLocal.y = Alt;
+            return AppState.instance.map.transform.TransformPoint(mapLocal);
         }
     }
 
@@ -100,6 +132,19 @@ namespace Virgis
             for (int i = 0; i < data.Count; i++)
             {
                 result[i] = line.Point(i);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Converts LineString to Vector3[] in world space taking account of zoom, scale and map scale
+        /// </summary>
+        /// <param name="line">LineString</param>
+        /// <returns>Vector3[] World Space Locations</returns>
+        static public Vector3[] Vector3(this LineString line) {
+            Vector3[] result = new Vector3[line.Coordinates.Count];
+            for (int i = 0; i < line.Coordinates.Count; i++) {
+                result[i] = line.Point(i).Vector3();
             }
             return result;
         }

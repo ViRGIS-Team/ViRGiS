@@ -419,13 +419,13 @@ namespace Virgis {
 
         private void Zoom(float zoom) {
             if (zoom != 0) {
-                AppState.instance.map.transform.localScale *= 1 + zoom;
+                AppState.instance.ZoomChange(AppState.instance.GetScale() * (1 - zoom));
             }
         }
 
         private void Scale(float scale) {
             Vector3 here = AppState.instance.map.transform.InverseTransformPoint(transform.position);
-            AppState.instance.map.transform.localScale *= 1 + scale;
+            AppState.instance.ZoomChange(AppState.instance.GetScale() * (1 - scale));
             transform.position = AppState.instance.map.transform.TransformPoint(here);
         }
 
