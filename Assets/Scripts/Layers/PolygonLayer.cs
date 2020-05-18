@@ -148,8 +148,9 @@ namespace Virgis
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
-                    com.Centroid = centroid.GetComponent<Datapoint>();
-                    com.Centroid.SetColor((Color)symbology["point"].Color);
+                    com.Centroid = centroid.transform.position;
+                    Datapoint cent = centroid.GetComponent<Datapoint>();
+                    cent.SetColor((Color)symbology["point"].Color);
 
                     if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
                     {
@@ -167,6 +168,8 @@ namespace Virgis
 
                     //Draw the Polygon
                     Mat.SetColor("_BaseColor", symbology["body"].Color);
+                    List<VertexLookup> VertexTable = Lr.VertexTable;
+                    VertexTable.Add(new VertexLookup() { Id = cent.id, Vertex = -1, Com = cent });
                     com.Draw(Lr.VertexTable, Mat);
                     
 
@@ -200,8 +203,7 @@ namespace Virgis
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
                 IDictionary<string, object> properties = dataFeature.gisProperties;
-                Datapoint centroid = dataFeature.Centroid;
-                properties["polyhedral"] = centroid.transform.position.ToPoint();
+                properties["polyhedral"] =  dataFeature.Centroid.ToPoint();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);
