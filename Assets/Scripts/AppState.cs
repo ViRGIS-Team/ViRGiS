@@ -16,6 +16,7 @@ namespace Virgis {
         private EditSession _editSession;
         private List<Component> _layers;
         private ILayer _editableLayer;
+        private ZoomEvent _zoomChange;
 
         void Awake() {
             print("AppState awakens");
@@ -31,6 +32,7 @@ namespace Virgis {
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
             _layers = new List<Component>();
+            _zoomChange = new ZoomEvent();
         }
 
         /// <summary>
@@ -112,6 +114,18 @@ namespace Virgis {
 
         public void AddEndEditSessionListener(UnityAction<bool> action) {
             _editSession.AddEndEditSessionListener(action);
+        }
+
+        public void AddZoomChangeListerner(UnityAction<float> action) {
+            _zoomChange.AddZoomChangeListerner(action);
+        }
+
+        public void ZoomChange(float zoom) {
+            _zoomChange.Change(zoom);
+        }
+
+        public float GetScale() {
+            return _zoomChange.GetScale();
         }
 
     }
