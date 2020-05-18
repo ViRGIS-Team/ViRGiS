@@ -54,7 +54,7 @@ namespace Virgis
         }
         protected override void _draw()
         {
-            transform.position = Tools.Ipos2Vect((Position)layer.Position.Coordinates);
+            transform.position = layer.Position.Coordinates.Vector3();
             transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
             Dictionary<string, Unit> symbology = layer.Properties.Units;
             meshes = new List<GameObject>();
@@ -119,17 +119,11 @@ namespace Virgis
 
         protected override void _save()
         {
-            layer.Position = new Point(Tools.Vect2Ipos(transform.position));
+            layer.Position = transform.position.ToPoint();
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
         }
-
-        /*public override VirgisComponent GetClosest(Vector3 coords)
-        {
-            throw new System.NotImplementedException();
-        }*/
-
     }
 }
 
