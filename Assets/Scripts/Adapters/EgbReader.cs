@@ -188,7 +188,6 @@ namespace Virgis {
             if (coords.Length == 3) {
                 try {
                     Geometry geom = new Geometry(wkbGeometryType.wkbPoint25D);
-                    int test = geom.Is3D();
                     geom.AddPoint((double) ParseValue(coords[0]), (double) ParseValue(coords[1]), (double) ParseValue(coords[2]));
                     geom.Transform(transform);
                     Position ret = new Position(geom.GetY(0), geom.GetX(0), geom.GetZ(0));

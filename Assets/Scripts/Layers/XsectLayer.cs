@@ -1,11 +1,9 @@
 ﻿// copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections.Generic;
 using UnityEngine;
-using GeoJSON.Net.Geometry;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net;
 using System.Threading.Tasks;
 using Project;
+using System;
 
 namespace Virgis
 {
@@ -24,32 +22,21 @@ namespace Virgis
         public GameObject CylinderPrefab; // prefab to be used for Vertex handle
         public GameObject PolygonPrefab; // Prefab to be used for the polygons
         public Material Mat; // Material to be used for the Polygon
+        public string ImageSource;
 
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
 
         private EgbReader egbReader;
-        private List<Texture> Textures = new List<Texture>();
+        Texture2D tex;
 
 
         protected override async Task _init(GeologyCollection layer)
         {
-            //geoJsonReader = new GeoJsonReader();
-            //await geoJsonReader.Load(layer.Source);
-            //features = geoJsonReader.getFeatureCollection();
-            //foreach (Feature feature in features.Features)
-            //{
-            //   if (feature.Properties.ContainsKey("url") && feature.Properties["url"] != null) {
-            //        Texture tex = await TextureImage.Get(new Uri(feature.Properties["url"] as string));
-            //        tex.wrapMode = TextureWrapMode.Clamp;
-            //        Textures.Add(tex);
-            //    }
-            //}
             egbReader = new EgbReader();
             await egbReader.Load(layer.Source);
             egbReader.Read();
             features = egbReader.features;
-
         }
 
         protected override void _addFeature(MoveArgs args)
@@ -57,7 +44,7 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        protected override void _draw()
+        protected async override void _draw()
         {
             Dictionary<string, Unit> symbology = layer.Properties.Units;
 
@@ -130,8 +117,14 @@ namespace Virgis
                     VertexTable.Add(new VertexLookup() { Id = System.Guid.NewGuid(), Vertex = i, Com = point.GetComponent<Datapoint>() });
                 }
 
-
-
+                tex = null;
+                if (feature.image.ContainsKey("Image") && feature.image["Image"] != null) {
+                    string Url = ImageSource + feature.image["Image"] as string;
+                    tex = await TextureImage.Get(new Uri(Url));
+                    if (tex != null) {
+                        tex.wrapMode = TextureWrapMode.Clamp;
+                    }
+                }
 
 
                 //Create the GameObjects
@@ -164,12 +157,14 @@ namespace Virgis
 
 
                    // //Draw the Polygon
-                   //if (Textures.Count > 0) Mat.SetTexture("_BaseMap", Textures[index]);
-                   com.Draw(VertexTable, Mat);
-                   // //centroid.transform.localScale = symbology["point"].Transform.Scale;
-                   //// centroid.transform.localRotation = symbology["point"].Transform.Rotate;
-                   //// centroid.transform.localPosition = symbology["point"].Transform.Position;
-                   // index++;
+
+                com.Draw(VertexTable, Mat);
+                Material newMat = dataPoly.GetComponentInChildren<Renderer>().material;
+                if (tex != null) newMat.SetTexture("_BaseMap", tex);
+                // //centroid.transform.localScale = symbology["point"].Transform.Scale;
+                //// centroid.transform.localRotation = symbology["point"].Transform.Rotate;
+                //// centroid.transform.localPosition = symbology["point"].Transform.Position;
+                // index++;
                 //}
             }
         }

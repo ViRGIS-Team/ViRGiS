@@ -108,7 +108,7 @@ namespace Virgis {
                         temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                         break;
                     default:
-                        Debug.LogError(layer.Type.ToString() + " is not known.");
+                        Debug.LogError(thisLayer.Type.ToString() + " is not known.");
                         break;
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
