@@ -132,10 +132,6 @@ namespace Virgis
             }
         }
 
-        public override void EditEnd()
-        {
-
-        }
 
         public override void MoveAxis(MoveArgs args)
         {
@@ -174,7 +170,7 @@ namespace Virgis
                 case "Vector3d":
                     return (T)Convert.ChangeType("Hello there", typeof(T));
                 case "Point":
-                    return (T)Convert.ChangeType(new Point(Tools.Vect2Ipos(transform.position)), typeof(T));
+                    return (T)Convert.ChangeType(transform.position.ToPoint(), typeof(T));
                 default:
                     throw new NotSupportedException(String.Format("TYpe {} is not support by the Datapoint class", typeof(T).Name));
             }

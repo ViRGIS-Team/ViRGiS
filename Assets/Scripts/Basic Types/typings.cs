@@ -4,6 +4,8 @@ using UnityEngine;
 using GeoJSON.Net.Geometry;
 using g3;
 using System;
+using Mapbox.Unity.Utilities;
+using Mapbox.Utils;
 
 
 namespace Virgis
@@ -22,6 +24,9 @@ namespace Virgis
         public float scale; // OPTIONAL change in scale to apply to target
     }
 
+    /// <summary>
+    /// Enum holding the types of "selection"tha the user can make
+    /// </summary>
     public enum SelectionTypes
     {
         SELECT,     // Select a sing;le vertex
@@ -29,36 +34,97 @@ namespace Virgis
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
     }
 
+    public static class Vector3ExtebnsionMethods {
+        /// <summary>
+        /// Convert Vector3 World Space location to Position taking account of zoom, scale and mapscale
+        /// </summary>
+        /// <param name="position">Vector3 World Space coordinates</param>
+        /// <returns>Position</returns>
+        static public IPosition ToPosition(this Vector3 position) {
+            Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(position);
+            Mapbox.Utils.Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale);
+            return new Position(_latlng.x, _latlng.y, mapLocal.y);
+        }
+
+        /// <summary>
+        /// Converts Vector3 World Space Location to Point taking accoun t of zoom, scale and mapscale
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
+        public static Point ToPoint(this Vector3 position) {
+            return new Point(position.ToPosition());
+        }
+    }
+
     public static class PositionExtensionMethods
     {
+        /// <summary>
+        /// Converts Iposition to Vector2D
+        /// </summary>
+        /// <param name="position">IPosition</param>
+        /// <returns>Mapbox.Utils.Vector2d</returns>
         public static Mapbox.Utils.Vector2d Vector2d(this IPosition position)
         {
             return new Mapbox.Utils.Vector2d((float)position.Latitude, (float)position.Longitude);
         }
 
+        /// <summary>
+        /// Converts IPosition to UnityEngine.vector2
+        /// </summary>
+        /// <param name="position">IPosition</param>
+        /// <returns>UnityEngine.Vector2</returns>
         public static Vector2 Vector2(this IPosition position)
         {
             return new Vector2((float)position.Latitude, (float)position.Longitude);
         }
 
+        /// <summary>
+        /// Converts IPositon to Position
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static Position Point(this IPosition position)
         {
             return position as Position;
         }
 
+        /// <summary>
+        /// Converts Iposition to Vector3 World Space coordinates takling account of zoom, scale and mapscale
+        /// </summary>
+        /// <param name="position">IPosition</param>
+        /// <returns>Vector3</returns>
         public static Vector3 Vector3(this IPosition position)
         {
-            return Tools.Ipos2Vect(position as Position);
+            float Alt;
+            if (position.Altitude == null) {
+                Alt = 0.0f;
+            } else {
+                Alt = (float) position.Altitude;
+            };
+            Vector3 mapLocal = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
+            mapLocal.y = Alt;
+            return AppState.instance.map.transform.TransformPoint(mapLocal);
         }
     }
 
     public static class LineExtensionMethods
     {
+        /// <summary>
+        /// Converts LineString Vertex i to a Position
+        /// </summary>
+        /// <param name="line">LineString</param>
+        /// <param name="i">vertex index</param>
+        /// <returns>Position</returns>
         public static Position Point(this LineString line, int i)
         {
             return line.Coordinates[i] as Position;
         }
 
+        /// <summary>
+        /// Converts LineString to Position[]
+        /// </summary>
+        /// <param name="line">LineString</param>
+        /// <returns>Position[]</returns>
         public static Position[] Points(this LineString line)
         {
             ReadOnlyCollection<IPosition> data = line.Coordinates;
@@ -69,10 +135,29 @@ namespace Virgis
             }
             return result;
         }
+
+        /// <summary>
+        /// Converts LineString to Vector3[] in world space taking account of zoom, scale and map scale
+        /// </summary>
+        /// <param name="line">LineString</param>
+        /// <returns>Vector3[] World Space Locations</returns>
+        static public Vector3[] Vector3(this LineString line) {
+            Vector3[] result = new Vector3[line.Coordinates.Count];
+            for (int i = 0; i < line.Coordinates.Count; i++) {
+                result[i] = line.Point(i).Vector3();
+            }
+            return result;
+        }
     }
 
     public static class DcurveExtensions
     {
+        /// <summary>
+        /// Creates g3.DCurve from Vector3[]
+        /// </summary>
+        /// <param name="curve">DCurve</param>
+        /// <param name="verteces">Vextor3[]</param>
+        /// <param name="bClosed">whether the line is closed</param>
         public static void Vector3(this g3.DCurve3 curve, Vector3[] verteces, bool bClosed)
         {
             curve.Closed = bClosed;
@@ -82,6 +167,11 @@ namespace Virgis
             }
         }
 
+        /// <summary>
+        /// Converts a DCurve into Vector3[]
+        /// </summary>
+        /// <param name="curve">DCurve</param>
+        /// <returns>Vector3[]</returns>
         public static Vector3d Center(this DCurve3 curve)
         {
             Vector3d center = Vector3d.Zero;
@@ -95,6 +185,11 @@ namespace Virgis
             return center;
         }
 
+        /// <summary>
+        /// Estimates the 3D Centroid of a 3d SCurve
+        /// </summary>
+        /// <param name="curve">g3.DCurve</param>
+        /// <returns>g3.Vector3d Centroid</returns>
         public static Vector3d CenterMark(this DCurve3 curve)
         {
             _ = curve.DistanceSquared(curve.Center(), out int iSeg, out double tangent);
@@ -107,6 +202,11 @@ namespace Virgis
 
     public static class SimpleMeshExtensions
     {
+        /// <summary>
+        /// Converts g3.SimpleMesh to UnityEngine.Mesh
+        /// </summary>
+        /// <param name="simpleMesh">SimpleMesh</param>
+        /// <returns>UnityEngine.Mesh</returns>
         public static Mesh ToMesh(this SimpleMesh simpleMesh)
         {
             Mesh unityMesh = new Mesh();
@@ -143,6 +243,12 @@ namespace Virgis
 
     public static class VirgisVectorExtensions
     {
+        /// <summary>
+        /// Rounds a Vector3 in 3d to the nearest value divisible by roundTo
+        /// </summary>
+        /// <param name="vector3">Vector 3 value</param>
+        /// <param name="roundTo"> rounding size</param>
+        /// <returns>Vector3 rounded value</returns>
         public static Vector3 Round(this Vector3 vector3, float roundTo = 0.1f)
         {
             return new Vector3(
@@ -153,6 +259,9 @@ namespace Virgis
         }
     }
 
+    /// <summary>
+    /// Structure used to hold avertex for an arbitrary shape and to calculate equality
+    /// </summary>
     public class VertexLookup
     {
         public Guid Id;

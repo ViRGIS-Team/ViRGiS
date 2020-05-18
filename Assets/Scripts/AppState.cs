@@ -15,6 +15,8 @@ namespace Virgis {
 
         private EditSession _editSession;
         private List<Component> _layers;
+        private ILayer _editableLayer;
+        private ZoomEvent _zoomChange;
 
         void Awake() {
             print("AppState awakens");
@@ -28,7 +30,21 @@ namespace Virgis {
             }
 
             DontDestroyOnLoad(gameObject);
-            InitApp();
+            _editSession = new EditSession();
+            _layers = new List<Component>();
+            _zoomChange = new ZoomEvent();
+        }
+
+        /// <summary>
+        /// Init is called after a project has been fully loaded.
+        /// </summary>
+        /// 
+        /// Call this method everytime a new project has been loaded,
+        /// e.g. New Project, Open Project
+        public void Init() {
+            ILayer firstLayer = (ILayer) _layers[0];
+            firstLayer.SetEditable(true);
+            _editableLayer = firstLayer;
         }
 
         public EditSession editSession {
@@ -48,13 +64,24 @@ namespace Virgis {
         }
 
         public List<Component> layers {
-            get {
-                return _layers;
-            }
+            get => _layers;
         }
 
         public void addLayer(Component layer) {
             _layers.Add(layer);
+        }
+
+        public void clearLayers() {
+            _layers.Clear();
+        }
+
+        public ILayer editableLayer {
+            get => _editableLayer;
+            set {
+                value?.SetEditable(true);
+                _editableLayer?.SetEditable(false);
+                _editableLayer = value;
+            }
         }
 
         public GameObject mainCamera {
@@ -89,9 +116,16 @@ namespace Virgis {
             _editSession.AddEndEditSessionListener(action);
         }
 
-        private void InitApp() {
-            _editSession = new EditSession();
-            _layers = new List<Component>();
+        public void AddZoomChangeListerner(UnityAction<float> action) {
+            _zoomChange.AddZoomChangeListerner(action);
+        }
+
+        public void ZoomChange(float zoom) {
+            _zoomChange.Change(zoom);
+        }
+
+        public float GetScale() {
+            return _zoomChange.GetScale();
         }
 
     }

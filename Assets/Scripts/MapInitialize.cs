@@ -1,9 +1,11 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
+using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using Project;
 using System.Threading.Tasks;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 namespace Virgis {
@@ -44,8 +46,8 @@ namespace Virgis {
                 print("instantiate app state");
                 appState = Instantiate(appState);
             }
-            appState.AddStartEditSessionListener(StartEditSession);
-            appState.AddEndEditSessionListener(ExitEditSession);
+            appState.AddStartEditSessionListener(_onStartEditSession);
+            appState.AddEndEditSessionListener(_onExitEditSession);
         }
 
         /// 
@@ -65,11 +67,14 @@ namespace Virgis {
             Vector2d origin = appState.project.Origin.Coordinates.Vector2d();
             GameObject Map = gameObject;
             AbstractMap _map = Map.GetComponent<AbstractMap>();
+            _map.UseWorldScale();
             _map.Initialize(origin, appState.project.MapScale);
+
 
             //set globals
             appState.abstractMap = _map;
             appState.map = Map;
+            appState.ZoomChange(appState.project.Scale);
             appState.mainCamera = MainCamera;
             MainCamera.transform.position = appState.project.Camera.Coordinates.Vector3();
 
@@ -103,12 +108,14 @@ namespace Virgis {
                         temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                         break;
                     default:
-                        Debug.LogError(layer.Type.ToString() + " is not known.");
+                        Debug.LogError(thisLayer.Type.ToString() + " is not known.");
+                        break;
                 }
                 Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;
                 appState.addLayer(temp);
             }
+            appState.Init();
             return this;
         }
 
@@ -120,7 +127,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        protected override void _add(MoveArgs args) {
+        protected override void _addFeature(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
@@ -136,7 +143,7 @@ namespace Virgis {
 
 
 
-        protected override void ExitEditSession(bool saved) {
+        public override void ExitEditSession(bool saved) {
             if (saved) {
                 Save();
             } else {
@@ -153,6 +160,8 @@ namespace Virgis {
                 int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
                 appState.project.RecordSets[index] = layer;
             }
+            appState.project.Scale = appState.GetScale();
+            appState.project.Cameras =  new List<Point>() { MainCamera.transform.position.ToPoint() };
             geoJsonReader.SetProject(appState.project);
             geoJsonReader.Save();
         }
@@ -169,8 +178,20 @@ namespace Virgis {
 
         }
 
-        protected override void StartEditSession() {
+        public override void StartEditSession() {
             CheckPoint();
+        }
+
+        protected void _onStartEditSession() {
+            BroadcastMessage("StartEditSession", SendMessageOptions.DontRequireReceiver);
+        }
+
+        /// <summary>
+        /// Called when an edit session ends
+        /// </summary>
+        /// <param name="saved">true if stop and save, false if stop and discard</param>
+        protected void _onExitEditSession(bool saved) {
+            BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

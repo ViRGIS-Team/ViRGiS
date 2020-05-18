@@ -42,7 +42,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -118,7 +118,7 @@ namespace Virgis
                 {
                     ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
                     LineString perimeter = LinearRings[0];
-                    Vector3[] poly = Tools.LS2Vect(perimeter);
+                    Vector3[] poly = perimeter.Vector3();
                     Vector3 center = Vector3.zero;
                     if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
                     {
@@ -127,39 +127,36 @@ namespace Virgis
                             JObject jobject = (JObject)properties["polyhedral"];
                             Point centerPoint = jobject.ToObject<Point>();
                             center = centerPoint.Coordinates.Vector3();
-                            properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+                            properties["polyhedral"] = center.ToPoint();
                         } else
                         {
-                            center = Tools.Ipos2Vect((properties["polyhedral"] as Point).Coordinates as Position);
+                            center = (properties["polyhedral"] as Point).Coordinates.Vector3();
                         }
                     }
                     else
                     {
                         center = Datapolygon.FindCenter(poly);
-                        properties["polyhedral"] = new Point(Tools.Vect2Ipos(center));
+                        properties["polyhedral"] = center.ToPoint();
                     }
 
                     //Create the GameObjects
-                    GameObject dataLine = Instantiate(LinePrefab, center, Quaternion.identity);
-                    GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity);
-                    GameObject centroid = Instantiate(HandlePrefab, center, Quaternion.identity);
-                    dataPoly.transform.parent = gameObject.transform;
-                    dataLine.transform.parent = dataPoly.transform;
-                    centroid.transform.parent = dataLine.transform;
+                    GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
+                    GameObject dataLine = Instantiate(LinePrefab,  dataPoly.transform, false);
+                    GameObject centroid = Instantiate(HandlePrefab,  dataLine.transform, false);
 
                     // add the gis data from geoJSON
                     Datapolygon com = dataPoly.GetComponent<Datapolygon>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
-                    com.Centroid = centroid.GetComponent<Datapoint>();
-                    com.Centroid.SetColor((Color)symbology["point"].Color);
+                    com.Centroid = centroid.transform.position;
+                    Datapoint cent = centroid.GetComponent<Datapoint>();
+                    cent.SetColor((Color)symbology["point"].Color);
 
                     if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
                     {
                         //Set the label
-                        GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity);
-                        labelObject.transform.parent = centroid.transform;
-                        labelObject.transform.Translate(Vector3.up * symbology["point"].Transform.Scale.magnitude);
+                        GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false );
+                        labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                         Text labelText = labelObject.GetComponentInChildren<Text>();
                         labelText.text = (string)properties[symbology["body"].Label];
                     }
@@ -171,6 +168,8 @@ namespace Virgis
 
                     //Draw the Polygon
                     Mat.SetColor("_BaseColor", symbology["body"].Color);
+                    List<VertexLookup> VertexTable = Lr.VertexTable;
+                    VertexTable.Add(new VertexLookup() { Id = cent.id, Vertex = -1, Com = cent });
                     com.Draw(Lr.VertexTable, Mat);
                     
 
@@ -179,11 +178,6 @@ namespace Virgis
                     centroid.transform.localPosition = symbology["point"].Transform.Position;
                 }
             };
-        }
-
-        protected override void ExitEditSession(bool saved)
-        {
-            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
         protected override void _checkpoint() { }
@@ -198,7 +192,7 @@ namespace Virgis
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices)
                 {
-                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                    positions.Add(vertex.ToPosition() as Position);
                 }
                 LineString line = new LineString(positions);
                 if (!line.IsLinearRing())
@@ -209,8 +203,7 @@ namespace Virgis
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
                 IDictionary<string, object> properties = dataFeature.gisProperties;
-                Datapoint centroid = dataFeature.Centroid;
-                properties["polyhedral"] = new Point(Tools.Vect2Ipos(centroid.transform.position));
+                properties["polyhedral"] =  dataFeature.Centroid.ToPoint();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);

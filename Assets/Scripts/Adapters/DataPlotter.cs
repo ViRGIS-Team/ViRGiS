@@ -82,7 +82,7 @@ namespace Virgis {
                         dataPoint.transform.localScale = symbology["point"].Transform.Scale;
                         dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
                         dataPoint.transform.localPosition = symbology["point"].Transform.Position;
-                        dataPoint.transform.position = Tools.Ipos2Vect(position);
+                        dataPoint.transform.position = position.Vector3();
                     }
 
                     //Set the label
@@ -98,20 +98,12 @@ namespace Virgis {
             }
         }
 
-        protected override void _add(MoveArgs args) {
+        protected override void _addFeature(MoveArgs args) {
             throw new NotImplementedException();
         }
 
         protected override void _save() {
             throw new NotImplementedException();
-        }
-
-        protected override void StartEditSession() {
-            
-        }
-
-        protected override void ExitEditSession(bool saved) {
-           
         }
 
         public override void MoveAxis(MoveArgs args) {

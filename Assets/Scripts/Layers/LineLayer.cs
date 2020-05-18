@@ -38,7 +38,7 @@ namespace Virgis
             features = geoJsonReader.getFeatureCollection();
         }
 
-        protected override void _add(MoveArgs args)
+        protected override void _addFeature(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -110,8 +110,7 @@ namespace Virgis
 
                 foreach (LineString line in mLines.Coordinates)
                 {
-                    GameObject dataLine = Instantiate(LinePrefab, Tools.Ipos2Vect(line.Point(0)), Quaternion.identity);
-                    dataLine.transform.parent = gameObject.transform;
+                    GameObject dataLine = Instantiate(LinePrefab, transform, false);
 
                     //set the gisProject properties
                     Dataline com = dataLine.GetComponent<Dataline>();
@@ -122,11 +121,6 @@ namespace Virgis
                     com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab);
                 }
             };
-        }
-
-        protected override void ExitEditSession(bool saved)
-        {
-            BroadcastMessage("EditEnd", SendMessageOptions.DontRequireReceiver);
         }
 
         protected override void _checkpoint() { }
@@ -141,7 +135,7 @@ namespace Virgis
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices)
                 {
-                    positions.Add(Tools.Vect2Ipos(vertex) as Position);
+                    positions.Add(vertex.ToPosition() as Position);
                 }
                 List<LineString> lines = new List<LineString>();
                 lines.Add(new LineString(positions));
