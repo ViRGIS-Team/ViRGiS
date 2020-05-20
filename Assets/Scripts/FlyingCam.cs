@@ -11,21 +11,12 @@ namespace Virgis {
     /// Main Script for controlling the UI behaviour and the movement of the Camera
     /// </summary>
     public class FlyingCam : MonoBehaviour {
-        [Header("Constants")]
 
-        public Camera self; // reference to the active camera
         public GameObject trackingSpace; // reference to the active tracking space
-                                         //unity controls and constants input - keyboard
+        [Header("Constants - Desktop")]                                 //unity controls and constants input - keyboard
         public float DesktopAcceleration; // controls how fast you speed up
         public float XAxisSensitivity; // control mouse sensitivity
         public float YAxisSensitivity;
-
-        //unity controls - VR
-        public float VrAcceleration; // controls how fast you speed up horizontallyly
-        public float PanSensitvity; // controls sensitivity to Pan Control
-        public float ZoomSensitivity; // controls sensitivity for Zoom Control
-        public float SlideMod; // controls sensitivity to @slide@ control on selected marker
-        public float AxisSensitivity; // minimum change to be registered as an axis change
 
         [Space]
 
@@ -33,12 +24,17 @@ namespace Virgis {
 
         [Space]
 
+        [Header("Constants - Occulus Rift")]
+        public float VrAcceleration; // controls how fast you speed up horizontallyly
+        public float PanSensitvity; // controls sensitivity to Pan Control
+        public float ZoomSensitivity; // controls sensitivity for Zoom Control
+        public float SlideMod; // controls sensitivity to @slide@ control on selected marker
+        public float AxisSensitivity; // minimum change to be registered as an axis change
 
 
         private bool editSelected = false; // edit state 
         private Transform selectedRigibody; // the selected marker
         private float selectedDistance; // distance to the selected marker``
-        //private Vector3 speed; // current speed of the camera
         private float _rotationX; // used when clamping vertical rotation
         private Transform currentPointerHit; // current marker selected by pointer
         private bool rhTriggerState = false; // current state of the RH trigger
@@ -49,8 +45,8 @@ namespace Virgis {
         private bool AxisEdit = false; // Whether we are in AxisEdit mode
         private Vector3 point; // caches the current position indicated by the user to which to move the selected component
         private AppState appState;
-        //private bool brake; // is the brake currently on
         private Rigidbody _thisRigidbody;
+        private Camera self;
 
 
         private void Start() {
@@ -58,6 +54,8 @@ namespace Virgis {
             appState.trackingSpace = trackingSpace;
             _thisRigidbody = GetComponent<Rigidbody>();
             _thisRigidbody.detectCollisions = false;
+            self = GetComponent<Camera>();
+            
         }
 
         private void Update() {
