@@ -10,8 +10,6 @@ using GeoJSON.Net.Geometry;
 
 namespace Virgis
 {
-   
-
     /// <summary>
     /// Controls an instance of a data pointor handle
     /// </summary>
@@ -19,14 +17,10 @@ namespace Virgis
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
 
-        void Start()
-        {
-            thisRenderer = GetComponent<Renderer>();
-            if (color != null)
-            {
-                thisRenderer.material.SetColor("_BaseColor", color);
-            }
-            if (transform.childCount > 0) label = transform.GetChild(0);
+
+        private void Start() {
+            if (transform.childCount > 0)
+                label = transform.GetChild(0);
         }
         /// <summary>
         /// Every frame - realign the billboard
@@ -38,9 +32,11 @@ namespace Virgis
 
 
         public override void Selected(SelectionTypes button)
-        {;
-            thisRenderer.material.SetColor("_BaseColor", anticolor);
-            if (button != SelectionTypes.BROADCAST) {
+        {
+            newSelect = true;
+            thisRenderer.material = selectedMat;
+            if (button != SelectionTypes.BROADCAST)
+            {
                 gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
             }
         }
@@ -48,7 +44,7 @@ namespace Virgis
 
         public override void UnSelected(SelectionTypes button)
         {
-            thisRenderer.material.SetColor("_BaseColor", color);
+            thisRenderer.material = mainMat;
             if (button != SelectionTypes.BROADCAST)
             {
                 gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
@@ -80,15 +76,14 @@ namespace Virgis
         }
 
  
-        public override void SetColor(Color newColor)
+        public override void SetMaterial(Material mainMat, Material selectedMat)
         {
-            color = newColor;
-            anticolor = Color.white - newColor;
-            anticolor.a = color.a;
-            Renderer thisRenderer = GetComponent<Renderer>();
+            this.mainMat = mainMat;
+            this.selectedMat = selectedMat;
+            thisRenderer = GetComponent<Renderer>();
             if (thisRenderer)
             {
-                thisRenderer.material.SetColor("_BaseColor", color);
+                thisRenderer.material = mainMat;
             }
         }
 
