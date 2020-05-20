@@ -160,7 +160,7 @@ namespace Virgis
             Datapoint c = centroid.GetComponent<Datapoint>();
             p.gisId = gisId;
             p.gisProperties = properties;
-            p.Centroid = c;
+            p.Centroid = c.transform.position;
             c.SetMaterial(mainMat, selectedMat);
 
             if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
@@ -178,10 +178,9 @@ namespace Virgis
 
 
             //Draw the Polygon
-            Mat.SetColor("_BaseColor", symbology["body"].Color);
             List<VertexLookup> VertexTable = Lr.VertexTable;
-            VertexTable.Add(new VertexLookup() { Id = cent.id, Vertex = -1, Com = cent });
-            p.Draw(Lr.VertexTable, Mat);
+            VertexTable.Add(new VertexLookup() { Id = c.id, Vertex = -1, Com = c });
+            p.Draw(Lr.VertexTable, bodyMain);
                     
 
             centroid.transform.localScale = symbology["point"].Transform.Scale;

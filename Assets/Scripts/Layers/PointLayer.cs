@@ -34,32 +34,38 @@ namespace Virgis {
             features = geoJsonReader.getFeatureCollection();
             symbology = layer.Properties.Units;
             displacement = 1.0f;
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
+                Shapes shape = symbology["point"].Shape;
+                switch (shape) {
+                    case Shapes.Spheroid:
+                        PointPrefab = SpherePrefab;
+                        break;
+                    case Shapes.Cuboid:
+                        PointPrefab = CubePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        PointPrefab = CylinderPrefab;
+                        displacement = 1.5f;
+                        break;
+                    default:
+                        PointPrefab = SpherePrefab;
+                        break;
+                }
+            } else {
+                PointPrefab = SpherePrefab;
+            }
+
+            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            mainMat = Instantiate(BaseMaterial);
+            mainMat.SetColor("_BaseColor", col);
+            selectedMat = Instantiate(BaseMaterial);
+            selectedMat.SetColor("_BaseColor", sel);
         }
 
         protected override void _addFeature(MoveArgs args) {
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
-            float displacement = 1.0f;
-            GameObject dataPoint = Instantiate(PointPrefab, args.pos, args.rotate, transform);
-            Datapoint com = dataPoint.GetComponent<Datapoint>();
-            //com.gisId = gisId;
-            //com.gisProperties = properties;
-            //Set the symbology
-            if (symbology.ContainsKey("point")) {
-                dataPoint.SendMessage("SetColor", (Color) symbology["point"].Color);
-                dataPoint.transform.localScale = symbology["point"].Transform.Scale;
-                //dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
-                //dataPoint.transform.localPosition = symbology["point"].Transform.Position;
-                //dataPoint.transform.position = position;
-            }
-
-            //Set the label
-            GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
-            labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
-            labelObject.transform.localPosition = Vector3.up * displacement;
-            Text labelText = labelObject.GetComponentInChildren<Text>();
-            labelText.text = "New Feature";
-
-            //            throw new System.NotImplementedException();
+            _drawFeature(args.pos);
+            changed = true;
         }
 
 
