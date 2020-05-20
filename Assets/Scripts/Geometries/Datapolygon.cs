@@ -82,6 +82,12 @@ namespace Virgis
             }
         }
 
+        public override void SetColor(Color newCol)
+        {
+            Shape.GetComponent<Renderer>().material.SetColor("_BaseColor", newCol);
+        }
+
+
         public override void MoveTo(Vector3 newPos)
         {
             throw new System.NotImplementedException();

@@ -36,6 +36,11 @@ namespace Virgis
         }
 
 
+        public override void SetColor(Color newColor)
+        {
+            BroadcastMessage("SetColor", newColor, SendMessageOptions.DontRequireReceiver);
+        }
+
         public override void VertexMove(MoveArgs data)
         {
             if (VertexTable.Contains(new VertexLookup() { Id = data.id}))
@@ -102,8 +107,11 @@ namespace Virgis
         /// <param name="LinePrefab"> The prefab to be used for the line</param>
         /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
-        public void Draw(Vector3[] line, bool Lr,  Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+        public void Draw(LineString lineIn, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab)
         {
+            AbstractMap _map = AppState.instance.abstractMap;
+            Vector3[] line = lineIn.Vector3();
+            Lr = lineIn.IsLinearRing();
             DCurve3 curve = new DCurve3();
             curve.Vector3(line, Lr);
             Vector3 center = (Vector3)curve.CenterMark();
@@ -116,7 +124,7 @@ namespace Virgis
                     GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity, transform );
                     VirgisComponent com = handle.GetComponent<VirgisComponent>();
                     VertexTable.Add(new VertexLookup() { Id = com.id, Vertex = i, isVertex = true, Com = com });
-                    com.SetMaterial(mainMat, selectedMat);
+                    com.SetColor ((Color)symbology["point"].Color);
                     handle.transform.localScale = symbology["point"].Transform.Scale;
                 }
                 if (i + 1 != line.Length)
@@ -124,7 +132,7 @@ namespace Virgis
                     GameObject lineSegment = Instantiate(CylinderObject, vertex, Quaternion.identity, transform);
                     LineSegment com = lineSegment.GetComponent<LineSegment>();
                     com.Draw(vertex, line[i + 1], i, i + 1, symbology["line"].Transform.Scale.magnitude);
-                    com.SetMaterial(lineMain, lineSelected);
+                    com.SetColor((Color)symbology["line"].Color);
                     if (i + 2 == line.Length && Lr) com.vEnd = 0;
                 }
                 i++;

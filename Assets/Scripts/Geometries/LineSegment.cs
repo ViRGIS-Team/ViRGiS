@@ -10,8 +10,6 @@ namespace Virgis
     /// </summary>
     public class LineSegment : VirgisComponent
     {
-        private Renderer thisRenderer; // convenience link to the rendere for this marker
-
         private Vector3 start; // coords of the start of the line in Map.local space coordinates
         private Vector3 end;  // coords of the start of the line in Map.local space coordinates
         private float diameter; // Diameter of the vertex in Map.local units
@@ -26,8 +24,6 @@ namespace Virgis
         /// <param name="vertStart">vertex ID for the vertex at the start of the line segment</param>
         /// <param name="vertEnd"> vertex ID for the vertex at the end of the line segment </param>
         /// <param name="dia">Diamtere of the line segement in Map.local units</param>
-
-
         public void Draw(Vector3 from, Vector3 to, int vertStart, int vertEnd, float dia)
         {
             start = transform.parent.InverseTransformPoint(from);
@@ -55,13 +51,9 @@ namespace Virgis
         }
 
 
-        public override void SetMaterial(Material mainMat, Material selectedMat) {
-            this.mainMat = mainMat;
-            this.selectedMat = selectedMat;
-            thisRenderer = GetComponentInChildren<Renderer>();
-            if (thisRenderer) {
-                thisRenderer.material = mainMat;
-            }
+        public override void SetColor(Color newCol)
+        {
+            gameObject.GetComponentInChildren<Renderer>().material.SetColor("_BaseColor", newCol);
         }
 
         // Move the start of line to newStart point in World Coords
