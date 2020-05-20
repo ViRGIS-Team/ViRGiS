@@ -1,19 +1,17 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using System.Collections.Generic;
-using UnityEngine;
-using GeoJSON.Net.Geometry;
-using GeoJSON.Net.Feature;
 using GeoJSON.Net;
-using System.Threading.Tasks;
+using GeoJSON.Net.Feature;
+using GeoJSON.Net.Geometry;
 using Project;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace Virgis
-{
+namespace Virgis {
 
-    public class PointLayer : Layer<GeographyCollection, FeatureCollection>
-    {
+    public class PointLayer : Layer<GeographyCollection, FeatureCollection> {
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
         public GameObject CubePrefab;
@@ -30,46 +28,41 @@ namespace Virgis
         private Material mainMat;
         private Material selectedMat;
 
-        protected override async Task _init(GeographyCollection layer)
-        {
+        protected override async Task _init(GeographyCollection layer) {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
             symbology = layer.Properties.Units;
             displacement = 1.0f;
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
-                Shapes shape = symbology["point"].Shape;
-                switch (shape) {
-                    case Shapes.Spheroid:
-                        PointPrefab = SpherePrefab;
-                        break;
-                    case Shapes.Cuboid:
-                        PointPrefab = CubePrefab;
-                        break;
-                    case Shapes.Cylinder:
-                        PointPrefab = CylinderPrefab;
-                        displacement = 1.5f;
-                        break;
-                    default:
-                        PointPrefab = SpherePrefab;
-                        break;
-                }
-            } else {
-                PointPrefab = SpherePrefab;
+        }
+
+        protected override void _addFeature(MoveArgs args) {
+            Dictionary<string, Unit> symbology = layer.Properties.Units;
+            float displacement = 1.0f;
+            GameObject dataPoint = Instantiate(PointPrefab, args.pos, args.rotate, transform);
+            Datapoint com = dataPoint.GetComponent<Datapoint>();
+            //com.gisId = gisId;
+            //com.gisProperties = properties;
+            //Set the symbology
+            if (symbology.ContainsKey("point")) {
+                dataPoint.SendMessage("SetColor", (Color) symbology["point"].Color);
+                dataPoint.transform.localScale = symbology["point"].Transform.Scale;
+                //dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
+                //dataPoint.transform.localPosition = symbology["point"].Transform.Position;
+                //dataPoint.transform.position = position;
             }
 
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            mainMat = Instantiate(BaseMaterial);
-            mainMat.SetColor("_BaseColor", col);
-            selectedMat = Instantiate(BaseMaterial);
-            selectedMat.SetColor("_BaseColor",  sel);
+            //Set the label
+            GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
+            labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
+            labelObject.transform.localPosition = Vector3.up * displacement;
+            Text labelText = labelObject.GetComponentInChildren<Text>();
+            labelText.text = "New Feature";
+
+            //            throw new System.NotImplementedException();
         }
 
-        protected override void _addFeature(MoveArgs args)
-        {
-            throw new System.NotImplementedException();
-        }
+
 
         protected override void _draw() {
             foreach (Feature feature in features.Features) {
@@ -125,13 +118,12 @@ namespace Virgis
             }
         }
 
-        protected override void _checkpoint() { }
-        protected override void _save()
-        {
+        protected override void _checkpoint() {
+        }
+        protected override void _save() {
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             List<Feature> thisFeatures = new List<Feature>();
-            foreach (Datapoint pointFunc in pointFuncs)
-            {
+            foreach (Datapoint pointFunc in pointFuncs) {
                 thisFeatures.Add(new Feature(pointFunc.gameObject.transform.position.ToPoint(), pointFunc.gisProperties, pointFunc.gisId));
             }
             FeatureCollection FC = new FeatureCollection(thisFeatures);
@@ -141,14 +133,12 @@ namespace Virgis
         }
 
 
-        public override void Translate(MoveArgs args)
-        {
+        public override void Translate(MoveArgs args) {
             gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);
             changed = true;
         }
 
-        public override void MoveAxis(MoveArgs args)
-        {
+        public override void MoveAxis(MoveArgs args) {
 
         }
     }
