@@ -41,7 +41,7 @@ namespace Virgis {
         private bool rhGripState = false; // current state of the RH grip
         private bool lhTriggerState = false; // current state of the LH trigger
         private bool lhGripState = false; // current state of the LH grip
-        private Vector3 axis; // axis represented by the line between the two ocntrollers
+        private Vector3 axis; // axis represented by the line between the two controllers
         private bool AxisEdit = false; // Whether we are in AxisEdit mode
         private Vector3 point; // caches the current position indicated by the user to which to move the selected component
         private AppState appState;
