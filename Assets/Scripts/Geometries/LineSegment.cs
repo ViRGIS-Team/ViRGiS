@@ -27,9 +27,6 @@ namespace Virgis
         /// <param name="vertEnd"> vertex ID for the vertex at the end of the line segment </param>
         /// <param name="dia">Diamtere of the line segement in Map.local units</param>
 
-        void Start() {
-            thisRenderer = GetComponent<Renderer>();
-        }
 
         public void Draw(Vector3 from, Vector3 to, int vertStart, int vertEnd, float dia)
         {
@@ -61,7 +58,7 @@ namespace Virgis
         public override void SetMaterial(Material mainMat, Material selectedMat) {
             this.mainMat = mainMat;
             this.selectedMat = selectedMat;
-            Renderer thisRenderer = GetComponent<Renderer>();
+            thisRenderer = GetComponentInChildren<Renderer>();
             if (thisRenderer) {
                 thisRenderer.material = mainMat;
             }

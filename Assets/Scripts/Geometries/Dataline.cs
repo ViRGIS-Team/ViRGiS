@@ -102,11 +102,8 @@ namespace Virgis
         /// <param name="LinePrefab"> The prefab to be used for the line</param>
         /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
-        public void Draw(LineString lineIn, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+        public void Draw(Vector3[] line, bool Lr,  Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
         {
-            AbstractMap _map = AppState.instance.abstractMap;
-            Vector3[] line = lineIn.Vector3();
-            Lr = lineIn.IsLinearRing();
             DCurve3 curve = new DCurve3();
             curve.Vector3(line, Lr);
             Vector3 center = (Vector3)curve.CenterMark();

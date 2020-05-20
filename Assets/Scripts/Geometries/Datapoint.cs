@@ -19,10 +19,10 @@ namespace Virgis
         private bool newSelect = false;
         private Vector3 moveOffset = Vector3.zero;
 
-        void Start()
-        {
-            if (transform.childCount > 0) label = transform.GetChild(0);
-            thisRenderer = GetComponent<Renderer>();
+
+        private void Start() {
+            if (transform.childCount > 0)
+                label = transform.GetChild(0);
         }
         /// <summary>
         /// Every frame - realign the billboard
@@ -82,7 +82,7 @@ namespace Virgis
         {
             this.mainMat = mainMat;
             this.selectedMat = selectedMat;
-            Renderer thisRenderer = GetComponent<Renderer>();
+            thisRenderer = GetComponent<Renderer>();
             if (thisRenderer)
             {
                 thisRenderer.material = mainMat;
