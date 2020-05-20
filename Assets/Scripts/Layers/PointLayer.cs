@@ -20,33 +20,27 @@ namespace Virgis
         public GameObject CubePrefab;
         public GameObject CylinderPrefab;
         public GameObject LabelPrefab;
+        public Material BaseMaterial;
 
         // used to read the GeoJSON file for this layer
         private GeoJsonReader geoJsonReader;
 
         private GameObject PointPrefab;
+        private Dictionary<string, Unit> symbology;
+        private float displacement;
+        private Material mainMat;
+        private Material selectedMat;
 
         protected override async Task _init(GeographyCollection layer)
         {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
-        }
-
-        protected override void _addFeature(MoveArgs args)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void _draw()
-        {
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
-            float displacement = 1.0f;
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
-            {
+            symbology = layer.Properties.Units;
+            displacement = 1.0f;
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
                 Shapes shape = symbology["point"].Shape;
-                switch (shape)
-                {
+                switch (shape) {
                     case Shapes.Spheroid:
                         PointPrefab = SpherePrefab;
                         break;
@@ -61,12 +55,23 @@ namespace Virgis
                         PointPrefab = SpherePrefab;
                         break;
                 }
-            }
-            else
-            {
+            } else {
                 PointPrefab = SpherePrefab;
             }
 
+            mainMat = Instantiate(BaseMaterial);
+            mainMat.SetColor("_BaseColor", symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white);
+            selectedMat = Instantiate(BaseMaterial);
+            selectedMat.SetColor("_baseColor", symbology.ContainsKey("point") ? Color.white - (Color) symbology["point"].Color : Color.red);
+        }
+
+        protected override void _addFeature(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void _draw()
+        {
             foreach (Feature feature in features.Features)
             {
                 // Get the geometry
@@ -89,21 +94,22 @@ namespace Virgis
 
                     //instantiate the prefab with coordinates defined above
                     GameObject dataPoint = Instantiate(PointPrefab, transform, false);
+                    dataPoint.transform.position = position;
 
                     // add the gis data from geoJSON
                     Datapoint com = dataPoint.GetComponent<Datapoint>();
                     com.gisId = gisId;
                     com.gisProperties = properties;
+                    com.SetMaterial(mainMat, selectedMat);
 
                     //Set the symbology
                     if (symbology.ContainsKey("point"))
                     {
-                        dataPoint.SendMessage("SetColor", (Color)symbology["point"].Color);
                         dataPoint.transform.localScale = symbology["point"].Transform.Scale;
                         dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
-                        dataPoint.transform.localPosition = symbology["point"].Transform.Position;
-                        dataPoint.transform.position = position;
+                        dataPoint.transform.Translate(symbology["point"].Transform.Position, Space.Self);
                     }
+
 
                     //Set the label
                     GameObject labelObject = Instantiate(LabelPrefab,  dataPoint.transform, false);

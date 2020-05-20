@@ -23,12 +23,19 @@ namespace Virgis
         public GameObject CubePrefab; // prefab to be used for Vertex handles
         public GameObject CylinderPrefab; // prefab to be used for Vertex handle
         public GameObject LabelPrefab;
+        public Material PointBaseMaterial;
+        public Material LineBaseMaterial;
 
         // used to read the GeoJSON file for this layer
         private GeoJsonReader geoJsonReader;
 
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
+        private Dictionary<string, Unit> symbology;
+        private Material mainMat;
+        private Material selectedMat;
+        private Material lineMain;
+        private Material lineSelected;
 
 
         protected override async Task _init(GeographyCollection layer)
@@ -36,21 +43,10 @@ namespace Virgis
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
-        }
-
-        protected override void _addFeature(MoveArgs args)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void _draw()
-        {
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
-            {
+            symbology = layer.Properties.Units;
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
                 Shapes shape = symbology["point"].Shape;
-                switch (shape)
-                {
+                switch (shape) {
                     case Shapes.Spheroid:
                         HandlePrefab = SpherePrefab;
                         break;
@@ -64,17 +60,13 @@ namespace Virgis
                         HandlePrefab = SpherePrefab;
                         break;
                 }
-            }
-            else
-            {
+            } else {
                 HandlePrefab = SpherePrefab;
             }
 
-            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
-            {
+            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
                 Shapes shape = symbology["line"].Shape;
-                switch (shape)
-                {
+                switch (shape) {
                     case Shapes.Cuboid:
                         LinePrefab = CuboidLinePrefab;
                         break;
@@ -85,13 +77,27 @@ namespace Virgis
                         LinePrefab = CylinderLinePrefab;
                         break;
                 }
-            }
-            else
-            {
+            } else {
                 LinePrefab = CylinderLinePrefab;
             }
 
+            mainMat = Instantiate(PointBaseMaterial);
+            mainMat.SetColor("_BaseColor", symbology.ContainsKey("point")?(Color)symbology["point"].Color:Color.white);
+            selectedMat = Instantiate(PointBaseMaterial);
+            selectedMat.SetColor("_baseColor", symbology.ContainsKey("point")? Color.white - (Color) symbology["point"].Color : Color.red);
+            lineMain = Instantiate(LineBaseMaterial);
+            lineMain.SetColor("_BaseColor", symbology.ContainsKey("line") ? (Color) symbology["line"].Color : Color.white);
+            selectedMat = Instantiate(PointBaseMaterial);
+            selectedMat.SetColor("_baseColor", symbology.ContainsKey("line") ? Color.white - (Color) symbology["line"].Color : Color.red);
+        }
 
+        protected override void _addFeature(MoveArgs args)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void _draw()
+        {
             foreach (Feature feature in features.Features)
             {
                 // Get the geometry
@@ -118,7 +124,7 @@ namespace Virgis
                     com.gisProperties = properties;
 
                     //Draw the line
-                    com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab);
+                    com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
                 }
             };
         }

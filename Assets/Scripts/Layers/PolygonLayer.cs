@@ -149,7 +149,7 @@ namespace Virgis
                     com.gisId = gisId;
                     com.gisProperties = properties;
                     com.Centroid = centroid.GetComponent<Datapoint>();
-                    com.Centroid.SetColor((Color)symbology["point"].Color);
+                    //com.Centroid.SetColor((Color)symbology["point"].Color);
 
                     if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
                     {
@@ -162,7 +162,7 @@ namespace Virgis
 
                     // Darw the LinearRing
                     Dataline Lr = dataLine.GetComponent<Dataline>();
-                    Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
+                    //Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null);
 
 
                     //Draw the Polygon
