@@ -16,14 +16,12 @@ namespace Virgis {
         public Camera self; // reference to the active camera
         public GameObject trackingSpace; // reference to the active tracking space
                                          //unity controls and constants input - keyboard
-        public float AccelerationMod; // controls how fast you speed up
-        public float DeccelerationMod; // controls how fast you slow down
+        public float DesktopAcceleration; // controls how fast you speed up
         public float XAxisSensitivity; // control mouse sensitivity
         public float YAxisSensitivity;
 
         //unity controls - VR
-        public float HorizontalMod; // controls how fast you speed up horizontally
-        public float VerticalMod; // controls how fast you speed up vertically
+        public float VrAcceleration; // controls how fast you speed up horizontallyly
         public float PanSensitvity; // controls sensitivity to Pan Control
         public float ZoomSensitivity; // controls sensitivity for Zoom Control
         public float SlideMod; // controls sensitivity to @slide@ control on selected marker
@@ -40,7 +38,7 @@ namespace Virgis {
         private bool editSelected = false; // edit state 
         private Transform selectedRigibody; // the selected marker
         private float selectedDistance; // distance to the selected marker``
-        private Vector3 speed; // current speed of the camera
+        //private Vector3 speed; // current speed of the camera
         private float _rotationX; // used when clamping vertical rotation
         private Transform currentPointerHit; // current marker selected by pointer
         private bool rhTriggerState = false; // current state of the RH trigger
@@ -51,18 +49,19 @@ namespace Virgis {
         private bool AxisEdit = false; // Whether we are in AxisEdit mode
         private Vector3 point; // caches the current position indicated by the user to which to move the selected component
         private AppState appState;
-        private bool brake; // is the brake currently on
+        //private bool brake; // is the brake currently on
+        private Rigidbody _thisRigidbody;
 
 
         private void Start() {
             appState = AppState.instance;
             appState.trackingSpace = trackingSpace;
+            _thisRigidbody = GetComponent<Rigidbody>();
+            _thisRigidbody.detectCollisions = false;
         }
 
         private void Update() {
-            transform.Translate(speed);
             OVRInput.Update();
-            speed -= speed / DeccelerationMod;
             if (lhGripState && rhGripState && editSelected) {
                 Vector3 rh = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
                 Vector3 lh = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
@@ -95,16 +94,16 @@ namespace Virgis {
         // link this to an a 2D axis control for in plane movement
         //
         public void HandleMove(InputAction.CallbackContext context) {
-            Vector3 speed_input = context.ReadValue<Vector2>().normalized * AccelerationMod;
-            speed += Quaternion.AngleAxis(90.0f, Vector3.right) * speed_input;
+            Vector3 force = Quaternion.Euler(90,0,0) * ( context.ReadValue<Vector2>().normalized * DesktopAcceleration);
+            MoveCamera(force);
         }
 
         // 
         // link this to a 1D axis control for vertical movement
         //
         public void HandleVertical(InputAction.CallbackContext context) {
-            Vector3 speed_input = context.ReadValue<Vector2>().normalized * AccelerationMod;
-            speed += speed_input;
+            Vector3 force = context.ReadValue<Vector2>().normalized * DesktopAcceleration;
+            MoveCamera(force);
         }
 
 
@@ -229,45 +228,10 @@ namespace Virgis {
         //
         public void Move(Vector2 axis) {
             if (axis != Vector2.zero) {
-                Vector3 speed_input = Quaternion.AngleAxis(90.0f, Vector3.right) * axis * HorizontalMod;
-                speed += appState.trackingSpace.transform.localRotation * speed_input;
+                Vector3 force = Quaternion.AngleAxis(90.0f, Vector3.right) * axis * VrAcceleration;
+                MoveCamera(force);
             }
         }
-
-        //
-        // Link this to a boolean control for movement up
-        //
-        public void Up(bool thisEvent) {
-            if (thisEvent) {
-                Vector3 speed_input = Vector3.up * VerticalMod;
-                speed += speed_input;
-            }
-        }
-
-        //
-        // link this to a boolean control for movement down
-        //
-        public void Down(bool thisEvent) {
-            if (thisEvent) {
-                Vector3 speed_input = Vector3.down * VerticalMod;
-                speed += speed_input;
-            }
-        }
-
-        public void BrakeStart(bool thisEvent) {
-            if (thisEvent && !brake) {
-                brake = true;
-                DeccelerationMod /= 10f;
-            }
-        }
-
-        public void BrakeStop(bool thisEvent) {
-            if (thisEvent && brake) {
-                brake = false;
-                DeccelerationMod *= 10f;
-            }
-        }
-
 
         //
         // Link this to a 2d axis control for pan and zoom and move away
@@ -457,6 +421,10 @@ namespace Virgis {
         private bool LayerIsEditable(Transform transform) {
             ILayer layer = transform?.GetComponentInParent<ILayer>();
             return layer?.IsEditable() ?? false;
+        }
+
+        private void MoveCamera(Vector3 force) {
+            _thisRigidbody.AddForce(appState.trackingSpace.transform.localRotation * force, ForceMode.Force);
         }
 
     }
