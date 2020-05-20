@@ -16,8 +16,6 @@ namespace Virgis
     public class Datapoint : VirgisComponent
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
-        private bool newSelect = false;
-        private Vector3 moveOffset = Vector3.zero;
 
 
         private void Start() {
@@ -90,20 +88,9 @@ namespace Virgis
         }
 
 
-        public override void MoveTo(Vector3 newPos)
-        {
-            if (newSelect)
-            {
-                newSelect = false;
-                moveOffset = newPos - transform.position;
-            }
-            else
-            {
-                MoveArgs args = new MoveArgs();
-                args.translate = newPos - transform.position - moveOffset;
-                args.oldPos = transform.position;
+        public override void MoveTo(MoveArgs args) {
+            if (args.translate != Vector3.zero) {
                 args.id = id;
-                args.pos = newPos;
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
         }
@@ -112,13 +99,11 @@ namespace Virgis
         ///  Sent by the parent entity to request this market to move as part of an entity move
         /// </summary>
         /// <param name="argsin">MoveArgs</param>
-        void TranslateHandle(MoveArgs argsin)
-        {
-            if (argsin.id == id && argsin.pos != transform.position)
-            {
+        void TranslateHandle(MoveArgs argsin) {
+            if (argsin.id == id) {
                 MoveArgs argsout = new MoveArgs();
                 argsout.oldPos = transform.position;
-                transform.position = argsin.pos;
+                transform.Translate(argsin.translate, Space.World);
                 argsout.id = id;
                 argsout.pos = transform.position;
                 SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);
@@ -126,16 +111,8 @@ namespace Virgis
         }
 
 
-        public override void MoveAxis(MoveArgs args)
-        {
-            if (args.pos == null)
-            {
-                args.translate = args.pos - transform.position;
-            }
-            else
-            {
-                args.pos = transform.position;
-            }
+        public override void MoveAxis(MoveArgs args) {
+            args.pos = transform.position;
             transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
         }
 

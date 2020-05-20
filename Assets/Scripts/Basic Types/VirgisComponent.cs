@@ -24,7 +24,7 @@ namespace Virgis
         void SetMaterial(Material mainMat, Material selectedMat);
         //void MoveTo(Vector3 newPos);
 
-        void MoveTo(Vector3 newPos);
+        void MoveTo(MoveArgs args);
         void MoveAxis(MoveArgs args);
         void Translate(MoveArgs args);
         void VertexMove(MoveArgs args);
@@ -91,7 +91,7 @@ namespace Virgis
         /// Sent by the UI to request this component to move.
         /// </summary>
         /// <param name="newPos">Vector3 Worldspace Location to move to </param>
-        public abstract void MoveTo(Vector3 newPos);
+        public abstract void MoveTo(MoveArgs args);
 
         /// <summary>
         /// received when a Move Axis request is made by the user
