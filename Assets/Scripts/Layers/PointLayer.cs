@@ -60,35 +60,11 @@ namespace Virgis {
             mainMat = Instantiate(BaseMaterial);
             mainMat.SetColor("_BaseColor", col);
             selectedMat = Instantiate(BaseMaterial);
-            selectedMat.SetColor("_BaseColor",  sel);
+            selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override void _addFeature(MoveArgs args)
-        {
-            throw new System.NotImplementedException();
-/*
-          Dictionary<string, Unit> symbology = layer.Properties.Units;
-            float displacement = 1.0f;
-            GameObject dataPoint = Instantiate(PointPrefab, args.pos, args.rotate, transform);
-            Datapoint com = dataPoint.GetComponent<Datapoint>();
-            //com.gisId = gisId;
-            //com.gisProperties = properties;
-            //Set the symbology
-            if (symbology.ContainsKey("point")) {
-                dataPoint.SendMessage("SetColor", (Color) symbology["point"].Color);
-                dataPoint.transform.localScale = symbology["point"].Transform.Scale;
-                //dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
-                //dataPoint.transform.localPosition = symbology["point"].Transform.Position;
-                //dataPoint.transform.position = position;
-            }
-
-            //Set the label
-            GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
-            labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
-            labelObject.transform.localPosition = Vector3.up * displacement;
-            Text labelText = labelObject.GetComponentInChildren<Text>();
-            labelText.text = "New Feature";
-*/
+        protected override void _addFeature(MoveArgs args) {
+            _drawFeature(args.pos);
         }
 
         protected override void _draw() {
@@ -113,7 +89,7 @@ namespace Virgis {
         /// <param name="position"> Vector3 position</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected void _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) { 
+        protected void _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);
             dataPoint.transform.position = position;
@@ -125,8 +101,7 @@ namespace Virgis {
             com.SetMaterial(mainMat, selectedMat);
 
             //Set the symbology
-            if (symbology.ContainsKey("point"))
-            {
+            if (symbology.ContainsKey("point")) {
                 dataPoint.transform.localScale = symbology["point"].Transform.Scale;
                 dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
                 dataPoint.transform.Translate(symbology["point"].Transform.Position, Space.Self);
@@ -134,14 +109,13 @@ namespace Virgis {
 
 
             //Set the label
-            GameObject labelObject = Instantiate(LabelPrefab,  dataPoint.transform, false);
+            GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
             labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
             labelObject.transform.localPosition = Vector3.up * displacement;
-            Text labelText = labelObject.GetComponentInChildren<Text>();
 
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && properties.ContainsKey(symbology["point"].Label))
-            {
-                labelText.text = (string)properties[symbology["point"].Label];
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (properties?.ContainsKey(symbology["point"].Label) ?? false)) {
+                Text labelText = labelObject.GetComponentInChildren<Text>();
+                labelText.text = (string) properties[symbology["point"].Label];
             }
         }
 

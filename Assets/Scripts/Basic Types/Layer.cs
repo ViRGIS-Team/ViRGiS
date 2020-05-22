@@ -31,7 +31,7 @@ namespace Virgis {
         bool IsVisible();
 
         /// <summary>
-        /// SetEditSession sets a marker that this particular layer is being edited.
+        /// Sets a marker that this particular layer is being edited.
         /// </summary>
         /// 
         /// There can be only one layer being edited during an edit session.

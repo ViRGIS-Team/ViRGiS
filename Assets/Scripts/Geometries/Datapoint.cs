@@ -33,7 +33,7 @@ namespace Virgis
 
         public override void Selected(SelectionTypes button)
         {
-            newSelect = true;
+            //newSelect = true;
             thisRenderer.material = selectedMat;
             if (button != SelectionTypes.BROADCAST)
             {
