@@ -82,7 +82,7 @@ namespace Virgis
             }
         }
 
-        public override void MoveTo(Vector3 newPos)
+        public override void MoveTo(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
