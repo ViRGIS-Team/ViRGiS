@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using Project;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Virgis {
     public class ShapeAdder : MonoBehaviour {
+        public GameObject spherePrefab;
+        public GameObject cylinderLinePrefab;
         public GameObject cubePrefab;
         public GameObject theCube;
 
@@ -19,18 +23,44 @@ namespace Virgis {
             Debug.Log($"LeftTriggerPressed: activate = {activate}");
             if (_appState.editSession.IsActive()) {
                 ILayer editableLayer = _appState.editableLayer;
-                MoveArgs args = new MoveArgs();
-                args.pos = theCube.transform.position;
-                args.rotate = theCube.transform.rotation;
-                editableLayer.AddFeature(args);
+                RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
+                switch (dataType) {
+                    case RecordSetDataType.Point:
+                        MoveArgs args = new MoveArgs();
+                        args.pos = theCube.transform.position;
+                        args.rotate = theCube.transform.rotation;
+                        editableLayer.AddFeature(args);
+                        break;
+                    case RecordSetDataType.Line:
+                        Debug.Log($"ShapeAdder add Vertex");
+                        (editableLayer as LineLayer).AddVertex(theCube.transform.position);
+                        break;
+                }
             }
-            //Vector3 pos = theCube.transform.position;
-            //Quaternion rot = theCube.transform.rotation;
-            //GameObject newCube = Instantiate(cubePrefab, pos, rot);
         }
 
         public void LeftTriggerReleased(bool activate) {
             Debug.Log($"LeftTriggerReleased: activate = {activate}");
+        }
+
+        public void LeftGripPressed(bool activate) {
+            Debug.Log($"LeftGripPressed: activate = {activate}");
+            if (_appState.editSession.IsActive()) {
+                ILayer editableLayer = _appState.editableLayer;
+                RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
+                switch (dataType) {
+                    case RecordSetDataType.Line:
+                        Debug.Log($"ShapeAdder add Vertex");
+                        MoveArgs args = new MoveArgs();
+                        args.pos = theCube.transform.position;
+                        editableLayer.AddFeature(args);
+                        break;
+                }
+            }
+        }
+
+        public void LeftGripReleased(bool activate) {
+            Debug.Log($"LeftGripPressed: activate = {activate}");
         }
 
         private void OnStartEditSession() {

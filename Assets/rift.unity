@@ -151,17 +151,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099c2dc721fc400fa27c52dd4aaeb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  self: {fileID: 1329969687}
   trackingSpace: {fileID: 1964422705}
   DesktopAcceleration: 1
   XAxisSensitivity: 0
   YAxisSensitivity: 0
+  MaxXAngle: 89
   VrAcceleration: 100
   PanSensitvity: 1
   ZoomSensitivity: 0.005
   SlideMod: 1
   AxisSensitivity: 0
-  MaxXAngle: 89
 --- !u!4 &8014837
 Transform:
   m_ObjectHideFlags: 0
@@ -357,6 +356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1eb751636063d4c842746b3a1f17a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spherePrefab: {fileID: 7561112754695135729, guid: 782c7700ff6354d18a1783bb4d62706e,
+    type: 3}
+  cylinderLinePrefab: {fileID: 8902791833921266970, guid: 92d705c0604194854acb56376c40edc1,
+    type: 3}
   cubePrefab: {fileID: 1687264244827175879, guid: 850e4798a81dec2499f4d774ac887b72,
     type: 3}
   theCube: {fileID: 2050931602}
@@ -3833,16 +3836,16 @@ PrefabInstance:
         type: 3}
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8014836}
+      objectReference: {fileID: 403779259}
     - target: {fileID: 6129908822584507296, guid: 840fcd6c70b4e634cad91c402bd4d894,
         type: 3}
       propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8014836}
+      objectReference: {fileID: 403779259}
     - target: {fileID: 6129908822584507296, guid: 840fcd6c70b4e634cad91c402bd4d894,
         type: 3}
       propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: lhGripPressed
+      value: LeftGripPressed
       objectReference: {fileID: 0}
     - target: {fileID: 6129908822584507296, guid: 840fcd6c70b4e634cad91c402bd4d894,
         type: 3}
@@ -3852,7 +3855,7 @@ PrefabInstance:
     - target: {fileID: 6129908822584507296, guid: 840fcd6c70b4e634cad91c402bd4d894,
         type: 3}
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: lhGripRelaesed
+      value: LeftGripReleased
       objectReference: {fileID: 0}
     - target: {fileID: 6129908822584507296, guid: 840fcd6c70b4e634cad91c402bd4d894,
         type: 3}

@@ -65,6 +65,7 @@ namespace Virgis {
 
         protected override void _addFeature(MoveArgs args) {
             _drawFeature(args.pos);
+            changed = true;
         }
 
         protected override void _draw() {

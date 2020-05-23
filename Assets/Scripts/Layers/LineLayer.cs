@@ -35,6 +35,8 @@ namespace Virgis {
         private Material lineMain;
         private Material lineSelected;
 
+        private List<GameObject> _tempGOs = new List<GameObject>();
+        private List<GameObject> _vertices = new List<GameObject>();
 
         protected override async Task _init(GeographyCollection layer) {
             geoJsonReader = new GeoJsonReader();
@@ -93,7 +95,48 @@ namespace Virgis {
         }
 
         protected override void _addFeature(MoveArgs args) {
-            throw new System.NotImplementedException();
+            if (_vertices.Count < 2) {
+                _tempGOs.ForEach(item => item.Destroy());
+                changed = true;
+            }
+            _tempGOs.Clear();
+            _vertices.Clear();
+        }
+
+        public void AddVertex(Vector3 position) {
+            if (AppState.instance.InEditSession() && IsEditable()) {
+                Debug.Log($"LineLayer add Vertex {_vertices.Count}");
+                GameObject vertex = Instantiate(HandlePrefab, position, Quaternion.identity, transform);
+                VirgisComponent com = vertex.GetComponent<VirgisComponent>();
+                //VertexTable.Add(new VertexLookup() { Id = com.id, Vertex = i, isVertex = true, Com = com });
+                com.SetMaterial(mainMat, selectedMat);
+                vertex.transform.localScale = symbology["point"].Transform.Scale;
+                if (_vertices.Count > 0) {
+                    GameObject prevVertex = _vertices[_vertices.Count - 1];
+                    // check if the new vertex overlaps with the previous one
+                    Collider vertexCollider = vertex.GetComponent<Collider>();
+                    Collider prevVertexCollider = prevVertex.GetComponent<Collider>();
+                    if (vertexCollider.bounds.Intersects(prevVertexCollider.bounds)) {
+                        // yes, new vertex overlaps with prev one: delete the new one
+                        Debug.Log("LineLayer new vertex overlaps with prev one");
+                        vertex.Destroy();
+                        return;
+                    } else {
+                        // new vertex does not overlaps with prev one,
+                        // add line segment
+                        Debug.Log("LineLayer add LineSegment");
+                        Dataline lineScript = LinePrefab.GetComponentInChildren<Dataline>();
+                        GameObject lineSegment = Instantiate(lineScript.CylinderObject, prevVertex.transform.position, Quaternion.identity, transform);
+                        LineSegment lineSegmentScript = lineSegment.GetComponent<LineSegment>();
+                        lineSegmentScript.Draw(prevVertex.transform.position, position, _vertices.Count - 1, _vertices.Count, symbology["line"].Transform.Scale.magnitude);
+                        lineSegmentScript.SetMaterial(lineMain, lineSelected);
+                        _tempGOs.Add(lineSegment);
+                    }
+                }
+                _tempGOs.Add(vertex);
+                _vertices.Add(vertex);
+                
+            }
         }
 
         protected override void _draw() {
