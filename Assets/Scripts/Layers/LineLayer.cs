@@ -97,6 +97,7 @@ namespace Virgis {
         protected override void _addFeature(MoveArgs args) {
             if (_vertices.Count < 2) {
                 _tempGOs.ForEach(item => item.Destroy());
+            } else {
                 changed = true;
             }
             _tempGOs.Clear();
