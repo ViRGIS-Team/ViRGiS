@@ -9,15 +9,10 @@ namespace Virgis {
 
         // Start is called before the first frame update
         void Start() {
-            Debug.Log("ShapeAdder awakens");
+            Debug.Log("ShapeAdder starts");
             _appState = AppState.instance;
             _appState.editSession.AddStartEditSessionListener(OnStartEditSession);
             _appState.editSession.AddEndEditSessionListener(OnEndEditSession);
-        }
-
-        // Update is called once per frame
-        void Update() {
-
         }
 
         public void LeftTriggerPressed(bool activate) {

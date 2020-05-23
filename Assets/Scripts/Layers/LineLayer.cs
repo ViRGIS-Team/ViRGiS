@@ -1,21 +1,19 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
-using System.Collections.Generic;
-using UnityEngine;
-using GeoJSON.Net.Geometry;
 using GeoJSON.Net;
 using GeoJSON.Net.Feature;
-using System.Threading.Tasks;
+using GeoJSON.Net.Geometry;
 using Project;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Virgis
-{
+namespace Virgis {
 
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLayer : Layer<GeographyCollection, FeatureCollection>
-    {
+    public class LineLayer : Layer<GeographyCollection, FeatureCollection> {
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
         public GameObject CuboidLinePrefab; // prefab to be used for cuboid lines
@@ -38,8 +36,7 @@ namespace Virgis
         private Material lineSelected;
 
 
-        protected override async Task _init(GeographyCollection layer)
-        {
+        protected override async Task _init(GeographyCollection layer) {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
@@ -90,13 +87,12 @@ namespace Virgis
             selectedMat = Instantiate(PointBaseMaterial);
             selectedMat.SetColor("_BaseColor", sel);
             lineMain = Instantiate(LineBaseMaterial);
-            lineMain.SetColor("_BaseColor",line);
+            lineMain.SetColor("_BaseColor", line);
             lineSelected = Instantiate(LineBaseMaterial);
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override void _addFeature(MoveArgs args)
-        {
+        protected override void _addFeature(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
@@ -132,25 +128,23 @@ namespace Virgis
 
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
-            com.gisId =gisId;
+            com.gisId = gisId;
             com.gisProperties = properties;
 
             //Draw the line
             com.Draw(line, Lr, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
         }
 
-        protected override void _checkpoint() { }
+        protected override void _checkpoint() {
+        }
 
-        protected override void _save()
-        {
+        protected override void _save() {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
-            foreach (Dataline dataFeature in dataFeatures)
-            {
+            foreach (Dataline dataFeature in dataFeatures) {
                 Vector3[] vertices = dataFeature.GetVerteces();
                 List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices)
-                {
+                foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);
                 }
                 List<LineString> lines = new List<LineString>();
@@ -163,21 +157,19 @@ namespace Virgis
             features = FC;
         }
 
-        public override void Translate(MoveArgs args)
-        {
+        public override void Translate(MoveArgs args) {
             changed = true;
         }
 
 
-        public override void MoveAxis(MoveArgs args)
-        {
+        public override void MoveAxis(MoveArgs args) {
             changed = true;
         }
 
-       /* public override VirgisComponent GetClosest(Vector3 coords)
-        {
-            throw new System.NotImplementedException();
-        }*/
+        /* public override VirgisComponent GetClosest(Vector3 coords)
+         {
+             throw new System.NotImplementedException();
+         }*/
 
     }
 }
