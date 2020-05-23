@@ -41,6 +41,8 @@ namespace Virgis {
         private bool rhGripState = false; // current state of the RH grip
         private bool lhTriggerState = false; // current state of the LH trigger
         private bool lhGripState = false; // current state of the LH grip
+        private bool addVertexState; // current state of the button to add vertex
+        private bool delVertexState; // current state of the button to remove vertex
         private Vector3 axis; // axis represented by the line between the two controllers
         private bool AxisEdit = false; // Whether we are in AxisEdit mode
         private Vector3 from; // caches the last position indicated by the user to which to move the selected component
@@ -263,6 +265,9 @@ namespace Virgis {
                 if (rhGripState ) {
                     select( SelectionTypes.SELECTALL);
                 }
+                if (addVertexState) {
+                    AddVertex(hitInfo.point);
+                }
             }
 
         }
@@ -299,6 +304,14 @@ namespace Virgis {
             lhGripState = true;
         }
 
+        public void addVertexPressed(bool thisEvent) {
+            addVertexState = true;
+        }
+
+        public void delVertexPressed(bool thisEvent) {
+            delVertexState = true;
+        }
+
         //
         // call this when any event type ends
         //
@@ -322,6 +335,14 @@ namespace Virgis {
         public void lhGripRelaesed(bool thisEvent) {
             lhGripState = false;
             AxisEdit = false;
+        }
+
+        public void addVertexReleased(bool thisEvent) {
+            addVertexState = false;
+        }
+
+        public void delVertexReleased(bool thisEvent) {
+            delVertexState = false;
         }
 
         //
@@ -412,5 +433,11 @@ namespace Virgis {
             _thisRigidbody.AddForce(appState.trackingSpace.transform.localRotation * force, ForceMode.Force);
         }
 
+        private void AddVertex(Vector3 pos) {
+            MoveArgs args = new MoveArgs();
+            args.pos = pos;
+            currentPointerHit.SendMessage("AddVertex", args, SendMessageOptions.DontRequireReceiver);
+            addVertexState = false;
+        }
     }
 }

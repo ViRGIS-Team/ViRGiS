@@ -240,29 +240,39 @@ namespace Virgis
             throw new NotImplementedException();
         }
 
-        public override void AddVertex(MoveArgs args) {
+        public override VirgisComponent AddVertex(Vector3 position) {
             List<Vector3> verteces = new List<Vector3>();
-            foreach (VertexLookup v in VertexTable)
-                verteces.Add(v.Com.transform.position);
+            VertexTable.ForEach( item => 
+                verteces.Add(item.Com.transform.position));
             DCurve3 curve = new DCurve3();
             curve.Vector3(verteces.ToArray(), Lr);
-            LineSegment segment = VertexTable[curve.NearestSegment(args.pos)].Line;
-            AddVertex(segment, args.pos);
+            LineSegment segment = VertexTable.Find(item => item.Vertex == curve.NearestSegment(position)).Line;
+            return AddVertex(segment, position);
         }
 
-        public LineSegment AddVertex(LineSegment segment, Vector3 position) {
-            return new LineSegment();
+        public VirgisComponent AddVertex(LineSegment segment, Vector3 position) {
+            int start = segment.vStart;
+            int next = segment.vEnd;
+            VertexTable.ForEach(item => {
+                if (item.Vertex >= next)
+                    item.Vertex++;
+            });
+            segment.MoveEnd(position);
+            Datapoint vertex = _createVertex(position, next);
+            _createSegment(position, VertexTable.Find(item => item.Vertex == next + 1).Com.transform.position, next, false);
+            return vertex;
         }
 
-        private void _createVertex(Vector3 vertex, int i) {
+        private Datapoint _createVertex(Vector3 vertex, int i) {
             GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity, transform );
-            VirgisComponent com = handle.GetComponent<VirgisComponent>();
+            Datapoint com = handle.GetComponent<Datapoint>();
             VertexTable.Add(new VertexLookup() { Id = com.id, Vertex = i, isVertex = true, Com = com });
             com.SetMaterial(mainMat, selectedMat);
             handle.transform.localScale = symbology["point"].Transform.Scale;
+            return com;
         }
 
-        private void _createSegment(Vector3 start, Vector3 end, int i, bool close) {
+        private LineSegment _createSegment(Vector3 start, Vector3 end, int i, bool close) {
             GameObject lineSegment = Instantiate(CylinderObject, start, Quaternion.identity, transform);
             LineSegment com = lineSegment.GetComponent<LineSegment>();
             com.Draw(start, end, i, i + 1, symbology["line"].Transform.Scale.magnitude);
@@ -270,6 +280,7 @@ namespace Virgis
             if (close)
                 com.vEnd = 0;
             VertexTable.Find(item => item.Vertex == i).Line = com;
+            return com;
         }
     }
 }

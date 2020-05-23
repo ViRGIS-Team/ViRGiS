@@ -29,6 +29,8 @@ namespace Virgis
         void Translate(MoveArgs args);
         void VertexMove(MoveArgs args);
 
+        VirgisComponent AddVertex(Vector3 position);
+
         Vector3 GetClosest(Vector3 coords);
         T GetGeometry<T>();
 
@@ -118,7 +120,7 @@ namespace Virgis
         /// <returns> Vector3 in world space coordinates </returns>
         public abstract Vector3 GetClosest(Vector3 coords);
 
-        public virtual void AddVertex(MoveArgs args) {
+        public virtual VirgisComponent AddVertex(Vector3 position) {
             throw new System.NotImplementedException();
         }
 
