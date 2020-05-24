@@ -113,5 +113,10 @@ namespace Virgis {
         public override void Translate(MoveArgs args) {
             
         }
+
+        public override GameObject GetFeatureShape() {
+            return PointPrefab;
+        }
+
     }
 }

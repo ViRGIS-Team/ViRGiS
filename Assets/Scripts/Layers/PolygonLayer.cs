@@ -211,6 +211,10 @@ namespace Virgis {
             features = FC;
         }
 
+        public override GameObject GetFeatureShape() {
+            return HandlePrefab;
+        }
+
         public override void Translate(MoveArgs args) {
             changed = true;
         }

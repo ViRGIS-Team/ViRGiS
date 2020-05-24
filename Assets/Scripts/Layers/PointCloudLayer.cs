@@ -105,6 +105,10 @@ namespace Virgis
             layer.Transform.Scale = transform.localScale;
         }
 
+        public override GameObject GetFeatureShape() {
+            return handle;
+        }
+
         /*public override VirgisComponent GetClosest(Vector3 coords)
         {
             throw new System.NotImplementedException();

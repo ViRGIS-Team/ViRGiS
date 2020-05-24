@@ -134,6 +134,9 @@ namespace Virgis {
             features = FC;
         }
 
+        public override GameObject GetFeatureShape() {
+            return PointPrefab;
+        }
 
         public override void Translate(MoveArgs args) {
             gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);

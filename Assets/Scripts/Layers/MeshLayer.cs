@@ -124,6 +124,11 @@ namespace Virgis
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
         }
+
+        public override GameObject GetFeatureShape() {
+            return handle;
+        }
+
     }
 }
 

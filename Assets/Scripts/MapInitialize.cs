@@ -186,5 +186,10 @@ namespace Virgis {
         protected void _onExitEditSession(bool saved) {
             BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
         }
+
+        public override GameObject GetFeatureShape() {
+            return null;
+        }
+
     }
 }

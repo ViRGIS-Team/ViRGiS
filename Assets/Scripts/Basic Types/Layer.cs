@@ -26,6 +26,8 @@ namespace Virgis {
 
         RecordSet GetMetadata();
 
+        GameObject GetFeatureShape();
+
         void SetVisible(bool visible);
 
         bool IsVisible();
@@ -246,6 +248,8 @@ namespace Virgis {
         public RecordSet GetMetadata() {
             return layer;
         }
+
+        public abstract GameObject GetFeatureShape();
 
         public void SetVisible(bool visible) {
             if (_visible != visible) {
