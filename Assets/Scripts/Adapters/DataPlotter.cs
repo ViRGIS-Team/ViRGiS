@@ -98,7 +98,7 @@ namespace Virgis {
             }
         }
 
-        protected override void _addFeature(MoveArgs args) {
+        protected override void _addFeature(Vector3 position) {
             throw new NotImplementedException();
         }
 

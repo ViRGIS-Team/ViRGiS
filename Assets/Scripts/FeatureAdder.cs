@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Virgis {
-    public class ShapeAdder : MonoBehaviour {
+    public class FeatureAdder : MonoBehaviour {
         public GameObject blueCubePrefab;
         public GameObject defaultMarkerShape;
 
@@ -24,43 +24,30 @@ namespace Virgis {
         }
 
         public void LeftTriggerPressed(bool activate) {
-            Debug.Log($"LeftTriggerPressed: activate = {activate}");
-            //if (_appState.editSession.IsActive()) {
-            //    ILayer editableLayer = _appState.editableLayer;
-            //    RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
-            //    switch (dataType) {
-            //        case RecordSetDataType.Point:
-            //            MoveArgs args = new MoveArgs();
-            //            args.pos = theCube.transform.position;
-            //            args.rotate = theCube.transform.rotation;
-            //            editableLayer.AddFeature(args);
-            //            break;
-            //        case RecordSetDataType.Line:
-            //            Debug.Log($"ShapeAdder add Vertex");
-            //            (editableLayer as LineLayer).AddVertex(theCube.transform.position);
-            //            break;
-            //    }
-            //}
+            //Debug.Log($"LeftTriggerPressed: activate = {activate}");
+            if (_appState.editSession.IsActive()) {
+                ILayer editableLayer = _appState.editSession.editableLayer;
+                RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
+                switch (dataType) {
+                    case RecordSetDataType.Point:
+                        Debug.Log("ShapeAdder Add Point Feature");
+                        editableLayer.AddFeature(_markerShape.transform.position);
+                        //GameObject newShape = Instantiate(blueCubePrefab, _markerShape.transform.position, _markerShape.transform.rotation);
+                        break;
+                    case RecordSetDataType.Line:
+                        //Debug.Log($"ShapeAdder add Vertex");
+                        //(editableLayer as LineLayer).AddVertex(theCube.transform.position);
+                        break;
+                }
+            }
         }
 
         public void LeftTriggerReleased(bool activate) {
-            Debug.Log($"LeftTriggerReleased: activate = {activate}");
+            //Debug.Log($"LeftTriggerReleased: activate = {activate}");
         }
 
         public void LeftGripPressed(bool activate) {
             Debug.Log($"LeftGripPressed: activate = {activate}");
-            //if (_appState.editSession.IsActive()) {
-            //    ILayer editableLayer = _appState.editableLayer;
-            //    RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
-            //    switch (dataType) {
-            //        case RecordSetDataType.Line:
-            //            Debug.Log($"ShapeAdder add Vertex");
-            //            MoveArgs args = new MoveArgs();
-            //            args.pos = theCube.transform.position;
-            //            editableLayer.AddFeature(args);
-            //            break;
-            //    }
-            //}
         }
 
         public void LeftGripReleased(bool activate) {
@@ -96,6 +83,7 @@ namespace Virgis {
                 } else {
                     GameObject go = Instantiate(featureShape, defaultMarkerShape.transform.position, defaultMarkerShape.transform.rotation, transform);
                     go.transform.localScale = defaultMarkerShape.transform.localScale;
+                    _markerShapeMap.Add(layer.GetId(), go);
                     return go;
                 }
             }

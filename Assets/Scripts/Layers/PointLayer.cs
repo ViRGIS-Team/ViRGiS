@@ -63,8 +63,8 @@ namespace Virgis {
             selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override void _addFeature(MoveArgs args) {
-            _drawFeature(args.pos);
+        protected override void _addFeature(Vector3 position) {
+            _drawFeature(position);
             changed = true;
         }
 

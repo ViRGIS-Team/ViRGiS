@@ -94,7 +94,7 @@ namespace Virgis {
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override void _addFeature(MoveArgs args) {
+        protected override void _addFeature(Vector3 position) {
             // do nothing for now
         }
 
