@@ -98,7 +98,7 @@ namespace Virgis {
             }
         }
 
-        protected override void _addFeature(MoveArgs args) {
+        protected override VirgisComponent _addFeature(Vector3 position) {
             throw new NotImplementedException();
         }
 
@@ -113,5 +113,10 @@ namespace Virgis {
         public override void Translate(MoveArgs args) {
             
         }
+
+        public override GameObject GetFeatureShape() {
+            return PointPrefab;
+        }
+
     }
 }

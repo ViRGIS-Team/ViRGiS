@@ -27,7 +27,7 @@ namespace Virgis
             features = await reader.Load(layer.Source); ;
         }
 
-        protected override void _addFeature(MoveArgs args)
+        protected override VirgisComponent _addFeature(Vector3 position)
         {
             throw new System.NotImplementedException();
         }
@@ -103,6 +103,10 @@ namespace Virgis
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
+        }
+
+        public override GameObject GetFeatureShape() {
+            return handle;
         }
 
         /*public override VirgisComponent GetClosest(Vector3 coords)

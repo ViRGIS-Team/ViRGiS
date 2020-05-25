@@ -93,7 +93,7 @@ namespace Virgis
         /// <summary>
         /// Sent by the UI to request this component to move.
         /// </summary>
-        /// <param name="newPos">Vector3 Worldspace Location to move to </param>
+        /// <param name="args">MoveArgs : Either a trabslate vectir OR a Vector position to move to, both in World space coordinates</param>
         public abstract void MoveTo(MoveArgs args);
 
         /// <summary>

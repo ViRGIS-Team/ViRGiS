@@ -63,9 +63,10 @@ namespace Virgis {
             selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override void _addFeature(MoveArgs args) {
-            _drawFeature(args.pos);
+        protected override VirgisComponent _addFeature(Vector3 position) {
+            VirgisComponent newFeature = _drawFeature(position);
             changed = true;
+            return newFeature;
         }
 
 
@@ -92,7 +93,7 @@ namespace Virgis {
         /// <param name="position"> Vector3 position</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected void _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
+        protected VirgisComponent _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);
             dataPoint.transform.position = position;
@@ -120,6 +121,8 @@ namespace Virgis {
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = (string) properties[symbology["point"].Label];
             }
+
+            return com;
         }
 
         protected override void _checkpoint() {
@@ -136,6 +139,9 @@ namespace Virgis {
             features = FC;
         }
 
+        public override GameObject GetFeatureShape() {
+            return PointPrefab;
+        }
 
         public override void Translate(MoveArgs args) {
             gameObject.BroadcastMessage("TranslateHandle", args, SendMessageOptions.DontRequireReceiver);

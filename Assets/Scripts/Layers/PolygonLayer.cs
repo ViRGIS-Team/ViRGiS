@@ -103,7 +103,7 @@ namespace Virgis {
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override void _addFeature(MoveArgs args) {
+        protected override VirgisComponent _addFeature(Vector3 position) {
             throw new System.NotImplementedException();
         }
 
@@ -210,6 +210,10 @@ namespace Virgis {
             geoJsonReader.SetFeatureCollection(FC);
             geoJsonReader.Save();
             features = FC;
+        }
+
+        public override GameObject GetFeatureShape() {
+            return HandlePrefab;
         }
 
         public override void Translate(MoveArgs args) {
