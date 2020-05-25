@@ -1,5 +1,6 @@
 ﻿using Project;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Virgis {
 
@@ -7,7 +8,7 @@ namespace Virgis {
     {
  
 
-        protected override Task _init(GeologyCollection layer) {
+        protected override async Task _init(GeologyCollection layer) {
             
         }
 
@@ -23,7 +24,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        protected override void _addFeature(MoveArgs args) {
+        protected override VirgisComponent _addFeature(Vector3 position) {
             throw new System.NotImplementedException();
         }
 
@@ -33,6 +34,10 @@ namespace Virgis {
 
         public override void Translate(MoveArgs args) {
             
+        }
+
+        public override GameObject GetFeatureShape() {
+            throw new System.NotImplementedException();
         }
 
     }

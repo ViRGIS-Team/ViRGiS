@@ -39,7 +39,7 @@ namespace Virgis
             features = egbReader.features;
         }
 
-        protected override void _addFeature(MoveArgs args)
+        protected override VirgisComponent _addFeature(Vector3 position)
         {
             throw new System.NotImplementedException();
         }
@@ -212,9 +212,8 @@ namespace Virgis
             changed = true;
         }
 
-        /*public override VirgisComponent GetClosest(Vector3 coords)
-        {
-            throw new System.NotImplementedException();
-        }*/
+        public override GameObject GetFeatureShape() {
+            throw new NotImplementedException();
+        }
     }
 }
