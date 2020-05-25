@@ -120,6 +120,7 @@ namespace Virgis
             this.selectedMat = selectedMat;
             this.lineMain = lineMain;
             this.lineSelected = lineSelected;
+            this.Lr = Lr;
 
             DCurve3 curve = new DCurve3();
             curve.Vector3(line, Lr);
@@ -251,40 +252,75 @@ namespace Virgis
             int start = segment.vStart;
             int next = segment.vEnd;
             VertexTable.ForEach(item => {
-                if (item.Vertex >= next) {
+                if (item.Vertex > start) {
                     item.Vertex++;
                     if (item.Line != null) {
                         item.Line.vStart++;
-                        item.Line.vEnd++;
+                        if (item.Line.vEnd != 0) {
+                            item.Line.vEnd++;
+                        }
                     }
                 }
+                if (Lr && item.isVertex && item.Line.vStart == start) {
+                    item.Line.vEnd = start + 1;
+                }
+                if (Lr && item.isVertex && item.Line.vEnd >= VertexTable.Count)
+                    item.Line.vEnd = 0;
             });
+            start++;
+            int end = next;
+            if (end != 0)
+                end++;
             segment.MoveEnd(position);
-            Datapoint vertex = _createVertex(position, next);
-            _createSegment(position, VertexTable.Find(item => item.Vertex == next + 1).Com.transform.position, next, false);
+            Datapoint vertex = _createVertex(position, start);
+            _createSegment(position, VertexTable.Find(item => item.Vertex == end).Com.transform.position, start, end == 0);
+            transform.parent.SendMessage("AddVertex", position, SendMessageOptions.DontRequireReceiver);
             return vertex;
         }
 
         public override void RemoveVertex(VirgisComponent vertex) {
-            VertexLookup vLookup = VertexTable.Find(item => item.Id == vertex.id);
-            int start = vLookup.Vertex;
-            if (vLookup.Line != null) vLookup.Line.gameObject.Destroy();
-            vLookup.Com.gameObject.Destroy();
-            VertexTable.Remove(vLookup);
-            VertexTable.ForEach(item => {
-                if (item.Vertex >= start) {
-                    item.Vertex--;
-                    if (item.Line != null) {
-                        item.Line.vStart--;
-                        item.Line.vEnd--;
+            if (BlockMove) {
+                gameObject.Destroy();
+            } else {
+                VertexLookup vLookup = VertexTable.Find(item => item.Id == vertex.id);
+                if (vLookup.isVertex) {
+                    int thisVertex = vLookup.Vertex;
+                    if (vLookup.Line != null) {
+                        vLookup.Line.gameObject.Destroy();
+                    } else {
+                        VertexTable.Find(item => item.Vertex == vLookup.Vertex - 1).Line.gameObject.Destroy();
+                    }
+                    vLookup.Com.gameObject.Destroy();
+                    VertexTable.Remove(vLookup);
+                    VertexTable.ForEach(item => {
+                        if (item.Vertex >= thisVertex) {
+                            item.Vertex--;
+                            if (item.Line != null) {
+                                item.Line.vStart--;
+                                if (item.Line.vEnd != 0) {
+                                    item.Line.vEnd--;
+                                }
+                            }
+                        };
+                        if (Lr && item.isVertex  && item.Line.vEnd >= VertexTable.Count - 1) {
+                            item.Line.vEnd = 0;
+                        };
+                    });
+                    int end = thisVertex;
+                    int start = thisVertex - 1;
+                    if (Lr && thisVertex >= VertexTable.Count -1) 
+                        end = 0;
+                    if (Lr && thisVertex == 0)
+                        start = VertexTable.Count - 2;
+                    Debug.Log($"start : {start}, End : {end}");
+                    if (VertexTable.Count > 1) {
+                        VertexTable.Find(item => item.Vertex == start).Line.MoveEnd(VertexTable.Find(item => item.Vertex == end).Com.transform.position);
+                    } else {
+                        gameObject.Destroy();
                     }
                 }
-            });
-            if (VertexTable.Count > 1) {
-                VertexTable.Find(item => item.Vertex == start - 1).Line.MoveEnd(VertexTable.Find(item => item.Vertex == start).Com.transform.position);
-            } else {
-                gameObject.Destroy();
             }
+            transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
         }
 
         private Datapoint _createVertex(Vector3 vertex, int i) {
