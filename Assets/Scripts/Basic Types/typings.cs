@@ -192,9 +192,18 @@ namespace Virgis
         /// <returns>g3.Vector3d Centroid</returns>
         public static Vector3d CenterMark(this DCurve3 curve)
         {
-            _ = curve.DistanceSquared(curve.Center(), out int iSeg, out double tangent);
-            Segment3d seg = curve.GetSegment(iSeg);
-            return seg.Center;
+            return curve.GetSegment(curve.NearestSegment(curve.Center())).Center;
+        }
+
+        /// <summary>
+        /// Finds the Segment from the DCurve3 closes to the position
+        /// </summary>
+        /// <param name="curve">DCurve3</param>
+        /// <param name="position">Vector3d</param>
+        /// <returns>Integer Sgement index</returns>
+        public static int NearestSegment (this DCurve3 curve, Vector3d position) {
+            _ = curve.DistanceSquared(position, out int iSeg, out double tangent);
+            return iSeg;
         }
     }
 
@@ -268,6 +277,7 @@ namespace Virgis
         public int Vertex;
         public bool isVertex;
         public VirgisComponent Com;
+        public LineSegment Line;
 
         public override bool Equals(object obj)
         {
@@ -294,7 +304,6 @@ namespace Virgis
             else
                 return Vertex.CompareTo(other.Vertex);
         }
-
     }
 }
 

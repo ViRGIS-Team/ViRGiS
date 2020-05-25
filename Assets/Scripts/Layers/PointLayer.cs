@@ -92,7 +92,7 @@ namespace Virgis {
         /// <param name="position"> Vector3 position</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected void _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) { 
+        protected void _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);
             dataPoint.transform.position = position;
@@ -104,8 +104,7 @@ namespace Virgis {
             com.SetMaterial(mainMat, selectedMat);
 
             //Set the symbology
-            if (symbology.ContainsKey("point"))
-            {
+            if (symbology.ContainsKey("point")) {
                 dataPoint.transform.localScale = symbology["point"].Transform.Scale;
                 dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
                 dataPoint.transform.Translate(symbology["point"].Transform.Position, Space.Self);
@@ -113,14 +112,13 @@ namespace Virgis {
 
 
             //Set the label
-            GameObject labelObject = Instantiate(LabelPrefab,  dataPoint.transform, false);
+            GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
             labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
             labelObject.transform.localPosition = Vector3.up * displacement;
-            Text labelText = labelObject.GetComponentInChildren<Text>();
 
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && properties.ContainsKey(symbology["point"].Label))
-            {
-                labelText.text = (string)properties[symbology["point"].Label];
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (properties?.ContainsKey(symbology["point"].Label) ?? false)) {
+                Text labelText = labelObject.GetComponentInChildren<Text>();
+                labelText.text = (string) properties[symbology["point"].Label];
             }
         }
 
@@ -146,6 +144,12 @@ namespace Virgis {
 
         public override void MoveAxis(MoveArgs args) {
 
+        }
+
+        public void RemoveVertex(VirgisComponent vertex) {
+            if (AppState.instance.InEditSession() && IsEditable()) {
+                vertex.gameObject.Destroy();
+            }
         }
     }
 }

@@ -1,23 +1,21 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
+using GeoJSON.Net;
+using GeoJSON.Net.Feature;
+using GeoJSON.Net.Geometry;
+using Newtonsoft.Json.Linq;
+using Project;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using UnityEngine;
-using GeoJSON.Net.Geometry;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net;
 using System.Threading.Tasks;
-using Project;
-using Newtonsoft.Json.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace Virgis
-{
+namespace Virgis {
 
     /// <summary>
     /// Controls an instance of a Polygon Layer
     /// </summary>
-    public class PolygonLayer : Layer<GeographyCollection, FeatureCollection>
-    {
+    public class PolygonLayer : Layer<GeographyCollection, FeatureCollection> {
 
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
@@ -44,8 +42,7 @@ namespace Virgis
         private Material bodySelected;
 
 
-        protected override async Task _init(GeographyCollection layer)
-        {
+        protected override async Task _init(GeographyCollection layer) {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
@@ -106,8 +103,7 @@ namespace Virgis
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override void _addFeature(MoveArgs args)
-        {
+        protected override void _addFeature(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
@@ -152,8 +148,8 @@ namespace Virgis
         protected void _drawFeature(Vector3[] perimeter, Vector3 center, string gisId = null, Dictionary<string, object> properties = null) {
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
-            GameObject dataLine = Instantiate(LinePrefab,  dataPoly.transform, false);
-            GameObject centroid = Instantiate(HandlePrefab,  dataLine.transform, false);
+            GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
+            GameObject centroid = Instantiate(HandlePrefab, dataLine.transform, false);
 
             // add the gis data from geoJSON
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
@@ -163,13 +159,12 @@ namespace Virgis
             p.Centroid = c.transform.position;
             c.SetMaterial(mainMat, selectedMat);
 
-            if (symbology["body"].ContainsKey("Label") && properties.ContainsKey(symbology["body"].Label))
-            {
+            if (symbology["body"].ContainsKey("Label") && (properties?.ContainsKey(symbology["body"].Label) ?? false)) {
                 //Set the label
-                GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false );
+                GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false);
                 labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string)properties[symbology["body"].Label];
+                labelText.text = (string) properties[symbology["body"].Label];
             }
 
             // Darw the LinearRing
@@ -181,30 +176,27 @@ namespace Virgis
             List<VertexLookup> VertexTable = Lr.VertexTable;
             VertexTable.Add(new VertexLookup() { Id = c.id, Vertex = -1, Com = c });
             p.Draw(Lr.VertexTable, bodyMain);
-                    
+
 
             centroid.transform.localScale = symbology["point"].Transform.Scale;
             centroid.transform.localRotation = symbology["point"].Transform.Rotate;
             centroid.transform.localPosition = symbology["point"].Transform.Position;
         }
 
-        protected override void _checkpoint() { }
-        protected override void _save()
-        {
+        protected override void _checkpoint() {
+        }
+        protected override void _save() {
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             List<Feature> thisFeatures = new List<Feature>();
-            foreach (Datapolygon dataFeature in dataFeatures)
-            {
+            foreach (Datapolygon dataFeature in dataFeatures) {
                 Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
                 Vector3[] vertices = perimeter.GetVerteces();
                 List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices)
-                {
+                foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);
                 }
                 LineString line = new LineString(positions);
-                if (!line.IsLinearRing())
-                {
+                if (!line.IsLinearRing()) {
                     Debug.LogError("This Polygon is not a Linear Ring");
                     return;
                 }
@@ -220,13 +212,11 @@ namespace Virgis
             features = FC;
         }
 
-        public override void Translate(MoveArgs args)
-        {
+        public override void Translate(MoveArgs args) {
             changed = true;
         }
 
-        public override void MoveAxis(MoveArgs args)
-        {
+        public override void MoveAxis(MoveArgs args) {
             changed = true;
         }
     }

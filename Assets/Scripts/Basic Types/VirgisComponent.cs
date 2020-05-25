@@ -29,6 +29,9 @@ namespace Virgis
         void Translate(MoveArgs args);
         void VertexMove(MoveArgs args);
 
+        VirgisComponent AddVertex(Vector3 position);
+        void RemoveVertex(VirgisComponent vertex);
+
         Vector3 GetClosest(Vector3 coords);
         T GetGeometry<T>();
 
@@ -117,6 +120,24 @@ namespace Virgis
         /// <param name="coords"> Vector3 Target Coordinates </param>
         /// <returns> Vector3 in world space coordinates </returns>
         public abstract Vector3 GetClosest(Vector3 coords);
+
+        /// <summary>
+        /// call this to add a vertex to a feature.
+        /// </summary>
+        /// <param name="position">Vector3</param>
+        /// <returns>VirgisComponent The new vertex</returns>
+        public virtual VirgisComponent AddVertex(Vector3 position) {
+            // do nothing
+            return this;
+        }
+
+        /// <summary>
+        /// call this to remove a vertxe from a feature
+        /// </summary>
+        /// <param name="vertex">Vertex to remove</param>
+        public virtual void RemoveVertex(VirgisComponent vertex) {
+            // do nothing
+        }
 
 
         /// <summary>

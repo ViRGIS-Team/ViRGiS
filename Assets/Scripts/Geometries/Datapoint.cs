@@ -31,26 +31,20 @@ namespace Virgis
         }
 
 
-        public override void Selected(SelectionTypes button)
-        {
-            newSelect = true;
+        public override void Selected(SelectionTypes button){
             thisRenderer.material = selectedMat;
-            if (button != SelectionTypes.BROADCAST)
-            {
-                gameObject.transform.parent.gameObject.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
+            if (button != SelectionTypes.BROADCAST){
+                transform.parent.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
             }
         }
 
 
-        public override void UnSelected(SelectionTypes button)
-        {
+        public override void UnSelected(SelectionTypes button){
             thisRenderer.material = mainMat;
-            if (button != SelectionTypes.BROADCAST)
-            {
-                gameObject.transform.parent.gameObject.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
+            if (button != SelectionTypes.BROADCAST){
+                transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
                 MoveArgs args = new MoveArgs();
-                switch (AppState.instance.editSession.mode)
-                {
+                switch (AppState.instance.editSession.mode){
                     case EditSession.EditMode.None:
                         break;
                     case EditSession.EditMode.SnapAnchor:
@@ -116,23 +110,23 @@ namespace Virgis
             transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override void VertexMove(MoveArgs args)
-        {
+        public override void VertexMove(MoveArgs args) {
             
         }
 
-        public override void Translate(MoveArgs args)
-        {
+        public override void Translate(MoveArgs args) {
             
         }
 
-        public override Vector3 GetClosest(Vector3 coords)
-        {
+        public override Vector3 GetClosest(Vector3 coords) {
             return transform.position;
         }
 
-        public override T GetGeometry<T>()
-        {
+        public void Delete() {
+            transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
+        }
+
+        public override T GetGeometry<T>() {
             switch (typeof(T).Name)
             {
                 case "Vector3":
