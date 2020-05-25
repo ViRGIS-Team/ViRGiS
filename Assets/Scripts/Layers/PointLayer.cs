@@ -142,5 +142,11 @@ namespace Virgis {
         public override void MoveAxis(MoveArgs args) {
 
         }
+
+        public void RemoveVertex(VirgisComponent vertex) {
+            if (AppState.instance.InEditSession() && IsEditable()) {
+                vertex.gameObject.Destroy();
+            }
+        }
     }
 }

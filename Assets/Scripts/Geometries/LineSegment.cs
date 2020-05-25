@@ -109,8 +109,9 @@ namespace Virgis
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public void AddVertex(MoveArgs args) {
-            GetComponentInParent<Dataline>().AddVertex( args.pos);
+        public override VirgisComponent AddVertex(Vector3 position) {
+            GetComponentInParent<Dataline>().AddVertex( this, position);
+            return this;
         } 
 
         public override Vector3 GetClosest(Vector3 coords){

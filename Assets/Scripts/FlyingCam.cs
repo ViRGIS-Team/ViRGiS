@@ -57,7 +57,7 @@ namespace Virgis {
             _thisRigidbody = GetComponent<Rigidbody>();
             _thisRigidbody.detectCollisions = false;
             self = GetComponent<Camera>();
-            
+
         }
 
         private void Update() {
@@ -94,7 +94,7 @@ namespace Virgis {
         // link this to an a 2D axis control for in plane movement
         //
         public void HandleMove(InputAction.CallbackContext context) {
-            Vector3 force = Quaternion.Euler(90,0,0) * ( context.ReadValue<Vector2>().normalized * DesktopAcceleration);
+            Vector3 force = Quaternion.Euler(90, 0, 0) * (context.ReadValue<Vector2>().normalized * DesktopAcceleration);
             MoveCamera(force);
         }
 
@@ -142,9 +142,9 @@ namespace Virgis {
             } else {
                 Ray ray = self.ScreenPointToRay(Mouse.current.position.ReadValue());
                 Vector3 to = ray.GetPoint(selectedDistance);
-                
+
                 if (currentPointerHit != null) {
-                    moveTo( to);
+                    moveTo(to);
                     from = to;
                 }
             }
@@ -202,7 +202,7 @@ namespace Virgis {
             bool hit = Physics.Raycast(ray, out hitInfo);
             if (hit) {
                 currentPointerHit = hitInfo.transform;
-                select( button);
+                select(button);
                 selectedDistance = hitInfo.distance;
                 from = hitInfo.point;
             } else {
@@ -212,7 +212,7 @@ namespace Virgis {
 
 
         private void UnClickHandler(SelectionTypes button) {
-            unSelect( button);
+            unSelect(button);
         }
 
 
@@ -260,13 +260,16 @@ namespace Virgis {
                 selectedDistance = hitInfo.distance;
                 from = hitInfo.point;
                 if (rhTriggerState) {
-                    select( SelectionTypes.SELECT);
+                    select(SelectionTypes.SELECT);
                 }
-                if (rhGripState ) {
-                    select( SelectionTypes.SELECTALL);
+                if (rhGripState) {
+                    select(SelectionTypes.SELECTALL);
                 }
                 if (addVertexState) {
                     AddVertex(hitInfo.point);
+                }
+                if (delVertexState) {
+                    RemoveVertex();
                 }
             }
 
@@ -288,7 +291,7 @@ namespace Virgis {
         //
         public void triggerPressed(bool thisEvent) {
             rhTriggerState = true;
-            select( SelectionTypes.SELECT);
+            select(SelectionTypes.SELECT);
         }
 
         public void gripPressed(bool thisEvent) {
@@ -306,10 +309,12 @@ namespace Virgis {
 
         public void addVertexPressed(bool thisEvent) {
             addVertexState = true;
+            AddVertex(from);
         }
 
         public void delVertexPressed(bool thisEvent) {
             delVertexState = true;
+            RemoveVertex();
         }
 
         //
@@ -317,14 +322,14 @@ namespace Virgis {
         //
         public void triggerReleased(bool thisEvent) {
             rhTriggerState = false;
-            unSelect( SelectionTypes.SELECT);
+            unSelect(SelectionTypes.SELECT);
 
         }
 
         public void gripReleased(bool thisEvent) {
             rhGripState = false;
             AxisEdit = false;
-            unSelect( SelectionTypes.SELECTALL);
+            unSelect(SelectionTypes.SELECTALL);
 
         }
 
@@ -354,7 +359,8 @@ namespace Virgis {
             if (editSelected || currentPointerHit != null) {
                 Vector3 dir = data.Points[1] - data.Points[0];
                 Vector3 to = data.Points[0] + dir.normalized * selectedDistance;
-                if (editSelected) moveTo( to);
+                if (editSelected)
+                    moveTo(to);
                 from = to;
             }
         }
@@ -396,7 +402,7 @@ namespace Virgis {
             transform.position = AppState.instance.map.transform.TransformPoint(here);
         }
 
-        private void moveTo( Vector3 to) {
+        private void moveTo(Vector3 to) {
             if (!AxisEdit) {
                 MoveArgs args = new MoveArgs();
                 args.translate = to - from;
@@ -404,28 +410,33 @@ namespace Virgis {
             }
         }
 
-        private void select( SelectionTypes button) {
-            if (appState.InEditSession() && currentPointerHit != null &&  LayerIsEditable()) {
+        private void select(SelectionTypes button) {
+            if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable()) {
                 editSelected = true;
                 currentSelected = currentPointerHit;
                 currentSelected.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
             }
         }
 
-        private void unSelect( SelectionTypes button) {
+        private void unSelect(SelectionTypes button) {
             editSelected = false;
             currentSelected?.SendMessage("UnSelected", button, SendMessageOptions.DontRequireReceiver);
             currentSelected = null;
         }
 
-        private void MoveAxis( MoveArgs args) {
+        private void MoveAxis(MoveArgs args) {
             if (AxisEdit) {
                 currentSelected?.SendMessage("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
             }
         }
 
         private bool LayerIsEditable() {
-            ILayer layer = currentPointerHit?.GetComponentInParent<ILayer>();
+            ILayer layer;
+            if (currentSelected != null) {
+                layer = currentSelected.GetComponentInParent<ILayer>();
+            } else {
+                layer = currentPointerHit?.GetComponentInParent<ILayer>();
+            }
             return layer?.IsEditable() ?? false;
         }
 
@@ -434,10 +445,18 @@ namespace Virgis {
         }
 
         private void AddVertex(Vector3 pos) {
-            MoveArgs args = new MoveArgs();
-            args.pos = pos;
-            currentPointerHit.SendMessage("AddVertex", args, SendMessageOptions.DontRequireReceiver);
-            addVertexState = false;
+            if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable()) {
+                currentPointerHit.SendMessage("AddVertex", pos, SendMessageOptions.DontRequireReceiver);
+                addVertexState = false;
+            }
+        }
+
+        private void RemoveVertex() {
+            if (appState.InEditSession() && currentSelected != null && LayerIsEditable()) {
+                currentSelected.SendMessage("Delete", SendMessageOptions.DontRequireReceiver);
+                currentSelected = null;
+                currentPointerHit = null;
+            }
         }
     }
 }
