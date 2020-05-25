@@ -103,7 +103,7 @@ namespace Virgis {
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override void _addFeature(Vector3 position) {
+        protected override VirgisComponent _addFeature(Vector3 position) {
             throw new System.NotImplementedException();
         }
 

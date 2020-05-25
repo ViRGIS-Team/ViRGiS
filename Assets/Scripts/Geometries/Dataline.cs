@@ -173,6 +173,14 @@ namespace Virgis
             return result;
         }
 
+        public Datapoint[] GetVertexes() {
+            Datapoint[] result = new Datapoint[VertexTable.Count];
+            for (int i = 0; i < result.Length; i++) {
+                result[i] = VertexTable.Find(item => item.isVertex && item.Vertex == i).Com as Datapoint;
+            }
+            return result;
+        }
+
 
         public override void Selected(SelectionTypes button)
         {

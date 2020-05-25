@@ -27,7 +27,7 @@ namespace Virgis
             features = await reader.Load(layer.Source); ;
         }
 
-        protected override void _addFeature(Vector3 position)
+        protected override VirgisComponent _addFeature(Vector3 position)
         {
             throw new System.NotImplementedException();
         }
