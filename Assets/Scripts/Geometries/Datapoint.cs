@@ -110,23 +110,23 @@ namespace Virgis
             transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override void VertexMove(MoveArgs args)
-        {
+        public override void VertexMove(MoveArgs args) {
             
         }
 
-        public override void Translate(MoveArgs args)
-        {
+        public override void Translate(MoveArgs args) {
             
         }
 
-        public override Vector3 GetClosest(Vector3 coords)
-        {
+        public override Vector3 GetClosest(Vector3 coords) {
             return transform.position;
         }
 
-        public override T GetGeometry<T>()
-        {
+        public void Delete() {
+            transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
+        }
+
+        public override T GetGeometry<T>() {
             switch (typeof(T).Name)
             {
                 case "Vector3":
