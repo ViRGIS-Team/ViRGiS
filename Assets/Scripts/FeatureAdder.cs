@@ -50,7 +50,7 @@ namespace Virgis {
                 _waitingForSecondPress = false;
                 OnTriggerDoublePress();
             } else {
-                _timer = WaitForSecondTriggerPress();
+                _timer = WaitForSecondTriggerPress(_markerShape.transform.position);
                 StartCoroutine(_timer);
                 _waitingForSecondPress = true;
             }
@@ -87,7 +87,7 @@ namespace Virgis {
             _markerShape.SetActive(false);
         }
 
-        private void OnTriggerSinglePress() {
+        private void OnTriggerSinglePress(Vector3 posWhenSinglePress) {
             Debug.Log("ShapeAdder OnTriggerSinglePress");
             if (_appState.editSession.IsActive()) {
                 ILayer editableLayer = _appState.editSession.editableLayer;
@@ -95,17 +95,17 @@ namespace Virgis {
                 switch (dataType) {
                     case RecordSetDataType.Point:
                         Debug.Log("ShapeAdder Add Point Feature");
-                        editableLayer.AddFeature(_markerShape.transform.position);
+                        editableLayer.AddFeature(posWhenSinglePress);
                         //GameObject newShape = Instantiate(blueCubePrefab, _markerShape.transform.position, _markerShape.transform.rotation);
                         break;
                     case RecordSetDataType.Line:
                         //Debug.Log($"ShapeAdder add Vertex");
                         if (_newFeature != null) {
-                            Vector3 markerPos = _markerShape.transform.position;
+                            Vector3 markerPos = posWhenSinglePress;
                             markerPos.y += 0.01f;
-                            _lineVertex = _newFeature.AddVertex(markerPos) as Datapoint;
+                            _newFeature.AddVertex(markerPos);
                         } else {
-                            _newFeature = editableLayer.AddFeature(_markerShape.transform.position);
+                            _newFeature = editableLayer.AddFeature(posWhenSinglePress);
                             // get the last vertex
                             Datapoint[] vertexes = (_newFeature as Dataline).GetVertexes();
                             _lineVertex = vertexes[1];
@@ -148,7 +148,7 @@ namespace Virgis {
             }
         }
 
-        private IEnumerator WaitForSecondTriggerPress() {
+        private IEnumerator WaitForSecondTriggerPress(Vector3 posWhenSinglePress) {
             //Debug.Log("ShapeAdder WaitForSecondPress starts");
             float eventTime = Time.unscaledTime + 0.5f;
             while (Time.unscaledTime < eventTime)
@@ -156,7 +156,7 @@ namespace Virgis {
             //yield return new WaitForSecondsRealtime(0.5f);
             //Debug.Log("ShapeAdder WaitForSecondPress ends");
             _waitingForSecondPress = false;
-            OnTriggerSinglePress();
+            OnTriggerSinglePress(posWhenSinglePress);
         }
 
     }
