@@ -148,7 +148,7 @@ namespace Virgis {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Dataline dataFeature in dataFeatures) {
-                Vector3[] vertices = dataFeature.GetVerteces();
+                Vector3[] vertices = dataFeature.GetVertexPositions();
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);
@@ -164,7 +164,10 @@ namespace Virgis {
         }
 
         public override GameObject GetFeatureShape() {
-            return HandlePrefab;
+            GameObject fs = Instantiate(HandlePrefab);
+            Datapoint com = fs.GetComponent<Datapoint>();
+            com.SetMaterial(mainMat, selectedMat);
+            return fs;
         }
 
         public override void Translate(MoveArgs args) {

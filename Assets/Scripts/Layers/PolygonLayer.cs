@@ -188,7 +188,7 @@ namespace Virgis {
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapolygon dataFeature in dataFeatures) {
                 Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-                Vector3[] vertices = perimeter.GetVerteces();
+                Vector3[] vertices = perimeter.GetVertexPositions();
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);

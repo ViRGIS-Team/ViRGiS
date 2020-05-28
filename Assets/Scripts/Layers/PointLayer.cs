@@ -138,7 +138,10 @@ namespace Virgis {
         }
 
         public override GameObject GetFeatureShape() {
-            return PointPrefab;
+            GameObject fs = Instantiate(PointPrefab);
+            Datapoint com = fs.GetComponent<Datapoint>();
+            com.SetMaterial(mainMat, selectedMat);
+            return fs;
         }
 
         public override void Translate(MoveArgs args) {

@@ -1,4 +1,5 @@
-﻿using Project;
+﻿using GeoJSON.Net.Feature;
+using Project;
 using SQLite4Unity3d;
 using System;
 using System.Collections;
@@ -95,8 +96,8 @@ namespace Virgis {
                 switch (dataType) {
                     case RecordSetDataType.Point:
                         Debug.Log("ShapeAdder Add Point Feature");
-                        editableLayer.AddFeature(posWhenSinglePress);
-                        //GameObject newShape = Instantiate(blueCubePrefab, _markerShape.transform.position, _markerShape.transform.rotation);
+                        VirgisComponent _ = editableLayer.AddFeature(posWhenSinglePress);
+                        //GameObject newShape = Instantiate(blueCubePrefab, posWhenSinglePress, _markerShape.transform.rotation);
                         break;
                     case RecordSetDataType.Line:
                         //Debug.Log($"ShapeAdder add Vertex");
@@ -123,6 +124,9 @@ namespace Virgis {
                 switch (dataType) {
                     case RecordSetDataType.Line:
                         if (_newFeature != null) {
+                            // TODO: if edit mode is snap to anchor and start and end vertexes are at the same position
+                            // call Dataline.MakeLinearRing()
+
                             // complete adding line feature
                             _newFeature = null;
                             _lineVertex = null;
@@ -140,10 +144,16 @@ namespace Virgis {
                 if (featureShape == null) {
                     return defaultMarkerShape;
                 } else {
-                    GameObject go = Instantiate(featureShape, defaultMarkerShape.transform.position, defaultMarkerShape.transform.rotation, transform);
-                    go.transform.localScale = defaultMarkerShape.transform.localScale;
-                    _markerShapeMap.Add(layer.GetId(), go);
-                    return go;
+                    featureShape.transform.parent = transform;
+                    featureShape.transform.position = defaultMarkerShape.transform.position;
+                    featureShape.transform.rotation = defaultMarkerShape.transform.rotation;
+                    featureShape.transform.localScale = defaultMarkerShape.transform.localScale;
+                    _markerShapeMap.Add(layer.GetId(), featureShape);
+                    return featureShape;
+                    //GameObject go = Instantiate(featureShape, defaultMarkerShape.transform.position, defaultMarkerShape.transform.rotation, transform);
+                    //go.transform.localScale = defaultMarkerShape.transform.localScale;
+                    //_markerShapeMap.Add(layer.GetId(), go);
+                    //return go;
                 }
             }
         }
