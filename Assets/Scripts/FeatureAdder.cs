@@ -21,7 +21,8 @@ namespace Virgis {
 
         // variables for adding feature
         private VirgisComponent _newFeature;
-        private Datapoint _lineVertex;
+        private Datapoint _firstVertex;
+        private Datapoint _lastVertex;
 
         // Start is called before the first frame update
         void Start() {
@@ -40,7 +41,7 @@ namespace Virgis {
             if (_appState.editSession.IsActive() && (_newFeature != null)) {
                 MoveArgs args = new MoveArgs();
                 args.pos = _markerShape.transform.position;
-                _lineVertex.MoveTo(args);
+                _lastVertex.MoveTo(args);
             }
         }
 
@@ -109,7 +110,8 @@ namespace Virgis {
                             _newFeature = editableLayer.AddFeature(posWhenSinglePress);
                             // get the last vertex
                             Datapoint[] vertexes = (_newFeature as Dataline).GetVertexes();
-                            _lineVertex = vertexes[1];
+                            _firstVertex = vertexes[0];
+                            _lastVertex = vertexes[1];
                         }
                         break;
                 }
@@ -124,12 +126,15 @@ namespace Virgis {
                 switch (dataType) {
                     case RecordSetDataType.Line:
                         if (_newFeature != null) {
-                            // TODO: if edit mode is snap to anchor and start and end vertexes are at the same position
+                            // if edit mode is snap to anchor and start and end vertexes are at the same position
                             // call Dataline.MakeLinearRing()
-
+                            if (_appState.editSession.mode == EditSession.EditMode.SnapAnchor && 
+                                _firstVertex.transform.position == _lastVertex.transform.position) {
+                                (_newFeature as Dataline).MakeLinearRing();
+                            }
                             // complete adding line feature
                             _newFeature = null;
-                            _lineVertex = null;
+                            _lastVertex = null;
                         }
                         break;
                 }

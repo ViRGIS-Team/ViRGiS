@@ -155,14 +155,11 @@ namespace Virgis
         }
 
         public void MakeLinearRing() {
-            // TODO:
-            // if start and end vertexes are at the same position:
-            //   delete end vertex
-            //   update the last line segment to end at the start vertex
-            //   set Lr = true
-            // otherwise
-            //   throw InvalidOperationException
-            throw new System.InvalidOperationException("not implemented yet");
+            // create line segment from start vertex to end vertex
+            // set Lr = true
+            Vector3[] vPos = GetVertexPositions();
+            _createSegment(vPos[vPos.Length - 1], vPos[0], vPos.Length - 1, true);
+            Lr = true;
         }
 
         /// <summary>
