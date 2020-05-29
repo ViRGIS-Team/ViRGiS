@@ -88,13 +88,14 @@ namespace Virgis
         }
 
 
-        /// <summary>
-        /// Called to draw the Polygon based upon the 
-        /// </summary>
-        /// <param name="perimeter">LineString defining the perimter of the polygon</param>
-        /// <param name="mat"> Material to be used</param>
-        /// <returns></returns>
-        public GameObject Draw( List<VertexLookup> verteces,  Material mat = null)
+
+                /// <summary>
+                /// Called to draw the Polygon based upon the 
+                /// </summary>
+                /// <param name="perimeter">LineString defining the perimter of the polygon</param>
+                /// <param name="mat"> Material to be used</param>
+                /// <returns></returns>
+                public GameObject Draw( List<VertexLookup> verteces,  Material mat = null)
         {
             
             VertexTable = verteces;
@@ -121,7 +122,10 @@ namespace Virgis
         /// </summary>
         private void MakeMesh()
         {
-            MeshFilter mf = Shape.AddComponent<MeshFilter>();
+            MeshFilter mf;
+            mf = Shape.GetComponent<MeshFilter>();    
+            if (mf == null)  mf = Shape.AddComponent<MeshFilter>();
+            mf.mesh = null;
             Mesh mesh = new Mesh();
             Vector3[] vertices = Vertices();
             mesh.vertices = vertices;
@@ -145,8 +149,27 @@ namespace Virgis
             Vector3[] vertices = mesh.vertices;
             vertices[VertexTable.Find(item => item.Id == data.id ).Vertex + 1] = Shape.transform.InverseTransformPoint(data.pos);
             mesh.vertices = vertices;
+            mesh.uv = BuildUVs(vertices);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
+        }
+
+        public override VirgisComponent AddVertex(Vector3 position) {
+            _redraw();
+            return base.AddVertex(position);
+        }
+
+        public override void RemoveVertex(VirgisComponent vertex) {
+            if (BlockMove) {
+                gameObject.Destroy();
+            } else {
+                _redraw();
+            }
+        }
+
+        private void _redraw() {
+            VertexTable = GetComponentInChildren<Dataline>().VertexTable;
+            MakeMesh();
         }
 
 
@@ -169,7 +192,6 @@ namespace Virgis
 
             return vertices;
         }
-
 
         // STATIC METHODS TO HELP CREATE A POLYGON
 

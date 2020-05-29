@@ -112,7 +112,11 @@ namespace Virgis
         public override VirgisComponent AddVertex(Vector3 position) {
             GetComponentInParent<Dataline>().AddVertex( this, position);
             return this;
-        } 
+        }
+
+        public void Delete() {
+            transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
+        }
 
         public override Vector3 GetClosest(Vector3 coords){
             throw new System.NotImplementedException();
