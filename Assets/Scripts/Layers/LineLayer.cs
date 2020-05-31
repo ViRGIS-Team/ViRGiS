@@ -4,6 +4,7 @@ using GeoJSON.Net;
 using GeoJSON.Net.Feature;
 using GeoJSON.Net.Geometry;
 using Project;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -95,7 +96,7 @@ namespace Virgis {
         }
 
         protected override VirgisComponent _addFeature(Vector3 position) {
-            Vector3 pos2 = new Vector3(position.x, position.y + 0.01f, position.z);
+            Vector3 pos2 = new Vector3(position.x + Single.Epsilon, position.y + Single.Epsilon, position.z + Single.Epsilon);
             Vector3[] newVertices = new Vector3[] { position, pos2 };
             return _drawFeature(newVertices);
         }

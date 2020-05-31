@@ -19,7 +19,7 @@ namespace Virgis {
         private IEnumerator _timer;
         private bool _waitingForSecondPress;
 
-        // variables for adding feature
+        // variables for adding feature - currently used only for Line feature
         private VirgisComponent _newFeature;
         private Datapoint _firstVertex;
         private Datapoint _lastVertex;
@@ -96,8 +96,7 @@ namespace Virgis {
                 RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
                 switch (dataType) {
                     case RecordSetDataType.Point:
-                        Debug.Log("ShapeAdder Add Point Feature");
-                        VirgisComponent _ = editableLayer.AddFeature(posWhenSinglePress);
+                        var _ = editableLayer.AddFeature(posWhenSinglePress);
                         //GameObject newShape = Instantiate(blueCubePrefab, posWhenSinglePress, _markerShape.transform.rotation);
                         break;
                     case RecordSetDataType.Line:
@@ -113,6 +112,10 @@ namespace Virgis {
                             _firstVertex = vertexes[0];
                             _lastVertex = vertexes[1];
                         }
+                        break;
+                    case RecordSetDataType.Polygon:
+                        Debug.Log("ShapeAdder Add Polygon Feature");
+                        _ = editableLayer.AddFeature(posWhenSinglePress);
                         break;
                 }
             }
