@@ -105,15 +105,8 @@ namespace Virgis {
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override VirgisComponent _addFeature(Vector3 position) {
-            // the given position is set as the center and first perimeter
-            Vector3 center = position;
-            Vector3[] perimeter = new Vector3[3];
-            perimeter[0] = position;
-            perimeter[1] = new Vector3(position.x + Single.Epsilon, position.y, position.z);
-            perimeter[2] = new Vector3(position.x, position.y + Single.Epsilon, position.z);
-
-            return _drawFeature(perimeter, center);
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {;
+            return _drawFeature(geometry, Datapolygon.FindCenter(geometry));
         }
 
         protected override void _draw() {

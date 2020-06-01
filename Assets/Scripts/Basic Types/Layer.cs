@@ -10,7 +10,7 @@ namespace Virgis {
 
     public interface ILayer {
 
-        VirgisComponent AddFeature(Vector3 position);
+        VirgisComponent AddFeature(Vector3[] geometry);
 
         void Draw();
 
@@ -102,9 +102,9 @@ namespace Virgis {
         /// Call this to create a new feature
         /// </summary>
         /// <param name="position">Vector3 where to create the new layer</param>
-        public VirgisComponent AddFeature(Vector3 position) {
+        public VirgisComponent AddFeature(Vector3[] geometry) {
             if (AppState.instance.InEditSession() && IsEditable()) {
-                return _addFeature(position);
+                return _addFeature(geometry);
             }
             return null;
         }
@@ -113,7 +113,7 @@ namespace Virgis {
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
         /// <param name=position"></param>
-        protected abstract VirgisComponent _addFeature(Vector3 position);
+        protected abstract VirgisComponent _addFeature(Vector3[] geometry);
 
         /// <summary>
         /// Draw the layer based upon the features in the features GeographyCollection

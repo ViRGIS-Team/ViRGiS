@@ -22,7 +22,7 @@ namespace Virgis {
         // variables for adding feature - currently used only for Line feature
         private VirgisComponent _newFeature;
         private Datapoint _firstVertex;
-        private Datapoint _lastVertex;
+        private List<Datapoint> _lastVertex = new List<Datapoint>();
 
         // Start is called before the first frame update
         void Start() {
@@ -41,7 +41,7 @@ namespace Virgis {
             if (_appState.editSession.IsActive() && (_newFeature != null)) {
                 MoveArgs args = new MoveArgs();
                 args.pos = _markerShape.transform.position;
-                _lastVertex.MoveTo(args);
+                _lastVertex.ForEach( dp =>  dp.MoveTo(args));
             }
         }
 
@@ -94,28 +94,40 @@ namespace Virgis {
             if (_appState.editSession.IsActive()) {
                 ILayer editableLayer = _appState.editSession.editableLayer;
                 RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
+                Datapoint[] vertexes;
                 switch (dataType) {
                     case RecordSetDataType.Point:
-                        var _ = editableLayer.AddFeature(posWhenSinglePress);
-                        //GameObject newShape = Instantiate(blueCubePrefab, posWhenSinglePress, _markerShape.transform.rotation);
+                        var _ = editableLayer.AddFeature(new Vector3[1] { posWhenSinglePress });
                         break;
                     case RecordSetDataType.Line:
                         //Debug.Log($"ShapeAdder add Vertex");
                         if (_newFeature != null) {
-                            Vector3 markerPos = posWhenSinglePress;
-                            markerPos.y += 0.01f;
-                            _newFeature.AddVertex(markerPos);
+                            _newFeature.AddVertex(posWhenSinglePress);
                         } else {
-                            _newFeature = editableLayer.AddFeature(posWhenSinglePress);
+                            _newFeature = editableLayer.AddFeature(new Vector3[2] { posWhenSinglePress, posWhenSinglePress + Vector3.one * Single.Epsilon });
                             // get the last vertex
-                            Datapoint[] vertexes = (_newFeature as Dataline).GetVertexes();
+                            vertexes = (_newFeature as Dataline).GetVertexes();
                             _firstVertex = vertexes[0];
-                            _lastVertex = vertexes[1];
+                            _lastVertex.Add(vertexes[1]);
                         }
                         break;
                     case RecordSetDataType.Polygon:
-                        Debug.Log("ShapeAdder Add Polygon Feature");
-                        _ = editableLayer.AddFeature(posWhenSinglePress);
+                        if (_newFeature != null ) {
+                            if (_lastVertex.Count == 1) {
+                                _newFeature.transform.GetComponentInChildren<Dataline>().AddVertex(posWhenSinglePress);
+                            } else {
+                                _lastVertex.RemoveAt(0);
+                            }
+                            
+                        } else {
+                            Debug.Log("ShapeAdder Add Polygon Feature");
+                            _newFeature = editableLayer.AddFeature(new Vector3[4] { posWhenSinglePress, posWhenSinglePress + Vector3.right * Single.Epsilon, posWhenSinglePress + Vector3.up * Single.Epsilon, posWhenSinglePress });
+                            vertexes = (_newFeature as Datapolygon).GetVertexes();
+                            _firstVertex = vertexes[0];
+                            _lastVertex.Add(vertexes[1]);
+                            _lastVertex.Add(vertexes[2]);
+                            ;
+                        }
                         break;
                 }
             }
@@ -132,12 +144,19 @@ namespace Virgis {
                             // if edit mode is snap to anchor and start and end vertexes are at the same position
                             // call Dataline.MakeLinearRing()
                             if (_appState.editSession.mode == EditSession.EditMode.SnapAnchor && 
-                                _firstVertex.transform.position == _lastVertex.transform.position) {
+                                _firstVertex.transform.position == _lastVertex[0].transform.position) {
                                 (_newFeature as Dataline).MakeLinearRing();
                             }
                             // complete adding line feature
                             _newFeature = null;
-                            _lastVertex = null;
+                            _lastVertex.Clear();
+                        }
+                        break;
+                    case RecordSetDataType.Polygon:
+                        if (_newFeature != null) {
+                            // complete adding line feature
+                            _newFeature = null;
+                            _lastVertex.Clear();
                         }
                         break;
                 }

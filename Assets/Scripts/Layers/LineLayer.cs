@@ -95,10 +95,8 @@ namespace Virgis {
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3 position) {
-            Vector3 pos2 = new Vector3(position.x + Single.Epsilon, position.y + Single.Epsilon, position.z + Single.Epsilon);
-            Vector3[] newVertices = new Vector3[] { position, pos2 };
-            return _drawFeature(newVertices);
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+            return _drawFeature(geometry);
         }
 
         protected override void _draw() {
