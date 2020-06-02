@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
+using g3;
 
 namespace Virgis {
 
@@ -105,8 +106,10 @@ namespace Virgis {
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry) {;
-            return _drawFeature(geometry, Datapolygon.FindCenter(geometry));
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+            DCurve3 curve = new DCurve3();
+            curve.Vector3(geometry, true);
+            return _drawFeature(geometry, (Vector3)curve.Center());
         }
 
         protected override void _draw() {
@@ -138,7 +141,9 @@ namespace Virgis {
                             center = (properties["polyhedral"] as Point).Coordinates.Vector3();
                         }
                     } else {
-                        center = Datapolygon.FindCenter(poly);
+                        DCurve3 curve = new DCurve3();
+                        curve.Vector3(poly, true);
+                        center = (Vector3)curve.Center();
                         properties["polyhedral"] = center.ToPoint();
                     }
                     _drawFeature(poly, center, gisId, properties as Dictionary<string, object>);
