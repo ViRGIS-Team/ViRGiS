@@ -10,7 +10,7 @@ namespace Virgis {
 
     public interface ILayer {
 
-        void AddFeature(MoveArgs args);
+        VirgisComponent AddFeature(Vector3[] geometry);
 
         void Draw();
 
@@ -25,6 +25,8 @@ namespace Virgis {
         Guid GetId();
 
         RecordSet GetMetadata();
+
+        GameObject GetFeatureShape();
 
         void SetVisible(bool visible);
 
@@ -99,18 +101,19 @@ namespace Virgis {
         /// <summary>
         /// Call this to create a new feature
         /// </summary>
-        /// <param name="args">MOveArgs with details about whwre to create the new layer</param>
-        public void AddFeature(MoveArgs args) {
+        /// <param name="position">Vector3 where to create the new layer</param>
+        public VirgisComponent AddFeature(Vector3[] geometry) {
             if (AppState.instance.InEditSession() && IsEditable()) {
-                _addFeature(args);
+                return _addFeature(geometry);
             }
+            return null;
         }
 
         /// <summary>
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
-        /// <param name=args"></param>
-        protected abstract void _addFeature(MoveArgs args);
+        /// <param name=position"></param>
+        protected abstract VirgisComponent _addFeature(Vector3[] geometry);
 
         /// <summary>
         /// Draw the layer based upon the features in the features GeographyCollection
@@ -246,6 +249,8 @@ namespace Virgis {
         public RecordSet GetMetadata() {
             return layer;
         }
+
+        public abstract GameObject GetFeatureShape();
 
         public void SetVisible(bool visible) {
             if (_visible != visible) {

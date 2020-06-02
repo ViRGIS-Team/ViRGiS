@@ -15,7 +15,6 @@ namespace Virgis {
 
         private EditSession _editSession;
         private List<Component> _layers;
-        private ILayer _editableLayer;
         private ZoomEvent _zoomChange;
 
         void Awake() {
@@ -44,7 +43,7 @@ namespace Virgis {
         public void Init() {
             ILayer firstLayer = (ILayer) _layers[0];
             firstLayer.SetEditable(true);
-            _editableLayer = firstLayer;
+            _editSession.editableLayer = firstLayer;
         }
 
         public EditSession editSession {
@@ -73,15 +72,6 @@ namespace Virgis {
 
         public void clearLayers() {
             _layers.Clear();
-        }
-
-        public ILayer editableLayer {
-            get => _editableLayer;
-            set {
-                value?.SetEditable(true);
-                _editableLayer?.SetEditable(false);
-                _editableLayer = value;
-            }
         }
 
         public GameObject mainCamera {

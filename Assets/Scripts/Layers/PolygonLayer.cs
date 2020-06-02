@@ -4,10 +4,12 @@ using GeoJSON.Net.Feature;
 using GeoJSON.Net.Geometry;
 using Newtonsoft.Json.Linq;
 using Project;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 
 namespace Virgis {
@@ -103,8 +105,8 @@ namespace Virgis {
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override void _addFeature(MoveArgs args) {
-            throw new System.NotImplementedException();
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {;
+            return _drawFeature(geometry, Datapolygon.FindCenter(geometry));
         }
 
         protected override void _draw() {
@@ -145,7 +147,7 @@ namespace Virgis {
 
         }
 
-        protected void _drawFeature(Vector3[] perimeter, Vector3 center, string gisId = null, Dictionary<string, object> properties = null) {
+        protected VirgisComponent _drawFeature(Vector3[] perimeter, Vector3 center, string gisId = null, Dictionary<string, object> properties = null) {
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
             GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
@@ -171,14 +173,14 @@ namespace Virgis {
             Dataline Lr = dataLine.GetComponent<Dataline>();
             Lr.Draw(perimeter, true, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
 
-
             //Draw the Polygon
             p.Draw(Lr.VertexTable, bodyMain);
-
 
             centroid.transform.localScale = symbology["point"].Transform.Scale;
             centroid.transform.localRotation = symbology["point"].Transform.Rotate;
             centroid.transform.localPosition = symbology["point"].Transform.Position;
+
+            return p;
         }
 
         protected override void _checkpoint() {
@@ -188,7 +190,7 @@ namespace Virgis {
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapolygon dataFeature in dataFeatures) {
                 Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-                Vector3[] vertices = perimeter.GetVerteces();
+                Vector3[] vertices = perimeter.GetVertexPositions();
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);
@@ -209,6 +211,13 @@ namespace Virgis {
             geoJsonReader.SetFeatureCollection(FC);
             geoJsonReader.Save();
             features = FC;
+        }
+
+        public override GameObject GetFeatureShape() {
+            GameObject fs = Instantiate(HandlePrefab);
+            Datapoint dp = fs.GetComponent<Datapoint>();
+            dp.SetMaterial(mainMat, selectedMat);
+            return fs;
         }
 
         public override void Translate(MoveArgs args) {

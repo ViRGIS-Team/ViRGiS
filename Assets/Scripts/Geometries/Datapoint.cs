@@ -86,7 +86,12 @@ namespace Virgis
             if (args.translate != Vector3.zero) {
                 args.id = id;
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+            } else if (args.pos != Vector3.zero && args.pos != transform.position) {
+                args.id = id;
+                args.translate = args.pos - transform.position;
+                SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
+
         }
 
         /// <summary>
