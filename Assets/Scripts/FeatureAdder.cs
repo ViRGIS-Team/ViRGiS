@@ -19,7 +19,7 @@ namespace Virgis {
         private IEnumerator _timer;
         private bool _waitingForSecondPress;
 
-        // variables for adding feature - currently used only for Line feature
+        // variables for adding feature - currently used for Line and Polygon features
         private VirgisComponent _newFeature;
         private Datapoint _firstVertex;
         private List<Datapoint> _lastVertex = new List<Datapoint>();
@@ -128,7 +128,6 @@ namespace Virgis {
                             _firstVertex = vertexes[0];
                             _lastVertex.Add(vertexes[1]);
                             _lastVertex.Add(vertexes[2]);
-                            ;
                         }
                         break;
                 }
@@ -156,7 +155,7 @@ namespace Virgis {
                         break;
                     case RecordSetDataType.Polygon:
                         if (_newFeature != null) {
-                            // complete adding line feature
+                            // complete adding polygon feature
                             _newFeature = null;
                             _lastVertex.Clear();
                         }
