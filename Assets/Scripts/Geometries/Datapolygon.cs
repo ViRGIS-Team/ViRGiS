@@ -6,6 +6,7 @@ using UnityEngine;
 using GeoJSON.Net.Geometry;
 using System;
 using System.Runtime.InteropServices;
+using g3;
 
 namespace Virgis
 {
@@ -220,14 +221,16 @@ namespace Virgis
             return triangles;
         }
 
-        public static Vector3 FindCenter(Vector3[] poly)
-        {
-            Vector3 center = Vector3.zero;
-            foreach (Vector3 v3 in poly)
-            {
-                center += v3;
-            }
-            return center / poly.Length;
+
+        /// <summary>
+        /// Reset the center vertex to be the center of the Linear Ring vertexes
+        /// </summary>
+        public void ResetCenter() {
+            VertexLookup centroid = VertexTable.Find(item => item.Vertex == -1);
+            DCurve3 curve = new DCurve3();
+            curve.Vector3(GetVertexPositions(), true);
+            centroid.Com.transform.position = (Vector3)curve.Center();
+            MakeMesh();
         }
 
         static Vector2[] BuildUVs(Vector3[] vertices)
@@ -301,6 +304,10 @@ namespace Virgis
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Get an array of the Datapoint components for the vertexes
+        /// </summary>
+        /// <returns> Datapoint[]</returns>
         public Datapoint[] GetVertexes() {
             Datapoint[] result = new Datapoint[VertexTable.Count - 1];
             for (int i = 0; i < result.Length; i++) {
@@ -308,6 +315,11 @@ namespace Virgis
             }
             return result;
         }
+
+    
+        public Vector3[] GetVertexPositions() {
+            return GetComponentInChildren<Dataline>().GetVertexPositions();
+        }
     }
-    }
+}
 
