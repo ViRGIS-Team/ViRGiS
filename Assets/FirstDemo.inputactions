@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Edit",
+                    "name": "StartEdit",
                     "type": "Button",
                     "id": "102a7742-e738-4d7e-a4e3-4b782940401c",
                     "expectedControlType": "",
@@ -46,41 +46,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "EndEdit",
+                    "name": "StopSaveEdit",
                     "type": "Button",
                     "id": "6c1078e6-4e51-406d-8fda-ba9efdcdcab1",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "RotLeft",
-                    "type": "Button",
-                    "id": "2ba2f67e-cb93-4bc9-8e7e-36176e28d1b0",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "RotRight",
-                    "type": "Button",
-                    "id": "aebf1dbe-beef-4970-813a-8729e0f4aba7",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "ScaleIn",
-                    "type": "Button",
-                    "id": "b3ed8019-f1ea-4148-8be3-b8e71be71741",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "ScaleOut",
-                    "type": "Button",
-                    "id": "3acde169-9957-405d-836e-8e9fc1f94a8c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -102,12 +70,36 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "UnSelect",
+                    "name": "PanZoom",
+                    "type": "Value",
+                    "id": "9cd3addd-8717-403c-824a-67f29592586a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ShowMenu",
                     "type": "Button",
-                    "id": "ef9445a2-9c1f-472d-82ff-a942f7f67f28",
+                    "id": "0992050d-2039-43e2-b326-ece2f6f5a525",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(behavior=1)"
+                    "interactions": ""
+                },
+                {
+                    "name": "StopDiscardEdit",
+                    "type": "Button",
+                    "id": "8b692b68-7fae-4a0b-905c-a9a595217ba1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ShowLayers",
+                    "type": "Button",
+                    "id": "b24152e2-27ca-4c99-b11b-5933c595b656",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -224,7 +216,7 @@
                 {
                     "name": "",
                     "id": "1635d3fe-58b6-4ba9-a4e2-f4b964f6b5c8",
-                    "path": "<XRController>{RightHand}/thumbstick",
+                    "path": "<OpenVROculusTouchController>{RightHand}/thumbstick",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
@@ -260,7 +252,7 @@
                     "path": "<Pointer>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
+                    "groups": "Touch",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -272,6 +264,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb1e4bf4-cb82-4994-83b8-21dce07582f8",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -305,17 +308,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8255d333-5683-4943-a58a-ccb207ff1dce",
-                    "path": "<XRController>/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -387,15 +379,59 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "9ba8dc9b-c44b-4d73-9f53-083b1789d8d1",
-                    "path": "<XRController>{LeftHand}/thumbstick",
+                    "name": "2D Vector",
+                    "id": "a2789d5b-145f-4304-87ab-119b360e1c89",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Vertical",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "fa999403-3e2c-410f-b918-94cbb8ac80bb",
+                    "path": "<XRController>/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
                     "action": "Vertical",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "888edfde-0df0-41a2-8140-e7a4cab27c6b",
+                    "path": "<XRController>/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "2bbfdfbd-1ba0-4571-a880-a5a4463001ba",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "8679d33e-57c0-4d96-bd77-806e2aba126e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -404,7 +440,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Edit",
+                    "action": "StartEdit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -415,51 +451,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "EndEdit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a3e97dc5-2878-4565-a870-aaa441b7e6e2",
-                    "path": "<Keyboard>/comma",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "RotLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "56b66ed6-e6aa-46ac-84c5-e541aaf36263",
-                    "path": "<Keyboard>/period",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "RotRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4b96dd7b-60ef-443d-8a3b-668fc0261617",
-                    "path": "<Keyboard>/equals",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "ScaleIn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f2dfdd2a-da6f-4e69-9a71-20fa178e9de0",
-                    "path": "<Keyboard>/minus",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "ScaleOut",
+                    "action": "StopSaveEdit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -486,24 +478,156 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "5e54b5d7-eeb8-455f-b044-624812523944",
-                    "path": "<Mouse>/leftButton",
+                    "name": "2D Vector",
+                    "id": "c606309e-0944-4b96-bf1a-5adfda5a55b4",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MultiSelect",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "001408cc-86af-48ee-a2a1-e0e64cd34b7d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "6589643f-00c8-488b-b660-2d5a042892cc",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e3274da7-d489-418a-bf89-3dc2ff0a262d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "2e73ae53-8eca-498a-a59b-613ef1e73609",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "MultiSelect",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Pan/Zoom",
+                    "id": "9f6da5b4-9985-476b-9aa5-9bfd1a541081",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PanZoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "9cab0e86-721a-4e98-88a7-d3532da8cffc",
+                    "path": "<Keyboard>/minus",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "UnSelect",
+                    "action": "PanZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "6fdfae6f-243f-42f9-970c-0280d30054b3",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PanZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "837d5f0f-9280-402f-8930-9be0763c0800",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PanZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ca98965e-89e7-4e66-9274-98b959d42281",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "PanZoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5d0aa2ef-6f04-46c2-91ae-bce9271ddf2d",
+                    "path": "<XRController>{LeftHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "PanZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "0b3cda67-de3c-47aa-abfd-52444c19ce24",
-                    "path": "<Mouse>/rightButton",
+                    "id": "307ce26d-2ac7-4b1a-9be4-d92c49c27714",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShowMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f5f7c64-382c-4a1e-8a01-b9d1bc93e8af",
+                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "UnSelect",
+                    "action": "StopDiscardEdit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca988316-eec6-456b-8397-ccbd6b27b69c",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ShowLayers",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
