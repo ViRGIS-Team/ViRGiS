@@ -97,7 +97,8 @@ namespace Virgis {
                 Datapoint[] vertexes;
                 switch (dataType) {
                     case RecordSetDataType.Point:
-                        var _ = editableLayer.AddFeature(new Vector3[1] { posWhenSinglePress });
+                        VirgisComponent point = editableLayer.AddFeature(new Vector3[1] { posWhenSinglePress });
+                        point.UnSelected(SelectionTypes.SELECT);
                         break;
                     case RecordSetDataType.Line:
                         //Debug.Log($"ShapeAdder add Vertex");
@@ -109,6 +110,7 @@ namespace Virgis {
                             vertexes = (_newFeature as Dataline).GetVertexes();
                             _firstVertex = vertexes[0];
                             _lastVertex.Add(vertexes[1]);
+                            _firstVertex.UnSelected(SelectionTypes.SELECT);
                         }
                         break;
                     case RecordSetDataType.Polygon:
@@ -117,6 +119,7 @@ namespace Virgis {
                                 _newFeature.transform.GetComponentInChildren<Dataline>().AddVertex(posWhenSinglePress);
                                 (_newFeature as Datapolygon).ResetCenter();
                             } else {
+                                _lastVertex[0].UnSelected(SelectionTypes.SELECT);
                                 _lastVertex.RemoveAt(0);
                                 (_newFeature as Datapolygon).ResetCenter();
                             }
@@ -128,7 +131,7 @@ namespace Virgis {
                             _firstVertex = vertexes[0];
                             _lastVertex.Add(vertexes[1]);
                             _lastVertex.Add(vertexes[2]);
-                            ;
+                            _firstVertex.UnSelected(SelectionTypes.SELECT);
                         }
                         break;
                 }
@@ -143,22 +146,26 @@ namespace Virgis {
                 switch (dataType) {
                     case RecordSetDataType.Line:
                         if (_newFeature != null) {
+                            VirgisComponent temp = _lastVertex[0];
+                            _lastVertex.Clear();
+                            temp.UnSelected(SelectionTypes.SELECT);
                             // if edit mode is snap to anchor and start and end vertexes are at the same position
                             // call Dataline.MakeLinearRing()
                             if (_appState.editSession.mode == EditSession.EditMode.SnapAnchor && 
-                                _firstVertex.transform.position == _lastVertex[0].transform.position) {
+                                _firstVertex.transform.position == temp.transform.position) {
                                 (_newFeature as Dataline).MakeLinearRing();
                             }
                             // complete adding line feature
                             _newFeature = null;
-                            _lastVertex.Clear();
                         }
                         break;
                     case RecordSetDataType.Polygon:
                         if (_newFeature != null) {
                             // complete adding line feature
                             _newFeature = null;
+                            VirgisComponent temp = _lastVertex[0];
                             _lastVertex.Clear();
+                            temp.UnSelected(SelectionTypes.SELECT);
                         }
                         break;
                 }

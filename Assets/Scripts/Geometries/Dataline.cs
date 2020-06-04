@@ -10,6 +10,7 @@ using Project;
 using g3;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.UIElements;
 
 namespace Virgis
 {
@@ -46,24 +47,13 @@ namespace Virgis
 
         public override void VertexMove(MoveArgs data)
         {
-            if (VertexTable.Contains(new VertexLookup() { Id = data.id}))
-            {
+            if (VertexTable.Contains(new VertexLookup() { Id = data.id})) {
                 VertexLookup vdata = VertexTable.Find(item => item.Id == data.id);
-                if (vdata.isVertex)
-                {
-                    for (int i = 0; i < gameObject.transform.childCount; i++)
-                    {
-                        GameObject go = gameObject.transform.GetChild(i).gameObject;
-                        LineSegment goFunc = go.GetComponent<LineSegment>();
-                        if (goFunc != null && goFunc.vStart == vdata.Vertex)
-                        {
-                            goFunc.MoveStart(data.pos);
-                        }
-                        else if (goFunc != null && goFunc.vEnd == vdata.Vertex)
-                        {
-                            goFunc.MoveEnd(data.pos);
-                        }
-                    }
+                foreach (VertexLookup vLookup in VertexTable) {
+                    if (vLookup.Line && vLookup.Line.vStart == vdata.Vertex)
+                        vLookup.Line.MoveStart(data.pos);
+                    if (vLookup.Line && vLookup.Line.vEnd == vdata.Vertex)
+                        vLookup.Line.MoveEnd(data.pos);
                 }
             }
         }
@@ -155,11 +145,19 @@ namespace Virgis
         }
 
         public void MakeLinearRing() {
-            // create line segment from start vertex to end vertex
-            // set Lr = true
-            Vector3[] vPos = GetVertexPositions();
-            _createSegment(vPos[vPos.Length - 1], vPos[0], vPos.Length - 1, true);
-            Lr = true;
+            // Make the Line inot a Linear ring
+            if (!Lr) {
+                if (VertexTable.First().Com.transform.position == VertexTable.Last().Com.transform.position) {
+                    VertexTable.Last().Com.Destroy();
+                    VertexTable.RemoveAt(VertexTable.Count - 1);
+                    VertexTable.Last().Line.MoveEnd(VertexTable.First().Com.transform.position);
+                    VertexTable.Last().Line.vEnd = 0;
+                } else {
+                    VertexTable.Last().Line = _createSegment(VertexTable.Last().Com.transform.position, VertexTable.First().Com.transform.position, VertexTable.Count -1, true);
+                }
+
+                Lr = true;
+            }
         }
 
         /// <summary>
@@ -291,6 +289,7 @@ namespace Virgis
             Datapoint vertex = _createVertex(position, start);
             _createSegment(position, VertexTable.Find(item => item.Vertex == end).Com.transform.position, start, end == 0);
             transform.parent.SendMessage("AddVertex", position, SendMessageOptions.DontRequireReceiver);
+            vertex.UnSelected(SelectionTypes.SELECT);
             return vertex;
         }
 
