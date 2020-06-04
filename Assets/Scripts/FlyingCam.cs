@@ -441,7 +441,7 @@ namespace Virgis {
         }
 
         private void MoveCamera(Vector3 force) {
-            _thisRigidbody.AddForce(appState.trackingSpace.transform.localRotation * force, ForceMode.Force);
+            _thisRigidbody.AddForce(appState.trackingSpace.transform.rotation * force, ForceMode.Force);
         }
 
         private void AddVertex(Vector3 pos) {
