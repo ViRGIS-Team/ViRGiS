@@ -16,6 +16,11 @@ namespace Virgis
         public Material material;
         public GameObject handle;
         public List<GameObject> meshes;
+        public Material HandleMaterial;
+
+        private Dictionary<string, Unit> symbology;
+        private Material mainMat;
+        private Material selectedMat;
 
         private async Task<SimpleMeshBuilder> loadObj(string filename)
         {
@@ -46,6 +51,14 @@ namespace Virgis
             MeshData Mesh = new MeshData();
             Mesh.Mesh = await loadObj(layer.Source);
             features = Mesh;
+            symbology = layer.Properties.Units;
+
+            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            mainMat = Instantiate(HandleMaterial);
+            mainMat.SetColor("_BaseColor", col);
+            selectedMat = Instantiate(HandleMaterial);
+            selectedMat.SetColor("_BaseColor", sel);
         }
 
         protected override VirgisComponent _addFeature(Vector3[] geometry)
@@ -75,7 +88,7 @@ namespace Virgis
             GameObject centreHandle = Instantiate(handle, gameObject.transform.position, Quaternion.identity);
             centreHandle.transform.parent = transform;
             centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
-            centreHandle.SendMessage("SetColor", (Color)symbology["handle"].Color);
+            centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
 
         }
 
