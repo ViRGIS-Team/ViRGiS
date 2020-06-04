@@ -99,7 +99,7 @@ namespace Virgis {
             // add the gis data from geoJSON
             Datapoint com = dataPoint.GetComponent<Datapoint>();
             com.gisId = gisId;
-            com.gisProperties = properties;
+            com.gisProperties = properties ?? new Dictionary<string, object>();
             com.SetMaterial(mainMat, selectedMat);
 
             //Set the symbology
