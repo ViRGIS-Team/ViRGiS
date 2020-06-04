@@ -97,17 +97,17 @@ namespace Virgis {
 
         private void OnLayerPanelEditSelected(LayerUIPanel layerPanel, bool selected) {
             if (selected) {
-                ILayer oldEditableLayer = _appState.editableLayer;
-                _appState.editableLayer = layerPanel.layer;
+                ILayer oldEditableLayer = _appState.editSession.editableLayer;
+                _appState.editSession.editableLayer = layerPanel.layer;
                 if (oldEditableLayer != null)
                     _layersMap[oldEditableLayer.GetId()].editLayerToggle.isOn = false;
             } else {
-                ILayer oldEditableLayer = _appState.editableLayer;
-                _appState.editableLayer = null;
+                ILayer oldEditableLayer = _appState.editSession.editableLayer;
+                _appState.editSession.editableLayer = null;
                 if (oldEditableLayer != null)
                     _layersMap[oldEditableLayer.GetId()].editLayerToggle.isOn = false;
             }
-            printEditStatus();
+            //printEditStatus();
         }
 
         private void printEditStatus() {

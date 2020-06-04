@@ -4,6 +4,7 @@ using GeoJSON.Net;
 using GeoJSON.Net.Feature;
 using GeoJSON.Net.Geometry;
 using Project;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -35,6 +36,8 @@ namespace Virgis {
         private Material lineMain;
         private Material lineSelected;
 
+        //private List<GameObject> _tempGOs = new List<GameObject>();
+        //private List<GameObject> _vertices = new List<GameObject>();
 
         protected override async Task _init(GeographyCollection layer) {
             geoJsonReader = new GeoJsonReader();
@@ -92,8 +95,8 @@ namespace Virgis {
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override void _addFeature(MoveArgs args) {
-            throw new System.NotImplementedException();
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+            return _drawFeature(geometry);
         }
 
         protected override void _draw() {
@@ -123,7 +126,7 @@ namespace Virgis {
         /// <param name="Lr"> boolean Is the line a linear ring , deafult false</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected void _drawFeature(Vector3[] line, bool Lr = false, string gisId = null, Dictionary<string, object> properties = null) {
+        protected VirgisComponent _drawFeature(Vector3[] line, bool Lr = false, string gisId = null, Dictionary<string, object> properties = null) {
             GameObject dataLine = Instantiate(LinePrefab, transform, false);
 
             //set the gisProject properties
@@ -133,6 +136,8 @@ namespace Virgis {
 
             //Draw the line
             com.Draw(line, Lr, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
+
+            return com;
         }
 
         protected override void _checkpoint() {
@@ -142,7 +147,7 @@ namespace Virgis {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Dataline dataFeature in dataFeatures) {
-                Vector3[] vertices = dataFeature.GetVerteces();
+                Vector3[] vertices = dataFeature.GetVertexPositions();
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);
@@ -155,6 +160,13 @@ namespace Virgis {
             geoJsonReader.SetFeatureCollection(FC);
             geoJsonReader.Save();
             features = FC;
+        }
+
+        public override GameObject GetFeatureShape() {
+            GameObject fs = Instantiate(HandlePrefab);
+            Datapoint com = fs.GetComponent<Datapoint>();
+            com.SetMaterial(mainMat, selectedMat);
+            return fs;
         }
 
         public override void Translate(MoveArgs args) {
