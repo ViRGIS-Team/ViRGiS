@@ -42,13 +42,13 @@ namespace Virgis
         public override void UnSelected(SelectionTypes button){
             thisRenderer.material = mainMat;
             if (button != SelectionTypes.BROADCAST){
-                transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
                 MoveArgs args = new MoveArgs();
                 switch (AppState.instance.editSession.mode){
                     case EditSession.EditMode.None:
                         break;
                     case EditSession.EditMode.SnapAnchor:
-                        List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2 ), Quaternion.identity).ToList().FindAll( item => item.transform.position != transform.position);
+                        LayerMask layerMask = UnityLayers.POINT;
+                        List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2 ), Quaternion.identity, layerMask).ToList().FindAll( item => item.transform.position != transform.position);
                         if (hitColliders.Count > 0)
                         {
                             args.oldPos = transform.position;
@@ -67,6 +67,7 @@ namespace Virgis
                         break;
                 }
             }
+            transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
         }
 
  

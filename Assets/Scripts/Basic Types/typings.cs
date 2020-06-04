@@ -34,6 +34,29 @@ namespace Virgis
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
     }
 
+    public static class UnityLayers {
+        public static LayerMask POINT { 
+            get {
+                return LayerMask.GetMask("Pointlike Entities");
+            }
+        }
+        public static LayerMask LINE { 
+            get {
+                return LayerMask.GetMask("Linelike Entities");
+            } 
+        }
+        public static LayerMask SHAPE {
+            get {
+                return LayerMask.GetMask("Shapelike Entities");
+            }
+        }
+        public static LayerMask MESH {
+            get {
+                return LayerMask.GetMask("Meshlike Entities");
+            }
+        }
+    }
+
     public static class Vector3ExtebnsionMethods {
         /// <summary>
         /// Convert Vector3 World Space location to Position taking account of zoom, scale and mapscale
