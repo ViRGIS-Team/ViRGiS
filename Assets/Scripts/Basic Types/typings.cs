@@ -168,7 +168,7 @@ namespace Virgis
         }
 
         /// <summary>
-        /// Converts a DCurve into Vector3[]
+        /// Estimates the 3D centroid of a DCurve 
         /// </summary>
         /// <param name="curve">DCurve</param>
         /// <returns>Vector3[]</returns>
@@ -186,7 +186,7 @@ namespace Virgis
         }
 
         /// <summary>
-        /// Estimates the 3D Centroid of a 3d SCurve
+        /// Estimates the nearest point on a DCurve to the centroid of that DCurve
         /// </summary>
         /// <param name="curve">g3.DCurve</param>
         /// <returns>g3.Vector3d Centroid</returns>

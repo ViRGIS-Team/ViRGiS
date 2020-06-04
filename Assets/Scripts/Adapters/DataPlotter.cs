@@ -98,7 +98,7 @@ namespace Virgis {
             }
         }
 
-        protected override VirgisComponent _addFeature(Vector3 position) {
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {
             throw new NotImplementedException();
         }
 

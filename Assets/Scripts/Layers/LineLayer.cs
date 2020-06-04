@@ -4,6 +4,7 @@ using GeoJSON.Net;
 using GeoJSON.Net.Feature;
 using GeoJSON.Net.Geometry;
 using Project;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -94,10 +95,8 @@ namespace Virgis {
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3 position) {
-            Vector3 pos2 = new Vector3(position.x, position.y + 0.01f, position.z);
-            Vector3[] newVertices = new Vector3[] { position, pos2 };
-            return _drawFeature(newVertices);
+        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+            return _drawFeature(geometry);
         }
 
         protected override void _draw() {
@@ -148,7 +147,7 @@ namespace Virgis {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Dataline dataFeature in dataFeatures) {
-                Vector3[] vertices = dataFeature.GetVerteces();
+                Vector3[] vertices = dataFeature.GetVertexPositions();
                 List<Position> positions = new List<Position>();
                 foreach (Vector3 vertex in vertices) {
                     positions.Add(vertex.ToPosition() as Position);
@@ -164,7 +163,10 @@ namespace Virgis {
         }
 
         public override GameObject GetFeatureShape() {
-            return HandlePrefab;
+            GameObject fs = Instantiate(HandlePrefab);
+            Datapoint com = fs.GetComponent<Datapoint>();
+            com.SetMaterial(mainMat, selectedMat);
+            return fs;
         }
 
         public override void Translate(MoveArgs args) {

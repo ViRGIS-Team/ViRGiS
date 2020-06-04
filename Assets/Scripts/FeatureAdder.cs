@@ -1,4 +1,5 @@
-﻿using Project;
+﻿using GeoJSON.Net.Feature;
+using Project;
 using SQLite4Unity3d;
 using System;
 using System.Collections;
@@ -18,9 +19,10 @@ namespace Virgis {
         private IEnumerator _timer;
         private bool _waitingForSecondPress;
 
-        // variables for adding feature
+        // variables for adding feature - currently used for Line and Polygon features
         private VirgisComponent _newFeature;
-        private Datapoint _lineVertex;
+        private Datapoint _firstVertex;
+        private List<Datapoint> _lastVertex = new List<Datapoint>();
 
         // Start is called before the first frame update
         void Start() {
@@ -39,7 +41,7 @@ namespace Virgis {
             if (_appState.editSession.IsActive() && (_newFeature != null)) {
                 MoveArgs args = new MoveArgs();
                 args.pos = _markerShape.transform.position;
-                _lineVertex.MoveTo(args);
+                _lastVertex.ForEach( dp =>  dp.MoveTo(args));
             }
         }
 
@@ -50,7 +52,7 @@ namespace Virgis {
                 _waitingForSecondPress = false;
                 OnTriggerDoublePress();
             } else {
-                _timer = WaitForSecondTriggerPress();
+                _timer = WaitForSecondTriggerPress(_markerShape.transform.position);
                 StartCoroutine(_timer);
                 _waitingForSecondPress = true;
             }
@@ -87,28 +89,45 @@ namespace Virgis {
             _markerShape.SetActive(false);
         }
 
-        private void OnTriggerSinglePress() {
+        private void OnTriggerSinglePress(Vector3 posWhenSinglePress) {
             Debug.Log("ShapeAdder OnTriggerSinglePress");
             if (_appState.editSession.IsActive()) {
                 ILayer editableLayer = _appState.editSession.editableLayer;
                 RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
+                Datapoint[] vertexes;
                 switch (dataType) {
                     case RecordSetDataType.Point:
-                        Debug.Log("ShapeAdder Add Point Feature");
-                        editableLayer.AddFeature(_markerShape.transform.position);
-                        //GameObject newShape = Instantiate(blueCubePrefab, _markerShape.transform.position, _markerShape.transform.rotation);
+                        var _ = editableLayer.AddFeature(new Vector3[1] { posWhenSinglePress });
                         break;
                     case RecordSetDataType.Line:
                         //Debug.Log($"ShapeAdder add Vertex");
                         if (_newFeature != null) {
-                            Vector3 markerPos = _markerShape.transform.position;
-                            markerPos.y += 0.01f;
-                            _lineVertex = _newFeature.AddVertex(markerPos) as Datapoint;
+                            _newFeature.AddVertex(posWhenSinglePress);
                         } else {
-                            _newFeature = editableLayer.AddFeature(_markerShape.transform.position);
+                            _newFeature = editableLayer.AddFeature(new Vector3[2] { posWhenSinglePress, posWhenSinglePress + Vector3.one * Single.Epsilon });
                             // get the last vertex
-                            Datapoint[] vertexes = (_newFeature as Dataline).GetVertexes();
-                            _lineVertex = vertexes[1];
+                            vertexes = (_newFeature as Dataline).GetVertexes();
+                            _firstVertex = vertexes[0];
+                            _lastVertex.Add(vertexes[1]);
+                        }
+                        break;
+                    case RecordSetDataType.Polygon:
+                        if (_newFeature != null ) {
+                            if (_lastVertex.Count == 1) {
+                                _newFeature.transform.GetComponentInChildren<Dataline>().AddVertex(posWhenSinglePress);
+                                (_newFeature as Datapolygon).ResetCenter();
+                            } else {
+                                _lastVertex.RemoveAt(0);
+                                (_newFeature as Datapolygon).ResetCenter();
+                            }
+                            
+                        } else {
+                            Debug.Log("ShapeAdder Add Polygon Feature");
+                            _newFeature = editableLayer.AddFeature(new Vector3[4] { posWhenSinglePress, posWhenSinglePress + Vector3.right * Single.Epsilon, posWhenSinglePress + Vector3.up * Single.Epsilon, posWhenSinglePress });
+                            vertexes = (_newFeature as Datapolygon).GetVertexes();
+                            _firstVertex = vertexes[0];
+                            _lastVertex.Add(vertexes[1]);
+                            _lastVertex.Add(vertexes[2]);
                         }
                         break;
                 }
@@ -123,9 +142,22 @@ namespace Virgis {
                 switch (dataType) {
                     case RecordSetDataType.Line:
                         if (_newFeature != null) {
+                            // if edit mode is snap to anchor and start and end vertexes are at the same position
+                            // call Dataline.MakeLinearRing()
+                            if (_appState.editSession.mode == EditSession.EditMode.SnapAnchor && 
+                                _firstVertex.transform.position == _lastVertex[0].transform.position) {
+                                (_newFeature as Dataline).MakeLinearRing();
+                            }
                             // complete adding line feature
                             _newFeature = null;
-                            _lineVertex = null;
+                            _lastVertex.Clear();
+                        }
+                        break;
+                    case RecordSetDataType.Polygon:
+                        if (_newFeature != null) {
+                            // complete adding polygon feature
+                            _newFeature = null;
+                            _lastVertex.Clear();
                         }
                         break;
                 }
@@ -140,15 +172,21 @@ namespace Virgis {
                 if (featureShape == null) {
                     return defaultMarkerShape;
                 } else {
-                    GameObject go = Instantiate(featureShape, defaultMarkerShape.transform.position, defaultMarkerShape.transform.rotation, transform);
-                    go.transform.localScale = defaultMarkerShape.transform.localScale;
-                    _markerShapeMap.Add(layer.GetId(), go);
-                    return go;
+                    featureShape.transform.parent = transform;
+                    featureShape.transform.position = defaultMarkerShape.transform.position;
+                    featureShape.transform.rotation = defaultMarkerShape.transform.rotation;
+                    featureShape.transform.localScale = defaultMarkerShape.transform.localScale;
+                    _markerShapeMap.Add(layer.GetId(), featureShape);
+                    return featureShape;
+                    //GameObject go = Instantiate(featureShape, defaultMarkerShape.transform.position, defaultMarkerShape.transform.rotation, transform);
+                    //go.transform.localScale = defaultMarkerShape.transform.localScale;
+                    //_markerShapeMap.Add(layer.GetId(), go);
+                    //return go;
                 }
             }
         }
 
-        private IEnumerator WaitForSecondTriggerPress() {
+        private IEnumerator WaitForSecondTriggerPress(Vector3 posWhenSinglePress) {
             //Debug.Log("ShapeAdder WaitForSecondPress starts");
             float eventTime = Time.unscaledTime + 0.5f;
             while (Time.unscaledTime < eventTime)
@@ -156,7 +194,7 @@ namespace Virgis {
             //yield return new WaitForSecondsRealtime(0.5f);
             //Debug.Log("ShapeAdder WaitForSecondPress ends");
             _waitingForSecondPress = false;
-            OnTriggerSinglePress();
+            OnTriggerSinglePress(posWhenSinglePress);
         }
 
     }

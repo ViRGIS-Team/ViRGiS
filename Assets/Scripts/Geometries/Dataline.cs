@@ -154,11 +154,19 @@ namespace Virgis
             }
         }
 
+        public void MakeLinearRing() {
+            // create line segment from start vertex to end vertex
+            // set Lr = true
+            Vector3[] vPos = GetVertexPositions();
+            _createSegment(vPos[vPos.Length - 1], vPos[0], vPos.Length - 1, true);
+            Lr = true;
+        }
+
         /// <summary>
         /// called to get the verteces of the LineString
         /// </summary>
         /// <returns>Vector3[] of verteces</returns>
-        public Vector3[] GetVerteces()
+        public Vector3[] GetVertexPositions()
         {
             Vector3[] result = new Vector3[VertexTable.Count];
             for (int i = 0; i < result.Length; i++)
@@ -224,7 +232,7 @@ namespace Virgis
         {
 
             string result = "(";
-            foreach (Vector3 vertex in GetVerteces())
+            foreach (Vector3 vertex in GetVertexPositions())
             {
                 result += "{vertex.x} {vertex.y} {vertex.z},";
             }
@@ -251,7 +259,7 @@ namespace Virgis
 
         public override VirgisComponent AddVertex(Vector3 position) {
             DCurve3 curve = new DCurve3();
-            curve.Vector3(GetVerteces(), Lr);
+            curve.Vector3(GetVertexPositions(), Lr);
             LineSegment segment = VertexTable.Find(item => item.Vertex == curve.NearestSegment(position)).Line;
             return AddVertex(segment, position);
         }
