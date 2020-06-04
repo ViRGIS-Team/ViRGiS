@@ -132,8 +132,7 @@ namespace Virgis {
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
             com.gisId = gisId;
-            com.gisProperties = properties;
-
+            com.gisProperties = properties ?? new Dictionary<string, object>();
             //Draw the line
             com.Draw(line, Lr, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
 

@@ -161,7 +161,7 @@ namespace Virgis {
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
             Datapoint c = centroid.GetComponent<Datapoint>();
             p.gisId = gisId;
-            p.gisProperties = properties;
+            p.gisProperties = properties ?? new Dictionary<string, object>();
             p.Centroid = c;
             c.SetMaterial(mainMat, selectedMat);
 

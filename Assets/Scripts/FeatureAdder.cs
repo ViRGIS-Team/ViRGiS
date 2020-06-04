@@ -149,7 +149,6 @@ namespace Virgis {
                             _lastVertex.Clear();
                             temp.UnSelected(SelectionTypes.SELECT);
                             // if edit mode is snap to anchor and start and end vertexes are at the same position
-                            // call Dataline.MakeLinearRing()
                             if (_appState.editSession.mode == EditSession.EditMode.SnapAnchor && 
                                 _firstVertex.transform.position == temp.transform.position) {
                                 (_newFeature as Dataline).MakeLinearRing();
@@ -185,10 +184,6 @@ namespace Virgis {
                     featureShape.transform.localScale = defaultMarkerShape.transform.localScale;
                     _markerShapeMap.Add(layer.GetId(), featureShape);
                     return featureShape;
-                    //GameObject go = Instantiate(featureShape, defaultMarkerShape.transform.position, defaultMarkerShape.transform.rotation, transform);
-                    //go.transform.localScale = defaultMarkerShape.transform.localScale;
-                    //_markerShapeMap.Add(layer.GetId(), go);
-                    //return go;
                 }
             }
         }
@@ -198,7 +193,6 @@ namespace Virgis {
             float eventTime = Time.unscaledTime + 0.5f;
             while (Time.unscaledTime < eventTime)
                 yield return null;
-            //yield return new WaitForSecondsRealtime(0.5f);
             //Debug.Log("ShapeAdder WaitForSecondPress ends");
             _waitingForSecondPress = false;
             OnTriggerSinglePress(posWhenSinglePress);
