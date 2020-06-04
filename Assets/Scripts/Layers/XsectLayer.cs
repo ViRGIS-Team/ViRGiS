@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using Project;
 using System;
+using g3;
 
 namespace Virgis
 {
@@ -39,7 +40,7 @@ namespace Virgis
             features = egbReader.features;
         }
 
-        protected override VirgisComponent _addFeature(Vector3 position)
+        protected override VirgisComponent _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
@@ -108,7 +109,9 @@ namespace Virgis
                 int length = top.Length;
 
                 Vector3[]  poly = new Vector3[4] { bottom[1], top[1], top[0],bottom[0]};
-                Vector3 center = Datapolygon.FindCenter(poly);
+                DCurve3 curve = new DCurve3();
+                curve.Vector3(poly, true);
+                Vector3 center = (Vector3) curve.Center();
 
                 List<VertexLookup> VertexTable = new List<VertexLookup>();
                 VertexTable.Add(new VertexLookup() { Id = System.Guid.NewGuid(), Vertex = -1 });
