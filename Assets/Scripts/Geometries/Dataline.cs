@@ -147,11 +147,14 @@ namespace Virgis
         public void MakeLinearRing() {
             // Make the Line inot a Linear ring
             if (!Lr) {
-                if (VertexTable.First().Com.transform.position == VertexTable.Last().Com.transform.position) {
-                    VertexTable.Last().Com.Destroy();
-                    VertexTable.RemoveAt(VertexTable.Count - 1);
-                    VertexTable.Last().Line.MoveEnd(VertexTable.First().Com.transform.position);
-                    VertexTable.Last().Line.vEnd = 0;
+                VertexLookup First = VertexTable.Find(item => item.Vertex == 0);
+                VertexLookup Last = VertexTable.Find(item => item.Vertex == VertexTable.Count - 1);
+                if (First.Com.transform.position == Last.Com.transform.position) {
+                    Last.Com.gameObject.Destroy();
+                    VertexTable.Remove(Last);
+                    Last = VertexTable.Find(item => item.Vertex == Last.Vertex - 1);
+                    Last.Line.MoveEnd(First.Com.transform.position);
+                    Last.Line.vEnd = 0;
                 } else {
                     VertexTable.Last().Line = _createSegment(VertexTable.Last().Com.transform.position, VertexTable.First().Com.transform.position, VertexTable.Count -1, true);
                 }
@@ -166,18 +169,15 @@ namespace Virgis
         /// <returns>Vector3[] of verteces</returns>
         public Vector3[] GetVertexPositions()
         {
-            Vector3[] result = new Vector3[VertexTable.Count];
-            for (int i = 0; i < result.Length; i++)
-            {
-                if (Lr && (i == result.Length - 1))
-                {
-                    result[i] = result[0];
-                } else
-                {
-                    result[i] = VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position;
+            List<Vector3> result = new List<Vector3>();
+            int vertexCount = 0;
+            VertexTable.ForEach(item => { if (item.Vertex > vertexCount) vertexCount = item.Vertex;});
+            for (int i = 0; i < vertexCount +1; i++) {
+                    result.Add(VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position);
                 }
-            }
-            return result;
+            if (Lr)
+                result.Add(result[0]);
+            return result.ToArray();
         }
 
         public Datapoint[] GetVertexes() {

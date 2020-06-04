@@ -207,7 +207,7 @@ namespace Virgis {
                 }
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
-                IDictionary<string, object> properties = dataFeature.gisProperties;
+                Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string,object> ?? new Dictionary<string,object>();
                 Datapoint centroid = dataFeature.Centroid;
                 properties["polyhedral"] = centroid.transform.position.ToPoint();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
@@ -217,6 +217,7 @@ namespace Virgis {
             geoJsonReader.Save();
             features = FC;
         }
+
 
         public override GameObject GetFeatureShape() {
             GameObject fs = Instantiate(HandlePrefab);
