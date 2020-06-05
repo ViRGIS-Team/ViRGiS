@@ -39,7 +39,7 @@ namespace Virgis {
 
             Dictionary<string, Unit> symbology = new Dictionary<string, Unit>();
             float displacement = 1.0f;
-            if (layer.Properties.Contains("Units")) {
+            if (layer.Properties.ContainsKey("Units")) {
                 symbology = layer.Properties["Units"] as Dictionary<string, Unit>;
                 if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
                     Shapes shape = symbology["point"].Shape;
@@ -62,8 +62,8 @@ namespace Virgis {
                     PointPrefab = SpherePrefab;
                 }
             }
-            if (layer.Properties.Contains("lat") && features[0].ContainsKey(layer.Properties["lat"] as string) 
-                && layer.Properties.Contains("lon") && features[0].ContainsKey(layer.Properties["lon"] as string)) {
+            if (layer.Properties.ContainsKey("lat") && features[0].ContainsKey(layer.Properties["lat"] as string) 
+                && layer.Properties.ContainsKey("lon") && features[0].ContainsKey(layer.Properties["lon"] as string)) {
                 foreach (CSVRow feature in features) {
                     Position position = new Position((double)feature[layer.Properties["lat"] as string], (double) feature[layer.Properties["lon"] as string]);
 

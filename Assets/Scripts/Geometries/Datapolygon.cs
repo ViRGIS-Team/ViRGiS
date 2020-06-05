@@ -3,9 +3,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using GeoJSON.Net.Geometry;
-using System;
-using System.Runtime.InteropServices;
 using g3;
 
 namespace Virgis
@@ -100,7 +97,7 @@ namespace Virgis
         {
             
             VertexTable = verteces;
-            VertexTable.Add(new VertexLookup() { Id = Centroid.id, Vertex = -1, Com = Centroid });
+            VertexTable.Add(new VertexLookup() { Id = Centroid.GetId(), Vertex = -1, Com = Centroid });
             
             Shape = new GameObject("Polygon Shape");
             Shape.transform.parent = gameObject.transform;
@@ -292,16 +289,6 @@ namespace Virgis
 
             }
             return uvs;
-        }
-
-        public override Vector3 GetClosest(Vector3 coords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T GetGeometry<T>()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

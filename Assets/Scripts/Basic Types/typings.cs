@@ -5,7 +5,6 @@ using GeoJSON.Net.Geometry;
 using g3;
 using System;
 using Mapbox.Unity.Utilities;
-using Mapbox.Utils;
 
 
 namespace Virgis

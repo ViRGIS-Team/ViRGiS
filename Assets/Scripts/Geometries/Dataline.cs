@@ -4,13 +4,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using GeoJSON.Net.Geometry;
-using Mapbox.Unity.Map;
 using Project;
 using g3;
 using UnityEngine.UI;
 using System.Linq;
-using UnityEngine.UIElements;
 
 namespace Virgis
 {
@@ -245,16 +242,6 @@ namespace Virgis
             throw new NotImplementedException();
         }
 
-        public override Vector3 GetClosest(Vector3 coords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T GetGeometry<T>()
-        {
-            throw new NotImplementedException();
-        }
-
         public override VirgisComponent AddVertex(Vector3 position) {
             DCurve3 curve = new DCurve3();
             curve.Vector3(GetVertexPositions(), Lr);
@@ -297,7 +284,7 @@ namespace Virgis
             if (BlockMove) {
                 gameObject.Destroy();
             } else {
-                VertexLookup vLookup = VertexTable.Find(item => item.Id == vertex.id);
+                VertexLookup vLookup = VertexTable.Find(item => item.Com == vertex);
                 if (vLookup.isVertex) {
                     int thisVertex = vLookup.Vertex;
                     if (vLookup.Line != null) {
@@ -341,7 +328,7 @@ namespace Virgis
         private Datapoint _createVertex(Vector3 vertex, int i) {
             GameObject handle = Instantiate(HandlePrefab, vertex, Quaternion.identity, transform );
             Datapoint com = handle.GetComponent<Datapoint>();
-            VertexTable.Add(new VertexLookup() { Id = com.id, Vertex = i, isVertex = true, Com = com });
+            VertexTable.Add(new VertexLookup() { Id = com.GetId(), Vertex = i, isVertex = true, Com = com });
             com.SetMaterial(mainMat, selectedMat);
             handle.transform.localScale = symbology["point"].Transform.Scale;
             return com;

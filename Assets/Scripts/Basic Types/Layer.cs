@@ -8,40 +8,17 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public interface ILayer {
+    public interface ILayer: IVirgisEntity {
 
         VirgisComponent AddFeature(Vector3[] geometry);
-
         void Draw();
-
         void CheckPoint();
-
         RecordSet Save();
-
-        VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
-
         VirgisComponent GetFeature(Guid id);
-
-        Guid GetId();
-
-        RecordSet GetMetadata();
-
         GameObject GetFeatureShape();
-
         void SetVisible(bool visible);
-
         bool IsVisible();
-
-        /// <summary>
-        /// Sets a marker that this particular layer is being edited.
-        /// </summary>
-        /// 
-        /// There can be only one layer being edited during an edit session.
-        /// 
-        /// <param name="inSession"></param> true to indicate that this layer is in edit session,
-        /// or false if otherwise.
         void SetEditable(bool inSession);
-
         bool IsEditable();
     }
 
@@ -181,13 +158,25 @@ namespace Virgis {
         /// Called Whenever a member entity is asked to Translate
         /// </summary>
         /// <param name="args">MoveArge Object</param>
-        public abstract void Translate(MoveArgs args);
+        public virtual void Translate(MoveArgs args) {
+            //do nothing
+        }
 
         /// <summary>
         /// Called whenevr a member entity is asked to Change Axis
         /// </summary>
         /// <param name="args">MoveArgs Object</param>
-        public abstract void MoveAxis(MoveArgs args);
+        public virtual void MoveAxis(MoveArgs args) {
+            // do nothing 
+        }
+
+        public virtual void MoveTo(MoveArgs args) {
+            //do nothing
+        }
+
+        public virtual void VertexMove(MoveArgs args) {
+            //do nothing 
+        }
 
         /// <summary>
         /// Called when an edit session starts
@@ -227,7 +216,7 @@ namespace Virgis {
         /// <returns>returns the featue contained in an enitity of type S</returns>
         public VirgisComponent GetClosest(Vector3 coords, Guid[] exclude) {
             List<VirgisComponent> list = transform.GetComponentsInChildren<VirgisComponent>().ToList();
-            list = list.FindAll(item => !exclude.Contains(item.id));
+            list = list.FindAll(item => !exclude.Contains(item.GetId()));
             KdTree<VirgisComponent> tree = new KdTree<VirgisComponent>();
             tree.AddAll(list);
             return tree.FindClosest(transform.position) as VirgisComponent;
@@ -239,16 +228,25 @@ namespace Virgis {
         /// <param name="id"> ID</param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
         public VirgisComponent GetFeature(Guid id) {
-            return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
+            return GetComponents<VirgisComponent>().ToList().Find(item => item.GetId() == id);
         }
 
+        /// <summary>
+        /// Fecth the layer GUID
+        /// </summary>
+        /// <returns>GUID</returns>
         public Guid GetId() {
             return _id;
         }
 
+        /// <summary>
+        /// Fetch the metadata for this Layer
+        /// </summary>
+        /// <returns></returns>
         public RecordSet GetMetadata() {
             return layer;
         }
+
 
         public abstract GameObject GetFeatureShape();
 
@@ -262,16 +260,41 @@ namespace Virgis {
             }
         }
 
+        /// <summary>
+        /// Test if this layer is currently visible
+        /// </summary>
+        /// <returns>Boolean</returns>
         public bool IsVisible() {
             return _visible;
         }
 
+        /// <summary>
+        /// Sets a marker that this particular layer is being edited.
+        /// </summary>
+        /// 
+        /// There can be only one layer being edited during an edit session.
+        /// 
+        /// <param name="inSession"></param> true to indicate that this layer is in edit session,
+        /// or false if otherwise.
         public void SetEditable(bool inSession) {
             _editable = inSession;
         }
 
+        /// <summary>
+        /// Test to see if this layer is editable
+        /// </summary>
+        /// <returns>Boolean</returns>
         public bool IsEditable() {
             return _editable;
+        }
+
+        public override int GetHashCode() {
+            return _id.GetHashCode();
+        }
+        public bool Equals(Layer<T,S> other) {
+            if (other == null)
+                return false;
+            return (this._id.Equals(other.GetId()));
         }
     }
 }
