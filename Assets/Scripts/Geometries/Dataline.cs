@@ -10,6 +10,7 @@ using Project;
 using g3;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.UIElements;
 
 namespace Virgis
 {
@@ -46,24 +47,13 @@ namespace Virgis
 
         public override void VertexMove(MoveArgs data)
         {
-            if (VertexTable.Contains(new VertexLookup() { Id = data.id}))
-            {
+            if (VertexTable.Contains(new VertexLookup() { Id = data.id})) {
                 VertexLookup vdata = VertexTable.Find(item => item.Id == data.id);
-                if (vdata.isVertex)
-                {
-                    for (int i = 0; i < gameObject.transform.childCount; i++)
-                    {
-                        GameObject go = gameObject.transform.GetChild(i).gameObject;
-                        LineSegment goFunc = go.GetComponent<LineSegment>();
-                        if (goFunc != null && goFunc.vStart == vdata.Vertex)
-                        {
-                            goFunc.MoveStart(data.pos);
-                        }
-                        else if (goFunc != null && goFunc.vEnd == vdata.Vertex)
-                        {
-                            goFunc.MoveEnd(data.pos);
-                        }
-                    }
+                foreach (VertexLookup vLookup in VertexTable) {
+                    if (vLookup.Line && vLookup.Line.vStart == vdata.Vertex)
+                        vLookup.Line.MoveStart(data.pos);
+                    if (vLookup.Line && vLookup.Line.vEnd == vdata.Vertex)
+                        vLookup.Line.MoveEnd(data.pos);
                 }
             }
         }
@@ -155,11 +145,22 @@ namespace Virgis
         }
 
         public void MakeLinearRing() {
-            // create line segment from start vertex to end vertex
-            // set Lr = true
-            Vector3[] vPos = GetVertexPositions();
-            _createSegment(vPos[vPos.Length - 1], vPos[0], vPos.Length - 1, true);
-            Lr = true;
+            // Make the Line inot a Linear ring
+            if (!Lr) {
+                VertexLookup First = VertexTable.Find(item => item.Vertex == 0);
+                VertexLookup Last = VertexTable.Find(item => item.Vertex == VertexTable.Count - 1);
+                if (First.Com.transform.position == Last.Com.transform.position) {
+                    Last.Com.gameObject.Destroy();
+                    VertexTable.Remove(Last);
+                    Last = VertexTable.Find(item => item.Vertex == Last.Vertex - 1);
+                    Last.Line.MoveEnd(First.Com.transform.position);
+                    Last.Line.vEnd = 0;
+                } else {
+                    VertexTable.Last().Line = _createSegment(VertexTable.Last().Com.transform.position, VertexTable.First().Com.transform.position, VertexTable.Count -1, true);
+                }
+
+                Lr = true;
+            }
         }
 
         /// <summary>
@@ -168,18 +169,15 @@ namespace Virgis
         /// <returns>Vector3[] of verteces</returns>
         public Vector3[] GetVertexPositions()
         {
-            Vector3[] result = new Vector3[VertexTable.Count];
-            for (int i = 0; i < result.Length; i++)
-            {
-                if (Lr && (i == result.Length - 1))
-                {
-                    result[i] = result[0];
-                } else
-                {
-                    result[i] = VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position;
+            List<Vector3> result = new List<Vector3>();
+            int vertexCount = 0;
+            VertexTable.ForEach(item => { if (item.Vertex > vertexCount) vertexCount = item.Vertex;});
+            for (int i = 0; i < vertexCount +1; i++) {
+                    result.Add(VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position);
                 }
-            }
-            return result;
+            if (Lr)
+                result.Add(result[0]);
+            return result.ToArray();
         }
 
         public Datapoint[] GetVertexes() {
@@ -291,6 +289,7 @@ namespace Virgis
             Datapoint vertex = _createVertex(position, start);
             _createSegment(position, VertexTable.Find(item => item.Vertex == end).Com.transform.position, start, end == 0);
             transform.parent.SendMessage("AddVertex", position, SendMessageOptions.DontRequireReceiver);
+            vertex.UnSelected(SelectionTypes.SELECT);
             return vertex;
         }
 

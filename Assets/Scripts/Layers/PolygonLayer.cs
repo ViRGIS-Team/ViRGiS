@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
 using UnityEngine.UI;
 using g3;
 
@@ -162,7 +161,7 @@ namespace Virgis {
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
             Datapoint c = centroid.GetComponent<Datapoint>();
             p.gisId = gisId;
-            p.gisProperties = properties;
+            p.gisProperties = properties ?? new Dictionary<string, object>();
             p.Centroid = c;
             c.SetMaterial(mainMat, selectedMat);
 
@@ -207,7 +206,7 @@ namespace Virgis {
                 }
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
-                IDictionary<string, object> properties = dataFeature.gisProperties;
+                Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string,object> ?? new Dictionary<string,object>();
                 Datapoint centroid = dataFeature.Centroid;
                 properties["polyhedral"] = centroid.transform.position.ToPoint();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
@@ -217,6 +216,7 @@ namespace Virgis {
             geoJsonReader.Save();
             features = FC;
         }
+
 
         public override GameObject GetFeatureShape() {
             GameObject fs = Instantiate(HandlePrefab);
