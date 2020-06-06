@@ -63,7 +63,7 @@ namespace Project
         [JsonProperty(PropertyName = "transform")]
         public JsonTransform Transform;
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary Properties;
+        public Dictionary<string,object> Properties;
     }
 
     public class JsonTransform : TestableObject

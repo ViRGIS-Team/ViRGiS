@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Virgis {
 
-    public class DataPlotter : Layer<RecordSet, CSVData> {
+    public class DataPlotter : VirgisLayer<RecordSet, CSVData> {
 
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
@@ -39,7 +39,7 @@ namespace Virgis {
 
             Dictionary<string, Unit> symbology = new Dictionary<string, Unit>();
             float displacement = 1.0f;
-            if (layer.Properties.Contains("Units")) {
+            if (layer.Properties.ContainsKey("Units")) {
                 symbology = layer.Properties["Units"] as Dictionary<string, Unit>;
                 if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
                     Shapes shape = symbology["point"].Shape;
@@ -62,8 +62,8 @@ namespace Virgis {
                     PointPrefab = SpherePrefab;
                 }
             }
-            if (layer.Properties.Contains("lat") && features[0].ContainsKey(layer.Properties["lat"] as string) 
-                && layer.Properties.Contains("lon") && features[0].ContainsKey(layer.Properties["lon"] as string)) {
+            if (layer.Properties.ContainsKey("lat") && features[0].ContainsKey(layer.Properties["lat"] as string) 
+                && layer.Properties.ContainsKey("lon") && features[0].ContainsKey(layer.Properties["lon"] as string)) {
                 foreach (CSVRow feature in features) {
                     Position position = new Position((double)feature[layer.Properties["lat"] as string], (double) feature[layer.Properties["lon"] as string]);
 
@@ -98,7 +98,7 @@ namespace Virgis {
             }
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+        protected override VirgisFeature _addFeature(Vector3[] geometry) {
             throw new NotImplementedException();
         }
 
