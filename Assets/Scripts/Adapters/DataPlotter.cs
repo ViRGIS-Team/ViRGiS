@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 namespace Virgis {
 
-    public class DataPlotter : Layer<RecordSet, CSVData> {
+    public class DataPlotter : VirgisLayer<RecordSet, CSVData> {
 
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
@@ -98,7 +98,7 @@ namespace Virgis {
             }
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+        protected override VirgisFeature _addFeature(Vector3[] geometry) {
             throw new NotImplementedException();
         }
 

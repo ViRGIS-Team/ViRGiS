@@ -8,7 +8,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a line segment
     /// </summary>
-    public class LineSegment : VirgisComponent
+    public class LineSegment : VirgisFeature
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
 
@@ -100,7 +100,7 @@ namespace Virgis
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override VirgisComponent AddVertex(Vector3 position) {
+        public override VirgisFeature AddVertex(Vector3 position) {
             GetComponentInParent<Dataline>().AddVertex( this, position);
             return this;
         }

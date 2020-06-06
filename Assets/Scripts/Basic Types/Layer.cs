@@ -8,13 +8,13 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public interface ILayer: IVirgisEntity {
+    public interface IVirgisLayer: IVirgisEntity {
 
-        VirgisComponent AddFeature(Vector3[] geometry);
+        VirgisFeature AddFeature(Vector3[] geometry);
         void Draw();
         void CheckPoint();
         RecordSet Save();
-        VirgisComponent GetFeature(Guid id);
+        VirgisFeature GetFeature(Guid id);
         GameObject GetFeatureShape();
         void SetVisible(bool visible);
         bool IsVisible();
@@ -25,7 +25,7 @@ namespace Virgis {
     /// <summary>
     /// Abstract parent for all Layer entities
     /// </summary>
-    public abstract class Layer<T, S> : MonoBehaviour, ILayer where T : RecordSet {
+    public abstract class VirgisLayer<T, S> : MonoBehaviour, IVirgisLayer where T : RecordSet {
 
         readonly Type LayerType = typeof(T);
         readonly Type DataType = typeof(S);
@@ -61,7 +61,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"> The GeographyCollection object that defines this layer</param>
         /// <returns>refernce to this GameObject for chaining</returns>
-        public async Task<Layer<T, S>> Init(T layer) {
+        public async Task<VirgisLayer<T, S>> Init(T layer) {
             this.layer = layer;
             await _init(layer);
             return this;
@@ -79,7 +79,7 @@ namespace Virgis {
         /// Call this to create a new feature
         /// </summary>
         /// <param name="position">Vector3 where to create the new layer</param>
-        public VirgisComponent AddFeature(Vector3[] geometry) {
+        public VirgisFeature AddFeature(Vector3[] geometry) {
             if (AppState.instance.InEditSession() && IsEditable()) {
                 return _addFeature(geometry);
             }
@@ -90,7 +90,7 @@ namespace Virgis {
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
         /// <param name=position"></param>
-        protected abstract VirgisComponent _addFeature(Vector3[] geometry);
+        protected abstract VirgisFeature _addFeature(Vector3[] geometry);
 
         /// <summary>
         /// Draw the layer based upon the features in the features GeographyCollection
@@ -214,12 +214,12 @@ namespace Virgis {
         /// </summary>
         /// <param name="coords"> coordinates </param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
-        public VirgisComponent GetClosest(Vector3 coords, Guid[] exclude) {
-            List<VirgisComponent> list = transform.GetComponentsInChildren<VirgisComponent>().ToList();
+        public VirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
+            List<VirgisFeature> list = transform.GetComponentsInChildren<VirgisFeature>().ToList();
             list = list.FindAll(item => !exclude.Contains(item.GetId()));
-            KdTree<VirgisComponent> tree = new KdTree<VirgisComponent>();
+            KdTree<VirgisFeature> tree = new KdTree<VirgisFeature>();
             tree.AddAll(list);
-            return tree.FindClosest(transform.position) as VirgisComponent;
+            return tree.FindClosest(transform.position) as VirgisFeature;
         }
 
         /// <summary>
@@ -227,8 +227,8 @@ namespace Virgis {
         /// </summary>
         /// <param name="id"> ID</param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
-        public VirgisComponent GetFeature(Guid id) {
-            return GetComponents<VirgisComponent>().ToList().Find(item => item.GetId() == id);
+        public VirgisFeature GetFeature(Guid id) {
+            return GetComponents<VirgisFeature>().ToList().Find(item => item.GetId() == id);
         }
 
         /// <summary>
@@ -288,10 +288,20 @@ namespace Virgis {
             return _editable;
         }
 
+        public override bool Equals(object obj) {
+            if (obj == null)
+                return false;
+            VirgisLayer<T,S> com = obj as VirgisLayer<T,S>;
+            if (com == null)
+                return false;
+            else
+                return Equals(com);
+        }
+
         public override int GetHashCode() {
             return _id.GetHashCode();
         }
-        public bool Equals(Layer<T,S> other) {
+        public bool Equals(VirgisLayer<T,S> other) {
             if (other == null)
                 return false;
             return (this._id.Equals(other.GetId()));

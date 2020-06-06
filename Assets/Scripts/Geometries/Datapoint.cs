@@ -11,7 +11,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a data pointor handle
     /// </summary>
-    public class Datapoint : VirgisComponent
+    public class Datapoint : VirgisFeature
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
 
@@ -122,7 +122,7 @@ namespace Virgis
             
         }
 
-        public override VirgisComponent GetClosest(Vector3 coords, Guid[] excludes) {
+        public override VirgisFeature GetClosest(Vector3 coords, Guid[] excludes) {
             return this;
         }
 

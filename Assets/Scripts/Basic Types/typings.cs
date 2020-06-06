@@ -298,7 +298,7 @@ namespace Virgis
         public Guid Id;
         public int Vertex;
         public bool isVertex;
-        public VirgisComponent Com;
+        public VirgisFeature Com;
         public LineSegment Line;
 
         public override bool Equals(object obj)

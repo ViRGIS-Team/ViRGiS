@@ -17,7 +17,7 @@ namespace Virgis
         void ExitEditSession(bool saved);
         Guid GetId();
         RecordSet GetMetadata();
-        VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
+        VirgisFeature GetClosest(Vector3 coords, Guid[] exclude);
         void MoveAxis(MoveArgs args);
         void Translate(MoveArgs args);
         void MoveTo(MoveArgs args);
@@ -27,17 +27,17 @@ namespace Virgis
     /// <summary>
     /// Abstract Parent for all symbology relevant in game entities
     /// </summary>
-    public interface IVirgisComponent : IVirgisEntity
+    public interface IVirgisFeature : IVirgisEntity
     {
         void SetMaterial(Material mainMat, Material selectedMat);
         //void MoveTo(Vector3 newPos);
-        VirgisComponent AddVertex(Vector3 position);
-        void RemoveVertex(VirgisComponent vertex);
+        VirgisFeature AddVertex(Vector3 position);
+        void RemoveVertex(VirgisFeature vertex);
         T GetGeometry<T>();
 
     }
 
-    public abstract class VirgisComponent : MonoBehaviour, IVirgisComponent
+    public abstract class VirgisFeature : MonoBehaviour, IVirgisFeature
     {
         protected Material mainMat; // color of the component
         protected Material selectedMat; // color of the component when selected
@@ -131,7 +131,7 @@ namespace Virgis
         /// </summary>
         /// <param name="coords"> Vector3 Target Coordinates </param>
         /// <returns> Vector3 in world space coordinates </returns>
-        public virtual VirgisComponent GetClosest(Vector3 coords, Guid[] exclude) {
+        public virtual VirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
             throw new System.NotImplementedException();
         }
 
@@ -140,7 +140,7 @@ namespace Virgis
         /// </summary>
         /// <param name="position">Vector3</param>
         /// <returns>VirgisComponent The new vertex</returns>
-        public virtual VirgisComponent AddVertex(Vector3 position) {
+        public virtual VirgisFeature AddVertex(Vector3 position) {
             // do nothing
             throw new System.NotImplementedException();
         }
@@ -149,7 +149,7 @@ namespace Virgis
         /// call this to remove a vertxe from a feature
         /// </summary>
         /// <param name="vertex">Vertex to remove</param>
-        public virtual void RemoveVertex(VirgisComponent vertex) {
+        public virtual void RemoveVertex(VirgisFeature vertex) {
             // do nothing
             throw new System.NotImplementedException();
         }
@@ -175,7 +175,7 @@ namespace Virgis
         public override bool Equals(object obj) {
             if (obj == null)
                 return false;
-            VirgisComponent com = obj as VirgisComponent;
+            VirgisFeature com = obj as VirgisFeature;
             if (com == null)
                 return false;
             else
@@ -184,7 +184,7 @@ namespace Virgis
         public override int GetHashCode() {
             return _id.GetHashCode();
         }
-        public bool Equals(VirgisComponent other) {
+        public bool Equals(VirgisFeature other) {
             if (other == null)
                 return false;
             return (this._id.Equals(other.GetId()));

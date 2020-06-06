@@ -12,7 +12,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon ViRGIS component
     /// </summary>
-    public class Datapolygon : VirgisComponent
+    public class Datapolygon : VirgisFeature
     {
 
         private bool BlockMove = false; // Is this component in a block move state
@@ -153,12 +153,12 @@ namespace Virgis
             mesh.RecalculateNormals();
         }
 
-        public override VirgisComponent AddVertex(Vector3 position) {
+        public override VirgisFeature AddVertex(Vector3 position) {
             _redraw();
             return base.AddVertex(position);
         }
 
-        public override void RemoveVertex(VirgisComponent vertex) {
+        public override void RemoveVertex(VirgisFeature vertex) {
             if (BlockMove) {
                 gameObject.Destroy();
             } else {

@@ -15,7 +15,7 @@ namespace Virgis
     /// <summary>
     /// Controls and Instance of a Line Component
     /// </summary>
-    public class Dataline : VirgisComponent
+    public class Dataline : VirgisFeature
     {
         public GameObject CylinderObject;
 
@@ -242,14 +242,14 @@ namespace Virgis
             throw new NotImplementedException();
         }
 
-        public override VirgisComponent AddVertex(Vector3 position) {
+        public override VirgisFeature AddVertex(Vector3 position) {
             DCurve3 curve = new DCurve3();
             curve.Vector3(GetVertexPositions(), Lr);
             LineSegment segment = VertexTable.Find(item => item.Vertex == curve.NearestSegment(position)).Line;
             return AddVertex(segment, position);
         }
 
-        public VirgisComponent AddVertex(LineSegment segment, Vector3 position) {
+        public VirgisFeature AddVertex(LineSegment segment, Vector3 position) {
             int start = segment.vStart;
             int next = segment.vEnd;
             VertexTable.ForEach(item => {
@@ -280,7 +280,7 @@ namespace Virgis
             return vertex;
         }
 
-        public override void RemoveVertex(VirgisComponent vertex) {
+        public override void RemoveVertex(VirgisFeature vertex) {
             if (BlockMove) {
                 gameObject.Destroy();
             } else {

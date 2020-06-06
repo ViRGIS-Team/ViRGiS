@@ -10,7 +10,7 @@ using GeoJSON.Net.Geometry;
 namespace Virgis
 {
 
-    public class MeshLayer : Layer<GeographyCollection, MeshData>
+    public class MeshLayer : VirgisLayer<GeographyCollection, MeshData>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -53,7 +53,7 @@ namespace Virgis
             features = Mesh;
             symbology = layer.Properties.Units;
 
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
             Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             mainMat = Instantiate(HandleMaterial);
             mainMat.SetColor("_BaseColor", col);
@@ -61,7 +61,7 @@ namespace Virgis
             selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry)
+        protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
@@ -138,7 +138,8 @@ namespace Virgis
             layer.Transform.Scale = transform.localScale;
         }
 
-        public override GameObject GetFeatureShape() {
+        public override GameObject GetFeatureShape()
+        {
             return handle;
         }
 
