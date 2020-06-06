@@ -59,12 +59,10 @@ namespace Virgis {
         public bool changed = true; // true is this layer has been changed from the original file
 
         protected Guid _id;
-        protected bool _visible;
         protected bool _editable;
 
         void Awake() {
             _id = Guid.NewGuid();
-            _visible = true;
             _editable = false;
         }
 
@@ -72,8 +70,8 @@ namespace Virgis {
         /// Get the event Manager and register listeners
         /// </summary>
         void Start() {
-            AppState.instance.AddStartEditSessionListener(StartEditSession);
-            AppState.instance.AddEndEditSessionListener(ExitEditSession);
+            AppState.instance.editSession.AddStartEditSessionListener(StartEditSession);
+            AppState.instance.editSession.AddEndEditSessionListener(ExitEditSession);
         }
 
 
@@ -253,17 +251,14 @@ namespace Virgis {
         public abstract GameObject GetFeatureShape();
 
         public void SetVisible(bool visible) {
-            if (_visible != visible) {
-                _visible = visible;
-                //for (int i = 0; i < transform.childCount; i++) {
-                //    transform.GetChild(i).gameObject.SetActive(visible);
-                //}
+            if (layer.Visible != visible) {
+                layer.Visible = visible;
                 gameObject.SetActive(visible);
             }
         }
 
         public bool IsVisible() {
-            return _visible;
+            return layer.Visible;
         }
 
         public void SetEditable(bool inSession) {

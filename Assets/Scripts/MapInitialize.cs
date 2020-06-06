@@ -3,9 +3,9 @@ using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using Project;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using System.Collections.Generic;
 
 
 namespace Virgis {
@@ -84,6 +84,7 @@ namespace Virgis {
         async new Task<Layer<RecordSet, FeatureObject>> Init(RecordSet layer) {
             Component temp = null;
             foreach (RecordSet thisLayer in appState.project.RecordSets) {
+                Debug.Log($"layer {thisLayer.DisplayName} - {thisLayer.Visible}");
                 switch (thisLayer.DataType) {
                     case RecordSetDataType.Point:
                         temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(thisLayer as GeographyCollection);
@@ -104,9 +105,9 @@ namespace Virgis {
                         temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                         break;
                 }
-                Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;
                 appState.addLayer(temp);
+                temp.gameObject.SetActive(thisLayer.Visible);
             }
             appState.Init();
             return this;
@@ -134,29 +135,26 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-
-
         public override void ExitEditSession(bool saved) {
-            if (saved) {
-                Save();
-            } else {
+            if (!saved) {
                 Draw();
             }
+            Save();
         }
 
         protected override void _checkpoint() {
         }
 
-        public new void Save() {
+        public new async void Save() {
             foreach (ILayer com in appState.layers) {
                 RecordSet layer = com.Save();
                 int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
                 appState.project.RecordSets[index] = layer;
             }
             appState.project.Scale = appState.GetScale();
-            appState.project.Cameras =  new List<Point>() { MainCamera.transform.position.ToPoint() };
+            appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
             geoJsonReader.SetProject(appState.project);
-            geoJsonReader.Save();
+            await geoJsonReader.Save();
         }
 
         protected override void _save() {
@@ -189,6 +187,10 @@ namespace Virgis {
 
         public override GameObject GetFeatureShape() {
             return null;
+        }
+
+        private void OnApplicationQuit() {
+            Save();
         }
 
     }
