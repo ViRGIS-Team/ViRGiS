@@ -8,47 +8,24 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public interface ILayer {
+    public interface IVirgisLayer: IVirgisEntity {
 
-        VirgisComponent AddFeature(Vector3[] geometry);
-
+        VirgisFeature AddFeature(Vector3[] geometry);
         void Draw();
-
         void CheckPoint();
-
         RecordSet Save();
-
-        VirgisComponent GetClosest(Vector3 coords, Guid[] exclude);
-
-        VirgisComponent GetFeature(Guid id);
-
-        Guid GetId();
-
-        RecordSet GetMetadata();
-
+        VirgisFeature GetFeature(Guid id);
         GameObject GetFeatureShape();
-
         void SetVisible(bool visible);
-
         bool IsVisible();
-
-        /// <summary>
-        /// Sets a marker that this particular layer is being edited.
-        /// </summary>
-        /// 
-        /// There can be only one layer being edited during an edit session.
-        /// 
-        /// <param name="inSession"></param> true to indicate that this layer is in edit session,
-        /// or false if otherwise.
         void SetEditable(bool inSession);
-
         bool IsEditable();
     }
 
     /// <summary>
     /// Abstract parent for all Layer entities
     /// </summary>
-    public abstract class Layer<T, S> : MonoBehaviour, ILayer where T : RecordSet {
+    public abstract class VirgisLayer<T, S> : MonoBehaviour, IVirgisLayer where T : RecordSet {
 
         readonly Type LayerType = typeof(T);
         readonly Type DataType = typeof(S);
@@ -82,7 +59,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"> The GeographyCollection object that defines this layer</param>
         /// <returns>refernce to this GameObject for chaining</returns>
-        public async Task<Layer<T, S>> Init(T layer) {
+        public async Task<VirgisLayer<T, S>> Init(T layer) {
             this.layer = layer;
             await _init(layer);
             return this;
@@ -100,7 +77,7 @@ namespace Virgis {
         /// Call this to create a new feature
         /// </summary>
         /// <param name="position">Vector3 where to create the new layer</param>
-        public VirgisComponent AddFeature(Vector3[] geometry) {
+        public VirgisFeature AddFeature(Vector3[] geometry) {
             if (AppState.instance.InEditSession() && IsEditable()) {
                 return _addFeature(geometry);
             }
@@ -111,7 +88,7 @@ namespace Virgis {
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
         /// <param name=position"></param>
-        protected abstract VirgisComponent _addFeature(Vector3[] geometry);
+        protected abstract VirgisFeature _addFeature(Vector3[] geometry);
 
         /// <summary>
         /// Draw the layer based upon the features in the features GeographyCollection
@@ -179,13 +156,25 @@ namespace Virgis {
         /// Called Whenever a member entity is asked to Translate
         /// </summary>
         /// <param name="args">MoveArge Object</param>
-        public abstract void Translate(MoveArgs args);
+        public virtual void Translate(MoveArgs args) {
+            //do nothing
+        }
 
         /// <summary>
         /// Called whenevr a member entity is asked to Change Axis
         /// </summary>
         /// <param name="args">MoveArgs Object</param>
-        public abstract void MoveAxis(MoveArgs args);
+        public virtual void MoveAxis(MoveArgs args) {
+            // do nothing 
+        }
+
+        public virtual void MoveTo(MoveArgs args) {
+            //do nothing
+        }
+
+        public virtual void VertexMove(MoveArgs args) {
+            //do nothing 
+        }
 
         /// <summary>
         /// Called when an edit session starts
@@ -223,12 +212,12 @@ namespace Virgis {
         /// </summary>
         /// <param name="coords"> coordinates </param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
-        public VirgisComponent GetClosest(Vector3 coords, Guid[] exclude) {
-            List<VirgisComponent> list = transform.GetComponentsInChildren<VirgisComponent>().ToList();
-            list = list.FindAll(item => !exclude.Contains(item.id));
-            KdTree<VirgisComponent> tree = new KdTree<VirgisComponent>();
+        public VirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
+            List<VirgisFeature> list = transform.GetComponentsInChildren<VirgisFeature>().ToList();
+            list = list.FindAll(item => !exclude.Contains(item.GetId()));
+            KdTree<VirgisFeature> tree = new KdTree<VirgisFeature>();
             tree.AddAll(list);
-            return tree.FindClosest(transform.position) as VirgisComponent;
+            return tree.FindClosest(transform.position) as VirgisFeature;
         }
 
         /// <summary>
@@ -236,17 +225,26 @@ namespace Virgis {
         /// </summary>
         /// <param name="id"> ID</param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
-        public VirgisComponent GetFeature(Guid id) {
-            return GetComponents<VirgisComponent>().ToList().Find(item => item.id == id);
+        public VirgisFeature GetFeature(Guid id) {
+            return GetComponents<VirgisFeature>().ToList().Find(item => item.GetId() == id);
         }
 
+        /// <summary>
+        /// Fecth the layer GUID
+        /// </summary>
+        /// <returns>GUID</returns>
         public Guid GetId() {
             return _id;
         }
 
+        /// <summary>
+        /// Fetch the metadata for this Layer
+        /// </summary>
+        /// <returns></returns>
         public RecordSet GetMetadata() {
             return layer;
         }
+
 
         public abstract GameObject GetFeatureShape();
 
@@ -257,16 +255,51 @@ namespace Virgis {
             }
         }
 
+        /// <summary>
+        /// Test if this layer is currently visible
+        /// </summary>
+        /// <returns>Boolean</returns>
         public bool IsVisible() {
             return layer.Visible;
         }
 
+        /// <summary>
+        /// Sets a marker that this particular layer is being edited.
+        /// </summary>
+        /// 
+        /// There can be only one layer being edited during an edit session.
+        /// 
+        /// <param name="inSession"></param> true to indicate that this layer is in edit session,
+        /// or false if otherwise.
         public void SetEditable(bool inSession) {
             _editable = inSession;
         }
 
+        /// <summary>
+        /// Test to see if this layer is editable
+        /// </summary>
+        /// <returns>Boolean</returns>
         public bool IsEditable() {
             return _editable;
+        }
+
+        public override bool Equals(object obj) {
+            if (obj == null)
+                return false;
+            VirgisLayer<T,S> com = obj as VirgisLayer<T,S>;
+            if (com == null)
+                return false;
+            else
+                return Equals(com);
+        }
+
+        public override int GetHashCode() {
+            return _id.GetHashCode();
+        }
+        public bool Equals(VirgisLayer<T,S> other) {
+            if (other == null)
+                return false;
+            return (this._id.Equals(other.GetId()));
         }
     }
 }

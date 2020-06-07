@@ -14,7 +14,7 @@ namespace Virgis {
         public Toggle editLayerToggle;
         public Toggle viewLayerToggle;
 
-        private ILayer _layer;
+        private IVirgisLayer _layer;
         private LayerPanelEditSelectedEvent _editSelectedEvent;
 
         void Awake() {
@@ -23,7 +23,7 @@ namespace Virgis {
             viewLayerToggle.onValueChanged.AddListener(OnViewToggleValueChange);
         }
 
-        public ILayer layer {
+        public IVirgisLayer layer {
             get => _layer;
             set {
                 _layer = value;

@@ -62,7 +62,7 @@ namespace Project
         [JsonProperty(PropertyName = "transform")]
         public JsonTransform Transform;
         [JsonProperty(PropertyName = "properties")]
-        public IDictionary Properties;
+        public Dictionary<string, object> Properties;
         [JsonProperty(PropertyName = "visible", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(true)]
         public bool Visible;

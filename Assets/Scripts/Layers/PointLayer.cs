@@ -11,7 +11,7 @@ using UnityEngine.UI;
 
 namespace Virgis {
 
-    public class PointLayer : Layer<GeographyCollection, FeatureCollection> {
+    public class PointLayer : VirgisLayer<GeographyCollection, FeatureCollection> {
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
         public GameObject CubePrefab;
@@ -63,8 +63,8 @@ namespace Virgis {
             selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry) {
-            VirgisComponent newFeature = _drawFeature(geometry[0]);
+        protected override VirgisFeature _addFeature(Vector3[] geometry) {
+            VirgisFeature newFeature = _drawFeature(geometry[0]);
             changed = true;
             return newFeature;
         }
@@ -91,7 +91,7 @@ namespace Virgis {
         /// <param name="position"> Vector3 position</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected VirgisComponent _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
+        protected VirgisFeature _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);
             dataPoint.transform.position = position;
@@ -153,7 +153,7 @@ namespace Virgis {
 
         }
 
-        public void RemoveVertex(VirgisComponent vertex) {
+        public void RemoveVertex(VirgisFeature vertex) {
             if (AppState.instance.InEditSession() && IsEditable()) {
                 vertex.gameObject.Destroy();
             }

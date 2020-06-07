@@ -8,7 +8,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a line segment
     /// </summary>
-    public class LineSegment : VirgisComponent
+    public class LineSegment : VirgisFeature
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
 
@@ -90,15 +90,6 @@ namespace Virgis
             transform.localScale = new Vector3(diameter / linescale.x, diameter / linescale.y, length);
         }
 
-
-        public override void Translate(MoveArgs args){
-            
-        }
-
-        public override void VertexMove(MoveArgs args){
-            
-        }
-
         public override void MoveAxis(MoveArgs args){
             args.pos = transform.position;
             transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
@@ -109,7 +100,7 @@ namespace Virgis
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override VirgisComponent AddVertex(Vector3 position) {
+        public override VirgisFeature AddVertex(Vector3 position) {
             GetComponentInParent<Dataline>().AddVertex( this, position);
             return this;
         }
@@ -118,12 +109,5 @@ namespace Virgis
             transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override Vector3 GetClosest(Vector3 coords){
-            throw new System.NotImplementedException();
-        }
-
-        public override T GetGeometry<T>(){
-            throw new System.NotImplementedException();
-        }
     }
 }
