@@ -45,6 +45,8 @@ namespace Virgis {
                 print("instantiate app state");
                 appState = Instantiate(appState);
             }
+            appState.AddStartEditSessionListener(_onStartEditSession);
+            appState.AddEndEditSessionListener(_onExitEditSession);
         }
 
         /// 
@@ -134,7 +136,6 @@ namespace Virgis {
         }
 
         public override void ExitEditSession(bool saved) {
-            BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
             if (!saved) {
                 Draw();
             }
@@ -170,7 +171,18 @@ namespace Virgis {
 
         public override void StartEditSession() {
             CheckPoint();
+        }
+
+        protected void _onStartEditSession() {
             BroadcastMessage("StartEditSession", SendMessageOptions.DontRequireReceiver);
+        }
+
+        /// <summary>
+        /// Called when an edit session ends
+        /// </summary>
+        /// <param name="saved">true if stop and save, false if stop and discard</param>
+        protected void _onExitEditSession(bool saved) {
+            BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
         }
 
         public override GameObject GetFeatureShape() {
