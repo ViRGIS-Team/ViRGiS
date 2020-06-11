@@ -4,7 +4,12 @@
 ## Virtual Reality GIS in Unity
 
 
-[TOC]
+- [ViRGIS Project](#virgis-project)
+  * [Virtual Reality GIS in Unity](#virtual-reality-gis-in-unity)
+- [Overview](#overview)
+- [Documentation](#documentation)
+- [Getting ViRGIS](#getting-virgis)
+- [Contributing](#contributing)
 
 
 
