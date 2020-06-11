@@ -1,0 +1,1745 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.Dataline
+  commentId: T:Virgis.Dataline
+  id: Dataline
+  parent: Virgis
+  children:
+  - Virgis.Dataline.AddVertex(UnityEngine.Vector3)
+  - Virgis.Dataline.AddVertex(Virgis.LineSegment,UnityEngine.Vector3)
+  - Virgis.Dataline.CylinderObject
+  - Virgis.Dataline.Draw(UnityEngine.Vector3[],System.Boolean,System.Collections.Generic.Dictionary{System.String,Project.Unit},UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material)
+  - Virgis.Dataline.GetClosest(UnityEngine.Vector3)
+  - Virgis.Dataline.GetGeometry``1
+  - Virgis.Dataline.GetVertexes
+  - Virgis.Dataline.GetVertexPositions
+  - Virgis.Dataline.GetWkt
+  - Virgis.Dataline.GetWktCoords
+  - Virgis.Dataline.MakeLinearRing
+  - Virgis.Dataline.MoveAxis(Virgis.MoveArgs)
+  - Virgis.Dataline.MoveTo(Virgis.MoveArgs)
+  - Virgis.Dataline.RemoveVertex(Virgis.VirgisComponent)
+  - Virgis.Dataline.Selected(Virgis.SelectionTypes)
+  - Virgis.Dataline.Translate(Virgis.MoveArgs)
+  - Virgis.Dataline.UnSelected(Virgis.SelectionTypes)
+  - Virgis.Dataline.VertexMove(Virgis.MoveArgs)
+  - Virgis.Dataline.VertexTable
+  langs:
+  - csharp
+  - vb
+  name: Dataline
+  nameWithType: Dataline
+  fullName: Virgis.Dataline
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dataline
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nControls and Instance of a Line Component\n"
+  example: []
+  syntax:
+    content: 'public class Dataline : VirgisComponent, IVirgisComponent, IVirgisEntity'
+    content.vb: >-
+      Public Class Dataline
+          Inherits VirgisComponent
+          Implements IVirgisComponent, IVirgisEntity
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  - Virgis.VirgisComponent
+  implements:
+  - Virgis.IVirgisComponent
+  - Virgis.IVirgisEntity
+  inheritedMembers:
+  - Virgis.VirgisComponent.mainMat
+  - Virgis.VirgisComponent.selectedMat
+  - Virgis.VirgisComponent.gisId
+  - Virgis.VirgisComponent.gisProperties
+  - Virgis.VirgisComponent.id
+  - Virgis.VirgisComponent.label
+  - Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  - Virgis.VirgisComponent.StartEditSession
+  - Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Virgis.Dataline.CylinderObject
+  commentId: F:Virgis.Dataline.CylinderObject
+  id: CylinderObject
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: CylinderObject
+  nameWithType: Dataline.CylinderObject
+  fullName: Virgis.Dataline.CylinderObject
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CylinderObject
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 21
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject CylinderObject
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public CylinderObject As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.VertexTable
+  commentId: F:Virgis.Dataline.VertexTable
+  id: VertexTable
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: VertexTable
+  nameWithType: Dataline.VertexTable
+  fullName: Virgis.Dataline.VertexTable
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexTable
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public List<VertexLookup> VertexTable
+    return:
+      type: System.Collections.Generic.List{Virgis.VertexLookup}
+    content.vb: Public VertexTable As List(Of VertexLookup)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.Dataline.VertexMove(Virgis.MoveArgs)
+  id: VertexMove(Virgis.MoveArgs)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: VertexMove(MoveArgs)
+  nameWithType: Dataline.VertexMove(MoveArgs)
+  fullName: Virgis.Dataline.VertexMove(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexMove
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 46
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void VertexMove(MoveArgs data)
+    parameters:
+    - id: data
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub VertexMove(data As MoveArgs)
+  overridden: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  overload: Virgis.Dataline.VertexMove*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.Dataline.MoveAxis(Virgis.MoveArgs)
+  id: MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: MoveAxis(MoveArgs)
+  nameWithType: Dataline.MoveAxis(MoveArgs)
+  fullName: Virgis.Dataline.MoveAxis(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MoveAxis
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 71
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void MoveAxis(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub MoveAxis(args As MoveArgs)
+  overridden: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  overload: Virgis.Dataline.MoveAxis*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.Draw(UnityEngine.Vector3[],System.Boolean,System.Collections.Generic.Dictionary{System.String,Project.Unit},UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material)
+  commentId: M:Virgis.Dataline.Draw(UnityEngine.Vector3[],System.Boolean,System.Collections.Generic.Dictionary{System.String,Project.Unit},UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material)
+  id: Draw(UnityEngine.Vector3[],System.Boolean,System.Collections.Generic.Dictionary{System.String,Project.Unit},UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.GameObject,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material,UnityEngine.Material)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: Draw(Vector3[], Boolean, Dictionary<String, Unit>, GameObject, GameObject, GameObject, Material, Material, Material, Material)
+  nameWithType: Dataline.Draw(Vector3[], Boolean, Dictionary<String, Unit>, GameObject, GameObject, GameObject, Material, Material, Material, Material)
+  fullName: Virgis.Dataline.Draw(UnityEngine.Vector3[], System.Boolean, System.Collections.Generic.Dictionary<System.String, Project.Unit>, UnityEngine.GameObject, UnityEngine.GameObject, UnityEngine.GameObject, UnityEngine.Material, UnityEngine.Material, UnityEngine.Material, UnityEngine.Material)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Draw
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 112
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled to draw the line\n"
+  example: []
+  syntax:
+    content: public void Draw(Vector3[] line, bool Lr, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+    parameters:
+    - id: line
+      type: UnityEngine.Vector3[]
+    - id: Lr
+      type: System.Boolean
+    - id: symbology
+      type: System.Collections.Generic.Dictionary{System.String,Project.Unit}
+      description: The symbo,logy to be applied to the loine
+    - id: LinePrefab
+      type: UnityEngine.GameObject
+      description: The prefab to be used for the line
+    - id: HandlePrefab
+      type: UnityEngine.GameObject
+      description: The prefab to be used for the handle
+    - id: LabelPrefab
+      type: UnityEngine.GameObject
+      description: the prefab to used for the label
+    - id: mainMat
+      type: UnityEngine.Material
+    - id: selectedMat
+      type: UnityEngine.Material
+    - id: lineMain
+      type: UnityEngine.Material
+    - id: lineSelected
+      type: UnityEngine.Material
+    content.vb: Public Sub Draw(line As Vector3(), Lr As Boolean, symbology As Dictionary(Of String, Unit), LinePrefab As GameObject, HandlePrefab As GameObject, LabelPrefab As GameObject, mainMat As Material, selectedMat As Material, lineMain As Material, lineSelected As Material)
+  overload: Virgis.Dataline.Draw*
+  nameWithType.vb: Dataline.Draw(Vector3(), Boolean, Dictionary(Of String, Unit), GameObject, GameObject, GameObject, Material, Material, Material, Material)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Dataline.Draw(UnityEngine.Vector3(), System.Boolean, System.Collections.Generic.Dictionary(Of System.String, Project.Unit), UnityEngine.GameObject, UnityEngine.GameObject, UnityEngine.GameObject, UnityEngine.Material, UnityEngine.Material, UnityEngine.Material, UnityEngine.Material)
+  name.vb: Draw(Vector3(), Boolean, Dictionary(Of String, Unit), GameObject, GameObject, GameObject, Material, Material, Material, Material)
+- uid: Virgis.Dataline.MakeLinearRing
+  commentId: M:Virgis.Dataline.MakeLinearRing
+  id: MakeLinearRing
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: MakeLinearRing()
+  nameWithType: Dataline.MakeLinearRing()
+  fullName: Virgis.Dataline.MakeLinearRing()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeLinearRing
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 156
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public void MakeLinearRing()
+    content.vb: Public Sub MakeLinearRing
+  overload: Virgis.Dataline.MakeLinearRing*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.GetVertexPositions
+  commentId: M:Virgis.Dataline.GetVertexPositions
+  id: GetVertexPositions
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: GetVertexPositions()
+  nameWithType: Dataline.GetVertexPositions()
+  fullName: Virgis.Dataline.GetVertexPositions()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexPositions
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 168
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\ncalled to get the verteces of the LineString\n"
+  example: []
+  syntax:
+    content: public Vector3[] GetVertexPositions()
+    return:
+      type: UnityEngine.Vector3[]
+      description: Vector3[] of verteces
+    content.vb: Public Function GetVertexPositions As Vector3()
+  overload: Virgis.Dataline.GetVertexPositions*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.GetVertexes
+  commentId: M:Virgis.Dataline.GetVertexes
+  id: GetVertexes
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: GetVertexes()
+  nameWithType: Dataline.GetVertexes()
+  fullName: Virgis.Dataline.GetVertexes()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexes
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 184
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Datapoint[] GetVertexes()
+    return:
+      type: Virgis.Datapoint[]
+    content.vb: Public Function GetVertexes As Datapoint()
+  overload: Virgis.Dataline.GetVertexes*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Dataline.Selected(Virgis.SelectionTypes)
+  id: Selected(Virgis.SelectionTypes)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: Selected(SelectionTypes)
+  nameWithType: Dataline.Selected(SelectionTypes)
+  fullName: Virgis.Dataline.Selected(Virgis.SelectionTypes)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Selected
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 193
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void Selected(SelectionTypes button)
+    parameters:
+    - id: button
+      type: Virgis.SelectionTypes
+    content.vb: Public Overrides Sub Selected(button As SelectionTypes)
+  overridden: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  overload: Virgis.Dataline.Selected*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Dataline.UnSelected(Virgis.SelectionTypes)
+  id: UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: UnSelected(SelectionTypes)
+  nameWithType: Dataline.UnSelected(SelectionTypes)
+  fullName: Virgis.Dataline.UnSelected(Virgis.SelectionTypes)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: UnSelected
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 202
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void UnSelected(SelectionTypes button)
+    parameters:
+    - id: button
+      type: Virgis.SelectionTypes
+    content.vb: Public Overrides Sub UnSelected(button As SelectionTypes)
+  overridden: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  overload: Virgis.Dataline.UnSelected*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.Dataline.Translate(Virgis.MoveArgs)
+  id: Translate(Virgis.MoveArgs)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: Translate(MoveArgs)
+  nameWithType: Dataline.Translate(MoveArgs)
+  fullName: Virgis.Dataline.Translate(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 211
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void Translate(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub Translate(args As MoveArgs)
+  overridden: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  overload: Virgis.Dataline.Translate*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.GetWkt
+  commentId: M:Virgis.Dataline.GetWkt
+  id: GetWkt
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: GetWkt()
+  nameWithType: Dataline.GetWkt()
+  fullName: Virgis.Dataline.GetWkt()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetWkt
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 223
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public string GetWkt()
+    return:
+      type: System.String
+    content.vb: Public Function GetWkt As String
+  overload: Virgis.Dataline.GetWkt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.GetWktCoords
+  commentId: M:Virgis.Dataline.GetWktCoords
+  id: GetWktCoords
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: GetWktCoords()
+  nameWithType: Dataline.GetWktCoords()
+  fullName: Virgis.Dataline.GetWktCoords()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetWktCoords
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 230
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public string GetWktCoords()
+    return:
+      type: System.String
+    content.vb: Public Function GetWktCoords As String
+  overload: Virgis.Dataline.GetWktCoords*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.Dataline.MoveTo(Virgis.MoveArgs)
+  id: MoveTo(Virgis.MoveArgs)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: MoveTo(MoveArgs)
+  nameWithType: Dataline.MoveTo(MoveArgs)
+  fullName: Virgis.Dataline.MoveTo(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MoveTo
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 244
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void MoveTo(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub MoveTo(args As MoveArgs)
+  overridden: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  overload: Virgis.Dataline.MoveTo*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.GetClosest(UnityEngine.Vector3)
+  commentId: M:Virgis.Dataline.GetClosest(UnityEngine.Vector3)
+  id: GetClosest(UnityEngine.Vector3)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: GetClosest(Vector3)
+  nameWithType: Dataline.GetClosest(Vector3)
+  fullName: Virgis.Dataline.GetClosest(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetClosest
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 249
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override Vector3 GetClosest(Vector3 coords)
+    parameters:
+    - id: coords
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Overrides Function GetClosest(coords As Vector3) As Vector3
+  overridden: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  overload: Virgis.Dataline.GetClosest*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.GetGeometry``1
+  commentId: M:Virgis.Dataline.GetGeometry``1
+  id: GetGeometry``1
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: GetGeometry<T>()
+  nameWithType: Dataline.GetGeometry<T>()
+  fullName: Virgis.Dataline.GetGeometry<T>()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetGeometry
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 254
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override T GetGeometry<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Overrides Function GetGeometry(Of T) As T
+  overridden: Virgis.VirgisComponent.GetGeometry``1
+  overload: Virgis.Dataline.GetGeometry*
+  nameWithType.vb: Dataline.GetGeometry(Of T)()
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: Virgis.Dataline.GetGeometry(Of T)()
+  name.vb: GetGeometry(Of T)()
+- uid: Virgis.Dataline.AddVertex(UnityEngine.Vector3)
+  commentId: M:Virgis.Dataline.AddVertex(UnityEngine.Vector3)
+  id: AddVertex(UnityEngine.Vector3)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: AddVertex(Vector3)
+  nameWithType: Dataline.AddVertex(Vector3)
+  fullName: Virgis.Dataline.AddVertex(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddVertex
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 259
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override VirgisComponent AddVertex(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Public Overrides Function AddVertex(position As Vector3) As VirgisComponent
+  overridden: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  overload: Virgis.Dataline.AddVertex*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Dataline.AddVertex(Virgis.LineSegment,UnityEngine.Vector3)
+  commentId: M:Virgis.Dataline.AddVertex(Virgis.LineSegment,UnityEngine.Vector3)
+  id: AddVertex(Virgis.LineSegment,UnityEngine.Vector3)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: AddVertex(LineSegment, Vector3)
+  nameWithType: Dataline.AddVertex(LineSegment, Vector3)
+  fullName: Virgis.Dataline.AddVertex(Virgis.LineSegment, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddVertex
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 266
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public VirgisComponent AddVertex(LineSegment segment, Vector3 position)
+    parameters:
+    - id: segment
+      type: Virgis.LineSegment
+    - id: position
+      type: UnityEngine.Vector3
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Public Function AddVertex(segment As LineSegment, position As Vector3) As VirgisComponent
+  overload: Virgis.Dataline.AddVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Dataline.RemoveVertex(Virgis.VirgisComponent)
+  commentId: M:Virgis.Dataline.RemoveVertex(Virgis.VirgisComponent)
+  id: RemoveVertex(Virgis.VirgisComponent)
+  parent: Virgis.Dataline
+  langs:
+  - csharp
+  - vb
+  name: RemoveVertex(VirgisComponent)
+  nameWithType: Dataline.RemoveVertex(VirgisComponent)
+  fullName: Virgis.Dataline.RemoveVertex(Virgis.VirgisComponent)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Dataline.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveVertex
+    path: ../Assets/Scripts/Geometries/Dataline.cs
+    startLine: 296
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void RemoveVertex(VirgisComponent vertex)
+    parameters:
+    - id: vertex
+      type: Virgis.VirgisComponent
+    content.vb: Public Overrides Sub RemoveVertex(vertex As VirgisComponent)
+  overridden: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  overload: Virgis.Dataline.RemoveVertex*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Virgis.VirgisComponent
+  commentId: T:Virgis.VirgisComponent
+  parent: Virgis
+  name: VirgisComponent
+  nameWithType: VirgisComponent
+  fullName: Virgis.VirgisComponent
+- uid: Virgis.IVirgisComponent
+  commentId: T:Virgis.IVirgisComponent
+  parent: Virgis
+  name: IVirgisComponent
+  nameWithType: IVirgisComponent
+  fullName: Virgis.IVirgisComponent
+- uid: Virgis.IVirgisEntity
+  commentId: T:Virgis.IVirgisEntity
+  parent: Virgis
+  name: IVirgisEntity
+  nameWithType: IVirgisEntity
+  fullName: Virgis.IVirgisEntity
+- uid: Virgis.VirgisComponent.mainMat
+  commentId: F:Virgis.VirgisComponent.mainMat
+  parent: Virgis.VirgisComponent
+  name: mainMat
+  nameWithType: VirgisComponent.mainMat
+  fullName: Virgis.VirgisComponent.mainMat
+- uid: Virgis.VirgisComponent.selectedMat
+  commentId: F:Virgis.VirgisComponent.selectedMat
+  parent: Virgis.VirgisComponent
+  name: selectedMat
+  nameWithType: VirgisComponent.selectedMat
+  fullName: Virgis.VirgisComponent.selectedMat
+- uid: Virgis.VirgisComponent.gisId
+  commentId: F:Virgis.VirgisComponent.gisId
+  parent: Virgis.VirgisComponent
+  name: gisId
+  nameWithType: VirgisComponent.gisId
+  fullName: Virgis.VirgisComponent.gisId
+- uid: Virgis.VirgisComponent.gisProperties
+  commentId: F:Virgis.VirgisComponent.gisProperties
+  parent: Virgis.VirgisComponent
+  name: gisProperties
+  nameWithType: VirgisComponent.gisProperties
+  fullName: Virgis.VirgisComponent.gisProperties
+- uid: Virgis.VirgisComponent.id
+  commentId: F:Virgis.VirgisComponent.id
+  parent: Virgis.VirgisComponent
+  name: id
+  nameWithType: VirgisComponent.id
+  fullName: Virgis.VirgisComponent.id
+- uid: Virgis.VirgisComponent.label
+  commentId: F:Virgis.VirgisComponent.label
+  parent: Virgis.VirgisComponent
+  name: label
+  nameWithType: VirgisComponent.label
+  fullName: Virgis.VirgisComponent.label
+- uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  commentId: M:Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: SetMaterial(Material, Material)
+  nameWithType: VirgisComponent.SetMaterial(Material, Material)
+  fullName: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material, UnityEngine.Material)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+    name: SetMaterial
+    nameWithType: VirgisComponent.SetMaterial
+    fullName: Virgis.VirgisComponent.SetMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+    name: SetMaterial
+    nameWithType: VirgisComponent.SetMaterial
+    fullName: Virgis.VirgisComponent.SetMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisComponent.StartEditSession
+  commentId: M:Virgis.VirgisComponent.StartEditSession
+  parent: Virgis.VirgisComponent
+  name: StartEditSession()
+  nameWithType: VirgisComponent.StartEditSession()
+  fullName: Virgis.VirgisComponent.StartEditSession()
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.StartEditSession
+    name: StartEditSession
+    nameWithType: VirgisComponent.StartEditSession
+    fullName: Virgis.VirgisComponent.StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.StartEditSession
+    name: StartEditSession
+    nameWithType: VirgisComponent.StartEditSession
+    fullName: Virgis.VirgisComponent.StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: ExitEditSession(Boolean)
+  nameWithType: VirgisComponent.ExitEditSession(Boolean)
+  fullName: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: VirgisComponent.ExitEditSession
+    fullName: Virgis.VirgisComponent.ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: VirgisComponent.ExitEditSession
+    fullName: Virgis.VirgisComponent.ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: System.Collections.Generic.List{Virgis.VertexLookup}
+  commentId: T:System.Collections.Generic.List{Virgis.VertexLookup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<VertexLookup>
+  nameWithType: List<VertexLookup>
+  fullName: System.Collections.Generic.List<Virgis.VertexLookup>
+  nameWithType.vb: List(Of VertexLookup)
+  fullName.vb: System.Collections.Generic.List(Of Virgis.VertexLookup)
+  name.vb: List(Of VertexLookup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Virgis.VertexLookup
+    name: VertexLookup
+    nameWithType: VertexLookup
+    fullName: Virgis.VertexLookup
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Virgis.VertexLookup
+    name: VertexLookup
+    nameWithType: VertexLookup
+    fullName: Virgis.VertexLookup
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: VertexMove(MoveArgs)
+  nameWithType: VirgisComponent.VertexMove(MoveArgs)
+  fullName: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisComponent.VertexMove
+    fullName: Virgis.VirgisComponent.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisComponent.VertexMove
+    fullName: Virgis.VirgisComponent.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.VertexMove*
+  commentId: Overload:Virgis.Dataline.VertexMove
+  name: VertexMove
+  nameWithType: Dataline.VertexMove
+  fullName: Virgis.Dataline.VertexMove
+- uid: Virgis.MoveArgs
+  commentId: T:Virgis.MoveArgs
+  parent: Virgis
+  name: MoveArgs
+  nameWithType: MoveArgs
+  fullName: Virgis.MoveArgs
+- uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: MoveAxis(MoveArgs)
+  nameWithType: VirgisComponent.MoveAxis(MoveArgs)
+  fullName: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: VirgisComponent.MoveAxis
+    fullName: Virgis.VirgisComponent.MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: VirgisComponent.MoveAxis
+    fullName: Virgis.VirgisComponent.MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.MoveAxis*
+  commentId: Overload:Virgis.Dataline.MoveAxis
+  name: MoveAxis
+  nameWithType: Dataline.MoveAxis
+  fullName: Virgis.Dataline.MoveAxis
+- uid: Virgis.Dataline.Draw*
+  commentId: Overload:Virgis.Dataline.Draw
+  name: Draw
+  nameWithType: Dataline.Draw
+  fullName: Virgis.Dataline.Draw
+- uid: UnityEngine.Vector3[]
+  isExternal: true
+  name: Vector3[]
+  nameWithType: Vector3[]
+  fullName: UnityEngine.Vector3[]
+  nameWithType.vb: Vector3()
+  fullName.vb: UnityEngine.Vector3()
+  name.vb: Vector3()
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.Dictionary{System.String,Project.Unit}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,Project.Unit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Unit>
+  nameWithType: Dictionary<String, Unit>
+  fullName: System.Collections.Generic.Dictionary<System.String, Project.Unit>
+  nameWithType.vb: Dictionary(Of String, Unit)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, Project.Unit)
+  name.vb: Dictionary(Of String, Unit)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Project.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: Project.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Project.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: Project.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: UnityEngine.Material
+  commentId: T:UnityEngine.Material
+  parent: UnityEngine
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: UnityEngine.Material
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.MakeLinearRing*
+  commentId: Overload:Virgis.Dataline.MakeLinearRing
+  name: MakeLinearRing
+  nameWithType: Dataline.MakeLinearRing
+  fullName: Virgis.Dataline.MakeLinearRing
+- uid: Virgis.Dataline.GetVertexPositions*
+  commentId: Overload:Virgis.Dataline.GetVertexPositions
+  name: GetVertexPositions
+  nameWithType: Dataline.GetVertexPositions
+  fullName: Virgis.Dataline.GetVertexPositions
+- uid: Virgis.Dataline.GetVertexes*
+  commentId: Overload:Virgis.Dataline.GetVertexes
+  name: GetVertexes
+  nameWithType: Dataline.GetVertexes
+  fullName: Virgis.Dataline.GetVertexes
+- uid: Virgis.Datapoint[]
+  isExternal: true
+  name: Datapoint[]
+  nameWithType: Datapoint[]
+  fullName: Virgis.Datapoint[]
+  nameWithType.vb: Datapoint()
+  fullName.vb: Virgis.Datapoint()
+  name.vb: Datapoint()
+  spec.csharp:
+  - uid: Virgis.Datapoint
+    name: Datapoint
+    nameWithType: Datapoint
+    fullName: Virgis.Datapoint
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: Virgis.Datapoint
+    name: Datapoint
+    nameWithType: Datapoint
+    fullName: Virgis.Datapoint
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisComponent
+  name: Selected(SelectionTypes)
+  nameWithType: VirgisComponent.Selected(SelectionTypes)
+  fullName: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: VirgisComponent.Selected
+    fullName: Virgis.VirgisComponent.Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: VirgisComponent.Selected
+    fullName: Virgis.VirgisComponent.Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.Selected*
+  commentId: Overload:Virgis.Dataline.Selected
+  name: Selected
+  nameWithType: Dataline.Selected
+  fullName: Virgis.Dataline.Selected
+- uid: Virgis.SelectionTypes
+  commentId: T:Virgis.SelectionTypes
+  parent: Virgis
+  name: SelectionTypes
+  nameWithType: SelectionTypes
+  fullName: Virgis.SelectionTypes
+- uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisComponent
+  name: UnSelected(SelectionTypes)
+  nameWithType: VirgisComponent.UnSelected(SelectionTypes)
+  fullName: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: VirgisComponent.UnSelected
+    fullName: Virgis.VirgisComponent.UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: VirgisComponent.UnSelected
+    fullName: Virgis.VirgisComponent.UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.UnSelected*
+  commentId: Overload:Virgis.Dataline.UnSelected
+  name: UnSelected
+  nameWithType: Dataline.UnSelected
+  fullName: Virgis.Dataline.UnSelected
+- uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: Translate(MoveArgs)
+  nameWithType: VirgisComponent.Translate(MoveArgs)
+  fullName: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: VirgisComponent.Translate
+    fullName: Virgis.VirgisComponent.Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: VirgisComponent.Translate
+    fullName: Virgis.VirgisComponent.Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.Translate*
+  commentId: Overload:Virgis.Dataline.Translate
+  name: Translate
+  nameWithType: Dataline.Translate
+  fullName: Virgis.Dataline.Translate
+- uid: Virgis.Dataline.GetWkt*
+  commentId: Overload:Virgis.Dataline.GetWkt
+  name: GetWkt
+  nameWithType: Dataline.GetWkt
+  fullName: Virgis.Dataline.GetWkt
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Virgis.Dataline.GetWktCoords*
+  commentId: Overload:Virgis.Dataline.GetWktCoords
+  name: GetWktCoords
+  nameWithType: Dataline.GetWktCoords
+  fullName: Virgis.Dataline.GetWktCoords
+- uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: MoveTo(MoveArgs)
+  nameWithType: VirgisComponent.MoveTo(MoveArgs)
+  fullName: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisComponent.MoveTo
+    fullName: Virgis.VirgisComponent.MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisComponent.MoveTo
+    fullName: Virgis.VirgisComponent.MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.MoveTo*
+  commentId: Overload:Virgis.Dataline.MoveTo
+  name: MoveTo
+  nameWithType: Dataline.MoveTo
+  fullName: Virgis.Dataline.MoveTo
+- uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  commentId: M:Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: GetClosest(Vector3)
+  nameWithType: VirgisComponent.GetClosest(Vector3)
+  fullName: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+    name: GetClosest
+    nameWithType: VirgisComponent.GetClosest
+    fullName: Virgis.VirgisComponent.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+    name: GetClosest
+    nameWithType: VirgisComponent.GetClosest
+    fullName: Virgis.VirgisComponent.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.GetClosest*
+  commentId: Overload:Virgis.Dataline.GetClosest
+  name: GetClosest
+  nameWithType: Dataline.GetClosest
+  fullName: Virgis.Dataline.GetClosest
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: Virgis.VirgisComponent.GetGeometry``1
+  commentId: M:Virgis.VirgisComponent.GetGeometry``1
+  parent: Virgis.VirgisComponent
+  name: GetGeometry<T>()
+  nameWithType: VirgisComponent.GetGeometry<T>()
+  fullName: Virgis.VirgisComponent.GetGeometry<T>()
+  nameWithType.vb: VirgisComponent.GetGeometry(Of T)()
+  fullName.vb: Virgis.VirgisComponent.GetGeometry(Of T)()
+  name.vb: GetGeometry(Of T)()
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.GetGeometry``1
+    name: GetGeometry<T>
+    nameWithType: VirgisComponent.GetGeometry<T>
+    fullName: Virgis.VirgisComponent.GetGeometry<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.GetGeometry``1
+    name: GetGeometry(Of T)
+    nameWithType: VirgisComponent.GetGeometry(Of T)
+    fullName: Virgis.VirgisComponent.GetGeometry(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.GetGeometry*
+  commentId: Overload:Virgis.Dataline.GetGeometry
+  name: GetGeometry
+  nameWithType: Dataline.GetGeometry
+  fullName: Virgis.Dataline.GetGeometry
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  commentId: M:Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: AddVertex(Vector3)
+  nameWithType: VirgisComponent.AddVertex(Vector3)
+  fullName: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+    name: AddVertex
+    nameWithType: VirgisComponent.AddVertex
+    fullName: Virgis.VirgisComponent.AddVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+    name: AddVertex
+    nameWithType: VirgisComponent.AddVertex
+    fullName: Virgis.VirgisComponent.AddVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.AddVertex*
+  commentId: Overload:Virgis.Dataline.AddVertex
+  name: AddVertex
+  nameWithType: Dataline.AddVertex
+  fullName: Virgis.Dataline.AddVertex
+- uid: Virgis.LineSegment
+  commentId: T:Virgis.LineSegment
+  parent: Virgis
+  name: LineSegment
+  nameWithType: LineSegment
+  fullName: Virgis.LineSegment
+- uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  commentId: M:Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  parent: Virgis.VirgisComponent
+  name: RemoveVertex(VirgisComponent)
+  nameWithType: VirgisComponent.RemoveVertex(VirgisComponent)
+  fullName: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+    name: RemoveVertex
+    nameWithType: VirgisComponent.RemoveVertex
+    fullName: Virgis.VirgisComponent.RemoveVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisComponent
+    name: VirgisComponent
+    nameWithType: VirgisComponent
+    fullName: Virgis.VirgisComponent
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+    name: RemoveVertex
+    nameWithType: VirgisComponent.RemoveVertex
+    fullName: Virgis.VirgisComponent.RemoveVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisComponent
+    name: VirgisComponent
+    nameWithType: VirgisComponent
+    fullName: Virgis.VirgisComponent
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Dataline.RemoveVertex*
+  commentId: Overload:Virgis.Dataline.RemoveVertex
+  name: RemoveVertex
+  nameWithType: Dataline.RemoveVertex
+  fullName: Virgis.Dataline.RemoveVertex

@@ -1,0 +1,3060 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.PolygonLayer
+  commentId: T:Virgis.PolygonLayer
+  id: PolygonLayer
+  parent: Virgis
+  children:
+  - Virgis.PolygonLayer._addFeature(UnityEngine.Vector3[])
+  - Virgis.PolygonLayer._checkpoint
+  - Virgis.PolygonLayer._draw
+  - Virgis.PolygonLayer._drawFeature(UnityEngine.Vector3[],UnityEngine.Vector3,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
+  - Virgis.PolygonLayer._init(Project.GeographyCollection)
+  - Virgis.PolygonLayer._save
+  - Virgis.PolygonLayer.BodyBaseMaterial
+  - Virgis.PolygonLayer.CubePrefab
+  - Virgis.PolygonLayer.CuboidLinePrefab
+  - Virgis.PolygonLayer.CylinderLinePrefab
+  - Virgis.PolygonLayer.CylinderPrefab
+  - Virgis.PolygonLayer.GetFeatureShape
+  - Virgis.PolygonLayer.LabelPrefab
+  - Virgis.PolygonLayer.LineBaseMaterial
+  - Virgis.PolygonLayer.MoveAxis(Virgis.MoveArgs)
+  - Virgis.PolygonLayer.PointBaseMaterial
+  - Virgis.PolygonLayer.PolygonPrefab
+  - Virgis.PolygonLayer.SpherePrefab
+  - Virgis.PolygonLayer.Translate(Virgis.MoveArgs)
+  langs:
+  - csharp
+  - vb
+  name: PolygonLayer
+  nameWithType: PolygonLayer
+  fullName: Virgis.PolygonLayer
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: PolygonLayer
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nControls an instance of a Polygon Layer\n"
+  example: []
+  syntax:
+    content: 'public class PolygonLayer : Layer<GeographyCollection, FeatureCollection>, ILayer'
+    content.vb: >-
+      Public Class PolygonLayer
+          Inherits Layer(Of GeographyCollection, FeatureCollection)
+          Implements ILayer
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  implements:
+  - Virgis.ILayer
+  inheritedMembers:
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.layer
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.features
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.changed
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._id
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._visible
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._editable
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Init(Project.GeographyCollection)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._init(Project.GeographyCollection)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.AddFeature(UnityEngine.Vector3[])
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._addFeature(UnityEngine.Vector3[])
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Draw
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._draw
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.CheckPoint
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._checkpoint
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Save
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._save
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Translate(Virgis.MoveArgs)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.MoveAxis(Virgis.MoveArgs)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.StartEditSession
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.ExitEditSession(System.Boolean)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Selected(Virgis.SelectionTypes)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.UnSelected(Virgis.SelectionTypes)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeature(System.Guid)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetId
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetMetadata
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeatureShape
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.SetVisible(System.Boolean)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.IsVisible
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.SetEditable(System.Boolean)
+  - Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.IsEditable
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Virgis.PolygonLayer.CylinderLinePrefab
+  commentId: F:Virgis.PolygonLayer.CylinderLinePrefab
+  id: CylinderLinePrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: CylinderLinePrefab
+  nameWithType: PolygonLayer.CylinderLinePrefab
+  fullName: Virgis.PolygonLayer.CylinderLinePrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CylinderLinePrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 23
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject CylinderLinePrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public CylinderLinePrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.CuboidLinePrefab
+  commentId: F:Virgis.PolygonLayer.CuboidLinePrefab
+  id: CuboidLinePrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: CuboidLinePrefab
+  nameWithType: PolygonLayer.CuboidLinePrefab
+  fullName: Virgis.PolygonLayer.CuboidLinePrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CuboidLinePrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject CuboidLinePrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public CuboidLinePrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.SpherePrefab
+  commentId: F:Virgis.PolygonLayer.SpherePrefab
+  id: SpherePrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: SpherePrefab
+  nameWithType: PolygonLayer.SpherePrefab
+  fullName: Virgis.PolygonLayer.SpherePrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: SpherePrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 25
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject SpherePrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public SpherePrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.CubePrefab
+  commentId: F:Virgis.PolygonLayer.CubePrefab
+  id: CubePrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: CubePrefab
+  nameWithType: PolygonLayer.CubePrefab
+  fullName: Virgis.PolygonLayer.CubePrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CubePrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject CubePrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public CubePrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.CylinderPrefab
+  commentId: F:Virgis.PolygonLayer.CylinderPrefab
+  id: CylinderPrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: CylinderPrefab
+  nameWithType: PolygonLayer.CylinderPrefab
+  fullName: Virgis.PolygonLayer.CylinderPrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CylinderPrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 27
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject CylinderPrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public CylinderPrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.PolygonPrefab
+  commentId: F:Virgis.PolygonLayer.PolygonPrefab
+  id: PolygonPrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: PolygonPrefab
+  nameWithType: PolygonLayer.PolygonPrefab
+  fullName: Virgis.PolygonLayer.PolygonPrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: PolygonPrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject PolygonPrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public PolygonPrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.LabelPrefab
+  commentId: F:Virgis.PolygonLayer.LabelPrefab
+  id: LabelPrefab
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: LabelPrefab
+  nameWithType: PolygonLayer.LabelPrefab
+  fullName: Virgis.PolygonLayer.LabelPrefab
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: LabelPrefab
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 29
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public GameObject LabelPrefab
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public LabelPrefab As GameObject
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.PointBaseMaterial
+  commentId: F:Virgis.PolygonLayer.PointBaseMaterial
+  id: PointBaseMaterial
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: PointBaseMaterial
+  nameWithType: PolygonLayer.PointBaseMaterial
+  fullName: Virgis.PolygonLayer.PointBaseMaterial
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointBaseMaterial
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Material PointBaseMaterial
+    return:
+      type: UnityEngine.Material
+    content.vb: Public PointBaseMaterial As Material
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.LineBaseMaterial
+  commentId: F:Virgis.PolygonLayer.LineBaseMaterial
+  id: LineBaseMaterial
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: LineBaseMaterial
+  nameWithType: PolygonLayer.LineBaseMaterial
+  fullName: Virgis.PolygonLayer.LineBaseMaterial
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineBaseMaterial
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 31
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Material LineBaseMaterial
+    return:
+      type: UnityEngine.Material
+    content.vb: Public LineBaseMaterial As Material
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer.BodyBaseMaterial
+  commentId: F:Virgis.PolygonLayer.BodyBaseMaterial
+  id: BodyBaseMaterial
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: BodyBaseMaterial
+  nameWithType: PolygonLayer.BodyBaseMaterial
+  fullName: Virgis.PolygonLayer.BodyBaseMaterial
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: BodyBaseMaterial
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Material BodyBaseMaterial
+    return:
+      type: UnityEngine.Material
+    content.vb: Public BodyBaseMaterial As Material
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.PolygonLayer._init(Project.GeographyCollection)
+  commentId: M:Virgis.PolygonLayer._init(Project.GeographyCollection)
+  id: _init(Project.GeographyCollection)
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: _init(GeographyCollection)
+  nameWithType: PolygonLayer._init(GeographyCollection)
+  fullName: Virgis.PolygonLayer._init(Project.GeographyCollection)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _init
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 47
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected override Task _init(GeographyCollection layer)
+    parameters:
+    - id: layer
+      type: Project.GeographyCollection
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Protected Overrides Function _init(layer As GeographyCollection) As Task
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._init(Project.GeographyCollection)
+  overload: Virgis.PolygonLayer._init*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: Virgis.PolygonLayer._addFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.PolygonLayer._addFeature(UnityEngine.Vector3[])
+  id: _addFeature(UnityEngine.Vector3[])
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: _addFeature(Vector3[])
+  nameWithType: PolygonLayer._addFeature(Vector3[])
+  fullName: Virgis.PolygonLayer._addFeature(UnityEngine.Vector3[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _addFeature
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 108
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected override VirgisComponent _addFeature(Vector3[] geometry)
+    parameters:
+    - id: geometry
+      type: UnityEngine.Vector3[]
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Protected Overrides Function _addFeature(geometry As Vector3()) As VirgisComponent
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._addFeature(UnityEngine.Vector3[])
+  overload: Virgis.PolygonLayer._addFeature*
+  nameWithType.vb: PolygonLayer._addFeature(Vector3())
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+  fullName.vb: Virgis.PolygonLayer._addFeature(UnityEngine.Vector3())
+  name.vb: _addFeature(Vector3())
+- uid: Virgis.PolygonLayer._draw
+  commentId: M:Virgis.PolygonLayer._draw
+  id: _draw
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: _draw()
+  nameWithType: PolygonLayer._draw()
+  fullName: Virgis.PolygonLayer._draw()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _draw
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 114
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected override void _draw()
+    content.vb: Protected Overrides Sub _draw
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._draw
+  overload: Virgis.PolygonLayer._draw*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: Virgis.PolygonLayer._drawFeature(UnityEngine.Vector3[],UnityEngine.Vector3,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:Virgis.PolygonLayer._drawFeature(UnityEngine.Vector3[],UnityEngine.Vector3,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: _drawFeature(UnityEngine.Vector3[],UnityEngine.Vector3,System.String,System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: _drawFeature(Vector3[], Vector3, String, Dictionary<String, Object>)
+  nameWithType: PolygonLayer._drawFeature(Vector3[], Vector3, String, Dictionary<String, Object>)
+  fullName: Virgis.PolygonLayer._drawFeature(UnityEngine.Vector3[], UnityEngine.Vector3, System.String, System.Collections.Generic.Dictionary<System.String, System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _drawFeature
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 154
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected VirgisComponent _drawFeature(Vector3[] perimeter, Vector3 center, string gisId = null, Dictionary<string, object> properties = null)
+    parameters:
+    - id: perimeter
+      type: UnityEngine.Vector3[]
+    - id: center
+      type: UnityEngine.Vector3
+    - id: gisId
+      type: System.String
+    - id: properties
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Protected Function _drawFeature(perimeter As Vector3(), center As Vector3, gisId As String = Nothing, properties As Dictionary(Of String, Object) = Nothing) As VirgisComponent
+  overload: Virgis.PolygonLayer._drawFeature*
+  nameWithType.vb: PolygonLayer._drawFeature(Vector3(), Vector3, String, Dictionary(Of String, Object))
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.PolygonLayer._drawFeature(UnityEngine.Vector3(), UnityEngine.Vector3, System.String, System.Collections.Generic.Dictionary(Of System.String, System.Object))
+  name.vb: _drawFeature(Vector3(), Vector3, String, Dictionary(Of String, Object))
+- uid: Virgis.PolygonLayer._checkpoint
+  commentId: M:Virgis.PolygonLayer._checkpoint
+  id: _checkpoint
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: _checkpoint()
+  nameWithType: PolygonLayer._checkpoint()
+  fullName: Virgis.PolygonLayer._checkpoint()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _checkpoint
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 190
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected override void _checkpoint()
+    content.vb: Protected Overrides Sub _checkpoint
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._checkpoint
+  overload: Virgis.PolygonLayer._checkpoint*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: Virgis.PolygonLayer._save
+  commentId: M:Virgis.PolygonLayer._save
+  id: _save
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: _save()
+  nameWithType: PolygonLayer._save()
+  fullName: Virgis.PolygonLayer._save()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _save
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 192
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected override void _save()
+    content.vb: Protected Overrides Sub _save
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._save
+  overload: Virgis.PolygonLayer._save*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: Virgis.PolygonLayer.GetFeatureShape
+  commentId: M:Virgis.PolygonLayer.GetFeatureShape
+  id: GetFeatureShape
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: GetFeatureShape()
+  nameWithType: PolygonLayer.GetFeatureShape()
+  fullName: Virgis.PolygonLayer.GetFeatureShape()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFeatureShape
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 220
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override GameObject GetFeatureShape()
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public Overrides Function GetFeatureShape As GameObject
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeatureShape
+  overload: Virgis.PolygonLayer.GetFeatureShape*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.PolygonLayer.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.PolygonLayer.Translate(Virgis.MoveArgs)
+  id: Translate(Virgis.MoveArgs)
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: Translate(MoveArgs)
+  nameWithType: PolygonLayer.Translate(MoveArgs)
+  fullName: Virgis.PolygonLayer.Translate(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 227
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void Translate(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub Translate(args As MoveArgs)
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Translate(Virgis.MoveArgs)
+  overload: Virgis.PolygonLayer.Translate*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.PolygonLayer.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.PolygonLayer.MoveAxis(Virgis.MoveArgs)
+  id: MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.PolygonLayer
+  langs:
+  - csharp
+  - vb
+  name: MoveAxis(MoveArgs)
+  nameWithType: PolygonLayer.MoveAxis(MoveArgs)
+  fullName: Virgis.PolygonLayer.MoveAxis(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Layers/PolygonLayer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MoveAxis
+    path: ../Assets/Scripts/Layers/PolygonLayer.cs
+    startLine: 231
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void MoveAxis(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub MoveAxis(args As MoveArgs)
+  overridden: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.MoveAxis(Virgis.MoveArgs)
+  overload: Virgis.PolygonLayer.MoveAxis*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  commentId: T:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  parent: Virgis
+  definition: Virgis.Layer`2
+  name: Layer<GeographyCollection, FeatureCollection>
+  nameWithType: Layer<GeographyCollection, FeatureCollection>
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)
+  name.vb: Layer(Of GeographyCollection, FeatureCollection)
+  spec.csharp:
+  - uid: Virgis.Layer`2
+    name: Layer
+    nameWithType: Layer
+    fullName: Virgis.Layer
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Project.GeographyCollection
+    name: GeographyCollection
+    nameWithType: GeographyCollection
+    fullName: Project.GeographyCollection
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.Feature.FeatureCollection
+    name: FeatureCollection
+    nameWithType: FeatureCollection
+    fullName: GeoJSON.Net.Feature.FeatureCollection
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Virgis.Layer`2
+    name: Layer
+    nameWithType: Layer
+    fullName: Virgis.Layer
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Project.GeographyCollection
+    name: GeographyCollection
+    nameWithType: GeographyCollection
+    fullName: Project.GeographyCollection
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.Feature.FeatureCollection
+    name: FeatureCollection
+    nameWithType: FeatureCollection
+    fullName: GeoJSON.Net.Feature.FeatureCollection
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.ILayer
+  commentId: T:Virgis.ILayer
+  parent: Virgis
+  name: ILayer
+  nameWithType: ILayer
+  fullName: Virgis.ILayer
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.layer
+  commentId: F:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.layer
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.layer
+  name: layer
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.layer
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.layer
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).layer
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).layer
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.features
+  commentId: F:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.features
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.features
+  name: features
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.features
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.features
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).features
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).features
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.changed
+  commentId: F:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.changed
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.changed
+  name: changed
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.changed
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.changed
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).changed
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).changed
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._id
+  commentId: F:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._id
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._id
+  name: _id
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._id
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._id
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._id
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._id
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._visible
+  commentId: F:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._visible
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._visible
+  name: _visible
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._visible
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._visible
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._visible
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._visible
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._editable
+  commentId: F:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._editable
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._editable
+  name: _editable
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._editable
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._editable
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._editable
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._editable
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Init(Project.GeographyCollection)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Init(Project.GeographyCollection)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.Init(`0)
+  name: Init(GeographyCollection)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.Init(GeographyCollection)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Init(Project.GeographyCollection)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).Init(GeographyCollection)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Init(Project.GeographyCollection)
+  spec.csharp:
+  - uid: Virgis.Layer`2.Init(`0)
+    name: Init
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.Init
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Project.GeographyCollection
+    name: GeographyCollection
+    nameWithType: GeographyCollection
+    fullName: Project.GeographyCollection
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Init(`0)
+    name: Init
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).Init
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Project.GeographyCollection
+    name: GeographyCollection
+    nameWithType: GeographyCollection
+    fullName: Project.GeographyCollection
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._init(Project.GeographyCollection)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._init(Project.GeographyCollection)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._init(`0)
+  name: _init(GeographyCollection)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._init(GeographyCollection)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._init(Project.GeographyCollection)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._init(GeographyCollection)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._init(Project.GeographyCollection)
+  spec.csharp:
+  - uid: Virgis.Layer`2._init(`0)
+    name: _init
+    nameWithType: Layer<GeographyCollection, FeatureCollection>._init
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Project.GeographyCollection
+    name: GeographyCollection
+    nameWithType: GeographyCollection
+    fullName: Project.GeographyCollection
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._init(`0)
+    name: _init
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection)._init
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Project.GeographyCollection
+    name: GeographyCollection
+    nameWithType: GeographyCollection
+    fullName: Project.GeographyCollection
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.AddFeature(UnityEngine.Vector3[])
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  name: AddFeature(Vector3[])
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.AddFeature(Vector3[])
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.AddFeature(UnityEngine.Vector3[])
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).AddFeature(Vector3())
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).AddFeature(UnityEngine.Vector3())
+  name.vb: AddFeature(Vector3())
+  spec.csharp:
+  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+    name: AddFeature
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.AddFeature
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.AddFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+    name: AddFeature
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).AddFeature
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).AddFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._addFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._addFeature(UnityEngine.Vector3[])
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  name: _addFeature(Vector3[])
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._addFeature(Vector3[])
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._addFeature(UnityEngine.Vector3[])
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._addFeature(Vector3())
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._addFeature(UnityEngine.Vector3())
+  name.vb: _addFeature(Vector3())
+  spec.csharp:
+  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+    name: _addFeature
+    nameWithType: Layer<GeographyCollection, FeatureCollection>._addFeature
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._addFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+    name: _addFeature
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection)._addFeature
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._addFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Draw
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Draw
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.Draw
+  name: Draw()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.Draw()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Draw()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).Draw()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Draw()
+  spec.csharp:
+  - uid: Virgis.Layer`2.Draw
+    name: Draw
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.Draw
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Draw
+    name: Draw
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).Draw
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._draw
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._draw
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._draw
+  name: _draw()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._draw()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._draw()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._draw()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._draw()
+  spec.csharp:
+  - uid: Virgis.Layer`2._draw
+    name: _draw
+    nameWithType: Layer<GeographyCollection, FeatureCollection>._draw
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._draw
+    name: _draw
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection)._draw
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.CheckPoint
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.CheckPoint
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.CheckPoint
+  name: CheckPoint()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.CheckPoint()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.CheckPoint()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).CheckPoint()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).CheckPoint()
+  spec.csharp:
+  - uid: Virgis.Layer`2.CheckPoint
+    name: CheckPoint
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.CheckPoint
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.CheckPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.CheckPoint
+    name: CheckPoint
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).CheckPoint
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).CheckPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._checkpoint
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._checkpoint
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._checkpoint
+  name: _checkpoint()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._checkpoint()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._checkpoint()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._checkpoint()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._checkpoint()
+  spec.csharp:
+  - uid: Virgis.Layer`2._checkpoint
+    name: _checkpoint
+    nameWithType: Layer<GeographyCollection, FeatureCollection>._checkpoint
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._checkpoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._checkpoint
+    name: _checkpoint
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection)._checkpoint
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._checkpoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Save
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Save
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.Save
+  name: Save()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.Save()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Save()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).Save()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Save()
+  spec.csharp:
+  - uid: Virgis.Layer`2.Save
+    name: Save
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.Save
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Save
+    name: Save
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).Save
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._save
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}._save
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2._save
+  name: _save()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>._save()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._save()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection)._save()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._save()
+  spec.csharp:
+  - uid: Virgis.Layer`2._save
+    name: _save
+    nameWithType: Layer<GeographyCollection, FeatureCollection>._save
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>._save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._save
+    name: _save
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection)._save
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection)._save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Translate(Virgis.MoveArgs)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  name: Translate(MoveArgs)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.Translate(MoveArgs)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Translate(Virgis.MoveArgs)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).Translate(MoveArgs)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Translate(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.Translate
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).Translate
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  name: MoveAxis(MoveArgs)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.MoveAxis(MoveArgs)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.MoveAxis(Virgis.MoveArgs)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).MoveAxis(MoveArgs)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).MoveAxis(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.MoveAxis
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).MoveAxis
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.StartEditSession
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.StartEditSession
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.StartEditSession
+  name: StartEditSession()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.StartEditSession()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.StartEditSession()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).StartEditSession()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).StartEditSession()
+  spec.csharp:
+  - uid: Virgis.Layer`2.StartEditSession
+    name: StartEditSession
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.StartEditSession
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.StartEditSession
+    name: StartEditSession
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).StartEditSession
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.ExitEditSession(System.Boolean)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  name: ExitEditSession(Boolean)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.ExitEditSession(Boolean)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.ExitEditSession(System.Boolean)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).ExitEditSession(Boolean)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).ExitEditSession(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.ExitEditSession
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).ExitEditSession
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.Selected(Virgis.SelectionTypes)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  name: Selected(SelectionTypes)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.Selected(SelectionTypes)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Selected(Virgis.SelectionTypes)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).Selected(SelectionTypes)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Selected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.Selected
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).Selected
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  name: UnSelected(SelectionTypes)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.UnSelected(SelectionTypes)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.UnSelected(Virgis.SelectionTypes)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).UnSelected(SelectionTypes)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).UnSelected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.UnSelected
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).UnSelected
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetClosest(UnityEngine.Vector3,System.Guid[])
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  name: GetClosest(Vector3, Guid[])
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.GetClosest(Vector3, Guid[])
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetClosest(UnityEngine.Vector3, System.Guid[])
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetClosest(UnityEngine.Vector3, System.Guid())
+  name.vb: GetClosest(Vector3, Guid())
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.GetClosest
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).GetClosest
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeature(System.Guid)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeature(System.Guid)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.GetFeature(System.Guid)
+  name: GetFeature(Guid)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.GetFeature(Guid)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetFeature(System.Guid)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).GetFeature(Guid)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetFeature(System.Guid)
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+    name: GetFeature
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.GetFeature
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+    name: GetFeature
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).GetFeature
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetId
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetId
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.GetId
+  name: GetId()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.GetId()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetId()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).GetId()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetId()
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetId
+    name: GetId
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.GetId
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetId
+    name: GetId
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).GetId
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetMetadata
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetMetadata
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.GetMetadata
+  name: GetMetadata()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.GetMetadata()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetMetadata()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).GetMetadata()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetMetadata()
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetMetadata
+    name: GetMetadata
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.GetMetadata
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetMetadata
+    name: GetMetadata
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).GetMetadata
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeatureShape
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.GetFeatureShape
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.GetFeatureShape
+  name: GetFeatureShape()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.GetFeatureShape()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetFeatureShape()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).GetFeatureShape()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetFeatureShape()
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetFeatureShape
+    name: GetFeatureShape
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.GetFeatureShape
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.GetFeatureShape
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetFeatureShape
+    name: GetFeatureShape
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).GetFeatureShape
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).GetFeatureShape
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.SetVisible(System.Boolean)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.SetVisible(System.Boolean)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.SetVisible(System.Boolean)
+  name: SetVisible(Boolean)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.SetVisible(Boolean)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.SetVisible(System.Boolean)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).SetVisible(Boolean)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).SetVisible(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+    name: SetVisible
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.SetVisible
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.SetVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+    name: SetVisible
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).SetVisible
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).SetVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.IsVisible
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.IsVisible
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.IsVisible
+  name: IsVisible()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.IsVisible()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.IsVisible()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).IsVisible()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).IsVisible()
+  spec.csharp:
+  - uid: Virgis.Layer`2.IsVisible
+    name: IsVisible
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.IsVisible
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.IsVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.IsVisible
+    name: IsVisible
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).IsVisible
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).IsVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.SetEditable(System.Boolean)
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.SetEditable(System.Boolean)
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.SetEditable(System.Boolean)
+  name: SetEditable(Boolean)
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.SetEditable(Boolean)
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.SetEditable(System.Boolean)
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).SetEditable(Boolean)
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).SetEditable(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+    name: SetEditable
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.SetEditable
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.SetEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+    name: SetEditable
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).SetEditable
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).SetEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.IsEditable
+  commentId: M:Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}.IsEditable
+  parent: Virgis.Layer{Project.GeographyCollection,GeoJSON.Net.Feature.FeatureCollection}
+  definition: Virgis.Layer`2.IsEditable
+  name: IsEditable()
+  nameWithType: Layer<GeographyCollection, FeatureCollection>.IsEditable()
+  fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.IsEditable()
+  nameWithType.vb: Layer(Of GeographyCollection, FeatureCollection).IsEditable()
+  fullName.vb: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).IsEditable()
+  spec.csharp:
+  - uid: Virgis.Layer`2.IsEditable
+    name: IsEditable
+    nameWithType: Layer<GeographyCollection, FeatureCollection>.IsEditable
+    fullName: Virgis.Layer<Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection>.IsEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.IsEditable
+    name: IsEditable
+    nameWithType: Layer(Of GeographyCollection, FeatureCollection).IsEditable
+    fullName: Virgis.Layer(Of Project.GeographyCollection, GeoJSON.Net.Feature.FeatureCollection).IsEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Virgis.Layer`2
+  commentId: T:Virgis.Layer`2
+  name: Layer<T, S>
+  nameWithType: Layer<T, S>
+  fullName: Virgis.Layer<T, S>
+  nameWithType.vb: Layer(Of T, S)
+  fullName.vb: Virgis.Layer(Of T, S)
+  name.vb: Layer(Of T, S)
+  spec.csharp:
+  - uid: Virgis.Layer`2
+    name: Layer
+    nameWithType: Layer
+    fullName: Virgis.Layer
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Virgis.Layer`2
+    name: Layer
+    nameWithType: Layer
+    fullName: Virgis.Layer
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.layer
+  commentId: F:Virgis.Layer`2.layer
+  name: layer
+  nameWithType: Layer<T, S>.layer
+  fullName: Virgis.Layer<T, S>.layer
+  nameWithType.vb: Layer(Of T, S).layer
+  fullName.vb: Virgis.Layer(Of T, S).layer
+- uid: Virgis.Layer`2.features
+  commentId: F:Virgis.Layer`2.features
+  name: features
+  nameWithType: Layer<T, S>.features
+  fullName: Virgis.Layer<T, S>.features
+  nameWithType.vb: Layer(Of T, S).features
+  fullName.vb: Virgis.Layer(Of T, S).features
+- uid: Virgis.Layer`2.changed
+  commentId: F:Virgis.Layer`2.changed
+  name: changed
+  nameWithType: Layer<T, S>.changed
+  fullName: Virgis.Layer<T, S>.changed
+  nameWithType.vb: Layer(Of T, S).changed
+  fullName.vb: Virgis.Layer(Of T, S).changed
+- uid: Virgis.Layer`2._id
+  commentId: F:Virgis.Layer`2._id
+  name: _id
+  nameWithType: Layer<T, S>._id
+  fullName: Virgis.Layer<T, S>._id
+  nameWithType.vb: Layer(Of T, S)._id
+  fullName.vb: Virgis.Layer(Of T, S)._id
+- uid: Virgis.Layer`2._visible
+  commentId: F:Virgis.Layer`2._visible
+  name: _visible
+  nameWithType: Layer<T, S>._visible
+  fullName: Virgis.Layer<T, S>._visible
+  nameWithType.vb: Layer(Of T, S)._visible
+  fullName.vb: Virgis.Layer(Of T, S)._visible
+- uid: Virgis.Layer`2._editable
+  commentId: F:Virgis.Layer`2._editable
+  name: _editable
+  nameWithType: Layer<T, S>._editable
+  fullName: Virgis.Layer<T, S>._editable
+  nameWithType.vb: Layer(Of T, S)._editable
+  fullName.vb: Virgis.Layer(Of T, S)._editable
+- uid: Virgis.Layer`2.Init(`0)
+  commentId: M:Virgis.Layer`2.Init(`0)
+  name: Init(T)
+  nameWithType: Layer<T, S>.Init(T)
+  fullName: Virgis.Layer<T, S>.Init(T)
+  nameWithType.vb: Layer(Of T, S).Init(T)
+  fullName.vb: Virgis.Layer(Of T, S).Init(T)
+  spec.csharp:
+  - uid: Virgis.Layer`2.Init(`0)
+    name: Init
+    nameWithType: Layer<T, S>.Init
+    fullName: Virgis.Layer<T, S>.Init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Init(`0)
+    name: Init
+    nameWithType: Layer(Of T, S).Init
+    fullName: Virgis.Layer(Of T, S).Init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._init(`0)
+  commentId: M:Virgis.Layer`2._init(`0)
+  name: _init(T)
+  nameWithType: Layer<T, S>._init(T)
+  fullName: Virgis.Layer<T, S>._init(T)
+  nameWithType.vb: Layer(Of T, S)._init(T)
+  fullName.vb: Virgis.Layer(Of T, S)._init(T)
+  spec.csharp:
+  - uid: Virgis.Layer`2._init(`0)
+    name: _init
+    nameWithType: Layer<T, S>._init
+    fullName: Virgis.Layer<T, S>._init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._init(`0)
+    name: _init
+    nameWithType: Layer(Of T, S)._init
+    fullName: Virgis.Layer(Of T, S)._init
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  isExternal: true
+  name: AddFeature(Vector3[])
+  nameWithType: Layer<T, S>.AddFeature(Vector3[])
+  fullName: Virgis.Layer<T, S>.AddFeature(UnityEngine.Vector3[])
+  nameWithType.vb: Layer(Of T, S).AddFeature(Vector3())
+  fullName.vb: Virgis.Layer(Of T, S).AddFeature(UnityEngine.Vector3())
+  name.vb: AddFeature(Vector3())
+  spec.csharp:
+  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+    name: AddFeature
+    nameWithType: Layer<T, S>.AddFeature
+    fullName: Virgis.Layer<T, S>.AddFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+    name: AddFeature
+    nameWithType: Layer(Of T, S).AddFeature
+    fullName: Virgis.Layer(Of T, S).AddFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  isExternal: true
+  name: _addFeature(Vector3[])
+  nameWithType: Layer<T, S>._addFeature(Vector3[])
+  fullName: Virgis.Layer<T, S>._addFeature(UnityEngine.Vector3[])
+  nameWithType.vb: Layer(Of T, S)._addFeature(Vector3())
+  fullName.vb: Virgis.Layer(Of T, S)._addFeature(UnityEngine.Vector3())
+  name.vb: _addFeature(Vector3())
+  spec.csharp:
+  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+    name: _addFeature
+    nameWithType: Layer<T, S>._addFeature
+    fullName: Virgis.Layer<T, S>._addFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+    name: _addFeature
+    nameWithType: Layer(Of T, S)._addFeature
+    fullName: Virgis.Layer(Of T, S)._addFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.Draw
+  commentId: M:Virgis.Layer`2.Draw
+  name: Draw()
+  nameWithType: Layer<T, S>.Draw()
+  fullName: Virgis.Layer<T, S>.Draw()
+  nameWithType.vb: Layer(Of T, S).Draw()
+  fullName.vb: Virgis.Layer(Of T, S).Draw()
+  spec.csharp:
+  - uid: Virgis.Layer`2.Draw
+    name: Draw
+    nameWithType: Layer<T, S>.Draw
+    fullName: Virgis.Layer<T, S>.Draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Draw
+    name: Draw
+    nameWithType: Layer(Of T, S).Draw
+    fullName: Virgis.Layer(Of T, S).Draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._draw
+  commentId: M:Virgis.Layer`2._draw
+  name: _draw()
+  nameWithType: Layer<T, S>._draw()
+  fullName: Virgis.Layer<T, S>._draw()
+  nameWithType.vb: Layer(Of T, S)._draw()
+  fullName.vb: Virgis.Layer(Of T, S)._draw()
+  spec.csharp:
+  - uid: Virgis.Layer`2._draw
+    name: _draw
+    nameWithType: Layer<T, S>._draw
+    fullName: Virgis.Layer<T, S>._draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._draw
+    name: _draw
+    nameWithType: Layer(Of T, S)._draw
+    fullName: Virgis.Layer(Of T, S)._draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.CheckPoint
+  commentId: M:Virgis.Layer`2.CheckPoint
+  name: CheckPoint()
+  nameWithType: Layer<T, S>.CheckPoint()
+  fullName: Virgis.Layer<T, S>.CheckPoint()
+  nameWithType.vb: Layer(Of T, S).CheckPoint()
+  fullName.vb: Virgis.Layer(Of T, S).CheckPoint()
+  spec.csharp:
+  - uid: Virgis.Layer`2.CheckPoint
+    name: CheckPoint
+    nameWithType: Layer<T, S>.CheckPoint
+    fullName: Virgis.Layer<T, S>.CheckPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.CheckPoint
+    name: CheckPoint
+    nameWithType: Layer(Of T, S).CheckPoint
+    fullName: Virgis.Layer(Of T, S).CheckPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._checkpoint
+  commentId: M:Virgis.Layer`2._checkpoint
+  name: _checkpoint()
+  nameWithType: Layer<T, S>._checkpoint()
+  fullName: Virgis.Layer<T, S>._checkpoint()
+  nameWithType.vb: Layer(Of T, S)._checkpoint()
+  fullName.vb: Virgis.Layer(Of T, S)._checkpoint()
+  spec.csharp:
+  - uid: Virgis.Layer`2._checkpoint
+    name: _checkpoint
+    nameWithType: Layer<T, S>._checkpoint
+    fullName: Virgis.Layer<T, S>._checkpoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._checkpoint
+    name: _checkpoint
+    nameWithType: Layer(Of T, S)._checkpoint
+    fullName: Virgis.Layer(Of T, S)._checkpoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.Save
+  commentId: M:Virgis.Layer`2.Save
+  name: Save()
+  nameWithType: Layer<T, S>.Save()
+  fullName: Virgis.Layer<T, S>.Save()
+  nameWithType.vb: Layer(Of T, S).Save()
+  fullName.vb: Virgis.Layer(Of T, S).Save()
+  spec.csharp:
+  - uid: Virgis.Layer`2.Save
+    name: Save
+    nameWithType: Layer<T, S>.Save
+    fullName: Virgis.Layer<T, S>.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Save
+    name: Save
+    nameWithType: Layer(Of T, S).Save
+    fullName: Virgis.Layer(Of T, S).Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._save
+  commentId: M:Virgis.Layer`2._save
+  name: _save()
+  nameWithType: Layer<T, S>._save()
+  fullName: Virgis.Layer<T, S>._save()
+  nameWithType.vb: Layer(Of T, S)._save()
+  fullName.vb: Virgis.Layer(Of T, S)._save()
+  spec.csharp:
+  - uid: Virgis.Layer`2._save
+    name: _save
+    nameWithType: Layer<T, S>._save
+    fullName: Virgis.Layer<T, S>._save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2._save
+    name: _save
+    nameWithType: Layer(Of T, S)._save
+    fullName: Virgis.Layer(Of T, S)._save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  name: Translate(MoveArgs)
+  nameWithType: Layer<T, S>.Translate(MoveArgs)
+  fullName: Virgis.Layer<T, S>.Translate(Virgis.MoveArgs)
+  nameWithType.vb: Layer(Of T, S).Translate(MoveArgs)
+  fullName.vb: Virgis.Layer(Of T, S).Translate(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: Layer<T, S>.Translate
+    fullName: Virgis.Layer<T, S>.Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: Layer(Of T, S).Translate
+    fullName: Virgis.Layer(Of T, S).Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  name: MoveAxis(MoveArgs)
+  nameWithType: Layer<T, S>.MoveAxis(MoveArgs)
+  fullName: Virgis.Layer<T, S>.MoveAxis(Virgis.MoveArgs)
+  nameWithType.vb: Layer(Of T, S).MoveAxis(MoveArgs)
+  fullName.vb: Virgis.Layer(Of T, S).MoveAxis(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: Layer<T, S>.MoveAxis
+    fullName: Virgis.Layer<T, S>.MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: Layer(Of T, S).MoveAxis
+    fullName: Virgis.Layer(Of T, S).MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.StartEditSession
+  commentId: M:Virgis.Layer`2.StartEditSession
+  name: StartEditSession()
+  nameWithType: Layer<T, S>.StartEditSession()
+  fullName: Virgis.Layer<T, S>.StartEditSession()
+  nameWithType.vb: Layer(Of T, S).StartEditSession()
+  fullName.vb: Virgis.Layer(Of T, S).StartEditSession()
+  spec.csharp:
+  - uid: Virgis.Layer`2.StartEditSession
+    name: StartEditSession
+    nameWithType: Layer<T, S>.StartEditSession
+    fullName: Virgis.Layer<T, S>.StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.StartEditSession
+    name: StartEditSession
+    nameWithType: Layer(Of T, S).StartEditSession
+    fullName: Virgis.Layer(Of T, S).StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.Layer`2.ExitEditSession(System.Boolean)
+  isExternal: true
+  name: ExitEditSession(Boolean)
+  nameWithType: Layer<T, S>.ExitEditSession(Boolean)
+  fullName: Virgis.Layer<T, S>.ExitEditSession(System.Boolean)
+  nameWithType.vb: Layer(Of T, S).ExitEditSession(Boolean)
+  fullName.vb: Virgis.Layer(Of T, S).ExitEditSession(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: Layer<T, S>.ExitEditSession
+    fullName: Virgis.Layer<T, S>.ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: Layer(Of T, S).ExitEditSession
+    fullName: Virgis.Layer(Of T, S).ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  name: Selected(SelectionTypes)
+  nameWithType: Layer<T, S>.Selected(SelectionTypes)
+  fullName: Virgis.Layer<T, S>.Selected(Virgis.SelectionTypes)
+  nameWithType.vb: Layer(Of T, S).Selected(SelectionTypes)
+  fullName.vb: Virgis.Layer(Of T, S).Selected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: Layer<T, S>.Selected
+    fullName: Virgis.Layer<T, S>.Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: Layer(Of T, S).Selected
+    fullName: Virgis.Layer(Of T, S).Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  name: UnSelected(SelectionTypes)
+  nameWithType: Layer<T, S>.UnSelected(SelectionTypes)
+  fullName: Virgis.Layer<T, S>.UnSelected(Virgis.SelectionTypes)
+  nameWithType.vb: Layer(Of T, S).UnSelected(SelectionTypes)
+  fullName.vb: Virgis.Layer(Of T, S).UnSelected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: Layer<T, S>.UnSelected
+    fullName: Virgis.Layer<T, S>.UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: Layer(Of T, S).UnSelected
+    fullName: Virgis.Layer(Of T, S).UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  isExternal: true
+  name: GetClosest(Vector3, Guid[])
+  nameWithType: Layer<T, S>.GetClosest(Vector3, Guid[])
+  fullName: Virgis.Layer<T, S>.GetClosest(UnityEngine.Vector3, System.Guid[])
+  nameWithType.vb: Layer(Of T, S).GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.Layer(Of T, S).GetClosest(UnityEngine.Vector3, System.Guid())
+  name.vb: GetClosest(Vector3, Guid())
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: Layer<T, S>.GetClosest
+    fullName: Virgis.Layer<T, S>.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: Layer(Of T, S).GetClosest
+    fullName: Virgis.Layer(Of T, S).GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetFeature(System.Guid)
+  commentId: M:Virgis.Layer`2.GetFeature(System.Guid)
+  isExternal: true
+  name: GetFeature(Guid)
+  nameWithType: Layer<T, S>.GetFeature(Guid)
+  fullName: Virgis.Layer<T, S>.GetFeature(System.Guid)
+  nameWithType.vb: Layer(Of T, S).GetFeature(Guid)
+  fullName.vb: Virgis.Layer(Of T, S).GetFeature(System.Guid)
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+    name: GetFeature
+    nameWithType: Layer<T, S>.GetFeature
+    fullName: Virgis.Layer<T, S>.GetFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+    name: GetFeature
+    nameWithType: Layer(Of T, S).GetFeature
+    fullName: Virgis.Layer(Of T, S).GetFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetId
+  commentId: M:Virgis.Layer`2.GetId
+  name: GetId()
+  nameWithType: Layer<T, S>.GetId()
+  fullName: Virgis.Layer<T, S>.GetId()
+  nameWithType.vb: Layer(Of T, S).GetId()
+  fullName.vb: Virgis.Layer(Of T, S).GetId()
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetId
+    name: GetId
+    nameWithType: Layer<T, S>.GetId
+    fullName: Virgis.Layer<T, S>.GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetId
+    name: GetId
+    nameWithType: Layer(Of T, S).GetId
+    fullName: Virgis.Layer(Of T, S).GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetMetadata
+  commentId: M:Virgis.Layer`2.GetMetadata
+  name: GetMetadata()
+  nameWithType: Layer<T, S>.GetMetadata()
+  fullName: Virgis.Layer<T, S>.GetMetadata()
+  nameWithType.vb: Layer(Of T, S).GetMetadata()
+  fullName.vb: Virgis.Layer(Of T, S).GetMetadata()
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetMetadata
+    name: GetMetadata
+    nameWithType: Layer<T, S>.GetMetadata
+    fullName: Virgis.Layer<T, S>.GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetMetadata
+    name: GetMetadata
+    nameWithType: Layer(Of T, S).GetMetadata
+    fullName: Virgis.Layer(Of T, S).GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetFeatureShape
+  commentId: M:Virgis.Layer`2.GetFeatureShape
+  name: GetFeatureShape()
+  nameWithType: Layer<T, S>.GetFeatureShape()
+  fullName: Virgis.Layer<T, S>.GetFeatureShape()
+  nameWithType.vb: Layer(Of T, S).GetFeatureShape()
+  fullName.vb: Virgis.Layer(Of T, S).GetFeatureShape()
+  spec.csharp:
+  - uid: Virgis.Layer`2.GetFeatureShape
+    name: GetFeatureShape
+    nameWithType: Layer<T, S>.GetFeatureShape
+    fullName: Virgis.Layer<T, S>.GetFeatureShape
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.GetFeatureShape
+    name: GetFeatureShape
+    nameWithType: Layer(Of T, S).GetFeatureShape
+    fullName: Virgis.Layer(Of T, S).GetFeatureShape
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.SetVisible(System.Boolean)
+  commentId: M:Virgis.Layer`2.SetVisible(System.Boolean)
+  isExternal: true
+  name: SetVisible(Boolean)
+  nameWithType: Layer<T, S>.SetVisible(Boolean)
+  fullName: Virgis.Layer<T, S>.SetVisible(System.Boolean)
+  nameWithType.vb: Layer(Of T, S).SetVisible(Boolean)
+  fullName.vb: Virgis.Layer(Of T, S).SetVisible(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+    name: SetVisible
+    nameWithType: Layer<T, S>.SetVisible
+    fullName: Virgis.Layer<T, S>.SetVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+    name: SetVisible
+    nameWithType: Layer(Of T, S).SetVisible
+    fullName: Virgis.Layer(Of T, S).SetVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.IsVisible
+  commentId: M:Virgis.Layer`2.IsVisible
+  name: IsVisible()
+  nameWithType: Layer<T, S>.IsVisible()
+  fullName: Virgis.Layer<T, S>.IsVisible()
+  nameWithType.vb: Layer(Of T, S).IsVisible()
+  fullName.vb: Virgis.Layer(Of T, S).IsVisible()
+  spec.csharp:
+  - uid: Virgis.Layer`2.IsVisible
+    name: IsVisible
+    nameWithType: Layer<T, S>.IsVisible
+    fullName: Virgis.Layer<T, S>.IsVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.IsVisible
+    name: IsVisible
+    nameWithType: Layer(Of T, S).IsVisible
+    fullName: Virgis.Layer(Of T, S).IsVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.SetEditable(System.Boolean)
+  commentId: M:Virgis.Layer`2.SetEditable(System.Boolean)
+  isExternal: true
+  name: SetEditable(Boolean)
+  nameWithType: Layer<T, S>.SetEditable(Boolean)
+  fullName: Virgis.Layer<T, S>.SetEditable(System.Boolean)
+  nameWithType.vb: Layer(Of T, S).SetEditable(Boolean)
+  fullName.vb: Virgis.Layer(Of T, S).SetEditable(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+    name: SetEditable
+    nameWithType: Layer<T, S>.SetEditable
+    fullName: Virgis.Layer<T, S>.SetEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+    name: SetEditable
+    nameWithType: Layer(Of T, S).SetEditable
+    fullName: Virgis.Layer(Of T, S).SetEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.IsEditable
+  commentId: M:Virgis.Layer`2.IsEditable
+  name: IsEditable()
+  nameWithType: Layer<T, S>.IsEditable()
+  fullName: Virgis.Layer<T, S>.IsEditable()
+  nameWithType.vb: Layer(Of T, S).IsEditable()
+  fullName.vb: Virgis.Layer(Of T, S).IsEditable()
+  spec.csharp:
+  - uid: Virgis.Layer`2.IsEditable
+    name: IsEditable
+    nameWithType: Layer<T, S>.IsEditable
+    fullName: Virgis.Layer<T, S>.IsEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.Layer`2.IsEditable
+    name: IsEditable
+    nameWithType: Layer(Of T, S).IsEditable
+    fullName: Virgis.Layer(Of T, S).IsEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: UnityEngine.Material
+  commentId: T:UnityEngine.Material
+  parent: UnityEngine
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: UnityEngine.Material
+- uid: Virgis.PolygonLayer._init*
+  commentId: Overload:Virgis.PolygonLayer._init
+  name: _init
+  nameWithType: PolygonLayer._init
+  fullName: Virgis.PolygonLayer._init
+- uid: Project.GeographyCollection
+  commentId: T:Project.GeographyCollection
+  parent: Project
+  name: GeographyCollection
+  nameWithType: GeographyCollection
+  fullName: Project.GeographyCollection
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Virgis.PolygonLayer._addFeature*
+  commentId: Overload:Virgis.PolygonLayer._addFeature
+  name: _addFeature
+  nameWithType: PolygonLayer._addFeature
+  fullName: Virgis.PolygonLayer._addFeature
+- uid: UnityEngine.Vector3[]
+  isExternal: true
+  name: Vector3[]
+  nameWithType: Vector3[]
+  fullName: UnityEngine.Vector3[]
+  nameWithType.vb: Vector3()
+  fullName.vb: UnityEngine.Vector3()
+  name.vb: Vector3()
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.VirgisComponent
+  commentId: T:Virgis.VirgisComponent
+  parent: Virgis
+  name: VirgisComponent
+  nameWithType: VirgisComponent
+  fullName: Virgis.VirgisComponent
+- uid: Virgis.PolygonLayer._draw*
+  commentId: Overload:Virgis.PolygonLayer._draw
+  name: _draw
+  nameWithType: PolygonLayer._draw
+  fullName: Virgis.PolygonLayer._draw
+- uid: Virgis.PolygonLayer._drawFeature*
+  commentId: Overload:Virgis.PolygonLayer._drawFeature
+  name: _drawFeature
+  nameWithType: PolygonLayer._drawFeature
+  fullName: Virgis.PolygonLayer._drawFeature
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Object>
+  nameWithType: Dictionary<String, Object>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Virgis.PolygonLayer._checkpoint*
+  commentId: Overload:Virgis.PolygonLayer._checkpoint
+  name: _checkpoint
+  nameWithType: PolygonLayer._checkpoint
+  fullName: Virgis.PolygonLayer._checkpoint
+- uid: Virgis.PolygonLayer._save*
+  commentId: Overload:Virgis.PolygonLayer._save
+  name: _save
+  nameWithType: PolygonLayer._save
+  fullName: Virgis.PolygonLayer._save
+- uid: Virgis.PolygonLayer.GetFeatureShape*
+  commentId: Overload:Virgis.PolygonLayer.GetFeatureShape
+  name: GetFeatureShape
+  nameWithType: PolygonLayer.GetFeatureShape
+  fullName: Virgis.PolygonLayer.GetFeatureShape
+- uid: Virgis.PolygonLayer.Translate*
+  commentId: Overload:Virgis.PolygonLayer.Translate
+  name: Translate
+  nameWithType: PolygonLayer.Translate
+  fullName: Virgis.PolygonLayer.Translate
+- uid: Virgis.MoveArgs
+  commentId: T:Virgis.MoveArgs
+  parent: Virgis
+  name: MoveArgs
+  nameWithType: MoveArgs
+  fullName: Virgis.MoveArgs
+- uid: Virgis.PolygonLayer.MoveAxis*
+  commentId: Overload:Virgis.PolygonLayer.MoveAxis
+  name: MoveAxis
+  nameWithType: PolygonLayer.MoveAxis
+  fullName: Virgis.PolygonLayer.MoveAxis

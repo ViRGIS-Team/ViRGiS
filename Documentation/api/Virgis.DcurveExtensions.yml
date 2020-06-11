@@ -1,0 +1,326 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.DcurveExtensions
+  commentId: T:Virgis.DcurveExtensions
+  id: DcurveExtensions
+  parent: Virgis
+  children:
+  - Virgis.DcurveExtensions.Center(g3.DCurve3)
+  - Virgis.DcurveExtensions.CenterMark(g3.DCurve3)
+  - Virgis.DcurveExtensions.NearestSegment(g3.DCurve3,g3.Vector3d)
+  - Virgis.DcurveExtensions.Vector3(g3.DCurve3,UnityEngine.Vector3[],System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: DcurveExtensions
+  nameWithType: DcurveExtensions
+  fullName: Virgis.DcurveExtensions
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: DcurveExtensions
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 152
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public static class DcurveExtensions
+    content.vb: Public Module DcurveExtensions
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Virgis.DcurveExtensions.Vector3(g3.DCurve3,UnityEngine.Vector3[],System.Boolean)
+  commentId: M:Virgis.DcurveExtensions.Vector3(g3.DCurve3,UnityEngine.Vector3[],System.Boolean)
+  id: Vector3(g3.DCurve3,UnityEngine.Vector3[],System.Boolean)
+  isExtensionMethod: true
+  parent: Virgis.DcurveExtensions
+  langs:
+  - csharp
+  - vb
+  name: Vector3(DCurve3, Vector3[], Boolean)
+  nameWithType: DcurveExtensions.Vector3(DCurve3, Vector3[], Boolean)
+  fullName: Virgis.DcurveExtensions.Vector3(g3.DCurve3, UnityEngine.Vector3[], System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vector3
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 160
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCreates g3.DCurve from Vector3[]\n"
+  example: []
+  syntax:
+    content: public static void Vector3(this DCurve3 curve, Vector3[] verteces, bool bClosed)
+    parameters:
+    - id: curve
+      type: g3.DCurve3
+      description: DCurve
+    - id: verteces
+      type: UnityEngine.Vector3[]
+      description: Vextor3[]
+    - id: bClosed
+      type: System.Boolean
+      description: whether the line is closed
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Sub Vector3(curve As DCurve3, verteces As Vector3(), bClosed As Boolean)
+  overload: Virgis.DcurveExtensions.Vector3*
+  nameWithType.vb: DcurveExtensions.Vector3(DCurve3, Vector3(), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Virgis.DcurveExtensions.Vector3(g3.DCurve3, UnityEngine.Vector3(), System.Boolean)
+  name.vb: Vector3(DCurve3, Vector3(), Boolean)
+- uid: Virgis.DcurveExtensions.Center(g3.DCurve3)
+  commentId: M:Virgis.DcurveExtensions.Center(g3.DCurve3)
+  id: Center(g3.DCurve3)
+  isExtensionMethod: true
+  parent: Virgis.DcurveExtensions
+  langs:
+  - csharp
+  - vb
+  name: Center(DCurve3)
+  nameWithType: DcurveExtensions.Center(DCurve3)
+  fullName: Virgis.DcurveExtensions.Center(g3.DCurve3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 174
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nEstimates the 3D centroid of a DCurve \n"
+  example: []
+  syntax:
+    content: public static Vector3d Center(this DCurve3 curve)
+    parameters:
+    - id: curve
+      type: g3.DCurve3
+      description: DCurve
+    return:
+      type: g3.Vector3d
+      description: Vector3[]
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Center(curve As DCurve3) As Vector3d
+  overload: Virgis.DcurveExtensions.Center*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Virgis.DcurveExtensions.CenterMark(g3.DCurve3)
+  commentId: M:Virgis.DcurveExtensions.CenterMark(g3.DCurve3)
+  id: CenterMark(g3.DCurve3)
+  isExtensionMethod: true
+  parent: Virgis.DcurveExtensions
+  langs:
+  - csharp
+  - vb
+  name: CenterMark(DCurve3)
+  nameWithType: DcurveExtensions.CenterMark(DCurve3)
+  fullName: Virgis.DcurveExtensions.CenterMark(g3.DCurve3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CenterMark
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 192
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nEstimates the nearest point on a DCurve to the centroid of that DCurve\n"
+  example: []
+  syntax:
+    content: public static Vector3d CenterMark(this DCurve3 curve)
+    parameters:
+    - id: curve
+      type: g3.DCurve3
+      description: g3.DCurve
+    return:
+      type: g3.Vector3d
+      description: g3.Vector3d Centroid
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function CenterMark(curve As DCurve3) As Vector3d
+  overload: Virgis.DcurveExtensions.CenterMark*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Virgis.DcurveExtensions.NearestSegment(g3.DCurve3,g3.Vector3d)
+  commentId: M:Virgis.DcurveExtensions.NearestSegment(g3.DCurve3,g3.Vector3d)
+  id: NearestSegment(g3.DCurve3,g3.Vector3d)
+  isExtensionMethod: true
+  parent: Virgis.DcurveExtensions
+  langs:
+  - csharp
+  - vb
+  name: NearestSegment(DCurve3, Vector3d)
+  nameWithType: DcurveExtensions.NearestSegment(DCurve3, Vector3d)
+  fullName: Virgis.DcurveExtensions.NearestSegment(g3.DCurve3, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: NearestSegment
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 203
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nFinds the Segment from the DCurve3 closes to the position\n"
+  example: []
+  syntax:
+    content: public static int NearestSegment(this DCurve3 curve, Vector3d position)
+    parameters:
+    - id: curve
+      type: g3.DCurve3
+      description: DCurve3
+    - id: position
+      type: g3.Vector3d
+      description: Vector3d
+    return:
+      type: System.Int32
+      description: Integer Sgement index
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function NearestSegment(curve As DCurve3, position As Vector3d) As Integer
+  overload: Virgis.DcurveExtensions.NearestSegment*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Virgis.DcurveExtensions.Vector3*
+  commentId: Overload:Virgis.DcurveExtensions.Vector3
+  name: Vector3
+  nameWithType: DcurveExtensions.Vector3
+  fullName: Virgis.DcurveExtensions.Vector3
+- uid: g3.DCurve3
+  commentId: T:g3.DCurve3
+  parent: g3
+  name: DCurve3
+  nameWithType: DCurve3
+  fullName: g3.DCurve3
+- uid: UnityEngine.Vector3[]
+  isExternal: true
+  name: Vector3[]
+  nameWithType: Vector3[]
+  fullName: UnityEngine.Vector3[]
+  nameWithType.vb: Vector3()
+  fullName.vb: UnityEngine.Vector3()
+  name.vb: Vector3()
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: Virgis.DcurveExtensions.Center*
+  commentId: Overload:Virgis.DcurveExtensions.Center
+  name: Center
+  nameWithType: DcurveExtensions.Center
+  fullName: Virgis.DcurveExtensions.Center
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: Virgis.DcurveExtensions.CenterMark*
+  commentId: Overload:Virgis.DcurveExtensions.CenterMark
+  name: CenterMark
+  nameWithType: DcurveExtensions.CenterMark
+  fullName: Virgis.DcurveExtensions.CenterMark
+- uid: Virgis.DcurveExtensions.NearestSegment*
+  commentId: Overload:Virgis.DcurveExtensions.NearestSegment
+  name: NearestSegment
+  nameWithType: DcurveExtensions.NearestSegment
+  fullName: Virgis.DcurveExtensions.NearestSegment
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

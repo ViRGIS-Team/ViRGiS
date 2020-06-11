@@ -1,0 +1,188 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.Vector3ExtebnsionMethods
+  commentId: T:Virgis.Vector3ExtebnsionMethods
+  id: Vector3ExtebnsionMethods
+  parent: Virgis
+  children:
+  - Virgis.Vector3ExtebnsionMethods.ToPoint(UnityEngine.Vector3)
+  - Virgis.Vector3ExtebnsionMethods.ToPosition(UnityEngine.Vector3)
+  langs:
+  - csharp
+  - vb
+  name: Vector3ExtebnsionMethods
+  nameWithType: Vector3ExtebnsionMethods
+  fullName: Virgis.Vector3ExtebnsionMethods
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vector3ExtebnsionMethods
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 36
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public static class Vector3ExtebnsionMethods
+    content.vb: Public Module Vector3ExtebnsionMethods
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Virgis.Vector3ExtebnsionMethods.ToPosition(UnityEngine.Vector3)
+  commentId: M:Virgis.Vector3ExtebnsionMethods.ToPosition(UnityEngine.Vector3)
+  id: ToPosition(UnityEngine.Vector3)
+  isExtensionMethod: true
+  parent: Virgis.Vector3ExtebnsionMethods
+  langs:
+  - csharp
+  - vb
+  name: ToPosition(Vector3)
+  nameWithType: Vector3ExtebnsionMethods.ToPosition(Vector3)
+  fullName: Virgis.Vector3ExtebnsionMethods.ToPosition(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToPosition
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 42
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nConvert Vector3 World Space location to Position taking account of zoom, scale and mapscale\n"
+  example: []
+  syntax:
+    content: public static IPosition ToPosition(this Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: Vector3 World Space coordinates
+    return:
+      type: GeoJSON.Net.Geometry.IPosition
+      description: Position
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToPosition(position As Vector3) As IPosition
+  overload: Virgis.Vector3ExtebnsionMethods.ToPosition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Virgis.Vector3ExtebnsionMethods.ToPoint(UnityEngine.Vector3)
+  commentId: M:Virgis.Vector3ExtebnsionMethods.ToPoint(UnityEngine.Vector3)
+  id: ToPoint(UnityEngine.Vector3)
+  isExtensionMethod: true
+  parent: Virgis.Vector3ExtebnsionMethods
+  langs:
+  - csharp
+  - vb
+  name: ToPoint(Vector3)
+  nameWithType: Vector3ExtebnsionMethods.ToPoint(Vector3)
+  fullName: Virgis.Vector3ExtebnsionMethods.ToPoint(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/typings.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToPoint
+    path: ../Assets/Scripts/Basic Types/typings.cs
+    startLine: 53
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nConverts Vector3 World Space Location to Point taking accoun t of zoom, scale and mapscale\n"
+  example: []
+  syntax:
+    content: public static Point ToPoint(this Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: ''
+    return:
+      type: GeoJSON.Net.Geometry.Point
+      description: ''
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToPoint(position As Vector3) As Point
+  overload: Virgis.Vector3ExtebnsionMethods.ToPoint*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Virgis.Vector3ExtebnsionMethods.ToPosition*
+  commentId: Overload:Virgis.Vector3ExtebnsionMethods.ToPosition
+  name: ToPosition
+  nameWithType: Vector3ExtebnsionMethods.ToPosition
+  fullName: Virgis.Vector3ExtebnsionMethods.ToPosition
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: GeoJSON.Net.Geometry.IPosition
+  commentId: T:GeoJSON.Net.Geometry.IPosition
+  parent: GeoJSON.Net.Geometry
+  name: IPosition
+  nameWithType: IPosition
+  fullName: GeoJSON.Net.Geometry.IPosition
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: GeoJSON.Net.Geometry
+  commentId: N:GeoJSON.Net.Geometry
+  name: GeoJSON.Net.Geometry
+  nameWithType: GeoJSON.Net.Geometry
+  fullName: GeoJSON.Net.Geometry
+- uid: Virgis.Vector3ExtebnsionMethods.ToPoint*
+  commentId: Overload:Virgis.Vector3ExtebnsionMethods.ToPoint
+  name: ToPoint
+  nameWithType: Vector3ExtebnsionMethods.ToPoint
+  fullName: Virgis.Vector3ExtebnsionMethods.ToPoint
+- uid: GeoJSON.Net.Geometry.Point
+  commentId: T:GeoJSON.Net.Geometry.Point
+  parent: GeoJSON.Net.Geometry
+  name: Point
+  nameWithType: Point
+  fullName: GeoJSON.Net.Geometry.Point

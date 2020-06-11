@@ -1,0 +1,1657 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.Datapolygon
+  commentId: T:Virgis.Datapolygon
+  id: Datapolygon
+  parent: Virgis
+  children:
+  - Virgis.Datapolygon.AddVertex(UnityEngine.Vector3)
+  - Virgis.Datapolygon.Centroid
+  - Virgis.Datapolygon.Draw(System.Collections.Generic.List{Virgis.VertexLookup},UnityEngine.Material)
+  - Virgis.Datapolygon.GetClosest(UnityEngine.Vector3)
+  - Virgis.Datapolygon.GetGeometry``1
+  - Virgis.Datapolygon.GetVertexes
+  - Virgis.Datapolygon.GetVertexPositions
+  - Virgis.Datapolygon.MoveAxis(Virgis.MoveArgs)
+  - Virgis.Datapolygon.MoveTo(Virgis.MoveArgs)
+  - Virgis.Datapolygon.RemoveVertex(Virgis.VirgisComponent)
+  - Virgis.Datapolygon.ResetCenter
+  - Virgis.Datapolygon.Selected(Virgis.SelectionTypes)
+  - Virgis.Datapolygon.ShapeMoveVertex(Virgis.MoveArgs)
+  - Virgis.Datapolygon.Translate(Virgis.MoveArgs)
+  - Virgis.Datapolygon.Triangles(System.Int32)
+  - Virgis.Datapolygon.UnSelected(Virgis.SelectionTypes)
+  - Virgis.Datapolygon.VertexMove(Virgis.MoveArgs)
+  - Virgis.Datapolygon.VertexTable
+  - Virgis.Datapolygon.Vertices
+  langs:
+  - csharp
+  - vb
+  name: Datapolygon
+  nameWithType: Datapolygon
+  fullName: Virgis.Datapolygon
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Datapolygon
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nControls an instance of a Polygon ViRGIS component\n"
+  example: []
+  syntax:
+    content: 'public class Datapolygon : VirgisComponent, IVirgisComponent, IVirgisEntity'
+    content.vb: >-
+      Public Class Datapolygon
+          Inherits VirgisComponent
+          Implements IVirgisComponent, IVirgisEntity
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  - Virgis.VirgisComponent
+  implements:
+  - Virgis.IVirgisComponent
+  - Virgis.IVirgisEntity
+  inheritedMembers:
+  - Virgis.VirgisComponent.mainMat
+  - Virgis.VirgisComponent.selectedMat
+  - Virgis.VirgisComponent.gisId
+  - Virgis.VirgisComponent.gisProperties
+  - Virgis.VirgisComponent.id
+  - Virgis.VirgisComponent.label
+  - Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  - Virgis.VirgisComponent.StartEditSession
+  - Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Virgis.Datapolygon.Centroid
+  commentId: F:Virgis.Datapolygon.Centroid
+  id: Centroid
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: Centroid
+  nameWithType: Datapolygon.Centroid
+  fullName: Virgis.Datapolygon.Centroid
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Centroid
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 22
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Datapoint Centroid
+    return:
+      type: Virgis.Datapoint
+    content.vb: Public Centroid As Datapoint
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Datapolygon.VertexTable
+  commentId: F:Virgis.Datapolygon.VertexTable
+  id: VertexTable
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: VertexTable
+  nameWithType: Datapolygon.VertexTable
+  fullName: Virgis.Datapolygon.VertexTable
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexTable
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 23
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public List<VertexLookup> VertexTable
+    return:
+      type: System.Collections.Generic.List{Virgis.VertexLookup}
+    content.vb: Public VertexTable As List(Of VertexLookup)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Datapolygon.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Datapolygon.Selected(Virgis.SelectionTypes)
+  id: Selected(Virgis.SelectionTypes)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: Selected(SelectionTypes)
+  nameWithType: Datapolygon.Selected(SelectionTypes)
+  fullName: Virgis.Datapolygon.Selected(Virgis.SelectionTypes)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Selected
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void Selected(SelectionTypes button)
+    parameters:
+    - id: button
+      type: Virgis.SelectionTypes
+    content.vb: Public Overrides Sub Selected(button As SelectionTypes)
+  overridden: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  overload: Virgis.Datapolygon.Selected*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Datapolygon.UnSelected(Virgis.SelectionTypes)
+  id: UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: UnSelected(SelectionTypes)
+  nameWithType: Datapolygon.UnSelected(SelectionTypes)
+  fullName: Virgis.Datapolygon.UnSelected(Virgis.SelectionTypes)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: UnSelected
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 37
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void UnSelected(SelectionTypes button)
+    parameters:
+    - id: button
+      type: Virgis.SelectionTypes
+    content.vb: Public Overrides Sub UnSelected(button As SelectionTypes)
+  overridden: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  overload: Virgis.Datapolygon.UnSelected*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.Datapolygon.VertexMove(Virgis.MoveArgs)
+  id: VertexMove(Virgis.MoveArgs)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: VertexMove(MoveArgs)
+  nameWithType: Datapolygon.VertexMove(MoveArgs)
+  fullName: Virgis.Datapolygon.VertexMove(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexMove
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 46
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void VertexMove(MoveArgs data)
+    parameters:
+    - id: data
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub VertexMove(data As MoveArgs)
+  overridden: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  overload: Virgis.Datapolygon.VertexMove*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.Datapolygon.Translate(Virgis.MoveArgs)
+  id: Translate(Virgis.MoveArgs)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: Translate(MoveArgs)
+  nameWithType: Datapolygon.Translate(MoveArgs)
+  fullName: Virgis.Datapolygon.Translate(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 54
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void Translate(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub Translate(args As MoveArgs)
+  overridden: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  overload: Virgis.Datapolygon.Translate*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.Datapolygon.MoveAxis(Virgis.MoveArgs)
+  id: MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: MoveAxis(MoveArgs)
+  nameWithType: Datapolygon.MoveAxis(MoveArgs)
+  fullName: Virgis.Datapolygon.MoveAxis(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MoveAxis
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 65
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void MoveAxis(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub MoveAxis(args As MoveArgs)
+  overridden: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  overload: Virgis.Datapolygon.MoveAxis*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.Datapolygon.MoveTo(Virgis.MoveArgs)
+  id: MoveTo(Virgis.MoveArgs)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: MoveTo(MoveArgs)
+  nameWithType: Datapolygon.MoveTo(MoveArgs)
+  fullName: Virgis.Datapolygon.MoveTo(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MoveTo
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 85
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void MoveTo(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+    content.vb: Public Overrides Sub MoveTo(args As MoveArgs)
+  overridden: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  overload: Virgis.Datapolygon.MoveTo*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.Draw(System.Collections.Generic.List{Virgis.VertexLookup},UnityEngine.Material)
+  commentId: M:Virgis.Datapolygon.Draw(System.Collections.Generic.List{Virgis.VertexLookup},UnityEngine.Material)
+  id: Draw(System.Collections.Generic.List{Virgis.VertexLookup},UnityEngine.Material)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: Draw(List<VertexLookup>, Material)
+  nameWithType: Datapolygon.Draw(List<VertexLookup>, Material)
+  fullName: Virgis.Datapolygon.Draw(System.Collections.Generic.List<Virgis.VertexLookup>, UnityEngine.Material)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Draw
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 98
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled to draw the Polygon based upon the \n"
+  example: []
+  syntax:
+    content: public GameObject Draw(List<VertexLookup> verteces, Material mat = null)
+    parameters:
+    - id: verteces
+      type: System.Collections.Generic.List{Virgis.VertexLookup}
+    - id: mat
+      type: UnityEngine.Material
+      description: Material to be used
+    return:
+      type: UnityEngine.GameObject
+      description: ''
+    content.vb: Public Function Draw(verteces As List(Of VertexLookup), mat As Material = Nothing) As GameObject
+  overload: Virgis.Datapolygon.Draw*
+  nameWithType.vb: Datapolygon.Draw(List(Of VertexLookup), Material)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Datapolygon.Draw(System.Collections.Generic.List(Of Virgis.VertexLookup), UnityEngine.Material)
+  name.vb: Draw(List(Of VertexLookup), Material)
+- uid: Virgis.Datapolygon.ShapeMoveVertex(Virgis.MoveArgs)
+  commentId: M:Virgis.Datapolygon.ShapeMoveVertex(Virgis.MoveArgs)
+  id: ShapeMoveVertex(Virgis.MoveArgs)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: ShapeMoveVertex(MoveArgs)
+  nameWithType: Datapolygon.ShapeMoveVertex(MoveArgs)
+  fullName: Virgis.Datapolygon.ShapeMoveVertex(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ShapeMoveVertex
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 147
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nMove a vertex of the polygon and recreate the mesh\n"
+  example: []
+  syntax:
+    content: public void ShapeMoveVertex(MoveArgs data)
+    parameters:
+    - id: data
+      type: Virgis.MoveArgs
+      description: MoveArgs
+    content.vb: Public Sub ShapeMoveVertex(data As MoveArgs)
+  overload: Virgis.Datapolygon.ShapeMoveVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Datapolygon.AddVertex(UnityEngine.Vector3)
+  commentId: M:Virgis.Datapolygon.AddVertex(UnityEngine.Vector3)
+  id: AddVertex(UnityEngine.Vector3)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: AddVertex(Vector3)
+  nameWithType: Datapolygon.AddVertex(Vector3)
+  fullName: Virgis.Datapolygon.AddVertex(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddVertex
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 158
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override VirgisComponent AddVertex(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Public Overrides Function AddVertex(position As Vector3) As VirgisComponent
+  overridden: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  overload: Virgis.Datapolygon.AddVertex*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.RemoveVertex(Virgis.VirgisComponent)
+  commentId: M:Virgis.Datapolygon.RemoveVertex(Virgis.VirgisComponent)
+  id: RemoveVertex(Virgis.VirgisComponent)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: RemoveVertex(VirgisComponent)
+  nameWithType: Datapolygon.RemoveVertex(VirgisComponent)
+  fullName: Virgis.Datapolygon.RemoveVertex(Virgis.VirgisComponent)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveVertex
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 163
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override void RemoveVertex(VirgisComponent vertex)
+    parameters:
+    - id: vertex
+      type: Virgis.VirgisComponent
+    content.vb: Public Overrides Sub RemoveVertex(vertex As VirgisComponent)
+  overridden: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  overload: Virgis.Datapolygon.RemoveVertex*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.Vertices
+  commentId: M:Virgis.Datapolygon.Vertices
+  id: Vertices
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: Vertices()
+  nameWithType: Datapolygon.Vertices()
+  fullName: Virgis.Datapolygon.Vertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vertices
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 183
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalculate the verteces of the polygon from the LineSString\n"
+  example: []
+  syntax:
+    content: public Vector3[] Vertices()
+    return:
+      type: UnityEngine.Vector3[]
+      description: ''
+    content.vb: Public Function Vertices As Vector3()
+  overload: Virgis.Datapolygon.Vertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Datapolygon.Triangles(System.Int32)
+  commentId: M:Virgis.Datapolygon.Triangles(System.Int32)
+  id: Triangles(System.Int32)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: Triangles(Int32)
+  nameWithType: Datapolygon.Triangles(Int32)
+  fullName: Virgis.Datapolygon.Triangles(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Triangles
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 204
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\ncalculate the Triangles for a Polyhrderon with length verteces\n"
+  example: []
+  syntax:
+    content: public static int[] Triangles(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+      description: number of verteces not including the centroid
+    return:
+      type: System.Int32[]
+      description: ''
+    content.vb: Public Shared Function Triangles(length As Integer) As Integer()
+  overload: Virgis.Datapolygon.Triangles*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Virgis.Datapolygon.ResetCenter
+  commentId: M:Virgis.Datapolygon.ResetCenter
+  id: ResetCenter
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: ResetCenter()
+  nameWithType: Datapolygon.ResetCenter()
+  fullName: Virgis.Datapolygon.ResetCenter()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ResetCenter
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 227
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nReset the center vertex to be the center of the Linear Ring vertexes\n"
+  example: []
+  syntax:
+    content: public void ResetCenter()
+    content.vb: Public Sub ResetCenter
+  overload: Virgis.Datapolygon.ResetCenter*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Datapolygon.GetClosest(UnityEngine.Vector3)
+  commentId: M:Virgis.Datapolygon.GetClosest(UnityEngine.Vector3)
+  id: GetClosest(UnityEngine.Vector3)
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: GetClosest(Vector3)
+  nameWithType: Datapolygon.GetClosest(Vector3)
+  fullName: Virgis.Datapolygon.GetClosest(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetClosest
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 296
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override Vector3 GetClosest(Vector3 coords)
+    parameters:
+    - id: coords
+      type: UnityEngine.Vector3
+    return:
+      type: UnityEngine.Vector3
+    content.vb: Public Overrides Function GetClosest(coords As Vector3) As Vector3
+  overridden: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  overload: Virgis.Datapolygon.GetClosest*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Virgis.Datapolygon.GetGeometry``1
+  commentId: M:Virgis.Datapolygon.GetGeometry``1
+  id: GetGeometry``1
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: GetGeometry<T>()
+  nameWithType: Datapolygon.GetGeometry<T>()
+  fullName: Virgis.Datapolygon.GetGeometry<T>()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetGeometry
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 301
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public override T GetGeometry<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Overrides Function GetGeometry(Of T) As T
+  overridden: Virgis.VirgisComponent.GetGeometry``1
+  overload: Virgis.Datapolygon.GetGeometry*
+  nameWithType.vb: Datapolygon.GetGeometry(Of T)()
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: Virgis.Datapolygon.GetGeometry(Of T)()
+  name.vb: GetGeometry(Of T)()
+- uid: Virgis.Datapolygon.GetVertexes
+  commentId: M:Virgis.Datapolygon.GetVertexes
+  id: GetVertexes
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: GetVertexes()
+  nameWithType: Datapolygon.GetVertexes()
+  fullName: Virgis.Datapolygon.GetVertexes()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexes
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 310
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nGet an array of the Datapoint components for the vertexes\n"
+  example: []
+  syntax:
+    content: public Datapoint[] GetVertexes()
+    return:
+      type: Virgis.Datapoint[]
+      description: Datapoint[]
+    content.vb: Public Function GetVertexes As Datapoint()
+  overload: Virgis.Datapolygon.GetVertexes*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.Datapolygon.GetVertexPositions
+  commentId: M:Virgis.Datapolygon.GetVertexPositions
+  id: GetVertexPositions
+  parent: Virgis.Datapolygon
+  langs:
+  - csharp
+  - vb
+  name: GetVertexPositions()
+  nameWithType: Datapolygon.GetVertexPositions()
+  fullName: Virgis.Datapolygon.GetVertexPositions()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Geometries/Datapolygon.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexPositions
+    path: ../Assets/Scripts/Geometries/Datapolygon.cs
+    startLine: 319
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Vector3[] GetVertexPositions()
+    return:
+      type: UnityEngine.Vector3[]
+    content.vb: Public Function GetVertexPositions As Vector3()
+  overload: Virgis.Datapolygon.GetVertexPositions*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Virgis.VirgisComponent
+  commentId: T:Virgis.VirgisComponent
+  parent: Virgis
+  name: VirgisComponent
+  nameWithType: VirgisComponent
+  fullName: Virgis.VirgisComponent
+- uid: Virgis.IVirgisComponent
+  commentId: T:Virgis.IVirgisComponent
+  parent: Virgis
+  name: IVirgisComponent
+  nameWithType: IVirgisComponent
+  fullName: Virgis.IVirgisComponent
+- uid: Virgis.IVirgisEntity
+  commentId: T:Virgis.IVirgisEntity
+  parent: Virgis
+  name: IVirgisEntity
+  nameWithType: IVirgisEntity
+  fullName: Virgis.IVirgisEntity
+- uid: Virgis.VirgisComponent.mainMat
+  commentId: F:Virgis.VirgisComponent.mainMat
+  parent: Virgis.VirgisComponent
+  name: mainMat
+  nameWithType: VirgisComponent.mainMat
+  fullName: Virgis.VirgisComponent.mainMat
+- uid: Virgis.VirgisComponent.selectedMat
+  commentId: F:Virgis.VirgisComponent.selectedMat
+  parent: Virgis.VirgisComponent
+  name: selectedMat
+  nameWithType: VirgisComponent.selectedMat
+  fullName: Virgis.VirgisComponent.selectedMat
+- uid: Virgis.VirgisComponent.gisId
+  commentId: F:Virgis.VirgisComponent.gisId
+  parent: Virgis.VirgisComponent
+  name: gisId
+  nameWithType: VirgisComponent.gisId
+  fullName: Virgis.VirgisComponent.gisId
+- uid: Virgis.VirgisComponent.gisProperties
+  commentId: F:Virgis.VirgisComponent.gisProperties
+  parent: Virgis.VirgisComponent
+  name: gisProperties
+  nameWithType: VirgisComponent.gisProperties
+  fullName: Virgis.VirgisComponent.gisProperties
+- uid: Virgis.VirgisComponent.id
+  commentId: F:Virgis.VirgisComponent.id
+  parent: Virgis.VirgisComponent
+  name: id
+  nameWithType: VirgisComponent.id
+  fullName: Virgis.VirgisComponent.id
+- uid: Virgis.VirgisComponent.label
+  commentId: F:Virgis.VirgisComponent.label
+  parent: Virgis.VirgisComponent
+  name: label
+  nameWithType: VirgisComponent.label
+  fullName: Virgis.VirgisComponent.label
+- uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  commentId: M:Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: SetMaterial(Material, Material)
+  nameWithType: VirgisComponent.SetMaterial(Material, Material)
+  fullName: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material, UnityEngine.Material)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+    name: SetMaterial
+    nameWithType: VirgisComponent.SetMaterial
+    fullName: Virgis.VirgisComponent.SetMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+    name: SetMaterial
+    nameWithType: VirgisComponent.SetMaterial
+    fullName: Virgis.VirgisComponent.SetMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: UnityEngine.Material
+    name: Material
+    nameWithType: Material
+    fullName: UnityEngine.Material
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisComponent.StartEditSession
+  commentId: M:Virgis.VirgisComponent.StartEditSession
+  parent: Virgis.VirgisComponent
+  name: StartEditSession()
+  nameWithType: VirgisComponent.StartEditSession()
+  fullName: Virgis.VirgisComponent.StartEditSession()
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.StartEditSession
+    name: StartEditSession
+    nameWithType: VirgisComponent.StartEditSession
+    fullName: Virgis.VirgisComponent.StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.StartEditSession
+    name: StartEditSession
+    nameWithType: VirgisComponent.StartEditSession
+    fullName: Virgis.VirgisComponent.StartEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: ExitEditSession(Boolean)
+  nameWithType: VirgisComponent.ExitEditSession(Boolean)
+  fullName: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: VirgisComponent.ExitEditSession
+    fullName: Virgis.VirgisComponent.ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+    name: ExitEditSession
+    nameWithType: VirgisComponent.ExitEditSession
+    fullName: Virgis.VirgisComponent.ExitEditSession
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Virgis.Datapoint
+  commentId: T:Virgis.Datapoint
+  parent: Virgis
+  name: Datapoint
+  nameWithType: Datapoint
+  fullName: Virgis.Datapoint
+- uid: System.Collections.Generic.List{Virgis.VertexLookup}
+  commentId: T:System.Collections.Generic.List{Virgis.VertexLookup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<VertexLookup>
+  nameWithType: List<VertexLookup>
+  fullName: System.Collections.Generic.List<Virgis.VertexLookup>
+  nameWithType.vb: List(Of VertexLookup)
+  fullName.vb: System.Collections.Generic.List(Of Virgis.VertexLookup)
+  name.vb: List(Of VertexLookup)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Virgis.VertexLookup
+    name: VertexLookup
+    nameWithType: VertexLookup
+    fullName: Virgis.VertexLookup
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Virgis.VertexLookup
+    name: VertexLookup
+    nameWithType: VertexLookup
+    fullName: Virgis.VertexLookup
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisComponent
+  name: Selected(SelectionTypes)
+  nameWithType: VirgisComponent.Selected(SelectionTypes)
+  fullName: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: VirgisComponent.Selected
+    fullName: Virgis.VirgisComponent.Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+    name: Selected
+    nameWithType: VirgisComponent.Selected
+    fullName: Virgis.VirgisComponent.Selected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.Selected*
+  commentId: Overload:Virgis.Datapolygon.Selected
+  name: Selected
+  nameWithType: Datapolygon.Selected
+  fullName: Virgis.Datapolygon.Selected
+- uid: Virgis.SelectionTypes
+  commentId: T:Virgis.SelectionTypes
+  parent: Virgis
+  name: SelectionTypes
+  nameWithType: SelectionTypes
+  fullName: Virgis.SelectionTypes
+- uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisComponent
+  name: UnSelected(SelectionTypes)
+  nameWithType: VirgisComponent.UnSelected(SelectionTypes)
+  fullName: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: VirgisComponent.UnSelected
+    fullName: Virgis.VirgisComponent.UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+    name: UnSelected
+    nameWithType: VirgisComponent.UnSelected
+    fullName: Virgis.VirgisComponent.UnSelected
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.SelectionTypes
+    name: SelectionTypes
+    nameWithType: SelectionTypes
+    fullName: Virgis.SelectionTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.UnSelected*
+  commentId: Overload:Virgis.Datapolygon.UnSelected
+  name: UnSelected
+  nameWithType: Datapolygon.UnSelected
+  fullName: Virgis.Datapolygon.UnSelected
+- uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: VertexMove(MoveArgs)
+  nameWithType: VirgisComponent.VertexMove(MoveArgs)
+  fullName: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisComponent.VertexMove
+    fullName: Virgis.VirgisComponent.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisComponent.VertexMove
+    fullName: Virgis.VirgisComponent.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.VertexMove*
+  commentId: Overload:Virgis.Datapolygon.VertexMove
+  name: VertexMove
+  nameWithType: Datapolygon.VertexMove
+  fullName: Virgis.Datapolygon.VertexMove
+- uid: Virgis.MoveArgs
+  commentId: T:Virgis.MoveArgs
+  parent: Virgis
+  name: MoveArgs
+  nameWithType: MoveArgs
+  fullName: Virgis.MoveArgs
+- uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: Translate(MoveArgs)
+  nameWithType: VirgisComponent.Translate(MoveArgs)
+  fullName: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: VirgisComponent.Translate
+    fullName: Virgis.VirgisComponent.Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: VirgisComponent.Translate
+    fullName: Virgis.VirgisComponent.Translate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.Translate*
+  commentId: Overload:Virgis.Datapolygon.Translate
+  name: Translate
+  nameWithType: Datapolygon.Translate
+  fullName: Virgis.Datapolygon.Translate
+- uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: MoveAxis(MoveArgs)
+  nameWithType: VirgisComponent.MoveAxis(MoveArgs)
+  fullName: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: VirgisComponent.MoveAxis
+    fullName: Virgis.VirgisComponent.MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+    name: MoveAxis
+    nameWithType: VirgisComponent.MoveAxis
+    fullName: Virgis.VirgisComponent.MoveAxis
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.MoveAxis*
+  commentId: Overload:Virgis.Datapolygon.MoveAxis
+  name: MoveAxis
+  nameWithType: Datapolygon.MoveAxis
+  fullName: Virgis.Datapolygon.MoveAxis
+- uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  parent: Virgis.VirgisComponent
+  name: MoveTo(MoveArgs)
+  nameWithType: VirgisComponent.MoveTo(MoveArgs)
+  fullName: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisComponent.MoveTo
+    fullName: Virgis.VirgisComponent.MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisComponent.MoveTo
+    fullName: Virgis.VirgisComponent.MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.MoveTo*
+  commentId: Overload:Virgis.Datapolygon.MoveTo
+  name: MoveTo
+  nameWithType: Datapolygon.MoveTo
+  fullName: Virgis.Datapolygon.MoveTo
+- uid: Virgis.Datapolygon.Draw*
+  commentId: Overload:Virgis.Datapolygon.Draw
+  name: Draw
+  nameWithType: Datapolygon.Draw
+  fullName: Virgis.Datapolygon.Draw
+- uid: UnityEngine.Material
+  commentId: T:UnityEngine.Material
+  parent: UnityEngine
+  isExternal: true
+  name: Material
+  nameWithType: Material
+  fullName: UnityEngine.Material
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Virgis.Datapolygon.ShapeMoveVertex*
+  commentId: Overload:Virgis.Datapolygon.ShapeMoveVertex
+  name: ShapeMoveVertex
+  nameWithType: Datapolygon.ShapeMoveVertex
+  fullName: Virgis.Datapolygon.ShapeMoveVertex
+- uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  commentId: M:Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: AddVertex(Vector3)
+  nameWithType: VirgisComponent.AddVertex(Vector3)
+  fullName: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+    name: AddVertex
+    nameWithType: VirgisComponent.AddVertex
+    fullName: Virgis.VirgisComponent.AddVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+    name: AddVertex
+    nameWithType: VirgisComponent.AddVertex
+    fullName: Virgis.VirgisComponent.AddVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.AddVertex*
+  commentId: Overload:Virgis.Datapolygon.AddVertex
+  name: AddVertex
+  nameWithType: Datapolygon.AddVertex
+  fullName: Virgis.Datapolygon.AddVertex
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  commentId: M:Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  parent: Virgis.VirgisComponent
+  name: RemoveVertex(VirgisComponent)
+  nameWithType: VirgisComponent.RemoveVertex(VirgisComponent)
+  fullName: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+    name: RemoveVertex
+    nameWithType: VirgisComponent.RemoveVertex
+    fullName: Virgis.VirgisComponent.RemoveVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisComponent
+    name: VirgisComponent
+    nameWithType: VirgisComponent
+    fullName: Virgis.VirgisComponent
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+    name: RemoveVertex
+    nameWithType: VirgisComponent.RemoveVertex
+    fullName: Virgis.VirgisComponent.RemoveVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisComponent
+    name: VirgisComponent
+    nameWithType: VirgisComponent
+    fullName: Virgis.VirgisComponent
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.RemoveVertex*
+  commentId: Overload:Virgis.Datapolygon.RemoveVertex
+  name: RemoveVertex
+  nameWithType: Datapolygon.RemoveVertex
+  fullName: Virgis.Datapolygon.RemoveVertex
+- uid: Virgis.Datapolygon.Vertices*
+  commentId: Overload:Virgis.Datapolygon.Vertices
+  name: Vertices
+  nameWithType: Datapolygon.Vertices
+  fullName: Virgis.Datapolygon.Vertices
+- uid: UnityEngine.Vector3[]
+  isExternal: true
+  name: Vector3[]
+  nameWithType: Vector3[]
+  fullName: UnityEngine.Vector3[]
+  nameWithType.vb: Vector3()
+  fullName.vb: UnityEngine.Vector3()
+  name.vb: Vector3()
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.Datapolygon.Triangles*
+  commentId: Overload:Virgis.Datapolygon.Triangles
+  name: Triangles
+  nameWithType: Datapolygon.Triangles
+  fullName: Virgis.Datapolygon.Triangles
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.Datapolygon.ResetCenter*
+  commentId: Overload:Virgis.Datapolygon.ResetCenter
+  name: ResetCenter
+  nameWithType: Datapolygon.ResetCenter
+  fullName: Virgis.Datapolygon.ResetCenter
+- uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  commentId: M:Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  parent: Virgis.VirgisComponent
+  isExternal: true
+  name: GetClosest(Vector3)
+  nameWithType: VirgisComponent.GetClosest(Vector3)
+  fullName: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+    name: GetClosest
+    nameWithType: VirgisComponent.GetClosest
+    fullName: Virgis.VirgisComponent.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
+    name: GetClosest
+    nameWithType: VirgisComponent.GetClosest
+    fullName: Virgis.VirgisComponent.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.GetClosest*
+  commentId: Overload:Virgis.Datapolygon.GetClosest
+  name: GetClosest
+  nameWithType: Datapolygon.GetClosest
+  fullName: Virgis.Datapolygon.GetClosest
+- uid: Virgis.VirgisComponent.GetGeometry``1
+  commentId: M:Virgis.VirgisComponent.GetGeometry``1
+  parent: Virgis.VirgisComponent
+  name: GetGeometry<T>()
+  nameWithType: VirgisComponent.GetGeometry<T>()
+  fullName: Virgis.VirgisComponent.GetGeometry<T>()
+  nameWithType.vb: VirgisComponent.GetGeometry(Of T)()
+  fullName.vb: Virgis.VirgisComponent.GetGeometry(Of T)()
+  name.vb: GetGeometry(Of T)()
+  spec.csharp:
+  - uid: Virgis.VirgisComponent.GetGeometry``1
+    name: GetGeometry<T>
+    nameWithType: VirgisComponent.GetGeometry<T>
+    fullName: Virgis.VirgisComponent.GetGeometry<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisComponent.GetGeometry``1
+    name: GetGeometry(Of T)
+    nameWithType: VirgisComponent.GetGeometry(Of T)
+    fullName: Virgis.VirgisComponent.GetGeometry(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Datapolygon.GetGeometry*
+  commentId: Overload:Virgis.Datapolygon.GetGeometry
+  name: GetGeometry
+  nameWithType: Datapolygon.GetGeometry
+  fullName: Virgis.Datapolygon.GetGeometry
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Virgis.Datapolygon.GetVertexes*
+  commentId: Overload:Virgis.Datapolygon.GetVertexes
+  name: GetVertexes
+  nameWithType: Datapolygon.GetVertexes
+  fullName: Virgis.Datapolygon.GetVertexes
+- uid: Virgis.Datapoint[]
+  isExternal: true
+  name: Datapoint[]
+  nameWithType: Datapoint[]
+  fullName: Virgis.Datapoint[]
+  nameWithType.vb: Datapoint()
+  fullName.vb: Virgis.Datapoint()
+  name.vb: Datapoint()
+  spec.csharp:
+  - uid: Virgis.Datapoint
+    name: Datapoint
+    nameWithType: Datapoint
+    fullName: Virgis.Datapoint
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: Virgis.Datapoint
+    name: Datapoint
+    nameWithType: Datapoint
+    fullName: Virgis.Datapoint
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.Datapolygon.GetVertexPositions*
+  commentId: Overload:Virgis.Datapolygon.GetVertexPositions
+  name: GetVertexPositions
+  nameWithType: Datapolygon.GetVertexPositions
+  fullName: Virgis.Datapolygon.GetVertexPositions

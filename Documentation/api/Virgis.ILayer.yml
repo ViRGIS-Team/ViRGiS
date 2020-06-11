@@ -1,0 +1,609 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.ILayer
+  commentId: T:Virgis.ILayer
+  id: ILayer
+  parent: Virgis
+  children:
+  - Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  - Virgis.ILayer.CheckPoint
+  - Virgis.ILayer.Draw
+  - Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - Virgis.ILayer.GetFeature(System.Guid)
+  - Virgis.ILayer.GetFeatureShape
+  - Virgis.ILayer.GetId
+  - Virgis.ILayer.GetMetadata
+  - Virgis.ILayer.IsEditable
+  - Virgis.ILayer.IsVisible
+  - Virgis.ILayer.Save
+  - Virgis.ILayer.SetEditable(System.Boolean)
+  - Virgis.ILayer.SetVisible(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: ILayer
+  nameWithType: ILayer
+  fullName: Virgis.ILayer
+  type: Interface
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ILayer
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 10
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public interface ILayer
+    content.vb: Public Interface ILayer
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  id: AddFeature(UnityEngine.Vector3[])
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: AddFeature(Vector3[])
+  nameWithType: ILayer.AddFeature(Vector3[])
+  fullName: Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddFeature
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 12
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: VirgisComponent AddFeature(Vector3[] geometry)
+    parameters:
+    - id: geometry
+      type: UnityEngine.Vector3[]
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Function AddFeature(geometry As Vector3()) As VirgisComponent
+  overload: Virgis.ILayer.AddFeature*
+  nameWithType.vb: ILayer.AddFeature(Vector3())
+  fullName.vb: Virgis.ILayer.AddFeature(UnityEngine.Vector3())
+  name.vb: AddFeature(Vector3())
+- uid: Virgis.ILayer.Draw
+  commentId: M:Virgis.ILayer.Draw
+  id: Draw
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: Draw()
+  nameWithType: ILayer.Draw()
+  fullName: Virgis.ILayer.Draw()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Draw
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: void Draw()
+    content.vb: Sub Draw
+  overload: Virgis.ILayer.Draw*
+- uid: Virgis.ILayer.CheckPoint
+  commentId: M:Virgis.ILayer.CheckPoint
+  id: CheckPoint
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: CheckPoint()
+  nameWithType: ILayer.CheckPoint()
+  fullName: Virgis.ILayer.CheckPoint()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CheckPoint
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 16
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: void CheckPoint()
+    content.vb: Sub CheckPoint
+  overload: Virgis.ILayer.CheckPoint*
+- uid: Virgis.ILayer.Save
+  commentId: M:Virgis.ILayer.Save
+  id: Save
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: ILayer.Save()
+  fullName: Virgis.ILayer.Save()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Save
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: RecordSet Save()
+    return:
+      type: Project.RecordSet
+    content.vb: Function Save As RecordSet
+  overload: Virgis.ILayer.Save*
+- uid: Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+  id: GetClosest(UnityEngine.Vector3,System.Guid[])
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: GetClosest(Vector3, Guid[])
+  nameWithType: ILayer.GetClosest(Vector3, Guid[])
+  fullName: Virgis.ILayer.GetClosest(UnityEngine.Vector3, System.Guid[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetClosest
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: VirgisComponent GetClosest(Vector3 coords, Guid[] exclude)
+    parameters:
+    - id: coords
+      type: UnityEngine.Vector3
+    - id: exclude
+      type: System.Guid[]
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Function GetClosest(coords As Vector3, exclude As Guid()) As VirgisComponent
+  overload: Virgis.ILayer.GetClosest*
+  nameWithType.vb: ILayer.GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.ILayer.GetClosest(UnityEngine.Vector3, System.Guid())
+  name.vb: GetClosest(Vector3, Guid())
+- uid: Virgis.ILayer.GetFeature(System.Guid)
+  commentId: M:Virgis.ILayer.GetFeature(System.Guid)
+  id: GetFeature(System.Guid)
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: GetFeature(Guid)
+  nameWithType: ILayer.GetFeature(Guid)
+  fullName: Virgis.ILayer.GetFeature(System.Guid)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFeature
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 22
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: VirgisComponent GetFeature(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Function GetFeature(id As Guid) As VirgisComponent
+  overload: Virgis.ILayer.GetFeature*
+- uid: Virgis.ILayer.GetId
+  commentId: M:Virgis.ILayer.GetId
+  id: GetId
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: GetId()
+  nameWithType: ILayer.GetId()
+  fullName: Virgis.ILayer.GetId()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetId
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: Guid GetId()
+    return:
+      type: System.Guid
+    content.vb: Function GetId As Guid
+  overload: Virgis.ILayer.GetId*
+- uid: Virgis.ILayer.GetMetadata
+  commentId: M:Virgis.ILayer.GetMetadata
+  id: GetMetadata
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: GetMetadata()
+  nameWithType: ILayer.GetMetadata()
+  fullName: Virgis.ILayer.GetMetadata()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetMetadata
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: RecordSet GetMetadata()
+    return:
+      type: Project.RecordSet
+    content.vb: Function GetMetadata As RecordSet
+  overload: Virgis.ILayer.GetMetadata*
+- uid: Virgis.ILayer.GetFeatureShape
+  commentId: M:Virgis.ILayer.GetFeatureShape
+  id: GetFeatureShape
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: GetFeatureShape()
+  nameWithType: ILayer.GetFeatureShape()
+  fullName: Virgis.ILayer.GetFeatureShape()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFeatureShape
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 28
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: GameObject GetFeatureShape()
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Function GetFeatureShape As GameObject
+  overload: Virgis.ILayer.GetFeatureShape*
+- uid: Virgis.ILayer.SetVisible(System.Boolean)
+  commentId: M:Virgis.ILayer.SetVisible(System.Boolean)
+  id: SetVisible(System.Boolean)
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: SetVisible(Boolean)
+  nameWithType: ILayer.SetVisible(Boolean)
+  fullName: Virgis.ILayer.SetVisible(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVisible
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: void SetVisible(bool visible)
+    parameters:
+    - id: visible
+      type: System.Boolean
+    content.vb: Sub SetVisible(visible As Boolean)
+  overload: Virgis.ILayer.SetVisible*
+- uid: Virgis.ILayer.IsVisible
+  commentId: M:Virgis.ILayer.IsVisible
+  id: IsVisible
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: IsVisible()
+  nameWithType: ILayer.IsVisible()
+  fullName: Virgis.ILayer.IsVisible()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsVisible
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: bool IsVisible()
+    return:
+      type: System.Boolean
+    content.vb: Function IsVisible As Boolean
+  overload: Virgis.ILayer.IsVisible*
+- uid: Virgis.ILayer.SetEditable(System.Boolean)
+  commentId: M:Virgis.ILayer.SetEditable(System.Boolean)
+  id: SetEditable(System.Boolean)
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: SetEditable(Boolean)
+  nameWithType: ILayer.SetEditable(Boolean)
+  fullName: Virgis.ILayer.SetEditable(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetEditable
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 42
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nSets a marker that this particular layer is being edited.\n"
+  example: []
+  syntax:
+    content: void SetEditable(bool inSession)
+    parameters:
+    - id: inSession
+      type: System.Boolean
+      description: ''
+    content.vb: Sub SetEditable(inSession As Boolean)
+  overload: Virgis.ILayer.SetEditable*
+- uid: Virgis.ILayer.IsEditable
+  commentId: M:Virgis.ILayer.IsEditable
+  id: IsEditable
+  parent: Virgis.ILayer
+  langs:
+  - csharp
+  - vb
+  name: IsEditable()
+  nameWithType: ILayer.IsEditable()
+  fullName: Virgis.ILayer.IsEditable()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsEditable
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 44
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: bool IsEditable()
+    return:
+      type: System.Boolean
+    content.vb: Function IsEditable As Boolean
+  overload: Virgis.ILayer.IsEditable*
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: Virgis.ILayer.AddFeature*
+  commentId: Overload:Virgis.ILayer.AddFeature
+  name: AddFeature
+  nameWithType: ILayer.AddFeature
+  fullName: Virgis.ILayer.AddFeature
+- uid: UnityEngine.Vector3[]
+  isExternal: true
+  name: Vector3[]
+  nameWithType: Vector3[]
+  fullName: UnityEngine.Vector3[]
+  nameWithType.vb: Vector3()
+  fullName.vb: UnityEngine.Vector3()
+  name.vb: Vector3()
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.VirgisComponent
+  commentId: T:Virgis.VirgisComponent
+  parent: Virgis
+  name: VirgisComponent
+  nameWithType: VirgisComponent
+  fullName: Virgis.VirgisComponent
+- uid: Virgis.ILayer.Draw*
+  commentId: Overload:Virgis.ILayer.Draw
+  name: Draw
+  nameWithType: ILayer.Draw
+  fullName: Virgis.ILayer.Draw
+- uid: Virgis.ILayer.CheckPoint*
+  commentId: Overload:Virgis.ILayer.CheckPoint
+  name: CheckPoint
+  nameWithType: ILayer.CheckPoint
+  fullName: Virgis.ILayer.CheckPoint
+- uid: Virgis.ILayer.Save*
+  commentId: Overload:Virgis.ILayer.Save
+  name: Save
+  nameWithType: ILayer.Save
+  fullName: Virgis.ILayer.Save
+- uid: Project.RecordSet
+  commentId: T:Project.RecordSet
+  parent: Project
+  name: RecordSet
+  nameWithType: RecordSet
+  fullName: Project.RecordSet
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: Virgis.ILayer.GetClosest*
+  commentId: Overload:Virgis.ILayer.GetClosest
+  name: GetClosest
+  nameWithType: ILayer.GetClosest
+  fullName: Virgis.ILayer.GetClosest
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Guid[]
+  isExternal: true
+  name: Guid[]
+  nameWithType: Guid[]
+  fullName: System.Guid[]
+  nameWithType.vb: Guid()
+  fullName.vb: System.Guid()
+  name.vb: Guid()
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Virgis.ILayer.GetFeature*
+  commentId: Overload:Virgis.ILayer.GetFeature
+  name: GetFeature
+  nameWithType: ILayer.GetFeature
+  fullName: Virgis.ILayer.GetFeature
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Virgis.ILayer.GetId*
+  commentId: Overload:Virgis.ILayer.GetId
+  name: GetId
+  nameWithType: ILayer.GetId
+  fullName: Virgis.ILayer.GetId
+- uid: Virgis.ILayer.GetMetadata*
+  commentId: Overload:Virgis.ILayer.GetMetadata
+  name: GetMetadata
+  nameWithType: ILayer.GetMetadata
+  fullName: Virgis.ILayer.GetMetadata
+- uid: Virgis.ILayer.GetFeatureShape*
+  commentId: Overload:Virgis.ILayer.GetFeatureShape
+  name: GetFeatureShape
+  nameWithType: ILayer.GetFeatureShape
+  fullName: Virgis.ILayer.GetFeatureShape
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Virgis.ILayer.SetVisible*
+  commentId: Overload:Virgis.ILayer.SetVisible
+  name: SetVisible
+  nameWithType: ILayer.SetVisible
+  fullName: Virgis.ILayer.SetVisible
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Virgis.ILayer.IsVisible*
+  commentId: Overload:Virgis.ILayer.IsVisible
+  name: IsVisible
+  nameWithType: ILayer.IsVisible
+  fullName: Virgis.ILayer.IsVisible
+- uid: Virgis.ILayer.SetEditable*
+  commentId: Overload:Virgis.ILayer.SetEditable
+  name: SetEditable
+  nameWithType: ILayer.SetEditable
+  fullName: Virgis.ILayer.SetEditable
+- uid: Virgis.ILayer.IsEditable*
+  commentId: Overload:Virgis.ILayer.IsEditable
+  name: IsEditable
+  nameWithType: ILayer.IsEditable
+  fullName: Virgis.ILayer.IsEditable

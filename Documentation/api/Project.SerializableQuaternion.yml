@@ -1,0 +1,798 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.SerializableQuaternion
+  commentId: T:Project.SerializableQuaternion
+  id: SerializableQuaternion
+  parent: Project
+  children:
+  - Project.SerializableQuaternion.#ctor
+  - Project.SerializableQuaternion.#ctor(System.Single,System.Single,System.Single,System.Single)
+  - Project.SerializableQuaternion.op_Implicit(Project.SerializableQuaternion)~UnityEngine.Quaternion
+  - Project.SerializableQuaternion.op_Implicit(UnityEngine.Quaternion)~Project.SerializableQuaternion
+  - Project.SerializableQuaternion.ToArray
+  - Project.SerializableQuaternion.ToString
+  - Project.SerializableQuaternion.Update(System.Collections.Generic.IList{System.Single})
+  - Project.SerializableQuaternion.w
+  - Project.SerializableQuaternion.x
+  - Project.SerializableQuaternion.y
+  - Project.SerializableQuaternion.z
+  langs:
+  - csharp
+  - vb
+  name: SerializableQuaternion
+  nameWithType: SerializableQuaternion
+  fullName: Project.SerializableQuaternion
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: SerializableQuaternion
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 99
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [Serializable]
+
+      public class SerializableQuaternion : Serializable
+    content.vb: >-
+      <Serializable>
+
+      Public Class SerializableQuaternion
+          Inherits Serializable
+  inheritance:
+  - System.Object
+  - Project.Serializable
+  inheritedMembers:
+  - Project.Serializable.magnitude
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.SerializableQuaternion.x
+  commentId: F:Project.SerializableQuaternion.x
+  id: x
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: x
+  nameWithType: SerializableQuaternion.x
+  fullName: Project.SerializableQuaternion.x
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: x
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 105
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nx component\n"
+  example: []
+  syntax:
+    content: public float x
+    return:
+      type: System.Single
+    content.vb: Public x As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableQuaternion.y
+  commentId: F:Project.SerializableQuaternion.y
+  id: y
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: y
+  nameWithType: SerializableQuaternion.y
+  fullName: Project.SerializableQuaternion.y
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: y
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 110
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\ny component\n"
+  example: []
+  syntax:
+    content: public float y
+    return:
+      type: System.Single
+    content.vb: Public y As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableQuaternion.z
+  commentId: F:Project.SerializableQuaternion.z
+  id: z
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: z
+  nameWithType: SerializableQuaternion.z
+  fullName: Project.SerializableQuaternion.z
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: z
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 115
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nz component\n"
+  example: []
+  syntax:
+    content: public float z
+    return:
+      type: System.Single
+    content.vb: Public z As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableQuaternion.w
+  commentId: F:Project.SerializableQuaternion.w
+  id: w
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: w
+  nameWithType: SerializableQuaternion.w
+  fullName: Project.SerializableQuaternion.w
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: w
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 120
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nw component\n"
+  example: []
+  syntax:
+    content: public float w
+    return:
+      type: System.Single
+    content.vb: Public w As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableQuaternion.#ctor(System.Single,System.Single,System.Single,System.Single)
+  commentId: M:Project.SerializableQuaternion.#ctor(System.Single,System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single,System.Single)'
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: SerializableQuaternion(Single, Single, Single, Single)
+  nameWithType: SerializableQuaternion.SerializableQuaternion(Single, Single, Single, Single)
+  fullName: Project.SerializableQuaternion.SerializableQuaternion(System.Single, System.Single, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 129
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nConstructor\n"
+  example: []
+  syntax:
+    content: public SerializableQuaternion(float rX, float rY, float rZ, float rW)
+    parameters:
+    - id: rX
+      type: System.Single
+      description: ''
+    - id: rY
+      type: System.Single
+      description: ''
+    - id: rZ
+      type: System.Single
+      description: ''
+    - id: rW
+      type: System.Single
+      description: ''
+    content.vb: Public Sub New(rX As Single, rY As Single, rZ As Single, rW As Single)
+  overload: Project.SerializableQuaternion.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableQuaternion.#ctor
+  commentId: M:Project.SerializableQuaternion.#ctor
+  id: '#ctor'
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: SerializableQuaternion()
+  nameWithType: SerializableQuaternion.SerializableQuaternion()
+  fullName: Project.SerializableQuaternion.SerializableQuaternion()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 137
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public SerializableQuaternion()
+    content.vb: Public Sub New
+  overload: Project.SerializableQuaternion.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableQuaternion.Update(System.Collections.Generic.IList{System.Single})
+  commentId: M:Project.SerializableQuaternion.Update(System.Collections.Generic.IList{System.Single})
+  id: Update(System.Collections.Generic.IList{System.Single})
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: Update(IList<Single>)
+  nameWithType: SerializableQuaternion.Update(IList<Single>)
+  fullName: Project.SerializableQuaternion.Update(System.Collections.Generic.IList<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Update
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 139
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public override void Update(IList<float> r)
+    parameters:
+    - id: r
+      type: System.Collections.Generic.IList{System.Single}
+    content.vb: Public Overrides Sub Update(r As IList(Of Single))
+  overridden: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  overload: Project.SerializableQuaternion.Update*
+  nameWithType.vb: SerializableQuaternion.Update(IList(Of Single))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: Project.SerializableQuaternion.Update(System.Collections.Generic.IList(Of System.Single))
+  name.vb: Update(IList(Of Single))
+- uid: Project.SerializableQuaternion.ToString
+  commentId: M:Project.SerializableQuaternion.ToString
+  id: ToString
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SerializableQuaternion.ToString()
+  fullName: Project.SerializableQuaternion.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToString
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 151
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nReturns a string representation of the object\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
+  overload: Project.SerializableQuaternion.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Project.SerializableQuaternion.ToArray
+  commentId: M:Project.SerializableQuaternion.ToArray
+  id: ToArray
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: SerializableQuaternion.ToArray()
+  fullName: Project.SerializableQuaternion.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToArray
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 156
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public override float[] ToArray()
+    return:
+      type: System.Single[]
+    content.vb: Public Overrides Function ToArray As Single()
+  overridden: Project.Serializable.ToArray
+  overload: Project.SerializableQuaternion.ToArray*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Project.SerializableQuaternion.op_Implicit(Project.SerializableQuaternion)~UnityEngine.Quaternion
+  commentId: M:Project.SerializableQuaternion.op_Implicit(Project.SerializableQuaternion)~UnityEngine.Quaternion
+  id: op_Implicit(Project.SerializableQuaternion)~UnityEngine.Quaternion
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: Implicit(SerializableQuaternion to Quaternion)
+  nameWithType: SerializableQuaternion.Implicit(SerializableQuaternion to Quaternion)
+  fullName: Project.SerializableQuaternion.Implicit(Project.SerializableQuaternion to UnityEngine.Quaternion)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 166
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nAutomatic conversion from SerializableQuaternion to Quaternion\n"
+  example: []
+  syntax:
+    content: public static implicit operator Quaternion(SerializableQuaternion rValue)
+    parameters:
+    - id: rValue
+      type: Project.SerializableQuaternion
+      description: ''
+    return:
+      type: UnityEngine.Quaternion
+      description: ''
+    content.vb: Public Shared Widening Operator CType(rValue As SerializableQuaternion) As Quaternion
+  overload: Project.SerializableQuaternion.op_Implicit*
+  nameWithType.vb: SerializableQuaternion.Widening(SerializableQuaternion to Quaternion)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Project.SerializableQuaternion.Widening(Project.SerializableQuaternion to UnityEngine.Quaternion)
+  name.vb: Widening(SerializableQuaternion to Quaternion)
+- uid: Project.SerializableQuaternion.op_Implicit(UnityEngine.Quaternion)~Project.SerializableQuaternion
+  commentId: M:Project.SerializableQuaternion.op_Implicit(UnityEngine.Quaternion)~Project.SerializableQuaternion
+  id: op_Implicit(UnityEngine.Quaternion)~Project.SerializableQuaternion
+  parent: Project.SerializableQuaternion
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Quaternion to SerializableQuaternion)
+  nameWithType: SerializableQuaternion.Implicit(Quaternion to SerializableQuaternion)
+  fullName: Project.SerializableQuaternion.Implicit(UnityEngine.Quaternion to Project.SerializableQuaternion)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 176
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nAutomatic conversion from Quaternion to SerializableQuaternion\n"
+  example: []
+  syntax:
+    content: public static implicit operator SerializableQuaternion(Quaternion rValue)
+    parameters:
+    - id: rValue
+      type: UnityEngine.Quaternion
+      description: ''
+    return:
+      type: Project.SerializableQuaternion
+      description: ''
+    content.vb: Public Shared Widening Operator CType(rValue As Quaternion) As SerializableQuaternion
+  overload: Project.SerializableQuaternion.op_Implicit*
+  nameWithType.vb: SerializableQuaternion.Widening(Quaternion to SerializableQuaternion)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Project.SerializableQuaternion.Widening(UnityEngine.Quaternion to Project.SerializableQuaternion)
+  name.vb: Widening(Quaternion to SerializableQuaternion)
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.Serializable
+  commentId: T:Project.Serializable
+  parent: Project
+  name: Serializable
+  nameWithType: Serializable
+  fullName: Project.Serializable
+- uid: Project.Serializable.magnitude
+  commentId: F:Project.Serializable.magnitude
+  parent: Project.Serializable
+  name: magnitude
+  nameWithType: Serializable.magnitude
+  fullName: Project.Serializable.magnitude
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: Project.SerializableQuaternion.#ctor*
+  commentId: Overload:Project.SerializableQuaternion.#ctor
+  name: SerializableQuaternion
+  nameWithType: SerializableQuaternion.SerializableQuaternion
+  fullName: Project.SerializableQuaternion.SerializableQuaternion
+- uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  commentId: M:Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  parent: Project.Serializable
+  isExternal: true
+  name: Update(IList<Single>)
+  nameWithType: Serializable.Update(IList<Single>)
+  fullName: Project.Serializable.Update(System.Collections.Generic.IList<System.Single>)
+  nameWithType.vb: Serializable.Update(IList(Of Single))
+  fullName.vb: Project.Serializable.Update(System.Collections.Generic.IList(Of System.Single))
+  name.vb: Update(IList(Of Single))
+  spec.csharp:
+  - uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+    name: Update
+    nameWithType: Serializable.Update
+    fullName: Project.Serializable.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+    name: Update
+    nameWithType: Serializable.Update
+    fullName: Project.Serializable.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.SerializableQuaternion.Update*
+  commentId: Overload:Project.SerializableQuaternion.Update
+  name: Update
+  nameWithType: SerializableQuaternion.Update
+  fullName: Project.SerializableQuaternion.Update
+- uid: System.Collections.Generic.IList{System.Single}
+  commentId: T:System.Collections.Generic.IList{System.Single}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Single>
+  nameWithType: IList<Single>
+  fullName: System.Collections.Generic.IList<System.Single>
+  nameWithType.vb: IList(Of Single)
+  fullName.vb: System.Collections.Generic.IList(Of System.Single)
+  name.vb: IList(Of Single)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.SerializableQuaternion.ToString*
+  commentId: Overload:Project.SerializableQuaternion.ToString
+  name: ToString
+  nameWithType: SerializableQuaternion.ToString
+  fullName: Project.SerializableQuaternion.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Project.Serializable.ToArray
+  commentId: M:Project.Serializable.ToArray
+  parent: Project.Serializable
+  name: ToArray()
+  nameWithType: Serializable.ToArray()
+  fullName: Project.Serializable.ToArray()
+  spec.csharp:
+  - uid: Project.Serializable.ToArray
+    name: ToArray
+    nameWithType: Serializable.ToArray
+    fullName: Project.Serializable.ToArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.Serializable.ToArray
+    name: ToArray
+    nameWithType: Serializable.ToArray
+    fullName: Project.Serializable.ToArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.SerializableQuaternion.ToArray*
+  commentId: Overload:Project.SerializableQuaternion.ToArray
+  name: ToArray
+  nameWithType: SerializableQuaternion.ToArray
+  fullName: Project.SerializableQuaternion.ToArray
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Project.SerializableQuaternion.op_Implicit*
+  commentId: Overload:Project.SerializableQuaternion.op_Implicit
+  name: Implicit
+  nameWithType: SerializableQuaternion.Implicit
+  fullName: Project.SerializableQuaternion.Implicit
+  nameWithType.vb: SerializableQuaternion.Widening
+  fullName.vb: Project.SerializableQuaternion.Widening
+  name.vb: Widening
+- uid: Project.SerializableQuaternion
+  commentId: T:Project.SerializableQuaternion
+  parent: Project
+  name: SerializableQuaternion
+  nameWithType: SerializableQuaternion
+  fullName: Project.SerializableQuaternion
+- uid: UnityEngine.Quaternion
+  commentId: T:UnityEngine.Quaternion
+  parent: UnityEngine
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: UnityEngine.Quaternion
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
