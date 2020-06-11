@@ -30,7 +30,7 @@ Many of these features are currently available in various packages and initiativ
 
 # Documentation
 
-Go to [Documentation](www.virgis.org/docs)
+Go to [Documentation](https://www.virgis.org/docs)
 
 
 # Getting ViRGIS
