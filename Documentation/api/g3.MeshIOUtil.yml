@@ -1,0 +1,231 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshIOUtil
+  commentId: T:g3.MeshIOUtil
+  id: MeshIOUtil
+  parent: g3
+  children:
+  - g3.MeshIOUtil.FindUniqueMaterialList(System.Collections.Generic.List{g3.WriteMesh})
+  langs:
+  - csharp
+  - vb
+  name: MeshIOUtil
+  nameWithType: MeshIOUtil
+  fullName: g3.MeshIOUtil
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/MeshIOUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshIOUtil
+    path: ../Assets/geometry3Sharp/io/MeshIOUtil.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class MeshIOUtil
+    content.vb: Public Module MeshIOUtil
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.MeshIOUtil.FindUniqueMaterialList(System.Collections.Generic.List{g3.WriteMesh})
+  commentId: M:g3.MeshIOUtil.FindUniqueMaterialList(System.Collections.Generic.List{g3.WriteMesh})
+  id: FindUniqueMaterialList(System.Collections.Generic.List{g3.WriteMesh})
+  parent: g3.MeshIOUtil
+  langs:
+  - csharp
+  - vb
+  name: FindUniqueMaterialList(List<WriteMesh>)
+  nameWithType: MeshIOUtil.FindUniqueMaterialList(List<WriteMesh>)
+  fullName: g3.MeshIOUtil.FindUniqueMaterialList(System.Collections.Generic.List<g3.WriteMesh>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/MeshIOUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindUniqueMaterialList
+    path: ../Assets/geometry3Sharp/io/MeshIOUtil.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static List<GenericMaterial> FindUniqueMaterialList(List<WriteMesh> meshes)
+    parameters:
+    - id: meshes
+      type: System.Collections.Generic.List{g3.WriteMesh}
+    return:
+      type: System.Collections.Generic.List{g3.GenericMaterial}
+    content.vb: Public Shared Function FindUniqueMaterialList(meshes As List(Of WriteMesh)) As List(Of GenericMaterial)
+  overload: g3.MeshIOUtil.FindUniqueMaterialList*
+  nameWithType.vb: MeshIOUtil.FindUniqueMaterialList(List(Of WriteMesh))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshIOUtil.FindUniqueMaterialList(System.Collections.Generic.List(Of g3.WriteMesh))
+  name.vb: FindUniqueMaterialList(List(Of WriteMesh))
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MeshIOUtil.FindUniqueMaterialList*
+  commentId: Overload:g3.MeshIOUtil.FindUniqueMaterialList
+  name: FindUniqueMaterialList
+  nameWithType: MeshIOUtil.FindUniqueMaterialList
+  fullName: g3.MeshIOUtil.FindUniqueMaterialList
+- uid: System.Collections.Generic.List{g3.WriteMesh}
+  commentId: T:System.Collections.Generic.List{g3.WriteMesh}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<WriteMesh>
+  nameWithType: List<WriteMesh>
+  fullName: System.Collections.Generic.List<g3.WriteMesh>
+  nameWithType.vb: List(Of WriteMesh)
+  fullName.vb: System.Collections.Generic.List(Of g3.WriteMesh)
+  name.vb: List(Of WriteMesh)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.WriteMesh
+    name: WriteMesh
+    nameWithType: WriteMesh
+    fullName: g3.WriteMesh
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.WriteMesh
+    name: WriteMesh
+    nameWithType: WriteMesh
+    fullName: g3.WriteMesh
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{g3.GenericMaterial}
+  commentId: T:System.Collections.Generic.List{g3.GenericMaterial}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<GenericMaterial>
+  nameWithType: List<GenericMaterial>
+  fullName: System.Collections.Generic.List<g3.GenericMaterial>
+  nameWithType.vb: List(Of GenericMaterial)
+  fullName.vb: System.Collections.Generic.List(Of g3.GenericMaterial)
+  name.vb: List(Of GenericMaterial)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.GenericMaterial
+    name: GenericMaterial
+    nameWithType: GenericMaterial
+    fullName: g3.GenericMaterial
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.GenericMaterial
+    name: GenericMaterial
+    nameWithType: GenericMaterial
+    fullName: g3.GenericMaterial
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

@@ -1,0 +1,511 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IMeshBuilder
+  commentId: T:g3.IMeshBuilder
+  id: IMeshBuilder
+  parent: g3
+  children:
+  - g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+  - g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  - g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  - g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  - g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+  - g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+  - g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  - g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  - g3.IMeshBuilder.SupportsMetaData
+  langs:
+  - csharp
+  - vb
+  name: IMeshBuilder
+  nameWithType: IMeshBuilder
+  fullName: g3.IMeshBuilder
+  type: Interface
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IMeshBuilder
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public interface IMeshBuilder
+    content.vb: Public Interface IMeshBuilder
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendNewMesh(Boolean, Boolean, Boolean, Boolean)
+  nameWithType: IMeshBuilder.AppendNewMesh(Boolean, Boolean, Boolean, Boolean)
+  fullName: g3.IMeshBuilder.AppendNewMesh(System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendNewMesh
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 92
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int AppendNewMesh(bool bHaveVtxNormals, bool bHaveVtxColors, bool bHaveVtxUVs, bool bHaveFaceGroups)
+    parameters:
+    - id: bHaveVtxNormals
+      type: System.Boolean
+    - id: bHaveVtxColors
+      type: System.Boolean
+    - id: bHaveVtxUVs
+      type: System.Boolean
+    - id: bHaveFaceGroups
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Function AppendNewMesh(bHaveVtxNormals As Boolean, bHaveVtxColors As Boolean, bHaveVtxUVs As Boolean, bHaveFaceGroups As Boolean) As Integer
+  overload: g3.IMeshBuilder.AppendNewMesh*
+- uid: g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  commentId: M:g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  id: AppendNewMesh(g3.DMesh3)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendNewMesh(DMesh3)
+  nameWithType: IMeshBuilder.AppendNewMesh(DMesh3)
+  fullName: g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendNewMesh
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 93
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int AppendNewMesh(DMesh3 existingMesh)
+    parameters:
+    - id: existingMesh
+      type: g3.DMesh3
+    return:
+      type: System.Int32
+    content.vb: Function AppendNewMesh(existingMesh As DMesh3) As Integer
+  overload: g3.IMeshBuilder.AppendNewMesh*
+- uid: g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  commentId: M:g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  id: SetActiveMesh(System.Int32)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: SetActiveMesh(Int32)
+  nameWithType: IMeshBuilder.SetActiveMesh(Int32)
+  fullName: g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetActiveMesh
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: void SetActiveMesh(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    content.vb: Sub SetActiveMesh(id As Integer)
+  overload: g3.IMeshBuilder.SetActiveMesh*
+- uid: g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+  commentId: M:g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+  id: AppendVertex(System.Double,System.Double,System.Double)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(Double, Double, Double)
+  nameWithType: IMeshBuilder.AppendVertex(Double, Double, Double)
+  fullName: g3.IMeshBuilder.AppendVertex(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int AppendVertex(double x, double y, double z)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    - id: z
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Function AppendVertex(x As Double, y As Double, z As Double) As Integer
+  overload: g3.IMeshBuilder.AppendVertex*
+- uid: g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  commentId: M:g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  id: AppendVertex(g3.NewVertexInfo)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(NewVertexInfo)
+  nameWithType: IMeshBuilder.AppendVertex(NewVertexInfo)
+  fullName: g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 98
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int AppendVertex(NewVertexInfo info)
+    parameters:
+    - id: info
+      type: g3.NewVertexInfo
+    return:
+      type: System.Int32
+    content.vb: Function AppendVertex(info As NewVertexInfo) As Integer
+  overload: g3.IMeshBuilder.AppendVertex*
+- uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  id: AppendTriangle(System.Int32,System.Int32,System.Int32)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangle(Int32, Int32, Int32)
+  nameWithType: IMeshBuilder.AppendTriangle(Int32, Int32, Int32)
+  fullName: g3.IMeshBuilder.AppendTriangle(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangle
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 100
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int AppendTriangle(int i, int j, int k)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Function AppendTriangle(i As Integer, j As Integer, k As Integer) As Integer
+  overload: g3.IMeshBuilder.AppendTriangle*
+- uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangle(Int32, Int32, Int32, Int32)
+  nameWithType: IMeshBuilder.AppendTriangle(Int32, Int32, Int32, Int32)
+  fullName: g3.IMeshBuilder.AppendTriangle(System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangle
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 101
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int AppendTriangle(int i, int j, int k, int g)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    - id: g
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Function AppendTriangle(i As Integer, j As Integer, k As Integer, g As Integer) As Integer
+  overload: g3.IMeshBuilder.AppendTriangle*
+- uid: g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  commentId: M:g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  id: BuildMaterial(g3.GenericMaterial)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildMaterial(GenericMaterial)
+  nameWithType: IMeshBuilder.BuildMaterial(GenericMaterial)
+  fullName: g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BuildMaterial
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: int BuildMaterial(GenericMaterial m)
+    parameters:
+    - id: m
+      type: g3.GenericMaterial
+    return:
+      type: System.Int32
+    content.vb: Function BuildMaterial(m As GenericMaterial) As Integer
+  overload: g3.IMeshBuilder.BuildMaterial*
+- uid: g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+  commentId: M:g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+  id: AssignMaterial(System.Int32,System.Int32)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AssignMaterial(Int32, Int32)
+  nameWithType: IMeshBuilder.AssignMaterial(Int32, Int32)
+  fullName: g3.IMeshBuilder.AssignMaterial(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AssignMaterial
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 110
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: void AssignMaterial(int materialID, int meshID)
+    parameters:
+    - id: materialID
+      type: System.Int32
+    - id: meshID
+      type: System.Int32
+    content.vb: Sub AssignMaterial(materialID As Integer, meshID As Integer)
+  overload: g3.IMeshBuilder.AssignMaterial*
+- uid: g3.IMeshBuilder.SupportsMetaData
+  commentId: P:g3.IMeshBuilder.SupportsMetaData
+  id: SupportsMetaData
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: SupportsMetaData
+  nameWithType: IMeshBuilder.SupportsMetaData
+  fullName: g3.IMeshBuilder.SupportsMetaData
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SupportsMetaData
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 113
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: bool SupportsMetaData { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsMetaData As Boolean
+  overload: g3.IMeshBuilder.SupportsMetaData*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+  commentId: M:g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+  id: AppendMetaData(System.String,System.Object)
+  parent: g3.IMeshBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendMetaData(String, Object)
+  nameWithType: IMeshBuilder.AppendMetaData(String, Object)
+  fullName: g3.IMeshBuilder.AppendMetaData(System.String, System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/IMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendMetaData
+    path: ../Assets/geometry3Sharp/mesh/IMesh.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: void AppendMetaData(string identifier, object data)
+    parameters:
+    - id: identifier
+      type: System.String
+    - id: data
+      type: System.Object
+    content.vb: Sub AppendMetaData(identifier As String, data As Object)
+  overload: g3.IMeshBuilder.AppendMetaData*
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IMeshBuilder.AppendNewMesh*
+  commentId: Overload:g3.IMeshBuilder.AppendNewMesh
+  name: AppendNewMesh
+  nameWithType: IMeshBuilder.AppendNewMesh
+  fullName: g3.IMeshBuilder.AppendNewMesh
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.IMeshBuilder.SetActiveMesh*
+  commentId: Overload:g3.IMeshBuilder.SetActiveMesh
+  name: SetActiveMesh
+  nameWithType: IMeshBuilder.SetActiveMesh
+  fullName: g3.IMeshBuilder.SetActiveMesh
+- uid: g3.IMeshBuilder.AppendVertex*
+  commentId: Overload:g3.IMeshBuilder.AppendVertex
+  name: AppendVertex
+  nameWithType: IMeshBuilder.AppendVertex
+  fullName: g3.IMeshBuilder.AppendVertex
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.NewVertexInfo
+  commentId: T:g3.NewVertexInfo
+  parent: g3
+  name: NewVertexInfo
+  nameWithType: NewVertexInfo
+  fullName: g3.NewVertexInfo
+- uid: g3.IMeshBuilder.AppendTriangle*
+  commentId: Overload:g3.IMeshBuilder.AppendTriangle
+  name: AppendTriangle
+  nameWithType: IMeshBuilder.AppendTriangle
+  fullName: g3.IMeshBuilder.AppendTriangle
+- uid: g3.IMeshBuilder.BuildMaterial*
+  commentId: Overload:g3.IMeshBuilder.BuildMaterial
+  name: BuildMaterial
+  nameWithType: IMeshBuilder.BuildMaterial
+  fullName: g3.IMeshBuilder.BuildMaterial
+- uid: g3.GenericMaterial
+  commentId: T:g3.GenericMaterial
+  parent: g3
+  name: GenericMaterial
+  nameWithType: GenericMaterial
+  fullName: g3.GenericMaterial
+- uid: g3.IMeshBuilder.AssignMaterial*
+  commentId: Overload:g3.IMeshBuilder.AssignMaterial
+  name: AssignMaterial
+  nameWithType: IMeshBuilder.AssignMaterial
+  fullName: g3.IMeshBuilder.AssignMaterial
+- uid: g3.IMeshBuilder.SupportsMetaData*
+  commentId: Overload:g3.IMeshBuilder.SupportsMetaData
+  name: SupportsMetaData
+  nameWithType: IMeshBuilder.SupportsMetaData
+  fullName: g3.IMeshBuilder.SupportsMetaData
+- uid: g3.IMeshBuilder.AppendMetaData*
+  commentId: Overload:g3.IMeshBuilder.AppendMetaData
+  name: AppendMetaData
+  nameWithType: IMeshBuilder.AppendMetaData
+  fullName: g3.IMeshBuilder.AppendMetaData
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

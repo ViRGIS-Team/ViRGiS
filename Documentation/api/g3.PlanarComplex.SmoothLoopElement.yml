@@ -1,0 +1,468 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.PlanarComplex.SmoothLoopElement
+  commentId: T:g3.PlanarComplex.SmoothLoopElement
+  id: PlanarComplex.SmoothLoopElement
+  parent: g3
+  children:
+  - g3.PlanarComplex.SmoothLoopElement.Bounds
+  - g3.PlanarComplex.SmoothLoopElement.Clone
+  - g3.PlanarComplex.SmoothLoopElement.polygon
+  - g3.PlanarComplex.SmoothLoopElement.SegmentItr
+  langs:
+  - csharp
+  - vb
+  name: PlanarComplex.SmoothLoopElement
+  nameWithType: PlanarComplex.SmoothLoopElement
+  fullName: g3.PlanarComplex.SmoothLoopElement
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SmoothLoopElement
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class SmoothLoopElement : PlanarComplex.Element'
+    content.vb: >-
+      Public Class SmoothLoopElement
+          Inherits PlanarComplex.Element
+  inheritance:
+  - System.Object
+  - g3.PlanarComplex.Element
+  inheritedMembers:
+  - g3.PlanarComplex.Element.source
+  - g3.PlanarComplex.Element.ID
+  - g3.PlanarComplex.Element.Color
+  - g3.PlanarComplex.Element.HasSetColor
+  - g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.PlanarComplex.SmoothLoopElement.polygon
+  commentId: F:g3.PlanarComplex.SmoothLoopElement.polygon
+  id: polygon
+  parent: g3.PlanarComplex.SmoothLoopElement
+  langs:
+  - csharp
+  - vb
+  name: polygon
+  nameWithType: PlanarComplex.SmoothLoopElement.polygon
+  fullName: g3.PlanarComplex.SmoothLoopElement.polygon
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: polygon
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 80
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d polygon
+    return:
+      type: g3.Polygon2d
+    content.vb: Public polygon As Polygon2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.SmoothLoopElement.SegmentItr
+  commentId: M:g3.PlanarComplex.SmoothLoopElement.SegmentItr
+  id: SegmentItr
+  parent: g3.PlanarComplex.SmoothLoopElement
+  langs:
+  - csharp
+  - vb
+  name: SegmentItr()
+  nameWithType: PlanarComplex.SmoothLoopElement.SegmentItr()
+  fullName: g3.PlanarComplex.SmoothLoopElement.SegmentItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 82
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override IEnumerable<Segment2d> SegmentItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Segment2d}
+    content.vb: Public Overrides Function SegmentItr As IEnumerable(Of Segment2d)
+  overridden: g3.PlanarComplex.Element.SegmentItr
+  overload: g3.PlanarComplex.SmoothLoopElement.SegmentItr*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.PlanarComplex.SmoothLoopElement.Bounds
+  commentId: M:g3.PlanarComplex.SmoothLoopElement.Bounds
+  id: Bounds
+  parent: g3.PlanarComplex.SmoothLoopElement
+  langs:
+  - csharp
+  - vb
+  name: Bounds()
+  nameWithType: PlanarComplex.SmoothLoopElement.Bounds()
+  fullName: g3.PlanarComplex.SmoothLoopElement.Bounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 85
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override AxisAlignedBox2d Bounds()
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Overrides Function Bounds As AxisAlignedBox2d
+  overridden: g3.PlanarComplex.Element.Bounds
+  overload: g3.PlanarComplex.SmoothLoopElement.Bounds*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.PlanarComplex.SmoothLoopElement.Clone
+  commentId: M:g3.PlanarComplex.SmoothLoopElement.Clone
+  id: Clone
+  parent: g3.PlanarComplex.SmoothLoopElement
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: PlanarComplex.SmoothLoopElement.Clone()
+  fullName: g3.PlanarComplex.SmoothLoopElement.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override PlanarComplex.Element Clone()
+    return:
+      type: g3.PlanarComplex.Element
+    content.vb: Public Overrides Function Clone As PlanarComplex.Element
+  overridden: g3.PlanarComplex.Element.Clone
+  overload: g3.PlanarComplex.SmoothLoopElement.Clone*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.PlanarComplex.Element
+  commentId: T:g3.PlanarComplex.Element
+  parent: g3
+  name: PlanarComplex.Element
+  nameWithType: PlanarComplex.Element
+  fullName: g3.PlanarComplex.Element
+- uid: g3.PlanarComplex.Element.source
+  commentId: F:g3.PlanarComplex.Element.source
+  parent: g3.PlanarComplex.Element
+  name: source
+  nameWithType: PlanarComplex.Element.source
+  fullName: g3.PlanarComplex.Element.source
+- uid: g3.PlanarComplex.Element.ID
+  commentId: F:g3.PlanarComplex.Element.ID
+  parent: g3.PlanarComplex.Element
+  name: ID
+  nameWithType: PlanarComplex.Element.ID
+  fullName: g3.PlanarComplex.Element.ID
+- uid: g3.PlanarComplex.Element.Color
+  commentId: P:g3.PlanarComplex.Element.Color
+  parent: g3.PlanarComplex.Element
+  name: Color
+  nameWithType: PlanarComplex.Element.Color
+  fullName: g3.PlanarComplex.Element.Color
+- uid: g3.PlanarComplex.Element.HasSetColor
+  commentId: P:g3.PlanarComplex.Element.HasSetColor
+  parent: g3.PlanarComplex.Element
+  name: HasSetColor
+  nameWithType: PlanarComplex.Element.HasSetColor
+  fullName: g3.PlanarComplex.Element.HasSetColor
+- uid: g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  commentId: M:g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  parent: g3.PlanarComplex.Element
+  name: copy_to(PlanarComplex.Element)
+  nameWithType: PlanarComplex.Element.copy_to(PlanarComplex.Element)
+  fullName: g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  spec.csharp:
+  - uid: g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+    name: copy_to
+    nameWithType: PlanarComplex.Element.copy_to
+    fullName: g3.PlanarComplex.Element.copy_to
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.PlanarComplex.Element
+    name: PlanarComplex.Element
+    nameWithType: PlanarComplex.Element
+    fullName: g3.PlanarComplex.Element
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+    name: copy_to
+    nameWithType: PlanarComplex.Element.copy_to
+    fullName: g3.PlanarComplex.Element.copy_to
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.PlanarComplex.Element
+    name: PlanarComplex.Element
+    nameWithType: PlanarComplex.Element
+    fullName: g3.PlanarComplex.Element
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: g3.PlanarComplex.Element.SegmentItr
+  commentId: M:g3.PlanarComplex.Element.SegmentItr
+  parent: g3.PlanarComplex.Element
+  name: SegmentItr()
+  nameWithType: PlanarComplex.Element.SegmentItr()
+  fullName: g3.PlanarComplex.Element.SegmentItr()
+  spec.csharp:
+  - uid: g3.PlanarComplex.Element.SegmentItr
+    name: SegmentItr
+    nameWithType: PlanarComplex.Element.SegmentItr
+    fullName: g3.PlanarComplex.Element.SegmentItr
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.PlanarComplex.Element.SegmentItr
+    name: SegmentItr
+    nameWithType: PlanarComplex.Element.SegmentItr
+    fullName: g3.PlanarComplex.Element.SegmentItr
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.SmoothLoopElement.SegmentItr*
+  commentId: Overload:g3.PlanarComplex.SmoothLoopElement.SegmentItr
+  name: SegmentItr
+  nameWithType: PlanarComplex.SmoothLoopElement.SegmentItr
+  fullName: g3.PlanarComplex.SmoothLoopElement.SegmentItr
+- uid: System.Collections.Generic.IEnumerable{g3.Segment2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Segment2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Segment2d>
+  nameWithType: IEnumerable<Segment2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Segment2d>
+  nameWithType.vb: IEnumerable(Of Segment2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Segment2d)
+  name.vb: IEnumerable(Of Segment2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.PlanarComplex.Element.Bounds
+  commentId: M:g3.PlanarComplex.Element.Bounds
+  parent: g3.PlanarComplex.Element
+  name: Bounds()
+  nameWithType: PlanarComplex.Element.Bounds()
+  fullName: g3.PlanarComplex.Element.Bounds()
+  spec.csharp:
+  - uid: g3.PlanarComplex.Element.Bounds
+    name: Bounds
+    nameWithType: PlanarComplex.Element.Bounds
+    fullName: g3.PlanarComplex.Element.Bounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.PlanarComplex.Element.Bounds
+    name: Bounds
+    nameWithType: PlanarComplex.Element.Bounds
+    fullName: g3.PlanarComplex.Element.Bounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.SmoothLoopElement.Bounds*
+  commentId: Overload:g3.PlanarComplex.SmoothLoopElement.Bounds
+  name: Bounds
+  nameWithType: PlanarComplex.SmoothLoopElement.Bounds
+  fullName: g3.PlanarComplex.SmoothLoopElement.Bounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.PlanarComplex.Element.Clone
+  commentId: M:g3.PlanarComplex.Element.Clone
+  parent: g3.PlanarComplex.Element
+  name: Clone()
+  nameWithType: PlanarComplex.Element.Clone()
+  fullName: g3.PlanarComplex.Element.Clone()
+  spec.csharp:
+  - uid: g3.PlanarComplex.Element.Clone
+    name: Clone
+    nameWithType: PlanarComplex.Element.Clone
+    fullName: g3.PlanarComplex.Element.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.PlanarComplex.Element.Clone
+    name: Clone
+    nameWithType: PlanarComplex.Element.Clone
+    fullName: g3.PlanarComplex.Element.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.SmoothLoopElement.Clone*
+  commentId: Overload:g3.PlanarComplex.SmoothLoopElement.Clone
+  name: Clone
+  nameWithType: PlanarComplex.SmoothLoopElement.Clone
+  fullName: g3.PlanarComplex.SmoothLoopElement.Clone

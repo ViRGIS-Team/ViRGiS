@@ -1,0 +1,3902 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.SimpleMesh
+  commentId: T:g3.SimpleMesh
+  id: SimpleMesh
+  parent: g3
+  children:
+  - g3.SimpleMesh.#ctor
+  - g3.SimpleMesh.#ctor(g3.IMesh)
+  - g3.SimpleMesh.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.SimpleMesh.AppendTriangles(g3.IndexArray3i,System.Int32[])
+  - g3.SimpleMesh.AppendTriangles(System.Int32[],System.Int32[],System.Int32)
+  - g3.SimpleMesh.AppendVertex(g3.NewVertexInfo)
+  - g3.SimpleMesh.AppendVertex(System.Double,System.Double,System.Double)
+  - g3.SimpleMesh.AppendVertices(g3.VectorArray3d,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f)
+  - g3.SimpleMesh.Colors
+  - g3.SimpleMesh.ColorsItr
+  - g3.SimpleMesh.Components
+  - g3.SimpleMesh.FaceGroups
+  - g3.SimpleMesh.GetFaceGroupsArray
+  - g3.SimpleMesh.GetFaceGroupsBuffer(System.Int32*)
+  - g3.SimpleMesh.GetTriangle(System.Int32)
+  - g3.SimpleMesh.GetTriangleArray
+  - g3.SimpleMesh.GetTriangleBuffer(System.Int32*)
+  - g3.SimpleMesh.GetTriangleGroup(System.Int32)
+  - g3.SimpleMesh.GetVertex(System.Int32)
+  - g3.SimpleMesh.GetVertexAll(System.Int32)
+  - g3.SimpleMesh.GetVertexArray
+  - g3.SimpleMesh.GetVertexArrayFloat
+  - g3.SimpleMesh.GetVertexBuffer(System.Double*)
+  - g3.SimpleMesh.GetVertexColor(System.Int32)
+  - g3.SimpleMesh.GetVertexColorArray
+  - g3.SimpleMesh.GetVertexColorBuffer(System.Single*)
+  - g3.SimpleMesh.GetVertexNormal(System.Int32)
+  - g3.SimpleMesh.GetVertexNormalArray
+  - g3.SimpleMesh.GetVertexNormalBuffer(System.Single*)
+  - g3.SimpleMesh.GetVertexUV(System.Int32)
+  - g3.SimpleMesh.GetVertexUVArray
+  - g3.SimpleMesh.GetVertexUVBuffer(System.Single*)
+  - g3.SimpleMesh.HasTriangleGroups
+  - g3.SimpleMesh.HasVertexColors
+  - g3.SimpleMesh.HasVertexNormals
+  - g3.SimpleMesh.HasVertexUVs
+  - g3.SimpleMesh.Initialize(g3.VectorArray3d,g3.VectorArray3i,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f,System.Int32[])
+  - g3.SimpleMesh.Initialize(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - g3.SimpleMesh.IsTriangle(System.Int32)
+  - g3.SimpleMesh.IsVertex(System.Int32)
+  - g3.SimpleMesh.MaxTriangleID
+  - g3.SimpleMesh.MaxVertexID
+  - g3.SimpleMesh.Normals
+  - g3.SimpleMesh.NormalsItr
+  - g3.SimpleMesh.Scale(System.Double)
+  - g3.SimpleMesh.Scale(System.Double,System.Double,System.Double)
+  - g3.SimpleMesh.SetVertex(System.Int32,g3.Vector3d)
+  - g3.SimpleMesh.SetVertexColor(System.Int32,g3.Vector3f)
+  - g3.SimpleMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+  - g3.SimpleMesh.SetVertexUV(System.Int32,g3.Vector2f)
+  - g3.SimpleMesh.Timestamp
+  - g3.SimpleMesh.Translate(System.Double,System.Double,System.Double)
+  - g3.SimpleMesh.TriangleCount
+  - g3.SimpleMesh.TriangleGroupsItr
+  - g3.SimpleMesh.TriangleIndices
+  - g3.SimpleMesh.Triangles
+  - g3.SimpleMesh.TrianglesItr
+  - g3.SimpleMesh.UVs
+  - g3.SimpleMesh.UVsItr
+  - g3.SimpleMesh.VertexCount
+  - g3.SimpleMesh.VertexIndices
+  - g3.SimpleMesh.Vertices
+  - g3.SimpleMesh.VerticesItr
+  langs:
+  - csharp
+  - vb
+  name: SimpleMesh
+  nameWithType: SimpleMesh
+  fullName: g3.SimpleMesh
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SimpleMesh
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class SimpleMesh : IDeformableMesh, IMesh, IPointSet'
+    content.vb: >-
+      Public Class SimpleMesh
+          Implements IDeformableMesh, IMesh, IPointSet
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IDeformableMesh
+  - g3.IMesh
+  - g3.IPointSet
+  extensionMethods:
+  - g3.SimpleMesh.Virgis.SimpleMeshExtensions.ToMesh
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.SimpleMesh.Vertices
+  commentId: F:g3.SimpleMesh.Vertices
+  id: Vertices
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Vertices
+  nameWithType: SimpleMesh.Vertices
+  fullName: g3.SimpleMesh.Vertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vertices
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<double> Vertices
+    return:
+      type: g3.DVector{System.Double}
+    content.vb: Public Vertices As DVector(Of Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Normals
+  commentId: F:g3.SimpleMesh.Normals
+  id: Normals
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Normals
+  nameWithType: SimpleMesh.Normals
+  fullName: g3.SimpleMesh.Normals
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Normals
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<float> Normals
+    return:
+      type: g3.DVector{System.Single}
+    content.vb: Public Normals As DVector(Of Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Colors
+  commentId: F:g3.SimpleMesh.Colors
+  id: Colors
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Colors
+  nameWithType: SimpleMesh.Colors
+  fullName: g3.SimpleMesh.Colors
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Colors
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<float> Colors
+    return:
+      type: g3.DVector{System.Single}
+    content.vb: Public Colors As DVector(Of Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.UVs
+  commentId: F:g3.SimpleMesh.UVs
+  id: UVs
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: UVs
+  nameWithType: SimpleMesh.UVs
+  fullName: g3.SimpleMesh.UVs
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UVs
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<float> UVs
+    return:
+      type: g3.DVector{System.Single}
+    content.vb: Public UVs As DVector(Of Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Triangles
+  commentId: F:g3.SimpleMesh.Triangles
+  id: Triangles
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Triangles
+  nameWithType: SimpleMesh.Triangles
+  fullName: g3.SimpleMesh.Triangles
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Triangles
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<int> Triangles
+    return:
+      type: g3.DVector{System.Int32}
+    content.vb: Public Triangles As DVector(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.FaceGroups
+  commentId: F:g3.SimpleMesh.FaceGroups
+  id: FaceGroups
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: FaceGroups
+  nameWithType: SimpleMesh.FaceGroups
+  fullName: g3.SimpleMesh.FaceGroups
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FaceGroups
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<int> FaceGroups
+    return:
+      type: g3.DVector{System.Int32}
+    content.vb: Public FaceGroups As DVector(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.#ctor
+  commentId: M:g3.SimpleMesh.#ctor
+  id: '#ctor'
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: SimpleMesh()
+  nameWithType: SimpleMesh.SimpleMesh()
+  fullName: g3.SimpleMesh.SimpleMesh()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SimpleMesh()
+    content.vb: Public Sub New
+  overload: g3.SimpleMesh.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.#ctor(g3.IMesh)
+  commentId: M:g3.SimpleMesh.#ctor(g3.IMesh)
+  id: '#ctor(g3.IMesh)'
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: SimpleMesh(IMesh)
+  nameWithType: SimpleMesh.SimpleMesh(IMesh)
+  fullName: g3.SimpleMesh.SimpleMesh(g3.IMesh)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SimpleMesh(IMesh copy)
+    parameters:
+    - id: copy
+      type: g3.IMesh
+    content.vb: Public Sub New(copy As IMesh)
+  overload: g3.SimpleMesh.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Initialize(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:g3.SimpleMesh.Initialize(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: Initialize(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Initialize(Boolean, Boolean, Boolean, Boolean)
+  nameWithType: SimpleMesh.Initialize(Boolean, Boolean, Boolean, Boolean)
+  fullName: g3.SimpleMesh.Initialize(System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Initialize
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Initialize(bool bWantNormals = true, bool bWantColors = true, bool bWantUVs = true, bool bWantFaceGroups = true)
+    parameters:
+    - id: bWantNormals
+      type: System.Boolean
+    - id: bWantColors
+      type: System.Boolean
+    - id: bWantUVs
+      type: System.Boolean
+    - id: bWantFaceGroups
+      type: System.Boolean
+    content.vb: Public Sub Initialize(bWantNormals As Boolean = True, bWantColors As Boolean = True, bWantUVs As Boolean = True, bWantFaceGroups As Boolean = True)
+  overload: g3.SimpleMesh.Initialize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Initialize(g3.VectorArray3d,g3.VectorArray3i,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f,System.Int32[])
+  commentId: M:g3.SimpleMesh.Initialize(g3.VectorArray3d,g3.VectorArray3i,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f,System.Int32[])
+  id: Initialize(g3.VectorArray3d,g3.VectorArray3i,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f,System.Int32[])
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Initialize(VectorArray3d, VectorArray3i, VectorArray3f, VectorArray3f, VectorArray2f, Int32[])
+  nameWithType: SimpleMesh.Initialize(VectorArray3d, VectorArray3i, VectorArray3f, VectorArray3f, VectorArray2f, Int32[])
+  fullName: g3.SimpleMesh.Initialize(g3.VectorArray3d, g3.VectorArray3i, g3.VectorArray3f, g3.VectorArray3f, g3.VectorArray2f, System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Initialize
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Initialize(VectorArray3d v, VectorArray3i t, VectorArray3f n = null, VectorArray3f c = null, VectorArray2f uv = null, int[] g = null)
+    parameters:
+    - id: v
+      type: g3.VectorArray3d
+    - id: t
+      type: g3.VectorArray3i
+    - id: n
+      type: g3.VectorArray3f
+    - id: c
+      type: g3.VectorArray3f
+    - id: uv
+      type: g3.VectorArray2f
+    - id: g
+      type: System.Int32[]
+    content.vb: Public Sub Initialize(v As VectorArray3d, t As VectorArray3i, n As VectorArray3f = Nothing, c As VectorArray3f = Nothing, uv As VectorArray2f = Nothing, g As Integer() = Nothing)
+  overload: g3.SimpleMesh.Initialize*
+  nameWithType.vb: SimpleMesh.Initialize(VectorArray3d, VectorArray3i, VectorArray3f, VectorArray3f, VectorArray2f, Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SimpleMesh.Initialize(g3.VectorArray3d, g3.VectorArray3i, g3.VectorArray3f, g3.VectorArray3f, g3.VectorArray2f, System.Int32())
+  name.vb: Initialize(VectorArray3d, VectorArray3i, VectorArray3f, VectorArray3f, VectorArray2f, Int32())
+- uid: g3.SimpleMesh.Components
+  commentId: P:g3.SimpleMesh.Components
+  id: Components
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Components
+  nameWithType: SimpleMesh.Components
+  fullName: g3.SimpleMesh.Components
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Components
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshComponents Components { get; }
+    parameters: []
+    return:
+      type: g3.MeshComponents
+    content.vb: Public ReadOnly Property Components As MeshComponents
+  overload: g3.SimpleMesh.Components*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.Timestamp
+  commentId: P:g3.SimpleMesh.Timestamp
+  id: Timestamp
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: SimpleMesh.Timestamp
+  fullName: g3.SimpleMesh.Timestamp
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Timestamp
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTimestamp is incremented any time any change is made to the mesh\n"
+  example: []
+  syntax:
+    content: public int Timestamp { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Timestamp As Integer
+  overload: g3.SimpleMesh.Timestamp*
+  implements:
+  - g3.IPointSet.Timestamp
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.AppendVertex(System.Double,System.Double,System.Double)
+  commentId: M:g3.SimpleMesh.AppendVertex(System.Double,System.Double,System.Double)
+  id: AppendVertex(System.Double,System.Double,System.Double)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(Double, Double, Double)
+  nameWithType: SimpleMesh.AppendVertex(Double, Double, Double)
+  fullName: g3.SimpleMesh.AppendVertex(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 119
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendVertex(double x, double y, double z)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    - id: z
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendVertex(x As Double, y As Double, z As Double) As Integer
+  overload: g3.SimpleMesh.AppendVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.AppendVertex(g3.NewVertexInfo)
+  commentId: M:g3.SimpleMesh.AppendVertex(g3.NewVertexInfo)
+  id: AppendVertex(g3.NewVertexInfo)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(NewVertexInfo)
+  nameWithType: SimpleMesh.AppendVertex(NewVertexInfo)
+  fullName: g3.SimpleMesh.AppendVertex(g3.NewVertexInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendVertex(NewVertexInfo info)
+    parameters:
+    - id: info
+      type: g3.NewVertexInfo
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendVertex(info As NewVertexInfo) As Integer
+  overload: g3.SimpleMesh.AppendVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.AppendVertices(g3.VectorArray3d,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f)
+  commentId: M:g3.SimpleMesh.AppendVertices(g3.VectorArray3d,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f)
+  id: AppendVertices(g3.VectorArray3d,g3.VectorArray3f,g3.VectorArray3f,g3.VectorArray2f)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: AppendVertices(VectorArray3d, VectorArray3f, VectorArray3f, VectorArray2f)
+  nameWithType: SimpleMesh.AppendVertices(VectorArray3d, VectorArray3f, VectorArray3f, VectorArray2f)
+  fullName: g3.SimpleMesh.AppendVertices(g3.VectorArray3d, g3.VectorArray3f, g3.VectorArray3f, g3.VectorArray2f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertices
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 160
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendVertices(VectorArray3d v, VectorArray3f n = null, VectorArray3f c = null, VectorArray2f uv = null)
+    parameters:
+    - id: v
+      type: g3.VectorArray3d
+    - id: n
+      type: g3.VectorArray3f
+    - id: c
+      type: g3.VectorArray3f
+    - id: uv
+      type: g3.VectorArray2f
+    content.vb: Public Sub AppendVertices(v As VectorArray3d, n As VectorArray3f = Nothing, c As VectorArray3f = Nothing, uv As VectorArray2f = Nothing)
+  overload: g3.SimpleMesh.AppendVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.SimpleMesh.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangle(Int32, Int32, Int32, Int32)
+  nameWithType: SimpleMesh.AppendTriangle(Int32, Int32, Int32, Int32)
+  fullName: g3.SimpleMesh.AppendTriangle(System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangle
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 179
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendTriangle(int i, int j, int k, int g = -1)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    - id: g
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendTriangle(i As Integer, j As Integer, k As Integer, g As Integer = -1) As Integer
+  overload: g3.SimpleMesh.AppendTriangle*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.AppendTriangles(System.Int32[],System.Int32[],System.Int32)
+  commentId: M:g3.SimpleMesh.AppendTriangles(System.Int32[],System.Int32[],System.Int32)
+  id: AppendTriangles(System.Int32[],System.Int32[],System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangles(Int32[], Int32[], Int32)
+  nameWithType: SimpleMesh.AppendTriangles(Int32[], Int32[], Int32)
+  fullName: g3.SimpleMesh.AppendTriangles(System.Int32[], System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangles
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 190
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendTriangles(int[] vTriangles, int[] vertexMap, int g = -1)
+    parameters:
+    - id: vTriangles
+      type: System.Int32[]
+    - id: vertexMap
+      type: System.Int32[]
+    - id: g
+      type: System.Int32
+    content.vb: Public Sub AppendTriangles(vTriangles As Integer(), vertexMap As Integer(), g As Integer = -1)
+  overload: g3.SimpleMesh.AppendTriangles*
+  nameWithType.vb: SimpleMesh.AppendTriangles(Int32(), Int32(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SimpleMesh.AppendTriangles(System.Int32(), System.Int32(), System.Int32)
+  name.vb: AppendTriangles(Int32(), Int32(), Int32)
+- uid: g3.SimpleMesh.AppendTriangles(g3.IndexArray3i,System.Int32[])
+  commentId: M:g3.SimpleMesh.AppendTriangles(g3.IndexArray3i,System.Int32[])
+  id: AppendTriangles(g3.IndexArray3i,System.Int32[])
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangles(IndexArray3i, Int32[])
+  nameWithType: SimpleMesh.AppendTriangles(IndexArray3i, Int32[])
+  fullName: g3.SimpleMesh.AppendTriangles(g3.IndexArray3i, System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangles
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 202
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendTriangles(IndexArray3i t, int[] groups = null)
+    parameters:
+    - id: t
+      type: g3.IndexArray3i
+    - id: groups
+      type: System.Int32[]
+    content.vb: Public Sub AppendTriangles(t As IndexArray3i, groups As Integer() = Nothing)
+  overload: g3.SimpleMesh.AppendTriangles*
+  nameWithType.vb: SimpleMesh.AppendTriangles(IndexArray3i, Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SimpleMesh.AppendTriangles(g3.IndexArray3i, System.Int32())
+  name.vb: AppendTriangles(IndexArray3i, Int32())
+- uid: g3.SimpleMesh.Translate(System.Double,System.Double,System.Double)
+  commentId: M:g3.SimpleMesh.Translate(System.Double,System.Double,System.Double)
+  id: Translate(System.Double,System.Double,System.Double)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Translate(Double, Double, Double)
+  nameWithType: SimpleMesh.Translate(Double, Double, Double)
+  fullName: g3.SimpleMesh.Translate(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 220
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Translate(double tx, double ty, double tz)
+    parameters:
+    - id: tx
+      type: System.Double
+    - id: ty
+      type: System.Double
+    - id: tz
+      type: System.Double
+    content.vb: Public Sub Translate(tx As Double, ty As Double, tz As Double)
+  overload: g3.SimpleMesh.Translate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Scale(System.Double,System.Double,System.Double)
+  commentId: M:g3.SimpleMesh.Scale(System.Double,System.Double,System.Double)
+  id: Scale(System.Double,System.Double,System.Double)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Scale(Double, Double, Double)
+  nameWithType: SimpleMesh.Scale(Double, Double, Double)
+  fullName: g3.SimpleMesh.Scale(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 230
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Scale(double sx, double sy, double sz)
+    parameters:
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    - id: sz
+      type: System.Double
+    content.vb: Public Sub Scale(sx As Double, sy As Double, sz As Double)
+  overload: g3.SimpleMesh.Scale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.Scale(System.Double)
+  commentId: M:g3.SimpleMesh.Scale(System.Double)
+  id: Scale(System.Double)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: Scale(Double)
+  nameWithType: SimpleMesh.Scale(Double)
+  fullName: g3.SimpleMesh.Scale(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 240
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Scale(double s)
+    parameters:
+    - id: s
+      type: System.Double
+    content.vb: Public Sub Scale(s As Double)
+  overload: g3.SimpleMesh.Scale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.VertexCount
+  commentId: P:g3.SimpleMesh.VertexCount
+  id: VertexCount
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: VertexCount
+  nameWithType: SimpleMesh.VertexCount
+  fullName: g3.SimpleMesh.VertexCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexCount
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 252
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int VertexCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VertexCount As Integer
+  overload: g3.SimpleMesh.VertexCount*
+  implements:
+  - g3.IPointSet.VertexCount
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.TriangleCount
+  commentId: P:g3.SimpleMesh.TriangleCount
+  id: TriangleCount
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: TriangleCount
+  nameWithType: SimpleMesh.TriangleCount
+  fullName: g3.SimpleMesh.TriangleCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TriangleCount
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 256
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int TriangleCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TriangleCount As Integer
+  overload: g3.SimpleMesh.TriangleCount*
+  implements:
+  - g3.IMesh.TriangleCount
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.MaxVertexID
+  commentId: P:g3.SimpleMesh.MaxVertexID
+  id: MaxVertexID
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: MaxVertexID
+  nameWithType: SimpleMesh.MaxVertexID
+  fullName: g3.SimpleMesh.MaxVertexID
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxVertexID
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 260
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MaxVertexID { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxVertexID As Integer
+  overload: g3.SimpleMesh.MaxVertexID*
+  implements:
+  - g3.IPointSet.MaxVertexID
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.MaxTriangleID
+  commentId: P:g3.SimpleMesh.MaxTriangleID
+  id: MaxTriangleID
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: MaxTriangleID
+  nameWithType: SimpleMesh.MaxTriangleID
+  fullName: g3.SimpleMesh.MaxTriangleID
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxTriangleID
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 264
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MaxTriangleID { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxTriangleID As Integer
+  overload: g3.SimpleMesh.MaxTriangleID*
+  implements:
+  - g3.IMesh.MaxTriangleID
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.IsVertex(System.Int32)
+  commentId: M:g3.SimpleMesh.IsVertex(System.Int32)
+  id: IsVertex(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: IsVertex(Int32)
+  nameWithType: SimpleMesh.IsVertex(Int32)
+  fullName: g3.SimpleMesh.IsVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsVertex
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 270
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsVertex(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsVertex(vID As Integer) As Boolean
+  overload: g3.SimpleMesh.IsVertex*
+  implements:
+  - g3.IPointSet.IsVertex(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.IsTriangle(System.Int32)
+  commentId: M:g3.SimpleMesh.IsTriangle(System.Int32)
+  id: IsTriangle(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: IsTriangle(Int32)
+  nameWithType: SimpleMesh.IsTriangle(Int32)
+  fullName: g3.SimpleMesh.IsTriangle(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTriangle
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 273
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsTriangle(int tID)
+    parameters:
+    - id: tID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsTriangle(tID As Integer) As Boolean
+  overload: g3.SimpleMesh.IsTriangle*
+  implements:
+  - g3.IMesh.IsTriangle(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.HasVertexColors
+  commentId: P:g3.SimpleMesh.HasVertexColors
+  id: HasVertexColors
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: HasVertexColors
+  nameWithType: SimpleMesh.HasVertexColors
+  fullName: g3.SimpleMesh.HasVertexColors
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasVertexColors
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 277
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasVertexColors { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasVertexColors As Boolean
+  overload: g3.SimpleMesh.HasVertexColors*
+  implements:
+  - g3.IPointSet.HasVertexColors
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.HasVertexNormals
+  commentId: P:g3.SimpleMesh.HasVertexNormals
+  id: HasVertexNormals
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: HasVertexNormals
+  nameWithType: SimpleMesh.HasVertexNormals
+  fullName: g3.SimpleMesh.HasVertexNormals
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasVertexNormals
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 282
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasVertexNormals { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasVertexNormals As Boolean
+  overload: g3.SimpleMesh.HasVertexNormals*
+  implements:
+  - g3.IPointSet.HasVertexNormals
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.HasVertexUVs
+  commentId: P:g3.SimpleMesh.HasVertexUVs
+  id: HasVertexUVs
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: HasVertexUVs
+  nameWithType: SimpleMesh.HasVertexUVs
+  fullName: g3.SimpleMesh.HasVertexUVs
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasVertexUVs
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 287
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasVertexUVs { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasVertexUVs As Boolean
+  overload: g3.SimpleMesh.HasVertexUVs*
+  implements:
+  - g3.IMesh.HasVertexUVs
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.GetVertex(System.Int32)
+  commentId: M:g3.SimpleMesh.GetVertex(System.Int32)
+  id: GetVertex(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertex(Int32)
+  nameWithType: SimpleMesh.GetVertex(Int32)
+  fullName: g3.SimpleMesh.GetVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertex
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 292
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d GetVertex(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function GetVertex(i As Integer) As Vector3d
+  overload: g3.SimpleMesh.GetVertex*
+  implements:
+  - g3.IPointSet.GetVertex(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexNormal(System.Int32)
+  commentId: M:g3.SimpleMesh.GetVertexNormal(System.Int32)
+  id: GetVertexNormal(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexNormal(Int32)
+  nameWithType: SimpleMesh.GetVertexNormal(Int32)
+  fullName: g3.SimpleMesh.GetVertexNormal(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexNormal
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 297
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f GetVertexNormal(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector3f
+    content.vb: Public Function GetVertexNormal(i As Integer) As Vector3f
+  overload: g3.SimpleMesh.GetVertexNormal*
+  implements:
+  - g3.IPointSet.GetVertexNormal(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexColor(System.Int32)
+  commentId: M:g3.SimpleMesh.GetVertexColor(System.Int32)
+  id: GetVertexColor(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexColor(Int32)
+  nameWithType: SimpleMesh.GetVertexColor(Int32)
+  fullName: g3.SimpleMesh.GetVertexColor(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexColor
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 302
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f GetVertexColor(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector3f
+    content.vb: Public Function GetVertexColor(i As Integer) As Vector3f
+  overload: g3.SimpleMesh.GetVertexColor*
+  implements:
+  - g3.IPointSet.GetVertexColor(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexUV(System.Int32)
+  commentId: M:g3.SimpleMesh.GetVertexUV(System.Int32)
+  id: GetVertexUV(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexUV(Int32)
+  nameWithType: SimpleMesh.GetVertexUV(Int32)
+  fullName: g3.SimpleMesh.GetVertexUV(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexUV
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 307
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2f GetVertexUV(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2f
+    content.vb: Public Function GetVertexUV(i As Integer) As Vector2f
+  overload: g3.SimpleMesh.GetVertexUV*
+  implements:
+  - g3.IMesh.GetVertexUV(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexAll(System.Int32)
+  commentId: M:g3.SimpleMesh.GetVertexAll(System.Int32)
+  id: GetVertexAll(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexAll(Int32)
+  nameWithType: SimpleMesh.GetVertexAll(Int32)
+  fullName: g3.SimpleMesh.GetVertexAll(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexAll
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 312
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public NewVertexInfo GetVertexAll(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.NewVertexInfo
+    content.vb: Public Function GetVertexAll(i As Integer) As NewVertexInfo
+  overload: g3.SimpleMesh.GetVertexAll*
+  implements:
+  - g3.IMesh.GetVertexAll(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.HasTriangleGroups
+  commentId: P:g3.SimpleMesh.HasTriangleGroups
+  id: HasTriangleGroups
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: HasTriangleGroups
+  nameWithType: SimpleMesh.HasTriangleGroups
+  fullName: g3.SimpleMesh.HasTriangleGroups
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasTriangleGroups
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 334
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasTriangleGroups { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasTriangleGroups As Boolean
+  overload: g3.SimpleMesh.HasTriangleGroups*
+  implements:
+  - g3.IMesh.HasTriangleGroups
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.SimpleMesh.GetTriangle(System.Int32)
+  commentId: M:g3.SimpleMesh.GetTriangle(System.Int32)
+  id: GetTriangle(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetTriangle(Int32)
+  nameWithType: SimpleMesh.GetTriangle(Int32)
+  fullName: g3.SimpleMesh.GetTriangle(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTriangle
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 339
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index3i GetTriangle(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Index3i
+    content.vb: Public Function GetTriangle(i As Integer) As Index3i
+  overload: g3.SimpleMesh.GetTriangle*
+  implements:
+  - g3.IMesh.GetTriangle(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetTriangleGroup(System.Int32)
+  commentId: M:g3.SimpleMesh.GetTriangleGroup(System.Int32)
+  id: GetTriangleGroup(System.Int32)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetTriangleGroup(Int32)
+  nameWithType: SimpleMesh.GetTriangleGroup(Int32)
+  fullName: g3.SimpleMesh.GetTriangleGroup(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTriangleGroup
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 344
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetTriangleGroup(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function GetTriangleGroup(i As Integer) As Integer
+  overload: g3.SimpleMesh.GetTriangleGroup*
+  implements:
+  - g3.IMesh.GetTriangleGroup(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.VerticesItr
+  commentId: M:g3.SimpleMesh.VerticesItr
+  id: VerticesItr
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: VerticesItr()
+  nameWithType: SimpleMesh.VerticesItr()
+  fullName: g3.SimpleMesh.VerticesItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VerticesItr
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 350
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector3d> VerticesItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector3d}
+    content.vb: Public Function VerticesItr As IEnumerable(Of Vector3d)
+  overload: g3.SimpleMesh.VerticesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.NormalsItr
+  commentId: M:g3.SimpleMesh.NormalsItr
+  id: NormalsItr
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: NormalsItr()
+  nameWithType: SimpleMesh.NormalsItr()
+  fullName: g3.SimpleMesh.NormalsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NormalsItr
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 356
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector3f> NormalsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector3f}
+    content.vb: Public Function NormalsItr As IEnumerable(Of Vector3f)
+  overload: g3.SimpleMesh.NormalsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.ColorsItr
+  commentId: M:g3.SimpleMesh.ColorsItr
+  id: ColorsItr
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: ColorsItr()
+  nameWithType: SimpleMesh.ColorsItr()
+  fullName: g3.SimpleMesh.ColorsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ColorsItr
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 362
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector3f> ColorsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector3f}
+    content.vb: Public Function ColorsItr As IEnumerable(Of Vector3f)
+  overload: g3.SimpleMesh.ColorsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.UVsItr
+  commentId: M:g3.SimpleMesh.UVsItr
+  id: UVsItr
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: UVsItr()
+  nameWithType: SimpleMesh.UVsItr()
+  fullName: g3.SimpleMesh.UVsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UVsItr
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 368
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector2f> UVsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector2f}
+    content.vb: Public Function UVsItr As IEnumerable(Of Vector2f)
+  overload: g3.SimpleMesh.UVsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.TrianglesItr
+  commentId: M:g3.SimpleMesh.TrianglesItr
+  id: TrianglesItr
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: TrianglesItr()
+  nameWithType: SimpleMesh.TrianglesItr()
+  fullName: g3.SimpleMesh.TrianglesItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TrianglesItr
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 374
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Index3i> TrianglesItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Index3i}
+    content.vb: Public Function TrianglesItr As IEnumerable(Of Index3i)
+  overload: g3.SimpleMesh.TrianglesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.TriangleGroupsItr
+  commentId: M:g3.SimpleMesh.TriangleGroupsItr
+  id: TriangleGroupsItr
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: TriangleGroupsItr()
+  nameWithType: SimpleMesh.TriangleGroupsItr()
+  fullName: g3.SimpleMesh.TriangleGroupsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TriangleGroupsItr
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 381
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> TriangleGroupsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function TriangleGroupsItr As IEnumerable(Of Integer)
+  overload: g3.SimpleMesh.TriangleGroupsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.VertexIndices
+  commentId: M:g3.SimpleMesh.VertexIndices
+  id: VertexIndices
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: VertexIndices()
+  nameWithType: SimpleMesh.VertexIndices()
+  fullName: g3.SimpleMesh.VertexIndices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexIndices
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 388
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> VertexIndices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function VertexIndices As IEnumerable(Of Integer)
+  overload: g3.SimpleMesh.VertexIndices*
+  implements:
+  - g3.IPointSet.VertexIndices
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.TriangleIndices
+  commentId: M:g3.SimpleMesh.TriangleIndices
+  id: TriangleIndices
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: TriangleIndices()
+  nameWithType: SimpleMesh.TriangleIndices()
+  fullName: g3.SimpleMesh.TriangleIndices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TriangleIndices
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 393
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> TriangleIndices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function TriangleIndices As IEnumerable(Of Integer)
+  overload: g3.SimpleMesh.TriangleIndices*
+  implements:
+  - g3.IMesh.TriangleIndices
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.SetVertex(System.Int32,g3.Vector3d)
+  commentId: M:g3.SimpleMesh.SetVertex(System.Int32,g3.Vector3d)
+  id: SetVertex(System.Int32,g3.Vector3d)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: SetVertex(Int32, Vector3d)
+  nameWithType: SimpleMesh.SetVertex(Int32, Vector3d)
+  fullName: g3.SimpleMesh.SetVertex(System.Int32, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertex
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 402
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetVertex(int i, Vector3d v)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: v
+      type: g3.Vector3d
+    content.vb: Public Sub SetVertex(i As Integer, v As Vector3d)
+  overload: g3.SimpleMesh.SetVertex*
+  implements:
+  - g3.IDeformableMesh.SetVertex(System.Int32,g3.Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+  commentId: M:g3.SimpleMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+  id: SetVertexNormal(System.Int32,g3.Vector3f)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: SetVertexNormal(Int32, Vector3f)
+  nameWithType: SimpleMesh.SetVertexNormal(Int32, Vector3f)
+  fullName: g3.SimpleMesh.SetVertexNormal(System.Int32, g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertexNormal
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 409
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetVertexNormal(int i, Vector3f n)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: n
+      type: g3.Vector3f
+    content.vb: Public Sub SetVertexNormal(i As Integer, n As Vector3f)
+  overload: g3.SimpleMesh.SetVertexNormal*
+  implements:
+  - g3.IDeformableMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.SetVertexColor(System.Int32,g3.Vector3f)
+  commentId: M:g3.SimpleMesh.SetVertexColor(System.Int32,g3.Vector3f)
+  id: SetVertexColor(System.Int32,g3.Vector3f)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: SetVertexColor(Int32, Vector3f)
+  nameWithType: SimpleMesh.SetVertexColor(Int32, Vector3f)
+  fullName: g3.SimpleMesh.SetVertexColor(System.Int32, g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertexColor
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 416
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetVertexColor(int i, Vector3f c)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: c
+      type: g3.Vector3f
+    content.vb: Public Sub SetVertexColor(i As Integer, c As Vector3f)
+  overload: g3.SimpleMesh.SetVertexColor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.SetVertexUV(System.Int32,g3.Vector2f)
+  commentId: M:g3.SimpleMesh.SetVertexUV(System.Int32,g3.Vector2f)
+  id: SetVertexUV(System.Int32,g3.Vector2f)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: SetVertexUV(Int32, Vector2f)
+  nameWithType: SimpleMesh.SetVertexUV(Int32, Vector2f)
+  fullName: g3.SimpleMesh.SetVertexUV(System.Int32, g3.Vector2f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertexUV
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 423
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetVertexUV(int i, Vector2f uv)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: uv
+      type: g3.Vector2f
+    content.vb: Public Sub SetVertexUV(i As Integer, uv As Vector2f)
+  overload: g3.SimpleMesh.SetVertexUV*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexArray
+  commentId: M:g3.SimpleMesh.GetVertexArray
+  id: GetVertexArray
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexArray()
+  nameWithType: SimpleMesh.GetVertexArray()
+  fullName: g3.SimpleMesh.GetVertexArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexArray
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 433
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double[] GetVertexArray()
+    return:
+      type: System.Double[]
+    content.vb: Public Function GetVertexArray As Double()
+  overload: g3.SimpleMesh.GetVertexArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexArrayFloat
+  commentId: M:g3.SimpleMesh.GetVertexArrayFloat
+  id: GetVertexArrayFloat
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexArrayFloat()
+  nameWithType: SimpleMesh.GetVertexArrayFloat()
+  fullName: g3.SimpleMesh.GetVertexArrayFloat()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexArrayFloat
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 437
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float[] GetVertexArrayFloat()
+    return:
+      type: System.Single[]
+    content.vb: Public Function GetVertexArrayFloat As Single()
+  overload: g3.SimpleMesh.GetVertexArrayFloat*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexNormalArray
+  commentId: M:g3.SimpleMesh.GetVertexNormalArray
+  id: GetVertexNormalArray
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexNormalArray()
+  nameWithType: SimpleMesh.GetVertexNormalArray()
+  fullName: g3.SimpleMesh.GetVertexNormalArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexNormalArray
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 445
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float[] GetVertexNormalArray()
+    return:
+      type: System.Single[]
+    content.vb: Public Function GetVertexNormalArray As Single()
+  overload: g3.SimpleMesh.GetVertexNormalArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexColorArray
+  commentId: M:g3.SimpleMesh.GetVertexColorArray
+  id: GetVertexColorArray
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexColorArray()
+  nameWithType: SimpleMesh.GetVertexColorArray()
+  fullName: g3.SimpleMesh.GetVertexColorArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexColorArray
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 450
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float[] GetVertexColorArray()
+    return:
+      type: System.Single[]
+    content.vb: Public Function GetVertexColorArray As Single()
+  overload: g3.SimpleMesh.GetVertexColorArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexUVArray
+  commentId: M:g3.SimpleMesh.GetVertexUVArray
+  id: GetVertexUVArray
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexUVArray()
+  nameWithType: SimpleMesh.GetVertexUVArray()
+  fullName: g3.SimpleMesh.GetVertexUVArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexUVArray
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 455
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float[] GetVertexUVArray()
+    return:
+      type: System.Single[]
+    content.vb: Public Function GetVertexUVArray As Single()
+  overload: g3.SimpleMesh.GetVertexUVArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetTriangleArray
+  commentId: M:g3.SimpleMesh.GetTriangleArray
+  id: GetTriangleArray
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetTriangleArray()
+  nameWithType: SimpleMesh.GetTriangleArray()
+  fullName: g3.SimpleMesh.GetTriangleArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTriangleArray
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 460
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] GetTriangleArray()
+    return:
+      type: System.Int32[]
+    content.vb: Public Function GetTriangleArray As Integer()
+  overload: g3.SimpleMesh.GetTriangleArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetFaceGroupsArray
+  commentId: M:g3.SimpleMesh.GetFaceGroupsArray
+  id: GetFaceGroupsArray
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetFaceGroupsArray()
+  nameWithType: SimpleMesh.GetFaceGroupsArray()
+  fullName: g3.SimpleMesh.GetFaceGroupsArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFaceGroupsArray
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 465
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] GetFaceGroupsArray()
+    return:
+      type: System.Int32[]
+    content.vb: Public Function GetFaceGroupsArray As Integer()
+  overload: g3.SimpleMesh.GetFaceGroupsArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexBuffer(System.Double*)
+  commentId: M:g3.SimpleMesh.GetVertexBuffer(System.Double*)
+  id: GetVertexBuffer(System.Double*)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexBuffer(Double*)
+  nameWithType: SimpleMesh.GetVertexBuffer(Double*)
+  fullName: g3.SimpleMesh.GetVertexBuffer(System.Double*)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexBuffer
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 477
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetVertexBuffer(double *pBuffer)
+    parameters:
+    - id: pBuffer
+      type: System.Double*
+    content.vb: Public Sub GetVertexBuffer(pBuffer As Double *)
+  overload: g3.SimpleMesh.GetVertexBuffer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexNormalBuffer(System.Single*)
+  commentId: M:g3.SimpleMesh.GetVertexNormalBuffer(System.Single*)
+  id: GetVertexNormalBuffer(System.Single*)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexNormalBuffer(Single*)
+  nameWithType: SimpleMesh.GetVertexNormalBuffer(Single*)
+  fullName: g3.SimpleMesh.GetVertexNormalBuffer(System.Single*)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexNormalBuffer
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 482
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetVertexNormalBuffer(float *pBuffer)
+    parameters:
+    - id: pBuffer
+      type: System.Single*
+    content.vb: Public Sub GetVertexNormalBuffer(pBuffer As Single *)
+  overload: g3.SimpleMesh.GetVertexNormalBuffer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexColorBuffer(System.Single*)
+  commentId: M:g3.SimpleMesh.GetVertexColorBuffer(System.Single*)
+  id: GetVertexColorBuffer(System.Single*)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexColorBuffer(Single*)
+  nameWithType: SimpleMesh.GetVertexColorBuffer(Single*)
+  fullName: g3.SimpleMesh.GetVertexColorBuffer(System.Single*)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexColorBuffer
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 488
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetVertexColorBuffer(float *pBuffer)
+    parameters:
+    - id: pBuffer
+      type: System.Single*
+    content.vb: Public Sub GetVertexColorBuffer(pBuffer As Single *)
+  overload: g3.SimpleMesh.GetVertexColorBuffer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetVertexUVBuffer(System.Single*)
+  commentId: M:g3.SimpleMesh.GetVertexUVBuffer(System.Single*)
+  id: GetVertexUVBuffer(System.Single*)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetVertexUVBuffer(Single*)
+  nameWithType: SimpleMesh.GetVertexUVBuffer(Single*)
+  fullName: g3.SimpleMesh.GetVertexUVBuffer(System.Single*)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertexUVBuffer
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 494
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetVertexUVBuffer(float *pBuffer)
+    parameters:
+    - id: pBuffer
+      type: System.Single*
+    content.vb: Public Sub GetVertexUVBuffer(pBuffer As Single *)
+  overload: g3.SimpleMesh.GetVertexUVBuffer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetTriangleBuffer(System.Int32*)
+  commentId: M:g3.SimpleMesh.GetTriangleBuffer(System.Int32*)
+  id: GetTriangleBuffer(System.Int32*)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetTriangleBuffer(Int32*)
+  nameWithType: SimpleMesh.GetTriangleBuffer(Int32*)
+  fullName: g3.SimpleMesh.GetTriangleBuffer(System.Int32*)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTriangleBuffer
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 500
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetTriangleBuffer(int *pBuffer)
+    parameters:
+    - id: pBuffer
+      type: System.Int32*
+    content.vb: Public Sub GetTriangleBuffer(pBuffer As Integer *)
+  overload: g3.SimpleMesh.GetTriangleBuffer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleMesh.GetFaceGroupsBuffer(System.Int32*)
+  commentId: M:g3.SimpleMesh.GetFaceGroupsBuffer(System.Int32*)
+  id: GetFaceGroupsBuffer(System.Int32*)
+  parent: g3.SimpleMesh
+  langs:
+  - csharp
+  - vb
+  name: GetFaceGroupsBuffer(Int32*)
+  nameWithType: SimpleMesh.GetFaceGroupsBuffer(Int32*)
+  fullName: g3.SimpleMesh.GetFaceGroupsBuffer(System.Int32*)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/SimpleMesh.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFaceGroupsBuffer
+    path: ../Assets/geometry3Sharp/mesh/SimpleMesh.cs
+    startLine: 505
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetFaceGroupsBuffer(int *pBuffer)
+    parameters:
+    - id: pBuffer
+      type: System.Int32*
+    content.vb: Public Sub GetFaceGroupsBuffer(pBuffer As Integer *)
+  overload: g3.SimpleMesh.GetFaceGroupsBuffer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IDeformableMesh
+  commentId: T:g3.IDeformableMesh
+  parent: g3
+  name: IDeformableMesh
+  nameWithType: IDeformableMesh
+  fullName: g3.IDeformableMesh
+- uid: g3.IMesh
+  commentId: T:g3.IMesh
+  parent: g3
+  name: IMesh
+  nameWithType: IMesh
+  fullName: g3.IMesh
+- uid: g3.IPointSet
+  commentId: T:g3.IPointSet
+  parent: g3
+  name: IPointSet
+  nameWithType: IPointSet
+  fullName: g3.IPointSet
+- uid: g3.SimpleMesh.Virgis.SimpleMeshExtensions.ToMesh
+  commentId: M:Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+  parent: Virgis.SimpleMeshExtensions
+  definition: Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+  name: ToMesh()
+  nameWithType: SimpleMeshExtensions.ToMesh()
+  fullName: Virgis.SimpleMeshExtensions.ToMesh()
+  spec.csharp:
+  - uid: Virgis.SimpleMeshExtensions.ToMesh
+    name: ToMesh
+    nameWithType: SimpleMeshExtensions.ToMesh
+    fullName: Virgis.SimpleMeshExtensions.ToMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.SimpleMeshExtensions.ToMesh
+    name: ToMesh
+    nameWithType: SimpleMeshExtensions.ToMesh
+    fullName: Virgis.SimpleMeshExtensions.ToMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+  commentId: M:Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+  name: ToMesh(SimpleMesh)
+  nameWithType: SimpleMeshExtensions.ToMesh(SimpleMesh)
+  fullName: Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+  spec.csharp:
+  - uid: Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+    name: ToMesh
+    nameWithType: SimpleMeshExtensions.ToMesh
+    fullName: Virgis.SimpleMeshExtensions.ToMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.SimpleMesh
+    name: SimpleMesh
+    nameWithType: SimpleMesh
+    fullName: g3.SimpleMesh
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.SimpleMeshExtensions.ToMesh(g3.SimpleMesh)
+    name: ToMesh
+    nameWithType: SimpleMeshExtensions.ToMesh
+    fullName: Virgis.SimpleMeshExtensions.ToMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.SimpleMesh
+    name: SimpleMesh
+    nameWithType: SimpleMesh
+    fullName: g3.SimpleMesh
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.SimpleMeshExtensions
+  commentId: T:Virgis.SimpleMeshExtensions
+  parent: Virgis
+  name: SimpleMeshExtensions
+  nameWithType: SimpleMeshExtensions
+  fullName: Virgis.SimpleMeshExtensions
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: g3.DVector{System.Double}
+  commentId: T:g3.DVector{System.Double}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Double>
+  nameWithType: DVector<Double>
+  fullName: g3.DVector<System.Double>
+  nameWithType.vb: DVector(Of Double)
+  fullName.vb: g3.DVector(Of System.Double)
+  name.vb: DVector(Of Double)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector`1
+  commentId: T:g3.DVector`1
+  parent: g3
+  name: DVector<T>
+  nameWithType: DVector<T>
+  fullName: g3.DVector<T>
+  nameWithType.vb: DVector(Of T)
+  fullName.vb: g3.DVector(Of T)
+  name.vb: DVector(Of T)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector{System.Single}
+  commentId: T:g3.DVector{System.Single}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Single>
+  nameWithType: DVector<Single>
+  fullName: g3.DVector<System.Single>
+  nameWithType.vb: DVector(Of Single)
+  fullName.vb: g3.DVector(Of System.Single)
+  name.vb: DVector(Of Single)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector{System.Int32}
+  commentId: T:g3.DVector{System.Int32}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Int32>
+  nameWithType: DVector<Int32>
+  fullName: g3.DVector<System.Int32>
+  nameWithType.vb: DVector(Of Int32)
+  fullName.vb: g3.DVector(Of System.Int32)
+  name.vb: DVector(Of Int32)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.#ctor*
+  commentId: Overload:g3.SimpleMesh.#ctor
+  name: SimpleMesh
+  nameWithType: SimpleMesh.SimpleMesh
+  fullName: g3.SimpleMesh.SimpleMesh
+- uid: g3.SimpleMesh.Initialize*
+  commentId: Overload:g3.SimpleMesh.Initialize
+  name: Initialize
+  nameWithType: SimpleMesh.Initialize
+  fullName: g3.SimpleMesh.Initialize
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.VectorArray3d
+  commentId: T:g3.VectorArray3d
+  parent: g3
+  name: VectorArray3d
+  nameWithType: VectorArray3d
+  fullName: g3.VectorArray3d
+- uid: g3.VectorArray3i
+  commentId: T:g3.VectorArray3i
+  parent: g3
+  name: VectorArray3i
+  nameWithType: VectorArray3i
+  fullName: g3.VectorArray3i
+- uid: g3.VectorArray3f
+  commentId: T:g3.VectorArray3f
+  parent: g3
+  name: VectorArray3f
+  nameWithType: VectorArray3f
+  fullName: g3.VectorArray3f
+- uid: g3.VectorArray2f
+  commentId: T:g3.VectorArray2f
+  parent: g3
+  name: VectorArray2f
+  nameWithType: VectorArray2f
+  fullName: g3.VectorArray2f
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.SimpleMesh.Components*
+  commentId: Overload:g3.SimpleMesh.Components
+  name: Components
+  nameWithType: SimpleMesh.Components
+  fullName: g3.SimpleMesh.Components
+- uid: g3.MeshComponents
+  commentId: T:g3.MeshComponents
+  parent: g3
+  name: MeshComponents
+  nameWithType: MeshComponents
+  fullName: g3.MeshComponents
+- uid: g3.SimpleMesh.Timestamp*
+  commentId: Overload:g3.SimpleMesh.Timestamp
+  name: Timestamp
+  nameWithType: SimpleMesh.Timestamp
+  fullName: g3.SimpleMesh.Timestamp
+- uid: g3.IPointSet.Timestamp
+  commentId: P:g3.IPointSet.Timestamp
+  parent: g3.IPointSet
+  name: Timestamp
+  nameWithType: IPointSet.Timestamp
+  fullName: g3.IPointSet.Timestamp
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.SimpleMesh.AppendVertex*
+  commentId: Overload:g3.SimpleMesh.AppendVertex
+  name: AppendVertex
+  nameWithType: SimpleMesh.AppendVertex
+  fullName: g3.SimpleMesh.AppendVertex
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.NewVertexInfo
+  commentId: T:g3.NewVertexInfo
+  parent: g3
+  name: NewVertexInfo
+  nameWithType: NewVertexInfo
+  fullName: g3.NewVertexInfo
+- uid: g3.SimpleMesh.AppendVertices*
+  commentId: Overload:g3.SimpleMesh.AppendVertices
+  name: AppendVertices
+  nameWithType: SimpleMesh.AppendVertices
+  fullName: g3.SimpleMesh.AppendVertices
+- uid: g3.SimpleMesh.AppendTriangle*
+  commentId: Overload:g3.SimpleMesh.AppendTriangle
+  name: AppendTriangle
+  nameWithType: SimpleMesh.AppendTriangle
+  fullName: g3.SimpleMesh.AppendTriangle
+- uid: g3.SimpleMesh.AppendTriangles*
+  commentId: Overload:g3.SimpleMesh.AppendTriangles
+  name: AppendTriangles
+  nameWithType: SimpleMesh.AppendTriangles
+  fullName: g3.SimpleMesh.AppendTriangles
+- uid: g3.IndexArray3i
+  commentId: T:g3.IndexArray3i
+  parent: g3
+  name: IndexArray3i
+  nameWithType: IndexArray3i
+  fullName: g3.IndexArray3i
+- uid: g3.SimpleMesh.Translate*
+  commentId: Overload:g3.SimpleMesh.Translate
+  name: Translate
+  nameWithType: SimpleMesh.Translate
+  fullName: g3.SimpleMesh.Translate
+- uid: g3.SimpleMesh.Scale*
+  commentId: Overload:g3.SimpleMesh.Scale
+  name: Scale
+  nameWithType: SimpleMesh.Scale
+  fullName: g3.SimpleMesh.Scale
+- uid: g3.SimpleMesh.VertexCount*
+  commentId: Overload:g3.SimpleMesh.VertexCount
+  name: VertexCount
+  nameWithType: SimpleMesh.VertexCount
+  fullName: g3.SimpleMesh.VertexCount
+- uid: g3.IPointSet.VertexCount
+  commentId: P:g3.IPointSet.VertexCount
+  parent: g3.IPointSet
+  name: VertexCount
+  nameWithType: IPointSet.VertexCount
+  fullName: g3.IPointSet.VertexCount
+- uid: g3.SimpleMesh.TriangleCount*
+  commentId: Overload:g3.SimpleMesh.TriangleCount
+  name: TriangleCount
+  nameWithType: SimpleMesh.TriangleCount
+  fullName: g3.SimpleMesh.TriangleCount
+- uid: g3.IMesh.TriangleCount
+  commentId: P:g3.IMesh.TriangleCount
+  parent: g3.IMesh
+  name: TriangleCount
+  nameWithType: IMesh.TriangleCount
+  fullName: g3.IMesh.TriangleCount
+- uid: g3.SimpleMesh.MaxVertexID*
+  commentId: Overload:g3.SimpleMesh.MaxVertexID
+  name: MaxVertexID
+  nameWithType: SimpleMesh.MaxVertexID
+  fullName: g3.SimpleMesh.MaxVertexID
+- uid: g3.IPointSet.MaxVertexID
+  commentId: P:g3.IPointSet.MaxVertexID
+  parent: g3.IPointSet
+  name: MaxVertexID
+  nameWithType: IPointSet.MaxVertexID
+  fullName: g3.IPointSet.MaxVertexID
+- uid: g3.SimpleMesh.MaxTriangleID*
+  commentId: Overload:g3.SimpleMesh.MaxTriangleID
+  name: MaxTriangleID
+  nameWithType: SimpleMesh.MaxTriangleID
+  fullName: g3.SimpleMesh.MaxTriangleID
+- uid: g3.IMesh.MaxTriangleID
+  commentId: P:g3.IMesh.MaxTriangleID
+  parent: g3.IMesh
+  name: MaxTriangleID
+  nameWithType: IMesh.MaxTriangleID
+  fullName: g3.IMesh.MaxTriangleID
+- uid: g3.SimpleMesh.IsVertex*
+  commentId: Overload:g3.SimpleMesh.IsVertex
+  name: IsVertex
+  nameWithType: SimpleMesh.IsVertex
+  fullName: g3.SimpleMesh.IsVertex
+- uid: g3.IPointSet.IsVertex(System.Int32)
+  commentId: M:g3.IPointSet.IsVertex(System.Int32)
+  parent: g3.IPointSet
+  isExternal: true
+  name: IsVertex(Int32)
+  nameWithType: IPointSet.IsVertex(Int32)
+  fullName: g3.IPointSet.IsVertex(System.Int32)
+  spec.csharp:
+  - uid: g3.IPointSet.IsVertex(System.Int32)
+    name: IsVertex
+    nameWithType: IPointSet.IsVertex
+    fullName: g3.IPointSet.IsVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IPointSet.IsVertex(System.Int32)
+    name: IsVertex
+    nameWithType: IPointSet.IsVertex
+    fullName: g3.IPointSet.IsVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.IsTriangle*
+  commentId: Overload:g3.SimpleMesh.IsTriangle
+  name: IsTriangle
+  nameWithType: SimpleMesh.IsTriangle
+  fullName: g3.SimpleMesh.IsTriangle
+- uid: g3.IMesh.IsTriangle(System.Int32)
+  commentId: M:g3.IMesh.IsTriangle(System.Int32)
+  parent: g3.IMesh
+  isExternal: true
+  name: IsTriangle(Int32)
+  nameWithType: IMesh.IsTriangle(Int32)
+  fullName: g3.IMesh.IsTriangle(System.Int32)
+  spec.csharp:
+  - uid: g3.IMesh.IsTriangle(System.Int32)
+    name: IsTriangle
+    nameWithType: IMesh.IsTriangle
+    fullName: g3.IMesh.IsTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMesh.IsTriangle(System.Int32)
+    name: IsTriangle
+    nameWithType: IMesh.IsTriangle
+    fullName: g3.IMesh.IsTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.HasVertexColors*
+  commentId: Overload:g3.SimpleMesh.HasVertexColors
+  name: HasVertexColors
+  nameWithType: SimpleMesh.HasVertexColors
+  fullName: g3.SimpleMesh.HasVertexColors
+- uid: g3.IPointSet.HasVertexColors
+  commentId: P:g3.IPointSet.HasVertexColors
+  parent: g3.IPointSet
+  name: HasVertexColors
+  nameWithType: IPointSet.HasVertexColors
+  fullName: g3.IPointSet.HasVertexColors
+- uid: g3.SimpleMesh.HasVertexNormals*
+  commentId: Overload:g3.SimpleMesh.HasVertexNormals
+  name: HasVertexNormals
+  nameWithType: SimpleMesh.HasVertexNormals
+  fullName: g3.SimpleMesh.HasVertexNormals
+- uid: g3.IPointSet.HasVertexNormals
+  commentId: P:g3.IPointSet.HasVertexNormals
+  parent: g3.IPointSet
+  name: HasVertexNormals
+  nameWithType: IPointSet.HasVertexNormals
+  fullName: g3.IPointSet.HasVertexNormals
+- uid: g3.SimpleMesh.HasVertexUVs*
+  commentId: Overload:g3.SimpleMesh.HasVertexUVs
+  name: HasVertexUVs
+  nameWithType: SimpleMesh.HasVertexUVs
+  fullName: g3.SimpleMesh.HasVertexUVs
+- uid: g3.IMesh.HasVertexUVs
+  commentId: P:g3.IMesh.HasVertexUVs
+  parent: g3.IMesh
+  name: HasVertexUVs
+  nameWithType: IMesh.HasVertexUVs
+  fullName: g3.IMesh.HasVertexUVs
+- uid: g3.SimpleMesh.GetVertex*
+  commentId: Overload:g3.SimpleMesh.GetVertex
+  name: GetVertex
+  nameWithType: SimpleMesh.GetVertex
+  fullName: g3.SimpleMesh.GetVertex
+- uid: g3.IPointSet.GetVertex(System.Int32)
+  commentId: M:g3.IPointSet.GetVertex(System.Int32)
+  parent: g3.IPointSet
+  isExternal: true
+  name: GetVertex(Int32)
+  nameWithType: IPointSet.GetVertex(Int32)
+  fullName: g3.IPointSet.GetVertex(System.Int32)
+  spec.csharp:
+  - uid: g3.IPointSet.GetVertex(System.Int32)
+    name: GetVertex
+    nameWithType: IPointSet.GetVertex
+    fullName: g3.IPointSet.GetVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IPointSet.GetVertex(System.Int32)
+    name: GetVertex
+    nameWithType: IPointSet.GetVertex
+    fullName: g3.IPointSet.GetVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.SimpleMesh.GetVertexNormal*
+  commentId: Overload:g3.SimpleMesh.GetVertexNormal
+  name: GetVertexNormal
+  nameWithType: SimpleMesh.GetVertexNormal
+  fullName: g3.SimpleMesh.GetVertexNormal
+- uid: g3.IPointSet.GetVertexNormal(System.Int32)
+  commentId: M:g3.IPointSet.GetVertexNormal(System.Int32)
+  parent: g3.IPointSet
+  isExternal: true
+  name: GetVertexNormal(Int32)
+  nameWithType: IPointSet.GetVertexNormal(Int32)
+  fullName: g3.IPointSet.GetVertexNormal(System.Int32)
+  spec.csharp:
+  - uid: g3.IPointSet.GetVertexNormal(System.Int32)
+    name: GetVertexNormal
+    nameWithType: IPointSet.GetVertexNormal
+    fullName: g3.IPointSet.GetVertexNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IPointSet.GetVertexNormal(System.Int32)
+    name: GetVertexNormal
+    nameWithType: IPointSet.GetVertexNormal
+    fullName: g3.IPointSet.GetVertexNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.SimpleMesh.GetVertexColor*
+  commentId: Overload:g3.SimpleMesh.GetVertexColor
+  name: GetVertexColor
+  nameWithType: SimpleMesh.GetVertexColor
+  fullName: g3.SimpleMesh.GetVertexColor
+- uid: g3.IPointSet.GetVertexColor(System.Int32)
+  commentId: M:g3.IPointSet.GetVertexColor(System.Int32)
+  parent: g3.IPointSet
+  isExternal: true
+  name: GetVertexColor(Int32)
+  nameWithType: IPointSet.GetVertexColor(Int32)
+  fullName: g3.IPointSet.GetVertexColor(System.Int32)
+  spec.csharp:
+  - uid: g3.IPointSet.GetVertexColor(System.Int32)
+    name: GetVertexColor
+    nameWithType: IPointSet.GetVertexColor
+    fullName: g3.IPointSet.GetVertexColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IPointSet.GetVertexColor(System.Int32)
+    name: GetVertexColor
+    nameWithType: IPointSet.GetVertexColor
+    fullName: g3.IPointSet.GetVertexColor
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.GetVertexUV*
+  commentId: Overload:g3.SimpleMesh.GetVertexUV
+  name: GetVertexUV
+  nameWithType: SimpleMesh.GetVertexUV
+  fullName: g3.SimpleMesh.GetVertexUV
+- uid: g3.IMesh.GetVertexUV(System.Int32)
+  commentId: M:g3.IMesh.GetVertexUV(System.Int32)
+  parent: g3.IMesh
+  isExternal: true
+  name: GetVertexUV(Int32)
+  nameWithType: IMesh.GetVertexUV(Int32)
+  fullName: g3.IMesh.GetVertexUV(System.Int32)
+  spec.csharp:
+  - uid: g3.IMesh.GetVertexUV(System.Int32)
+    name: GetVertexUV
+    nameWithType: IMesh.GetVertexUV
+    fullName: g3.IMesh.GetVertexUV
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMesh.GetVertexUV(System.Int32)
+    name: GetVertexUV
+    nameWithType: IMesh.GetVertexUV
+    fullName: g3.IMesh.GetVertexUV
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector2f
+  commentId: T:g3.Vector2f
+  parent: g3
+  name: Vector2f
+  nameWithType: Vector2f
+  fullName: g3.Vector2f
+- uid: g3.SimpleMesh.GetVertexAll*
+  commentId: Overload:g3.SimpleMesh.GetVertexAll
+  name: GetVertexAll
+  nameWithType: SimpleMesh.GetVertexAll
+  fullName: g3.SimpleMesh.GetVertexAll
+- uid: g3.IMesh.GetVertexAll(System.Int32)
+  commentId: M:g3.IMesh.GetVertexAll(System.Int32)
+  parent: g3.IMesh
+  isExternal: true
+  name: GetVertexAll(Int32)
+  nameWithType: IMesh.GetVertexAll(Int32)
+  fullName: g3.IMesh.GetVertexAll(System.Int32)
+  spec.csharp:
+  - uid: g3.IMesh.GetVertexAll(System.Int32)
+    name: GetVertexAll
+    nameWithType: IMesh.GetVertexAll
+    fullName: g3.IMesh.GetVertexAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMesh.GetVertexAll(System.Int32)
+    name: GetVertexAll
+    nameWithType: IMesh.GetVertexAll
+    fullName: g3.IMesh.GetVertexAll
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.HasTriangleGroups*
+  commentId: Overload:g3.SimpleMesh.HasTriangleGroups
+  name: HasTriangleGroups
+  nameWithType: SimpleMesh.HasTriangleGroups
+  fullName: g3.SimpleMesh.HasTriangleGroups
+- uid: g3.IMesh.HasTriangleGroups
+  commentId: P:g3.IMesh.HasTriangleGroups
+  parent: g3.IMesh
+  name: HasTriangleGroups
+  nameWithType: IMesh.HasTriangleGroups
+  fullName: g3.IMesh.HasTriangleGroups
+- uid: g3.SimpleMesh.GetTriangle*
+  commentId: Overload:g3.SimpleMesh.GetTriangle
+  name: GetTriangle
+  nameWithType: SimpleMesh.GetTriangle
+  fullName: g3.SimpleMesh.GetTriangle
+- uid: g3.IMesh.GetTriangle(System.Int32)
+  commentId: M:g3.IMesh.GetTriangle(System.Int32)
+  parent: g3.IMesh
+  isExternal: true
+  name: GetTriangle(Int32)
+  nameWithType: IMesh.GetTriangle(Int32)
+  fullName: g3.IMesh.GetTriangle(System.Int32)
+  spec.csharp:
+  - uid: g3.IMesh.GetTriangle(System.Int32)
+    name: GetTriangle
+    nameWithType: IMesh.GetTriangle
+    fullName: g3.IMesh.GetTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMesh.GetTriangle(System.Int32)
+    name: GetTriangle
+    nameWithType: IMesh.GetTriangle
+    fullName: g3.IMesh.GetTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Index3i
+  commentId: T:g3.Index3i
+  parent: g3
+  name: Index3i
+  nameWithType: Index3i
+  fullName: g3.Index3i
+- uid: g3.SimpleMesh.GetTriangleGroup*
+  commentId: Overload:g3.SimpleMesh.GetTriangleGroup
+  name: GetTriangleGroup
+  nameWithType: SimpleMesh.GetTriangleGroup
+  fullName: g3.SimpleMesh.GetTriangleGroup
+- uid: g3.IMesh.GetTriangleGroup(System.Int32)
+  commentId: M:g3.IMesh.GetTriangleGroup(System.Int32)
+  parent: g3.IMesh
+  isExternal: true
+  name: GetTriangleGroup(Int32)
+  nameWithType: IMesh.GetTriangleGroup(Int32)
+  fullName: g3.IMesh.GetTriangleGroup(System.Int32)
+  spec.csharp:
+  - uid: g3.IMesh.GetTriangleGroup(System.Int32)
+    name: GetTriangleGroup
+    nameWithType: IMesh.GetTriangleGroup
+    fullName: g3.IMesh.GetTriangleGroup
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMesh.GetTriangleGroup(System.Int32)
+    name: GetTriangleGroup
+    nameWithType: IMesh.GetTriangleGroup
+    fullName: g3.IMesh.GetTriangleGroup
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.VerticesItr*
+  commentId: Overload:g3.SimpleMesh.VerticesItr
+  name: VerticesItr
+  nameWithType: SimpleMesh.VerticesItr
+  fullName: g3.SimpleMesh.VerticesItr
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3d>
+  nameWithType: IEnumerable<Vector3d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3d>
+  nameWithType.vb: IEnumerable(Of Vector3d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3d)
+  name.vb: IEnumerable(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.SimpleMesh.NormalsItr*
+  commentId: Overload:g3.SimpleMesh.NormalsItr
+  name: NormalsItr
+  nameWithType: SimpleMesh.NormalsItr
+  fullName: g3.SimpleMesh.NormalsItr
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3f}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3f}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3f>
+  nameWithType: IEnumerable<Vector3f>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3f>
+  nameWithType.vb: IEnumerable(Of Vector3f)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3f)
+  name.vb: IEnumerable(Of Vector3f)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.ColorsItr*
+  commentId: Overload:g3.SimpleMesh.ColorsItr
+  name: ColorsItr
+  nameWithType: SimpleMesh.ColorsItr
+  fullName: g3.SimpleMesh.ColorsItr
+- uid: g3.SimpleMesh.UVsItr*
+  commentId: Overload:g3.SimpleMesh.UVsItr
+  name: UVsItr
+  nameWithType: SimpleMesh.UVsItr
+  fullName: g3.SimpleMesh.UVsItr
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2f}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2f}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2f>
+  nameWithType: IEnumerable<Vector2f>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2f>
+  nameWithType.vb: IEnumerable(Of Vector2f)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2f)
+  name.vb: IEnumerable(Of Vector2f)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.TrianglesItr*
+  commentId: Overload:g3.SimpleMesh.TrianglesItr
+  name: TrianglesItr
+  nameWithType: SimpleMesh.TrianglesItr
+  fullName: g3.SimpleMesh.TrianglesItr
+- uid: System.Collections.Generic.IEnumerable{g3.Index3i}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Index3i}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Index3i>
+  nameWithType: IEnumerable<Index3i>
+  fullName: System.Collections.Generic.IEnumerable<g3.Index3i>
+  nameWithType.vb: IEnumerable(Of Index3i)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Index3i)
+  name.vb: IEnumerable(Of Index3i)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.TriangleGroupsItr*
+  commentId: Overload:g3.SimpleMesh.TriangleGroupsItr
+  name: TriangleGroupsItr
+  nameWithType: SimpleMesh.TriangleGroupsItr
+  fullName: g3.SimpleMesh.TriangleGroupsItr
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.VertexIndices*
+  commentId: Overload:g3.SimpleMesh.VertexIndices
+  name: VertexIndices
+  nameWithType: SimpleMesh.VertexIndices
+  fullName: g3.SimpleMesh.VertexIndices
+- uid: g3.IPointSet.VertexIndices
+  commentId: M:g3.IPointSet.VertexIndices
+  parent: g3.IPointSet
+  name: VertexIndices()
+  nameWithType: IPointSet.VertexIndices()
+  fullName: g3.IPointSet.VertexIndices()
+  spec.csharp:
+  - uid: g3.IPointSet.VertexIndices
+    name: VertexIndices
+    nameWithType: IPointSet.VertexIndices
+    fullName: g3.IPointSet.VertexIndices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IPointSet.VertexIndices
+    name: VertexIndices
+    nameWithType: IPointSet.VertexIndices
+    fullName: g3.IPointSet.VertexIndices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.TriangleIndices*
+  commentId: Overload:g3.SimpleMesh.TriangleIndices
+  name: TriangleIndices
+  nameWithType: SimpleMesh.TriangleIndices
+  fullName: g3.SimpleMesh.TriangleIndices
+- uid: g3.IMesh.TriangleIndices
+  commentId: M:g3.IMesh.TriangleIndices
+  parent: g3.IMesh
+  name: TriangleIndices()
+  nameWithType: IMesh.TriangleIndices()
+  fullName: g3.IMesh.TriangleIndices()
+  spec.csharp:
+  - uid: g3.IMesh.TriangleIndices
+    name: TriangleIndices
+    nameWithType: IMesh.TriangleIndices
+    fullName: g3.IMesh.TriangleIndices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMesh.TriangleIndices
+    name: TriangleIndices
+    nameWithType: IMesh.TriangleIndices
+    fullName: g3.IMesh.TriangleIndices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.SetVertex*
+  commentId: Overload:g3.SimpleMesh.SetVertex
+  name: SetVertex
+  nameWithType: SimpleMesh.SetVertex
+  fullName: g3.SimpleMesh.SetVertex
+- uid: g3.IDeformableMesh.SetVertex(System.Int32,g3.Vector3d)
+  commentId: M:g3.IDeformableMesh.SetVertex(System.Int32,g3.Vector3d)
+  parent: g3.IDeformableMesh
+  isExternal: true
+  name: SetVertex(Int32, Vector3d)
+  nameWithType: IDeformableMesh.SetVertex(Int32, Vector3d)
+  fullName: g3.IDeformableMesh.SetVertex(System.Int32, g3.Vector3d)
+  spec.csharp:
+  - uid: g3.IDeformableMesh.SetVertex(System.Int32,g3.Vector3d)
+    name: SetVertex
+    nameWithType: IDeformableMesh.SetVertex
+    fullName: g3.IDeformableMesh.SetVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IDeformableMesh.SetVertex(System.Int32,g3.Vector3d)
+    name: SetVertex
+    nameWithType: IDeformableMesh.SetVertex
+    fullName: g3.IDeformableMesh.SetVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.SetVertexNormal*
+  commentId: Overload:g3.SimpleMesh.SetVertexNormal
+  name: SetVertexNormal
+  nameWithType: SimpleMesh.SetVertexNormal
+  fullName: g3.SimpleMesh.SetVertexNormal
+- uid: g3.IDeformableMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+  commentId: M:g3.IDeformableMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+  parent: g3.IDeformableMesh
+  isExternal: true
+  name: SetVertexNormal(Int32, Vector3f)
+  nameWithType: IDeformableMesh.SetVertexNormal(Int32, Vector3f)
+  fullName: g3.IDeformableMesh.SetVertexNormal(System.Int32, g3.Vector3f)
+  spec.csharp:
+  - uid: g3.IDeformableMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+    name: SetVertexNormal
+    nameWithType: IDeformableMesh.SetVertexNormal
+    fullName: g3.IDeformableMesh.SetVertexNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IDeformableMesh.SetVertexNormal(System.Int32,g3.Vector3f)
+    name: SetVertexNormal
+    nameWithType: IDeformableMesh.SetVertexNormal
+    fullName: g3.IDeformableMesh.SetVertexNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleMesh.SetVertexColor*
+  commentId: Overload:g3.SimpleMesh.SetVertexColor
+  name: SetVertexColor
+  nameWithType: SimpleMesh.SetVertexColor
+  fullName: g3.SimpleMesh.SetVertexColor
+- uid: g3.SimpleMesh.SetVertexUV*
+  commentId: Overload:g3.SimpleMesh.SetVertexUV
+  name: SetVertexUV
+  nameWithType: SimpleMesh.SetVertexUV
+  fullName: g3.SimpleMesh.SetVertexUV
+- uid: g3.SimpleMesh.GetVertexArray*
+  commentId: Overload:g3.SimpleMesh.GetVertexArray
+  name: GetVertexArray
+  nameWithType: SimpleMesh.GetVertexArray
+  fullName: g3.SimpleMesh.GetVertexArray
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.SimpleMesh.GetVertexArrayFloat*
+  commentId: Overload:g3.SimpleMesh.GetVertexArrayFloat
+  name: GetVertexArrayFloat
+  nameWithType: SimpleMesh.GetVertexArrayFloat
+  fullName: g3.SimpleMesh.GetVertexArrayFloat
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.SimpleMesh.GetVertexNormalArray*
+  commentId: Overload:g3.SimpleMesh.GetVertexNormalArray
+  name: GetVertexNormalArray
+  nameWithType: SimpleMesh.GetVertexNormalArray
+  fullName: g3.SimpleMesh.GetVertexNormalArray
+- uid: g3.SimpleMesh.GetVertexColorArray*
+  commentId: Overload:g3.SimpleMesh.GetVertexColorArray
+  name: GetVertexColorArray
+  nameWithType: SimpleMesh.GetVertexColorArray
+  fullName: g3.SimpleMesh.GetVertexColorArray
+- uid: g3.SimpleMesh.GetVertexUVArray*
+  commentId: Overload:g3.SimpleMesh.GetVertexUVArray
+  name: GetVertexUVArray
+  nameWithType: SimpleMesh.GetVertexUVArray
+  fullName: g3.SimpleMesh.GetVertexUVArray
+- uid: g3.SimpleMesh.GetTriangleArray*
+  commentId: Overload:g3.SimpleMesh.GetTriangleArray
+  name: GetTriangleArray
+  nameWithType: SimpleMesh.GetTriangleArray
+  fullName: g3.SimpleMesh.GetTriangleArray
+- uid: g3.SimpleMesh.GetFaceGroupsArray*
+  commentId: Overload:g3.SimpleMesh.GetFaceGroupsArray
+  name: GetFaceGroupsArray
+  nameWithType: SimpleMesh.GetFaceGroupsArray
+  fullName: g3.SimpleMesh.GetFaceGroupsArray
+- uid: g3.SimpleMesh.GetVertexBuffer*
+  commentId: Overload:g3.SimpleMesh.GetVertexBuffer
+  name: GetVertexBuffer
+  nameWithType: SimpleMesh.GetVertexBuffer
+  fullName: g3.SimpleMesh.GetVertexBuffer
+- uid: System.Double*
+  isExternal: true
+  name: Double*
+  nameWithType: Double*
+  fullName: System.Double*
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '*'
+    nameWithType: '*'
+    fullName: '*'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '*'
+    nameWithType: '*'
+    fullName: '*'
+- uid: g3.SimpleMesh.GetVertexNormalBuffer*
+  commentId: Overload:g3.SimpleMesh.GetVertexNormalBuffer
+  name: GetVertexNormalBuffer
+  nameWithType: SimpleMesh.GetVertexNormalBuffer
+  fullName: g3.SimpleMesh.GetVertexNormalBuffer
+- uid: System.Single*
+  isExternal: true
+  name: Single*
+  nameWithType: Single*
+  fullName: System.Single*
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '*'
+    nameWithType: '*'
+    fullName: '*'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '*'
+    nameWithType: '*'
+    fullName: '*'
+- uid: g3.SimpleMesh.GetVertexColorBuffer*
+  commentId: Overload:g3.SimpleMesh.GetVertexColorBuffer
+  name: GetVertexColorBuffer
+  nameWithType: SimpleMesh.GetVertexColorBuffer
+  fullName: g3.SimpleMesh.GetVertexColorBuffer
+- uid: g3.SimpleMesh.GetVertexUVBuffer*
+  commentId: Overload:g3.SimpleMesh.GetVertexUVBuffer
+  name: GetVertexUVBuffer
+  nameWithType: SimpleMesh.GetVertexUVBuffer
+  fullName: g3.SimpleMesh.GetVertexUVBuffer
+- uid: g3.SimpleMesh.GetTriangleBuffer*
+  commentId: Overload:g3.SimpleMesh.GetTriangleBuffer
+  name: GetTriangleBuffer
+  nameWithType: SimpleMesh.GetTriangleBuffer
+  fullName: g3.SimpleMesh.GetTriangleBuffer
+- uid: System.Int32*
+  isExternal: true
+  name: Int32*
+  nameWithType: Int32*
+  fullName: System.Int32*
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '*'
+    nameWithType: '*'
+    fullName: '*'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '*'
+    nameWithType: '*'
+    fullName: '*'
+- uid: g3.SimpleMesh.GetFaceGroupsBuffer*
+  commentId: Overload:g3.SimpleMesh.GetFaceGroupsBuffer
+  name: GetFaceGroupsBuffer
+  nameWithType: SimpleMesh.GetFaceGroupsBuffer
+  fullName: g3.SimpleMesh.GetFaceGroupsBuffer

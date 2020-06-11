@@ -1,0 +1,794 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DynamicPriorityQueue`1
+  commentId: T:g3.DynamicPriorityQueue`1
+  id: DynamicPriorityQueue`1
+  parent: g3
+  children:
+  - g3.DynamicPriorityQueue`1.#ctor
+  - g3.DynamicPriorityQueue`1.Clear(System.Boolean)
+  - g3.DynamicPriorityQueue`1.Contains(`0)
+  - g3.DynamicPriorityQueue`1.Count
+  - g3.DynamicPriorityQueue`1.DebugPrint
+  - g3.DynamicPriorityQueue`1.Dequeue
+  - g3.DynamicPriorityQueue`1.EnableDebugChecks
+  - g3.DynamicPriorityQueue`1.Enqueue(`0,System.Single)
+  - g3.DynamicPriorityQueue`1.First
+  - g3.DynamicPriorityQueue`1.FirstPriority
+  - g3.DynamicPriorityQueue`1.GetEnumerator
+  - g3.DynamicPriorityQueue`1.IsValidQueue
+  - g3.DynamicPriorityQueue`1.Remove(`0)
+  - g3.DynamicPriorityQueue`1.Update(`0,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: DynamicPriorityQueue<T>
+  nameWithType: DynamicPriorityQueue<T>
+  fullName: g3.DynamicPriorityQueue<T>
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DynamicPriorityQueue
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class DynamicPriorityQueue<T> : IEnumerable<T>, IEnumerable where T : DynamicPriorityQueueNode'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Class DynamicPriorityQueue(Of T As DynamicPriorityQueueNode)
+          Implements IEnumerable(Of T), IEnumerable
+  inheritance:
+  - System.Object
+  nameWithType.vb: DynamicPriorityQueue(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: g3.DynamicPriorityQueue(Of T)
+  name.vb: DynamicPriorityQueue(Of T)
+- uid: g3.DynamicPriorityQueue`1.EnableDebugChecks
+  commentId: F:g3.DynamicPriorityQueue`1.EnableDebugChecks
+  id: EnableDebugChecks
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: EnableDebugChecks
+  nameWithType: DynamicPriorityQueue<T>.EnableDebugChecks
+  fullName: g3.DynamicPriorityQueue<T>.EnableDebugChecks
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EnableDebugChecks
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool EnableDebugChecks
+    return:
+      type: System.Boolean
+    content.vb: Public EnableDebugChecks As Boolean
+  nameWithType.vb: DynamicPriorityQueue(Of T).EnableDebugChecks
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).EnableDebugChecks
+- uid: g3.DynamicPriorityQueue`1.#ctor
+  commentId: M:g3.DynamicPriorityQueue`1.#ctor
+  id: '#ctor'
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: DynamicPriorityQueue()
+  nameWithType: DynamicPriorityQueue<T>.DynamicPriorityQueue()
+  fullName: g3.DynamicPriorityQueue<T>.DynamicPriorityQueue()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DynamicPriorityQueue()
+    content.vb: Public Sub New
+  overload: g3.DynamicPriorityQueue`1.#ctor*
+  nameWithType.vb: DynamicPriorityQueue(Of T).DynamicPriorityQueue()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).DynamicPriorityQueue()
+- uid: g3.DynamicPriorityQueue`1.Count
+  commentId: P:g3.DynamicPriorityQueue`1.Count
+  id: Count
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: DynamicPriorityQueue<T>.Count
+  fullName: g3.DynamicPriorityQueue<T>.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nnumber of nodes currently in queue\n"
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: g3.DynamicPriorityQueue`1.Count*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Count
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Count
+- uid: g3.DynamicPriorityQueue`1.Clear(System.Boolean)
+  commentId: M:g3.DynamicPriorityQueue`1.Clear(System.Boolean)
+  id: Clear(System.Boolean)
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Clear(Boolean)
+  nameWithType: DynamicPriorityQueue<T>.Clear(Boolean)
+  fullName: g3.DynamicPriorityQueue<T>.Clear(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clear
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nreset the queue to empty state. \nif bFreeMemory is false, we don&apos;t discard internal data structures, so there will be less allocation next time\n(this does not make a huge difference...)\n"
+  example: []
+  syntax:
+    content: public void Clear(bool bFreeMemory = true)
+    parameters:
+    - id: bFreeMemory
+      type: System.Boolean
+    content.vb: Public Sub Clear(bFreeMemory As Boolean = True)
+  overload: g3.DynamicPriorityQueue`1.Clear*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Clear(Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Clear(System.Boolean)
+- uid: g3.DynamicPriorityQueue`1.First
+  commentId: P:g3.DynamicPriorityQueue`1.First
+  id: First
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: DynamicPriorityQueue<T>.First
+  fullName: g3.DynamicPriorityQueue<T>.First
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: First
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 74
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nnode at head of queue\n"
+  example: []
+  syntax:
+    content: public T First { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property First As T
+  overload: g3.DynamicPriorityQueue`1.First*
+  nameWithType.vb: DynamicPriorityQueue(Of T).First
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DynamicPriorityQueue(Of T).First
+- uid: g3.DynamicPriorityQueue`1.FirstPriority
+  commentId: P:g3.DynamicPriorityQueue`1.FirstPriority
+  id: FirstPriority
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: FirstPriority
+  nameWithType: DynamicPriorityQueue<T>.FirstPriority
+  fullName: g3.DynamicPriorityQueue<T>.FirstPriority
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FirstPriority
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 81
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nPriority of node at head of queue\n"
+  example: []
+  syntax:
+    content: public float FirstPriority { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property FirstPriority As Single
+  overload: g3.DynamicPriorityQueue`1.FirstPriority*
+  nameWithType.vb: DynamicPriorityQueue(Of T).FirstPriority
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DynamicPriorityQueue(Of T).FirstPriority
+- uid: g3.DynamicPriorityQueue`1.Contains(`0)
+  commentId: M:g3.DynamicPriorityQueue`1.Contains(`0)
+  id: Contains(`0)
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Contains(T)
+  nameWithType: DynamicPriorityQueue<T>.Contains(T)
+  fullName: g3.DynamicPriorityQueue<T>.Contains(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconstant-time check to see if node is already in queue\n"
+  example: []
+  syntax:
+    content: public bool Contains(T node)
+    parameters:
+    - id: node
+      type: '{T}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(node As T) As Boolean
+  overload: g3.DynamicPriorityQueue`1.Contains*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Contains(T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Contains(T)
+- uid: g3.DynamicPriorityQueue`1.Enqueue(`0,System.Single)
+  commentId: M:g3.DynamicPriorityQueue`1.Enqueue(`0,System.Single)
+  id: Enqueue(`0,System.Single)
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Enqueue(T, Single)
+  nameWithType: DynamicPriorityQueue<T>.Enqueue(T, Single)
+  fullName: g3.DynamicPriorityQueue<T>.Enqueue(T, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Enqueue
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 98
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nAdd node to list w/ given priority\nBehavior is undefined if you call w/ same node twice\n"
+  example: []
+  syntax:
+    content: public void Enqueue(T node, float priority)
+    parameters:
+    - id: node
+      type: '{T}'
+    - id: priority
+      type: System.Single
+    content.vb: Public Sub Enqueue(node As T, priority As Single)
+  overload: g3.DynamicPriorityQueue`1.Enqueue*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Enqueue(T, Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Enqueue(T, System.Single)
+- uid: g3.DynamicPriorityQueue`1.Dequeue
+  commentId: M:g3.DynamicPriorityQueue`1.Dequeue
+  id: Dequeue
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Dequeue()
+  nameWithType: DynamicPriorityQueue<T>.Dequeue()
+  fullName: g3.DynamicPriorityQueue<T>.Dequeue()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dequeue
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 113
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nremove node at head of queue, update queue, and return that node\n"
+  example: []
+  syntax:
+    content: public T Dequeue()
+    return:
+      type: '{T}'
+    content.vb: Public Function Dequeue As T
+  overload: g3.DynamicPriorityQueue`1.Dequeue*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Dequeue()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Dequeue()
+- uid: g3.DynamicPriorityQueue`1.Remove(`0)
+  commentId: M:g3.DynamicPriorityQueue`1.Remove(`0)
+  id: Remove(`0)
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(T)
+  nameWithType: DynamicPriorityQueue<T>.Remove(T)
+  fullName: g3.DynamicPriorityQueue<T>.Remove(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Remove
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 129
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nremove this node from queue. Undefined behavior if called w/ same node twice!\nBehavior is undefined if you call w/ node that is not in queue\n"
+  example: []
+  syntax:
+    content: public void Remove(T node)
+    parameters:
+    - id: node
+      type: '{T}'
+    content.vb: Public Sub Remove(node As T)
+  overload: g3.DynamicPriorityQueue`1.Remove*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Remove(T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Remove(T)
+- uid: g3.DynamicPriorityQueue`1.Update(`0,System.Single)
+  commentId: M:g3.DynamicPriorityQueue`1.Update(`0,System.Single)
+  id: Update(`0,System.Single)
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: Update(T, Single)
+  nameWithType: DynamicPriorityQueue<T>.Update(T, Single)
+  fullName: g3.DynamicPriorityQueue<T>.Update(T, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Update
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 158
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nupdate priority at node, and then move it to correct position in queue\nBehavior is undefined if you call w/ node that is not in queue\n"
+  example: []
+  syntax:
+    content: public void Update(T node, float priority)
+    parameters:
+    - id: node
+      type: '{T}'
+    - id: priority
+      type: System.Single
+    content.vb: Public Sub Update(node As T, priority As Single)
+  overload: g3.DynamicPriorityQueue`1.Update*
+  nameWithType.vb: DynamicPriorityQueue(Of T).Update(T, Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Update(T, System.Single)
+- uid: g3.DynamicPriorityQueue`1.GetEnumerator
+  commentId: M:g3.DynamicPriorityQueue`1.GetEnumerator
+  id: GetEnumerator
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: DynamicPriorityQueue<T>.GetEnumerator()
+  fullName: g3.DynamicPriorityQueue<T>.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 169
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<T> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{{T}}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of T)
+  overload: g3.DynamicPriorityQueue`1.GetEnumerator*
+  nameWithType.vb: DynamicPriorityQueue(Of T).GetEnumerator()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).GetEnumerator()
+- uid: g3.DynamicPriorityQueue`1.IsValidQueue
+  commentId: M:g3.DynamicPriorityQueue`1.IsValidQueue
+  id: IsValidQueue
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: IsValidQueue()
+  nameWithType: DynamicPriorityQueue<T>.IsValidQueue()
+  fullName: g3.DynamicPriorityQueue<T>.IsValidQueue()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsValidQueue
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 287
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCheck if queue has been corrupted\n"
+  example: []
+  syntax:
+    content: public bool IsValidQueue()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsValidQueue As Boolean
+  overload: g3.DynamicPriorityQueue`1.IsValidQueue*
+  nameWithType.vb: DynamicPriorityQueue(Of T).IsValidQueue()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).IsValidQueue()
+- uid: g3.DynamicPriorityQueue`1.DebugPrint
+  commentId: M:g3.DynamicPriorityQueue`1.DebugPrint
+  id: DebugPrint
+  parent: g3.DynamicPriorityQueue`1
+  langs:
+  - csharp
+  - vb
+  name: DebugPrint()
+  nameWithType: DynamicPriorityQueue<T>.DebugPrint()
+  fullName: g3.DynamicPriorityQueue<T>.DebugPrint()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DebugPrint
+    path: ../Assets/geometry3Sharp/core/DynamicPriorityQueue.cs
+    startLine: 306
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void DebugPrint()
+    content.vb: Public Sub DebugPrint
+  overload: g3.DynamicPriorityQueue`1.DebugPrint*
+  nameWithType.vb: DynamicPriorityQueue(Of T).DebugPrint()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DynamicPriorityQueue(Of T).DebugPrint()
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.DynamicPriorityQueue`1.#ctor*
+  commentId: Overload:g3.DynamicPriorityQueue`1.#ctor
+  name: DynamicPriorityQueue
+  nameWithType: DynamicPriorityQueue<T>.DynamicPriorityQueue
+  fullName: g3.DynamicPriorityQueue<T>.DynamicPriorityQueue
+  nameWithType.vb: DynamicPriorityQueue(Of T).DynamicPriorityQueue
+  fullName.vb: g3.DynamicPriorityQueue(Of T).DynamicPriorityQueue
+- uid: g3.DynamicPriorityQueue`1.Count*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Count
+  name: Count
+  nameWithType: DynamicPriorityQueue<T>.Count
+  fullName: g3.DynamicPriorityQueue<T>.Count
+  nameWithType.vb: DynamicPriorityQueue(Of T).Count
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.DynamicPriorityQueue`1.Clear*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Clear
+  name: Clear
+  nameWithType: DynamicPriorityQueue<T>.Clear
+  fullName: g3.DynamicPriorityQueue<T>.Clear
+  nameWithType.vb: DynamicPriorityQueue(Of T).Clear
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Clear
+- uid: g3.DynamicPriorityQueue`1.First*
+  commentId: Overload:g3.DynamicPriorityQueue`1.First
+  name: First
+  nameWithType: DynamicPriorityQueue<T>.First
+  fullName: g3.DynamicPriorityQueue<T>.First
+  nameWithType.vb: DynamicPriorityQueue(Of T).First
+  fullName.vb: g3.DynamicPriorityQueue(Of T).First
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: g3.DynamicPriorityQueue`1.FirstPriority*
+  commentId: Overload:g3.DynamicPriorityQueue`1.FirstPriority
+  name: FirstPriority
+  nameWithType: DynamicPriorityQueue<T>.FirstPriority
+  fullName: g3.DynamicPriorityQueue<T>.FirstPriority
+  nameWithType.vb: DynamicPriorityQueue(Of T).FirstPriority
+  fullName.vb: g3.DynamicPriorityQueue(Of T).FirstPriority
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.DynamicPriorityQueue`1.Contains*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Contains
+  name: Contains
+  nameWithType: DynamicPriorityQueue<T>.Contains
+  fullName: g3.DynamicPriorityQueue<T>.Contains
+  nameWithType.vb: DynamicPriorityQueue(Of T).Contains
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Contains
+- uid: g3.DynamicPriorityQueue`1.Enqueue*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Enqueue
+  name: Enqueue
+  nameWithType: DynamicPriorityQueue<T>.Enqueue
+  fullName: g3.DynamicPriorityQueue<T>.Enqueue
+  nameWithType.vb: DynamicPriorityQueue(Of T).Enqueue
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Enqueue
+- uid: g3.DynamicPriorityQueue`1.Dequeue*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Dequeue
+  name: Dequeue
+  nameWithType: DynamicPriorityQueue<T>.Dequeue
+  fullName: g3.DynamicPriorityQueue<T>.Dequeue
+  nameWithType.vb: DynamicPriorityQueue(Of T).Dequeue
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Dequeue
+- uid: g3.DynamicPriorityQueue`1.Remove*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Remove
+  name: Remove
+  nameWithType: DynamicPriorityQueue<T>.Remove
+  fullName: g3.DynamicPriorityQueue<T>.Remove
+  nameWithType.vb: DynamicPriorityQueue(Of T).Remove
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Remove
+- uid: g3.DynamicPriorityQueue`1.Update*
+  commentId: Overload:g3.DynamicPriorityQueue`1.Update
+  name: Update
+  nameWithType: DynamicPriorityQueue<T>.Update
+  fullName: g3.DynamicPriorityQueue<T>.Update
+  nameWithType.vb: DynamicPriorityQueue(Of T).Update
+  fullName.vb: g3.DynamicPriorityQueue(Of T).Update
+- uid: g3.DynamicPriorityQueue`1.GetEnumerator*
+  commentId: Overload:g3.DynamicPriorityQueue`1.GetEnumerator
+  name: GetEnumerator
+  nameWithType: DynamicPriorityQueue<T>.GetEnumerator
+  fullName: g3.DynamicPriorityQueue<T>.GetEnumerator
+  nameWithType.vb: DynamicPriorityQueue(Of T).GetEnumerator
+  fullName.vb: g3.DynamicPriorityQueue(Of T).GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{{T}}
+  commentId: T:System.Collections.Generic.IEnumerator{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.DynamicPriorityQueue`1.IsValidQueue*
+  commentId: Overload:g3.DynamicPriorityQueue`1.IsValidQueue
+  name: IsValidQueue
+  nameWithType: DynamicPriorityQueue<T>.IsValidQueue
+  fullName: g3.DynamicPriorityQueue<T>.IsValidQueue
+  nameWithType.vb: DynamicPriorityQueue(Of T).IsValidQueue
+  fullName.vb: g3.DynamicPriorityQueue(Of T).IsValidQueue
+- uid: g3.DynamicPriorityQueue`1.DebugPrint*
+  commentId: Overload:g3.DynamicPriorityQueue`1.DebugPrint
+  name: DebugPrint
+  nameWithType: DynamicPriorityQueue<T>.DebugPrint
+  fullName: g3.DynamicPriorityQueue<T>.DebugPrint
+  nameWithType.vb: DynamicPriorityQueue(Of T).DebugPrint
+  fullName.vb: g3.DynamicPriorityQueue(Of T).DebugPrint

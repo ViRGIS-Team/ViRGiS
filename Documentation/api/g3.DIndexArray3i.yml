@@ -1,0 +1,1015 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DIndexArray3i
+  commentId: T:g3.DIndexArray3i
+  id: DIndexArray3i
+  parent: g3
+  children:
+  - g3.DIndexArray3i.#ctor(System.Int32)
+  - g3.DIndexArray3i.#ctor(System.Int32[])
+  - g3.DIndexArray3i.AsIndex3i
+  - g3.DIndexArray3i.Item(System.Int32)
+  - g3.DIndexArray3i.Set(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: DIndexArray3i
+  nameWithType: DIndexArray3i
+  fullName: g3.DIndexArray3i
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DVectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DIndexArray3i
+    path: ../Assets/geometry3Sharp/core/DVectorArray.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class DIndexArray3i : DVectorArray3<int>, IEnumerable<int>, IEnumerable'
+    content.vb: >-
+      Public Class DIndexArray3i
+          Inherits DVectorArray3(Of Integer)
+          Implements IEnumerable(Of Integer), IEnumerable
+  inheritance:
+  - System.Object
+  - g3.DVectorArray3{System.Int32}
+  inheritedMembers:
+  - g3.DVectorArray3{System.Int32}.vector
+  - g3.DVectorArray3{System.Int32}.Count
+  - g3.DVectorArray3{System.Int32}.GetEnumerator
+  - g3.DVectorArray3{System.Int32}.Resize(System.Int32)
+  - g3.DVectorArray3{System.Int32}.Set(System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.DVectorArray3{System.Int32}.Append(System.Int32,System.Int32,System.Int32)
+  - g3.DVectorArray3{System.Int32}.Clear
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DIndexArray3i.#ctor(System.Int32)
+  commentId: M:g3.DIndexArray3i.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: g3.DIndexArray3i
+  langs:
+  - csharp
+  - vb
+  name: DIndexArray3i(Int32)
+  nameWithType: DIndexArray3i.DIndexArray3i(Int32)
+  fullName: g3.DIndexArray3i.DIndexArray3i(System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DVectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/DVectorArray.cs
+    startLine: 137
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DIndexArray3i(int nCount = 0)
+    parameters:
+    - id: nCount
+      type: System.Int32
+    content.vb: Public Sub New(nCount As Integer = 0)
+  overload: g3.DIndexArray3i.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DIndexArray3i.#ctor(System.Int32[])
+  commentId: M:g3.DIndexArray3i.#ctor(System.Int32[])
+  id: '#ctor(System.Int32[])'
+  parent: g3.DIndexArray3i
+  langs:
+  - csharp
+  - vb
+  name: DIndexArray3i(Int32[])
+  nameWithType: DIndexArray3i.DIndexArray3i(Int32[])
+  fullName: g3.DIndexArray3i.DIndexArray3i(System.Int32[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DVectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/DVectorArray.cs
+    startLine: 138
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DIndexArray3i(int[] data)
+    parameters:
+    - id: data
+      type: System.Int32[]
+    content.vb: Public Sub New(data As Integer())
+  overload: g3.DIndexArray3i.#ctor*
+  nameWithType.vb: DIndexArray3i.DIndexArray3i(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DIndexArray3i.DIndexArray3i(System.Int32())
+  name.vb: DIndexArray3i(Int32())
+- uid: g3.DIndexArray3i.Item(System.Int32)
+  commentId: P:g3.DIndexArray3i.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.DIndexArray3i
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: DIndexArray3i.Item[Int32]
+  fullName: g3.DIndexArray3i.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DVectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/core/DVectorArray.cs
+    startLine: 139
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index3i this[int i] { get; set; }
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Index3i
+    content.vb: Public Property Item(i As Integer) As Index3i
+  overload: g3.DIndexArray3i.Item*
+  nameWithType.vb: DIndexArray3i.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DIndexArray3i.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.DIndexArray3i.Set(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:g3.DIndexArray3i.Set(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  id: Set(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: g3.DIndexArray3i
+  langs:
+  - csharp
+  - vb
+  name: Set(Int32, Int32, Int32, Int32, Boolean)
+  nameWithType: DIndexArray3i.Set(Int32, Int32, Int32, Int32, Boolean)
+  fullName: g3.DIndexArray3i.Set(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DVectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Set
+    path: ../Assets/geometry3Sharp/core/DVectorArray.cs
+    startLine: 144
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Set(int i, int a, int b, int c, bool bCycle = false)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    - id: c
+      type: System.Int32
+    - id: bCycle
+      type: System.Boolean
+    content.vb: Public Sub Set(i As Integer, a As Integer, b As Integer, c As Integer, bCycle As Boolean = False)
+  overload: g3.DIndexArray3i.Set*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DIndexArray3i.AsIndex3i
+  commentId: M:g3.DIndexArray3i.AsIndex3i
+  id: AsIndex3i
+  parent: g3.DIndexArray3i
+  langs:
+  - csharp
+  - vb
+  name: AsIndex3i()
+  nameWithType: DIndexArray3i.AsIndex3i()
+  fullName: g3.DIndexArray3i.AsIndex3i()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DVectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AsIndex3i
+    path: ../Assets/geometry3Sharp/core/DVectorArray.cs
+    startLine: 155
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Index3i> AsIndex3i()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Index3i}
+    content.vb: Public Function AsIndex3i As IEnumerable(Of Index3i)
+  overload: g3.DIndexArray3i.AsIndex3i*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.DVectorArray3{System.Int32}
+  commentId: T:g3.DVectorArray3{System.Int32}
+  parent: g3
+  definition: g3.DVectorArray3`1
+  name: DVectorArray3<Int32>
+  nameWithType: DVectorArray3<Int32>
+  fullName: g3.DVectorArray3<System.Int32>
+  nameWithType.vb: DVectorArray3(Of Int32)
+  fullName.vb: g3.DVectorArray3(Of System.Int32)
+  name.vb: DVectorArray3(Of Int32)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1
+    name: DVectorArray3
+    nameWithType: DVectorArray3
+    fullName: g3.DVectorArray3
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVectorArray3`1
+    name: DVectorArray3
+    nameWithType: DVectorArray3
+    fullName: g3.DVectorArray3
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3{System.Int32}.vector
+  commentId: F:g3.DVectorArray3{System.Int32}.vector
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.vector
+  name: vector
+  nameWithType: DVectorArray3<Int32>.vector
+  fullName: g3.DVectorArray3<System.Int32>.vector
+  nameWithType.vb: DVectorArray3(Of Int32).vector
+  fullName.vb: g3.DVectorArray3(Of System.Int32).vector
+- uid: g3.DVectorArray3{System.Int32}.Count
+  commentId: P:g3.DVectorArray3{System.Int32}.Count
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.Count
+  name: Count
+  nameWithType: DVectorArray3<Int32>.Count
+  fullName: g3.DVectorArray3<System.Int32>.Count
+  nameWithType.vb: DVectorArray3(Of Int32).Count
+  fullName.vb: g3.DVectorArray3(Of System.Int32).Count
+- uid: g3.DVectorArray3{System.Int32}.GetEnumerator
+  commentId: M:g3.DVectorArray3{System.Int32}.GetEnumerator
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.GetEnumerator
+  name: GetEnumerator()
+  nameWithType: DVectorArray3<Int32>.GetEnumerator()
+  fullName: g3.DVectorArray3<System.Int32>.GetEnumerator()
+  nameWithType.vb: DVectorArray3(Of Int32).GetEnumerator()
+  fullName.vb: g3.DVectorArray3(Of System.Int32).GetEnumerator()
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: DVectorArray3<Int32>.GetEnumerator
+    fullName: g3.DVectorArray3<System.Int32>.GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: DVectorArray3(Of Int32).GetEnumerator
+    fullName: g3.DVectorArray3(Of System.Int32).GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3{System.Int32}.Resize(System.Int32)
+  commentId: M:g3.DVectorArray3{System.Int32}.Resize(System.Int32)
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.Resize(System.Int32)
+  name: Resize(Int32)
+  nameWithType: DVectorArray3<Int32>.Resize(Int32)
+  fullName: g3.DVectorArray3<System.Int32>.Resize(System.Int32)
+  nameWithType.vb: DVectorArray3(Of Int32).Resize(Int32)
+  fullName.vb: g3.DVectorArray3(Of System.Int32).Resize(System.Int32)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: DVectorArray3<Int32>.Resize
+    fullName: g3.DVectorArray3<System.Int32>.Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: DVectorArray3(Of Int32).Resize
+    fullName: g3.DVectorArray3(Of System.Int32).Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3{System.Int32}.Set(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DVectorArray3{System.Int32}.Set(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+  name: Set(Int32, Int32, Int32, Int32)
+  nameWithType: DVectorArray3<Int32>.Set(Int32, Int32, Int32, Int32)
+  fullName: g3.DVectorArray3<System.Int32>.Set(System.Int32, System.Int32, System.Int32, System.Int32)
+  nameWithType.vb: DVectorArray3(Of Int32).Set(Int32, Int32, Int32, Int32)
+  fullName.vb: g3.DVectorArray3(Of System.Int32).Set(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+    name: Set
+    nameWithType: DVectorArray3<Int32>.Set
+    fullName: g3.DVectorArray3<System.Int32>.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+    name: Set
+    nameWithType: DVectorArray3(Of Int32).Set
+    fullName: g3.DVectorArray3(Of System.Int32).Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3{System.Int32}.Append(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DVectorArray3{System.Int32}.Append(System.Int32,System.Int32,System.Int32)
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.Append(`0,`0,`0)
+  name: Append(Int32, Int32, Int32)
+  nameWithType: DVectorArray3<Int32>.Append(Int32, Int32, Int32)
+  fullName: g3.DVectorArray3<System.Int32>.Append(System.Int32, System.Int32, System.Int32)
+  nameWithType.vb: DVectorArray3(Of Int32).Append(Int32, Int32, Int32)
+  fullName.vb: g3.DVectorArray3(Of System.Int32).Append(System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Append(`0,`0,`0)
+    name: Append
+    nameWithType: DVectorArray3<Int32>.Append
+    fullName: g3.DVectorArray3<System.Int32>.Append
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Append(`0,`0,`0)
+    name: Append
+    nameWithType: DVectorArray3(Of Int32).Append
+    fullName: g3.DVectorArray3(Of System.Int32).Append
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3{System.Int32}.Clear
+  commentId: M:g3.DVectorArray3{System.Int32}.Clear
+  parent: g3.DVectorArray3{System.Int32}
+  definition: g3.DVectorArray3`1.Clear
+  name: Clear()
+  nameWithType: DVectorArray3<Int32>.Clear()
+  fullName: g3.DVectorArray3<System.Int32>.Clear()
+  nameWithType.vb: DVectorArray3(Of Int32).Clear()
+  fullName.vb: g3.DVectorArray3(Of System.Int32).Clear()
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Clear
+    name: Clear
+    nameWithType: DVectorArray3<Int32>.Clear
+    fullName: g3.DVectorArray3<System.Int32>.Clear
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Clear
+    name: Clear
+    nameWithType: DVectorArray3(Of Int32).Clear
+    fullName: g3.DVectorArray3(Of System.Int32).Clear
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DVectorArray3`1
+  commentId: T:g3.DVectorArray3`1
+  name: DVectorArray3<T>
+  nameWithType: DVectorArray3<T>
+  fullName: g3.DVectorArray3<T>
+  nameWithType.vb: DVectorArray3(Of T)
+  fullName.vb: g3.DVectorArray3(Of T)
+  name.vb: DVectorArray3(Of T)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1
+    name: DVectorArray3
+    nameWithType: DVectorArray3
+    fullName: g3.DVectorArray3
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVectorArray3`1
+    name: DVectorArray3
+    nameWithType: DVectorArray3
+    fullName: g3.DVectorArray3
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3`1.vector
+  commentId: F:g3.DVectorArray3`1.vector
+  name: vector
+  nameWithType: DVectorArray3<T>.vector
+  fullName: g3.DVectorArray3<T>.vector
+  nameWithType.vb: DVectorArray3(Of T).vector
+  fullName.vb: g3.DVectorArray3(Of T).vector
+- uid: g3.DVectorArray3`1.Count
+  commentId: P:g3.DVectorArray3`1.Count
+  name: Count
+  nameWithType: DVectorArray3<T>.Count
+  fullName: g3.DVectorArray3<T>.Count
+  nameWithType.vb: DVectorArray3(Of T).Count
+  fullName.vb: g3.DVectorArray3(Of T).Count
+- uid: g3.DVectorArray3`1.GetEnumerator
+  commentId: M:g3.DVectorArray3`1.GetEnumerator
+  name: GetEnumerator()
+  nameWithType: DVectorArray3<T>.GetEnumerator()
+  fullName: g3.DVectorArray3<T>.GetEnumerator()
+  nameWithType.vb: DVectorArray3(Of T).GetEnumerator()
+  fullName.vb: g3.DVectorArray3(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: DVectorArray3<T>.GetEnumerator
+    fullName: g3.DVectorArray3<T>.GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: DVectorArray3(Of T).GetEnumerator
+    fullName: g3.DVectorArray3(Of T).GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3`1.Resize(System.Int32)
+  commentId: M:g3.DVectorArray3`1.Resize(System.Int32)
+  isExternal: true
+  name: Resize(Int32)
+  nameWithType: DVectorArray3<T>.Resize(Int32)
+  fullName: g3.DVectorArray3<T>.Resize(System.Int32)
+  nameWithType.vb: DVectorArray3(Of T).Resize(Int32)
+  fullName.vb: g3.DVectorArray3(Of T).Resize(System.Int32)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: DVectorArray3<T>.Resize
+    fullName: g3.DVectorArray3<T>.Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: DVectorArray3(Of T).Resize
+    fullName: g3.DVectorArray3(Of T).Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+  commentId: M:g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+  isExternal: true
+  name: Set(Int32, T, T, T)
+  nameWithType: DVectorArray3<T>.Set(Int32, T, T, T)
+  fullName: g3.DVectorArray3<T>.Set(System.Int32, T, T, T)
+  nameWithType.vb: DVectorArray3(Of T).Set(Int32, T, T, T)
+  fullName.vb: g3.DVectorArray3(Of T).Set(System.Int32, T, T, T)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+    name: Set
+    nameWithType: DVectorArray3<T>.Set
+    fullName: g3.DVectorArray3<T>.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Set(System.Int32,`0,`0,`0)
+    name: Set
+    nameWithType: DVectorArray3(Of T).Set
+    fullName: g3.DVectorArray3(Of T).Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3`1.Append(`0,`0,`0)
+  commentId: M:g3.DVectorArray3`1.Append(`0,`0,`0)
+  name: Append(T, T, T)
+  nameWithType: DVectorArray3<T>.Append(T, T, T)
+  fullName: g3.DVectorArray3<T>.Append(T, T, T)
+  nameWithType.vb: DVectorArray3(Of T).Append(T, T, T)
+  fullName.vb: g3.DVectorArray3(Of T).Append(T, T, T)
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Append(`0,`0,`0)
+    name: Append
+    nameWithType: DVectorArray3<T>.Append
+    fullName: g3.DVectorArray3<T>.Append
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Append(`0,`0,`0)
+    name: Append
+    nameWithType: DVectorArray3(Of T).Append
+    fullName: g3.DVectorArray3(Of T).Append
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVectorArray3`1.Clear
+  commentId: M:g3.DVectorArray3`1.Clear
+  name: Clear()
+  nameWithType: DVectorArray3<T>.Clear()
+  fullName: g3.DVectorArray3<T>.Clear()
+  nameWithType.vb: DVectorArray3(Of T).Clear()
+  fullName.vb: g3.DVectorArray3(Of T).Clear()
+  spec.csharp:
+  - uid: g3.DVectorArray3`1.Clear
+    name: Clear
+    nameWithType: DVectorArray3<T>.Clear
+    fullName: g3.DVectorArray3<T>.Clear
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.DVectorArray3`1.Clear
+    name: Clear
+    nameWithType: DVectorArray3(Of T).Clear
+    fullName: g3.DVectorArray3(Of T).Clear
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DIndexArray3i.#ctor*
+  commentId: Overload:g3.DIndexArray3i.#ctor
+  name: DIndexArray3i
+  nameWithType: DIndexArray3i.DIndexArray3i
+  fullName: g3.DIndexArray3i.DIndexArray3i
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.DIndexArray3i.Item*
+  commentId: Overload:g3.DIndexArray3i.Item
+  name: Item
+  nameWithType: DIndexArray3i.Item
+  fullName: g3.DIndexArray3i.Item
+- uid: g3.Index3i
+  commentId: T:g3.Index3i
+  parent: g3
+  name: Index3i
+  nameWithType: Index3i
+  fullName: g3.Index3i
+- uid: g3.DIndexArray3i.Set*
+  commentId: Overload:g3.DIndexArray3i.Set
+  name: Set
+  nameWithType: DIndexArray3i.Set
+  fullName: g3.DIndexArray3i.Set
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.DIndexArray3i.AsIndex3i*
+  commentId: Overload:g3.DIndexArray3i.AsIndex3i
+  name: AsIndex3i
+  nameWithType: DIndexArray3i.AsIndex3i
+  fullName: g3.DIndexArray3i.AsIndex3i
+- uid: System.Collections.Generic.IEnumerable{g3.Index3i}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Index3i}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Index3i>
+  nameWithType: IEnumerable<Index3i>
+  fullName: System.Collections.Generic.IEnumerable<g3.Index3i>
+  nameWithType.vb: IEnumerable(Of Index3i)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Index3i)
+  name.vb: IEnumerable(Of Index3i)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

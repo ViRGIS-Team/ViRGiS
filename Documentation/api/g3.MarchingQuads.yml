@@ -1,0 +1,445 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MarchingQuads
+  commentId: T:g3.MarchingQuads
+  id: MarchingQuads
+  parent: g3
+  children:
+  - g3.MarchingQuads.#ctor(System.Int32,g3.AxisAlignedBox2f,System.Single)
+  - g3.MarchingQuads.AddSeedPoint(System.Single,System.Single)
+  - g3.MarchingQuads.Bounds
+  - g3.MarchingQuads.ClearSeedPoints
+  - g3.MarchingQuads.ClearStroke
+  - g3.MarchingQuads.GetBounds
+  - g3.MarchingQuads.Polygonize(g3.ImplicitField2d)
+  - g3.MarchingQuads.Stroke
+  - g3.MarchingQuads.Subdivisions
+  langs:
+  - csharp
+  - vb
+  name: MarchingQuads
+  nameWithType: MarchingQuads
+  fullName: g3.MarchingQuads
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MarchingQuads
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n2D MarchingQuads polyline extraction from scalar field\n[TODO] this is very, very old code. Should at minimum rewrite using current\nvector classes/etc.\n"
+  example: []
+  syntax:
+    content: public class MarchingQuads
+    content.vb: Public Class MarchingQuads
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MarchingQuads.#ctor(System.Int32,g3.AxisAlignedBox2f,System.Single)
+  commentId: M:g3.MarchingQuads.#ctor(System.Int32,g3.AxisAlignedBox2f,System.Single)
+  id: '#ctor(System.Int32,g3.AxisAlignedBox2f,System.Single)'
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: MarchingQuads(Int32, AxisAlignedBox2f, Single)
+  nameWithType: MarchingQuads.MarchingQuads(Int32, AxisAlignedBox2f, Single)
+  fullName: g3.MarchingQuads.MarchingQuads(System.Int32, g3.AxisAlignedBox2f, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 76
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MarchingQuads(int nSubdivisions, AxisAlignedBox2f bounds, float fIsoValue)
+    parameters:
+    - id: nSubdivisions
+      type: System.Int32
+    - id: bounds
+      type: g3.AxisAlignedBox2f
+    - id: fIsoValue
+      type: System.Single
+    content.vb: Public Sub New(nSubdivisions As Integer, bounds As AxisAlignedBox2f, fIsoValue As Single)
+  overload: g3.MarchingQuads.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.Subdivisions
+  commentId: P:g3.MarchingQuads.Subdivisions
+  id: Subdivisions
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: Subdivisions
+  nameWithType: MarchingQuads.Subdivisions
+  fullName: g3.MarchingQuads.Subdivisions
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Subdivisions
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Subdivisions { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Subdivisions As Integer
+  overload: g3.MarchingQuads.Subdivisions*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.Bounds
+  commentId: P:g3.MarchingQuads.Bounds
+  id: Bounds
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: MarchingQuads.Bounds
+  fullName: g3.MarchingQuads.Bounds
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 99
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2f Bounds { get; set; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox2f
+    content.vb: Public Property Bounds As AxisAlignedBox2f
+  overload: g3.MarchingQuads.Bounds*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.Stroke
+  commentId: P:g3.MarchingQuads.Stroke
+  id: Stroke
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: Stroke
+  nameWithType: MarchingQuads.Stroke
+  fullName: g3.MarchingQuads.Stroke
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Stroke
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 104
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DPolyLine2f Stroke { get; }
+    parameters: []
+    return:
+      type: g3.DPolyLine2f
+    content.vb: Public ReadOnly Property Stroke As DPolyLine2f
+  overload: g3.MarchingQuads.Stroke*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MarchingQuads.GetBounds
+  commentId: M:g3.MarchingQuads.GetBounds
+  id: GetBounds
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: MarchingQuads.GetBounds()
+  fullName: g3.MarchingQuads.GetBounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetBounds
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 109
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2f GetBounds()
+    return:
+      type: g3.AxisAlignedBox2f
+    content.vb: Public Function GetBounds As AxisAlignedBox2f
+  overload: g3.MarchingQuads.GetBounds*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.AddSeedPoint(System.Single,System.Single)
+  commentId: M:g3.MarchingQuads.AddSeedPoint(System.Single,System.Single)
+  id: AddSeedPoint(System.Single,System.Single)
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: AddSeedPoint(Single, Single)
+  nameWithType: MarchingQuads.AddSeedPoint(Single, Single)
+  fullName: g3.MarchingQuads.AddSeedPoint(System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddSeedPoint
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddSeedPoint(float x, float y)
+    parameters:
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    content.vb: Public Sub AddSeedPoint(x As Single, y As Single)
+  overload: g3.MarchingQuads.AddSeedPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.ClearSeedPoints
+  commentId: M:g3.MarchingQuads.ClearSeedPoints
+  id: ClearSeedPoints
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: ClearSeedPoints()
+  nameWithType: MarchingQuads.ClearSeedPoints()
+  fullName: g3.MarchingQuads.ClearSeedPoints()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ClearSeedPoints
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 118
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ClearSeedPoints()
+    content.vb: Public Sub ClearSeedPoints
+  overload: g3.MarchingQuads.ClearSeedPoints*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.ClearStroke
+  commentId: M:g3.MarchingQuads.ClearStroke
+  id: ClearStroke
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: ClearStroke()
+  nameWithType: MarchingQuads.ClearStroke()
+  fullName: g3.MarchingQuads.ClearStroke()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ClearStroke
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 122
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ClearStroke()
+    content.vb: Public Sub ClearStroke
+  overload: g3.MarchingQuads.ClearStroke*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MarchingQuads.Polygonize(g3.ImplicitField2d)
+  commentId: M:g3.MarchingQuads.Polygonize(g3.ImplicitField2d)
+  id: Polygonize(g3.ImplicitField2d)
+  parent: g3.MarchingQuads
+  langs:
+  - csharp
+  - vb
+  name: Polygonize(ImplicitField2d)
+  nameWithType: MarchingQuads.Polygonize(ImplicitField2d)
+  fullName: g3.MarchingQuads.Polygonize(g3.ImplicitField2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/MarchingQuads.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Polygonize
+    path: ../Assets/geometry3Sharp/implicit/MarchingQuads.cs
+    startLine: 126
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Polygonize(ImplicitField2d field)
+    parameters:
+    - id: field
+      type: g3.ImplicitField2d
+    content.vb: Public Sub Polygonize(field As ImplicitField2d)
+  overload: g3.MarchingQuads.Polygonize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MarchingQuads.#ctor*
+  commentId: Overload:g3.MarchingQuads.#ctor
+  name: MarchingQuads
+  nameWithType: MarchingQuads.MarchingQuads
+  fullName: g3.MarchingQuads.MarchingQuads
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.AxisAlignedBox2f
+  commentId: T:g3.AxisAlignedBox2f
+  parent: g3
+  name: AxisAlignedBox2f
+  nameWithType: AxisAlignedBox2f
+  fullName: g3.AxisAlignedBox2f
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.MarchingQuads.Subdivisions*
+  commentId: Overload:g3.MarchingQuads.Subdivisions
+  name: Subdivisions
+  nameWithType: MarchingQuads.Subdivisions
+  fullName: g3.MarchingQuads.Subdivisions
+- uid: g3.MarchingQuads.Bounds*
+  commentId: Overload:g3.MarchingQuads.Bounds
+  name: Bounds
+  nameWithType: MarchingQuads.Bounds
+  fullName: g3.MarchingQuads.Bounds
+- uid: g3.MarchingQuads.Stroke*
+  commentId: Overload:g3.MarchingQuads.Stroke
+  name: Stroke
+  nameWithType: MarchingQuads.Stroke
+  fullName: g3.MarchingQuads.Stroke
+- uid: g3.DPolyLine2f
+  commentId: T:g3.DPolyLine2f
+  parent: g3
+  name: DPolyLine2f
+  nameWithType: DPolyLine2f
+  fullName: g3.DPolyLine2f
+- uid: g3.MarchingQuads.GetBounds*
+  commentId: Overload:g3.MarchingQuads.GetBounds
+  name: GetBounds
+  nameWithType: MarchingQuads.GetBounds
+  fullName: g3.MarchingQuads.GetBounds
+- uid: g3.MarchingQuads.AddSeedPoint*
+  commentId: Overload:g3.MarchingQuads.AddSeedPoint
+  name: AddSeedPoint
+  nameWithType: MarchingQuads.AddSeedPoint
+  fullName: g3.MarchingQuads.AddSeedPoint
+- uid: g3.MarchingQuads.ClearSeedPoints*
+  commentId: Overload:g3.MarchingQuads.ClearSeedPoints
+  name: ClearSeedPoints
+  nameWithType: MarchingQuads.ClearSeedPoints
+  fullName: g3.MarchingQuads.ClearSeedPoints
+- uid: g3.MarchingQuads.ClearStroke*
+  commentId: Overload:g3.MarchingQuads.ClearStroke
+  name: ClearStroke
+  nameWithType: MarchingQuads.ClearStroke
+  fullName: g3.MarchingQuads.ClearStroke
+- uid: g3.MarchingQuads.Polygonize*
+  commentId: Overload:g3.MarchingQuads.Polygonize
+  name: Polygonize
+  nameWithType: MarchingQuads.Polygonize
+  fullName: g3.MarchingQuads.Polygonize
+- uid: g3.ImplicitField2d
+  commentId: T:g3.ImplicitField2d
+  parent: g3
+  name: ImplicitField2d
+  nameWithType: ImplicitField2d
+  fullName: g3.ImplicitField2d

@@ -1,0 +1,3289 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  id: Polygon2d
+  parent: g3
+  children:
+  - g3.Polygon2d.#ctor
+  - g3.Polygon2d.#ctor(g3.Polygon2d)
+  - g3.Polygon2d.#ctor(g3.Vector2d[])
+  - g3.Polygon2d.#ctor(g3.VectorArray2d)
+  - g3.Polygon2d.#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.Polygon2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  - g3.Polygon2d.#ctor(System.Double[])
+  - g3.Polygon2d.#ctor(System.Func{System.Int32,g3.Vector2d},System.Int32)
+  - g3.Polygon2d.AppendVertex(g3.Vector2d)
+  - g3.Polygon2d.AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.Polygon2d.ArcLength
+  - g3.Polygon2d.Area
+  - g3.Polygon2d.AverageEdgeLength
+  - g3.Polygon2d.Bounds
+  - g3.Polygon2d.Chamfer(System.Double,System.Double,System.Double)
+  - g3.Polygon2d.Contains(g3.Polygon2d)
+  - g3.Polygon2d.Contains(g3.Segment2d)
+  - g3.Polygon2d.Contains(g3.Vector2d)
+  - g3.Polygon2d.DistanceSquared(g3.Vector2d)
+  - g3.Polygon2d.DistanceSquared(g3.Vector2d,System.Int32@,System.Double@)
+  - g3.Polygon2d.Duplicate
+  - g3.Polygon2d.FindIntersections(g3.Polygon2d)
+  - g3.Polygon2d.GetBounds
+  - g3.Polygon2d.GetNormal(System.Int32)
+  - g3.Polygon2d.GetNormal(System.Int32,System.Double)
+  - g3.Polygon2d.GetNormal_FaceAvg(System.Int32)
+  - g3.Polygon2d.GetTangent(System.Int32)
+  - g3.Polygon2d.Intersects(g3.Polygon2d)
+  - g3.Polygon2d.Intersects(g3.Segment2d)
+  - g3.Polygon2d.IsClockwise
+  - g3.Polygon2d.Item(System.Int32)
+  - g3.Polygon2d.MakeCircle(System.Double,System.Int32,System.Double)
+  - g3.Polygon2d.MakeRectangle(g3.Vector2d,System.Double,System.Double)
+  - g3.Polygon2d.MinimalBoundingBox(System.Double)
+  - g3.Polygon2d.NeighboursP(System.Int32,g3.Vector2d@,g3.Vector2d@)
+  - g3.Polygon2d.NeighboursV(System.Int32,g3.Vector2d@,g3.Vector2d@,System.Boolean)
+  - g3.Polygon2d.OpeningAngleDeg(System.Int32)
+  - g3.Polygon2d.Perimeter
+  - g3.Polygon2d.PointAt(System.Int32,System.Double)
+  - g3.Polygon2d.PolyOffset(System.Double)
+  - g3.Polygon2d.RemoveVertex(System.Int32)
+  - g3.Polygon2d.Reverse
+  - g3.Polygon2d.Rotate(g3.Matrix2d,g3.Vector2d)
+  - g3.Polygon2d.Scale(g3.Vector2d,g3.Vector2d)
+  - g3.Polygon2d.Segment(System.Int32)
+  - g3.Polygon2d.SegmentItr
+  - g3.Polygon2d.SetVertices(System.Collections.Generic.List{g3.Vector2d},System.Boolean)
+  - g3.Polygon2d.SignedArea
+  - g3.Polygon2d.Simplify(System.Double,System.Double,System.Boolean)
+  - g3.Polygon2d.Start
+  - g3.Polygon2d.Timestamp
+  - g3.Polygon2d.Transform(g3.ITransform2)
+  - g3.Polygon2d.Transform(System.Func{g3.Vector2d,g3.Vector2d})
+  - g3.Polygon2d.Translate(g3.Vector2d)
+  - g3.Polygon2d.VertexCount
+  - g3.Polygon2d.vertices
+  - g3.Polygon2d.Vertices
+  - g3.Polygon2d.VerticesItr(System.Boolean)
+  - g3.Polygon2d.VtxNormalOffset(System.Double,System.Boolean)
+  - g3.Polygon2d.WindingIntegral(g3.Vector2d)
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Polygon2d
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class Polygon2d : IDuplicatable<Polygon2d>'
+    content.vb: >-
+      Public Class Polygon2d
+          Implements IDuplicatable(Of Polygon2d)
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IDuplicatable{g3.Polygon2d}
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Polygon2d.vertices
+  commentId: F:g3.Polygon2d.vertices
+  id: vertices
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: vertices
+  nameWithType: Polygon2d.vertices
+  fullName: g3.Polygon2d.vertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertices
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected List<Vector2d> vertices
+    return:
+      type: System.Collections.Generic.List{g3.Vector2d}
+    content.vb: Protected vertices As List(Of Vector2d)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Polygon2d.Timestamp
+  commentId: F:g3.Polygon2d.Timestamp
+  id: Timestamp
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: Polygon2d.Timestamp
+  fullName: g3.Polygon2d.Timestamp
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Timestamp
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Timestamp
+    return:
+      type: System.Int32
+    content.vb: Public Timestamp As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.#ctor
+  commentId: M:g3.Polygon2d.#ctor
+  id: '#ctor'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d()
+  nameWithType: Polygon2d.Polygon2d()
+  fullName: g3.Polygon2d.Polygon2d()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d()
+    content.vb: Public Sub New
+  overload: g3.Polygon2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.#ctor(g3.Polygon2d)
+  commentId: M:g3.Polygon2d.#ctor(g3.Polygon2d)
+  id: '#ctor(g3.Polygon2d)'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(Polygon2d)
+  nameWithType: Polygon2d.Polygon2d(Polygon2d)
+  fullName: g3.Polygon2d.Polygon2d(g3.Polygon2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(Polygon2d copy)
+    parameters:
+    - id: copy
+      type: g3.Polygon2d
+    content.vb: Public Sub New(copy As Polygon2d)
+  overload: g3.Polygon2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  commentId: M:g3.Polygon2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  id: '#ctor(System.Collections.Generic.IList{g3.Vector2d})'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(IList<Vector2d>)
+  nameWithType: Polygon2d.Polygon2d(IList<Vector2d>)
+  fullName: g3.Polygon2d.Polygon2d(System.Collections.Generic.IList<g3.Vector2d>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(IList<Vector2d> copy)
+    parameters:
+    - id: copy
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    content.vb: Public Sub New(copy As IList(Of Vector2d))
+  overload: g3.Polygon2d.#ctor*
+  nameWithType.vb: Polygon2d.Polygon2d(IList(Of Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Polygon2d(System.Collections.Generic.IList(Of g3.Vector2d))
+  name.vb: Polygon2d(IList(Of Vector2d))
+- uid: g3.Polygon2d.#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.Polygon2d.#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: '#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(IEnumerable<Vector2d>)
+  nameWithType: Polygon2d.Polygon2d(IEnumerable<Vector2d>)
+  fullName: g3.Polygon2d.Polygon2d(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(IEnumerable<Vector2d> copy)
+    parameters:
+    - id: copy
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    content.vb: Public Sub New(copy As IEnumerable(Of Vector2d))
+  overload: g3.Polygon2d.#ctor*
+  nameWithType.vb: Polygon2d.Polygon2d(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Polygon2d(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: Polygon2d(IEnumerable(Of Vector2d))
+- uid: g3.Polygon2d.#ctor(g3.Vector2d[])
+  commentId: M:g3.Polygon2d.#ctor(g3.Vector2d[])
+  id: '#ctor(g3.Vector2d[])'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(Vector2d[])
+  nameWithType: Polygon2d.Polygon2d(Vector2d[])
+  fullName: g3.Polygon2d.Polygon2d(g3.Vector2d[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 37
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(Vector2d[] v)
+    parameters:
+    - id: v
+      type: g3.Vector2d[]
+    content.vb: Public Sub New(v As Vector2d())
+  overload: g3.Polygon2d.#ctor*
+  nameWithType.vb: Polygon2d.Polygon2d(Vector2d())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Polygon2d(g3.Vector2d())
+  name.vb: Polygon2d(Vector2d())
+- uid: g3.Polygon2d.#ctor(g3.VectorArray2d)
+  commentId: M:g3.Polygon2d.#ctor(g3.VectorArray2d)
+  id: '#ctor(g3.VectorArray2d)'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(VectorArray2d)
+  nameWithType: Polygon2d.Polygon2d(VectorArray2d)
+  fullName: g3.Polygon2d.Polygon2d(g3.VectorArray2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(VectorArray2d v)
+    parameters:
+    - id: v
+      type: g3.VectorArray2d
+    content.vb: Public Sub New(v As VectorArray2d)
+  overload: g3.Polygon2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.#ctor(System.Double[])
+  commentId: M:g3.Polygon2d.#ctor(System.Double[])
+  id: '#ctor(System.Double[])'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(Double[])
+  nameWithType: Polygon2d.Polygon2d(Double[])
+  fullName: g3.Polygon2d.Polygon2d(System.Double[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(double[] values)
+    parameters:
+    - id: values
+      type: System.Double[]
+    content.vb: Public Sub New(values As Double())
+  overload: g3.Polygon2d.#ctor*
+  nameWithType.vb: Polygon2d.Polygon2d(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Polygon2d(System.Double())
+  name.vb: Polygon2d(Double())
+- uid: g3.Polygon2d.#ctor(System.Func{System.Int32,g3.Vector2d},System.Int32)
+  commentId: M:g3.Polygon2d.#ctor(System.Func{System.Int32,g3.Vector2d},System.Int32)
+  id: '#ctor(System.Func{System.Int32,g3.Vector2d},System.Int32)'
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Polygon2d(Func<Int32, Vector2d>, Int32)
+  nameWithType: Polygon2d.Polygon2d(Func<Int32, Vector2d>, Int32)
+  fullName: g3.Polygon2d.Polygon2d(System.Func<System.Int32, g3.Vector2d>, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d(Func<int, Vector2d> SourceF, int N)
+    parameters:
+    - id: SourceF
+      type: System.Func{System.Int32,g3.Vector2d}
+    - id: N
+      type: System.Int32
+    content.vb: Public Sub New(SourceF As Func(Of Integer, Vector2d), N As Integer)
+  overload: g3.Polygon2d.#ctor*
+  nameWithType.vb: Polygon2d.Polygon2d(Func(Of Int32, Vector2d), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Polygon2d(System.Func(Of System.Int32, g3.Vector2d), System.Int32)
+  name.vb: Polygon2d(Func(Of Int32, Vector2d), Int32)
+- uid: g3.Polygon2d.Duplicate
+  commentId: M:g3.Polygon2d.Duplicate
+  id: Duplicate
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: Polygon2d.Duplicate()
+  fullName: g3.Polygon2d.Duplicate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Duplicate
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 66
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual Polygon2d Duplicate()
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Overridable Function Duplicate As Polygon2d
+  overload: g3.Polygon2d.Duplicate*
+  implements:
+  - g3.IDuplicatable{g3.Polygon2d}.Duplicate
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Polygon2d.Item(System.Int32)
+  commentId: P:g3.Polygon2d.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: Polygon2d.Item[Int32]
+  fullName: g3.Polygon2d.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 73
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d this[int key] { get; set; }
+    parameters:
+    - id: key
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Property Item(key As Integer) As Vector2d
+  overload: g3.Polygon2d.Item*
+  nameWithType.vb: Polygon2d.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.Polygon2d.Start
+  commentId: P:g3.Polygon2d.Start
+  id: Start
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: Polygon2d.Start
+  fullName: g3.Polygon2d.Start
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Start
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 79
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Start { get; }
+    parameters: []
+    return:
+      type: g3.Vector2d
+    content.vb: Public ReadOnly Property Start As Vector2d
+  overload: g3.Polygon2d.Start*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.Vertices
+  commentId: P:g3.Polygon2d.Vertices
+  id: Vertices
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Vertices
+  nameWithType: Polygon2d.Vertices
+  fullName: g3.Polygon2d.Vertices
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vertices
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ReadOnlyCollection<Vector2d> Vertices { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector2d}
+    content.vb: Public ReadOnly Property Vertices As ReadOnlyCollection(Of Vector2d)
+  overload: g3.Polygon2d.Vertices*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.VertexCount
+  commentId: P:g3.Polygon2d.VertexCount
+  id: VertexCount
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: VertexCount
+  nameWithType: Polygon2d.VertexCount
+  fullName: g3.Polygon2d.VertexCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexCount
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 87
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int VertexCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VertexCount As Integer
+  overload: g3.Polygon2d.VertexCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.AppendVertex(g3.Vector2d)
+  commentId: M:g3.Polygon2d.AppendVertex(g3.Vector2d)
+  id: AppendVertex(g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(Vector2d)
+  nameWithType: Polygon2d.AppendVertex(Vector2d)
+  fullName: g3.Polygon2d.AppendVertex(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 92
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendVertex(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    content.vb: Public Sub AppendVertex(v As Vector2d)
+  overload: g3.Polygon2d.AppendVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.Polygon2d.AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: AppendVertices(IEnumerable<Vector2d>)
+  nameWithType: Polygon2d.AppendVertices(IEnumerable<Vector2d>)
+  fullName: g3.Polygon2d.AppendVertices(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertices
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendVertices(IEnumerable<Vector2d> v)
+    parameters:
+    - id: v
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    content.vb: Public Sub AppendVertices(v As IEnumerable(Of Vector2d))
+  overload: g3.Polygon2d.AppendVertices*
+  nameWithType.vb: Polygon2d.AppendVertices(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.AppendVertices(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: AppendVertices(IEnumerable(Of Vector2d))
+- uid: g3.Polygon2d.RemoveVertex(System.Int32)
+  commentId: M:g3.Polygon2d.RemoveVertex(System.Int32)
+  id: RemoveVertex(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: RemoveVertex(Int32)
+  nameWithType: Polygon2d.RemoveVertex(Int32)
+  fullName: g3.Polygon2d.RemoveVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveVertex
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void RemoveVertex(int idx)
+    parameters:
+    - id: idx
+      type: System.Int32
+    content.vb: Public Sub RemoveVertex(idx As Integer)
+  overload: g3.Polygon2d.RemoveVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.SetVertices(System.Collections.Generic.List{g3.Vector2d},System.Boolean)
+  commentId: M:g3.Polygon2d.SetVertices(System.Collections.Generic.List{g3.Vector2d},System.Boolean)
+  id: SetVertices(System.Collections.Generic.List{g3.Vector2d},System.Boolean)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: SetVertices(List<Vector2d>, Boolean)
+  nameWithType: Polygon2d.SetVertices(List<Vector2d>, Boolean)
+  fullName: g3.Polygon2d.SetVertices(System.Collections.Generic.List<g3.Vector2d>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertices
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 110
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetVertices(List<Vector2d> newVertices, bool bTakeOwnership)
+    parameters:
+    - id: newVertices
+      type: System.Collections.Generic.List{g3.Vector2d}
+    - id: bTakeOwnership
+      type: System.Boolean
+    content.vb: Public Sub SetVertices(newVertices As List(Of Vector2d), bTakeOwnership As Boolean)
+  overload: g3.Polygon2d.SetVertices*
+  nameWithType.vb: Polygon2d.SetVertices(List(Of Vector2d), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.SetVertices(System.Collections.Generic.List(Of g3.Vector2d), System.Boolean)
+  name.vb: SetVertices(List(Of Vector2d), Boolean)
+- uid: g3.Polygon2d.Reverse
+  commentId: M:g3.Polygon2d.Reverse
+  id: Reverse
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: Polygon2d.Reverse()
+  fullName: g3.Polygon2d.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 123
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse()
+    content.vb: Public Sub Reverse
+  overload: g3.Polygon2d.Reverse*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.GetTangent(System.Int32)
+  commentId: M:g3.Polygon2d.GetTangent(System.Int32)
+  id: GetTangent(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: GetTangent(Int32)
+  nameWithType: Polygon2d.GetTangent(Int32)
+  fullName: g3.Polygon2d.GetTangent(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTangent
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d GetTangent(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetTangent(i As Integer) As Vector2d
+  overload: g3.Polygon2d.GetTangent*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.GetNormal(System.Int32)
+  commentId: M:g3.Polygon2d.GetNormal(System.Int32)
+  id: GetNormal(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: GetNormal(Int32)
+  nameWithType: Polygon2d.GetNormal(Int32)
+  fullName: g3.Polygon2d.GetNormal(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNormal
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 142
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nNormal at vertex i, which is perp to tangent direction, which is not so \nintuitive if edges have very different lengths. \nPoints &quot;inward&quot; for clockwise polygon, outward for counter-clockwise\n"
+  example: []
+  syntax:
+    content: public Vector2d GetNormal(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetNormal(i As Integer) As Vector2d
+  overload: g3.Polygon2d.GetNormal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.GetNormal_FaceAvg(System.Int32)
+  commentId: M:g3.Polygon2d.GetNormal_FaceAvg(System.Int32)
+  id: GetNormal_FaceAvg(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: GetNormal_FaceAvg(Int32)
+  nameWithType: Polygon2d.GetNormal_FaceAvg(Int32)
+  fullName: g3.Polygon2d.GetNormal_FaceAvg(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNormal_FaceAvg
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 152
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nConstruct normal at poly vertex by averaging face normals. This is\nequivalent (?) to angle-based normal, ie is local/independent of segment lengths.\nPoints &quot;inward&quot; for clockwise polygon, outward for counter-clockwise\n"
+  example: []
+  syntax:
+    content: public Vector2d GetNormal_FaceAvg(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetNormal_FaceAvg(i As Integer) As Vector2d
+  overload: g3.Polygon2d.GetNormal_FaceAvg*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.GetBounds
+  commentId: M:g3.Polygon2d.GetBounds
+  id: GetBounds
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: Polygon2d.GetBounds()
+  fullName: g3.Polygon2d.GetBounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetBounds
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 168
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d GetBounds()
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Function GetBounds As AxisAlignedBox2d
+  overload: g3.Polygon2d.GetBounds*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Bounds
+  commentId: P:g3.Polygon2d.Bounds
+  id: Bounds
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: Polygon2d.Bounds
+  fullName: g3.Polygon2d.Bounds
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 173
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d Bounds { get; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public ReadOnly Property Bounds As AxisAlignedBox2d
+  overload: g3.Polygon2d.Bounds*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.SegmentItr
+  commentId: M:g3.Polygon2d.SegmentItr
+  id: SegmentItr
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: SegmentItr()
+  nameWithType: Polygon2d.SegmentItr()
+  fullName: g3.Polygon2d.SegmentItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentItr
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 179
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Segment2d> SegmentItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Segment2d}
+    content.vb: Public Function SegmentItr As IEnumerable(Of Segment2d)
+  overload: g3.Polygon2d.SegmentItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.VerticesItr(System.Boolean)
+  commentId: M:g3.Polygon2d.VerticesItr(System.Boolean)
+  id: VerticesItr(System.Boolean)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: VerticesItr(Boolean)
+  nameWithType: Polygon2d.VerticesItr(Boolean)
+  fullName: g3.Polygon2d.VerticesItr(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VerticesItr
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 184
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector2d> VerticesItr(bool bRepeatFirstAtEnd)
+    parameters:
+    - id: bRepeatFirstAtEnd
+      type: System.Boolean
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    content.vb: Public Function VerticesItr(bRepeatFirstAtEnd As Boolean) As IEnumerable(Of Vector2d)
+  overload: g3.Polygon2d.VerticesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.IsClockwise
+  commentId: P:g3.Polygon2d.IsClockwise
+  id: IsClockwise
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: IsClockwise
+  nameWithType: Polygon2d.IsClockwise
+  fullName: g3.Polygon2d.IsClockwise
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClockwise
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 207
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClockwise { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClockwise As Boolean
+  overload: g3.Polygon2d.IsClockwise*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.SignedArea
+  commentId: P:g3.Polygon2d.SignedArea
+  id: SignedArea
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: SignedArea
+  nameWithType: Polygon2d.SignedArea
+  fullName: g3.Polygon2d.SignedArea
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SignedArea
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 210
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SignedArea { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property SignedArea As Double
+  overload: g3.Polygon2d.SignedArea*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.Area
+  commentId: P:g3.Polygon2d.Area
+  id: Area
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: Polygon2d.Area
+  fullName: g3.Polygon2d.Area
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Area
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 225
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Area { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Area As Double
+  overload: g3.Polygon2d.Area*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.Perimeter
+  commentId: P:g3.Polygon2d.Perimeter
+  id: Perimeter
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Perimeter
+  nameWithType: Polygon2d.Perimeter
+  fullName: g3.Polygon2d.Perimeter
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Perimeter
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 231
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Perimeter { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Perimeter As Double
+  overload: g3.Polygon2d.Perimeter*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.ArcLength
+  commentId: P:g3.Polygon2d.ArcLength
+  id: ArcLength
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: Polygon2d.ArcLength
+  fullName: g3.Polygon2d.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 241
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.Polygon2d.ArcLength*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.NeighboursP(System.Int32,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.Polygon2d.NeighboursP(System.Int32,g3.Vector2d@,g3.Vector2d@)
+  id: NeighboursP(System.Int32,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: NeighboursP(Int32, ref Vector2d, ref Vector2d)
+  nameWithType: Polygon2d.NeighboursP(Int32, ref Vector2d, ref Vector2d)
+  fullName: g3.Polygon2d.NeighboursP(System.Int32, ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NeighboursP
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 245
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void NeighboursP(int iVertex, ref Vector2d p0, ref Vector2d p1)
+    parameters:
+    - id: iVertex
+      type: System.Int32
+    - id: p0
+      type: g3.Vector2d
+    - id: p1
+      type: g3.Vector2d
+    content.vb: Public Sub NeighboursP(iVertex As Integer, ByRef p0 As Vector2d, ByRef p1 As Vector2d)
+  overload: g3.Polygon2d.NeighboursP*
+  nameWithType.vb: Polygon2d.NeighboursP(Int32, ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.NeighboursP(System.Int32, ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: NeighboursP(Int32, ByRef Vector2d, ByRef Vector2d)
+- uid: g3.Polygon2d.NeighboursV(System.Int32,g3.Vector2d@,g3.Vector2d@,System.Boolean)
+  commentId: M:g3.Polygon2d.NeighboursV(System.Int32,g3.Vector2d@,g3.Vector2d@,System.Boolean)
+  id: NeighboursV(System.Int32,g3.Vector2d@,g3.Vector2d@,System.Boolean)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: NeighboursV(Int32, ref Vector2d, ref Vector2d, Boolean)
+  nameWithType: Polygon2d.NeighboursV(Int32, ref Vector2d, ref Vector2d, Boolean)
+  fullName: g3.Polygon2d.NeighboursV(System.Int32, ref g3.Vector2d, ref g3.Vector2d, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NeighboursV
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 251
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void NeighboursV(int iVertex, ref Vector2d v0, ref Vector2d v1, bool bNormalize = false)
+    parameters:
+    - id: iVertex
+      type: System.Int32
+    - id: v0
+      type: g3.Vector2d
+    - id: v1
+      type: g3.Vector2d
+    - id: bNormalize
+      type: System.Boolean
+    content.vb: Public Sub NeighboursV(iVertex As Integer, ByRef v0 As Vector2d, ByRef v1 As Vector2d, bNormalize As Boolean = False)
+  overload: g3.Polygon2d.NeighboursV*
+  nameWithType.vb: Polygon2d.NeighboursV(Int32, ByRef Vector2d, ByRef Vector2d, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.NeighboursV(System.Int32, ByRef g3.Vector2d, ByRef g3.Vector2d, System.Boolean)
+  name.vb: NeighboursV(Int32, ByRef Vector2d, ByRef Vector2d, Boolean)
+- uid: g3.Polygon2d.OpeningAngleDeg(System.Int32)
+  commentId: M:g3.Polygon2d.OpeningAngleDeg(System.Int32)
+  id: OpeningAngleDeg(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: OpeningAngleDeg(Int32)
+  nameWithType: Polygon2d.OpeningAngleDeg(Int32)
+  fullName: g3.Polygon2d.OpeningAngleDeg(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OpeningAngleDeg
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 262
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double OpeningAngleDeg(int iVertex)
+    parameters:
+    - id: iVertex
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function OpeningAngleDeg(iVertex As Integer) As Double
+  overload: g3.Polygon2d.OpeningAngleDeg*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.WindingIntegral(g3.Vector2d)
+  commentId: M:g3.Polygon2d.WindingIntegral(g3.Vector2d)
+  id: WindingIntegral(g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: WindingIntegral(Vector2d)
+  nameWithType: Polygon2d.WindingIntegral(Vector2d)
+  fullName: g3.Polygon2d.WindingIntegral(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WindingIntegral
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 273
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCompute winding integral at point P\n"
+  example: []
+  syntax:
+    content: public double WindingIntegral(Vector2d P)
+    parameters:
+    - id: P
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function WindingIntegral(P As Vector2d) As Double
+  overload: g3.Polygon2d.WindingIntegral*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Contains(g3.Vector2d)
+  commentId: M:g3.Polygon2d.Contains(g3.Vector2d)
+  id: Contains(g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector2d)
+  nameWithType: Polygon2d.Contains(Vector2d)
+  fullName: g3.Polygon2d.Contains(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 291
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nReturns true if point inside polygon, using fast winding-number computation\n"
+  example: []
+  syntax:
+    content: public bool Contains(Vector2d P)
+    parameters:
+    - id: P
+      type: g3.Vector2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(P As Vector2d) As Boolean
+  overload: g3.Polygon2d.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Contains(g3.Polygon2d)
+  commentId: M:g3.Polygon2d.Contains(g3.Polygon2d)
+  id: Contains(g3.Polygon2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Contains(Polygon2d)
+  nameWithType: Polygon2d.Contains(Polygon2d)
+  fullName: g3.Polygon2d.Contains(g3.Polygon2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 319
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Contains(Polygon2d o)
+    parameters:
+    - id: o
+      type: g3.Polygon2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(o As Polygon2d) As Boolean
+  overload: g3.Polygon2d.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Contains(g3.Segment2d)
+  commentId: M:g3.Polygon2d.Contains(g3.Segment2d)
+  id: Contains(g3.Segment2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Contains(Segment2d)
+  nameWithType: Polygon2d.Contains(Segment2d)
+  fullName: g3.Polygon2d.Contains(g3.Segment2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 338
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nChecks that all points on a segment are within the area defined by the Polygon2d.\n"
+  example: []
+  syntax:
+    content: public bool Contains(Segment2d o)
+    parameters:
+    - id: o
+      type: g3.Segment2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(o As Segment2d) As Boolean
+  overload: g3.Polygon2d.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Intersects(g3.Polygon2d)
+  commentId: M:g3.Polygon2d.Intersects(g3.Polygon2d)
+  id: Intersects(g3.Polygon2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Intersects(Polygon2d)
+  nameWithType: Polygon2d.Intersects(Polygon2d)
+  fullName: g3.Polygon2d.Intersects(g3.Polygon2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Intersects
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 352
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Intersects(Polygon2d o)
+    parameters:
+    - id: o
+      type: g3.Polygon2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Intersects(o As Polygon2d) As Boolean
+  overload: g3.Polygon2d.Intersects*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Intersects(g3.Segment2d)
+  commentId: M:g3.Polygon2d.Intersects(g3.Segment2d)
+  id: Intersects(g3.Segment2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Intersects(Segment2d)
+  nameWithType: Polygon2d.Intersects(Segment2d)
+  fullName: g3.Polygon2d.Intersects(g3.Segment2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Intersects
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 368
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nChecks if any point on a segment is within the area defined by the Polygon2d.\n"
+  example: []
+  syntax:
+    content: public bool Intersects(Segment2d o)
+    parameters:
+    - id: o
+      type: g3.Segment2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Intersects(o As Segment2d) As Boolean
+  overload: g3.Polygon2d.Intersects*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.FindIntersections(g3.Polygon2d)
+  commentId: M:g3.Polygon2d.FindIntersections(g3.Polygon2d)
+  id: FindIntersections(g3.Polygon2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: FindIntersections(Polygon2d)
+  nameWithType: Polygon2d.FindIntersections(Polygon2d)
+  fullName: g3.Polygon2d.FindIntersections(g3.Polygon2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindIntersections
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 385
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<Vector2d> FindIntersections(Polygon2d o)
+    parameters:
+    - id: o
+      type: g3.Polygon2d
+    return:
+      type: System.Collections.Generic.List{g3.Vector2d}
+    content.vb: Public Function FindIntersections(o As Polygon2d) As List(Of Vector2d)
+  overload: g3.Polygon2d.FindIntersections*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Segment(System.Int32)
+  commentId: M:g3.Polygon2d.Segment(System.Int32)
+  id: Segment(System.Int32)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Segment(Int32)
+  nameWithType: Polygon2d.Segment(Int32)
+  fullName: g3.Polygon2d.Segment(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Segment
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 408
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Segment2d Segment(int iSegment)
+    parameters:
+    - id: iSegment
+      type: System.Int32
+    return:
+      type: g3.Segment2d
+    content.vb: Public Function Segment(iSegment As Integer) As Segment2d
+  overload: g3.Polygon2d.Segment*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.PointAt(System.Int32,System.Double)
+  commentId: M:g3.Polygon2d.PointAt(System.Int32,System.Double)
+  id: PointAt(System.Int32,System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: PointAt(Int32, Double)
+  nameWithType: Polygon2d.PointAt(Int32, Double)
+  fullName: g3.Polygon2d.PointAt(System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointAt
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 413
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d PointAt(int iSegment, double fSegT)
+    parameters:
+    - id: iSegment
+      type: System.Int32
+    - id: fSegT
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function PointAt(iSegment As Integer, fSegT As Double) As Vector2d
+  overload: g3.Polygon2d.PointAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.GetNormal(System.Int32,System.Double)
+  commentId: M:g3.Polygon2d.GetNormal(System.Int32,System.Double)
+  id: GetNormal(System.Int32,System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: GetNormal(Int32, Double)
+  nameWithType: Polygon2d.GetNormal(Int32, Double)
+  fullName: g3.Polygon2d.GetNormal(System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNormal
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 418
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d GetNormal(int iSeg, double segT)
+    parameters:
+    - id: iSeg
+      type: System.Int32
+    - id: segT
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetNormal(iSeg As Integer, segT As Double) As Vector2d
+  overload: g3.Polygon2d.GetNormal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.DistanceSquared(g3.Vector2d,System.Int32@,System.Double@)
+  commentId: M:g3.Polygon2d.DistanceSquared(g3.Vector2d,System.Int32@,System.Double@)
+  id: DistanceSquared(g3.Vector2d,System.Int32@,System.Double@)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2d, out Int32, out Double)
+  nameWithType: Polygon2d.DistanceSquared(Vector2d, out Int32, out Double)
+  fullName: g3.Polygon2d.DistanceSquared(g3.Vector2d, out System.Int32, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 430
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector2d p, out int iNearSeg, out double fNearSegT)
+    parameters:
+    - id: p
+      type: g3.Vector2d
+    - id: iNearSeg
+      type: System.Int32
+    - id: fNearSegT
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(p As Vector2d, ByRef iNearSeg As Integer, ByRef fNearSegT As Double) As Double
+  overload: g3.Polygon2d.DistanceSquared*
+  nameWithType.vb: Polygon2d.DistanceSquared(Vector2d, ByRef Int32, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.DistanceSquared(g3.Vector2d, ByRef System.Int32, ByRef System.Double)
+  name.vb: DistanceSquared(Vector2d, ByRef Int32, ByRef Double)
+- uid: g3.Polygon2d.DistanceSquared(g3.Vector2d)
+  commentId: M:g3.Polygon2d.DistanceSquared(g3.Vector2d)
+  id: DistanceSquared(g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2d)
+  nameWithType: Polygon2d.DistanceSquared(Vector2d)
+  fullName: g3.Polygon2d.DistanceSquared(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 454
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector2d p)
+    parameters:
+    - id: p
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(p As Vector2d) As Double
+  overload: g3.Polygon2d.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.AverageEdgeLength
+  commentId: P:g3.Polygon2d.AverageEdgeLength
+  id: AverageEdgeLength
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: AverageEdgeLength
+  nameWithType: Polygon2d.AverageEdgeLength
+  fullName: g3.Polygon2d.AverageEdgeLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AverageEdgeLength
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 460
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double AverageEdgeLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property AverageEdgeLength As Double
+  overload: g3.Polygon2d.AverageEdgeLength*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Polygon2d.Translate(g3.Vector2d)
+  commentId: M:g3.Polygon2d.Translate(g3.Vector2d)
+  id: Translate(g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector2d)
+  nameWithType: Polygon2d.Translate(Vector2d)
+  fullName: g3.Polygon2d.Translate(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 472
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d Translate(Vector2d translate)
+    parameters:
+    - id: translate
+      type: g3.Vector2d
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Function Translate(translate As Vector2d) As Polygon2d
+  overload: g3.Polygon2d.Translate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Rotate(g3.Matrix2d,g3.Vector2d)
+  commentId: M:g3.Polygon2d.Rotate(g3.Matrix2d,g3.Vector2d)
+  id: Rotate(g3.Matrix2d,g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Matrix2d, Vector2d)
+  nameWithType: Polygon2d.Rotate(Matrix2d, Vector2d)
+  fullName: g3.Polygon2d.Rotate(g3.Matrix2d, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 480
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d Rotate(Matrix2d rotation, Vector2d origin)
+    parameters:
+    - id: rotation
+      type: g3.Matrix2d
+    - id: origin
+      type: g3.Vector2d
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Function Rotate(rotation As Matrix2d, origin As Vector2d) As Polygon2d
+  overload: g3.Polygon2d.Rotate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Scale(g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.Polygon2d.Scale(g3.Vector2d,g3.Vector2d)
+  id: Scale(g3.Vector2d,g3.Vector2d)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Scale(Vector2d, Vector2d)
+  nameWithType: Polygon2d.Scale(Vector2d, Vector2d)
+  fullName: g3.Polygon2d.Scale(g3.Vector2d, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 488
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d Scale(Vector2d scale, Vector2d origin)
+    parameters:
+    - id: scale
+      type: g3.Vector2d
+    - id: origin
+      type: g3.Vector2d
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Function Scale(scale As Vector2d, origin As Vector2d) As Polygon2d
+  overload: g3.Polygon2d.Scale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Transform(System.Func{g3.Vector2d,g3.Vector2d})
+  commentId: M:g3.Polygon2d.Transform(System.Func{g3.Vector2d,g3.Vector2d})
+  id: Transform(System.Func{g3.Vector2d,g3.Vector2d})
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Transform(Func<Vector2d, Vector2d>)
+  nameWithType: Polygon2d.Transform(Func<Vector2d, Vector2d>)
+  fullName: g3.Polygon2d.Transform(System.Func<g3.Vector2d, g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 496
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d Transform(Func<Vector2d, Vector2d> transformF)
+    parameters:
+    - id: transformF
+      type: System.Func{g3.Vector2d,g3.Vector2d}
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Function Transform(transformF As Func(Of Vector2d, Vector2d)) As Polygon2d
+  overload: g3.Polygon2d.Transform*
+  nameWithType.vb: Polygon2d.Transform(Func(Of Vector2d, Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2d.Transform(System.Func(Of g3.Vector2d, g3.Vector2d))
+  name.vb: Transform(Func(Of Vector2d, Vector2d))
+- uid: g3.Polygon2d.Transform(g3.ITransform2)
+  commentId: M:g3.Polygon2d.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: Polygon2d.Transform(ITransform2)
+  fullName: g3.Polygon2d.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 505
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Function Transform(xform As ITransform2) As Polygon2d
+  overload: g3.Polygon2d.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.VtxNormalOffset(System.Double,System.Boolean)
+  commentId: M:g3.Polygon2d.VtxNormalOffset(System.Double,System.Boolean)
+  id: VtxNormalOffset(System.Double,System.Boolean)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: VtxNormalOffset(Double, Boolean)
+  nameWithType: Polygon2d.VtxNormalOffset(Double, Boolean)
+  fullName: g3.Polygon2d.VtxNormalOffset(System.Double, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VtxNormalOffset
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 519
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nOffset each point by dist along vertex normal direction (ie tangent-perp)\nCCW polygon offsets &quot;outwards&quot;, CW &quot;inwards&quot;.\n"
+  example: []
+  syntax:
+    content: public void VtxNormalOffset(double dist, bool bUseFaceAvg = false)
+    parameters:
+    - id: dist
+      type: System.Double
+    - id: bUseFaceAvg
+      type: System.Boolean
+    content.vb: Public Sub VtxNormalOffset(dist As Double, bUseFaceAvg As Boolean = False)
+  overload: g3.Polygon2d.VtxNormalOffset*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.PolyOffset(System.Double)
+  commentId: M:g3.Polygon2d.PolyOffset(System.Double)
+  id: PolyOffset(System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: PolyOffset(Double)
+  nameWithType: Polygon2d.PolyOffset(Double)
+  fullName: g3.Polygon2d.PolyOffset(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PolyOffset
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 540
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\noffset polygon by fixed distance, by offsetting and intersecting edges.\nCCW polygon offsets &quot;outwards&quot;, CW &quot;inwards&quot;.\n"
+  example: []
+  syntax:
+    content: public void PolyOffset(double dist)
+    parameters:
+    - id: dist
+      type: System.Double
+    content.vb: Public Sub PolyOffset(dist As Double)
+  overload: g3.Polygon2d.PolyOffset*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Simplify(System.Double,System.Double,System.Boolean)
+  commentId: M:g3.Polygon2d.Simplify(System.Double,System.Double,System.Boolean)
+  id: Simplify(System.Double,System.Double,System.Boolean)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Simplify(Double, Double, Boolean)
+  nameWithType: Polygon2d.Simplify(Double, Double, Boolean)
+  fullName: g3.Polygon2d.Simplify(System.Double, System.Double, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Simplify
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 611
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Simplify(double clusterTol = 0.0001, double lineDeviationTol = 0.01, bool bSimplifyStraightLines = true)
+    parameters:
+    - id: clusterTol
+      type: System.Double
+    - id: lineDeviationTol
+      type: System.Double
+    - id: bSimplifyStraightLines
+      type: System.Boolean
+    content.vb: Public Sub Simplify(clusterTol As Double = 0.0001, lineDeviationTol As Double = 0.01, bSimplifyStraightLines As Boolean = True)
+  overload: g3.Polygon2d.Simplify*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.Chamfer(System.Double,System.Double,System.Double)
+  commentId: M:g3.Polygon2d.Chamfer(System.Double,System.Double,System.Double)
+  id: Chamfer(System.Double,System.Double,System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: Chamfer(Double, Double, Double)
+  nameWithType: Polygon2d.Chamfer(Double, Double, Double)
+  fullName: g3.Polygon2d.Chamfer(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Chamfer
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 691
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Chamfer(double chamfer_dist, double minConvexAngleDeg = 30, double minConcaveAngleDeg = 30)
+    parameters:
+    - id: chamfer_dist
+      type: System.Double
+    - id: minConvexAngleDeg
+      type: System.Double
+    - id: minConcaveAngleDeg
+      type: System.Double
+    content.vb: Public Sub Chamfer(chamfer_dist As Double, minConvexAngleDeg As Double = 30, minConcaveAngleDeg As Double = 30)
+  overload: g3.Polygon2d.Chamfer*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.MinimalBoundingBox(System.Double)
+  commentId: M:g3.Polygon2d.MinimalBoundingBox(System.Double)
+  id: MinimalBoundingBox(System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: MinimalBoundingBox(Double)
+  nameWithType: Polygon2d.MinimalBoundingBox(Double)
+  fullName: g3.Polygon2d.MinimalBoundingBox(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinimalBoundingBox
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 754
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nReturn minimal bounding box of vertices, computed to epsilon tolerance\n"
+  example: []
+  syntax:
+    content: public Box2d MinimalBoundingBox(double epsilon)
+    parameters:
+    - id: epsilon
+      type: System.Double
+    return:
+      type: g3.Box2d
+    content.vb: Public Function MinimalBoundingBox(epsilon As Double) As Box2d
+  overload: g3.Polygon2d.MinimalBoundingBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2d.MakeRectangle(g3.Vector2d,System.Double,System.Double)
+  commentId: M:g3.Polygon2d.MakeRectangle(g3.Vector2d,System.Double,System.Double)
+  id: MakeRectangle(g3.Vector2d,System.Double,System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: MakeRectangle(Vector2d, Double, Double)
+  nameWithType: Polygon2d.MakeRectangle(Vector2d, Double, Double)
+  fullName: g3.Polygon2d.MakeRectangle(g3.Vector2d, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeRectangle
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 762
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Polygon2d MakeRectangle(Vector2d center, double width, double height)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: width
+      type: System.Double
+    - id: height
+      type: System.Double
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Shared Function MakeRectangle(center As Vector2d, width As Double, height As Double) As Polygon2d
+  overload: g3.Polygon2d.MakeRectangle*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Polygon2d.MakeCircle(System.Double,System.Int32,System.Double)
+  commentId: M:g3.Polygon2d.MakeCircle(System.Double,System.Int32,System.Double)
+  id: MakeCircle(System.Double,System.Int32,System.Double)
+  parent: g3.Polygon2d
+  langs:
+  - csharp
+  - vb
+  name: MakeCircle(Double, Int32, Double)
+  nameWithType: Polygon2d.MakeCircle(Double, Int32, Double)
+  fullName: g3.Polygon2d.MakeCircle(System.Double, System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Polygon2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeCircle
+    path: ../Assets/geometry3Sharp/curve/Polygon2d.cs
+    startLine: 773
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Polygon2d MakeCircle(double fRadius, int nSteps, double angleShiftRad = 0)
+    parameters:
+    - id: fRadius
+      type: System.Double
+    - id: nSteps
+      type: System.Int32
+    - id: angleShiftRad
+      type: System.Double
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Shared Function MakeCircle(fRadius As Double, nSteps As Integer, angleShiftRad As Double = 0) As Polygon2d
+  overload: g3.Polygon2d.MakeCircle*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IDuplicatable{g3.Polygon2d}
+  commentId: T:g3.IDuplicatable{g3.Polygon2d}
+  parent: g3
+  definition: g3.IDuplicatable`1
+  name: IDuplicatable<Polygon2d>
+  nameWithType: IDuplicatable<Polygon2d>
+  fullName: g3.IDuplicatable<g3.Polygon2d>
+  nameWithType.vb: IDuplicatable(Of Polygon2d)
+  fullName.vb: g3.IDuplicatable(Of g3.Polygon2d)
+  name.vb: IDuplicatable(Of Polygon2d)
+  spec.csharp:
+  - uid: g3.IDuplicatable`1
+    name: IDuplicatable
+    nameWithType: IDuplicatable
+    fullName: g3.IDuplicatable
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Polygon2d
+    name: Polygon2d
+    nameWithType: Polygon2d
+    fullName: g3.Polygon2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.IDuplicatable`1
+    name: IDuplicatable
+    nameWithType: IDuplicatable
+    fullName: g3.IDuplicatable
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Polygon2d
+    name: Polygon2d
+    nameWithType: Polygon2d
+    fullName: g3.Polygon2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IDuplicatable`1
+  commentId: T:g3.IDuplicatable`1
+  name: IDuplicatable<T>
+  nameWithType: IDuplicatable<T>
+  fullName: g3.IDuplicatable<T>
+  nameWithType.vb: IDuplicatable(Of T)
+  fullName.vb: g3.IDuplicatable(Of T)
+  name.vb: IDuplicatable(Of T)
+  spec.csharp:
+  - uid: g3.IDuplicatable`1
+    name: IDuplicatable
+    nameWithType: IDuplicatable
+    fullName: g3.IDuplicatable
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.IDuplicatable`1
+    name: IDuplicatable
+    nameWithType: IDuplicatable
+    fullName: g3.IDuplicatable
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{g3.Vector2d}
+  commentId: T:System.Collections.Generic.List{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Vector2d>
+  nameWithType: List<Vector2d>
+  fullName: System.Collections.Generic.List<g3.Vector2d>
+  nameWithType.vb: List(Of Vector2d)
+  fullName.vb: System.Collections.Generic.List(Of g3.Vector2d)
+  name.vb: List(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Polygon2d.#ctor*
+  commentId: Overload:g3.Polygon2d.#ctor
+  name: Polygon2d
+  nameWithType: Polygon2d.Polygon2d
+  fullName: g3.Polygon2d.Polygon2d
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: System.Collections.Generic.IList{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IList{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Vector2d>
+  nameWithType: IList<Vector2d>
+  fullName: System.Collections.Generic.IList<g3.Vector2d>
+  nameWithType.vb: IList(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Vector2d)
+  name.vb: IList(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2d>
+  nameWithType: IEnumerable<Vector2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2d>
+  nameWithType.vb: IEnumerable(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2d)
+  name.vb: IEnumerable(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector2d[]
+  isExternal: true
+  name: Vector2d[]
+  nameWithType: Vector2d[]
+  fullName: g3.Vector2d[]
+  nameWithType.vb: Vector2d()
+  fullName.vb: g3.Vector2d()
+  name.vb: Vector2d()
+  spec.csharp:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.VectorArray2d
+  commentId: T:g3.VectorArray2d
+  parent: g3
+  name: VectorArray2d
+  nameWithType: VectorArray2d
+  fullName: g3.VectorArray2d
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Func{System.Int32,g3.Vector2d}
+  commentId: T:System.Func{System.Int32,g3.Vector2d}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Vector2d>
+  nameWithType: Func<Int32, Vector2d>
+  fullName: System.Func<System.Int32, g3.Vector2d>
+  nameWithType.vb: Func(Of Int32, Vector2d)
+  fullName.vb: System.Func(Of System.Int32, g3.Vector2d)
+  name.vb: Func(Of Int32, Vector2d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Polygon2d.Duplicate*
+  commentId: Overload:g3.Polygon2d.Duplicate
+  name: Duplicate
+  nameWithType: Polygon2d.Duplicate
+  fullName: g3.Polygon2d.Duplicate
+- uid: g3.IDuplicatable{g3.Polygon2d}.Duplicate
+  commentId: M:g3.IDuplicatable{g3.Polygon2d}.Duplicate
+  parent: g3.IDuplicatable{g3.Polygon2d}
+  definition: g3.IDuplicatable`1.Duplicate
+  name: Duplicate()
+  nameWithType: IDuplicatable<Polygon2d>.Duplicate()
+  fullName: g3.IDuplicatable<g3.Polygon2d>.Duplicate()
+  nameWithType.vb: IDuplicatable(Of Polygon2d).Duplicate()
+  fullName.vb: g3.IDuplicatable(Of g3.Polygon2d).Duplicate()
+  spec.csharp:
+  - uid: g3.IDuplicatable`1.Duplicate
+    name: Duplicate
+    nameWithType: IDuplicatable<Polygon2d>.Duplicate
+    fullName: g3.IDuplicatable<g3.Polygon2d>.Duplicate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IDuplicatable`1.Duplicate
+    name: Duplicate
+    nameWithType: IDuplicatable(Of Polygon2d).Duplicate
+    fullName: g3.IDuplicatable(Of g3.Polygon2d).Duplicate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.IDuplicatable`1.Duplicate
+  commentId: M:g3.IDuplicatable`1.Duplicate
+  name: Duplicate()
+  nameWithType: IDuplicatable<T>.Duplicate()
+  fullName: g3.IDuplicatable<T>.Duplicate()
+  nameWithType.vb: IDuplicatable(Of T).Duplicate()
+  fullName.vb: g3.IDuplicatable(Of T).Duplicate()
+  spec.csharp:
+  - uid: g3.IDuplicatable`1.Duplicate
+    name: Duplicate
+    nameWithType: IDuplicatable<T>.Duplicate
+    fullName: g3.IDuplicatable<T>.Duplicate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IDuplicatable`1.Duplicate
+    name: Duplicate
+    nameWithType: IDuplicatable(Of T).Duplicate
+    fullName: g3.IDuplicatable(Of T).Duplicate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Polygon2d.Item*
+  commentId: Overload:g3.Polygon2d.Item
+  name: Item
+  nameWithType: Polygon2d.Item
+  fullName: g3.Polygon2d.Item
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.Polygon2d.Start*
+  commentId: Overload:g3.Polygon2d.Start
+  name: Start
+  nameWithType: Polygon2d.Start
+  fullName: g3.Polygon2d.Start
+- uid: g3.Polygon2d.Vertices*
+  commentId: Overload:g3.Polygon2d.Vertices
+  name: Vertices
+  nameWithType: Polygon2d.Vertices
+  fullName: g3.Polygon2d.Vertices
+- uid: System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector2d}
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector2d}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ReadOnlyCollection`1
+  name: ReadOnlyCollection<Vector2d>
+  nameWithType: ReadOnlyCollection<Vector2d>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<g3.Vector2d>
+  nameWithType.vb: ReadOnlyCollection(Of Vector2d)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of g3.Vector2d)
+  name.vb: ReadOnlyCollection(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+- uid: g3.Polygon2d.VertexCount*
+  commentId: Overload:g3.Polygon2d.VertexCount
+  name: VertexCount
+  nameWithType: Polygon2d.VertexCount
+  fullName: g3.Polygon2d.VertexCount
+- uid: g3.Polygon2d.AppendVertex*
+  commentId: Overload:g3.Polygon2d.AppendVertex
+  name: AppendVertex
+  nameWithType: Polygon2d.AppendVertex
+  fullName: g3.Polygon2d.AppendVertex
+- uid: g3.Polygon2d.AppendVertices*
+  commentId: Overload:g3.Polygon2d.AppendVertices
+  name: AppendVertices
+  nameWithType: Polygon2d.AppendVertices
+  fullName: g3.Polygon2d.AppendVertices
+- uid: g3.Polygon2d.RemoveVertex*
+  commentId: Overload:g3.Polygon2d.RemoveVertex
+  name: RemoveVertex
+  nameWithType: Polygon2d.RemoveVertex
+  fullName: g3.Polygon2d.RemoveVertex
+- uid: g3.Polygon2d.SetVertices*
+  commentId: Overload:g3.Polygon2d.SetVertices
+  name: SetVertices
+  nameWithType: Polygon2d.SetVertices
+  fullName: g3.Polygon2d.SetVertices
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Polygon2d.Reverse*
+  commentId: Overload:g3.Polygon2d.Reverse
+  name: Reverse
+  nameWithType: Polygon2d.Reverse
+  fullName: g3.Polygon2d.Reverse
+- uid: g3.Polygon2d.GetTangent*
+  commentId: Overload:g3.Polygon2d.GetTangent
+  name: GetTangent
+  nameWithType: Polygon2d.GetTangent
+  fullName: g3.Polygon2d.GetTangent
+- uid: g3.Polygon2d.GetNormal*
+  commentId: Overload:g3.Polygon2d.GetNormal
+  name: GetNormal
+  nameWithType: Polygon2d.GetNormal
+  fullName: g3.Polygon2d.GetNormal
+- uid: g3.Polygon2d.GetNormal_FaceAvg*
+  commentId: Overload:g3.Polygon2d.GetNormal_FaceAvg
+  name: GetNormal_FaceAvg
+  nameWithType: Polygon2d.GetNormal_FaceAvg
+  fullName: g3.Polygon2d.GetNormal_FaceAvg
+- uid: g3.Polygon2d.GetBounds*
+  commentId: Overload:g3.Polygon2d.GetBounds
+  name: GetBounds
+  nameWithType: Polygon2d.GetBounds
+  fullName: g3.Polygon2d.GetBounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.Polygon2d.Bounds*
+  commentId: Overload:g3.Polygon2d.Bounds
+  name: Bounds
+  nameWithType: Polygon2d.Bounds
+  fullName: g3.Polygon2d.Bounds
+- uid: g3.Polygon2d.SegmentItr*
+  commentId: Overload:g3.Polygon2d.SegmentItr
+  name: SegmentItr
+  nameWithType: Polygon2d.SegmentItr
+  fullName: g3.Polygon2d.SegmentItr
+- uid: System.Collections.Generic.IEnumerable{g3.Segment2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Segment2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Segment2d>
+  nameWithType: IEnumerable<Segment2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Segment2d>
+  nameWithType.vb: IEnumerable(Of Segment2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Segment2d)
+  name.vb: IEnumerable(Of Segment2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Polygon2d.VerticesItr*
+  commentId: Overload:g3.Polygon2d.VerticesItr
+  name: VerticesItr
+  nameWithType: Polygon2d.VerticesItr
+  fullName: g3.Polygon2d.VerticesItr
+- uid: g3.Polygon2d.IsClockwise*
+  commentId: Overload:g3.Polygon2d.IsClockwise
+  name: IsClockwise
+  nameWithType: Polygon2d.IsClockwise
+  fullName: g3.Polygon2d.IsClockwise
+- uid: g3.Polygon2d.SignedArea*
+  commentId: Overload:g3.Polygon2d.SignedArea
+  name: SignedArea
+  nameWithType: Polygon2d.SignedArea
+  fullName: g3.Polygon2d.SignedArea
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Polygon2d.Area*
+  commentId: Overload:g3.Polygon2d.Area
+  name: Area
+  nameWithType: Polygon2d.Area
+  fullName: g3.Polygon2d.Area
+- uid: g3.Polygon2d.Perimeter*
+  commentId: Overload:g3.Polygon2d.Perimeter
+  name: Perimeter
+  nameWithType: Polygon2d.Perimeter
+  fullName: g3.Polygon2d.Perimeter
+- uid: g3.Polygon2d.ArcLength*
+  commentId: Overload:g3.Polygon2d.ArcLength
+  name: ArcLength
+  nameWithType: Polygon2d.ArcLength
+  fullName: g3.Polygon2d.ArcLength
+- uid: g3.Polygon2d.NeighboursP*
+  commentId: Overload:g3.Polygon2d.NeighboursP
+  name: NeighboursP
+  nameWithType: Polygon2d.NeighboursP
+  fullName: g3.Polygon2d.NeighboursP
+- uid: g3.Polygon2d.NeighboursV*
+  commentId: Overload:g3.Polygon2d.NeighboursV
+  name: NeighboursV
+  nameWithType: Polygon2d.NeighboursV
+  fullName: g3.Polygon2d.NeighboursV
+- uid: g3.Polygon2d.OpeningAngleDeg*
+  commentId: Overload:g3.Polygon2d.OpeningAngleDeg
+  name: OpeningAngleDeg
+  nameWithType: Polygon2d.OpeningAngleDeg
+  fullName: g3.Polygon2d.OpeningAngleDeg
+- uid: g3.Polygon2d.WindingIntegral*
+  commentId: Overload:g3.Polygon2d.WindingIntegral
+  name: WindingIntegral
+  nameWithType: Polygon2d.WindingIntegral
+  fullName: g3.Polygon2d.WindingIntegral
+- uid: g3.Polygon2d.Contains*
+  commentId: Overload:g3.Polygon2d.Contains
+  name: Contains
+  nameWithType: Polygon2d.Contains
+  fullName: g3.Polygon2d.Contains
+- uid: g3.Segment2d
+  commentId: T:g3.Segment2d
+  parent: g3
+  name: Segment2d
+  nameWithType: Segment2d
+  fullName: g3.Segment2d
+- uid: g3.Polygon2d.Intersects*
+  commentId: Overload:g3.Polygon2d.Intersects
+  name: Intersects
+  nameWithType: Polygon2d.Intersects
+  fullName: g3.Polygon2d.Intersects
+- uid: g3.Polygon2d.FindIntersections*
+  commentId: Overload:g3.Polygon2d.FindIntersections
+  name: FindIntersections
+  nameWithType: Polygon2d.FindIntersections
+  fullName: g3.Polygon2d.FindIntersections
+- uid: g3.Polygon2d.Segment*
+  commentId: Overload:g3.Polygon2d.Segment
+  name: Segment
+  nameWithType: Polygon2d.Segment
+  fullName: g3.Polygon2d.Segment
+- uid: g3.Polygon2d.PointAt*
+  commentId: Overload:g3.Polygon2d.PointAt
+  name: PointAt
+  nameWithType: Polygon2d.PointAt
+  fullName: g3.Polygon2d.PointAt
+- uid: g3.Polygon2d.DistanceSquared*
+  commentId: Overload:g3.Polygon2d.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Polygon2d.DistanceSquared
+  fullName: g3.Polygon2d.DistanceSquared
+- uid: g3.Polygon2d.AverageEdgeLength*
+  commentId: Overload:g3.Polygon2d.AverageEdgeLength
+  name: AverageEdgeLength
+  nameWithType: Polygon2d.AverageEdgeLength
+  fullName: g3.Polygon2d.AverageEdgeLength
+- uid: g3.Polygon2d.Translate*
+  commentId: Overload:g3.Polygon2d.Translate
+  name: Translate
+  nameWithType: Polygon2d.Translate
+  fullName: g3.Polygon2d.Translate
+- uid: g3.Polygon2d.Rotate*
+  commentId: Overload:g3.Polygon2d.Rotate
+  name: Rotate
+  nameWithType: Polygon2d.Rotate
+  fullName: g3.Polygon2d.Rotate
+- uid: g3.Matrix2d
+  commentId: T:g3.Matrix2d
+  parent: g3
+  name: Matrix2d
+  nameWithType: Matrix2d
+  fullName: g3.Matrix2d
+- uid: g3.Polygon2d.Scale*
+  commentId: Overload:g3.Polygon2d.Scale
+  name: Scale
+  nameWithType: Polygon2d.Scale
+  fullName: g3.Polygon2d.Scale
+- uid: g3.Polygon2d.Transform*
+  commentId: Overload:g3.Polygon2d.Transform
+  name: Transform
+  nameWithType: Polygon2d.Transform
+  fullName: g3.Polygon2d.Transform
+- uid: System.Func{g3.Vector2d,g3.Vector2d}
+  commentId: T:System.Func{g3.Vector2d,g3.Vector2d}
+  parent: System
+  definition: System.Func`2
+  name: Func<Vector2d, Vector2d>
+  nameWithType: Func<Vector2d, Vector2d>
+  fullName: System.Func<g3.Vector2d, g3.Vector2d>
+  nameWithType.vb: Func(Of Vector2d, Vector2d)
+  fullName.vb: System.Func(Of g3.Vector2d, g3.Vector2d)
+  name.vb: Func(Of Vector2d, Vector2d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.Polygon2d.VtxNormalOffset*
+  commentId: Overload:g3.Polygon2d.VtxNormalOffset
+  name: VtxNormalOffset
+  nameWithType: Polygon2d.VtxNormalOffset
+  fullName: g3.Polygon2d.VtxNormalOffset
+- uid: g3.Polygon2d.PolyOffset*
+  commentId: Overload:g3.Polygon2d.PolyOffset
+  name: PolyOffset
+  nameWithType: Polygon2d.PolyOffset
+  fullName: g3.Polygon2d.PolyOffset
+- uid: g3.Polygon2d.Simplify*
+  commentId: Overload:g3.Polygon2d.Simplify
+  name: Simplify
+  nameWithType: Polygon2d.Simplify
+  fullName: g3.Polygon2d.Simplify
+- uid: g3.Polygon2d.Chamfer*
+  commentId: Overload:g3.Polygon2d.Chamfer
+  name: Chamfer
+  nameWithType: Polygon2d.Chamfer
+  fullName: g3.Polygon2d.Chamfer
+- uid: g3.Polygon2d.MinimalBoundingBox*
+  commentId: Overload:g3.Polygon2d.MinimalBoundingBox
+  name: MinimalBoundingBox
+  nameWithType: Polygon2d.MinimalBoundingBox
+  fullName: g3.Polygon2d.MinimalBoundingBox
+- uid: g3.Box2d
+  commentId: T:g3.Box2d
+  parent: g3
+  name: Box2d
+  nameWithType: Box2d
+  fullName: g3.Box2d
+- uid: g3.Polygon2d.MakeRectangle*
+  commentId: Overload:g3.Polygon2d.MakeRectangle
+  name: MakeRectangle
+  nameWithType: Polygon2d.MakeRectangle
+  fullName: g3.Polygon2d.MakeRectangle
+- uid: g3.Polygon2d.MakeCircle*
+  commentId: Overload:g3.Polygon2d.MakeCircle
+  name: MakeCircle
+  nameWithType: Polygon2d.MakeCircle
+  fullName: g3.Polygon2d.MakeCircle

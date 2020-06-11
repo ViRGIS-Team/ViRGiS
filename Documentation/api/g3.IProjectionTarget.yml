@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IProjectionTarget
+  commentId: T:g3.IProjectionTarget
+  id: IProjectionTarget
+  parent: g3
+  children:
+  - g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IProjectionTarget
+  nameWithType: IProjectionTarget
+  fullName: g3.IProjectionTarget
+  type: Interface
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SpatialInterfaces.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IProjectionTarget
+    path: ../Assets/geometry3Sharp/spatial/SpatialInterfaces.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public interface IProjectionTarget
+    content.vb: Public Interface IProjectionTarget
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+  commentId: M:g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+  id: Project(g3.Vector3d,System.Int32)
+  parent: g3.IProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector3d, Int32)
+  nameWithType: IProjectionTarget.Project(Vector3d, Int32)
+  fullName: g3.IProjectionTarget.Project(g3.Vector3d, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SpatialInterfaces.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/spatial/SpatialInterfaces.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: Vector3d Project(Vector3d vPoint, int identifier = -1)
+    parameters:
+    - id: vPoint
+      type: g3.Vector3d
+    - id: identifier
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Function Project(vPoint As Vector3d, identifier As Integer = -1) As Vector3d
+  overload: g3.IProjectionTarget.Project*
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IProjectionTarget.Project*
+  commentId: Overload:g3.IProjectionTarget.Project
+  name: Project
+  nameWithType: IProjectionTarget.Project
+  fullName: g3.IProjectionTarget.Project
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

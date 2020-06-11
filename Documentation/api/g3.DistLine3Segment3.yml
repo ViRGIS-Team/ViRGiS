@@ -1,0 +1,573 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DistLine3Segment3
+  commentId: T:g3.DistLine3Segment3
+  id: DistLine3Segment3
+  parent: g3
+  children:
+  - g3.DistLine3Segment3.#ctor(g3.Line3d,g3.Segment3d)
+  - g3.DistLine3Segment3.Compute
+  - g3.DistLine3Segment3.DistanceSquared
+  - g3.DistLine3Segment3.Get
+  - g3.DistLine3Segment3.GetSquared
+  - g3.DistLine3Segment3.Line
+  - g3.DistLine3Segment3.LineClosest
+  - g3.DistLine3Segment3.LineParameter
+  - g3.DistLine3Segment3.MinDistance(g3.Line3d,g3.Segment3d)
+  - g3.DistLine3Segment3.MinDistanceLineParam(g3.Line3d,g3.Segment3d)
+  - g3.DistLine3Segment3.Segment
+  - g3.DistLine3Segment3.SegmentClosest
+  - g3.DistLine3Segment3.SegmentParameter
+  langs:
+  - csharp
+  - vb
+  name: DistLine3Segment3
+  nameWithType: DistLine3Segment3
+  fullName: g3.DistLine3Segment3
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistLine3Segment3
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class DistLine3Segment3
+    content.vb: Public Class DistLine3Segment3
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DistLine3Segment3.Line
+  commentId: P:g3.DistLine3Segment3.Line
+  id: Line
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: DistLine3Segment3.Line
+  fullName: g3.DistLine3Segment3.Line
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Line
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Line3d Line { get; set; }
+    parameters: []
+    return:
+      type: g3.Line3d
+    content.vb: Public Property Line As Line3d
+  overload: g3.DistLine3Segment3.Line*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.Segment
+  commentId: P:g3.DistLine3Segment3.Segment
+  id: Segment
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: Segment
+  nameWithType: DistLine3Segment3.Segment
+  fullName: g3.DistLine3Segment3.Segment
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Segment
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Segment3d Segment { get; set; }
+    parameters: []
+    return:
+      type: g3.Segment3d
+    content.vb: Public Property Segment As Segment3d
+  overload: g3.DistLine3Segment3.Segment*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.DistanceSquared
+  commentId: F:g3.DistLine3Segment3.DistanceSquared
+  id: DistanceSquared
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared
+  nameWithType: DistLine3Segment3.DistanceSquared
+  fullName: g3.DistLine3Segment3.DistanceSquared
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared
+    return:
+      type: System.Double
+    content.vb: Public DistanceSquared As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.LineClosest
+  commentId: F:g3.DistLine3Segment3.LineClosest
+  id: LineClosest
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: LineClosest
+  nameWithType: DistLine3Segment3.LineClosest
+  fullName: g3.DistLine3Segment3.LineClosest
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineClosest
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d LineClosest
+    return:
+      type: g3.Vector3d
+    content.vb: Public LineClosest As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.LineParameter
+  commentId: F:g3.DistLine3Segment3.LineParameter
+  id: LineParameter
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: LineParameter
+  nameWithType: DistLine3Segment3.LineParameter
+  fullName: g3.DistLine3Segment3.LineParameter
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineParameter
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double LineParameter
+    return:
+      type: System.Double
+    content.vb: Public LineParameter As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.SegmentClosest
+  commentId: F:g3.DistLine3Segment3.SegmentClosest
+  id: SegmentClosest
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: SegmentClosest
+  nameWithType: DistLine3Segment3.SegmentClosest
+  fullName: g3.DistLine3Segment3.SegmentClosest
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentClosest
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d SegmentClosest
+    return:
+      type: g3.Vector3d
+    content.vb: Public SegmentClosest As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.SegmentParameter
+  commentId: F:g3.DistLine3Segment3.SegmentParameter
+  id: SegmentParameter
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: SegmentParameter
+  nameWithType: DistLine3Segment3.SegmentParameter
+  fullName: g3.DistLine3Segment3.SegmentParameter
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentParameter
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SegmentParameter
+    return:
+      type: System.Double
+    content.vb: Public SegmentParameter As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.#ctor(g3.Line3d,g3.Segment3d)
+  commentId: M:g3.DistLine3Segment3.#ctor(g3.Line3d,g3.Segment3d)
+  id: '#ctor(g3.Line3d,g3.Segment3d)'
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: DistLine3Segment3(Line3d, Segment3d)
+  nameWithType: DistLine3Segment3.DistLine3Segment3(Line3d, Segment3d)
+  fullName: g3.DistLine3Segment3.DistLine3Segment3(g3.Line3d, g3.Segment3d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DistLine3Segment3(Line3d LineIn, Segment3d SegmentIn)
+    parameters:
+    - id: LineIn
+      type: g3.Line3d
+    - id: SegmentIn
+      type: g3.Segment3d
+    content.vb: Public Sub New(LineIn As Line3d, SegmentIn As Segment3d)
+  overload: g3.DistLine3Segment3.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.MinDistance(g3.Line3d,g3.Segment3d)
+  commentId: M:g3.DistLine3Segment3.MinDistance(g3.Line3d,g3.Segment3d)
+  id: MinDistance(g3.Line3d,g3.Segment3d)
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: MinDistance(Line3d, Segment3d)
+  nameWithType: DistLine3Segment3.MinDistance(Line3d, Segment3d)
+  fullName: g3.DistLine3Segment3.MinDistance(g3.Line3d, g3.Segment3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinDistance
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double MinDistance(Line3d line, Segment3d segment)
+    parameters:
+    - id: line
+      type: g3.Line3d
+    - id: segment
+      type: g3.Segment3d
+    return:
+      type: System.Double
+    content.vb: Public Shared Function MinDistance(line As Line3d, segment As Segment3d) As Double
+  overload: g3.DistLine3Segment3.MinDistance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.DistLine3Segment3.MinDistanceLineParam(g3.Line3d,g3.Segment3d)
+  commentId: M:g3.DistLine3Segment3.MinDistanceLineParam(g3.Line3d,g3.Segment3d)
+  id: MinDistanceLineParam(g3.Line3d,g3.Segment3d)
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: MinDistanceLineParam(Line3d, Segment3d)
+  nameWithType: DistLine3Segment3.MinDistanceLineParam(Line3d, Segment3d)
+  fullName: g3.DistLine3Segment3.MinDistanceLineParam(g3.Line3d, g3.Segment3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinDistanceLineParam
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 43
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double MinDistanceLineParam(Line3d line, Segment3d segment)
+    parameters:
+    - id: line
+      type: g3.Line3d
+    - id: segment
+      type: g3.Segment3d
+    return:
+      type: System.Double
+    content.vb: Public Shared Function MinDistanceLineParam(line As Line3d, segment As Segment3d) As Double
+  overload: g3.DistLine3Segment3.MinDistanceLineParam*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.DistLine3Segment3.Compute
+  commentId: M:g3.DistLine3Segment3.Compute
+  id: Compute
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: DistLine3Segment3.Compute()
+  fullName: g3.DistLine3Segment3.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DistLine3Segment3 Compute()
+    return:
+      type: g3.DistLine3Segment3
+    content.vb: Public Function Compute As DistLine3Segment3
+  overload: g3.DistLine3Segment3.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.Get
+  commentId: M:g3.DistLine3Segment3.Get
+  id: Get
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: Get()
+  nameWithType: DistLine3Segment3.Get()
+  fullName: g3.DistLine3Segment3.Get()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Get
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Get()
+    return:
+      type: System.Double
+    content.vb: Public Function Get As Double
+  overload: g3.DistLine3Segment3.Get*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DistLine3Segment3.GetSquared
+  commentId: M:g3.DistLine3Segment3.GetSquared
+  id: GetSquared
+  parent: g3.DistLine3Segment3
+  langs:
+  - csharp
+  - vb
+  name: GetSquared()
+  nameWithType: DistLine3Segment3.GetSquared()
+  fullName: g3.DistLine3Segment3.GetSquared()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetSquared
+    path: ../Assets/geometry3Sharp/distance/DistLine3Segment3.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetSquared()
+    return:
+      type: System.Double
+    content.vb: Public Function GetSquared As Double
+  overload: g3.DistLine3Segment3.GetSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DistLine3Segment3.Line*
+  commentId: Overload:g3.DistLine3Segment3.Line
+  name: Line
+  nameWithType: DistLine3Segment3.Line
+  fullName: g3.DistLine3Segment3.Line
+- uid: g3.Line3d
+  commentId: T:g3.Line3d
+  parent: g3
+  name: Line3d
+  nameWithType: Line3d
+  fullName: g3.Line3d
+- uid: g3.DistLine3Segment3.Segment*
+  commentId: Overload:g3.DistLine3Segment3.Segment
+  name: Segment
+  nameWithType: DistLine3Segment3.Segment
+  fullName: g3.DistLine3Segment3.Segment
+- uid: g3.Segment3d
+  commentId: T:g3.Segment3d
+  parent: g3
+  name: Segment3d
+  nameWithType: Segment3d
+  fullName: g3.Segment3d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.DistLine3Segment3.#ctor*
+  commentId: Overload:g3.DistLine3Segment3.#ctor
+  name: DistLine3Segment3
+  nameWithType: DistLine3Segment3.DistLine3Segment3
+  fullName: g3.DistLine3Segment3.DistLine3Segment3
+- uid: g3.DistLine3Segment3.MinDistance*
+  commentId: Overload:g3.DistLine3Segment3.MinDistance
+  name: MinDistance
+  nameWithType: DistLine3Segment3.MinDistance
+  fullName: g3.DistLine3Segment3.MinDistance
+- uid: g3.DistLine3Segment3.MinDistanceLineParam*
+  commentId: Overload:g3.DistLine3Segment3.MinDistanceLineParam
+  name: MinDistanceLineParam
+  nameWithType: DistLine3Segment3.MinDistanceLineParam
+  fullName: g3.DistLine3Segment3.MinDistanceLineParam
+- uid: g3.DistLine3Segment3.Compute*
+  commentId: Overload:g3.DistLine3Segment3.Compute
+  name: Compute
+  nameWithType: DistLine3Segment3.Compute
+  fullName: g3.DistLine3Segment3.Compute
+- uid: g3.DistLine3Segment3
+  commentId: T:g3.DistLine3Segment3
+  parent: g3
+  name: DistLine3Segment3
+  nameWithType: DistLine3Segment3
+  fullName: g3.DistLine3Segment3
+- uid: g3.DistLine3Segment3.Get*
+  commentId: Overload:g3.DistLine3Segment3.Get
+  name: Get
+  nameWithType: DistLine3Segment3.Get
+  fullName: g3.DistLine3Segment3.Get
+- uid: g3.DistLine3Segment3.GetSquared*
+  commentId: Overload:g3.DistLine3Segment3.GetSquared
+  name: GetSquared
+  nameWithType: DistLine3Segment3.GetSquared
+  fullName: g3.DistLine3Segment3.GetSquared

@@ -1,0 +1,2206 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.BufferUtil
+  commentId: T:g3.BufferUtil
+  id: BufferUtil
+  parent: g3
+  children:
+  - g3.BufferUtil.AllocNxM(System.Int32,System.Int32)
+  - g3.BufferUtil.CompressZLib(System.Byte[],System.Boolean)
+  - g3.BufferUtil.CountValid``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  - g3.BufferUtil.DecompressZLib(System.Byte[])
+  - g3.BufferUtil.DistanceSquared(System.Double[],System.Double[])
+  - g3.BufferUtil.Dot(System.Double[],System.Double[])
+  - g3.BufferUtil.Filter``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  - g3.BufferUtil.FilterInPlace``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  - g3.BufferUtil.InitNxM(System.Int32,System.Int32,System.Double[][])
+  - g3.BufferUtil.MultiplyAdd(System.Double[],System.Double,System.Double[])
+  - g3.BufferUtil.MultiplyAdd(System.Double[],System.Double[],System.Double[])
+  - g3.BufferUtil.MultiplyAdd_GetSqrSum(System.Double[],System.Double,System.Double[])
+  - g3.BufferUtil.ParallelDot(System.Double[],System.Double[][],System.Double[][])
+  - g3.BufferUtil.SetTriangle(System.Int32[],System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.BufferUtil.SetVertex2(System.Double[],System.Int32,System.Double,System.Double)
+  - g3.BufferUtil.SetVertex2(System.Single[],System.Int32,System.Single,System.Single)
+  - g3.BufferUtil.SetVertex3(System.Double[],System.Int32,System.Double,System.Double,System.Double)
+  - g3.BufferUtil.SetVertex3(System.Single[],System.Int32,System.Single,System.Single,System.Single)
+  - g3.BufferUtil.ToBytes(System.Double[])
+  - g3.BufferUtil.ToBytes(System.Int16[])
+  - g3.BufferUtil.ToBytes(System.Int32[])
+  - g3.BufferUtil.ToBytes(System.Single[])
+  - g3.BufferUtil.ToDouble(System.Byte[])
+  - g3.BufferUtil.ToFloat(System.Byte[])
+  - g3.BufferUtil.ToIndex3i``1(System.Collections.Generic.IEnumerable{``0})
+  - g3.BufferUtil.ToIndexArray4i(System.Byte[])
+  - g3.BufferUtil.ToInt(System.Byte[])
+  - g3.BufferUtil.ToShort(System.Byte[])
+  - g3.BufferUtil.ToVector3d``1(System.Collections.Generic.IEnumerable{``0})
+  - g3.BufferUtil.ToVector3f``1(System.Collections.Generic.IEnumerable{``0})
+  - g3.BufferUtil.ToVectorArray2f(System.Byte[])
+  - g3.BufferUtil.ToVectorArray3d(System.Byte[])
+  - g3.BufferUtil.ToVectorArray3f(System.Byte[])
+  - g3.BufferUtil.ToVectorArray3i(System.Byte[])
+  langs:
+  - csharp
+  - vb
+  name: BufferUtil
+  nameWithType: BufferUtil
+  fullName: g3.BufferUtil
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BufferUtil
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class BufferUtil
+    content.vb: Public Class BufferUtil
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.BufferUtil.SetVertex3(System.Double[],System.Int32,System.Double,System.Double,System.Double)
+  commentId: M:g3.BufferUtil.SetVertex3(System.Double[],System.Int32,System.Double,System.Double,System.Double)
+  id: SetVertex3(System.Double[],System.Int32,System.Double,System.Double,System.Double)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: SetVertex3(Double[], Int32, Double, Double, Double)
+  nameWithType: BufferUtil.SetVertex3(Double[], Int32, Double, Double, Double)
+  fullName: g3.BufferUtil.SetVertex3(System.Double[], System.Int32, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertex3
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetVertex3(double[] v, int i, double x, double y, double z)
+    parameters:
+    - id: v
+      type: System.Double[]
+    - id: i
+      type: System.Int32
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    - id: z
+      type: System.Double
+    content.vb: Public Shared Sub SetVertex3(v As Double(), i As Integer, x As Double, y As Double, z As Double)
+  overload: g3.BufferUtil.SetVertex3*
+  nameWithType.vb: BufferUtil.SetVertex3(Double(), Int32, Double, Double, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.SetVertex3(System.Double(), System.Int32, System.Double, System.Double, System.Double)
+  name.vb: SetVertex3(Double(), Int32, Double, Double, Double)
+- uid: g3.BufferUtil.SetVertex3(System.Single[],System.Int32,System.Single,System.Single,System.Single)
+  commentId: M:g3.BufferUtil.SetVertex3(System.Single[],System.Int32,System.Single,System.Single,System.Single)
+  id: SetVertex3(System.Single[],System.Int32,System.Single,System.Single,System.Single)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: SetVertex3(Single[], Int32, Single, Single, Single)
+  nameWithType: BufferUtil.SetVertex3(Single[], Int32, Single, Single, Single)
+  fullName: g3.BufferUtil.SetVertex3(System.Single[], System.Int32, System.Single, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertex3
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetVertex3(float[] v, int i, float x, float y, float z)
+    parameters:
+    - id: v
+      type: System.Single[]
+    - id: i
+      type: System.Int32
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    - id: z
+      type: System.Single
+    content.vb: Public Shared Sub SetVertex3(v As Single(), i As Integer, x As Single, y As Single, z As Single)
+  overload: g3.BufferUtil.SetVertex3*
+  nameWithType.vb: BufferUtil.SetVertex3(Single(), Int32, Single, Single, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.SetVertex3(System.Single(), System.Int32, System.Single, System.Single, System.Single)
+  name.vb: SetVertex3(Single(), Int32, Single, Single, Single)
+- uid: g3.BufferUtil.SetVertex2(System.Double[],System.Int32,System.Double,System.Double)
+  commentId: M:g3.BufferUtil.SetVertex2(System.Double[],System.Int32,System.Double,System.Double)
+  id: SetVertex2(System.Double[],System.Int32,System.Double,System.Double)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: SetVertex2(Double[], Int32, Double, Double)
+  nameWithType: BufferUtil.SetVertex2(Double[], Int32, Double, Double)
+  fullName: g3.BufferUtil.SetVertex2(System.Double[], System.Int32, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertex2
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetVertex2(double[] v, int i, double x, double y)
+    parameters:
+    - id: v
+      type: System.Double[]
+    - id: i
+      type: System.Int32
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    content.vb: Public Shared Sub SetVertex2(v As Double(), i As Integer, x As Double, y As Double)
+  overload: g3.BufferUtil.SetVertex2*
+  nameWithType.vb: BufferUtil.SetVertex2(Double(), Int32, Double, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.SetVertex2(System.Double(), System.Int32, System.Double, System.Double)
+  name.vb: SetVertex2(Double(), Int32, Double, Double)
+- uid: g3.BufferUtil.SetVertex2(System.Single[],System.Int32,System.Single,System.Single)
+  commentId: M:g3.BufferUtil.SetVertex2(System.Single[],System.Int32,System.Single,System.Single)
+  id: SetVertex2(System.Single[],System.Int32,System.Single,System.Single)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: SetVertex2(Single[], Int32, Single, Single)
+  nameWithType: BufferUtil.SetVertex2(Single[], Int32, Single, Single)
+  fullName: g3.BufferUtil.SetVertex2(System.Single[], System.Int32, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVertex2
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetVertex2(float[] v, int i, float x, float y)
+    parameters:
+    - id: v
+      type: System.Single[]
+    - id: i
+      type: System.Int32
+    - id: x
+      type: System.Single
+    - id: y
+      type: System.Single
+    content.vb: Public Shared Sub SetVertex2(v As Single(), i As Integer, x As Single, y As Single)
+  overload: g3.BufferUtil.SetVertex2*
+  nameWithType.vb: BufferUtil.SetVertex2(Single(), Int32, Single, Single)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.SetVertex2(System.Single(), System.Int32, System.Single, System.Single)
+  name.vb: SetVertex2(Single(), Int32, Single, Single)
+- uid: g3.BufferUtil.SetTriangle(System.Int32[],System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.BufferUtil.SetTriangle(System.Int32[],System.Int32,System.Int32,System.Int32,System.Int32)
+  id: SetTriangle(System.Int32[],System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: SetTriangle(Int32[], Int32, Int32, Int32, Int32)
+  nameWithType: BufferUtil.SetTriangle(Int32[], Int32, Int32, Int32, Int32)
+  fullName: g3.BufferUtil.SetTriangle(System.Int32[], System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetTriangle
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetTriangle(int[] v, int i, int a, int b, int c)
+    parameters:
+    - id: v
+      type: System.Int32[]
+    - id: i
+      type: System.Int32
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    - id: c
+      type: System.Int32
+    content.vb: Public Shared Sub SetTriangle(v As Integer(), i As Integer, a As Integer, b As Integer, c As Integer)
+  overload: g3.BufferUtil.SetTriangle*
+  nameWithType.vb: BufferUtil.SetTriangle(Int32(), Int32, Int32, Int32, Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.SetTriangle(System.Int32(), System.Int32, System.Int32, System.Int32, System.Int32)
+  name.vb: SetTriangle(Int32(), Int32, Int32, Int32, Int32)
+- uid: g3.BufferUtil.Dot(System.Double[],System.Double[])
+  commentId: M:g3.BufferUtil.Dot(System.Double[],System.Double[])
+  id: Dot(System.Double[],System.Double[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: Dot(Double[], Double[])
+  nameWithType: BufferUtil.Dot(Double[], Double[])
+  fullName: g3.BufferUtil.Dot(System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dot
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double Dot(double[] a, double[] b)
+    parameters:
+    - id: a
+      type: System.Double[]
+    - id: b
+      type: System.Double[]
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Dot(a As Double(), b As Double()) As Double
+  overload: g3.BufferUtil.Dot*
+  nameWithType.vb: BufferUtil.Dot(Double(), Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.Dot(System.Double(), System.Double())
+  name.vb: Dot(Double(), Double())
+- uid: g3.BufferUtil.MultiplyAdd(System.Double[],System.Double,System.Double[])
+  commentId: M:g3.BufferUtil.MultiplyAdd(System.Double[],System.Double,System.Double[])
+  id: MultiplyAdd(System.Double[],System.Double,System.Double[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: MultiplyAdd(Double[], Double, Double[])
+  nameWithType: BufferUtil.MultiplyAdd(Double[], Double, Double[])
+  fullName: g3.BufferUtil.MultiplyAdd(System.Double[], System.Double, System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MultiplyAdd
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void MultiplyAdd(double[] dest, double multiply, double[] add)
+    parameters:
+    - id: dest
+      type: System.Double[]
+    - id: multiply
+      type: System.Double
+    - id: add
+      type: System.Double[]
+    content.vb: Public Shared Sub MultiplyAdd(dest As Double(), multiply As Double, add As Double())
+  overload: g3.BufferUtil.MultiplyAdd*
+  nameWithType.vb: BufferUtil.MultiplyAdd(Double(), Double, Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.MultiplyAdd(System.Double(), System.Double, System.Double())
+  name.vb: MultiplyAdd(Double(), Double, Double())
+- uid: g3.BufferUtil.MultiplyAdd(System.Double[],System.Double[],System.Double[])
+  commentId: M:g3.BufferUtil.MultiplyAdd(System.Double[],System.Double[],System.Double[])
+  id: MultiplyAdd(System.Double[],System.Double[],System.Double[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: MultiplyAdd(Double[], Double[], Double[])
+  nameWithType: BufferUtil.MultiplyAdd(Double[], Double[], Double[])
+  fullName: g3.BufferUtil.MultiplyAdd(System.Double[], System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MultiplyAdd
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void MultiplyAdd(double[] dest, double[] multiply, double[] add)
+    parameters:
+    - id: dest
+      type: System.Double[]
+    - id: multiply
+      type: System.Double[]
+    - id: add
+      type: System.Double[]
+    content.vb: Public Shared Sub MultiplyAdd(dest As Double(), multiply As Double(), add As Double())
+  overload: g3.BufferUtil.MultiplyAdd*
+  nameWithType.vb: BufferUtil.MultiplyAdd(Double(), Double(), Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.MultiplyAdd(System.Double(), System.Double(), System.Double())
+  name.vb: MultiplyAdd(Double(), Double(), Double())
+- uid: g3.BufferUtil.MultiplyAdd_GetSqrSum(System.Double[],System.Double,System.Double[])
+  commentId: M:g3.BufferUtil.MultiplyAdd_GetSqrSum(System.Double[],System.Double,System.Double[])
+  id: MultiplyAdd_GetSqrSum(System.Double[],System.Double,System.Double[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: MultiplyAdd_GetSqrSum(Double[], Double, Double[])
+  nameWithType: BufferUtil.MultiplyAdd_GetSqrSum(Double[], Double, Double[])
+  fullName: g3.BufferUtil.MultiplyAdd_GetSqrSum(System.Double[], System.Double, System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MultiplyAdd_GetSqrSum
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 69
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double MultiplyAdd_GetSqrSum(double[] dest, double multiply, double[] add)
+    parameters:
+    - id: dest
+      type: System.Double[]
+    - id: multiply
+      type: System.Double
+    - id: add
+      type: System.Double[]
+    return:
+      type: System.Double
+    content.vb: Public Shared Function MultiplyAdd_GetSqrSum(dest As Double(), multiply As Double, add As Double()) As Double
+  overload: g3.BufferUtil.MultiplyAdd_GetSqrSum*
+  nameWithType.vb: BufferUtil.MultiplyAdd_GetSqrSum(Double(), Double, Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.MultiplyAdd_GetSqrSum(System.Double(), System.Double, System.Double())
+  name.vb: MultiplyAdd_GetSqrSum(Double(), Double, Double())
+- uid: g3.BufferUtil.DistanceSquared(System.Double[],System.Double[])
+  commentId: M:g3.BufferUtil.DistanceSquared(System.Double[],System.Double[])
+  id: DistanceSquared(System.Double[],System.Double[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Double[], Double[])
+  nameWithType: BufferUtil.DistanceSquared(Double[], Double[])
+  fullName: g3.BufferUtil.DistanceSquared(System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 79
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double DistanceSquared(double[] a, double[] b)
+    parameters:
+    - id: a
+      type: System.Double[]
+    - id: b
+      type: System.Double[]
+    return:
+      type: System.Double
+    content.vb: Public Shared Function DistanceSquared(a As Double(), b As Double()) As Double
+  overload: g3.BufferUtil.DistanceSquared*
+  nameWithType.vb: BufferUtil.DistanceSquared(Double(), Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.DistanceSquared(System.Double(), System.Double())
+  name.vb: DistanceSquared(Double(), Double())
+- uid: g3.BufferUtil.ParallelDot(System.Double[],System.Double[][],System.Double[][])
+  commentId: M:g3.BufferUtil.ParallelDot(System.Double[],System.Double[][],System.Double[][])
+  id: ParallelDot(System.Double[],System.Double[][],System.Double[][])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ParallelDot(Double[], Double[][], Double[][])
+  nameWithType: BufferUtil.ParallelDot(Double[], Double[][], Double[][])
+  fullName: g3.BufferUtil.ParallelDot(System.Double[], System.Double[][], System.Double[][])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParallelDot
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ParallelDot(double[] a, double[][] b, double[][] result)
+    parameters:
+    - id: a
+      type: System.Double[]
+    - id: b
+      type: System.Double[][]
+    - id: result
+      type: System.Double[][]
+    content.vb: Public Shared Sub ParallelDot(a As Double(), b As Double()(), result As Double()())
+  overload: g3.BufferUtil.ParallelDot*
+  nameWithType.vb: BufferUtil.ParallelDot(Double(), Double()(), Double()())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ParallelDot(System.Double(), System.Double()(), System.Double()())
+  name.vb: ParallelDot(Double(), Double()(), Double()())
+- uid: g3.BufferUtil.AllocNxM(System.Int32,System.Int32)
+  commentId: M:g3.BufferUtil.AllocNxM(System.Int32,System.Int32)
+  id: AllocNxM(System.Int32,System.Int32)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: AllocNxM(Int32, Int32)
+  nameWithType: BufferUtil.AllocNxM(Int32, Int32)
+  fullName: g3.BufferUtil.AllocNxM(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllocNxM
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 101
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double[][] AllocNxM(int N, int M)
+    parameters:
+    - id: N
+      type: System.Int32
+    - id: M
+      type: System.Int32
+    return:
+      type: System.Double[][]
+    content.vb: Public Shared Function AllocNxM(N As Integer, M As Integer) As Double()()
+  overload: g3.BufferUtil.AllocNxM*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.BufferUtil.InitNxM(System.Int32,System.Int32,System.Double[][])
+  commentId: M:g3.BufferUtil.InitNxM(System.Int32,System.Int32,System.Double[][])
+  id: InitNxM(System.Int32,System.Int32,System.Double[][])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: InitNxM(Int32, Int32, Double[][])
+  nameWithType: BufferUtil.InitNxM(Int32, Int32, Double[][])
+  fullName: g3.BufferUtil.InitNxM(System.Int32, System.Int32, System.Double[][])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InitNxM
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 109
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double[][] InitNxM(int N, int M, double[][] init)
+    parameters:
+    - id: N
+      type: System.Int32
+    - id: M
+      type: System.Int32
+    - id: init
+      type: System.Double[][]
+    return:
+      type: System.Double[][]
+    content.vb: Public Shared Function InitNxM(N As Integer, M As Integer, init As Double()()) As Double()()
+  overload: g3.BufferUtil.InitNxM*
+  nameWithType.vb: BufferUtil.InitNxM(Int32, Int32, Double()())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.InitNxM(System.Int32, System.Int32, System.Double()())
+  name.vb: InitNxM(Int32, Int32, Double()())
+- uid: g3.BufferUtil.CountValid``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  commentId: M:g3.BufferUtil.CountValid``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  id: CountValid``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: CountValid<T>(T[], Func<T, Boolean>, Int32)
+  nameWithType: BufferUtil.CountValid<T>(T[], Func<T, Boolean>, Int32)
+  fullName: g3.BufferUtil.CountValid<T>(T[], System.Func<T, System.Boolean>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CountValid
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCount number of elements in array (or up to max_i) that pass FilterF test\n"
+  example: []
+  syntax:
+    content: public static int CountValid<T>(T[] data, Func<T, bool> FilterF, int max_i = -1)
+    parameters:
+    - id: data
+      type: '{T}[]'
+    - id: FilterF
+      type: System.Func{{T},System.Boolean}
+    - id: max_i
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function CountValid(Of T)(data As T(), FilterF As Func(Of T, Boolean), max_i As Integer = -1) As Integer
+  overload: g3.BufferUtil.CountValid*
+  nameWithType.vb: BufferUtil.CountValid(Of T)(T(), Func(Of T, Boolean), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.CountValid(Of T)(T(), System.Func(Of T, System.Boolean), System.Int32)
+  name.vb: CountValid(Of T)(T(), Func(Of T, Boolean), Int32)
+- uid: g3.BufferUtil.FilterInPlace``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  commentId: M:g3.BufferUtil.FilterInPlace``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  id: FilterInPlace``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: FilterInPlace<T>(T[], Func<T, Boolean>, Int32)
+  nameWithType: BufferUtil.FilterInPlace<T>(T[], Func<T, Boolean>, Int32)
+  fullName: g3.BufferUtil.FilterInPlace<T>(T[], System.Func<T, System.Boolean>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FilterInPlace
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nshifts elements of array (or up to max_i) that pass FilterF to front of list,\nand returns number that passed\n"
+  example: []
+  syntax:
+    content: public static int FilterInPlace<T>(T[] data, Func<T, bool> FilterF, int max_i = -1)
+    parameters:
+    - id: data
+      type: '{T}[]'
+    - id: FilterF
+      type: System.Func{{T},System.Boolean}
+    - id: max_i
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function FilterInPlace(Of T)(data As T(), FilterF As Func(Of T, Boolean), max_i As Integer = -1) As Integer
+  overload: g3.BufferUtil.FilterInPlace*
+  nameWithType.vb: BufferUtil.FilterInPlace(Of T)(T(), Func(Of T, Boolean), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.FilterInPlace(Of T)(T(), System.Func(Of T, System.Boolean), System.Int32)
+  name.vb: FilterInPlace(Of T)(T(), Func(Of T, Boolean), Int32)
+- uid: g3.BufferUtil.Filter``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  commentId: M:g3.BufferUtil.Filter``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  id: Filter``1(``0[],System.Func{``0,System.Boolean},System.Int32)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: Filter<T>(T[], Func<T, Boolean>, Int32)
+  nameWithType: BufferUtil.Filter<T>(T[], Func<T, Boolean>, Int32)
+  fullName: g3.BufferUtil.Filter<T>(T[], System.Func<T, System.Boolean>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Filter
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 148
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nreturn a new array containing only elements (or up to max_i) that pass FilterF test\n"
+  example: []
+  syntax:
+    content: public static T[] Filter<T>(T[] data, Func<T, bool> FilterF, int max_i = -1)
+    parameters:
+    - id: data
+      type: '{T}[]'
+    - id: FilterF
+      type: System.Func{{T},System.Boolean}
+    - id: max_i
+      type: System.Int32
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}[]'
+    content.vb: Public Shared Function Filter(Of T)(data As T(), FilterF As Func(Of T, Boolean), max_i As Integer = -1) As T()
+  overload: g3.BufferUtil.Filter*
+  nameWithType.vb: BufferUtil.Filter(Of T)(T(), Func(Of T, Boolean), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.Filter(Of T)(T(), System.Func(Of T, System.Boolean), System.Int32)
+  name.vb: Filter(Of T)(T(), Func(Of T, Boolean), Int32)
+- uid: g3.BufferUtil.ToVector3d``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:g3.BufferUtil.ToVector3d``1(System.Collections.Generic.IEnumerable{``0})
+  id: ToVector3d``1(System.Collections.Generic.IEnumerable{``0})
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToVector3d<T>(IEnumerable<T>)
+  nameWithType: BufferUtil.ToVector3d<T>(IEnumerable<T>)
+  fullName: g3.BufferUtil.ToVector3d<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToVector3d
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 169
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert input set into Vector3d.\nSupports packed list of float/double tuples, list of Vector3f/Vector3d\n"
+  example: []
+  syntax:
+    content: public static Vector3d[] ToVector3d<T>(IEnumerable<T> values)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: g3.Vector3d[]
+    content.vb: Public Shared Function ToVector3d(Of T)(values As IEnumerable(Of T)) As Vector3d()
+  overload: g3.BufferUtil.ToVector3d*
+  nameWithType.vb: BufferUtil.ToVector3d(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToVector3d(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: ToVector3d(Of T)(IEnumerable(Of T))
+- uid: g3.BufferUtil.ToVector3f``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:g3.BufferUtil.ToVector3f``1(System.Collections.Generic.IEnumerable{``0})
+  id: ToVector3f``1(System.Collections.Generic.IEnumerable{``0})
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToVector3f<T>(IEnumerable<T>)
+  nameWithType: BufferUtil.ToVector3f<T>(IEnumerable<T>)
+  fullName: g3.BufferUtil.ToVector3f<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToVector3f
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 220
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert input set into Vector3f.\nSupports packed list of float/double tuples, list of Vector3f/Vector3d\n"
+  example: []
+  syntax:
+    content: public static Vector3f[] ToVector3f<T>(IEnumerable<T> values)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: g3.Vector3f[]
+    content.vb: Public Shared Function ToVector3f(Of T)(values As IEnumerable(Of T)) As Vector3f()
+  overload: g3.BufferUtil.ToVector3f*
+  nameWithType.vb: BufferUtil.ToVector3f(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToVector3f(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: ToVector3f(Of T)(IEnumerable(Of T))
+- uid: g3.BufferUtil.ToIndex3i``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:g3.BufferUtil.ToIndex3i``1(System.Collections.Generic.IEnumerable{``0})
+  id: ToIndex3i``1(System.Collections.Generic.IEnumerable{``0})
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToIndex3i<T>(IEnumerable<T>)
+  nameWithType: BufferUtil.ToIndex3i<T>(IEnumerable<T>)
+  fullName: g3.BufferUtil.ToIndex3i<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToIndex3i
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 272
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert input set into Index3i.\nSupports packed list of int tuples, list of Vector3i/Index3i\n"
+  example: []
+  syntax:
+    content: public static Index3i[] ToIndex3i<T>(IEnumerable<T> values)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: g3.Index3i[]
+    content.vb: Public Shared Function ToIndex3i(Of T)(values As IEnumerable(Of T)) As Index3i()
+  overload: g3.BufferUtil.ToIndex3i*
+  nameWithType.vb: BufferUtil.ToIndex3i(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToIndex3i(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: ToIndex3i(Of T)(IEnumerable(Of T))
+- uid: g3.BufferUtil.ToInt(System.Byte[])
+  commentId: M:g3.BufferUtil.ToInt(System.Byte[])
+  id: ToInt(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToInt(Byte[])
+  nameWithType: BufferUtil.ToInt(Byte[])
+  fullName: g3.BufferUtil.ToInt(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToInt
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 312
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to int array\n"
+  example: []
+  syntax:
+    content: public static int[] ToInt(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: System.Int32[]
+    content.vb: Public Shared Function ToInt(buffer As Byte()) As Integer()
+  overload: g3.BufferUtil.ToInt*
+  nameWithType.vb: BufferUtil.ToInt(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToInt(System.Byte())
+  name.vb: ToInt(Byte())
+- uid: g3.BufferUtil.ToShort(System.Byte[])
+  commentId: M:g3.BufferUtil.ToShort(System.Byte[])
+  id: ToShort(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToShort(Byte[])
+  nameWithType: BufferUtil.ToShort(Byte[])
+  fullName: g3.BufferUtil.ToShort(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToShort
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 327
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to short array\n"
+  example: []
+  syntax:
+    content: public static short[] ToShort(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: System.Int16[]
+    content.vb: Public Shared Function ToShort(buffer As Byte()) As Short()
+  overload: g3.BufferUtil.ToShort*
+  nameWithType.vb: BufferUtil.ToShort(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToShort(System.Byte())
+  name.vb: ToShort(Byte())
+- uid: g3.BufferUtil.ToDouble(System.Byte[])
+  commentId: M:g3.BufferUtil.ToDouble(System.Byte[])
+  id: ToDouble(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToDouble(Byte[])
+  nameWithType: BufferUtil.ToDouble(Byte[])
+  fullName: g3.BufferUtil.ToDouble(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToDouble
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 342
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to double array\n"
+  example: []
+  syntax:
+    content: public static double[] ToDouble(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: System.Double[]
+    content.vb: Public Shared Function ToDouble(buffer As Byte()) As Double()
+  overload: g3.BufferUtil.ToDouble*
+  nameWithType.vb: BufferUtil.ToDouble(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToDouble(System.Byte())
+  name.vb: ToDouble(Byte())
+- uid: g3.BufferUtil.ToFloat(System.Byte[])
+  commentId: M:g3.BufferUtil.ToFloat(System.Byte[])
+  id: ToFloat(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToFloat(Byte[])
+  nameWithType: BufferUtil.ToFloat(Byte[])
+  fullName: g3.BufferUtil.ToFloat(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToFloat
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 357
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to float array\n"
+  example: []
+  syntax:
+    content: public static float[] ToFloat(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: System.Single[]
+    content.vb: Public Shared Function ToFloat(buffer As Byte()) As Single()
+  overload: g3.BufferUtil.ToFloat*
+  nameWithType.vb: BufferUtil.ToFloat(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToFloat(System.Byte())
+  name.vb: ToFloat(Byte())
+- uid: g3.BufferUtil.ToVectorArray3d(System.Byte[])
+  commentId: M:g3.BufferUtil.ToVectorArray3d(System.Byte[])
+  id: ToVectorArray3d(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToVectorArray3d(Byte[])
+  nameWithType: BufferUtil.ToVectorArray3d(Byte[])
+  fullName: g3.BufferUtil.ToVectorArray3d(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToVectorArray3d
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 372
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to VectorArray3d\n"
+  example: []
+  syntax:
+    content: public static VectorArray3d ToVectorArray3d(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: g3.VectorArray3d
+    content.vb: Public Shared Function ToVectorArray3d(buffer As Byte()) As VectorArray3d
+  overload: g3.BufferUtil.ToVectorArray3d*
+  nameWithType.vb: BufferUtil.ToVectorArray3d(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToVectorArray3d(System.Byte())
+  name.vb: ToVectorArray3d(Byte())
+- uid: g3.BufferUtil.ToVectorArray2f(System.Byte[])
+  commentId: M:g3.BufferUtil.ToVectorArray2f(System.Byte[])
+  id: ToVectorArray2f(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToVectorArray2f(Byte[])
+  nameWithType: BufferUtil.ToVectorArray2f(Byte[])
+  fullName: g3.BufferUtil.ToVectorArray2f(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToVectorArray2f
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 392
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to VectorArray2f\n"
+  example: []
+  syntax:
+    content: public static VectorArray2f ToVectorArray2f(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: g3.VectorArray2f
+    content.vb: Public Shared Function ToVectorArray2f(buffer As Byte()) As VectorArray2f
+  overload: g3.BufferUtil.ToVectorArray2f*
+  nameWithType.vb: BufferUtil.ToVectorArray2f(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToVectorArray2f(System.Byte())
+  name.vb: ToVectorArray2f(Byte())
+- uid: g3.BufferUtil.ToVectorArray3f(System.Byte[])
+  commentId: M:g3.BufferUtil.ToVectorArray3f(System.Byte[])
+  id: ToVectorArray3f(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToVectorArray3f(Byte[])
+  nameWithType: BufferUtil.ToVectorArray3f(Byte[])
+  fullName: g3.BufferUtil.ToVectorArray3f(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToVectorArray3f
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 409
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to VectorArray3f\n"
+  example: []
+  syntax:
+    content: public static VectorArray3f ToVectorArray3f(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: g3.VectorArray3f
+    content.vb: Public Shared Function ToVectorArray3f(buffer As Byte()) As VectorArray3f
+  overload: g3.BufferUtil.ToVectorArray3f*
+  nameWithType.vb: BufferUtil.ToVectorArray3f(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToVectorArray3f(System.Byte())
+  name.vb: ToVectorArray3f(Byte())
+- uid: g3.BufferUtil.ToVectorArray3i(System.Byte[])
+  commentId: M:g3.BufferUtil.ToVectorArray3i(System.Byte[])
+  id: ToVectorArray3i(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToVectorArray3i(Byte[])
+  nameWithType: BufferUtil.ToVectorArray3i(Byte[])
+  fullName: g3.BufferUtil.ToVectorArray3i(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToVectorArray3i
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 430
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to VectorArray3i\n"
+  example: []
+  syntax:
+    content: public static VectorArray3i ToVectorArray3i(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: g3.VectorArray3i
+    content.vb: Public Shared Function ToVectorArray3i(buffer As Byte()) As VectorArray3i
+  overload: g3.BufferUtil.ToVectorArray3i*
+  nameWithType.vb: BufferUtil.ToVectorArray3i(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToVectorArray3i(System.Byte())
+  name.vb: ToVectorArray3i(Byte())
+- uid: g3.BufferUtil.ToIndexArray4i(System.Byte[])
+  commentId: M:g3.BufferUtil.ToIndexArray4i(System.Byte[])
+  id: ToIndexArray4i(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToIndexArray4i(Byte[])
+  nameWithType: BufferUtil.ToIndexArray4i(Byte[])
+  fullName: g3.BufferUtil.ToIndexArray4i(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToIndexArray4i
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 449
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert byte array to IndexArray4i\n"
+  example: []
+  syntax:
+    content: public static IndexArray4i ToIndexArray4i(byte[] buffer)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    return:
+      type: g3.IndexArray4i
+    content.vb: Public Shared Function ToIndexArray4i(buffer As Byte()) As IndexArray4i
+  overload: g3.BufferUtil.ToIndexArray4i*
+  nameWithType.vb: BufferUtil.ToIndexArray4i(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToIndexArray4i(System.Byte())
+  name.vb: ToIndexArray4i(Byte())
+- uid: g3.BufferUtil.ToBytes(System.Int32[])
+  commentId: M:g3.BufferUtil.ToBytes(System.Int32[])
+  id: ToBytes(System.Int32[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(Int32[])
+  nameWithType: BufferUtil.ToBytes(Int32[])
+  fullName: g3.BufferUtil.ToBytes(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBytes
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 469
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert int array to bytes\n"
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(int[] array)
+    parameters:
+    - id: array
+      type: System.Int32[]
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function ToBytes(array As Integer()) As Byte()
+  overload: g3.BufferUtil.ToBytes*
+  nameWithType.vb: BufferUtil.ToBytes(Int32())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToBytes(System.Int32())
+  name.vb: ToBytes(Int32())
+- uid: g3.BufferUtil.ToBytes(System.Int16[])
+  commentId: M:g3.BufferUtil.ToBytes(System.Int16[])
+  id: ToBytes(System.Int16[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(Int16[])
+  nameWithType: BufferUtil.ToBytes(Int16[])
+  fullName: g3.BufferUtil.ToBytes(System.Int16[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBytes
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 479
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert short array to bytes\n"
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(short[] array)
+    parameters:
+    - id: array
+      type: System.Int16[]
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function ToBytes(array As Short()) As Byte()
+  overload: g3.BufferUtil.ToBytes*
+  nameWithType.vb: BufferUtil.ToBytes(Int16())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToBytes(System.Int16())
+  name.vb: ToBytes(Int16())
+- uid: g3.BufferUtil.ToBytes(System.Single[])
+  commentId: M:g3.BufferUtil.ToBytes(System.Single[])
+  id: ToBytes(System.Single[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(Single[])
+  nameWithType: BufferUtil.ToBytes(Single[])
+  fullName: g3.BufferUtil.ToBytes(System.Single[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBytes
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 489
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert float array to bytes\n"
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(float[] array)
+    parameters:
+    - id: array
+      type: System.Single[]
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function ToBytes(array As Single()) As Byte()
+  overload: g3.BufferUtil.ToBytes*
+  nameWithType.vb: BufferUtil.ToBytes(Single())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToBytes(System.Single())
+  name.vb: ToBytes(Single())
+- uid: g3.BufferUtil.ToBytes(System.Double[])
+  commentId: M:g3.BufferUtil.ToBytes(System.Double[])
+  id: ToBytes(System.Double[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: ToBytes(Double[])
+  nameWithType: BufferUtil.ToBytes(Double[])
+  fullName: g3.BufferUtil.ToBytes(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBytes
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 499
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconvert double array to bytes\n"
+  example: []
+  syntax:
+    content: public static byte[] ToBytes(double[] array)
+    parameters:
+    - id: array
+      type: System.Double[]
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function ToBytes(array As Double()) As Byte()
+  overload: g3.BufferUtil.ToBytes*
+  nameWithType.vb: BufferUtil.ToBytes(Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.ToBytes(System.Double())
+  name.vb: ToBytes(Double())
+- uid: g3.BufferUtil.CompressZLib(System.Byte[],System.Boolean)
+  commentId: M:g3.BufferUtil.CompressZLib(System.Byte[],System.Boolean)
+  id: CompressZLib(System.Byte[],System.Boolean)
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: CompressZLib(Byte[], Boolean)
+  nameWithType: BufferUtil.CompressZLib(Byte[], Boolean)
+  fullName: g3.BufferUtil.CompressZLib(System.Byte[], System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CompressZLib
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 512
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCompress a byte buffer using Deflate/ZLib compression. \n"
+  example: []
+  syntax:
+    content: public static byte[] CompressZLib(byte[] buffer, bool bFast)
+    parameters:
+    - id: buffer
+      type: System.Byte[]
+    - id: bFast
+      type: System.Boolean
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function CompressZLib(buffer As Byte(), bFast As Boolean) As Byte()
+  overload: g3.BufferUtil.CompressZLib*
+  nameWithType.vb: BufferUtil.CompressZLib(Byte(), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.CompressZLib(System.Byte(), System.Boolean)
+  name.vb: CompressZLib(Byte(), Boolean)
+- uid: g3.BufferUtil.DecompressZLib(System.Byte[])
+  commentId: M:g3.BufferUtil.DecompressZLib(System.Byte[])
+  id: DecompressZLib(System.Byte[])
+  parent: g3.BufferUtil
+  langs:
+  - csharp
+  - vb
+  name: DecompressZLib(Byte[])
+  nameWithType: BufferUtil.DecompressZLib(Byte[])
+  fullName: g3.BufferUtil.DecompressZLib(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/BufferUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DecompressZLib
+    path: ../Assets/geometry3Sharp/core/BufferUtil.cs
+    startLine: 537
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nDecompress a byte buffer that has been compressed using Deflate/ZLib compression\n"
+  example: []
+  syntax:
+    content: public static byte[] DecompressZLib(byte[] zBuffer)
+    parameters:
+    - id: zBuffer
+      type: System.Byte[]
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function DecompressZLib(zBuffer As Byte()) As Byte()
+  overload: g3.BufferUtil.DecompressZLib*
+  nameWithType.vb: BufferUtil.DecompressZLib(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BufferUtil.DecompressZLib(System.Byte())
+  name.vb: DecompressZLib(Byte())
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.BufferUtil.SetVertex3*
+  commentId: Overload:g3.BufferUtil.SetVertex3
+  name: SetVertex3
+  nameWithType: BufferUtil.SetVertex3
+  fullName: g3.BufferUtil.SetVertex3
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.BufferUtil.SetVertex2*
+  commentId: Overload:g3.BufferUtil.SetVertex2
+  name: SetVertex2
+  nameWithType: BufferUtil.SetVertex2
+  fullName: g3.BufferUtil.SetVertex2
+- uid: g3.BufferUtil.SetTriangle*
+  commentId: Overload:g3.BufferUtil.SetTriangle
+  name: SetTriangle
+  nameWithType: BufferUtil.SetTriangle
+  fullName: g3.BufferUtil.SetTriangle
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BufferUtil.Dot*
+  commentId: Overload:g3.BufferUtil.Dot
+  name: Dot
+  nameWithType: BufferUtil.Dot
+  fullName: g3.BufferUtil.Dot
+- uid: g3.BufferUtil.MultiplyAdd*
+  commentId: Overload:g3.BufferUtil.MultiplyAdd
+  name: MultiplyAdd
+  nameWithType: BufferUtil.MultiplyAdd
+  fullName: g3.BufferUtil.MultiplyAdd
+- uid: g3.BufferUtil.MultiplyAdd_GetSqrSum*
+  commentId: Overload:g3.BufferUtil.MultiplyAdd_GetSqrSum
+  name: MultiplyAdd_GetSqrSum
+  nameWithType: BufferUtil.MultiplyAdd_GetSqrSum
+  fullName: g3.BufferUtil.MultiplyAdd_GetSqrSum
+- uid: g3.BufferUtil.DistanceSquared*
+  commentId: Overload:g3.BufferUtil.DistanceSquared
+  name: DistanceSquared
+  nameWithType: BufferUtil.DistanceSquared
+  fullName: g3.BufferUtil.DistanceSquared
+- uid: g3.BufferUtil.ParallelDot*
+  commentId: Overload:g3.BufferUtil.ParallelDot
+  name: ParallelDot
+  nameWithType: BufferUtil.ParallelDot
+  fullName: g3.BufferUtil.ParallelDot
+- uid: System.Double[][]
+  isExternal: true
+  name: Double[][]
+  nameWithType: Double[][]
+  fullName: System.Double[][]
+  nameWithType.vb: Double()()
+  fullName.vb: System.Double()()
+  name.vb: Double()()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BufferUtil.AllocNxM*
+  commentId: Overload:g3.BufferUtil.AllocNxM
+  name: AllocNxM
+  nameWithType: BufferUtil.AllocNxM
+  fullName: g3.BufferUtil.AllocNxM
+- uid: g3.BufferUtil.InitNxM*
+  commentId: Overload:g3.BufferUtil.InitNxM
+  name: InitNxM
+  nameWithType: BufferUtil.InitNxM
+  fullName: g3.BufferUtil.InitNxM
+- uid: g3.BufferUtil.CountValid*
+  commentId: Overload:g3.BufferUtil.CountValid
+  name: CountValid
+  nameWithType: BufferUtil.CountValid
+  fullName: g3.BufferUtil.CountValid
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Func{{T},System.Boolean}
+  commentId: T:System.Func{``0,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Boolean>
+  nameWithType: Func<T, Boolean>
+  fullName: System.Func<T, System.Boolean>
+  nameWithType.vb: Func(Of T, Boolean)
+  fullName.vb: System.Func(Of T, System.Boolean)
+  name.vb: Func(Of T, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BufferUtil.FilterInPlace*
+  commentId: Overload:g3.BufferUtil.FilterInPlace
+  name: FilterInPlace
+  nameWithType: BufferUtil.FilterInPlace
+  fullName: g3.BufferUtil.FilterInPlace
+- uid: g3.BufferUtil.Filter*
+  commentId: Overload:g3.BufferUtil.Filter
+  name: Filter
+  nameWithType: BufferUtil.Filter
+  fullName: g3.BufferUtil.Filter
+- uid: g3.BufferUtil.ToVector3d*
+  commentId: Overload:g3.BufferUtil.ToVector3d
+  name: ToVector3d
+  nameWithType: BufferUtil.ToVector3d
+  fullName: g3.BufferUtil.ToVector3d
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3d[]
+  isExternal: true
+  name: Vector3d[]
+  nameWithType: Vector3d[]
+  fullName: g3.Vector3d[]
+  nameWithType.vb: Vector3d()
+  fullName.vb: g3.Vector3d()
+  name.vb: Vector3d()
+  spec.csharp:
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.BufferUtil.ToVector3f*
+  commentId: Overload:g3.BufferUtil.ToVector3f
+  name: ToVector3f
+  nameWithType: BufferUtil.ToVector3f
+  fullName: g3.BufferUtil.ToVector3f
+- uid: g3.Vector3f[]
+  isExternal: true
+  name: Vector3f[]
+  nameWithType: Vector3f[]
+  fullName: g3.Vector3f[]
+  nameWithType.vb: Vector3f()
+  fullName.vb: g3.Vector3f()
+  name.vb: Vector3f()
+  spec.csharp:
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BufferUtil.ToIndex3i*
+  commentId: Overload:g3.BufferUtil.ToIndex3i
+  name: ToIndex3i
+  nameWithType: BufferUtil.ToIndex3i
+  fullName: g3.BufferUtil.ToIndex3i
+- uid: g3.Index3i[]
+  isExternal: true
+  name: Index3i[]
+  nameWithType: Index3i[]
+  fullName: g3.Index3i[]
+  nameWithType.vb: Index3i()
+  fullName.vb: g3.Index3i()
+  name.vb: Index3i()
+  spec.csharp:
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BufferUtil.ToInt*
+  commentId: Overload:g3.BufferUtil.ToInt
+  name: ToInt
+  nameWithType: BufferUtil.ToInt
+  fullName: g3.BufferUtil.ToInt
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BufferUtil.ToShort*
+  commentId: Overload:g3.BufferUtil.ToShort
+  name: ToShort
+  nameWithType: BufferUtil.ToShort
+  fullName: g3.BufferUtil.ToShort
+- uid: System.Int16[]
+  isExternal: true
+  name: Int16[]
+  nameWithType: Int16[]
+  fullName: System.Int16[]
+  nameWithType.vb: Int16()
+  fullName.vb: System.Int16()
+  name.vb: Int16()
+  spec.csharp:
+  - uid: System.Int16
+    name: Int16
+    nameWithType: Int16
+    fullName: System.Int16
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int16
+    name: Int16
+    nameWithType: Int16
+    fullName: System.Int16
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BufferUtil.ToDouble*
+  commentId: Overload:g3.BufferUtil.ToDouble
+  name: ToDouble
+  nameWithType: BufferUtil.ToDouble
+  fullName: g3.BufferUtil.ToDouble
+- uid: g3.BufferUtil.ToFloat*
+  commentId: Overload:g3.BufferUtil.ToFloat
+  name: ToFloat
+  nameWithType: BufferUtil.ToFloat
+  fullName: g3.BufferUtil.ToFloat
+- uid: g3.BufferUtil.ToVectorArray3d*
+  commentId: Overload:g3.BufferUtil.ToVectorArray3d
+  name: ToVectorArray3d
+  nameWithType: BufferUtil.ToVectorArray3d
+  fullName: g3.BufferUtil.ToVectorArray3d
+- uid: g3.VectorArray3d
+  commentId: T:g3.VectorArray3d
+  parent: g3
+  name: VectorArray3d
+  nameWithType: VectorArray3d
+  fullName: g3.VectorArray3d
+- uid: g3.BufferUtil.ToVectorArray2f*
+  commentId: Overload:g3.BufferUtil.ToVectorArray2f
+  name: ToVectorArray2f
+  nameWithType: BufferUtil.ToVectorArray2f
+  fullName: g3.BufferUtil.ToVectorArray2f
+- uid: g3.VectorArray2f
+  commentId: T:g3.VectorArray2f
+  parent: g3
+  name: VectorArray2f
+  nameWithType: VectorArray2f
+  fullName: g3.VectorArray2f
+- uid: g3.BufferUtil.ToVectorArray3f*
+  commentId: Overload:g3.BufferUtil.ToVectorArray3f
+  name: ToVectorArray3f
+  nameWithType: BufferUtil.ToVectorArray3f
+  fullName: g3.BufferUtil.ToVectorArray3f
+- uid: g3.VectorArray3f
+  commentId: T:g3.VectorArray3f
+  parent: g3
+  name: VectorArray3f
+  nameWithType: VectorArray3f
+  fullName: g3.VectorArray3f
+- uid: g3.BufferUtil.ToVectorArray3i*
+  commentId: Overload:g3.BufferUtil.ToVectorArray3i
+  name: ToVectorArray3i
+  nameWithType: BufferUtil.ToVectorArray3i
+  fullName: g3.BufferUtil.ToVectorArray3i
+- uid: g3.VectorArray3i
+  commentId: T:g3.VectorArray3i
+  parent: g3
+  name: VectorArray3i
+  nameWithType: VectorArray3i
+  fullName: g3.VectorArray3i
+- uid: g3.BufferUtil.ToIndexArray4i*
+  commentId: Overload:g3.BufferUtil.ToIndexArray4i
+  name: ToIndexArray4i
+  nameWithType: BufferUtil.ToIndexArray4i
+  fullName: g3.BufferUtil.ToIndexArray4i
+- uid: g3.IndexArray4i
+  commentId: T:g3.IndexArray4i
+  parent: g3
+  name: IndexArray4i
+  nameWithType: IndexArray4i
+  fullName: g3.IndexArray4i
+- uid: g3.BufferUtil.ToBytes*
+  commentId: Overload:g3.BufferUtil.ToBytes
+  name: ToBytes
+  nameWithType: BufferUtil.ToBytes
+  fullName: g3.BufferUtil.ToBytes
+- uid: g3.BufferUtil.CompressZLib*
+  commentId: Overload:g3.BufferUtil.CompressZLib
+  name: CompressZLib
+  nameWithType: BufferUtil.CompressZLib
+  fullName: g3.BufferUtil.CompressZLib
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.BufferUtil.DecompressZLib*
+  commentId: Overload:g3.BufferUtil.DecompressZLib
+  name: DecompressZLib
+  nameWithType: BufferUtil.DecompressZLib
+  fullName: g3.BufferUtil.DecompressZLib

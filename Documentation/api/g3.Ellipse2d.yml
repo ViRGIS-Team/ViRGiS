@@ -1,0 +1,1597 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Ellipse2d
+  commentId: T:g3.Ellipse2d
+  id: Ellipse2d
+  parent: g3
+  children:
+  - g3.Ellipse2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)
+  - g3.Ellipse2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,System.Double,System.Double)
+  - g3.Ellipse2d.#ctor(g3.Vector2d,System.Double,System.Double,System.Double)
+  - g3.Ellipse2d.ApproxArcLen
+  - g3.Ellipse2d.ArcLength
+  - g3.Ellipse2d.Area
+  - g3.Ellipse2d.Axis0
+  - g3.Ellipse2d.Axis1
+  - g3.Ellipse2d.Center
+  - g3.Ellipse2d.Clone
+  - g3.Ellipse2d.Contains(g3.Vector2d)
+  - g3.Ellipse2d.Evaluate(g3.Vector2d)
+  - g3.Ellipse2d.Extent
+  - g3.Ellipse2d.FromCoefficients(g3.Matrix2d,g3.Vector2d,System.Double)
+  - g3.Ellipse2d.FromCoefficients(System.Double[])
+  - g3.Ellipse2d.GetM
+  - g3.Ellipse2d.GetMInverse
+  - g3.Ellipse2d.HasArcLength
+  - g3.Ellipse2d.IsClosed
+  - g3.Ellipse2d.IsReversed
+  - g3.Ellipse2d.IsTransformable
+  - g3.Ellipse2d.ParamLength
+  - g3.Ellipse2d.Reverse
+  - g3.Ellipse2d.SampleArcLength(System.Double)
+  - g3.Ellipse2d.SampleDeg(System.Double)
+  - g3.Ellipse2d.SampleRad(System.Double)
+  - g3.Ellipse2d.SampleT(System.Double)
+  - g3.Ellipse2d.TangentT(System.Double)
+  - g3.Ellipse2d.ToCoefficients
+  - g3.Ellipse2d.ToCoefficients(g3.Matrix2d@,g3.Vector2d@,System.Double@)
+  - g3.Ellipse2d.Transform(g3.ITransform2)
+  langs:
+  - csharp
+  - vb
+  name: Ellipse2d
+  nameWithType: Ellipse2d
+  fullName: g3.Ellipse2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Ellipse2d
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class Ellipse2d : IParametricCurve2d'
+    content.vb: >-
+      Public Class Ellipse2d
+          Implements IParametricCurve2d
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IParametricCurve2d
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Ellipse2d.Center
+  commentId: F:g3.Ellipse2d.Center
+  id: Center
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Ellipse2d.Center
+  fullName: g3.Ellipse2d.Center
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 27
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Center
+    return:
+      type: g3.Vector2d
+    content.vb: Public Center As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Axis0
+  commentId: F:g3.Ellipse2d.Axis0
+  id: Axis0
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Axis0
+  nameWithType: Ellipse2d.Axis0
+  fullName: g3.Ellipse2d.Axis0
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Axis0
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Axis0
+    return:
+      type: g3.Vector2d
+    content.vb: Public Axis0 As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Axis1
+  commentId: F:g3.Ellipse2d.Axis1
+  id: Axis1
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Axis1
+  nameWithType: Ellipse2d.Axis1
+  fullName: g3.Ellipse2d.Axis1
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Axis1
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Axis1
+    return:
+      type: g3.Vector2d
+    content.vb: Public Axis1 As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Extent
+  commentId: F:g3.Ellipse2d.Extent
+  id: Extent
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Extent
+  nameWithType: Ellipse2d.Extent
+  fullName: g3.Ellipse2d.Extent
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Extent
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Extent
+    return:
+      type: g3.Vector2d
+    content.vb: Public Extent As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.IsReversed
+  commentId: F:g3.Ellipse2d.IsReversed
+  id: IsReversed
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: IsReversed
+  nameWithType: Ellipse2d.IsReversed
+  fullName: g3.Ellipse2d.IsReversed
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsReversed
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsReversed
+    return:
+      type: System.Boolean
+    content.vb: Public IsReversed As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.Ellipse2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)
+  id: '#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)'
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Ellipse2d(Vector2d, Vector2d, Vector2d, Vector2d)
+  nameWithType: Ellipse2d.Ellipse2d(Vector2d, Vector2d, Vector2d, Vector2d)
+  fullName: g3.Ellipse2d.Ellipse2d(g3.Vector2d, g3.Vector2d, g3.Vector2d, g3.Vector2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Ellipse2d(Vector2d center, Vector2d axis0, Vector2d axis1, Vector2d extent)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: axis0
+      type: g3.Vector2d
+    - id: axis1
+      type: g3.Vector2d
+    - id: extent
+      type: g3.Vector2d
+    content.vb: Public Sub New(center As Vector2d, axis0 As Vector2d, axis1 As Vector2d, extent As Vector2d)
+  overload: g3.Ellipse2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,System.Double,System.Double)
+  commentId: M:g3.Ellipse2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,System.Double,System.Double)
+  id: '#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,System.Double,System.Double)'
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Ellipse2d(Vector2d, Vector2d, Vector2d, Double, Double)
+  nameWithType: Ellipse2d.Ellipse2d(Vector2d, Vector2d, Vector2d, Double, Double)
+  fullName: g3.Ellipse2d.Ellipse2d(g3.Vector2d, g3.Vector2d, g3.Vector2d, System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Ellipse2d(Vector2d center, Vector2d axis0, Vector2d axis1, double extent0, double extent1)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: axis0
+      type: g3.Vector2d
+    - id: axis1
+      type: g3.Vector2d
+    - id: extent0
+      type: System.Double
+    - id: extent1
+      type: System.Double
+    content.vb: Public Sub New(center As Vector2d, axis0 As Vector2d, axis1 As Vector2d, extent0 As Double, extent1 As Double)
+  overload: g3.Ellipse2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.#ctor(g3.Vector2d,System.Double,System.Double,System.Double)
+  commentId: M:g3.Ellipse2d.#ctor(g3.Vector2d,System.Double,System.Double,System.Double)
+  id: '#ctor(g3.Vector2d,System.Double,System.Double,System.Double)'
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Ellipse2d(Vector2d, Double, Double, Double)
+  nameWithType: Ellipse2d.Ellipse2d(Vector2d, Double, Double, Double)
+  fullName: g3.Ellipse2d.Ellipse2d(g3.Vector2d, System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Ellipse2d(Vector2d center, double rotationAngleDeg, double extent0, double extent1)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: rotationAngleDeg
+      type: System.Double
+    - id: extent0
+      type: System.Double
+    - id: extent1
+      type: System.Double
+    content.vb: Public Sub New(center As Vector2d, rotationAngleDeg As Double, extent0 As Double, extent1 As Double)
+  overload: g3.Ellipse2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.GetM
+  commentId: M:g3.Ellipse2d.GetM
+  id: GetM
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: GetM()
+  nameWithType: Ellipse2d.GetM()
+  fullName: g3.Ellipse2d.GetM()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetM
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Matrix2d GetM()
+    return:
+      type: g3.Matrix2d
+    content.vb: Public Function GetM As Matrix2d
+  overload: g3.Ellipse2d.GetM*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.GetMInverse
+  commentId: M:g3.Ellipse2d.GetMInverse
+  id: GetMInverse
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: GetMInverse()
+  nameWithType: Ellipse2d.GetMInverse()
+  fullName: g3.Ellipse2d.GetMInverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetMInverse
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 68
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Matrix2d GetMInverse()
+    return:
+      type: g3.Matrix2d
+    content.vb: Public Function GetMInverse As Matrix2d
+  overload: g3.Ellipse2d.GetMInverse*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.ToCoefficients
+  commentId: M:g3.Ellipse2d.ToCoefficients
+  id: ToCoefficients
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: ToCoefficients()
+  nameWithType: Ellipse2d.ToCoefficients()
+  fullName: g3.Ellipse2d.ToCoefficients()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToCoefficients
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double[] ToCoefficients()
+    return:
+      type: System.Double[]
+    content.vb: Public Function ToCoefficients As Double()
+  overload: g3.Ellipse2d.ToCoefficients*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.ToCoefficients(g3.Matrix2d@,g3.Vector2d@,System.Double@)
+  commentId: M:g3.Ellipse2d.ToCoefficients(g3.Matrix2d@,g3.Vector2d@,System.Double@)
+  id: ToCoefficients(g3.Matrix2d@,g3.Vector2d@,System.Double@)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: ToCoefficients(ref Matrix2d, ref Vector2d, ref Double)
+  nameWithType: Ellipse2d.ToCoefficients(ref Matrix2d, ref Vector2d, ref Double)
+  fullName: g3.Ellipse2d.ToCoefficients(ref g3.Matrix2d, ref g3.Vector2d, ref System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToCoefficients
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ToCoefficients(ref Matrix2d A, ref Vector2d B, ref double C)
+    parameters:
+    - id: A
+      type: g3.Matrix2d
+    - id: B
+      type: g3.Vector2d
+    - id: C
+      type: System.Double
+    content.vb: Public Sub ToCoefficients(ByRef A As Matrix2d, ByRef B As Vector2d, ByRef C As Double)
+  overload: g3.Ellipse2d.ToCoefficients*
+  nameWithType.vb: Ellipse2d.ToCoefficients(ByRef Matrix2d, ByRef Vector2d, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Ellipse2d.ToCoefficients(ByRef g3.Matrix2d, ByRef g3.Vector2d, ByRef System.Double)
+  name.vb: ToCoefficients(ByRef Matrix2d, ByRef Vector2d, ByRef Double)
+- uid: g3.Ellipse2d.FromCoefficients(System.Double[])
+  commentId: M:g3.Ellipse2d.FromCoefficients(System.Double[])
+  id: FromCoefficients(System.Double[])
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: FromCoefficients(Double[])
+  nameWithType: Ellipse2d.FromCoefficients(Double[])
+  fullName: g3.Ellipse2d.FromCoefficients(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromCoefficients
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool FromCoefficients(double[] coeff)
+    parameters:
+    - id: coeff
+      type: System.Double[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function FromCoefficients(coeff As Double()) As Boolean
+  overload: g3.Ellipse2d.FromCoefficients*
+  nameWithType.vb: Ellipse2d.FromCoefficients(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Ellipse2d.FromCoefficients(System.Double())
+  name.vb: FromCoefficients(Double())
+- uid: g3.Ellipse2d.FromCoefficients(g3.Matrix2d,g3.Vector2d,System.Double)
+  commentId: M:g3.Ellipse2d.FromCoefficients(g3.Matrix2d,g3.Vector2d,System.Double)
+  id: FromCoefficients(g3.Matrix2d,g3.Vector2d,System.Double)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: FromCoefficients(Matrix2d, Vector2d, Double)
+  nameWithType: Ellipse2d.FromCoefficients(Matrix2d, Vector2d, Double)
+  fullName: g3.Ellipse2d.FromCoefficients(g3.Matrix2d, g3.Vector2d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromCoefficients
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool FromCoefficients(Matrix2d A, Vector2d B, double C)
+    parameters:
+    - id: A
+      type: g3.Matrix2d
+    - id: B
+      type: g3.Vector2d
+    - id: C
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function FromCoefficients(A As Matrix2d, B As Vector2d, C As Double) As Boolean
+  overload: g3.Ellipse2d.FromCoefficients*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Evaluate(g3.Vector2d)
+  commentId: M:g3.Ellipse2d.Evaluate(g3.Vector2d)
+  id: Evaluate(g3.Vector2d)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Evaluate(Vector2d)
+  nameWithType: Ellipse2d.Evaluate(Vector2d)
+  fullName: g3.Ellipse2d.Evaluate(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Evaluate
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 169
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Evaluate(Vector2d point)
+    parameters:
+    - id: point
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function Evaluate(point As Vector2d) As Double
+  overload: g3.Ellipse2d.Evaluate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Contains(g3.Vector2d)
+  commentId: M:g3.Ellipse2d.Contains(g3.Vector2d)
+  id: Contains(g3.Vector2d)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector2d)
+  nameWithType: Ellipse2d.Contains(Vector2d)
+  fullName: g3.Ellipse2d.Contains(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 182
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Contains(Vector2d point)
+    parameters:
+    - id: point
+      type: g3.Vector2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(point As Vector2d) As Boolean
+  overload: g3.Ellipse2d.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.IsClosed
+  commentId: P:g3.Ellipse2d.IsClosed
+  id: IsClosed
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: Ellipse2d.IsClosed
+  fullName: g3.Ellipse2d.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 215
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClosed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClosed As Boolean
+  overload: g3.Ellipse2d.IsClosed*
+  implements:
+  - g3.IParametricCurve2d.IsClosed
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Ellipse2d.Reverse
+  commentId: M:g3.Ellipse2d.Reverse
+  id: Reverse
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: Ellipse2d.Reverse()
+  fullName: g3.Ellipse2d.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 219
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse()
+    content.vb: Public Sub Reverse
+  overload: g3.Ellipse2d.Reverse*
+  implements:
+  - g3.IParametricCurve2d.Reverse
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Clone
+  commentId: M:g3.Ellipse2d.Clone
+  id: Clone
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: Ellipse2d.Clone()
+  fullName: g3.Ellipse2d.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 223
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IParametricCurve2d Clone()
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Public Function Clone As IParametricCurve2d
+  overload: g3.Ellipse2d.Clone*
+  implements:
+  - g3.IParametricCurve2d.Clone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.IsTransformable
+  commentId: P:g3.Ellipse2d.IsTransformable
+  id: IsTransformable
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: IsTransformable
+  nameWithType: Ellipse2d.IsTransformable
+  fullName: g3.Ellipse2d.IsTransformable
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTransformable
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 229
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsTransformable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTransformable As Boolean
+  overload: g3.Ellipse2d.IsTransformable*
+  implements:
+  - g3.IParametricCurve2d.IsTransformable
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Ellipse2d.Transform(g3.ITransform2)
+  commentId: M:g3.Ellipse2d.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: Ellipse2d.Transform(ITransform2)
+  fullName: g3.Ellipse2d.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 230
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    content.vb: Public Sub Transform(xform As ITransform2)
+  overload: g3.Ellipse2d.Transform*
+  implements:
+  - g3.IParametricCurve2d.Transform(g3.ITransform2)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.SampleDeg(System.Double)
+  commentId: M:g3.Ellipse2d.SampleDeg(System.Double)
+  id: SampleDeg(System.Double)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: SampleDeg(Double)
+  nameWithType: Ellipse2d.SampleDeg(Double)
+  fullName: g3.Ellipse2d.SampleDeg(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleDeg
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 242
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleDeg(double degrees)
+    parameters:
+    - id: degrees
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleDeg(degrees As Double) As Vector2d
+  overload: g3.Ellipse2d.SampleDeg*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.SampleRad(System.Double)
+  commentId: M:g3.Ellipse2d.SampleRad(System.Double)
+  id: SampleRad(System.Double)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: SampleRad(Double)
+  nameWithType: Ellipse2d.SampleRad(Double)
+  fullName: g3.Ellipse2d.SampleRad(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleRad
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 250
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleRad(double radians)
+    parameters:
+    - id: radians
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleRad(radians As Double) As Vector2d
+  overload: g3.Ellipse2d.SampleRad*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.ParamLength
+  commentId: P:g3.Ellipse2d.ParamLength
+  id: ParamLength
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: ParamLength
+  nameWithType: Ellipse2d.ParamLength
+  fullName: g3.Ellipse2d.ParamLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParamLength
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 257
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ParamLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ParamLength As Double
+  overload: g3.Ellipse2d.ParamLength*
+  implements:
+  - g3.IParametricCurve2d.ParamLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Ellipse2d.SampleT(System.Double)
+  commentId: M:g3.Ellipse2d.SampleT(System.Double)
+  id: SampleT(System.Double)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: SampleT(Double)
+  nameWithType: Ellipse2d.SampleT(Double)
+  fullName: g3.Ellipse2d.SampleT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleT
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 262
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleT(t As Double) As Vector2d
+  overload: g3.Ellipse2d.SampleT*
+  implements:
+  - g3.IParametricCurve2d.SampleT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.TangentT(System.Double)
+  commentId: M:g3.Ellipse2d.TangentT(System.Double)
+  id: TangentT(System.Double)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: TangentT(Double)
+  nameWithType: Ellipse2d.TangentT(Double)
+  fullName: g3.Ellipse2d.TangentT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TangentT
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 269
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d TangentT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function TangentT(t As Double) As Vector2d
+  overload: g3.Ellipse2d.TangentT*
+  implements:
+  - g3.IParametricCurve2d.TangentT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.HasArcLength
+  commentId: P:g3.Ellipse2d.HasArcLength
+  id: HasArcLength
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: HasArcLength
+  nameWithType: Ellipse2d.HasArcLength
+  fullName: g3.Ellipse2d.HasArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasArcLength
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 285
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasArcLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArcLength As Boolean
+  overload: g3.Ellipse2d.HasArcLength*
+  implements:
+  - g3.IParametricCurve2d.HasArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Ellipse2d.ArcLength
+  commentId: P:g3.Ellipse2d.ArcLength
+  id: ArcLength
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: Ellipse2d.ArcLength
+  fullName: g3.Ellipse2d.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 287
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.Ellipse2d.ArcLength*
+  implements:
+  - g3.IParametricCurve2d.ArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Ellipse2d.SampleArcLength(System.Double)
+  commentId: M:g3.Ellipse2d.SampleArcLength(System.Double)
+  id: SampleArcLength(System.Double)
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: SampleArcLength(Double)
+  nameWithType: Ellipse2d.SampleArcLength(Double)
+  fullName: g3.Ellipse2d.SampleArcLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleArcLength
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 291
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleArcLength(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleArcLength(a As Double) As Vector2d
+  overload: g3.Ellipse2d.SampleArcLength*
+  implements:
+  - g3.IParametricCurve2d.SampleArcLength(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ellipse2d.Area
+  commentId: P:g3.Ellipse2d.Area
+  id: Area
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: Ellipse2d.Area
+  fullName: g3.Ellipse2d.Area
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Area
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 297
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Area { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Area As Double
+  overload: g3.Ellipse2d.Area*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Ellipse2d.ApproxArcLen
+  commentId: P:g3.Ellipse2d.ApproxArcLen
+  id: ApproxArcLen
+  parent: g3.Ellipse2d
+  langs:
+  - csharp
+  - vb
+  name: ApproxArcLen
+  nameWithType: Ellipse2d.ApproxArcLen
+  fullName: g3.Ellipse2d.ApproxArcLen
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Ellipse2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ApproxArcLen
+    path: ../Assets/geometry3Sharp/curve/Ellipse2.cs
+    startLine: 300
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ApproxArcLen { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ApproxArcLen As Double
+  overload: g3.Ellipse2d.ApproxArcLen*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Ellipse2d.#ctor*
+  commentId: Overload:g3.Ellipse2d.#ctor
+  name: Ellipse2d
+  nameWithType: Ellipse2d.Ellipse2d
+  fullName: g3.Ellipse2d.Ellipse2d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Ellipse2d.GetM*
+  commentId: Overload:g3.Ellipse2d.GetM
+  name: GetM
+  nameWithType: Ellipse2d.GetM
+  fullName: g3.Ellipse2d.GetM
+- uid: g3.Matrix2d
+  commentId: T:g3.Matrix2d
+  parent: g3
+  name: Matrix2d
+  nameWithType: Matrix2d
+  fullName: g3.Matrix2d
+- uid: g3.Ellipse2d.GetMInverse*
+  commentId: Overload:g3.Ellipse2d.GetMInverse
+  name: GetMInverse
+  nameWithType: Ellipse2d.GetMInverse
+  fullName: g3.Ellipse2d.GetMInverse
+- uid: g3.Ellipse2d.ToCoefficients*
+  commentId: Overload:g3.Ellipse2d.ToCoefficients
+  name: ToCoefficients
+  nameWithType: Ellipse2d.ToCoefficients
+  fullName: g3.Ellipse2d.ToCoefficients
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Ellipse2d.FromCoefficients*
+  commentId: Overload:g3.Ellipse2d.FromCoefficients
+  name: FromCoefficients
+  nameWithType: Ellipse2d.FromCoefficients
+  fullName: g3.Ellipse2d.FromCoefficients
+- uid: g3.Ellipse2d.Evaluate*
+  commentId: Overload:g3.Ellipse2d.Evaluate
+  name: Evaluate
+  nameWithType: Ellipse2d.Evaluate
+  fullName: g3.Ellipse2d.Evaluate
+- uid: g3.Ellipse2d.Contains*
+  commentId: Overload:g3.Ellipse2d.Contains
+  name: Contains
+  nameWithType: Ellipse2d.Contains
+  fullName: g3.Ellipse2d.Contains
+- uid: g3.Ellipse2d.IsClosed*
+  commentId: Overload:g3.Ellipse2d.IsClosed
+  name: IsClosed
+  nameWithType: Ellipse2d.IsClosed
+  fullName: g3.Ellipse2d.IsClosed
+- uid: g3.IParametricCurve2d.IsClosed
+  commentId: P:g3.IParametricCurve2d.IsClosed
+  parent: g3.IParametricCurve2d
+  name: IsClosed
+  nameWithType: IParametricCurve2d.IsClosed
+  fullName: g3.IParametricCurve2d.IsClosed
+- uid: g3.Ellipse2d.Reverse*
+  commentId: Overload:g3.Ellipse2d.Reverse
+  name: Reverse
+  nameWithType: Ellipse2d.Reverse
+  fullName: g3.Ellipse2d.Reverse
+- uid: g3.IParametricCurve2d.Reverse
+  commentId: M:g3.IParametricCurve2d.Reverse
+  parent: g3.IParametricCurve2d
+  name: Reverse()
+  nameWithType: IParametricCurve2d.Reverse()
+  fullName: g3.IParametricCurve2d.Reverse()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Ellipse2d.Clone*
+  commentId: Overload:g3.Ellipse2d.Clone
+  name: Clone
+  nameWithType: Ellipse2d.Clone
+  fullName: g3.Ellipse2d.Clone
+- uid: g3.IParametricCurve2d.Clone
+  commentId: M:g3.IParametricCurve2d.Clone
+  parent: g3.IParametricCurve2d
+  name: Clone()
+  nameWithType: IParametricCurve2d.Clone()
+  fullName: g3.IParametricCurve2d.Clone()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Ellipse2d.IsTransformable*
+  commentId: Overload:g3.Ellipse2d.IsTransformable
+  name: IsTransformable
+  nameWithType: Ellipse2d.IsTransformable
+  fullName: g3.Ellipse2d.IsTransformable
+- uid: g3.IParametricCurve2d.IsTransformable
+  commentId: P:g3.IParametricCurve2d.IsTransformable
+  parent: g3.IParametricCurve2d
+  name: IsTransformable
+  nameWithType: IParametricCurve2d.IsTransformable
+  fullName: g3.IParametricCurve2d.IsTransformable
+- uid: g3.Ellipse2d.Transform*
+  commentId: Overload:g3.Ellipse2d.Transform
+  name: Transform
+  nameWithType: Ellipse2d.Transform
+  fullName: g3.Ellipse2d.Transform
+- uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  commentId: M:g3.IParametricCurve2d.Transform(g3.ITransform2)
+  parent: g3.IParametricCurve2d
+  name: Transform(ITransform2)
+  nameWithType: IParametricCurve2d.Transform(ITransform2)
+  fullName: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.Ellipse2d.SampleDeg*
+  commentId: Overload:g3.Ellipse2d.SampleDeg
+  name: SampleDeg
+  nameWithType: Ellipse2d.SampleDeg
+  fullName: g3.Ellipse2d.SampleDeg
+- uid: g3.Ellipse2d.SampleRad*
+  commentId: Overload:g3.Ellipse2d.SampleRad
+  name: SampleRad
+  nameWithType: Ellipse2d.SampleRad
+  fullName: g3.Ellipse2d.SampleRad
+- uid: g3.Ellipse2d.ParamLength*
+  commentId: Overload:g3.Ellipse2d.ParamLength
+  name: ParamLength
+  nameWithType: Ellipse2d.ParamLength
+  fullName: g3.Ellipse2d.ParamLength
+- uid: g3.IParametricCurve2d.ParamLength
+  commentId: P:g3.IParametricCurve2d.ParamLength
+  parent: g3.IParametricCurve2d
+  name: ParamLength
+  nameWithType: IParametricCurve2d.ParamLength
+  fullName: g3.IParametricCurve2d.ParamLength
+- uid: g3.Ellipse2d.SampleT*
+  commentId: Overload:g3.Ellipse2d.SampleT
+  name: SampleT
+  nameWithType: Ellipse2d.SampleT
+  fullName: g3.Ellipse2d.SampleT
+- uid: g3.IParametricCurve2d.SampleT(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleT(Double)
+  nameWithType: IParametricCurve2d.SampleT(Double)
+  fullName: g3.IParametricCurve2d.SampleT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Ellipse2d.TangentT*
+  commentId: Overload:g3.Ellipse2d.TangentT
+  name: TangentT
+  nameWithType: Ellipse2d.TangentT
+  fullName: g3.Ellipse2d.TangentT
+- uid: g3.IParametricCurve2d.TangentT(System.Double)
+  commentId: M:g3.IParametricCurve2d.TangentT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: TangentT(Double)
+  nameWithType: IParametricCurve2d.TangentT(Double)
+  fullName: g3.IParametricCurve2d.TangentT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Ellipse2d.HasArcLength*
+  commentId: Overload:g3.Ellipse2d.HasArcLength
+  name: HasArcLength
+  nameWithType: Ellipse2d.HasArcLength
+  fullName: g3.Ellipse2d.HasArcLength
+- uid: g3.IParametricCurve2d.HasArcLength
+  commentId: P:g3.IParametricCurve2d.HasArcLength
+  parent: g3.IParametricCurve2d
+  name: HasArcLength
+  nameWithType: IParametricCurve2d.HasArcLength
+  fullName: g3.IParametricCurve2d.HasArcLength
+- uid: g3.Ellipse2d.ArcLength*
+  commentId: Overload:g3.Ellipse2d.ArcLength
+  name: ArcLength
+  nameWithType: Ellipse2d.ArcLength
+  fullName: g3.Ellipse2d.ArcLength
+- uid: g3.IParametricCurve2d.ArcLength
+  commentId: P:g3.IParametricCurve2d.ArcLength
+  parent: g3.IParametricCurve2d
+  name: ArcLength
+  nameWithType: IParametricCurve2d.ArcLength
+  fullName: g3.IParametricCurve2d.ArcLength
+- uid: g3.Ellipse2d.SampleArcLength*
+  commentId: Overload:g3.Ellipse2d.SampleArcLength
+  name: SampleArcLength
+  nameWithType: Ellipse2d.SampleArcLength
+  fullName: g3.Ellipse2d.SampleArcLength
+- uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleArcLength(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleArcLength(Double)
+  nameWithType: IParametricCurve2d.SampleArcLength(Double)
+  fullName: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Ellipse2d.Area*
+  commentId: Overload:g3.Ellipse2d.Area
+  name: Area
+  nameWithType: Ellipse2d.Area
+  fullName: g3.Ellipse2d.Area
+- uid: g3.Ellipse2d.ApproxArcLen*
+  commentId: Overload:g3.Ellipse2d.ApproxArcLen
+  name: ApproxArcLen
+  nameWithType: Ellipse2d.ApproxArcLen
+  fullName: g3.Ellipse2d.ApproxArcLen

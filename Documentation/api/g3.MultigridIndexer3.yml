@@ -1,0 +1,515 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MultigridIndexer3
+  commentId: T:g3.MultigridIndexer3
+  id: MultigridIndexer3
+  parent: g3
+  children:
+  - g3.MultigridIndexer3.#ctor(g3.Vector3i)
+  - g3.MultigridIndexer3.BlockShift
+  - g3.MultigridIndexer3.BlockSize
+  - g3.MultigridIndexer3.FromBlock(g3.Vector3i)
+  - g3.MultigridIndexer3.OuterShift
+  - g3.MultigridIndexer3.ToBlock(g3.Vector3i)
+  - g3.MultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  - g3.MultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  langs:
+  - csharp
+  - vb
+  name: MultigridIndexer3
+  nameWithType: MultigridIndexer3
+  fullName: g3.MultigridIndexer3
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MultigridIndexer3
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 199
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmap between &quot;outer&quot; (ie higher-res) grid coordinates and \n&quot;blocks&quot; of those coordinates.\n"
+  example: []
+  syntax:
+    content: 'public struct MultigridIndexer3 : IMultigridIndexer3'
+    content.vb: >-
+      Public Structure MultigridIndexer3
+          Implements IMultigridIndexer3
+  implements:
+  - g3.IMultigridIndexer3
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.MultigridIndexer3.OuterShift
+  commentId: F:g3.MultigridIndexer3.OuterShift
+  id: OuterShift
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: OuterShift
+  nameWithType: MultigridIndexer3.OuterShift
+  fullName: g3.MultigridIndexer3.OuterShift
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OuterShift
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 201
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i OuterShift
+    return:
+      type: g3.Vector3i
+    content.vb: Public OuterShift As Vector3i
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.BlockSize
+  commentId: F:g3.MultigridIndexer3.BlockSize
+  id: BlockSize
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: BlockSize
+  nameWithType: MultigridIndexer3.BlockSize
+  fullName: g3.MultigridIndexer3.BlockSize
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BlockSize
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 202
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i BlockSize
+    return:
+      type: g3.Vector3i
+    content.vb: Public BlockSize As Vector3i
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.BlockShift
+  commentId: F:g3.MultigridIndexer3.BlockShift
+  id: BlockShift
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: BlockShift
+  nameWithType: MultigridIndexer3.BlockShift
+  fullName: g3.MultigridIndexer3.BlockShift
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BlockShift
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 203
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i BlockShift
+    return:
+      type: g3.Vector3i
+    content.vb: Public BlockShift As Vector3i
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.#ctor(g3.Vector3i)
+  commentId: M:g3.MultigridIndexer3.#ctor(g3.Vector3i)
+  id: '#ctor(g3.Vector3i)'
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: MultigridIndexer3(Vector3i)
+  nameWithType: MultigridIndexer3.MultigridIndexer3(Vector3i)
+  fullName: g3.MultigridIndexer3.MultigridIndexer3(g3.Vector3i)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 205
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MultigridIndexer3(Vector3i blockSize)
+    parameters:
+    - id: blockSize
+      type: g3.Vector3i
+    content.vb: Public Sub New(blockSize As Vector3i)
+  overload: g3.MultigridIndexer3.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  commentId: M:g3.MultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  id: ToBlockIndex(g3.Vector3i)
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: ToBlockIndex(Vector3i)
+  nameWithType: MultigridIndexer3.ToBlockIndex(Vector3i)
+  fullName: g3.MultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBlockIndex
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 211
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i ToBlockIndex(Vector3i outer_index)
+    parameters:
+    - id: outer_index
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Function ToBlockIndex(outer_index As Vector3i) As Vector3i
+  overload: g3.MultigridIndexer3.ToBlockIndex*
+  implements:
+  - g3.IMultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  commentId: M:g3.MultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  id: ToBlockLocal(g3.Vector3i)
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: ToBlockLocal(Vector3i)
+  nameWithType: MultigridIndexer3.ToBlockLocal(Vector3i)
+  fullName: g3.MultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBlockLocal
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 220
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i ToBlockLocal(Vector3i outer_index)
+    parameters:
+    - id: outer_index
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Function ToBlockLocal(outer_index As Vector3i) As Vector3i
+  overload: g3.MultigridIndexer3.ToBlockLocal*
+  implements:
+  - g3.IMultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.ToBlock(g3.Vector3i)
+  commentId: M:g3.MultigridIndexer3.ToBlock(g3.Vector3i)
+  id: ToBlock(g3.Vector3i)
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: ToBlock(Vector3i)
+  nameWithType: MultigridIndexer3.ToBlock(Vector3i)
+  fullName: g3.MultigridIndexer3.ToBlock(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBlock
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 226
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public GridLevelIndex ToBlock(Vector3i outer_index)
+    parameters:
+    - id: outer_index
+      type: g3.Vector3i
+    return:
+      type: g3.GridLevelIndex
+    content.vb: Public Function ToBlock(outer_index As Vector3i) As GridLevelIndex
+  overload: g3.MultigridIndexer3.ToBlock*
+  implements:
+  - g3.IMultigridIndexer3.ToBlock(g3.Vector3i)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MultigridIndexer3.FromBlock(g3.Vector3i)
+  commentId: M:g3.MultigridIndexer3.FromBlock(g3.Vector3i)
+  id: FromBlock(g3.Vector3i)
+  parent: g3.MultigridIndexer3
+  langs:
+  - csharp
+  - vb
+  name: FromBlock(Vector3i)
+  nameWithType: MultigridIndexer3.FromBlock(Vector3i)
+  fullName: g3.MultigridIndexer3.FromBlock(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromBlock
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing.cs
+    startLine: 240
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i FromBlock(Vector3i block_idx)
+    parameters:
+    - id: block_idx
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Function FromBlock(block_idx As Vector3i) As Vector3i
+  overload: g3.MultigridIndexer3.FromBlock*
+  implements:
+  - g3.IMultigridIndexer3.FromBlock(g3.Vector3i)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IMultigridIndexer3
+  commentId: T:g3.IMultigridIndexer3
+  parent: g3
+  name: IMultigridIndexer3
+  nameWithType: IMultigridIndexer3
+  fullName: g3.IMultigridIndexer3
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  parent: g3
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+- uid: g3.MultigridIndexer3.#ctor*
+  commentId: Overload:g3.MultigridIndexer3.#ctor
+  name: MultigridIndexer3
+  nameWithType: MultigridIndexer3.MultigridIndexer3
+  fullName: g3.MultigridIndexer3.MultigridIndexer3
+- uid: g3.MultigridIndexer3.ToBlockIndex*
+  commentId: Overload:g3.MultigridIndexer3.ToBlockIndex
+  name: ToBlockIndex
+  nameWithType: MultigridIndexer3.ToBlockIndex
+  fullName: g3.MultigridIndexer3.ToBlockIndex
+- uid: g3.IMultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  commentId: M:g3.IMultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  parent: g3.IMultigridIndexer3
+  name: ToBlockIndex(Vector3i)
+  nameWithType: IMultigridIndexer3.ToBlockIndex(Vector3i)
+  fullName: g3.IMultigridIndexer3.ToBlockIndex(g3.Vector3i)
+  spec.csharp:
+  - uid: g3.IMultigridIndexer3.ToBlockIndex(g3.Vector3i)
+    name: ToBlockIndex
+    nameWithType: IMultigridIndexer3.ToBlockIndex
+    fullName: g3.IMultigridIndexer3.ToBlockIndex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMultigridIndexer3.ToBlockIndex(g3.Vector3i)
+    name: ToBlockIndex
+    nameWithType: IMultigridIndexer3.ToBlockIndex
+    fullName: g3.IMultigridIndexer3.ToBlockIndex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MultigridIndexer3.ToBlockLocal*
+  commentId: Overload:g3.MultigridIndexer3.ToBlockLocal
+  name: ToBlockLocal
+  nameWithType: MultigridIndexer3.ToBlockLocal
+  fullName: g3.MultigridIndexer3.ToBlockLocal
+- uid: g3.IMultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  commentId: M:g3.IMultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  parent: g3.IMultigridIndexer3
+  name: ToBlockLocal(Vector3i)
+  nameWithType: IMultigridIndexer3.ToBlockLocal(Vector3i)
+  fullName: g3.IMultigridIndexer3.ToBlockLocal(g3.Vector3i)
+  spec.csharp:
+  - uid: g3.IMultigridIndexer3.ToBlockLocal(g3.Vector3i)
+    name: ToBlockLocal
+    nameWithType: IMultigridIndexer3.ToBlockLocal
+    fullName: g3.IMultigridIndexer3.ToBlockLocal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMultigridIndexer3.ToBlockLocal(g3.Vector3i)
+    name: ToBlockLocal
+    nameWithType: IMultigridIndexer3.ToBlockLocal
+    fullName: g3.IMultigridIndexer3.ToBlockLocal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MultigridIndexer3.ToBlock*
+  commentId: Overload:g3.MultigridIndexer3.ToBlock
+  name: ToBlock
+  nameWithType: MultigridIndexer3.ToBlock
+  fullName: g3.MultigridIndexer3.ToBlock
+- uid: g3.IMultigridIndexer3.ToBlock(g3.Vector3i)
+  commentId: M:g3.IMultigridIndexer3.ToBlock(g3.Vector3i)
+  parent: g3.IMultigridIndexer3
+  name: ToBlock(Vector3i)
+  nameWithType: IMultigridIndexer3.ToBlock(Vector3i)
+  fullName: g3.IMultigridIndexer3.ToBlock(g3.Vector3i)
+  spec.csharp:
+  - uid: g3.IMultigridIndexer3.ToBlock(g3.Vector3i)
+    name: ToBlock
+    nameWithType: IMultigridIndexer3.ToBlock
+    fullName: g3.IMultigridIndexer3.ToBlock
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMultigridIndexer3.ToBlock(g3.Vector3i)
+    name: ToBlock
+    nameWithType: IMultigridIndexer3.ToBlock
+    fullName: g3.IMultigridIndexer3.ToBlock
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.GridLevelIndex
+  commentId: T:g3.GridLevelIndex
+  parent: g3
+  name: GridLevelIndex
+  nameWithType: GridLevelIndex
+  fullName: g3.GridLevelIndex
+- uid: g3.MultigridIndexer3.FromBlock*
+  commentId: Overload:g3.MultigridIndexer3.FromBlock
+  name: FromBlock
+  nameWithType: MultigridIndexer3.FromBlock
+  fullName: g3.MultigridIndexer3.FromBlock
+- uid: g3.IMultigridIndexer3.FromBlock(g3.Vector3i)
+  commentId: M:g3.IMultigridIndexer3.FromBlock(g3.Vector3i)
+  parent: g3.IMultigridIndexer3
+  name: FromBlock(Vector3i)
+  nameWithType: IMultigridIndexer3.FromBlock(Vector3i)
+  fullName: g3.IMultigridIndexer3.FromBlock(g3.Vector3i)
+  spec.csharp:
+  - uid: g3.IMultigridIndexer3.FromBlock(g3.Vector3i)
+    name: FromBlock
+    nameWithType: IMultigridIndexer3.FromBlock
+    fullName: g3.IMultigridIndexer3.FromBlock
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMultigridIndexer3.FromBlock(g3.Vector3i)
+    name: FromBlock
+    nameWithType: IMultigridIndexer3.FromBlock
+    fullName: g3.IMultigridIndexer3.FromBlock
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )

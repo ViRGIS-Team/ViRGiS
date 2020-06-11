@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>&#8203;Architecture | ViRGIS VR GIS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="&#8203;Architecture | ViRGIS VR GIS ">
+    <meta name="generator" content="docfx 2.54.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="architecture" sourcefile="manual/architecture.md" sourcestartlinenumber="1" sourceendlinenumber="1">​Architecture</h1>
+
+<h2 id="purpose" sourcefile="manual/architecture.md" sourcestartlinenumber="3" sourceendlinenumber="3">​Purpose</h2>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="5" sourceendlinenumber="5">The purpose of this section is to define the high-level conceptual architecture.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="7" sourceendlinenumber="7">Read this section if you want to understand what components are required for any version of the product.</p>
+<h2 id="conceptual-architecture" sourcefile="manual/architecture.md" sourcestartlinenumber="10" sourceendlinenumber="10">​Conceptual Architecture</h2>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="12" sourceendlinenumber="12">The basic architecture to meet the Objectives is made of four high-level components:</p>
+<ol sourcefile="manual/architecture.md" sourcestartlinenumber="16" sourceendlinenumber="19">
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="16" sourceendlinenumber="16">Objective 1 is met by creating a ViRGIS VR application,</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="17" sourceendlinenumber="17">The ViRGIS App is run on the selected VR device - i.e. the Headset,</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="18" sourceendlinenumber="18">Objective 2 requires that there is one or more GIS Backend(s) to the system and that the ViRGIS app is linked to the GIS Backend(s). Objective 3 requires that the link(s) to the GIS Backend are transactional, and</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="19" sourceendlinenumber="19">The three objectives together require that there is a high-level architectural component orchestrating the data into the platform. In particular, in GIS the idea of the “Project View”, i.e. how the data entities are combined, is usually separated from the data about the actual entities, i.e. the geometry, and the former includes the presentation or symbology of the entities. Therefore, this orchestrating component is mostly about the handling of the “project” and “symbology” level interactions.</li>
+</ol>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="21" sourceendlinenumber="21">Each of these components will be explained for each version in the next sections.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="24" sourceendlinenumber="24"><img src="../images/architecture.png" alt="image" sourcefile="manual/architecture.md" sourcestartlinenumber="24" sourceendlinenumber="24"></p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="26" sourceendlinenumber="26">Figure 1 - High-Level Conceptual Architecture</p>
+<h2 id="virgis-app" sourcefile="manual/architecture.md" sourcestartlinenumber="29" sourceendlinenumber="29">​ViRGIS App</h2>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="31" sourceendlinenumber="31">The ViRGIS app will be created in Unity and will be written in C#.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="33" sourceendlinenumber="33">The ViRGIS app will be compiled for Windows, macOS and Android. The latter two will be compiled on Mono.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="35" sourceendlinenumber="35">The App will be made up of the following components:</p>
+<ol sourcefile="manual/architecture.md" sourcestartlinenumber="39" sourceendlinenumber="46">
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="39" sourceendlinenumber="39"><strong>Project Schema</strong>. This JSON based schema defines the data structure for the definition of the project.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="40" sourceendlinenumber="40"><strong>Entity Data Schema and Object Schema</strong>. This defines how entities will be stored and mapped internally to the VR world.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="41" sourceendlinenumber="41"><strong>Data Ingestion</strong>.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="42" sourceendlinenumber="42"><strong>Georeference framework</strong>. This creates a mapping between real-world coordinate systems and the VR-world coordinate system.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="43" sourceendlinenumber="43"><strong>3D Geometry Tools</strong>. The tools that are required to manipulate the entities in 3D and provide usual GIS functionality.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="44" sourceendlinenumber="44"><strong>Event System</strong>. The ViRGIS entities have a system to propagate events through the entity model.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="45" sourceendlinenumber="45"><strong>User Interface</strong>. All the details relating to how to represent the user in the VR-world and the UI, Menus and controls to allow them to work in that world.</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="46" sourceendlinenumber="46"><strong>Symbology and rendering</strong>. This is not part of the App. This is defined in the Core and Pro packages.</li>
+</ol>
+<h2 id="vr-adapter" sourcefile="manual/architecture.md" sourcestartlinenumber="49" sourceendlinenumber="49">​VR Adapter</h2>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="51" sourceendlinenumber="51">The Core product includes the definition of a JSON schema for the transfer of the Project and Symbology data to the app. The ViRGIS app will read this data from a file.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="53" sourceendlinenumber="53">This is will include the simplest symbology:</p>
+<ul sourcefile="manual/architecture.md" sourcestartlinenumber="57" sourceendlinenumber="58">
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="57" sourceendlinenumber="57">The ability to choose the colour, shape and size for point and line features , and</li>
+<li sourcefile="manual/architecture.md" sourcestartlinenumber="58" sourceendlinenumber="58">The ability to choose the colour and size for the perimeter of a polygon and the ability to choose a colour or texture for the mesh of a polygon, with the texture being a .PNG or .JPEG file.</li>
+</ul>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="60" sourceendlinenumber="60">It is assumed that any user of the Core release will develop their own solutions to create this file.</p>
+<h2 id="gis-backend" sourcefile="manual/architecture.md" sourcestartlinenumber="63" sourceendlinenumber="63">​GIS Backend</h2>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="65" sourceendlinenumber="65">The Core product will be able to load, edit and save vector layers in the form of standard GeoJSON files using EPSG:4326 ( WGS84, Geographic) CRS.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="67" sourceendlinenumber="67">The Core product will also be able to load georeferenced point clouds as .PLY format files and georeferenced Meshes as .OBJ, .OFF &amp; .STL format files.</p>
+<p sourcefile="manual/architecture.md" sourcestartlinenumber="69" sourceendlinenumber="69">The Core product will only load raster tile layers, DEMs and vector tile layers provided by MAPBOX.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Documentation/manual/architecture.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ViRGIS VR GIS
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

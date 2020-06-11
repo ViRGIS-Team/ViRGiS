@@ -1,0 +1,725 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshMeshCut
+  commentId: T:g3.MeshMeshCut
+  id: MeshMeshCut
+  parent: g3
+  children:
+  - g3.MeshMeshCut.AppendSegments(System.Double)
+  - g3.MeshMeshCut.ColorFaces
+  - g3.MeshMeshCut.Compute
+  - g3.MeshMeshCut.CutMesh
+  - g3.MeshMeshCut.CutVertices
+  - g3.MeshMeshCut.find_existing_vertex(g3.Vector3d)
+  - g3.MeshMeshCut.find_nearest_vertex(g3.Vector3d,System.Double,System.Int32)
+  - g3.MeshMeshCut.is_in_triangle(System.Int32,g3.Vector3d)
+  - g3.MeshMeshCut.is_on_edge(System.Int32,g3.Vector3d)
+  - g3.MeshMeshCut.on_edge(g3.Triangle3d@,g3.Vector3d@)
+  - g3.MeshMeshCut.on_edge_eid(System.Int32,g3.Vector3d)
+  - g3.MeshMeshCut.RemoveContained
+  - g3.MeshMeshCut.Target
+  - g3.MeshMeshCut.VertexSnapTol
+  langs:
+  - csharp
+  - vb
+  name: MeshMeshCut
+  nameWithType: MeshMeshCut
+  fullName: g3.MeshMeshCut
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshMeshCut
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n\n\nTODO:\n- track descendant triangles of each input face\n- for missing segments, can resolve in 2D in plane of face\n\n\n"
+  example: []
+  syntax:
+    content: public class MeshMeshCut
+    content.vb: Public Class MeshMeshCut
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshMeshCut.Target
+  commentId: F:g3.MeshMeshCut.Target
+  id: Target
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: MeshMeshCut.Target
+  fullName: g3.MeshMeshCut.Target
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Target
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Target
+    return:
+      type: g3.DMesh3
+    content.vb: Public Target As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.CutMesh
+  commentId: F:g3.MeshMeshCut.CutMesh
+  id: CutMesh
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: CutMesh
+  nameWithType: MeshMeshCut.CutMesh
+  fullName: g3.MeshMeshCut.CutMesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CutMesh
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 CutMesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public CutMesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.VertexSnapTol
+  commentId: F:g3.MeshMeshCut.VertexSnapTol
+  id: VertexSnapTol
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: VertexSnapTol
+  nameWithType: MeshMeshCut.VertexSnapTol
+  fullName: g3.MeshMeshCut.VertexSnapTol
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexSnapTol
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 27
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double VertexSnapTol
+    return:
+      type: System.Double
+    content.vb: Public VertexSnapTol As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.CutVertices
+  commentId: F:g3.MeshMeshCut.CutVertices
+  id: CutVertices
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: CutVertices
+  nameWithType: MeshMeshCut.CutVertices
+  fullName: g3.MeshMeshCut.CutVertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CutVertices
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<int> CutVertices
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public CutVertices As List(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.Compute
+  commentId: M:g3.MeshMeshCut.Compute
+  id: Compute
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: MeshMeshCut.Compute()
+  fullName: g3.MeshMeshCut.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Compute()
+    content.vb: Public Sub Compute
+  overload: g3.MeshMeshCut.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.RemoveContained
+  commentId: M:g3.MeshMeshCut.RemoveContained
+  id: RemoveContained
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: RemoveContained()
+  nameWithType: MeshMeshCut.RemoveContained()
+  fullName: g3.MeshMeshCut.RemoveContained()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveContained
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void RemoveContained()
+    content.vb: Public Sub RemoveContained
+  overload: g3.MeshMeshCut.RemoveContained*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.AppendSegments(System.Double)
+  commentId: M:g3.MeshMeshCut.AppendSegments(System.Double)
+  id: AppendSegments(System.Double)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: AppendSegments(Double)
+  nameWithType: MeshMeshCut.AppendSegments(Double)
+  fullName: g3.MeshMeshCut.AppendSegments(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendSegments
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendSegments(double r)
+    parameters:
+    - id: r
+      type: System.Double
+    content.vb: Public Sub AppendSegments(r As Double)
+  overload: g3.MeshMeshCut.AppendSegments*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.ColorFaces
+  commentId: M:g3.MeshMeshCut.ColorFaces
+  id: ColorFaces
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: ColorFaces()
+  nameWithType: MeshMeshCut.ColorFaces()
+  fullName: g3.MeshMeshCut.ColorFaces()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ColorFaces
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 93
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ColorFaces()
+    content.vb: Public Sub ColorFaces
+  overload: g3.MeshMeshCut.ColorFaces*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshMeshCut.on_edge(g3.Triangle3d@,g3.Vector3d@)
+  commentId: M:g3.MeshMeshCut.on_edge(g3.Triangle3d@,g3.Vector3d@)
+  id: on_edge(g3.Triangle3d@,g3.Vector3d@)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: on_edge(ref Triangle3d, ref Vector3d)
+  nameWithType: MeshMeshCut.on_edge(ref Triangle3d, ref Vector3d)
+  fullName: g3.MeshMeshCut.on_edge(ref g3.Triangle3d, ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: on_edge
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 592
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int on_edge(ref Triangle3d tri, ref Vector3d v)
+    parameters:
+    - id: tri
+      type: g3.Triangle3d
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: System.Int32
+    content.vb: Protected Function on_edge(ByRef tri As Triangle3d, ByRef v As Vector3d) As Integer
+  overload: g3.MeshMeshCut.on_edge*
+  nameWithType.vb: MeshMeshCut.on_edge(ByRef Triangle3d, ByRef Vector3d)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshMeshCut.on_edge(ByRef g3.Triangle3d, ByRef g3.Vector3d)
+  name.vb: on_edge(ByRef Triangle3d, ByRef Vector3d)
+- uid: g3.MeshMeshCut.on_edge_eid(System.Int32,g3.Vector3d)
+  commentId: M:g3.MeshMeshCut.on_edge_eid(System.Int32,g3.Vector3d)
+  id: on_edge_eid(System.Int32,g3.Vector3d)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: on_edge_eid(Int32, Vector3d)
+  nameWithType: MeshMeshCut.on_edge_eid(Int32, Vector3d)
+  fullName: g3.MeshMeshCut.on_edge_eid(System.Int32, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: on_edge_eid
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 605
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int on_edge_eid(int tid, Vector3d v)
+    parameters:
+    - id: tid
+      type: System.Int32
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: System.Int32
+    content.vb: Protected Function on_edge_eid(tid As Integer, v As Vector3d) As Integer
+  overload: g3.MeshMeshCut.on_edge_eid*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshMeshCut.is_on_edge(System.Int32,g3.Vector3d)
+  commentId: M:g3.MeshMeshCut.is_on_edge(System.Int32,g3.Vector3d)
+  id: is_on_edge(System.Int32,g3.Vector3d)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: is_on_edge(Int32, Vector3d)
+  nameWithType: MeshMeshCut.is_on_edge(Int32, Vector3d)
+  fullName: g3.MeshMeshCut.is_on_edge(System.Int32, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: is_on_edge
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 617
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool is_on_edge(int eid, Vector3d v)
+    parameters:
+    - id: eid
+      type: System.Int32
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: System.Boolean
+    content.vb: Protected Function is_on_edge(eid As Integer, v As Vector3d) As Boolean
+  overload: g3.MeshMeshCut.is_on_edge*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshMeshCut.is_in_triangle(System.Int32,g3.Vector3d)
+  commentId: M:g3.MeshMeshCut.is_in_triangle(System.Int32,g3.Vector3d)
+  id: is_in_triangle(System.Int32,g3.Vector3d)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: is_in_triangle(Int32, Vector3d)
+  nameWithType: MeshMeshCut.is_in_triangle(Int32, Vector3d)
+  fullName: g3.MeshMeshCut.is_in_triangle(System.Int32, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: is_in_triangle
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 624
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool is_in_triangle(int tid, Vector3d v)
+    parameters:
+    - id: tid
+      type: System.Int32
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: System.Boolean
+    content.vb: Protected Function is_in_triangle(tid As Integer, v As Vector3d) As Boolean
+  overload: g3.MeshMeshCut.is_in_triangle*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshMeshCut.find_existing_vertex(g3.Vector3d)
+  commentId: M:g3.MeshMeshCut.find_existing_vertex(g3.Vector3d)
+  id: find_existing_vertex(g3.Vector3d)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: find_existing_vertex(Vector3d)
+  nameWithType: MeshMeshCut.find_existing_vertex(Vector3d)
+  fullName: g3.MeshMeshCut.find_existing_vertex(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: find_existing_vertex
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 639
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nfind existing vertex at point, if it exists\n"
+  example: []
+  syntax:
+    content: protected int find_existing_vertex(Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: System.Int32
+    content.vb: Protected Function find_existing_vertex(pt As Vector3d) As Integer
+  overload: g3.MeshMeshCut.find_existing_vertex*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshMeshCut.find_nearest_vertex(g3.Vector3d,System.Double,System.Int32)
+  commentId: M:g3.MeshMeshCut.find_nearest_vertex(g3.Vector3d,System.Double,System.Int32)
+  id: find_nearest_vertex(g3.Vector3d,System.Double,System.Int32)
+  parent: g3.MeshMeshCut
+  langs:
+  - csharp
+  - vb
+  name: find_nearest_vertex(Vector3d, Double, Int32)
+  nameWithType: MeshMeshCut.find_nearest_vertex(Vector3d, Double, Int32)
+  fullName: g3.MeshMeshCut.find_nearest_vertex(g3.Vector3d, System.Double, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: find_nearest_vertex
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshMeshCut.cs
+    startLine: 646
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nfind closest vertex, within searchRadius\n"
+  example: []
+  syntax:
+    content: protected int find_nearest_vertex(Vector3d pt, double searchRadius, int ignore_vid = -1)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    - id: searchRadius
+      type: System.Double
+    - id: ignore_vid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Protected Function find_nearest_vertex(pt As Vector3d, searchRadius As Double, ignore_vid As Integer = -1) As Integer
+  overload: g3.MeshMeshCut.find_nearest_vertex*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshMeshCut.Compute*
+  commentId: Overload:g3.MeshMeshCut.Compute
+  name: Compute
+  nameWithType: MeshMeshCut.Compute
+  fullName: g3.MeshMeshCut.Compute
+- uid: g3.MeshMeshCut.RemoveContained*
+  commentId: Overload:g3.MeshMeshCut.RemoveContained
+  name: RemoveContained
+  nameWithType: MeshMeshCut.RemoveContained
+  fullName: g3.MeshMeshCut.RemoveContained
+- uid: g3.MeshMeshCut.AppendSegments*
+  commentId: Overload:g3.MeshMeshCut.AppendSegments
+  name: AppendSegments
+  nameWithType: MeshMeshCut.AppendSegments
+  fullName: g3.MeshMeshCut.AppendSegments
+- uid: g3.MeshMeshCut.ColorFaces*
+  commentId: Overload:g3.MeshMeshCut.ColorFaces
+  name: ColorFaces
+  nameWithType: MeshMeshCut.ColorFaces
+  fullName: g3.MeshMeshCut.ColorFaces
+- uid: g3.MeshMeshCut.on_edge*
+  commentId: Overload:g3.MeshMeshCut.on_edge
+  name: on_edge
+  nameWithType: MeshMeshCut.on_edge
+  fullName: g3.MeshMeshCut.on_edge
+- uid: g3.Triangle3d
+  commentId: T:g3.Triangle3d
+  parent: g3
+  name: Triangle3d
+  nameWithType: Triangle3d
+  fullName: g3.Triangle3d
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshMeshCut.on_edge_eid*
+  commentId: Overload:g3.MeshMeshCut.on_edge_eid
+  name: on_edge_eid
+  nameWithType: MeshMeshCut.on_edge_eid
+  fullName: g3.MeshMeshCut.on_edge_eid
+- uid: g3.MeshMeshCut.is_on_edge*
+  commentId: Overload:g3.MeshMeshCut.is_on_edge
+  name: is_on_edge
+  nameWithType: MeshMeshCut.is_on_edge
+  fullName: g3.MeshMeshCut.is_on_edge
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshMeshCut.is_in_triangle*
+  commentId: Overload:g3.MeshMeshCut.is_in_triangle
+  name: is_in_triangle
+  nameWithType: MeshMeshCut.is_in_triangle
+  fullName: g3.MeshMeshCut.is_in_triangle
+- uid: g3.MeshMeshCut.find_existing_vertex*
+  commentId: Overload:g3.MeshMeshCut.find_existing_vertex
+  name: find_existing_vertex
+  nameWithType: MeshMeshCut.find_existing_vertex
+  fullName: g3.MeshMeshCut.find_existing_vertex
+- uid: g3.MeshMeshCut.find_nearest_vertex*
+  commentId: Overload:g3.MeshMeshCut.find_nearest_vertex
+  name: find_nearest_vertex
+  nameWithType: MeshMeshCut.find_nearest_vertex
+  fullName: g3.MeshMeshCut.find_nearest_vertex

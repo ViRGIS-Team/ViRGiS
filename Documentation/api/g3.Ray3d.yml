@@ -1,0 +1,489 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Ray3d
+  commentId: T:g3.Ray3d
+  id: Ray3d
+  parent: g3
+  children:
+  - g3.Ray3d.#ctor(g3.Vector3d,g3.Vector3d,System.Boolean)
+  - g3.Ray3d.#ctor(g3.Vector3f,g3.Vector3f)
+  - g3.Ray3d.ClosestPoint(g3.Vector3d)
+  - g3.Ray3d.Direction
+  - g3.Ray3d.DistanceSquared(g3.Vector3d)
+  - g3.Ray3d.op_Explicit(g3.Ray3d)~g3.Ray3f
+  - g3.Ray3d.op_Implicit(g3.Ray3f)~g3.Ray3d
+  - g3.Ray3d.Origin
+  - g3.Ray3d.PointAt(System.Double)
+  - g3.Ray3d.Project(g3.Vector3d)
+  langs:
+  - csharp
+  - vb
+  name: Ray3d
+  nameWithType: Ray3d
+  fullName: g3.Ray3d
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Ray3d
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public struct Ray3d
+    content.vb: Public Structure Ray3d
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.Ray3d.Origin
+  commentId: F:g3.Ray3d.Origin
+  id: Origin
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Origin
+  nameWithType: Ray3d.Origin
+  fullName: g3.Ray3d.Origin
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Origin
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Origin
+    return:
+      type: g3.Vector3d
+    content.vb: Public Origin As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.Direction
+  commentId: F:g3.Ray3d.Direction
+  id: Direction
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: Ray3d.Direction
+  fullName: g3.Ray3d.Direction
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Direction
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Direction
+    return:
+      type: g3.Vector3d
+    content.vb: Public Direction As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.#ctor(g3.Vector3d,g3.Vector3d,System.Boolean)
+  commentId: M:g3.Ray3d.#ctor(g3.Vector3d,g3.Vector3d,System.Boolean)
+  id: '#ctor(g3.Vector3d,g3.Vector3d,System.Boolean)'
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Ray3d(Vector3d, Vector3d, Boolean)
+  nameWithType: Ray3d.Ray3d(Vector3d, Vector3d, Boolean)
+  fullName: g3.Ray3d.Ray3d(g3.Vector3d, g3.Vector3d, System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Ray3d(Vector3d origin, Vector3d direction, bool bIsNormalized = false)
+    parameters:
+    - id: origin
+      type: g3.Vector3d
+    - id: direction
+      type: g3.Vector3d
+    - id: bIsNormalized
+      type: System.Boolean
+    content.vb: Public Sub New(origin As Vector3d, direction As Vector3d, bIsNormalized As Boolean = False)
+  overload: g3.Ray3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.#ctor(g3.Vector3f,g3.Vector3f)
+  commentId: M:g3.Ray3d.#ctor(g3.Vector3f,g3.Vector3f)
+  id: '#ctor(g3.Vector3f,g3.Vector3f)'
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Ray3d(Vector3f, Vector3f)
+  nameWithType: Ray3d.Ray3d(Vector3f, Vector3f)
+  fullName: g3.Ray3d.Ray3d(g3.Vector3f, g3.Vector3f)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Ray3d(Vector3f origin, Vector3f direction)
+    parameters:
+    - id: origin
+      type: g3.Vector3f
+    - id: direction
+      type: g3.Vector3f
+    content.vb: Public Sub New(origin As Vector3f, direction As Vector3f)
+  overload: g3.Ray3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.PointAt(System.Double)
+  commentId: M:g3.Ray3d.PointAt(System.Double)
+  id: PointAt(System.Double)
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: PointAt(Double)
+  nameWithType: Ray3d.PointAt(Double)
+  fullName: g3.Ray3d.PointAt(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointAt
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d PointAt(double d)
+    parameters:
+    - id: d
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function PointAt(d As Double) As Vector3d
+  overload: g3.Ray3d.PointAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.Project(g3.Vector3d)
+  commentId: M:g3.Ray3d.Project(g3.Vector3d)
+  id: Project(g3.Vector3d)
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector3d)
+  nameWithType: Ray3d.Project(Vector3d)
+  fullName: g3.Ray3d.Project(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 37
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Project(Vector3d p)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function Project(p As Vector3d) As Double
+  overload: g3.Ray3d.Project*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.DistanceSquared(g3.Vector3d)
+  commentId: M:g3.Ray3d.DistanceSquared(g3.Vector3d)
+  id: DistanceSquared(g3.Vector3d)
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3d)
+  nameWithType: Ray3d.DistanceSquared(Vector3d)
+  fullName: g3.Ray3d.DistanceSquared(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector3d p)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(p As Vector3d) As Double
+  overload: g3.Ray3d.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.ClosestPoint(g3.Vector3d)
+  commentId: M:g3.Ray3d.ClosestPoint(g3.Vector3d)
+  id: ClosestPoint(g3.Vector3d)
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: ClosestPoint(Vector3d)
+  nameWithType: Ray3d.ClosestPoint(Vector3d)
+  fullName: g3.Ray3d.ClosestPoint(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ClosestPoint
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d ClosestPoint(Vector3d p)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function ClosestPoint(p As Vector3d) As Vector3d
+  overload: g3.Ray3d.ClosestPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Ray3d.op_Implicit(g3.Ray3f)~g3.Ray3d
+  commentId: M:g3.Ray3d.op_Implicit(g3.Ray3f)~g3.Ray3d
+  id: op_Implicit(g3.Ray3f)~g3.Ray3d
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Ray3f to Ray3d)
+  nameWithType: Ray3d.Implicit(Ray3f to Ray3d)
+  fullName: g3.Ray3d.Implicit(g3.Ray3f to g3.Ray3d)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static implicit operator Ray3d(Ray3f v)
+    parameters:
+    - id: v
+      type: g3.Ray3f
+    return:
+      type: g3.Ray3d
+    content.vb: Public Shared Widening Operator CType(v As Ray3f) As Ray3d
+  overload: g3.Ray3d.op_Implicit*
+  nameWithType.vb: Ray3d.Widening(Ray3f to Ray3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Ray3d.Widening(g3.Ray3f to g3.Ray3d)
+  name.vb: Widening(Ray3f to Ray3d)
+- uid: g3.Ray3d.op_Explicit(g3.Ray3d)~g3.Ray3f
+  commentId: M:g3.Ray3d.op_Explicit(g3.Ray3d)~g3.Ray3f
+  id: op_Explicit(g3.Ray3d)~g3.Ray3f
+  parent: g3.Ray3d
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Ray3d to Ray3f)
+  nameWithType: Ray3d.Explicit(Ray3d to Ray3f)
+  fullName: g3.Ray3d.Explicit(g3.Ray3d to g3.Ray3f)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Ray3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Ray3.cs
+    startLine: 69
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Ray3f(Ray3d v)
+    parameters:
+    - id: v
+      type: g3.Ray3d
+    return:
+      type: g3.Ray3f
+    content.vb: Public Shared Narrowing Operator CType(v As Ray3d) As Ray3f
+  overload: g3.Ray3d.op_Explicit*
+  nameWithType.vb: Ray3d.Narrowing(Ray3d to Ray3f)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Ray3d.Narrowing(g3.Ray3d to g3.Ray3f)
+  name.vb: Narrowing(Ray3d to Ray3f)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.Ray3d.#ctor*
+  commentId: Overload:g3.Ray3d.#ctor
+  name: Ray3d
+  nameWithType: Ray3d.Ray3d
+  fullName: g3.Ray3d.Ray3d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.Ray3d.PointAt*
+  commentId: Overload:g3.Ray3d.PointAt
+  name: PointAt
+  nameWithType: Ray3d.PointAt
+  fullName: g3.Ray3d.PointAt
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Ray3d.Project*
+  commentId: Overload:g3.Ray3d.Project
+  name: Project
+  nameWithType: Ray3d.Project
+  fullName: g3.Ray3d.Project
+- uid: g3.Ray3d.DistanceSquared*
+  commentId: Overload:g3.Ray3d.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Ray3d.DistanceSquared
+  fullName: g3.Ray3d.DistanceSquared
+- uid: g3.Ray3d.ClosestPoint*
+  commentId: Overload:g3.Ray3d.ClosestPoint
+  name: ClosestPoint
+  nameWithType: Ray3d.ClosestPoint
+  fullName: g3.Ray3d.ClosestPoint
+- uid: g3.Ray3d.op_Implicit*
+  commentId: Overload:g3.Ray3d.op_Implicit
+  name: Implicit
+  nameWithType: Ray3d.Implicit
+  fullName: g3.Ray3d.Implicit
+  nameWithType.vb: Ray3d.Widening
+  fullName.vb: g3.Ray3d.Widening
+  name.vb: Widening
+- uid: g3.Ray3f
+  commentId: T:g3.Ray3f
+  parent: g3
+  name: Ray3f
+  nameWithType: Ray3f
+  fullName: g3.Ray3f
+- uid: g3.Ray3d
+  commentId: T:g3.Ray3d
+  parent: g3
+  name: Ray3d
+  nameWithType: Ray3d
+  fullName: g3.Ray3d
+- uid: g3.Ray3d.op_Explicit*
+  commentId: Overload:g3.Ray3d.op_Explicit
+  name: Explicit
+  nameWithType: Ray3d.Explicit
+  fullName: g3.Ray3d.Explicit
+  nameWithType.vb: Ray3d.Narrowing
+  fullName.vb: g3.Ray3d.Narrowing
+  name.vb: Narrowing

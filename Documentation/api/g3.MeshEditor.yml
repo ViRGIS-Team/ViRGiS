@@ -1,0 +1,2853 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshEditor
+  commentId: T:g3.MeshEditor
+  id: MeshEditor
+  parent: g3
+  children:
+  - g3.MeshEditor.#ctor(g3.DMesh3)
+  - g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop(System.Int32,System.Int32[],System.Int32)
+  - g3.MeshEditor.AddTriangleFan_OrderedVertexLoop(System.Int32,System.Int32[],System.Int32)
+  - g3.MeshEditor.AddTriangleStrip(System.Collections.Generic.IList{g3.Frame3f},System.Collections.Generic.IList{g3.Interval1d},System.Int32)
+  - g3.MeshEditor.Append(g3.DMesh3,g3.DMesh3)
+  - g3.MeshEditor.AppendBox(g3.DMesh3,g3.Frame3f,g3.Vector3f,g3.Colorf)
+  - g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single)
+  - g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single,g3.Colorf)
+  - g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,System.Single)
+  - g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,System.Single,g3.Colorf)
+  - g3.MeshEditor.AppendBox(g3.Frame3f,g3.Vector3f)
+  - g3.MeshEditor.AppendBox(g3.Frame3f,g3.Vector3f,g3.Colorf)
+  - g3.MeshEditor.AppendBox(g3.Frame3f,System.Single)
+  - g3.MeshEditor.AppendLine(g3.DMesh3,g3.Segment3d,System.Single)
+  - g3.MeshEditor.AppendLine(g3.Segment3d,System.Single)
+  - g3.MeshEditor.AppendLine(g3.Segment3d,System.Single,g3.Colorf)
+  - g3.MeshEditor.AppendMesh(g3.IMesh,g3.IndexMap,System.Int32[]@,System.Int32)
+  - g3.MeshEditor.AppendMesh(g3.IMesh,System.Int32)
+  - g3.MeshEditor.AppendMesh(g3.IMesh,System.Int32[]@,System.Int32)
+  - g3.MeshEditor.AppendPathSolid(System.Collections.Generic.IEnumerable{g3.Vector3d},System.Double,g3.Colorf)
+  - g3.MeshEditor.Combine(g3.IMesh[])
+  - g3.MeshEditor.DisconnectAllBowties(System.Int32)
+  - g3.MeshEditor.DisconnectBowtie(System.Int32)
+  - g3.MeshEditor.DuplicateTriangles(System.Collections.Generic.IEnumerable{System.Int32},g3.IndexMap@,System.Int32)
+  - g3.MeshEditor.Mesh
+  - g3.MeshEditor.ReinsertSubmesh(g3.DSubmesh3,System.Int32[]@,g3.IndexMap@,g3.MeshEditor.DuplicateTriBehavior)
+  - g3.MeshEditor.RemoveAllBowtieVertices(System.Boolean)
+  - g3.MeshEditor.RemoveFinTriangles(g3.DMesh3,System.Func{g3.DMesh3,System.Int32,System.Boolean},System.Boolean)
+  - g3.MeshEditor.RemoveIsolatedTriangles(g3.DMesh3)
+  - g3.MeshEditor.RemoveSmallComponents(g3.DMesh3,System.Double,System.Double)
+  - g3.MeshEditor.RemoveSmallComponents(System.Double,System.Double)
+  - g3.MeshEditor.RemoveTriangles(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  - g3.MeshEditor.RemoveTriangles(g3.DMesh3,System.Collections.Generic.IList{System.Int32},System.Boolean)
+  - g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  - g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  - g3.MeshEditor.RemoveTriangles(System.Func{System.Int32,System.Boolean},System.Boolean)
+  - g3.MeshEditor.RemoveUnusedVertices
+  - g3.MeshEditor.RemoveUnusedVertices(g3.DMesh3)
+  - g3.MeshEditor.ReverseTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  - g3.MeshEditor.SeparateTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Collections.Generic.List{g3.Index2i}@)
+  - g3.MeshEditor.StitchLoop(System.Int32[],System.Int32[],System.Int32)
+  - g3.MeshEditor.StitchSpan(System.Collections.Generic.IList{System.Int32},System.Collections.Generic.IList{System.Int32},System.Int32)
+  - g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean)
+  - g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean,System.Boolean@)
+  - g3.MeshEditor.StitchVertexLoops_NearestV(System.Int32[],System.Int32[],System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: MeshEditor
+  nameWithType: MeshEditor
+  fullName: g3.MeshEditor
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshEditor
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class MeshEditor
+    content.vb: Public Class MeshEditor
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshEditor.Mesh
+  commentId: F:g3.MeshEditor.Mesh
+  id: Mesh
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshEditor.Mesh
+  fullName: g3.MeshEditor.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.#ctor(g3.DMesh3)
+  commentId: M:g3.MeshEditor.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: MeshEditor(DMesh3)
+  nameWithType: MeshEditor.MeshEditor(DMesh3)
+  fullName: g3.MeshEditor.MeshEditor(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshEditor(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub New(mesh As DMesh3)
+  overload: g3.MeshEditor.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AddTriangleStrip(System.Collections.Generic.IList{g3.Frame3f},System.Collections.Generic.IList{g3.Interval1d},System.Int32)
+  commentId: M:g3.MeshEditor.AddTriangleStrip(System.Collections.Generic.IList{g3.Frame3f},System.Collections.Generic.IList{g3.Interval1d},System.Int32)
+  id: AddTriangleStrip(System.Collections.Generic.IList{g3.Frame3f},System.Collections.Generic.IList{g3.Interval1d},System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AddTriangleStrip(IList<Frame3f>, IList<Interval1d>, Int32)
+  nameWithType: MeshEditor.AddTriangleStrip(IList<Frame3f>, IList<Interval1d>, Int32)
+  fullName: g3.MeshEditor.AddTriangleStrip(System.Collections.Generic.IList<g3.Frame3f>, System.Collections.Generic.IList<g3.Interval1d>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddTriangleStrip
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 27
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual int[] AddTriangleStrip(IList<Frame3f> frames, IList<Interval1d> spans, int group_id = -1)
+    parameters:
+    - id: frames
+      type: System.Collections.Generic.IList{g3.Frame3f}
+    - id: spans
+      type: System.Collections.Generic.IList{g3.Interval1d}
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function AddTriangleStrip(frames As IList(Of Frame3f), spans As IList(Of Interval1d), group_id As Integer = -1) As Integer()
+  overload: g3.MeshEditor.AddTriangleStrip*
+  nameWithType.vb: MeshEditor.AddTriangleStrip(IList(Of Frame3f), IList(Of Interval1d), Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.AddTriangleStrip(System.Collections.Generic.IList(Of g3.Frame3f), System.Collections.Generic.IList(Of g3.Interval1d), System.Int32)
+  name.vb: AddTriangleStrip(IList(Of Frame3f), IList(Of Interval1d), Int32)
+- uid: g3.MeshEditor.AddTriangleFan_OrderedVertexLoop(System.Int32,System.Int32[],System.Int32)
+  commentId: M:g3.MeshEditor.AddTriangleFan_OrderedVertexLoop(System.Int32,System.Int32[],System.Int32)
+  id: AddTriangleFan_OrderedVertexLoop(System.Int32,System.Int32[],System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AddTriangleFan_OrderedVertexLoop(Int32, Int32[], Int32)
+  nameWithType: MeshEditor.AddTriangleFan_OrderedVertexLoop(Int32, Int32[], Int32)
+  fullName: g3.MeshEditor.AddTriangleFan_OrderedVertexLoop(System.Int32, System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddTriangleFan_OrderedVertexLoop
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual int[] AddTriangleFan_OrderedVertexLoop(int center, int[] vertex_loop, int group_id = -1)
+    parameters:
+    - id: center
+      type: System.Int32
+    - id: vertex_loop
+      type: System.Int32[]
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function AddTriangleFan_OrderedVertexLoop(center As Integer, vertex_loop As Integer(), group_id As Integer = -1) As Integer()
+  overload: g3.MeshEditor.AddTriangleFan_OrderedVertexLoop*
+  nameWithType.vb: MeshEditor.AddTriangleFan_OrderedVertexLoop(Int32, Int32(), Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.AddTriangleFan_OrderedVertexLoop(System.Int32, System.Int32(), System.Int32)
+  name.vb: AddTriangleFan_OrderedVertexLoop(Int32, Int32(), Int32)
+- uid: g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop(System.Int32,System.Int32[],System.Int32)
+  commentId: M:g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop(System.Int32,System.Int32[],System.Int32)
+  id: AddTriangleFan_OrderedEdgeLoop(System.Int32,System.Int32[],System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AddTriangleFan_OrderedEdgeLoop(Int32, Int32[], Int32)
+  nameWithType: MeshEditor.AddTriangleFan_OrderedEdgeLoop(Int32, Int32[], Int32)
+  fullName: g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop(System.Int32, System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddTriangleFan_OrderedEdgeLoop
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual int[] AddTriangleFan_OrderedEdgeLoop(int center, int[] edge_loop, int group_id = -1)
+    parameters:
+    - id: center
+      type: System.Int32
+    - id: edge_loop
+      type: System.Int32[]
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function AddTriangleFan_OrderedEdgeLoop(center As Integer, edge_loop As Integer(), group_id As Integer = -1) As Integer()
+  overload: g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop*
+  nameWithType.vb: MeshEditor.AddTriangleFan_OrderedEdgeLoop(Int32, Int32(), Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop(System.Int32, System.Int32(), System.Int32)
+  name.vb: AddTriangleFan_OrderedEdgeLoop(Int32, Int32(), Int32)
+- uid: g3.MeshEditor.StitchLoop(System.Int32[],System.Int32[],System.Int32)
+  commentId: M:g3.MeshEditor.StitchLoop(System.Int32[],System.Int32[],System.Int32)
+  id: StitchLoop(System.Int32[],System.Int32[],System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: StitchLoop(Int32[], Int32[], Int32)
+  nameWithType: MeshEditor.StitchLoop(Int32[], Int32[], Int32)
+  fullName: g3.MeshEditor.StitchLoop(System.Int32[], System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StitchLoop
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 138
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTrivial back-and-forth stitch between two vertex loops with same length. \nLoops must have appropriate orientation (which is...??)\n[TODO] check and fail on bad orientation\n"
+  example: []
+  syntax:
+    content: public virtual int[] StitchLoop(int[] vloop1, int[] vloop2, int group_id = -1)
+    parameters:
+    - id: vloop1
+      type: System.Int32[]
+    - id: vloop2
+      type: System.Int32[]
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function StitchLoop(vloop1 As Integer(), vloop2 As Integer(), group_id As Integer = -1) As Integer()
+  overload: g3.MeshEditor.StitchLoop*
+  nameWithType.vb: MeshEditor.StitchLoop(Int32(), Int32(), Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.StitchLoop(System.Int32(), System.Int32(), System.Int32)
+  name.vb: StitchLoop(Int32(), Int32(), Int32)
+- uid: g3.MeshEditor.StitchVertexLoops_NearestV(System.Int32[],System.Int32[],System.Int32)
+  commentId: M:g3.MeshEditor.StitchVertexLoops_NearestV(System.Int32[],System.Int32[],System.Int32)
+  id: StitchVertexLoops_NearestV(System.Int32[],System.Int32[],System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: StitchVertexLoops_NearestV(Int32[], Int32[], Int32)
+  nameWithType: MeshEditor.StitchVertexLoops_NearestV(Int32[], Int32[], Int32)
+  fullName: g3.MeshEditor.StitchVertexLoops_NearestV(System.Int32[], System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StitchVertexLoops_NearestV
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 189
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTrivial back-and-forth stitch between two vertex loops with same length. \nIf nearest vertices of input loops would not be matched, cycles loops so\nthat this is the case. \nLoops must have appropriate orientation.\n"
+  example: []
+  syntax:
+    content: public virtual int[] StitchVertexLoops_NearestV(int[] loop0, int[] loop1, int group_id = -1)
+    parameters:
+    - id: loop0
+      type: System.Int32[]
+    - id: loop1
+      type: System.Int32[]
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function StitchVertexLoops_NearestV(loop0 As Integer(), loop1 As Integer(), group_id As Integer = -1) As Integer()
+  overload: g3.MeshEditor.StitchVertexLoops_NearestV*
+  nameWithType.vb: MeshEditor.StitchVertexLoops_NearestV(Int32(), Int32(), Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.StitchVertexLoops_NearestV(System.Int32(), System.Int32(), System.Int32)
+  name.vb: StitchVertexLoops_NearestV(Int32(), Int32(), Int32)
+- uid: g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean,System.Boolean@)
+  commentId: M:g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean,System.Boolean@)
+  id: StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean,System.Boolean@)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: StitchUnorderedEdges(List<Index2i>, Int32, Boolean, out Boolean)
+  nameWithType: MeshEditor.StitchUnorderedEdges(List<Index2i>, Int32, Boolean, out Boolean)
+  fullName: g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List<g3.Index2i>, System.Int32, System.Boolean, out System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StitchUnorderedEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 229
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nStitch two sets of boundary edges that are provided as unordered pairs of edges, by\nadding triangulated quads between each edge pair. \nIf bAbortOnFailure==true and a failure is encountered during stitching, the triangles added up to that point are removed.\nIf bAbortOnFailure==false, failures are ignored and the returned triangle list may contain invalid values!\n"
+  example: []
+  syntax:
+    content: public virtual int[] StitchUnorderedEdges(List<Index2i> EdgePairs, int group_id, bool bAbortOnFailure, out bool stitch_incomplete)
+    parameters:
+    - id: EdgePairs
+      type: System.Collections.Generic.List{g3.Index2i}
+    - id: group_id
+      type: System.Int32
+    - id: bAbortOnFailure
+      type: System.Boolean
+    - id: stitch_incomplete
+      type: System.Boolean
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function StitchUnorderedEdges(EdgePairs As List(Of Index2i), group_id As Integer, bAbortOnFailure As Boolean, ByRef stitch_incomplete As Boolean) As Integer()
+  overload: g3.MeshEditor.StitchUnorderedEdges*
+  nameWithType.vb: MeshEditor.StitchUnorderedEdges(List(Of Index2i), Int32, Boolean, ByRef Boolean)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List(Of g3.Index2i), System.Int32, System.Boolean, ByRef System.Boolean)
+  name.vb: StitchUnorderedEdges(List(Of Index2i), Int32, Boolean, ByRef Boolean)
+- uid: g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean)
+  commentId: M:g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean)
+  id: StitchUnorderedEdges(System.Collections.Generic.List{g3.Index2i},System.Int32,System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: StitchUnorderedEdges(List<Index2i>, Int32, Boolean)
+  nameWithType: MeshEditor.StitchUnorderedEdges(List<Index2i>, Int32, Boolean)
+  fullName: g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List<g3.Index2i>, System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StitchUnorderedEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 291
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual int[] StitchUnorderedEdges(List<Index2i> EdgePairs, int group_id = -1, bool bAbortOnFailure = true)
+    parameters:
+    - id: EdgePairs
+      type: System.Collections.Generic.List{g3.Index2i}
+    - id: group_id
+      type: System.Int32
+    - id: bAbortOnFailure
+      type: System.Boolean
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function StitchUnorderedEdges(EdgePairs As List(Of Index2i), group_id As Integer = -1, bAbortOnFailure As Boolean = True) As Integer()
+  overload: g3.MeshEditor.StitchUnorderedEdges*
+  nameWithType.vb: MeshEditor.StitchUnorderedEdges(List(Of Index2i), Int32, Boolean)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.StitchUnorderedEdges(System.Collections.Generic.List(Of g3.Index2i), System.Int32, System.Boolean)
+  name.vb: StitchUnorderedEdges(List(Of Index2i), Int32, Boolean)
+- uid: g3.MeshEditor.StitchSpan(System.Collections.Generic.IList{System.Int32},System.Collections.Generic.IList{System.Int32},System.Int32)
+  commentId: M:g3.MeshEditor.StitchSpan(System.Collections.Generic.IList{System.Int32},System.Collections.Generic.IList{System.Int32},System.Int32)
+  id: StitchSpan(System.Collections.Generic.IList{System.Int32},System.Collections.Generic.IList{System.Int32},System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: StitchSpan(IList<Int32>, IList<Int32>, Int32)
+  nameWithType: MeshEditor.StitchSpan(IList<Int32>, IList<Int32>, Int32)
+  fullName: g3.MeshEditor.StitchSpan(System.Collections.Generic.IList<System.Int32>, System.Collections.Generic.IList<System.Int32>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StitchSpan
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 307
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTrivial back-and-forth stitch between two vertex spans with same length. \nvertex ordering must reslut in appropriate orientation (which is...??)\n[TODO] check and fail on bad orientation\n"
+  example: []
+  syntax:
+    content: public virtual int[] StitchSpan(IList<int> vspan1, IList<int> vspan2, int group_id = -1)
+    parameters:
+    - id: vspan1
+      type: System.Collections.Generic.IList{System.Int32}
+    - id: vspan2
+      type: System.Collections.Generic.IList{System.Int32}
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Int32[]
+    content.vb: Public Overridable Function StitchSpan(vspan1 As IList(Of Integer), vspan2 As IList(Of Integer), group_id As Integer = -1) As Integer()
+  overload: g3.MeshEditor.StitchSpan*
+  nameWithType.vb: MeshEditor.StitchSpan(IList(Of Int32), IList(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.MeshEditor.StitchSpan(System.Collections.Generic.IList(Of System.Int32), System.Collections.Generic.IList(Of System.Int32), System.Int32)
+  name.vb: StitchSpan(IList(Of Int32), IList(Of Int32), Int32)
+- uid: g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  id: RemoveTriangles(System.Collections.Generic.IList{System.Int32},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangles(IList<Int32>, Boolean)
+  nameWithType: MeshEditor.RemoveTriangles(IList<Int32>, Boolean)
+  fullName: g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IList<System.Int32>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 357
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool RemoveTriangles(IList<int> triangles, bool bRemoveIsolatedVerts)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IList{System.Int32}
+    - id: bRemoveIsolatedVerts
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveTriangles(triangles As IList(Of Integer), bRemoveIsolatedVerts As Boolean) As Boolean
+  overload: g3.MeshEditor.RemoveTriangles*
+  nameWithType.vb: MeshEditor.RemoveTriangles(IList(Of Int32), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IList(Of System.Int32), System.Boolean)
+  name.vb: RemoveTriangles(IList(Of Int32), Boolean)
+- uid: g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  id: RemoveTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangles(IEnumerable<Int32>, Boolean)
+  nameWithType: MeshEditor.RemoveTriangles(IEnumerable<Int32>, Boolean)
+  fullName: g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IEnumerable<System.Int32>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 374
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool RemoveTriangles(IEnumerable<int> triangles, bool bRemoveIsolatedVerts)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: bRemoveIsolatedVerts
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveTriangles(triangles As IEnumerable(Of Integer), bRemoveIsolatedVerts As Boolean) As Boolean
+  overload: g3.MeshEditor.RemoveTriangles*
+  nameWithType.vb: MeshEditor.RemoveTriangles(IEnumerable(Of Int32), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.RemoveTriangles(System.Collections.Generic.IEnumerable(Of System.Int32), System.Boolean)
+  name.vb: RemoveTriangles(IEnumerable(Of Int32), Boolean)
+- uid: g3.MeshEditor.RemoveTriangles(System.Func{System.Int32,System.Boolean},System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveTriangles(System.Func{System.Int32,System.Boolean},System.Boolean)
+  id: RemoveTriangles(System.Func{System.Int32,System.Boolean},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangles(Func<Int32, Boolean>, Boolean)
+  nameWithType: MeshEditor.RemoveTriangles(Func<Int32, Boolean>, Boolean)
+  fullName: g3.MeshEditor.RemoveTriangles(System.Func<System.Int32, System.Boolean>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 392
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool RemoveTriangles(Func<int, bool> selectorF, bool bRemoveIsolatedVerts)
+    parameters:
+    - id: selectorF
+      type: System.Func{System.Int32,System.Boolean}
+    - id: bRemoveIsolatedVerts
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveTriangles(selectorF As Func(Of Integer, Boolean), bRemoveIsolatedVerts As Boolean) As Boolean
+  overload: g3.MeshEditor.RemoveTriangles*
+  nameWithType.vb: MeshEditor.RemoveTriangles(Func(Of Int32, Boolean), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.RemoveTriangles(System.Func(Of System.Int32, System.Boolean), System.Boolean)
+  name.vb: RemoveTriangles(Func(Of Int32, Boolean), Boolean)
+- uid: g3.MeshEditor.RemoveTriangles(g3.DMesh3,System.Collections.Generic.IList{System.Int32},System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveTriangles(g3.DMesh3,System.Collections.Generic.IList{System.Int32},System.Boolean)
+  id: RemoveTriangles(g3.DMesh3,System.Collections.Generic.IList{System.Int32},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangles(DMesh3, IList<Int32>, Boolean)
+  nameWithType: MeshEditor.RemoveTriangles(DMesh3, IList<Int32>, Boolean)
+  fullName: g3.MeshEditor.RemoveTriangles(g3.DMesh3, System.Collections.Generic.IList<System.Int32>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 406
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool RemoveTriangles(DMesh3 Mesh, IList<int> triangles, bool bRemoveIsolatedVerts = true)
+    parameters:
+    - id: Mesh
+      type: g3.DMesh3
+    - id: triangles
+      type: System.Collections.Generic.IList{System.Int32}
+    - id: bRemoveIsolatedVerts
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RemoveTriangles(Mesh As DMesh3, triangles As IList(Of Integer), bRemoveIsolatedVerts As Boolean = True) As Boolean
+  overload: g3.MeshEditor.RemoveTriangles*
+  nameWithType.vb: MeshEditor.RemoveTriangles(DMesh3, IList(Of Int32), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshEditor.RemoveTriangles(g3.DMesh3, System.Collections.Generic.IList(Of System.Int32), System.Boolean)
+  name.vb: RemoveTriangles(DMesh3, IList(Of Int32), Boolean)
+- uid: g3.MeshEditor.RemoveTriangles(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveTriangles(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  id: RemoveTriangles(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangles(DMesh3, IEnumerable<Int32>, Boolean)
+  nameWithType: MeshEditor.RemoveTriangles(DMesh3, IEnumerable<Int32>, Boolean)
+  fullName: g3.MeshEditor.RemoveTriangles(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 410
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool RemoveTriangles(DMesh3 Mesh, IEnumerable<int> triangles, bool bRemoveIsolatedVerts = true)
+    parameters:
+    - id: Mesh
+      type: g3.DMesh3
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: bRemoveIsolatedVerts
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RemoveTriangles(Mesh As DMesh3, triangles As IEnumerable(Of Integer), bRemoveIsolatedVerts As Boolean = True) As Boolean
+  overload: g3.MeshEditor.RemoveTriangles*
+  nameWithType.vb: MeshEditor.RemoveTriangles(DMesh3, IEnumerable(Of Int32), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshEditor.RemoveTriangles(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32), System.Boolean)
+  name.vb: RemoveTriangles(DMesh3, IEnumerable(Of Int32), Boolean)
+- uid: g3.MeshEditor.RemoveIsolatedTriangles(g3.DMesh3)
+  commentId: M:g3.MeshEditor.RemoveIsolatedTriangles(g3.DMesh3)
+  id: RemoveIsolatedTriangles(g3.DMesh3)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveIsolatedTriangles(DMesh3)
+  nameWithType: MeshEditor.RemoveIsolatedTriangles(DMesh3)
+  fullName: g3.MeshEditor.RemoveIsolatedTriangles(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveIsolatedTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 419
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove &apos;loner&apos; triangles that have no connected neighbours. \n"
+  example: []
+  syntax:
+    content: public static bool RemoveIsolatedTriangles(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RemoveIsolatedTriangles(mesh As DMesh3) As Boolean
+  overload: g3.MeshEditor.RemoveIsolatedTriangles*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.RemoveFinTriangles(g3.DMesh3,System.Func{g3.DMesh3,System.Int32,System.Boolean},System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveFinTriangles(g3.DMesh3,System.Func{g3.DMesh3,System.Int32,System.Boolean},System.Boolean)
+  id: RemoveFinTriangles(g3.DMesh3,System.Func{g3.DMesh3,System.Int32,System.Boolean},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveFinTriangles(DMesh3, Func<DMesh3, Int32, Boolean>, Boolean)
+  nameWithType: MeshEditor.RemoveFinTriangles(DMesh3, Func<DMesh3, Int32, Boolean>, Boolean)
+  fullName: g3.MeshEditor.RemoveFinTriangles(g3.DMesh3, System.Func<g3.DMesh3, System.Int32, System.Boolean>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveFinTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 437
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove &apos;fin&apos; triangles that have only one connected triangle.\nRemoving one fin can create another, by default will keep iterating\nuntil all fins removed (in a not very efficient way!).\nPass bRepeatToConvergence=false to only do one pass.\n[TODO] if we are repeating, construct face selection from nbrs of first list and iterate over that on future passes!\n"
+  example: []
+  syntax:
+    content: public static int RemoveFinTriangles(DMesh3 mesh, Func<DMesh3, int, bool> removeF = null, bool bRepeatToConvergence = true)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: removeF
+      type: System.Func{g3.DMesh3,System.Int32,System.Boolean}
+    - id: bRepeatToConvergence
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveFinTriangles(mesh As DMesh3, removeF As Func(Of DMesh3, Integer, Boolean) = Nothing, bRepeatToConvergence As Boolean = True) As Integer
+  overload: g3.MeshEditor.RemoveFinTriangles*
+  nameWithType.vb: MeshEditor.RemoveFinTriangles(DMesh3, Func(Of DMesh3, Int32, Boolean), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshEditor.RemoveFinTriangles(g3.DMesh3, System.Func(Of g3.DMesh3, System.Int32, System.Boolean), System.Boolean)
+  name.vb: RemoveFinTriangles(DMesh3, Func(Of DMesh3, Int32, Boolean), Boolean)
+- uid: g3.MeshEditor.SeparateTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Collections.Generic.List{g3.Index2i}@)
+  commentId: M:g3.MeshEditor.SeparateTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Collections.Generic.List{g3.Index2i}@)
+  id: SeparateTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Collections.Generic.List{g3.Index2i}@)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: SeparateTriangles(IEnumerable<Int32>, Boolean, out List<Index2i>)
+  nameWithType: MeshEditor.SeparateTriangles(IEnumerable<Int32>, Boolean, out List<Index2i>)
+  fullName: g3.MeshEditor.SeparateTriangles(System.Collections.Generic.IEnumerable<System.Int32>, System.Boolean, out System.Collections.Generic.List<g3.Index2i>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SeparateTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 470
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nDisconnect the given triangles from their neighbours, by duplicating &quot;boundary&quot; vertices, ie\nvertices on edges for which one triangle is in-set and the other is not. \nIf bComputeEdgePairs is true, we return list of old/new edge pairs (useful for stitching)\n[TODO] currently boundary-edge behaviour is to *not* duplicate boundary verts\n"
+  example: []
+  syntax:
+    content: public bool SeparateTriangles(IEnumerable<int> triangles, bool bComputeEdgePairs, out List<Index2i> EdgePairs)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: bComputeEdgePairs
+      type: System.Boolean
+    - id: EdgePairs
+      type: System.Collections.Generic.List{g3.Index2i}
+    return:
+      type: System.Boolean
+    content.vb: Public Function SeparateTriangles(triangles As IEnumerable(Of Integer), bComputeEdgePairs As Boolean, ByRef EdgePairs As List(Of Index2i)) As Boolean
+  overload: g3.MeshEditor.SeparateTriangles*
+  nameWithType.vb: MeshEditor.SeparateTriangles(IEnumerable(Of Int32), Boolean, ByRef List(Of Index2i))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.SeparateTriangles(System.Collections.Generic.IEnumerable(Of System.Int32), System.Boolean, ByRef System.Collections.Generic.List(Of g3.Index2i))
+  name.vb: SeparateTriangles(IEnumerable(Of Int32), Boolean, ByRef List(Of Index2i))
+- uid: g3.MeshEditor.DuplicateTriangles(System.Collections.Generic.IEnumerable{System.Int32},g3.IndexMap@,System.Int32)
+  commentId: M:g3.MeshEditor.DuplicateTriangles(System.Collections.Generic.IEnumerable{System.Int32},g3.IndexMap@,System.Int32)
+  id: DuplicateTriangles(System.Collections.Generic.IEnumerable{System.Int32},g3.IndexMap@,System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: DuplicateTriangles(IEnumerable<Int32>, ref IndexMap, Int32)
+  nameWithType: MeshEditor.DuplicateTriangles(IEnumerable<Int32>, ref IndexMap, Int32)
+  fullName: g3.MeshEditor.DuplicateTriangles(System.Collections.Generic.IEnumerable<System.Int32>, ref g3.IndexMap, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DuplicateTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 545
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nMake a copy of provided triangles, with new vertices. You provide MapV because\nyou know if you are doing a small subset or a full-mesh-copy.\n"
+  example: []
+  syntax:
+    content: public List<int> DuplicateTriangles(IEnumerable<int> triangles, ref IndexMap MapV, int group_id = -1)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: MapV
+      type: g3.IndexMap
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Function DuplicateTriangles(triangles As IEnumerable(Of Integer), ByRef MapV As IndexMap, group_id As Integer = -1) As List(Of Integer)
+  overload: g3.MeshEditor.DuplicateTriangles*
+  nameWithType.vb: MeshEditor.DuplicateTriangles(IEnumerable(Of Int32), ByRef IndexMap, Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.DuplicateTriangles(System.Collections.Generic.IEnumerable(Of System.Int32), ByRef g3.IndexMap, System.Int32)
+  name.vb: DuplicateTriangles(IEnumerable(Of Int32), ByRef IndexMap, Int32)
+- uid: g3.MeshEditor.ReverseTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  commentId: M:g3.MeshEditor.ReverseTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  id: ReverseTriangles(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: ReverseTriangles(IEnumerable<Int32>, Boolean)
+  nameWithType: MeshEditor.ReverseTriangles(IEnumerable<Int32>, Boolean)
+  fullName: g3.MeshEditor.ReverseTriangles(System.Collections.Generic.IEnumerable<System.Int32>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ReverseTriangles
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 571
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nReverse face orientation on a subset of triangles\n"
+  example: []
+  syntax:
+    content: public void ReverseTriangles(IEnumerable<int> triangles, bool bFlipVtxNormals = true)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: bFlipVtxNormals
+      type: System.Boolean
+    content.vb: Public Sub ReverseTriangles(triangles As IEnumerable(Of Integer), bFlipVtxNormals As Boolean = True)
+  overload: g3.MeshEditor.ReverseTriangles*
+  nameWithType.vb: MeshEditor.ReverseTriangles(IEnumerable(Of Int32), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.ReverseTriangles(System.Collections.Generic.IEnumerable(Of System.Int32), System.Boolean)
+  name.vb: ReverseTriangles(IEnumerable(Of Int32), Boolean)
+- uid: g3.MeshEditor.DisconnectBowtie(System.Int32)
+  commentId: M:g3.MeshEditor.DisconnectBowtie(System.Int32)
+  id: DisconnectBowtie(System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: DisconnectBowtie(Int32)
+  nameWithType: MeshEditor.DisconnectBowtie(Int32)
+  fullName: g3.MeshEditor.DisconnectBowtie(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DisconnectBowtie
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 603
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nseparate triangle one-ring at vertex into connected components, and\nthen duplicate vertex once for each component\n"
+  example: []
+  syntax:
+    content: public void DisconnectBowtie(int vid)
+    parameters:
+    - id: vid
+      type: System.Int32
+    content.vb: Public Sub DisconnectBowtie(vid As Integer)
+  overload: g3.MeshEditor.DisconnectBowtie*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.DisconnectAllBowties(System.Int32)
+  commentId: M:g3.MeshEditor.DisconnectAllBowties(System.Int32)
+  id: DisconnectAllBowties(System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: DisconnectAllBowties(Int32)
+  nameWithType: MeshEditor.DisconnectAllBowties(Int32)
+  fullName: g3.MeshEditor.DisconnectAllBowties(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DisconnectAllBowties
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 648
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nDisconnect all bowtie vertices in mesh. Iterates because sometimes\ndisconnecting a bowtie creates new bowties (how??).\nReturns number of remaining bowties after iterations.\n"
+  example: []
+  syntax:
+    content: public int DisconnectAllBowties(int nMaxIters = 10)
+    parameters:
+    - id: nMaxIters
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function DisconnectAllBowties(nMaxIters As Integer = 10) As Integer
+  overload: g3.MeshEditor.DisconnectAllBowties*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.ReinsertSubmesh(g3.DSubmesh3,System.Int32[]@,g3.IndexMap@,g3.MeshEditor.DuplicateTriBehavior)
+  commentId: M:g3.MeshEditor.ReinsertSubmesh(g3.DSubmesh3,System.Int32[]@,g3.IndexMap@,g3.MeshEditor.DuplicateTriBehavior)
+  id: ReinsertSubmesh(g3.DSubmesh3,System.Int32[]@,g3.IndexMap@,g3.MeshEditor.DuplicateTriBehavior)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: ReinsertSubmesh(DSubmesh3, ref Int32[], out IndexMap, MeshEditor.DuplicateTriBehavior)
+  nameWithType: MeshEditor.ReinsertSubmesh(DSubmesh3, ref Int32[], out IndexMap, MeshEditor.DuplicateTriBehavior)
+  fullName: g3.MeshEditor.ReinsertSubmesh(g3.DSubmesh3, ref System.Int32[], out g3.IndexMap, g3.MeshEditor.DuplicateTriBehavior)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ReinsertSubmesh
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 686
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool ReinsertSubmesh(DSubmesh3 sub, ref int[] new_tris, out IndexMap SubToNewV, MeshEditor.DuplicateTriBehavior eDuplicateBehavior = MeshEditor.DuplicateTriBehavior.AssertAbort)
+    parameters:
+    - id: sub
+      type: g3.DSubmesh3
+    - id: new_tris
+      type: System.Int32[]
+    - id: SubToNewV
+      type: g3.IndexMap
+    - id: eDuplicateBehavior
+      type: g3.MeshEditor.DuplicateTriBehavior
+    return:
+      type: System.Boolean
+    content.vb: Public Function ReinsertSubmesh(sub As DSubmesh3, ByRef new_tris As Integer(), ByRef SubToNewV As IndexMap, eDuplicateBehavior As MeshEditor.DuplicateTriBehavior = MeshEditor.DuplicateTriBehavior.AssertAbort) As Boolean
+  overload: g3.MeshEditor.ReinsertSubmesh*
+  nameWithType.vb: MeshEditor.ReinsertSubmesh(DSubmesh3, ByRef Int32(), ByRef IndexMap, MeshEditor.DuplicateTriBehavior)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.ReinsertSubmesh(g3.DSubmesh3, ByRef System.Int32(), ByRef g3.IndexMap, g3.MeshEditor.DuplicateTriBehavior)
+  name.vb: ReinsertSubmesh(DSubmesh3, ByRef Int32(), ByRef IndexMap, MeshEditor.DuplicateTriBehavior)
+- uid: g3.MeshEditor.AppendMesh(g3.IMesh,System.Int32)
+  commentId: M:g3.MeshEditor.AppendMesh(g3.IMesh,System.Int32)
+  id: AppendMesh(g3.IMesh,System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendMesh(IMesh, Int32)
+  nameWithType: MeshEditor.AppendMesh(IMesh, Int32)
+  fullName: g3.MeshEditor.AppendMesh(g3.IMesh, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendMesh
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 777
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool AppendMesh(IMesh appendMesh, int appendGID = -1)
+    parameters:
+    - id: appendMesh
+      type: g3.IMesh
+    - id: appendGID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function AppendMesh(appendMesh As IMesh, appendGID As Integer = -1) As Boolean
+  overload: g3.MeshEditor.AppendMesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AppendMesh(g3.IMesh,System.Int32[]@,System.Int32)
+  commentId: M:g3.MeshEditor.AppendMesh(g3.IMesh,System.Int32[]@,System.Int32)
+  id: AppendMesh(g3.IMesh,System.Int32[]@,System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendMesh(IMesh, out Int32[], Int32)
+  nameWithType: MeshEditor.AppendMesh(IMesh, out Int32[], Int32)
+  fullName: g3.MeshEditor.AppendMesh(g3.IMesh, out System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendMesh
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 782
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool AppendMesh(IMesh appendMesh, out int[] mapV, int appendGID = -1)
+    parameters:
+    - id: appendMesh
+      type: g3.IMesh
+    - id: mapV
+      type: System.Int32[]
+    - id: appendGID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function AppendMesh(appendMesh As IMesh, ByRef mapV As Integer(), appendGID As Integer = -1) As Boolean
+  overload: g3.MeshEditor.AppendMesh*
+  nameWithType.vb: MeshEditor.AppendMesh(IMesh, ByRef Int32(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.AppendMesh(g3.IMesh, ByRef System.Int32(), System.Int32)
+  name.vb: AppendMesh(IMesh, ByRef Int32(), Int32)
+- uid: g3.MeshEditor.Combine(g3.IMesh[])
+  commentId: M:g3.MeshEditor.Combine(g3.IMesh[])
+  id: Combine(g3.IMesh[])
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: Combine(IMesh[])
+  nameWithType: MeshEditor.Combine(IMesh[])
+  fullName: g3.MeshEditor.Combine(g3.IMesh[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Combine
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 805
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static DMesh3 Combine(params IMesh[] appendMeshes)
+    parameters:
+    - id: appendMeshes
+      type: g3.IMesh[]
+    return:
+      type: g3.DMesh3
+    content.vb: Public Shared Function Combine(ParamArray appendMeshes As IMesh()) As DMesh3
+  overload: g3.MeshEditor.Combine*
+  nameWithType.vb: MeshEditor.Combine(IMesh())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshEditor.Combine(g3.IMesh())
+  name.vb: Combine(IMesh())
+- uid: g3.MeshEditor.Append(g3.DMesh3,g3.DMesh3)
+  commentId: M:g3.MeshEditor.Append(g3.DMesh3,g3.DMesh3)
+  id: Append(g3.DMesh3,g3.DMesh3)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: Append(DMesh3, DMesh3)
+  nameWithType: MeshEditor.Append(DMesh3, DMesh3)
+  fullName: g3.MeshEditor.Append(g3.DMesh3, g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Append
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 814
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Append(DMesh3 appendTo, DMesh3 append)
+    parameters:
+    - id: appendTo
+      type: g3.DMesh3
+    - id: append
+      type: g3.DMesh3
+    content.vb: Public Shared Sub Append(appendTo As DMesh3, append As DMesh3)
+  overload: g3.MeshEditor.Append*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendMesh(g3.IMesh,g3.IndexMap,System.Int32[]@,System.Int32)
+  commentId: M:g3.MeshEditor.AppendMesh(g3.IMesh,g3.IndexMap,System.Int32[]@,System.Int32)
+  id: AppendMesh(g3.IMesh,g3.IndexMap,System.Int32[]@,System.Int32)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendMesh(IMesh, IndexMap, out Int32[], Int32)
+  nameWithType: MeshEditor.AppendMesh(IMesh, IndexMap, out Int32[], Int32)
+  fullName: g3.MeshEditor.AppendMesh(g3.IMesh, g3.IndexMap, out System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendMesh
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 821
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool AppendMesh(IMesh appendMesh, IndexMap mergeMapV, out int[] mapV, int appendGID = -1)
+    parameters:
+    - id: appendMesh
+      type: g3.IMesh
+    - id: mergeMapV
+      type: g3.IndexMap
+    - id: mapV
+      type: System.Int32[]
+    - id: appendGID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function AppendMesh(appendMesh As IMesh, mergeMapV As IndexMap, ByRef mapV As Integer(), appendGID As Integer = -1) As Boolean
+  overload: g3.MeshEditor.AppendMesh*
+  nameWithType.vb: MeshEditor.AppendMesh(IMesh, IndexMap, ByRef Int32(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.AppendMesh(g3.IMesh, g3.IndexMap, ByRef System.Int32(), System.Int32)
+  name.vb: AppendMesh(IMesh, IndexMap, ByRef Int32(), Int32)
+- uid: g3.MeshEditor.AppendBox(g3.Frame3f,System.Single)
+  commentId: M:g3.MeshEditor.AppendBox(g3.Frame3f,System.Single)
+  id: AppendBox(g3.Frame3f,System.Single)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(Frame3f, Single)
+  nameWithType: MeshEditor.AppendBox(Frame3f, Single)
+  fullName: g3.MeshEditor.AppendBox(g3.Frame3f, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 851
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendBox(Frame3f frame, float size)
+    parameters:
+    - id: frame
+      type: g3.Frame3f
+    - id: size
+      type: System.Single
+    content.vb: Public Sub AppendBox(frame As Frame3f, size As Single)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AppendBox(g3.Frame3f,g3.Vector3f)
+  commentId: M:g3.MeshEditor.AppendBox(g3.Frame3f,g3.Vector3f)
+  id: AppendBox(g3.Frame3f,g3.Vector3f)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(Frame3f, Vector3f)
+  nameWithType: MeshEditor.AppendBox(Frame3f, Vector3f)
+  fullName: g3.MeshEditor.AppendBox(g3.Frame3f, g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 855
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendBox(Frame3f frame, Vector3f size)
+    parameters:
+    - id: frame
+      type: g3.Frame3f
+    - id: size
+      type: g3.Vector3f
+    content.vb: Public Sub AppendBox(frame As Frame3f, size As Vector3f)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AppendBox(g3.Frame3f,g3.Vector3f,g3.Colorf)
+  commentId: M:g3.MeshEditor.AppendBox(g3.Frame3f,g3.Vector3f,g3.Colorf)
+  id: AppendBox(g3.Frame3f,g3.Vector3f,g3.Colorf)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(Frame3f, Vector3f, Colorf)
+  nameWithType: MeshEditor.AppendBox(Frame3f, Vector3f, Colorf)
+  fullName: g3.MeshEditor.AppendBox(g3.Frame3f, g3.Vector3f, g3.Colorf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 859
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendBox(Frame3f frame, Vector3f size, Colorf color)
+    parameters:
+    - id: frame
+      type: g3.Frame3f
+    - id: size
+      type: g3.Vector3f
+    - id: color
+      type: g3.Colorf
+    content.vb: Public Sub AppendBox(frame As Frame3f, size As Vector3f, color As Colorf)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AppendLine(g3.Segment3d,System.Single)
+  commentId: M:g3.MeshEditor.AppendLine(g3.Segment3d,System.Single)
+  id: AppendLine(g3.Segment3d,System.Single)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendLine(Segment3d, Single)
+  nameWithType: MeshEditor.AppendLine(Segment3d, Single)
+  fullName: g3.MeshEditor.AppendLine(g3.Segment3d, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendLine
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 872
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendLine(Segment3d seg, float size)
+    parameters:
+    - id: seg
+      type: g3.Segment3d
+    - id: size
+      type: System.Single
+    content.vb: Public Sub AppendLine(seg As Segment3d, size As Single)
+  overload: g3.MeshEditor.AppendLine*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AppendLine(g3.Segment3d,System.Single,g3.Colorf)
+  commentId: M:g3.MeshEditor.AppendLine(g3.Segment3d,System.Single,g3.Colorf)
+  id: AppendLine(g3.Segment3d,System.Single,g3.Colorf)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendLine(Segment3d, Single, Colorf)
+  nameWithType: MeshEditor.AppendLine(Segment3d, Single, Colorf)
+  fullName: g3.MeshEditor.AppendLine(g3.Segment3d, System.Single, g3.Colorf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendLine
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 878
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendLine(Segment3d seg, float size, Colorf color)
+    parameters:
+    - id: seg
+      type: g3.Segment3d
+    - id: size
+      type: System.Single
+    - id: color
+      type: g3.Colorf
+    content.vb: Public Sub AppendLine(seg As Segment3d, size As Single, color As Colorf)
+  overload: g3.MeshEditor.AppendLine*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,System.Single)
+  commentId: M:g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,System.Single)
+  id: AppendBox(g3.DMesh3,g3.Vector3d,System.Single)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(DMesh3, Vector3d, Single)
+  nameWithType: MeshEditor.AppendBox(DMesh3, Vector3d, Single)
+  fullName: g3.MeshEditor.AppendBox(g3.DMesh3, g3.Vector3d, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 884
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AppendBox(DMesh3 mesh, Vector3d pos, float size)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: pos
+      type: g3.Vector3d
+    - id: size
+      type: System.Single
+    content.vb: Public Shared Sub AppendBox(mesh As DMesh3, pos As Vector3d, size As Single)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,System.Single,g3.Colorf)
+  commentId: M:g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,System.Single,g3.Colorf)
+  id: AppendBox(g3.DMesh3,g3.Vector3d,System.Single,g3.Colorf)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(DMesh3, Vector3d, Single, Colorf)
+  nameWithType: MeshEditor.AppendBox(DMesh3, Vector3d, Single, Colorf)
+  fullName: g3.MeshEditor.AppendBox(g3.DMesh3, g3.Vector3d, System.Single, g3.Colorf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 889
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AppendBox(DMesh3 mesh, Vector3d pos, float size, Colorf color)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: pos
+      type: g3.Vector3d
+    - id: size
+      type: System.Single
+    - id: color
+      type: g3.Colorf
+    content.vb: Public Shared Sub AppendBox(mesh As DMesh3, pos As Vector3d, size As Single, color As Colorf)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single)
+  commentId: M:g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single)
+  id: AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(DMesh3, Vector3d, Vector3d, Single)
+  nameWithType: MeshEditor.AppendBox(DMesh3, Vector3d, Vector3d, Single)
+  fullName: g3.MeshEditor.AppendBox(g3.DMesh3, g3.Vector3d, g3.Vector3d, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 894
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AppendBox(DMesh3 mesh, Vector3d pos, Vector3d normal, float size)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: pos
+      type: g3.Vector3d
+    - id: normal
+      type: g3.Vector3d
+    - id: size
+      type: System.Single
+    content.vb: Public Shared Sub AppendBox(mesh As DMesh3, pos As Vector3d, normal As Vector3d, size As Single)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single,g3.Colorf)
+  commentId: M:g3.MeshEditor.AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single,g3.Colorf)
+  id: AppendBox(g3.DMesh3,g3.Vector3d,g3.Vector3d,System.Single,g3.Colorf)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(DMesh3, Vector3d, Vector3d, Single, Colorf)
+  nameWithType: MeshEditor.AppendBox(DMesh3, Vector3d, Vector3d, Single, Colorf)
+  fullName: g3.MeshEditor.AppendBox(g3.DMesh3, g3.Vector3d, g3.Vector3d, System.Single, g3.Colorf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 899
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AppendBox(DMesh3 mesh, Vector3d pos, Vector3d normal, float size, Colorf color)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: pos
+      type: g3.Vector3d
+    - id: normal
+      type: g3.Vector3d
+    - id: size
+      type: System.Single
+    - id: color
+      type: g3.Colorf
+    content.vb: Public Shared Sub AppendBox(mesh As DMesh3, pos As Vector3d, normal As Vector3d, size As Single, color As Colorf)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendBox(g3.DMesh3,g3.Frame3f,g3.Vector3f,g3.Colorf)
+  commentId: M:g3.MeshEditor.AppendBox(g3.DMesh3,g3.Frame3f,g3.Vector3f,g3.Colorf)
+  id: AppendBox(g3.DMesh3,g3.Frame3f,g3.Vector3f,g3.Colorf)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendBox(DMesh3, Frame3f, Vector3f, Colorf)
+  nameWithType: MeshEditor.AppendBox(DMesh3, Frame3f, Vector3f, Colorf)
+  fullName: g3.MeshEditor.AppendBox(g3.DMesh3, g3.Frame3f, g3.Vector3f, g3.Colorf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendBox
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 904
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AppendBox(DMesh3 mesh, Frame3f frame, Vector3f size, Colorf color)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: frame
+      type: g3.Frame3f
+    - id: size
+      type: g3.Vector3f
+    - id: color
+      type: g3.Colorf
+    content.vb: Public Shared Sub AppendBox(mesh As DMesh3, frame As Frame3f, size As Vector3f, color As Colorf)
+  overload: g3.MeshEditor.AppendBox*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendLine(g3.DMesh3,g3.Segment3d,System.Single)
+  commentId: M:g3.MeshEditor.AppendLine(g3.DMesh3,g3.Segment3d,System.Single)
+  id: AppendLine(g3.DMesh3,g3.Segment3d,System.Single)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendLine(DMesh3, Segment3d, Single)
+  nameWithType: MeshEditor.AppendLine(DMesh3, Segment3d, Single)
+  fullName: g3.MeshEditor.AppendLine(g3.DMesh3, g3.Segment3d, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendLine
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 910
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AppendLine(DMesh3 mesh, Segment3d seg, float size)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: seg
+      type: g3.Segment3d
+    - id: size
+      type: System.Single
+    content.vb: Public Shared Sub AppendLine(mesh As DMesh3, seg As Segment3d, size As Single)
+  overload: g3.MeshEditor.AppendLine*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.AppendPathSolid(System.Collections.Generic.IEnumerable{g3.Vector3d},System.Double,g3.Colorf)
+  commentId: M:g3.MeshEditor.AppendPathSolid(System.Collections.Generic.IEnumerable{g3.Vector3d},System.Double,g3.Colorf)
+  id: AppendPathSolid(System.Collections.Generic.IEnumerable{g3.Vector3d},System.Double,g3.Colorf)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: AppendPathSolid(IEnumerable<Vector3d>, Double, Colorf)
+  nameWithType: MeshEditor.AppendPathSolid(IEnumerable<Vector3d>, Double, Colorf)
+  fullName: g3.MeshEditor.AppendPathSolid(System.Collections.Generic.IEnumerable<g3.Vector3d>, System.Double, g3.Colorf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendPathSolid
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 921
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendPathSolid(IEnumerable<Vector3d> vertices, double radius, Colorf color)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{g3.Vector3d}
+    - id: radius
+      type: System.Double
+    - id: color
+      type: g3.Colorf
+    content.vb: Public Sub AppendPathSolid(vertices As IEnumerable(Of Vector3d), radius As Double, color As Colorf)
+  overload: g3.MeshEditor.AppendPathSolid*
+  nameWithType.vb: MeshEditor.AppendPathSolid(IEnumerable(Of Vector3d), Double, Colorf)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEditor.AppendPathSolid(System.Collections.Generic.IEnumerable(Of g3.Vector3d), System.Double, g3.Colorf)
+  name.vb: AppendPathSolid(IEnumerable(Of Vector3d), Double, Colorf)
+- uid: g3.MeshEditor.RemoveAllBowtieVertices(System.Boolean)
+  commentId: M:g3.MeshEditor.RemoveAllBowtieVertices(System.Boolean)
+  id: RemoveAllBowtieVertices(System.Boolean)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveAllBowtieVertices(Boolean)
+  nameWithType: MeshEditor.RemoveAllBowtieVertices(Boolean)
+  fullName: g3.MeshEditor.RemoveAllBowtieVertices(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveAllBowtieVertices
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 942
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove all bowtie vertices in mesh. Makes one pass unless\nbRepeatUntilClean = true, in which case repeats until no more bowties found\nReturns true if any vertices were removed\n"
+  example: []
+  syntax:
+    content: public bool RemoveAllBowtieVertices(bool bRepeatUntilClean)
+    parameters:
+    - id: bRepeatUntilClean
+      type: System.Boolean
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemoveAllBowtieVertices(bRepeatUntilClean As Boolean) As Boolean
+  overload: g3.MeshEditor.RemoveAllBowtieVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.RemoveUnusedVertices
+  commentId: M:g3.MeshEditor.RemoveUnusedVertices
+  id: RemoveUnusedVertices
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveUnusedVertices()
+  nameWithType: MeshEditor.RemoveUnusedVertices()
+  fullName: g3.MeshEditor.RemoveUnusedVertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveUnusedVertices
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 976
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove any unused vertices in mesh, ie vertices with no edges.\nReturns number of removed vertices.\n"
+  example: []
+  syntax:
+    content: public int RemoveUnusedVertices()
+    return:
+      type: System.Int32
+    content.vb: Public Function RemoveUnusedVertices As Integer
+  overload: g3.MeshEditor.RemoveUnusedVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.RemoveUnusedVertices(g3.DMesh3)
+  commentId: M:g3.MeshEditor.RemoveUnusedVertices(g3.DMesh3)
+  id: RemoveUnusedVertices(g3.DMesh3)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveUnusedVertices(DMesh3)
+  nameWithType: MeshEditor.RemoveUnusedVertices(DMesh3)
+  fullName: g3.MeshEditor.RemoveUnusedVertices(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveUnusedVertices
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 988
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static int RemoveUnusedVertices(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveUnusedVertices(mesh As DMesh3) As Integer
+  overload: g3.MeshEditor.RemoveUnusedVertices*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshEditor.RemoveSmallComponents(System.Double,System.Double)
+  commentId: M:g3.MeshEditor.RemoveSmallComponents(System.Double,System.Double)
+  id: RemoveSmallComponents(System.Double,System.Double)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveSmallComponents(Double, Double)
+  nameWithType: MeshEditor.RemoveSmallComponents(Double, Double)
+  fullName: g3.MeshEditor.RemoveSmallComponents(System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveSmallComponents
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 1000
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove any connected components with volume &lt; min_volume area lt; min_area\n"
+  example: []
+  syntax:
+    content: public int RemoveSmallComponents(double min_volume, double min_area)
+    parameters:
+    - id: min_volume
+      type: System.Double
+    - id: min_area
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Function RemoveSmallComponents(min_volume As Double, min_area As Double) As Integer
+  overload: g3.MeshEditor.RemoveSmallComponents*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEditor.RemoveSmallComponents(g3.DMesh3,System.Double,System.Double)
+  commentId: M:g3.MeshEditor.RemoveSmallComponents(g3.DMesh3,System.Double,System.Double)
+  id: RemoveSmallComponents(g3.DMesh3,System.Double,System.Double)
+  parent: g3.MeshEditor
+  langs:
+  - csharp
+  - vb
+  name: RemoveSmallComponents(DMesh3, Double, Double)
+  nameWithType: MeshEditor.RemoveSmallComponents(DMesh3, Double, Double)
+  fullName: g3.MeshEditor.RemoveSmallComponents(g3.DMesh3, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshEditor.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveSmallComponents
+    path: ../Assets/geometry3Sharp/mesh/MeshEditor.cs
+    startLine: 1016
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static int RemoveSmallComponents(DMesh3 mesh, double min_volume, double min_area)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: min_volume
+      type: System.Double
+    - id: min_area
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function RemoveSmallComponents(mesh As DMesh3, min_volume As Double, min_area As Double) As Integer
+  overload: g3.MeshEditor.RemoveSmallComponents*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshEditor.#ctor*
+  commentId: Overload:g3.MeshEditor.#ctor
+  name: MeshEditor
+  nameWithType: MeshEditor.MeshEditor
+  fullName: g3.MeshEditor.MeshEditor
+- uid: g3.MeshEditor.AddTriangleStrip*
+  commentId: Overload:g3.MeshEditor.AddTriangleStrip
+  name: AddTriangleStrip
+  nameWithType: MeshEditor.AddTriangleStrip
+  fullName: g3.MeshEditor.AddTriangleStrip
+- uid: System.Collections.Generic.IList{g3.Frame3f}
+  commentId: T:System.Collections.Generic.IList{g3.Frame3f}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Frame3f>
+  nameWithType: IList<Frame3f>
+  fullName: System.Collections.Generic.IList<g3.Frame3f>
+  nameWithType.vb: IList(Of Frame3f)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Frame3f)
+  name.vb: IList(Of Frame3f)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList{g3.Interval1d}
+  commentId: T:System.Collections.Generic.IList{g3.Interval1d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Interval1d>
+  nameWithType: IList<Interval1d>
+  fullName: System.Collections.Generic.IList<g3.Interval1d>
+  nameWithType.vb: IList(Of Interval1d)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Interval1d)
+  name.vb: IList(Of Interval1d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Interval1d
+    name: Interval1d
+    nameWithType: Interval1d
+    fullName: g3.Interval1d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Interval1d
+    name: Interval1d
+    nameWithType: Interval1d
+    fullName: g3.Interval1d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshEditor.AddTriangleFan_OrderedVertexLoop*
+  commentId: Overload:g3.MeshEditor.AddTriangleFan_OrderedVertexLoop
+  name: AddTriangleFan_OrderedVertexLoop
+  nameWithType: MeshEditor.AddTriangleFan_OrderedVertexLoop
+  fullName: g3.MeshEditor.AddTriangleFan_OrderedVertexLoop
+- uid: g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop*
+  commentId: Overload:g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop
+  name: AddTriangleFan_OrderedEdgeLoop
+  nameWithType: MeshEditor.AddTriangleFan_OrderedEdgeLoop
+  fullName: g3.MeshEditor.AddTriangleFan_OrderedEdgeLoop
+- uid: g3.MeshEditor.StitchLoop*
+  commentId: Overload:g3.MeshEditor.StitchLoop
+  name: StitchLoop
+  nameWithType: MeshEditor.StitchLoop
+  fullName: g3.MeshEditor.StitchLoop
+- uid: g3.MeshEditor.StitchVertexLoops_NearestV*
+  commentId: Overload:g3.MeshEditor.StitchVertexLoops_NearestV
+  name: StitchVertexLoops_NearestV
+  nameWithType: MeshEditor.StitchVertexLoops_NearestV
+  fullName: g3.MeshEditor.StitchVertexLoops_NearestV
+- uid: g3.MeshEditor.StitchUnorderedEdges*
+  commentId: Overload:g3.MeshEditor.StitchUnorderedEdges
+  name: StitchUnorderedEdges
+  nameWithType: MeshEditor.StitchUnorderedEdges
+  fullName: g3.MeshEditor.StitchUnorderedEdges
+- uid: System.Collections.Generic.List{g3.Index2i}
+  commentId: T:System.Collections.Generic.List{g3.Index2i}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Index2i>
+  nameWithType: List<Index2i>
+  fullName: System.Collections.Generic.List<g3.Index2i>
+  nameWithType.vb: List(Of Index2i)
+  fullName.vb: System.Collections.Generic.List(Of g3.Index2i)
+  name.vb: List(Of Index2i)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Index2i
+    name: Index2i
+    nameWithType: Index2i
+    fullName: g3.Index2i
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Index2i
+    name: Index2i
+    nameWithType: Index2i
+    fullName: g3.Index2i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshEditor.StitchSpan*
+  commentId: Overload:g3.MeshEditor.StitchSpan
+  name: StitchSpan
+  nameWithType: MeshEditor.StitchSpan
+  fullName: g3.MeshEditor.StitchSpan
+- uid: System.Collections.Generic.IList{System.Int32}
+  commentId: T:System.Collections.Generic.IList{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Int32>
+  nameWithType: IList<Int32>
+  fullName: System.Collections.Generic.IList<System.Int32>
+  nameWithType.vb: IList(Of Int32)
+  fullName.vb: System.Collections.Generic.IList(Of System.Int32)
+  name.vb: IList(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshEditor.RemoveTriangles*
+  commentId: Overload:g3.MeshEditor.RemoveTriangles
+  name: RemoveTriangles
+  nameWithType: MeshEditor.RemoveTriangles
+  fullName: g3.MeshEditor.RemoveTriangles
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Int32,System.Boolean}
+  commentId: T:System.Func{System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Boolean>
+  nameWithType: Func<Int32, Boolean>
+  fullName: System.Func<System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of Int32, Boolean)
+  fullName.vb: System.Func(Of System.Int32, System.Boolean)
+  name.vb: Func(Of Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshEditor.RemoveIsolatedTriangles*
+  commentId: Overload:g3.MeshEditor.RemoveIsolatedTriangles
+  name: RemoveIsolatedTriangles
+  nameWithType: MeshEditor.RemoveIsolatedTriangles
+  fullName: g3.MeshEditor.RemoveIsolatedTriangles
+- uid: g3.MeshEditor.RemoveFinTriangles*
+  commentId: Overload:g3.MeshEditor.RemoveFinTriangles
+  name: RemoveFinTriangles
+  nameWithType: MeshEditor.RemoveFinTriangles
+  fullName: g3.MeshEditor.RemoveFinTriangles
+- uid: System.Func{g3.DMesh3,System.Int32,System.Boolean}
+  commentId: T:System.Func{g3.DMesh3,System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`3
+  name: Func<DMesh3, Int32, Boolean>
+  nameWithType: Func<DMesh3, Int32, Boolean>
+  fullName: System.Func<g3.DMesh3, System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of DMesh3, Int32, Boolean)
+  fullName.vb: System.Func(Of g3.DMesh3, System.Int32, System.Boolean)
+  name.vb: Func(Of DMesh3, Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshEditor.SeparateTriangles*
+  commentId: Overload:g3.MeshEditor.SeparateTriangles
+  name: SeparateTriangles
+  nameWithType: MeshEditor.SeparateTriangles
+  fullName: g3.MeshEditor.SeparateTriangles
+- uid: g3.MeshEditor.DuplicateTriangles*
+  commentId: Overload:g3.MeshEditor.DuplicateTriangles
+  name: DuplicateTriangles
+  nameWithType: MeshEditor.DuplicateTriangles
+  fullName: g3.MeshEditor.DuplicateTriangles
+- uid: g3.IndexMap
+  commentId: T:g3.IndexMap
+  parent: g3
+  name: IndexMap
+  nameWithType: IndexMap
+  fullName: g3.IndexMap
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshEditor.ReverseTriangles*
+  commentId: Overload:g3.MeshEditor.ReverseTriangles
+  name: ReverseTriangles
+  nameWithType: MeshEditor.ReverseTriangles
+  fullName: g3.MeshEditor.ReverseTriangles
+- uid: g3.MeshEditor.DisconnectBowtie*
+  commentId: Overload:g3.MeshEditor.DisconnectBowtie
+  name: DisconnectBowtie
+  nameWithType: MeshEditor.DisconnectBowtie
+  fullName: g3.MeshEditor.DisconnectBowtie
+- uid: g3.MeshEditor.DisconnectAllBowties*
+  commentId: Overload:g3.MeshEditor.DisconnectAllBowties
+  name: DisconnectAllBowties
+  nameWithType: MeshEditor.DisconnectAllBowties
+  fullName: g3.MeshEditor.DisconnectAllBowties
+- uid: g3.MeshEditor.ReinsertSubmesh*
+  commentId: Overload:g3.MeshEditor.ReinsertSubmesh
+  name: ReinsertSubmesh
+  nameWithType: MeshEditor.ReinsertSubmesh
+  fullName: g3.MeshEditor.ReinsertSubmesh
+- uid: g3.DSubmesh3
+  commentId: T:g3.DSubmesh3
+  parent: g3
+  name: DSubmesh3
+  nameWithType: DSubmesh3
+  fullName: g3.DSubmesh3
+- uid: g3.MeshEditor.DuplicateTriBehavior
+  commentId: T:g3.MeshEditor.DuplicateTriBehavior
+  parent: g3
+  name: MeshEditor.DuplicateTriBehavior
+  nameWithType: MeshEditor.DuplicateTriBehavior
+  fullName: g3.MeshEditor.DuplicateTriBehavior
+- uid: g3.MeshEditor.AppendMesh*
+  commentId: Overload:g3.MeshEditor.AppendMesh
+  name: AppendMesh
+  nameWithType: MeshEditor.AppendMesh
+  fullName: g3.MeshEditor.AppendMesh
+- uid: g3.IMesh
+  commentId: T:g3.IMesh
+  parent: g3
+  name: IMesh
+  nameWithType: IMesh
+  fullName: g3.IMesh
+- uid: g3.MeshEditor.Combine*
+  commentId: Overload:g3.MeshEditor.Combine
+  name: Combine
+  nameWithType: MeshEditor.Combine
+  fullName: g3.MeshEditor.Combine
+- uid: g3.IMesh[]
+  isExternal: true
+  name: IMesh[]
+  nameWithType: IMesh[]
+  fullName: g3.IMesh[]
+  nameWithType.vb: IMesh()
+  fullName.vb: g3.IMesh()
+  name.vb: IMesh()
+  spec.csharp:
+  - uid: g3.IMesh
+    name: IMesh
+    nameWithType: IMesh
+    fullName: g3.IMesh
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.IMesh
+    name: IMesh
+    nameWithType: IMesh
+    fullName: g3.IMesh
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.MeshEditor.Append*
+  commentId: Overload:g3.MeshEditor.Append
+  name: Append
+  nameWithType: MeshEditor.Append
+  fullName: g3.MeshEditor.Append
+- uid: g3.MeshEditor.AppendBox*
+  commentId: Overload:g3.MeshEditor.AppendBox
+  name: AppendBox
+  nameWithType: MeshEditor.AppendBox
+  fullName: g3.MeshEditor.AppendBox
+- uid: g3.Frame3f
+  commentId: T:g3.Frame3f
+  parent: g3
+  name: Frame3f
+  nameWithType: Frame3f
+  fullName: g3.Frame3f
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.Colorf
+  commentId: T:g3.Colorf
+  parent: g3
+  name: Colorf
+  nameWithType: Colorf
+  fullName: g3.Colorf
+- uid: g3.MeshEditor.AppendLine*
+  commentId: Overload:g3.MeshEditor.AppendLine
+  name: AppendLine
+  nameWithType: MeshEditor.AppendLine
+  fullName: g3.MeshEditor.AppendLine
+- uid: g3.Segment3d
+  commentId: T:g3.Segment3d
+  parent: g3
+  name: Segment3d
+  nameWithType: Segment3d
+  fullName: g3.Segment3d
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.MeshEditor.AppendPathSolid*
+  commentId: Overload:g3.MeshEditor.AppendPathSolid
+  name: AppendPathSolid
+  nameWithType: MeshEditor.AppendPathSolid
+  fullName: g3.MeshEditor.AppendPathSolid
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3d>
+  nameWithType: IEnumerable<Vector3d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3d>
+  nameWithType.vb: IEnumerable(Of Vector3d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3d)
+  name.vb: IEnumerable(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.MeshEditor.RemoveAllBowtieVertices*
+  commentId: Overload:g3.MeshEditor.RemoveAllBowtieVertices
+  name: RemoveAllBowtieVertices
+  nameWithType: MeshEditor.RemoveAllBowtieVertices
+  fullName: g3.MeshEditor.RemoveAllBowtieVertices
+- uid: g3.MeshEditor.RemoveUnusedVertices*
+  commentId: Overload:g3.MeshEditor.RemoveUnusedVertices
+  name: RemoveUnusedVertices
+  nameWithType: MeshEditor.RemoveUnusedVertices
+  fullName: g3.MeshEditor.RemoveUnusedVertices
+- uid: g3.MeshEditor.RemoveSmallComponents*
+  commentId: Overload:g3.MeshEditor.RemoveSmallComponents
+  name: RemoveSmallComponents
+  nameWithType: MeshEditor.RemoveSmallComponents
+  fullName: g3.MeshEditor.RemoveSmallComponents

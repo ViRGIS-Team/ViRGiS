@@ -1,0 +1,1267 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshGenerator
+  commentId: T:g3.MeshGenerator
+  id: MeshGenerator
+  parent: g3
+  children:
+  - g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  - g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  - g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  - g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  - g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  - g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  - g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  - g3.MeshGenerator.Clockwise
+  - g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+  - g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+  - g3.MeshGenerator.Generate
+  - g3.MeshGenerator.groups
+  - g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  - g3.MeshGenerator.MakeDMesh
+  - g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  - g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  - g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  - g3.MeshGenerator.MakeNTMesh
+  - g3.MeshGenerator.MakeSimpleMesh
+  - g3.MeshGenerator.normals
+  - g3.MeshGenerator.triangles
+  - g3.MeshGenerator.uv
+  - g3.MeshGenerator.vertices
+  - g3.MeshGenerator.WantGroups
+  - g3.MeshGenerator.WantNormals
+  - g3.MeshGenerator.WantUVs
+  langs:
+  - csharp
+  - vb
+  name: MeshGenerator
+  nameWithType: MeshGenerator
+  fullName: g3.MeshGenerator
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshGenerator
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract class MeshGenerator
+    content.vb: Public MustInherit Class MeshGenerator
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - g3.CappedCylinderGenerator
+  - g3.ConeGenerator
+  - g3.Curve3Axis3RevolveGenerator
+  - g3.Curve3Curve3RevolveGenerator
+  - g3.GridBox3Generator
+  - g3.OpenCylinderGenerator
+  - g3.PointSplatsGenerator
+  - g3.PuncturedDiscGenerator
+  - g3.RoundRectGenerator
+  - g3.TriangulatedPolygonGenerator
+  - g3.TrivialBox3Generator
+  - g3.TrivialDiscGenerator
+  - g3.TrivialRectGenerator
+  - g3.TubeGenerator
+  - g3.VerticalGeneralizedCylinderGenerator
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: g3.MeshGenerator.vertices
+  commentId: F:g3.MeshGenerator.vertices
+  id: vertices
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: vertices
+  nameWithType: MeshGenerator.vertices
+  fullName: g3.MeshGenerator.vertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertices
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public VectorArray3d vertices
+    return:
+      type: g3.VectorArray3d
+    content.vb: Public vertices As VectorArray3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.uv
+  commentId: F:g3.MeshGenerator.uv
+  id: uv
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: uv
+  nameWithType: MeshGenerator.uv
+  fullName: g3.MeshGenerator.uv
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: uv
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public VectorArray2f uv
+    return:
+      type: g3.VectorArray2f
+    content.vb: Public uv As VectorArray2f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.normals
+  commentId: F:g3.MeshGenerator.normals
+  id: normals
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: normals
+  nameWithType: MeshGenerator.normals
+  fullName: g3.MeshGenerator.normals
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: normals
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public VectorArray3f normals
+    return:
+      type: g3.VectorArray3f
+    content.vb: Public normals As VectorArray3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.triangles
+  commentId: F:g3.MeshGenerator.triangles
+  id: triangles
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: triangles
+  nameWithType: MeshGenerator.triangles
+  fullName: g3.MeshGenerator.triangles
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: triangles
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexArray3i triangles
+    return:
+      type: g3.IndexArray3i
+    content.vb: Public triangles As IndexArray3i
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.groups
+  commentId: F:g3.MeshGenerator.groups
+  id: groups
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: groups
+  nameWithType: MeshGenerator.groups
+  fullName: g3.MeshGenerator.groups
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: groups
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] groups
+    return:
+      type: System.Int32[]
+    content.vb: Public groups As Integer()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.WantUVs
+  commentId: F:g3.MeshGenerator.WantUVs
+  id: WantUVs
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: WantUVs
+  nameWithType: MeshGenerator.WantUVs
+  fullName: g3.MeshGenerator.WantUVs
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WantUVs
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool WantUVs
+    return:
+      type: System.Boolean
+    content.vb: Public WantUVs As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.WantNormals
+  commentId: F:g3.MeshGenerator.WantNormals
+  id: WantNormals
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: WantNormals
+  nameWithType: MeshGenerator.WantNormals
+  fullName: g3.MeshGenerator.WantNormals
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WantNormals
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool WantNormals
+    return:
+      type: System.Boolean
+    content.vb: Public WantNormals As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.WantGroups
+  commentId: F:g3.MeshGenerator.WantGroups
+  id: WantGroups
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: WantGroups
+  nameWithType: MeshGenerator.WantGroups
+  fullName: g3.MeshGenerator.WantGroups
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WantGroups
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool WantGroups
+    return:
+      type: System.Boolean
+    content.vb: Public WantGroups As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.Clockwise
+  commentId: F:g3.MeshGenerator.Clockwise
+  id: Clockwise
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: Clockwise
+  nameWithType: MeshGenerator.Clockwise
+  fullName: g3.MeshGenerator.Clockwise
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clockwise
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Clockwise
+    return:
+      type: System.Boolean
+    content.vb: Public Clockwise As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshGenerator.Generate
+  commentId: M:g3.MeshGenerator.Generate
+  id: Generate
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate()
+  nameWithType: MeshGenerator.Generate()
+  fullName: g3.MeshGenerator.Generate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Generate
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract MeshGenerator Generate()
+    return:
+      type: g3.MeshGenerator
+    content.vb: Public MustOverride Function Generate As MeshGenerator
+  overload: g3.MeshGenerator.Generate*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  commentId: M:g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  id: MakeMesh(g3.SimpleMesh)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: MakeMesh(SimpleMesh)
+  nameWithType: MeshGenerator.MakeMesh(SimpleMesh)
+  fullName: g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeMesh
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void MakeMesh(SimpleMesh m)
+    parameters:
+    - id: m
+      type: g3.SimpleMesh
+    content.vb: Public Overridable Sub MakeMesh(m As SimpleMesh)
+  overload: g3.MeshGenerator.MakeMesh*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshGenerator.MakeSimpleMesh
+  commentId: M:g3.MeshGenerator.MakeSimpleMesh
+  id: MakeSimpleMesh
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: MakeSimpleMesh()
+  nameWithType: MeshGenerator.MakeSimpleMesh()
+  fullName: g3.MeshGenerator.MakeSimpleMesh()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeSimpleMesh
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual SimpleMesh MakeSimpleMesh()
+    return:
+      type: g3.SimpleMesh
+    content.vb: Public Overridable Function MakeSimpleMesh As SimpleMesh
+  overload: g3.MeshGenerator.MakeSimpleMesh*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  commentId: M:g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  id: MakeMesh(g3.DMesh3)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: MakeMesh(DMesh3)
+  nameWithType: MeshGenerator.MakeMesh(DMesh3)
+  fullName: g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeMesh
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void MakeMesh(DMesh3 m)
+    parameters:
+    - id: m
+      type: g3.DMesh3
+    content.vb: Public Overridable Sub MakeMesh(m As DMesh3)
+  overload: g3.MeshGenerator.MakeMesh*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshGenerator.MakeDMesh
+  commentId: M:g3.MeshGenerator.MakeDMesh
+  id: MakeDMesh
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: MakeDMesh()
+  nameWithType: MeshGenerator.MakeDMesh()
+  fullName: g3.MeshGenerator.MakeDMesh()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeDMesh
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual DMesh3 MakeDMesh()
+    return:
+      type: g3.DMesh3
+    content.vb: Public Overridable Function MakeDMesh As DMesh3
+  overload: g3.MeshGenerator.MakeDMesh*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  commentId: M:g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  id: MakeMesh(g3.NTMesh3)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: MakeMesh(NTMesh3)
+  nameWithType: MeshGenerator.MakeMesh(NTMesh3)
+  fullName: g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeMesh
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void MakeMesh(NTMesh3 m)
+    parameters:
+    - id: m
+      type: g3.NTMesh3
+    content.vb: Public Overridable Sub MakeMesh(m As NTMesh3)
+  overload: g3.MeshGenerator.MakeMesh*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshGenerator.MakeNTMesh
+  commentId: M:g3.MeshGenerator.MakeNTMesh
+  id: MakeNTMesh
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: MakeNTMesh()
+  nameWithType: MeshGenerator.MakeNTMesh()
+  fullName: g3.MeshGenerator.MakeNTMesh()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeNTMesh
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 101
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual NTMesh3 MakeNTMesh()
+    return:
+      type: g3.NTMesh3
+    content.vb: Public Overridable Function MakeNTMesh As NTMesh3
+  overload: g3.MeshGenerator.MakeNTMesh*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+  commentId: M:g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+  id: duplicate_vertex_span(System.Int32,System.Int32)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: duplicate_vertex_span(Int32, Int32)
+  nameWithType: MeshGenerator.duplicate_vertex_span(Int32, Int32)
+  fullName: g3.MeshGenerator.duplicate_vertex_span(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: duplicate_vertex_span
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 128
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void duplicate_vertex_span(int nStart, int nCount)
+    parameters:
+    - id: nStart
+      type: System.Int32
+    - id: nCount
+      type: System.Int32
+    content.vb: Protected Sub duplicate_vertex_span(nStart As Integer, nCount As Integer)
+  overload: g3.MeshGenerator.duplicate_vertex_span*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  commentId: M:g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  id: append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: append_disc(Int32, Int32, Int32, Boolean, Boolean, ref Int32, Int32)
+  nameWithType: MeshGenerator.append_disc(Int32, Int32, Int32, Boolean, Boolean, ref Int32, Int32)
+  fullName: g3.MeshGenerator.append_disc(System.Int32, System.Int32, System.Int32, System.Boolean, System.Boolean, ref System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: append_disc
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 138
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void append_disc(int Slices, int nCenterV, int nRingStart, bool bClosed, bool bCycle, ref int tri_counter, int groupid = -1)
+    parameters:
+    - id: Slices
+      type: System.Int32
+    - id: nCenterV
+      type: System.Int32
+    - id: nRingStart
+      type: System.Int32
+    - id: bClosed
+      type: System.Boolean
+    - id: bCycle
+      type: System.Boolean
+    - id: tri_counter
+      type: System.Int32
+    - id: groupid
+      type: System.Int32
+    content.vb: Protected Sub append_disc(Slices As Integer, nCenterV As Integer, nRingStart As Integer, bClosed As Boolean, bCycle As Boolean, ByRef tri_counter As Integer, groupid As Integer = -1)
+  overload: g3.MeshGenerator.append_disc*
+  nameWithType.vb: MeshGenerator.append_disc(Int32, Int32, Int32, Boolean, Boolean, ByRef Int32, Int32)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.append_disc(System.Int32, System.Int32, System.Int32, System.Boolean, System.Boolean, ByRef System.Int32, System.Int32)
+  name.vb: append_disc(Int32, Int32, Int32, Boolean, Boolean, ByRef Int32, Int32)
+- uid: g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  commentId: M:g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  id: append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: append_rectangle(Int32, Int32, Int32, Int32, Boolean, ref Int32, Int32)
+  nameWithType: MeshGenerator.append_rectangle(Int32, Int32, Int32, Int32, Boolean, ref Int32, Int32)
+  fullName: g3.MeshGenerator.append_rectangle(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean, ref System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: append_rectangle
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 154
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void append_rectangle(int v0, int v1, int v2, int v3, bool bCycle, ref int tri_counter, int groupid = -1)
+    parameters:
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    - id: v3
+      type: System.Int32
+    - id: bCycle
+      type: System.Boolean
+    - id: tri_counter
+      type: System.Int32
+    - id: groupid
+      type: System.Int32
+    content.vb: Protected Sub append_rectangle(v0 As Integer, v1 As Integer, v2 As Integer, v3 As Integer, bCycle As Boolean, ByRef tri_counter As Integer, groupid As Integer = -1)
+  overload: g3.MeshGenerator.append_rectangle*
+  nameWithType.vb: MeshGenerator.append_rectangle(Int32, Int32, Int32, Int32, Boolean, ByRef Int32, Int32)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.append_rectangle(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean, ByRef System.Int32, System.Int32)
+  name.vb: append_rectangle(Int32, Int32, Int32, Int32, Boolean, ByRef Int32, Int32)
+- uid: g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  commentId: M:g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  id: append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: append_2d_disc_segment(Int32, Int32, Int32, Int32, Boolean, ref Int32, ref Int32, Int32, Double)
+  nameWithType: MeshGenerator.append_2d_disc_segment(Int32, Int32, Int32, Int32, Boolean, ref Int32, ref Int32, Int32, Double)
+  fullName: g3.MeshGenerator.append_2d_disc_segment(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean, ref System.Int32, ref System.Int32, System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: append_2d_disc_segment
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 166
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void append_2d_disc_segment(int iCenter, int iEnd1, int iEnd2, int nSteps, bool bCycle, ref int vtx_counter, ref int tri_counter, int groupid = -1, double force_r = 0)
+    parameters:
+    - id: iCenter
+      type: System.Int32
+    - id: iEnd1
+      type: System.Int32
+    - id: iEnd2
+      type: System.Int32
+    - id: nSteps
+      type: System.Int32
+    - id: bCycle
+      type: System.Boolean
+    - id: vtx_counter
+      type: System.Int32
+    - id: tri_counter
+      type: System.Int32
+    - id: groupid
+      type: System.Int32
+    - id: force_r
+      type: System.Double
+    content.vb: Protected Sub append_2d_disc_segment(iCenter As Integer, iEnd1 As Integer, iEnd2 As Integer, nSteps As Integer, bCycle As Boolean, ByRef vtx_counter As Integer, ByRef tri_counter As Integer, groupid As Integer = -1, force_r As Double = 0)
+  overload: g3.MeshGenerator.append_2d_disc_segment*
+  nameWithType.vb: MeshGenerator.append_2d_disc_segment(Int32, Int32, Int32, Int32, Boolean, ByRef Int32, ByRef Int32, Int32, Double)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.append_2d_disc_segment(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean, ByRef System.Int32, ByRef System.Int32, System.Int32, System.Double)
+  name.vb: append_2d_disc_segment(Int32, Int32, Int32, Int32, Boolean, ByRef Int32, ByRef Int32, Int32, Double)
+- uid: g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+  id: estimate_normal(System.Int32,System.Int32,System.Int32)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: estimate_normal(Int32, Int32, Int32)
+  nameWithType: MeshGenerator.estimate_normal(Int32, Int32, Int32)
+  fullName: g3.MeshGenerator.estimate_normal(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: estimate_normal
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 206
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector3f estimate_normal(int v0, int v1, int v2)
+    parameters:
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    return:
+      type: g3.Vector3f
+    content.vb: Protected Function estimate_normal(v0 As Integer, v1 As Integer, v2 As Integer) As Vector3f
+  overload: g3.MeshGenerator.estimate_normal*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  id: bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: bilerp(ref Vector3d, ref Vector3d, ref Vector3d, ref Vector3d, Double, Double)
+  nameWithType: MeshGenerator.bilerp(ref Vector3d, ref Vector3d, ref Vector3d, ref Vector3d, Double, Double)
+  fullName: g3.MeshGenerator.bilerp(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: bilerp
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 217
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector3d bilerp(ref Vector3d v00, ref Vector3d v10, ref Vector3d v11, ref Vector3d v01, double tx, double ty)
+    parameters:
+    - id: v00
+      type: g3.Vector3d
+    - id: v10
+      type: g3.Vector3d
+    - id: v11
+      type: g3.Vector3d
+    - id: v01
+      type: g3.Vector3d
+    - id: tx
+      type: System.Double
+    - id: ty
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Protected Function bilerp(ByRef v00 As Vector3d, ByRef v10 As Vector3d, ByRef v11 As Vector3d, ByRef v01 As Vector3d, tx As Double, ty As Double) As Vector3d
+  overload: g3.MeshGenerator.bilerp*
+  nameWithType.vb: MeshGenerator.bilerp(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double, Double)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.bilerp(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double, System.Double)
+  name.vb: bilerp(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double, Double)
+- uid: g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  id: bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: bilerp(ref Vector2d, ref Vector2d, ref Vector2d, ref Vector2d, Double, Double)
+  nameWithType: MeshGenerator.bilerp(ref Vector2d, ref Vector2d, ref Vector2d, ref Vector2d, Double, Double)
+  fullName: g3.MeshGenerator.bilerp(ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: bilerp
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 224
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector2d bilerp(ref Vector2d v00, ref Vector2d v10, ref Vector2d v11, ref Vector2d v01, double tx, double ty)
+    parameters:
+    - id: v00
+      type: g3.Vector2d
+    - id: v10
+      type: g3.Vector2d
+    - id: v11
+      type: g3.Vector2d
+    - id: v01
+      type: g3.Vector2d
+    - id: tx
+      type: System.Double
+    - id: ty
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Protected Function bilerp(ByRef v00 As Vector2d, ByRef v10 As Vector2d, ByRef v11 As Vector2d, ByRef v01 As Vector2d, tx As Double, ty As Double) As Vector2d
+  overload: g3.MeshGenerator.bilerp*
+  nameWithType.vb: MeshGenerator.bilerp(ByRef Vector2d, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d, Double, Double)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.bilerp(ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d, System.Double, System.Double)
+  name.vb: bilerp(ByRef Vector2d, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d, Double, Double)
+- uid: g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  id: bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: bilerp(ref Vector2f, ref Vector2f, ref Vector2f, ref Vector2f, Single, Single)
+  nameWithType: MeshGenerator.bilerp(ref Vector2f, ref Vector2f, ref Vector2f, ref Vector2f, Single, Single)
+  fullName: g3.MeshGenerator.bilerp(ref g3.Vector2f, ref g3.Vector2f, ref g3.Vector2f, ref g3.Vector2f, System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: bilerp
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 230
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector2f bilerp(ref Vector2f v00, ref Vector2f v10, ref Vector2f v11, ref Vector2f v01, float tx, float ty)
+    parameters:
+    - id: v00
+      type: g3.Vector2f
+    - id: v10
+      type: g3.Vector2f
+    - id: v11
+      type: g3.Vector2f
+    - id: v01
+      type: g3.Vector2f
+    - id: tx
+      type: System.Single
+    - id: ty
+      type: System.Single
+    return:
+      type: g3.Vector2f
+    content.vb: Protected Function bilerp(ByRef v00 As Vector2f, ByRef v10 As Vector2f, ByRef v11 As Vector2f, ByRef v01 As Vector2f, tx As Single, ty As Single) As Vector2f
+  overload: g3.MeshGenerator.bilerp*
+  nameWithType.vb: MeshGenerator.bilerp(ByRef Vector2f, ByRef Vector2f, ByRef Vector2f, ByRef Vector2f, Single, Single)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.bilerp(ByRef g3.Vector2f, ByRef g3.Vector2f, ByRef g3.Vector2f, ByRef g3.Vector2f, System.Single, System.Single)
+  name.vb: bilerp(ByRef Vector2f, ByRef Vector2f, ByRef Vector2f, ByRef Vector2f, Single, Single)
+- uid: g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  id: bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: bilerp(ref Vector3i, ref Vector3i, ref Vector3i, ref Vector3i, Double, Double)
+  nameWithType: MeshGenerator.bilerp(ref Vector3i, ref Vector3i, ref Vector3i, ref Vector3i, Double, Double)
+  fullName: g3.MeshGenerator.bilerp(ref g3.Vector3i, ref g3.Vector3i, ref g3.Vector3i, ref g3.Vector3i, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: bilerp
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 237
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector3i bilerp(ref Vector3i v00, ref Vector3i v10, ref Vector3i v11, ref Vector3i v01, double tx, double ty)
+    parameters:
+    - id: v00
+      type: g3.Vector3i
+    - id: v10
+      type: g3.Vector3i
+    - id: v11
+      type: g3.Vector3i
+    - id: v01
+      type: g3.Vector3i
+    - id: tx
+      type: System.Double
+    - id: ty
+      type: System.Double
+    return:
+      type: g3.Vector3i
+    content.vb: Protected Function bilerp(ByRef v00 As Vector3i, ByRef v10 As Vector3i, ByRef v11 As Vector3i, ByRef v01 As Vector3i, tx As Double, ty As Double) As Vector3i
+  overload: g3.MeshGenerator.bilerp*
+  nameWithType.vb: MeshGenerator.bilerp(ByRef Vector3i, ByRef Vector3i, ByRef Vector3i, ByRef Vector3i, Double, Double)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.bilerp(ByRef g3.Vector3i, ByRef g3.Vector3i, ByRef g3.Vector3i, ByRef g3.Vector3i, System.Double, System.Double)
+  name.vb: bilerp(ByRef Vector3i, ByRef Vector3i, ByRef Vector3i, ByRef Vector3i, Double, Double)
+- uid: g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  commentId: M:g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  id: lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  parent: g3.MeshGenerator
+  langs:
+  - csharp
+  - vb
+  name: lerp(ref Vector3i, ref Vector3i, Double)
+  nameWithType: MeshGenerator.lerp(ref Vector3i, ref Vector3i, Double)
+  fullName: g3.MeshGenerator.lerp(ref g3.Vector3i, ref g3.Vector3i, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: lerp
+    path: ../Assets/geometry3Sharp/mesh_generators/MeshGenerators.cs
+    startLine: 245
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector3i lerp(ref Vector3i a, ref Vector3i b, double t)
+    parameters:
+    - id: a
+      type: g3.Vector3i
+    - id: b
+      type: g3.Vector3i
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector3i
+    content.vb: Protected Function lerp(ByRef a As Vector3i, ByRef b As Vector3i, t As Double) As Vector3i
+  overload: g3.MeshGenerator.lerp*
+  nameWithType.vb: MeshGenerator.lerp(ByRef Vector3i, ByRef Vector3i, Double)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshGenerator.lerp(ByRef g3.Vector3i, ByRef g3.Vector3i, System.Double)
+  name.vb: lerp(ByRef Vector3i, ByRef Vector3i, Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.VectorArray3d
+  commentId: T:g3.VectorArray3d
+  parent: g3
+  name: VectorArray3d
+  nameWithType: VectorArray3d
+  fullName: g3.VectorArray3d
+- uid: g3.VectorArray2f
+  commentId: T:g3.VectorArray2f
+  parent: g3
+  name: VectorArray2f
+  nameWithType: VectorArray2f
+  fullName: g3.VectorArray2f
+- uid: g3.VectorArray3f
+  commentId: T:g3.VectorArray3f
+  parent: g3
+  name: VectorArray3f
+  nameWithType: VectorArray3f
+  fullName: g3.VectorArray3f
+- uid: g3.IndexArray3i
+  commentId: T:g3.IndexArray3i
+  parent: g3
+  name: IndexArray3i
+  nameWithType: IndexArray3i
+  fullName: g3.IndexArray3i
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshGenerator.Generate*
+  commentId: Overload:g3.MeshGenerator.Generate
+  name: Generate
+  nameWithType: MeshGenerator.Generate
+  fullName: g3.MeshGenerator.Generate
+- uid: g3.MeshGenerator
+  commentId: T:g3.MeshGenerator
+  parent: g3
+  name: MeshGenerator
+  nameWithType: MeshGenerator
+  fullName: g3.MeshGenerator
+- uid: g3.MeshGenerator.MakeMesh*
+  commentId: Overload:g3.MeshGenerator.MakeMesh
+  name: MakeMesh
+  nameWithType: MeshGenerator.MakeMesh
+  fullName: g3.MeshGenerator.MakeMesh
+- uid: g3.SimpleMesh
+  commentId: T:g3.SimpleMesh
+  parent: g3
+  name: SimpleMesh
+  nameWithType: SimpleMesh
+  fullName: g3.SimpleMesh
+- uid: g3.MeshGenerator.MakeSimpleMesh*
+  commentId: Overload:g3.MeshGenerator.MakeSimpleMesh
+  name: MakeSimpleMesh
+  nameWithType: MeshGenerator.MakeSimpleMesh
+  fullName: g3.MeshGenerator.MakeSimpleMesh
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshGenerator.MakeDMesh*
+  commentId: Overload:g3.MeshGenerator.MakeDMesh
+  name: MakeDMesh
+  nameWithType: MeshGenerator.MakeDMesh
+  fullName: g3.MeshGenerator.MakeDMesh
+- uid: g3.NTMesh3
+  commentId: T:g3.NTMesh3
+  parent: g3
+  name: NTMesh3
+  nameWithType: NTMesh3
+  fullName: g3.NTMesh3
+- uid: g3.MeshGenerator.MakeNTMesh*
+  commentId: Overload:g3.MeshGenerator.MakeNTMesh
+  name: MakeNTMesh
+  nameWithType: MeshGenerator.MakeNTMesh
+  fullName: g3.MeshGenerator.MakeNTMesh
+- uid: g3.MeshGenerator.duplicate_vertex_span*
+  commentId: Overload:g3.MeshGenerator.duplicate_vertex_span
+  name: duplicate_vertex_span
+  nameWithType: MeshGenerator.duplicate_vertex_span
+  fullName: g3.MeshGenerator.duplicate_vertex_span
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshGenerator.append_disc*
+  commentId: Overload:g3.MeshGenerator.append_disc
+  name: append_disc
+  nameWithType: MeshGenerator.append_disc
+  fullName: g3.MeshGenerator.append_disc
+- uid: g3.MeshGenerator.append_rectangle*
+  commentId: Overload:g3.MeshGenerator.append_rectangle
+  name: append_rectangle
+  nameWithType: MeshGenerator.append_rectangle
+  fullName: g3.MeshGenerator.append_rectangle
+- uid: g3.MeshGenerator.append_2d_disc_segment*
+  commentId: Overload:g3.MeshGenerator.append_2d_disc_segment
+  name: append_2d_disc_segment
+  nameWithType: MeshGenerator.append_2d_disc_segment
+  fullName: g3.MeshGenerator.append_2d_disc_segment
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.MeshGenerator.estimate_normal*
+  commentId: Overload:g3.MeshGenerator.estimate_normal
+  name: estimate_normal
+  nameWithType: MeshGenerator.estimate_normal
+  fullName: g3.MeshGenerator.estimate_normal
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.MeshGenerator.bilerp*
+  commentId: Overload:g3.MeshGenerator.bilerp
+  name: bilerp
+  nameWithType: MeshGenerator.bilerp
+  fullName: g3.MeshGenerator.bilerp
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.Vector2f
+  commentId: T:g3.Vector2f
+  parent: g3
+  name: Vector2f
+  nameWithType: Vector2f
+  fullName: g3.Vector2f
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  parent: g3
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+- uid: g3.MeshGenerator.lerp*
+  commentId: Overload:g3.MeshGenerator.lerp
+  name: lerp
+  nameWithType: MeshGenerator.lerp
+  fullName: g3.MeshGenerator.lerp

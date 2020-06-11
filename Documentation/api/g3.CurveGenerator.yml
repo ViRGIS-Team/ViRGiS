@@ -1,0 +1,219 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.CurveGenerator
+  commentId: T:g3.CurveGenerator
+  id: CurveGenerator
+  parent: g3
+  children:
+  - g3.CurveGenerator.closed
+  - g3.CurveGenerator.Generate
+  - g3.CurveGenerator.Make(g3.DCurve3)
+  - g3.CurveGenerator.vertices
+  langs:
+  - csharp
+  - vb
+  name: CurveGenerator
+  nameWithType: CurveGenerator
+  fullName: g3.CurveGenerator
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CurveGenerator
+    path: ../Assets/geometry3Sharp/curve/CurveGenerators.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract class CurveGenerator
+    content.vb: Public MustInherit Class CurveGenerator
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - g3.LineGenerator
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: g3.CurveGenerator.vertices
+  commentId: F:g3.CurveGenerator.vertices
+  id: vertices
+  parent: g3.CurveGenerator
+  langs:
+  - csharp
+  - vb
+  name: vertices
+  nameWithType: CurveGenerator.vertices
+  fullName: g3.CurveGenerator.vertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertices
+    path: ../Assets/geometry3Sharp/curve/CurveGenerators.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public VectorArray3d vertices
+    return:
+      type: g3.VectorArray3d
+    content.vb: Public vertices As VectorArray3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CurveGenerator.closed
+  commentId: F:g3.CurveGenerator.closed
+  id: closed
+  parent: g3.CurveGenerator
+  langs:
+  - csharp
+  - vb
+  name: closed
+  nameWithType: CurveGenerator.closed
+  fullName: g3.CurveGenerator.closed
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: closed
+    path: ../Assets/geometry3Sharp/curve/CurveGenerators.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool closed
+    return:
+      type: System.Boolean
+    content.vb: Public closed As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CurveGenerator.Generate
+  commentId: M:g3.CurveGenerator.Generate
+  id: Generate
+  parent: g3.CurveGenerator
+  langs:
+  - csharp
+  - vb
+  name: Generate()
+  nameWithType: CurveGenerator.Generate()
+  fullName: g3.CurveGenerator.Generate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Generate
+    path: ../Assets/geometry3Sharp/curve/CurveGenerators.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract void Generate()
+    content.vb: Public MustOverride Sub Generate
+  overload: g3.CurveGenerator.Generate*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: g3.CurveGenerator.Make(g3.DCurve3)
+  commentId: M:g3.CurveGenerator.Make(g3.DCurve3)
+  id: Make(g3.DCurve3)
+  parent: g3.CurveGenerator
+  langs:
+  - csharp
+  - vb
+  name: Make(DCurve3)
+  nameWithType: CurveGenerator.Make(DCurve3)
+  fullName: g3.CurveGenerator.Make(g3.DCurve3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Make
+    path: ../Assets/geometry3Sharp/curve/CurveGenerators.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Make(DCurve3 c)
+    parameters:
+    - id: c
+      type: g3.DCurve3
+    content.vb: Public Sub Make(c As DCurve3)
+  overload: g3.CurveGenerator.Make*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.VectorArray3d
+  commentId: T:g3.VectorArray3d
+  parent: g3
+  name: VectorArray3d
+  nameWithType: VectorArray3d
+  fullName: g3.VectorArray3d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.CurveGenerator.Generate*
+  commentId: Overload:g3.CurveGenerator.Generate
+  name: Generate
+  nameWithType: CurveGenerator.Generate
+  fullName: g3.CurveGenerator.Generate
+- uid: g3.CurveGenerator.Make*
+  commentId: Overload:g3.CurveGenerator.Make
+  name: Make
+  nameWithType: CurveGenerator.Make
+  fullName: g3.CurveGenerator.Make
+- uid: g3.DCurve3
+  commentId: T:g3.DCurve3
+  parent: g3
+  name: DCurve3
+  nameWithType: DCurve3
+  fullName: g3.DCurve3

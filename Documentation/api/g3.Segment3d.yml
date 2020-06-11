@@ -1,0 +1,1347 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Segment3d
+  commentId: T:g3.Segment3d
+  id: Segment3d
+  parent: g3
+  children:
+  - g3.Segment3d.#ctor(g3.Vector3d,g3.Vector3d)
+  - g3.Segment3d.#ctor(g3.Vector3d,g3.Vector3d,System.Double)
+  - g3.Segment3d.ArcLength
+  - g3.Segment3d.Center
+  - g3.Segment3d.Clone
+  - g3.Segment3d.Direction
+  - g3.Segment3d.DistanceSquared(g3.Vector3d)
+  - g3.Segment3d.DistanceSquared(g3.Vector3d,System.Double@)
+  - g3.Segment3d.Extent
+  - g3.Segment3d.HasArcLength
+  - g3.Segment3d.IsClosed
+  - g3.Segment3d.Length
+  - g3.Segment3d.NearestPoint(g3.Vector3d)
+  - g3.Segment3d.op_Explicit(g3.Segment3d)~g3.Segment3f
+  - g3.Segment3d.op_Implicit(g3.Segment3f)~g3.Segment3d
+  - g3.Segment3d.P0
+  - g3.Segment3d.P1
+  - g3.Segment3d.ParamLength
+  - g3.Segment3d.PointAt(System.Double)
+  - g3.Segment3d.PointBetween(System.Double)
+  - g3.Segment3d.Project(g3.Vector3d)
+  - g3.Segment3d.Reverse
+  - g3.Segment3d.SampleArcLength(System.Double)
+  - g3.Segment3d.SampleT(System.Double)
+  - g3.Segment3d.SetEndpoints(g3.Vector3d,g3.Vector3d)
+  - g3.Segment3d.TangentT(System.Double)
+  langs:
+  - csharp
+  - vb
+  name: Segment3d
+  nameWithType: Segment3d
+  fullName: g3.Segment3d
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Segment3d
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public struct Segment3d : IParametricCurve3d'
+    content.vb: >-
+      Public Structure Segment3d
+          Implements IParametricCurve3d
+  implements:
+  - g3.IParametricCurve3d
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.Segment3d.Center
+  commentId: F:g3.Segment3d.Center
+  id: Center
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Segment3d.Center
+  fullName: g3.Segment3d.Center
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Center
+    return:
+      type: g3.Vector3d
+    content.vb: Public Center As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.Direction
+  commentId: F:g3.Segment3d.Direction
+  id: Direction
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: Segment3d.Direction
+  fullName: g3.Segment3d.Direction
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Direction
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Direction
+    return:
+      type: g3.Vector3d
+    content.vb: Public Direction As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.Extent
+  commentId: F:g3.Segment3d.Extent
+  id: Extent
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Extent
+  nameWithType: Segment3d.Extent
+  fullName: g3.Segment3d.Extent
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Extent
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Extent
+    return:
+      type: System.Double
+    content.vb: Public Extent As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.#ctor(g3.Vector3d,g3.Vector3d)
+  commentId: M:g3.Segment3d.#ctor(g3.Vector3d,g3.Vector3d)
+  id: '#ctor(g3.Vector3d,g3.Vector3d)'
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Segment3d(Vector3d, Vector3d)
+  nameWithType: Segment3d.Segment3d(Vector3d, Vector3d)
+  fullName: g3.Segment3d.Segment3d(g3.Vector3d, g3.Vector3d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Segment3d(Vector3d p0, Vector3d p1)
+    parameters:
+    - id: p0
+      type: g3.Vector3d
+    - id: p1
+      type: g3.Vector3d
+    content.vb: Public Sub New(p0 As Vector3d, p1 As Vector3d)
+  overload: g3.Segment3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.#ctor(g3.Vector3d,g3.Vector3d,System.Double)
+  commentId: M:g3.Segment3d.#ctor(g3.Vector3d,g3.Vector3d,System.Double)
+  id: '#ctor(g3.Vector3d,g3.Vector3d,System.Double)'
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Segment3d(Vector3d, Vector3d, Double)
+  nameWithType: Segment3d.Segment3d(Vector3d, Vector3d, Double)
+  fullName: g3.Segment3d.Segment3d(g3.Vector3d, g3.Vector3d, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Segment3d(Vector3d center, Vector3d direction, double extent)
+    parameters:
+    - id: center
+      type: g3.Vector3d
+    - id: direction
+      type: g3.Vector3d
+    - id: extent
+      type: System.Double
+    content.vb: Public Sub New(center As Vector3d, direction As Vector3d, extent As Double)
+  overload: g3.Segment3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.SetEndpoints(g3.Vector3d,g3.Vector3d)
+  commentId: M:g3.Segment3d.SetEndpoints(g3.Vector3d,g3.Vector3d)
+  id: SetEndpoints(g3.Vector3d,g3.Vector3d)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: SetEndpoints(Vector3d, Vector3d)
+  nameWithType: Segment3d.SetEndpoints(Vector3d, Vector3d)
+  fullName: g3.Segment3d.SetEndpoints(g3.Vector3d, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetEndpoints
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetEndpoints(Vector3d p0, Vector3d p1)
+    parameters:
+    - id: p0
+      type: g3.Vector3d
+    - id: p1
+      type: g3.Vector3d
+    content.vb: Public Sub SetEndpoints(p0 As Vector3d, p1 As Vector3d)
+  overload: g3.Segment3d.SetEndpoints*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.P0
+  commentId: P:g3.Segment3d.P0
+  id: P0
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: P0
+  nameWithType: Segment3d.P0
+  fullName: g3.Segment3d.P0
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: P0
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d P0 { get; set; }
+    parameters: []
+    return:
+      type: g3.Vector3d
+    content.vb: Public Property P0 As Vector3d
+  overload: g3.Segment3d.P0*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.P1
+  commentId: P:g3.Segment3d.P1
+  id: P1
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: P1
+  nameWithType: Segment3d.P1
+  fullName: g3.Segment3d.P1
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: P1
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d P1 { get; set; }
+    parameters: []
+    return:
+      type: g3.Vector3d
+    content.vb: Public Property P1 As Vector3d
+  overload: g3.Segment3d.P1*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.Length
+  commentId: P:g3.Segment3d.Length
+  id: Length
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: Segment3d.Length
+  fullName: g3.Segment3d.Length
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Length
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Length { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Length As Double
+  overload: g3.Segment3d.Length*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Segment3d.PointAt(System.Double)
+  commentId: M:g3.Segment3d.PointAt(System.Double)
+  id: PointAt(System.Double)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: PointAt(Double)
+  nameWithType: Segment3d.PointAt(Double)
+  fullName: g3.Segment3d.PointAt(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointAt
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 43
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d PointAt(double d)
+    parameters:
+    - id: d
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function PointAt(d As Double) As Vector3d
+  overload: g3.Segment3d.PointAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.PointBetween(System.Double)
+  commentId: M:g3.Segment3d.PointBetween(System.Double)
+  id: PointBetween(System.Double)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: PointBetween(Double)
+  nameWithType: Segment3d.PointBetween(Double)
+  fullName: g3.Segment3d.PointBetween(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointBetween
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d PointBetween(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function PointBetween(t As Double) As Vector3d
+  overload: g3.Segment3d.PointBetween*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.DistanceSquared(g3.Vector3d)
+  commentId: M:g3.Segment3d.DistanceSquared(g3.Vector3d)
+  id: DistanceSquared(g3.Vector3d)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3d)
+  nameWithType: Segment3d.DistanceSquared(Vector3d)
+  fullName: g3.Segment3d.DistanceSquared(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector3d p)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(p As Vector3d) As Double
+  overload: g3.Segment3d.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.DistanceSquared(g3.Vector3d,System.Double@)
+  commentId: M:g3.Segment3d.DistanceSquared(g3.Vector3d,System.Double@)
+  id: DistanceSquared(g3.Vector3d,System.Double@)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3d, out Double)
+  nameWithType: Segment3d.DistanceSquared(Vector3d, out Double)
+  fullName: g3.Segment3d.DistanceSquared(g3.Vector3d, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector3d p, out double t)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    - id: t
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(p As Vector3d, ByRef t As Double) As Double
+  overload: g3.Segment3d.DistanceSquared*
+  nameWithType.vb: Segment3d.DistanceSquared(Vector3d, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Segment3d.DistanceSquared(g3.Vector3d, ByRef System.Double)
+  name.vb: DistanceSquared(Vector3d, ByRef Double)
+- uid: g3.Segment3d.NearestPoint(g3.Vector3d)
+  commentId: M:g3.Segment3d.NearestPoint(g3.Vector3d)
+  id: NearestPoint(g3.Vector3d)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: NearestPoint(Vector3d)
+  nameWithType: Segment3d.NearestPoint(Vector3d)
+  fullName: g3.Segment3d.NearestPoint(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NearestPoint
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d NearestPoint(Vector3d p)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function NearestPoint(p As Vector3d) As Vector3d
+  overload: g3.Segment3d.NearestPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.Project(g3.Vector3d)
+  commentId: M:g3.Segment3d.Project(g3.Vector3d)
+  id: Project(g3.Vector3d)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector3d)
+  nameWithType: Segment3d.Project(Vector3d)
+  fullName: g3.Segment3d.Project(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 88
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Project(Vector3d p)
+    parameters:
+    - id: p
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function Project(p As Vector3d) As Double
+  overload: g3.Segment3d.Project*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.op_Implicit(g3.Segment3f)~g3.Segment3d
+  commentId: M:g3.Segment3d.op_Implicit(g3.Segment3f)~g3.Segment3d
+  id: op_Implicit(g3.Segment3f)~g3.Segment3d
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Segment3f to Segment3d)
+  nameWithType: Segment3d.Implicit(Segment3f to Segment3d)
+  fullName: g3.Segment3d.Implicit(g3.Segment3f to g3.Segment3d)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 102
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static implicit operator Segment3d(Segment3f v)
+    parameters:
+    - id: v
+      type: g3.Segment3f
+    return:
+      type: g3.Segment3d
+    content.vb: Public Shared Widening Operator CType(v As Segment3f) As Segment3d
+  overload: g3.Segment3d.op_Implicit*
+  nameWithType.vb: Segment3d.Widening(Segment3f to Segment3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Segment3d.Widening(g3.Segment3f to g3.Segment3d)
+  name.vb: Widening(Segment3f to Segment3d)
+- uid: g3.Segment3d.op_Explicit(g3.Segment3d)~g3.Segment3f
+  commentId: M:g3.Segment3d.op_Explicit(g3.Segment3d)~g3.Segment3f
+  id: op_Explicit(g3.Segment3d)~g3.Segment3f
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Segment3d to Segment3f)
+  nameWithType: Segment3d.Explicit(Segment3d to Segment3f)
+  fullName: g3.Segment3d.Explicit(g3.Segment3d to g3.Segment3f)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 106
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Segment3f(Segment3d v)
+    parameters:
+    - id: v
+      type: g3.Segment3d
+    return:
+      type: g3.Segment3f
+    content.vb: Public Shared Narrowing Operator CType(v As Segment3d) As Segment3f
+  overload: g3.Segment3d.op_Explicit*
+  nameWithType.vb: Segment3d.Narrowing(Segment3d to Segment3f)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Segment3d.Narrowing(g3.Segment3d to g3.Segment3f)
+  name.vb: Narrowing(Segment3d to Segment3f)
+- uid: g3.Segment3d.IsClosed
+  commentId: P:g3.Segment3d.IsClosed
+  id: IsClosed
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: Segment3d.IsClosed
+  fullName: g3.Segment3d.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClosed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClosed As Boolean
+  overload: g3.Segment3d.IsClosed*
+  implements:
+  - g3.IParametricCurve3d.IsClosed
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Segment3d.ParamLength
+  commentId: P:g3.Segment3d.ParamLength
+  id: ParamLength
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: ParamLength
+  nameWithType: Segment3d.ParamLength
+  fullName: g3.Segment3d.ParamLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParamLength
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 116
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ParamLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ParamLength As Double
+  overload: g3.Segment3d.ParamLength*
+  implements:
+  - g3.IParametricCurve3d.ParamLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Segment3d.SampleT(System.Double)
+  commentId: M:g3.Segment3d.SampleT(System.Double)
+  id: SampleT(System.Double)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: SampleT(Double)
+  nameWithType: Segment3d.SampleT(Double)
+  fullName: g3.Segment3d.SampleT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleT
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 119
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d SampleT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function SampleT(t As Double) As Vector3d
+  overload: g3.Segment3d.SampleT*
+  implements:
+  - g3.IParametricCurve3d.SampleT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.TangentT(System.Double)
+  commentId: M:g3.Segment3d.TangentT(System.Double)
+  id: TangentT(System.Double)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: TangentT(Double)
+  nameWithType: Segment3d.TangentT(Double)
+  fullName: g3.Segment3d.TangentT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TangentT
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 123
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d TangentT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function TangentT(t As Double) As Vector3d
+  overload: g3.Segment3d.TangentT*
+  implements:
+  - g3.IParametricCurve3d.TangentT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.HasArcLength
+  commentId: P:g3.Segment3d.HasArcLength
+  id: HasArcLength
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: HasArcLength
+  nameWithType: Segment3d.HasArcLength
+  fullName: g3.Segment3d.HasArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasArcLength
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 127
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasArcLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArcLength As Boolean
+  overload: g3.Segment3d.HasArcLength*
+  implements:
+  - g3.IParametricCurve3d.HasArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Segment3d.ArcLength
+  commentId: P:g3.Segment3d.ArcLength
+  id: ArcLength
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: Segment3d.ArcLength
+  fullName: g3.Segment3d.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 128
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.Segment3d.ArcLength*
+  implements:
+  - g3.IParametricCurve3d.ArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Segment3d.SampleArcLength(System.Double)
+  commentId: M:g3.Segment3d.SampleArcLength(System.Double)
+  id: SampleArcLength(System.Double)
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: SampleArcLength(Double)
+  nameWithType: Segment3d.SampleArcLength(Double)
+  fullName: g3.Segment3d.SampleArcLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleArcLength
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d SampleArcLength(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function SampleArcLength(a As Double) As Vector3d
+  overload: g3.Segment3d.SampleArcLength*
+  implements:
+  - g3.IParametricCurve3d.SampleArcLength(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.Reverse
+  commentId: M:g3.Segment3d.Reverse
+  id: Reverse
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: Segment3d.Reverse()
+  fullName: g3.Segment3d.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 134
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse()
+    content.vb: Public Sub Reverse
+  overload: g3.Segment3d.Reverse*
+  implements:
+  - g3.IParametricCurve3d.Reverse
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Segment3d.Clone
+  commentId: M:g3.Segment3d.Clone
+  id: Clone
+  parent: g3.Segment3d
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: Segment3d.Clone()
+  fullName: g3.Segment3d.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Segment3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/math/Segment3.cs
+    startLine: 138
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IParametricCurve3d Clone()
+    return:
+      type: g3.IParametricCurve3d
+    content.vb: Public Function Clone As IParametricCurve3d
+  overload: g3.Segment3d.Clone*
+  implements:
+  - g3.IParametricCurve3d.Clone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IParametricCurve3d
+  commentId: T:g3.IParametricCurve3d
+  parent: g3
+  name: IParametricCurve3d
+  nameWithType: IParametricCurve3d
+  fullName: g3.IParametricCurve3d
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Segment3d.#ctor*
+  commentId: Overload:g3.Segment3d.#ctor
+  name: Segment3d
+  nameWithType: Segment3d.Segment3d
+  fullName: g3.Segment3d.Segment3d
+- uid: g3.Segment3d.SetEndpoints*
+  commentId: Overload:g3.Segment3d.SetEndpoints
+  name: SetEndpoints
+  nameWithType: Segment3d.SetEndpoints
+  fullName: g3.Segment3d.SetEndpoints
+- uid: g3.Segment3d.P0*
+  commentId: Overload:g3.Segment3d.P0
+  name: P0
+  nameWithType: Segment3d.P0
+  fullName: g3.Segment3d.P0
+- uid: g3.Segment3d.P1*
+  commentId: Overload:g3.Segment3d.P1
+  name: P1
+  nameWithType: Segment3d.P1
+  fullName: g3.Segment3d.P1
+- uid: g3.Segment3d.Length*
+  commentId: Overload:g3.Segment3d.Length
+  name: Length
+  nameWithType: Segment3d.Length
+  fullName: g3.Segment3d.Length
+- uid: g3.Segment3d.PointAt*
+  commentId: Overload:g3.Segment3d.PointAt
+  name: PointAt
+  nameWithType: Segment3d.PointAt
+  fullName: g3.Segment3d.PointAt
+- uid: g3.Segment3d.PointBetween*
+  commentId: Overload:g3.Segment3d.PointBetween
+  name: PointBetween
+  nameWithType: Segment3d.PointBetween
+  fullName: g3.Segment3d.PointBetween
+- uid: g3.Segment3d.DistanceSquared*
+  commentId: Overload:g3.Segment3d.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Segment3d.DistanceSquared
+  fullName: g3.Segment3d.DistanceSquared
+- uid: g3.Segment3d.NearestPoint*
+  commentId: Overload:g3.Segment3d.NearestPoint
+  name: NearestPoint
+  nameWithType: Segment3d.NearestPoint
+  fullName: g3.Segment3d.NearestPoint
+- uid: g3.Segment3d.Project*
+  commentId: Overload:g3.Segment3d.Project
+  name: Project
+  nameWithType: Segment3d.Project
+  fullName: g3.Segment3d.Project
+- uid: g3.Segment3d.op_Implicit*
+  commentId: Overload:g3.Segment3d.op_Implicit
+  name: Implicit
+  nameWithType: Segment3d.Implicit
+  fullName: g3.Segment3d.Implicit
+  nameWithType.vb: Segment3d.Widening
+  fullName.vb: g3.Segment3d.Widening
+  name.vb: Widening
+- uid: g3.Segment3f
+  commentId: T:g3.Segment3f
+  parent: g3
+  name: Segment3f
+  nameWithType: Segment3f
+  fullName: g3.Segment3f
+- uid: g3.Segment3d
+  commentId: T:g3.Segment3d
+  parent: g3
+  name: Segment3d
+  nameWithType: Segment3d
+  fullName: g3.Segment3d
+- uid: g3.Segment3d.op_Explicit*
+  commentId: Overload:g3.Segment3d.op_Explicit
+  name: Explicit
+  nameWithType: Segment3d.Explicit
+  fullName: g3.Segment3d.Explicit
+  nameWithType.vb: Segment3d.Narrowing
+  fullName.vb: g3.Segment3d.Narrowing
+  name.vb: Narrowing
+- uid: g3.Segment3d.IsClosed*
+  commentId: Overload:g3.Segment3d.IsClosed
+  name: IsClosed
+  nameWithType: Segment3d.IsClosed
+  fullName: g3.Segment3d.IsClosed
+- uid: g3.IParametricCurve3d.IsClosed
+  commentId: P:g3.IParametricCurve3d.IsClosed
+  parent: g3.IParametricCurve3d
+  name: IsClosed
+  nameWithType: IParametricCurve3d.IsClosed
+  fullName: g3.IParametricCurve3d.IsClosed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Segment3d.ParamLength*
+  commentId: Overload:g3.Segment3d.ParamLength
+  name: ParamLength
+  nameWithType: Segment3d.ParamLength
+  fullName: g3.Segment3d.ParamLength
+- uid: g3.IParametricCurve3d.ParamLength
+  commentId: P:g3.IParametricCurve3d.ParamLength
+  parent: g3.IParametricCurve3d
+  name: ParamLength
+  nameWithType: IParametricCurve3d.ParamLength
+  fullName: g3.IParametricCurve3d.ParamLength
+- uid: g3.Segment3d.SampleT*
+  commentId: Overload:g3.Segment3d.SampleT
+  name: SampleT
+  nameWithType: Segment3d.SampleT
+  fullName: g3.Segment3d.SampleT
+- uid: g3.IParametricCurve3d.SampleT(System.Double)
+  commentId: M:g3.IParametricCurve3d.SampleT(System.Double)
+  parent: g3.IParametricCurve3d
+  isExternal: true
+  name: SampleT(Double)
+  nameWithType: IParametricCurve3d.SampleT(Double)
+  fullName: g3.IParametricCurve3d.SampleT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve3d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve3d.SampleT
+    fullName: g3.IParametricCurve3d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve3d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve3d.SampleT
+    fullName: g3.IParametricCurve3d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Segment3d.TangentT*
+  commentId: Overload:g3.Segment3d.TangentT
+  name: TangentT
+  nameWithType: Segment3d.TangentT
+  fullName: g3.Segment3d.TangentT
+- uid: g3.IParametricCurve3d.TangentT(System.Double)
+  commentId: M:g3.IParametricCurve3d.TangentT(System.Double)
+  parent: g3.IParametricCurve3d
+  isExternal: true
+  name: TangentT(Double)
+  nameWithType: IParametricCurve3d.TangentT(Double)
+  fullName: g3.IParametricCurve3d.TangentT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve3d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve3d.TangentT
+    fullName: g3.IParametricCurve3d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve3d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve3d.TangentT
+    fullName: g3.IParametricCurve3d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Segment3d.HasArcLength*
+  commentId: Overload:g3.Segment3d.HasArcLength
+  name: HasArcLength
+  nameWithType: Segment3d.HasArcLength
+  fullName: g3.Segment3d.HasArcLength
+- uid: g3.IParametricCurve3d.HasArcLength
+  commentId: P:g3.IParametricCurve3d.HasArcLength
+  parent: g3.IParametricCurve3d
+  name: HasArcLength
+  nameWithType: IParametricCurve3d.HasArcLength
+  fullName: g3.IParametricCurve3d.HasArcLength
+- uid: g3.Segment3d.ArcLength*
+  commentId: Overload:g3.Segment3d.ArcLength
+  name: ArcLength
+  nameWithType: Segment3d.ArcLength
+  fullName: g3.Segment3d.ArcLength
+- uid: g3.IParametricCurve3d.ArcLength
+  commentId: P:g3.IParametricCurve3d.ArcLength
+  parent: g3.IParametricCurve3d
+  name: ArcLength
+  nameWithType: IParametricCurve3d.ArcLength
+  fullName: g3.IParametricCurve3d.ArcLength
+- uid: g3.Segment3d.SampleArcLength*
+  commentId: Overload:g3.Segment3d.SampleArcLength
+  name: SampleArcLength
+  nameWithType: Segment3d.SampleArcLength
+  fullName: g3.Segment3d.SampleArcLength
+- uid: g3.IParametricCurve3d.SampleArcLength(System.Double)
+  commentId: M:g3.IParametricCurve3d.SampleArcLength(System.Double)
+  parent: g3.IParametricCurve3d
+  isExternal: true
+  name: SampleArcLength(Double)
+  nameWithType: IParametricCurve3d.SampleArcLength(Double)
+  fullName: g3.IParametricCurve3d.SampleArcLength(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve3d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve3d.SampleArcLength
+    fullName: g3.IParametricCurve3d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve3d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve3d.SampleArcLength
+    fullName: g3.IParametricCurve3d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Segment3d.Reverse*
+  commentId: Overload:g3.Segment3d.Reverse
+  name: Reverse
+  nameWithType: Segment3d.Reverse
+  fullName: g3.Segment3d.Reverse
+- uid: g3.IParametricCurve3d.Reverse
+  commentId: M:g3.IParametricCurve3d.Reverse
+  parent: g3.IParametricCurve3d
+  name: Reverse()
+  nameWithType: IParametricCurve3d.Reverse()
+  fullName: g3.IParametricCurve3d.Reverse()
+  spec.csharp:
+  - uid: g3.IParametricCurve3d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve3d.Reverse
+    fullName: g3.IParametricCurve3d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve3d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve3d.Reverse
+    fullName: g3.IParametricCurve3d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Segment3d.Clone*
+  commentId: Overload:g3.Segment3d.Clone
+  name: Clone
+  nameWithType: Segment3d.Clone
+  fullName: g3.Segment3d.Clone
+- uid: g3.IParametricCurve3d.Clone
+  commentId: M:g3.IParametricCurve3d.Clone
+  parent: g3.IParametricCurve3d
+  name: Clone()
+  nameWithType: IParametricCurve3d.Clone()
+  fullName: g3.IParametricCurve3d.Clone()
+  spec.csharp:
+  - uid: g3.IParametricCurve3d.Clone
+    name: Clone
+    nameWithType: IParametricCurve3d.Clone
+    fullName: g3.IParametricCurve3d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve3d.Clone
+    name: Clone
+    nameWithType: IParametricCurve3d.Clone
+    fullName: g3.IParametricCurve3d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )

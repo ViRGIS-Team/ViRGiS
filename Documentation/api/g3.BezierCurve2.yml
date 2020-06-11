@@ -1,0 +1,1853 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.BezierCurve2
+  commentId: T:g3.BezierCurve2
+  id: BezierCurve2
+  parent: g3
+  children:
+  - g3.BezierCurve2.#ctor
+  - g3.BezierCurve2.#ctor(System.Int32,g3.Vector2d[],System.Boolean)
+  - g3.BezierCurve2.ArcLength
+  - g3.BezierCurve2.Clone
+  - g3.BezierCurve2.ControlPoints
+  - g3.BezierCurve2.Degree
+  - g3.BezierCurve2.GetFirstDerivative(System.Double)
+  - g3.BezierCurve2.GetPosition(System.Double)
+  - g3.BezierCurve2.GetSecondDerivative(System.Double)
+  - g3.BezierCurve2.GetThirdDerivative(System.Double)
+  - g3.BezierCurve2.HasArcLength
+  - g3.BezierCurve2.IsClosed
+  - g3.BezierCurve2.IsTransformable
+  - g3.BezierCurve2.ParamLength
+  - g3.BezierCurve2.Reverse
+  - g3.BezierCurve2.SampleArcLength(System.Double)
+  - g3.BezierCurve2.SampleT(System.Double)
+  - g3.BezierCurve2.TangentT(System.Double)
+  - g3.BezierCurve2.Transform(g3.ITransform2)
+  langs:
+  - csharp
+  - vb
+  name: BezierCurve2
+  nameWithType: BezierCurve2
+  fullName: g3.BezierCurve2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BezierCurve2
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n2D Bezier curve of arbitrary degree\nPorted from WildMagic5 Wm5BezierCurve2\n"
+  example: []
+  syntax:
+    content: 'public class BezierCurve2 : BaseCurve2, IParametricCurve2d'
+    content.vb: >-
+      Public Class BezierCurve2
+          Inherits BaseCurve2
+          Implements IParametricCurve2d
+  inheritance:
+  - System.Object
+  - g3.BaseCurve2
+  implements:
+  - g3.IParametricCurve2d
+  inheritedMembers:
+  - g3.BaseCurve2.mTMin
+  - g3.BaseCurve2.mTMax
+  - g3.BaseCurve2.GetMinTime
+  - g3.BaseCurve2.GetMaxTime
+  - g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+  - g3.BaseCurve2.GetSpeed(System.Double)
+  - g3.BaseCurve2.GetLength(System.Double,System.Double)
+  - g3.BaseCurve2.GetTotalLength
+  - g3.BaseCurve2.GetTangent(System.Double)
+  - g3.BaseCurve2.GetNormal(System.Double)
+  - g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  - g3.BaseCurve2.GetCurvature(System.Double)
+  - g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.BezierCurve2.Degree
+  commentId: P:g3.BezierCurve2.Degree
+  id: Degree
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: Degree
+  nameWithType: BezierCurve2.Degree
+  fullName: g3.BezierCurve2.Degree
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Degree
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Degree { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Degree As Integer
+  overload: g3.BezierCurve2.Degree*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.ControlPoints
+  commentId: P:g3.BezierCurve2.ControlPoints
+  id: ControlPoints
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: ControlPoints
+  nameWithType: BezierCurve2.ControlPoints
+  fullName: g3.BezierCurve2.ControlPoints
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ControlPoints
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d[] ControlPoints { get; }
+    parameters: []
+    return:
+      type: g3.Vector2d[]
+    content.vb: Public ReadOnly Property ControlPoints As Vector2d()
+  overload: g3.BezierCurve2.ControlPoints*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.#ctor(System.Int32,g3.Vector2d[],System.Boolean)
+  commentId: M:g3.BezierCurve2.#ctor(System.Int32,g3.Vector2d[],System.Boolean)
+  id: '#ctor(System.Int32,g3.Vector2d[],System.Boolean)'
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: BezierCurve2(Int32, Vector2d[], Boolean)
+  nameWithType: BezierCurve2.BezierCurve2(Int32, Vector2d[], Boolean)
+  fullName: g3.BezierCurve2.BezierCurve2(System.Int32, g3.Vector2d[], System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BezierCurve2(int degree, Vector2d[] ctrlPoint, bool bTakeOwnership = false)
+    parameters:
+    - id: degree
+      type: System.Int32
+    - id: ctrlPoint
+      type: g3.Vector2d[]
+    - id: bTakeOwnership
+      type: System.Boolean
+    content.vb: Public Sub New(degree As Integer, ctrlPoint As Vector2d(), bTakeOwnership As Boolean = False)
+  overload: g3.BezierCurve2.#ctor*
+  nameWithType.vb: BezierCurve2.BezierCurve2(Int32, Vector2d(), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.BezierCurve2.BezierCurve2(System.Int32, g3.Vector2d(), System.Boolean)
+  name.vb: BezierCurve2(Int32, Vector2d(), Boolean)
+- uid: g3.BezierCurve2.#ctor
+  commentId: M:g3.BezierCurve2.#ctor
+  id: '#ctor'
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: BezierCurve2()
+  nameWithType: BezierCurve2.BezierCurve2()
+  fullName: g3.BezierCurve2.BezierCurve2()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected BezierCurve2()
+    content.vb: Protected Sub New
+  overload: g3.BezierCurve2.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BezierCurve2.GetPosition(System.Double)
+  commentId: M:g3.BezierCurve2.GetPosition(System.Double)
+  id: GetPosition(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetPosition(Double)
+  nameWithType: BezierCurve2.GetPosition(Double)
+  fullName: g3.BezierCurve2.GetPosition(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetPosition
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 88
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetPosition(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetPosition(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetPosition(System.Double)
+  overload: g3.BezierCurve2.GetPosition*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.BezierCurve2.GetFirstDerivative(System.Double)
+  commentId: M:g3.BezierCurve2.GetFirstDerivative(System.Double)
+  id: GetFirstDerivative(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetFirstDerivative(Double)
+  nameWithType: BezierCurve2.GetFirstDerivative(Double)
+  fullName: g3.BezierCurve2.GetFirstDerivative(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFirstDerivative
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 106
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetFirstDerivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetFirstDerivative(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetFirstDerivative(System.Double)
+  overload: g3.BezierCurve2.GetFirstDerivative*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.BezierCurve2.GetSecondDerivative(System.Double)
+  commentId: M:g3.BezierCurve2.GetSecondDerivative(System.Double)
+  id: GetSecondDerivative(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetSecondDerivative(Double)
+  nameWithType: BezierCurve2.GetSecondDerivative(Double)
+  fullName: g3.BezierCurve2.GetSecondDerivative(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetSecondDerivative
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 126
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetSecondDerivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetSecondDerivative(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetSecondDerivative(System.Double)
+  overload: g3.BezierCurve2.GetSecondDerivative*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.BezierCurve2.GetThirdDerivative(System.Double)
+  commentId: M:g3.BezierCurve2.GetThirdDerivative(System.Double)
+  id: GetThirdDerivative(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetThirdDerivative(Double)
+  nameWithType: BezierCurve2.GetThirdDerivative(Double)
+  fullName: g3.BezierCurve2.GetThirdDerivative(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetThirdDerivative
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 146
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetThirdDerivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetThirdDerivative(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetThirdDerivative(System.Double)
+  overload: g3.BezierCurve2.GetThirdDerivative*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.BezierCurve2.IsClosed
+  commentId: P:g3.BezierCurve2.IsClosed
+  id: IsClosed
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: BezierCurve2.IsClosed
+  fullName: g3.BezierCurve2.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 176
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClosed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClosed As Boolean
+  overload: g3.BezierCurve2.IsClosed*
+  implements:
+  - g3.IParametricCurve2d.IsClosed
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.ParamLength
+  commentId: P:g3.BezierCurve2.ParamLength
+  id: ParamLength
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: ParamLength
+  nameWithType: BezierCurve2.ParamLength
+  fullName: g3.BezierCurve2.ParamLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParamLength
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 181
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ParamLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ParamLength As Double
+  overload: g3.BezierCurve2.ParamLength*
+  implements:
+  - g3.IParametricCurve2d.ParamLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.SampleT(System.Double)
+  commentId: M:g3.BezierCurve2.SampleT(System.Double)
+  id: SampleT(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: SampleT(Double)
+  nameWithType: BezierCurve2.SampleT(Double)
+  fullName: g3.BezierCurve2.SampleT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleT
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 184
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleT(t As Double) As Vector2d
+  overload: g3.BezierCurve2.SampleT*
+  implements:
+  - g3.IParametricCurve2d.SampleT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BezierCurve2.TangentT(System.Double)
+  commentId: M:g3.BezierCurve2.TangentT(System.Double)
+  id: TangentT(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: TangentT(Double)
+  nameWithType: BezierCurve2.TangentT(Double)
+  fullName: g3.BezierCurve2.TangentT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TangentT
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 189
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d TangentT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function TangentT(t As Double) As Vector2d
+  overload: g3.BezierCurve2.TangentT*
+  implements:
+  - g3.IParametricCurve2d.TangentT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BezierCurve2.HasArcLength
+  commentId: P:g3.BezierCurve2.HasArcLength
+  id: HasArcLength
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: HasArcLength
+  nameWithType: BezierCurve2.HasArcLength
+  fullName: g3.BezierCurve2.HasArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasArcLength
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 194
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasArcLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArcLength As Boolean
+  overload: g3.BezierCurve2.HasArcLength*
+  implements:
+  - g3.IParametricCurve2d.HasArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.ArcLength
+  commentId: P:g3.BezierCurve2.ArcLength
+  id: ArcLength
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: BezierCurve2.ArcLength
+  fullName: g3.BezierCurve2.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 197
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.BezierCurve2.ArcLength*
+  implements:
+  - g3.IParametricCurve2d.ArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.SampleArcLength(System.Double)
+  commentId: M:g3.BezierCurve2.SampleArcLength(System.Double)
+  id: SampleArcLength(System.Double)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: SampleArcLength(Double)
+  nameWithType: BezierCurve2.SampleArcLength(Double)
+  fullName: g3.BezierCurve2.SampleArcLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleArcLength
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 200
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleArcLength(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleArcLength(a As Double) As Vector2d
+  overload: g3.BezierCurve2.SampleArcLength*
+  implements:
+  - g3.IParametricCurve2d.SampleArcLength(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BezierCurve2.Reverse
+  commentId: M:g3.BezierCurve2.Reverse
+  id: Reverse
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: BezierCurve2.Reverse()
+  fullName: g3.BezierCurve2.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 206
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse()
+    content.vb: Public Sub Reverse
+  overload: g3.BezierCurve2.Reverse*
+  implements:
+  - g3.IParametricCurve2d.Reverse
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BezierCurve2.Clone
+  commentId: M:g3.BezierCurve2.Clone
+  id: Clone
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: BezierCurve2.Clone()
+  fullName: g3.BezierCurve2.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 211
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IParametricCurve2d Clone()
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Public Function Clone As IParametricCurve2d
+  overload: g3.BezierCurve2.Clone*
+  implements:
+  - g3.IParametricCurve2d.Clone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BezierCurve2.IsTransformable
+  commentId: P:g3.BezierCurve2.IsTransformable
+  id: IsTransformable
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: IsTransformable
+  nameWithType: BezierCurve2.IsTransformable
+  fullName: g3.BezierCurve2.IsTransformable
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTransformable
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 226
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsTransformable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTransformable As Boolean
+  overload: g3.BezierCurve2.IsTransformable*
+  implements:
+  - g3.IParametricCurve2d.IsTransformable
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BezierCurve2.Transform(g3.ITransform2)
+  commentId: M:g3.BezierCurve2.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.BezierCurve2
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: BezierCurve2.Transform(ITransform2)
+  fullName: g3.BezierCurve2.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BezierCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/BezierCurve2.cs
+    startLine: 227
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    content.vb: Public Sub Transform(xform As ITransform2)
+  overload: g3.BezierCurve2.Transform*
+  implements:
+  - g3.IParametricCurve2d.Transform(g3.ITransform2)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.BaseCurve2
+  commentId: T:g3.BaseCurve2
+  parent: g3
+  name: BaseCurve2
+  nameWithType: BaseCurve2
+  fullName: g3.BaseCurve2
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: g3.BaseCurve2.mTMin
+  commentId: F:g3.BaseCurve2.mTMin
+  parent: g3.BaseCurve2
+  name: mTMin
+  nameWithType: BaseCurve2.mTMin
+  fullName: g3.BaseCurve2.mTMin
+- uid: g3.BaseCurve2.mTMax
+  commentId: F:g3.BaseCurve2.mTMax
+  parent: g3.BaseCurve2
+  name: mTMax
+  nameWithType: BaseCurve2.mTMax
+  fullName: g3.BaseCurve2.mTMax
+- uid: g3.BaseCurve2.GetMinTime
+  commentId: M:g3.BaseCurve2.GetMinTime
+  parent: g3.BaseCurve2
+  name: GetMinTime()
+  nameWithType: BaseCurve2.GetMinTime()
+  fullName: g3.BaseCurve2.GetMinTime()
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetMinTime
+    name: GetMinTime
+    nameWithType: BaseCurve2.GetMinTime
+    fullName: g3.BaseCurve2.GetMinTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetMinTime
+    name: GetMinTime
+    nameWithType: BaseCurve2.GetMinTime
+    fullName: g3.BaseCurve2.GetMinTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetMaxTime
+  commentId: M:g3.BaseCurve2.GetMaxTime
+  parent: g3.BaseCurve2
+  name: GetMaxTime()
+  nameWithType: BaseCurve2.GetMaxTime()
+  fullName: g3.BaseCurve2.GetMaxTime()
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetMaxTime
+    name: GetMaxTime
+    nameWithType: BaseCurve2.GetMaxTime
+    fullName: g3.BaseCurve2.GetMaxTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetMaxTime
+    name: GetMaxTime
+    nameWithType: BaseCurve2.GetMaxTime
+    fullName: g3.BaseCurve2.GetMaxTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+  commentId: M:g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: SetTimeInterval(Double, Double)
+  nameWithType: BaseCurve2.SetTimeInterval(Double, Double)
+  fullName: g3.BaseCurve2.SetTimeInterval(System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+    name: SetTimeInterval
+    nameWithType: BaseCurve2.SetTimeInterval
+    fullName: g3.BaseCurve2.SetTimeInterval
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+    name: SetTimeInterval
+    nameWithType: BaseCurve2.SetTimeInterval
+    fullName: g3.BaseCurve2.SetTimeInterval
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetSpeed(System.Double)
+  commentId: M:g3.BaseCurve2.GetSpeed(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetSpeed(Double)
+  nameWithType: BaseCurve2.GetSpeed(Double)
+  fullName: g3.BaseCurve2.GetSpeed(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetSpeed(System.Double)
+    name: GetSpeed
+    nameWithType: BaseCurve2.GetSpeed
+    fullName: g3.BaseCurve2.GetSpeed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetSpeed(System.Double)
+    name: GetSpeed
+    nameWithType: BaseCurve2.GetSpeed
+    fullName: g3.BaseCurve2.GetSpeed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetLength(System.Double,System.Double)
+  commentId: M:g3.BaseCurve2.GetLength(System.Double,System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetLength(Double, Double)
+  nameWithType: BaseCurve2.GetLength(Double, Double)
+  fullName: g3.BaseCurve2.GetLength(System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetLength(System.Double,System.Double)
+    name: GetLength
+    nameWithType: BaseCurve2.GetLength
+    fullName: g3.BaseCurve2.GetLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetLength(System.Double,System.Double)
+    name: GetLength
+    nameWithType: BaseCurve2.GetLength
+    fullName: g3.BaseCurve2.GetLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetTotalLength
+  commentId: M:g3.BaseCurve2.GetTotalLength
+  parent: g3.BaseCurve2
+  name: GetTotalLength()
+  nameWithType: BaseCurve2.GetTotalLength()
+  fullName: g3.BaseCurve2.GetTotalLength()
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetTotalLength
+    name: GetTotalLength
+    nameWithType: BaseCurve2.GetTotalLength
+    fullName: g3.BaseCurve2.GetTotalLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetTotalLength
+    name: GetTotalLength
+    nameWithType: BaseCurve2.GetTotalLength
+    fullName: g3.BaseCurve2.GetTotalLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetTangent(System.Double)
+  commentId: M:g3.BaseCurve2.GetTangent(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetTangent(Double)
+  nameWithType: BaseCurve2.GetTangent(Double)
+  fullName: g3.BaseCurve2.GetTangent(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetTangent(System.Double)
+    name: GetTangent
+    nameWithType: BaseCurve2.GetTangent
+    fullName: g3.BaseCurve2.GetTangent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetTangent(System.Double)
+    name: GetTangent
+    nameWithType: BaseCurve2.GetTangent
+    fullName: g3.BaseCurve2.GetTangent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetNormal(System.Double)
+  commentId: M:g3.BaseCurve2.GetNormal(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetNormal(Double)
+  nameWithType: BaseCurve2.GetNormal(Double)
+  fullName: g3.BaseCurve2.GetNormal(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetNormal(System.Double)
+    name: GetNormal
+    nameWithType: BaseCurve2.GetNormal
+    fullName: g3.BaseCurve2.GetNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetNormal(System.Double)
+    name: GetNormal
+    nameWithType: BaseCurve2.GetNormal
+    fullName: g3.BaseCurve2.GetNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetFrame(Double, Vector2d, Vector2d, Vector2d)
+  nameWithType: BaseCurve2.GetFrame(Double, Vector2d, Vector2d, Vector2d)
+  fullName: g3.BaseCurve2.GetFrame(System.Double, g3.Vector2d, g3.Vector2d, g3.Vector2d)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+    name: GetFrame
+    nameWithType: BaseCurve2.GetFrame
+    fullName: g3.BaseCurve2.GetFrame
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+    name: GetFrame
+    nameWithType: BaseCurve2.GetFrame
+    fullName: g3.BaseCurve2.GetFrame
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetCurvature(System.Double)
+  commentId: M:g3.BaseCurve2.GetCurvature(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetCurvature(Double)
+  nameWithType: BaseCurve2.GetCurvature(Double)
+  fullName: g3.BaseCurve2.GetCurvature(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetCurvature(System.Double)
+    name: GetCurvature
+    nameWithType: BaseCurve2.GetCurvature
+    fullName: g3.BaseCurve2.GetCurvature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetCurvature(System.Double)
+    name: GetCurvature
+    nameWithType: BaseCurve2.GetCurvature
+    fullName: g3.BaseCurve2.GetCurvature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+  commentId: M:g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetTime(Double, Int32, Double)
+  nameWithType: BaseCurve2.GetTime(Double, Int32, Double)
+  fullName: g3.BaseCurve2.GetTime(System.Double, System.Int32, System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+    name: GetTime
+    nameWithType: BaseCurve2.GetTime
+    fullName: g3.BaseCurve2.GetTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+    name: GetTime
+    nameWithType: BaseCurve2.GetTime
+    fullName: g3.BaseCurve2.GetTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.BezierCurve2.Degree*
+  commentId: Overload:g3.BezierCurve2.Degree
+  name: Degree
+  nameWithType: BezierCurve2.Degree
+  fullName: g3.BezierCurve2.Degree
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.BezierCurve2.ControlPoints*
+  commentId: Overload:g3.BezierCurve2.ControlPoints
+  name: ControlPoints
+  nameWithType: BezierCurve2.ControlPoints
+  fullName: g3.BezierCurve2.ControlPoints
+- uid: g3.Vector2d[]
+  isExternal: true
+  name: Vector2d[]
+  nameWithType: Vector2d[]
+  fullName: g3.Vector2d[]
+  nameWithType.vb: Vector2d()
+  fullName.vb: g3.Vector2d()
+  name.vb: Vector2d()
+  spec.csharp:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BezierCurve2.#ctor*
+  commentId: Overload:g3.BezierCurve2.#ctor
+  name: BezierCurve2
+  nameWithType: BezierCurve2.BezierCurve2
+  fullName: g3.BezierCurve2.BezierCurve2
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.BaseCurve2.GetPosition(System.Double)
+  commentId: M:g3.BaseCurve2.GetPosition(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetPosition(Double)
+  nameWithType: BaseCurve2.GetPosition(Double)
+  fullName: g3.BaseCurve2.GetPosition(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetPosition(System.Double)
+    name: GetPosition
+    nameWithType: BaseCurve2.GetPosition
+    fullName: g3.BaseCurve2.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetPosition(System.Double)
+    name: GetPosition
+    nameWithType: BaseCurve2.GetPosition
+    fullName: g3.BaseCurve2.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.GetPosition*
+  commentId: Overload:g3.BezierCurve2.GetPosition
+  name: GetPosition
+  nameWithType: BezierCurve2.GetPosition
+  fullName: g3.BezierCurve2.GetPosition
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.BaseCurve2.GetFirstDerivative(System.Double)
+  commentId: M:g3.BaseCurve2.GetFirstDerivative(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetFirstDerivative(Double)
+  nameWithType: BaseCurve2.GetFirstDerivative(Double)
+  fullName: g3.BaseCurve2.GetFirstDerivative(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetFirstDerivative(System.Double)
+    name: GetFirstDerivative
+    nameWithType: BaseCurve2.GetFirstDerivative
+    fullName: g3.BaseCurve2.GetFirstDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetFirstDerivative(System.Double)
+    name: GetFirstDerivative
+    nameWithType: BaseCurve2.GetFirstDerivative
+    fullName: g3.BaseCurve2.GetFirstDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.GetFirstDerivative*
+  commentId: Overload:g3.BezierCurve2.GetFirstDerivative
+  name: GetFirstDerivative
+  nameWithType: BezierCurve2.GetFirstDerivative
+  fullName: g3.BezierCurve2.GetFirstDerivative
+- uid: g3.BaseCurve2.GetSecondDerivative(System.Double)
+  commentId: M:g3.BaseCurve2.GetSecondDerivative(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetSecondDerivative(Double)
+  nameWithType: BaseCurve2.GetSecondDerivative(Double)
+  fullName: g3.BaseCurve2.GetSecondDerivative(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetSecondDerivative(System.Double)
+    name: GetSecondDerivative
+    nameWithType: BaseCurve2.GetSecondDerivative
+    fullName: g3.BaseCurve2.GetSecondDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetSecondDerivative(System.Double)
+    name: GetSecondDerivative
+    nameWithType: BaseCurve2.GetSecondDerivative
+    fullName: g3.BaseCurve2.GetSecondDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.GetSecondDerivative*
+  commentId: Overload:g3.BezierCurve2.GetSecondDerivative
+  name: GetSecondDerivative
+  nameWithType: BezierCurve2.GetSecondDerivative
+  fullName: g3.BezierCurve2.GetSecondDerivative
+- uid: g3.BaseCurve2.GetThirdDerivative(System.Double)
+  commentId: M:g3.BaseCurve2.GetThirdDerivative(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetThirdDerivative(Double)
+  nameWithType: BaseCurve2.GetThirdDerivative(Double)
+  fullName: g3.BaseCurve2.GetThirdDerivative(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetThirdDerivative(System.Double)
+    name: GetThirdDerivative
+    nameWithType: BaseCurve2.GetThirdDerivative
+    fullName: g3.BaseCurve2.GetThirdDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetThirdDerivative(System.Double)
+    name: GetThirdDerivative
+    nameWithType: BaseCurve2.GetThirdDerivative
+    fullName: g3.BaseCurve2.GetThirdDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.GetThirdDerivative*
+  commentId: Overload:g3.BezierCurve2.GetThirdDerivative
+  name: GetThirdDerivative
+  nameWithType: BezierCurve2.GetThirdDerivative
+  fullName: g3.BezierCurve2.GetThirdDerivative
+- uid: g3.BezierCurve2.IsClosed*
+  commentId: Overload:g3.BezierCurve2.IsClosed
+  name: IsClosed
+  nameWithType: BezierCurve2.IsClosed
+  fullName: g3.BezierCurve2.IsClosed
+- uid: g3.IParametricCurve2d.IsClosed
+  commentId: P:g3.IParametricCurve2d.IsClosed
+  parent: g3.IParametricCurve2d
+  name: IsClosed
+  nameWithType: IParametricCurve2d.IsClosed
+  fullName: g3.IParametricCurve2d.IsClosed
+- uid: g3.BezierCurve2.ParamLength*
+  commentId: Overload:g3.BezierCurve2.ParamLength
+  name: ParamLength
+  nameWithType: BezierCurve2.ParamLength
+  fullName: g3.BezierCurve2.ParamLength
+- uid: g3.IParametricCurve2d.ParamLength
+  commentId: P:g3.IParametricCurve2d.ParamLength
+  parent: g3.IParametricCurve2d
+  name: ParamLength
+  nameWithType: IParametricCurve2d.ParamLength
+  fullName: g3.IParametricCurve2d.ParamLength
+- uid: g3.BezierCurve2.SampleT*
+  commentId: Overload:g3.BezierCurve2.SampleT
+  name: SampleT
+  nameWithType: BezierCurve2.SampleT
+  fullName: g3.BezierCurve2.SampleT
+- uid: g3.IParametricCurve2d.SampleT(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleT(Double)
+  nameWithType: IParametricCurve2d.SampleT(Double)
+  fullName: g3.IParametricCurve2d.SampleT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.TangentT*
+  commentId: Overload:g3.BezierCurve2.TangentT
+  name: TangentT
+  nameWithType: BezierCurve2.TangentT
+  fullName: g3.BezierCurve2.TangentT
+- uid: g3.IParametricCurve2d.TangentT(System.Double)
+  commentId: M:g3.IParametricCurve2d.TangentT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: TangentT(Double)
+  nameWithType: IParametricCurve2d.TangentT(Double)
+  fullName: g3.IParametricCurve2d.TangentT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.HasArcLength*
+  commentId: Overload:g3.BezierCurve2.HasArcLength
+  name: HasArcLength
+  nameWithType: BezierCurve2.HasArcLength
+  fullName: g3.BezierCurve2.HasArcLength
+- uid: g3.IParametricCurve2d.HasArcLength
+  commentId: P:g3.IParametricCurve2d.HasArcLength
+  parent: g3.IParametricCurve2d
+  name: HasArcLength
+  nameWithType: IParametricCurve2d.HasArcLength
+  fullName: g3.IParametricCurve2d.HasArcLength
+- uid: g3.BezierCurve2.ArcLength*
+  commentId: Overload:g3.BezierCurve2.ArcLength
+  name: ArcLength
+  nameWithType: BezierCurve2.ArcLength
+  fullName: g3.BezierCurve2.ArcLength
+- uid: g3.IParametricCurve2d.ArcLength
+  commentId: P:g3.IParametricCurve2d.ArcLength
+  parent: g3.IParametricCurve2d
+  name: ArcLength
+  nameWithType: IParametricCurve2d.ArcLength
+  fullName: g3.IParametricCurve2d.ArcLength
+- uid: g3.BezierCurve2.SampleArcLength*
+  commentId: Overload:g3.BezierCurve2.SampleArcLength
+  name: SampleArcLength
+  nameWithType: BezierCurve2.SampleArcLength
+  fullName: g3.BezierCurve2.SampleArcLength
+- uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleArcLength(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleArcLength(Double)
+  nameWithType: IParametricCurve2d.SampleArcLength(Double)
+  fullName: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.Reverse*
+  commentId: Overload:g3.BezierCurve2.Reverse
+  name: Reverse
+  nameWithType: BezierCurve2.Reverse
+  fullName: g3.BezierCurve2.Reverse
+- uid: g3.IParametricCurve2d.Reverse
+  commentId: M:g3.IParametricCurve2d.Reverse
+  parent: g3.IParametricCurve2d
+  name: Reverse()
+  nameWithType: IParametricCurve2d.Reverse()
+  fullName: g3.IParametricCurve2d.Reverse()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.Clone*
+  commentId: Overload:g3.BezierCurve2.Clone
+  name: Clone
+  nameWithType: BezierCurve2.Clone
+  fullName: g3.BezierCurve2.Clone
+- uid: g3.IParametricCurve2d.Clone
+  commentId: M:g3.IParametricCurve2d.Clone
+  parent: g3.IParametricCurve2d
+  name: Clone()
+  nameWithType: IParametricCurve2d.Clone()
+  fullName: g3.IParametricCurve2d.Clone()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BezierCurve2.IsTransformable*
+  commentId: Overload:g3.BezierCurve2.IsTransformable
+  name: IsTransformable
+  nameWithType: BezierCurve2.IsTransformable
+  fullName: g3.BezierCurve2.IsTransformable
+- uid: g3.IParametricCurve2d.IsTransformable
+  commentId: P:g3.IParametricCurve2d.IsTransformable
+  parent: g3.IParametricCurve2d
+  name: IsTransformable
+  nameWithType: IParametricCurve2d.IsTransformable
+  fullName: g3.IParametricCurve2d.IsTransformable
+- uid: g3.BezierCurve2.Transform*
+  commentId: Overload:g3.BezierCurve2.Transform
+  name: Transform
+  nameWithType: BezierCurve2.Transform
+  fullName: g3.BezierCurve2.Transform
+- uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  commentId: M:g3.IParametricCurve2d.Transform(g3.ITransform2)
+  parent: g3.IParametricCurve2d
+  name: Transform(ITransform2)
+  nameWithType: IParametricCurve2d.Transform(ITransform2)
+  fullName: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2

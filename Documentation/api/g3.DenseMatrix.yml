@@ -1,0 +1,1399 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DenseMatrix
+  commentId: T:g3.DenseMatrix
+  id: DenseMatrix
+  parent: g3
+  children:
+  - g3.DenseMatrix.#ctor(g3.DenseMatrix)
+  - g3.DenseMatrix.#ctor(System.Int32,System.Int32)
+  - g3.DenseMatrix.Add(g3.DenseMatrix)
+  - g3.DenseMatrix.Add(g3.IMatrix)
+  - g3.DenseMatrix.Buffer
+  - g3.DenseMatrix.Column(System.Int32)
+  - g3.DenseMatrix.Columns
+  - g3.DenseMatrix.Diagonal
+  - g3.DenseMatrix.EpsilonEquals(g3.DenseMatrix,System.Double)
+  - g3.DenseMatrix.IsPositiveDefinite
+  - g3.DenseMatrix.IsSymmetric(System.Double)
+  - g3.DenseMatrix.Item(System.Int32)
+  - g3.DenseMatrix.Item(System.Int32,System.Int32)
+  - g3.DenseMatrix.Length
+  - g3.DenseMatrix.MulAdd(g3.DenseMatrix,System.Double)
+  - g3.DenseMatrix.MulAdd(g3.IMatrix,System.Double)
+  - g3.DenseMatrix.Multiply(g3.DenseMatrix,g3.DenseMatrix@,System.Boolean)
+  - g3.DenseMatrix.Multiply(g3.DenseMatrix,System.Boolean)
+  - g3.DenseMatrix.Multiply(g3.DenseVector)
+  - g3.DenseMatrix.Multiply(g3.DenseVector,g3.DenseVector)
+  - g3.DenseMatrix.Multiply(System.Double[],System.Double[])
+  - g3.DenseMatrix.Row(System.Int32)
+  - g3.DenseMatrix.Rows
+  - g3.DenseMatrix.Set(System.Double[])
+  - g3.DenseMatrix.Set(System.Int32,System.Int32,System.Double)
+  - g3.DenseMatrix.Size
+  - g3.DenseMatrix.Transpose
+  - g3.DenseMatrix.TransposeInPlace
+  langs:
+  - csharp
+  - vb
+  name: DenseMatrix
+  nameWithType: DenseMatrix
+  fullName: g3.DenseMatrix
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DenseMatrix
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRow-major dense matrix\n"
+  example: []
+  syntax:
+    content: 'public class DenseMatrix : IMatrix'
+    content.vb: >-
+      Public Class DenseMatrix
+          Implements IMatrix
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IMatrix
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DenseMatrix.#ctor(System.Int32,System.Int32)
+  commentId: M:g3.DenseMatrix.#ctor(System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32)'
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: DenseMatrix(Int32, Int32)
+  nameWithType: DenseMatrix.DenseMatrix(Int32, Int32)
+  fullName: g3.DenseMatrix.DenseMatrix(System.Int32, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseMatrix(int Nrows, int Mcols)
+    parameters:
+    - id: Nrows
+      type: System.Int32
+    - id: Mcols
+      type: System.Int32
+    content.vb: Public Sub New(Nrows As Integer, Mcols As Integer)
+  overload: g3.DenseMatrix.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.#ctor(g3.DenseMatrix)
+  commentId: M:g3.DenseMatrix.#ctor(g3.DenseMatrix)
+  id: '#ctor(g3.DenseMatrix)'
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: DenseMatrix(DenseMatrix)
+  nameWithType: DenseMatrix.DenseMatrix(DenseMatrix)
+  fullName: g3.DenseMatrix.DenseMatrix(g3.DenseMatrix)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseMatrix(DenseMatrix copy)
+    parameters:
+    - id: copy
+      type: g3.DenseMatrix
+    content.vb: Public Sub New(copy As DenseMatrix)
+  overload: g3.DenseMatrix.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Buffer
+  commentId: P:g3.DenseMatrix.Buffer
+  id: Buffer
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Buffer
+  nameWithType: DenseMatrix.Buffer
+  fullName: g3.DenseMatrix.Buffer
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Buffer
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double[] Buffer { get; }
+    parameters: []
+    return:
+      type: System.Double[]
+    content.vb: Public ReadOnly Property Buffer As Double()
+  overload: g3.DenseMatrix.Buffer*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DenseMatrix.Set(System.Int32,System.Int32,System.Double)
+  commentId: M:g3.DenseMatrix.Set(System.Int32,System.Int32,System.Double)
+  id: Set(System.Int32,System.Int32,System.Double)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Set(Int32, Int32, Double)
+  nameWithType: DenseMatrix.Set(Int32, Int32, Double)
+  fullName: g3.DenseMatrix.Set(System.Int32, System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Set
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Set(int r, int c, double value)
+    parameters:
+    - id: r
+      type: System.Int32
+    - id: c
+      type: System.Int32
+    - id: value
+      type: System.Double
+    content.vb: Public Sub Set(r As Integer, c As Integer, value As Double)
+  overload: g3.DenseMatrix.Set*
+  implements:
+  - g3.IMatrix.Set(System.Int32,System.Int32,System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Set(System.Double[])
+  commentId: M:g3.DenseMatrix.Set(System.Double[])
+  id: Set(System.Double[])
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Set(Double[])
+  nameWithType: DenseMatrix.Set(Double[])
+  fullName: g3.DenseMatrix.Set(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Set
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Set(double[] values)
+    parameters:
+    - id: values
+      type: System.Double[]
+    content.vb: Public Sub Set(values As Double())
+  overload: g3.DenseMatrix.Set*
+  nameWithType.vb: DenseMatrix.Set(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseMatrix.Set(System.Double())
+  name.vb: Set(Double())
+- uid: g3.DenseMatrix.Rows
+  commentId: P:g3.DenseMatrix.Rows
+  id: Rows
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Rows
+  nameWithType: DenseMatrix.Rows
+  fullName: g3.DenseMatrix.Rows
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rows
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Rows { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Rows As Integer
+  overload: g3.DenseMatrix.Rows*
+  implements:
+  - g3.IMatrix.Rows
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DenseMatrix.Columns
+  commentId: P:g3.DenseMatrix.Columns
+  id: Columns
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Columns
+  nameWithType: DenseMatrix.Columns
+  fullName: g3.DenseMatrix.Columns
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Columns
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Columns { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Columns As Integer
+  overload: g3.DenseMatrix.Columns*
+  implements:
+  - g3.IMatrix.Columns
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DenseMatrix.Size
+  commentId: P:g3.DenseMatrix.Size
+  id: Size
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Size
+  nameWithType: DenseMatrix.Size
+  fullName: g3.DenseMatrix.Size
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Size
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 52
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index2i Size { get; }
+    parameters: []
+    return:
+      type: g3.Index2i
+    content.vb: Public ReadOnly Property Size As Index2i
+  overload: g3.DenseMatrix.Size*
+  implements:
+  - g3.IMatrix.Size
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DenseMatrix.Length
+  commentId: P:g3.DenseMatrix.Length
+  id: Length
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: DenseMatrix.Length
+  fullName: g3.DenseMatrix.Length
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Length
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 54
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: g3.DenseMatrix.Length*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DenseMatrix.Item(System.Int32,System.Int32)
+  commentId: P:g3.DenseMatrix.Item(System.Int32,System.Int32)
+  id: Item(System.Int32,System.Int32)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32, Int32]
+  nameWithType: DenseMatrix.Item[Int32, Int32]
+  fullName: g3.DenseMatrix.Item[System.Int32, System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double this[int r, int c] { get; set; }
+    parameters:
+    - id: r
+      type: System.Int32
+    - id: c
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Property Item(r As Integer, c As Integer) As Double
+  overload: g3.DenseMatrix.Item*
+  implements:
+  - g3.IMatrix.Item(System.Int32,System.Int32)
+  nameWithType.vb: DenseMatrix.Item(Int32, Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseMatrix.Item(System.Int32, System.Int32)
+  name.vb: Item(Int32, Int32)
+- uid: g3.DenseMatrix.Item(System.Int32)
+  commentId: P:g3.DenseMatrix.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: DenseMatrix.Item[Int32]
+  fullName: g3.DenseMatrix.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double this[int i] { get; set; }
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Property Item(i As Integer) As Double
+  overload: g3.DenseMatrix.Item*
+  nameWithType.vb: DenseMatrix.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseMatrix.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.DenseMatrix.Row(System.Int32)
+  commentId: M:g3.DenseMatrix.Row(System.Int32)
+  id: Row(System.Int32)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Row(Int32)
+  nameWithType: DenseMatrix.Row(Int32)
+  fullName: g3.DenseMatrix.Row(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Row
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 68
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseVector Row(int r)
+    parameters:
+    - id: r
+      type: System.Int32
+    return:
+      type: g3.DenseVector
+    content.vb: Public Function Row(r As Integer) As DenseVector
+  overload: g3.DenseMatrix.Row*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Column(System.Int32)
+  commentId: M:g3.DenseMatrix.Column(System.Int32)
+  id: Column(System.Int32)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Column(Int32)
+  nameWithType: DenseMatrix.Column(Int32)
+  fullName: g3.DenseMatrix.Column(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Column
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 76
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseVector Column(int c)
+    parameters:
+    - id: c
+      type: System.Int32
+    return:
+      type: g3.DenseVector
+    content.vb: Public Function Column(c As Integer) As DenseVector
+  overload: g3.DenseMatrix.Column*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Diagonal
+  commentId: M:g3.DenseMatrix.Diagonal
+  id: Diagonal
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Diagonal()
+  nameWithType: DenseMatrix.Diagonal()
+  fullName: g3.DenseMatrix.Diagonal()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Diagonal
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseVector Diagonal()
+    return:
+      type: g3.DenseVector
+    content.vb: Public Function Diagonal As DenseVector
+  overload: g3.DenseMatrix.Diagonal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Transpose
+  commentId: M:g3.DenseMatrix.Transpose
+  id: Transpose
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Transpose()
+  nameWithType: DenseMatrix.Transpose()
+  fullName: g3.DenseMatrix.Transpose()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transpose
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseMatrix Transpose()
+    return:
+      type: g3.DenseMatrix
+    content.vb: Public Function Transpose As DenseMatrix
+  overload: g3.DenseMatrix.Transpose*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.TransposeInPlace
+  commentId: M:g3.DenseMatrix.TransposeInPlace
+  id: TransposeInPlace
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: TransposeInPlace()
+  nameWithType: DenseMatrix.TransposeInPlace()
+  fullName: g3.DenseMatrix.TransposeInPlace()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TransposeInPlace
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 105
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void TransposeInPlace()
+    content.vb: Public Sub TransposeInPlace
+  overload: g3.DenseMatrix.TransposeInPlace*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.IsSymmetric(System.Double)
+  commentId: M:g3.DenseMatrix.IsSymmetric(System.Double)
+  id: IsSymmetric(System.Double)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: IsSymmetric(Double)
+  nameWithType: DenseMatrix.IsSymmetric(Double)
+  fullName: g3.DenseMatrix.IsSymmetric(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsSymmetric
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 133
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsSymmetric(double dTolerance = 2.2204460492503131E-16)
+    parameters:
+    - id: dTolerance
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsSymmetric(dTolerance As Double = 2.2204460492503131E-16) As Boolean
+  overload: g3.DenseMatrix.IsSymmetric*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.IsPositiveDefinite
+  commentId: M:g3.DenseMatrix.IsPositiveDefinite
+  id: IsPositiveDefinite
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: IsPositiveDefinite()
+  nameWithType: DenseMatrix.IsPositiveDefinite()
+  fullName: g3.DenseMatrix.IsPositiveDefinite()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsPositiveDefinite
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 147
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsPositiveDefinite()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsPositiveDefinite As Boolean
+  overload: g3.DenseMatrix.IsPositiveDefinite*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.EpsilonEquals(g3.DenseMatrix,System.Double)
+  commentId: M:g3.DenseMatrix.EpsilonEquals(g3.DenseMatrix,System.Double)
+  id: EpsilonEquals(g3.DenseMatrix,System.Double)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: EpsilonEquals(DenseMatrix, Double)
+  nameWithType: DenseMatrix.EpsilonEquals(DenseMatrix, Double)
+  fullName: g3.DenseMatrix.EpsilonEquals(g3.DenseMatrix, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EpsilonEquals
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 169
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool EpsilonEquals(DenseMatrix m2, double epsilon = 1E-08)
+    parameters:
+    - id: m2
+      type: g3.DenseMatrix
+    - id: epsilon
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function EpsilonEquals(m2 As DenseMatrix, epsilon As Double = 1E-08) As Boolean
+  overload: g3.DenseMatrix.EpsilonEquals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Multiply(g3.DenseVector)
+  commentId: M:g3.DenseMatrix.Multiply(g3.DenseVector)
+  id: Multiply(g3.DenseVector)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Multiply(DenseVector)
+  nameWithType: DenseMatrix.Multiply(DenseVector)
+  fullName: g3.DenseMatrix.Multiply(g3.DenseVector)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 183
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseVector Multiply(DenseVector X)
+    parameters:
+    - id: X
+      type: g3.DenseVector
+    return:
+      type: g3.DenseVector
+    content.vb: Public Function Multiply(X As DenseVector) As DenseVector
+  overload: g3.DenseMatrix.Multiply*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Multiply(g3.DenseVector,g3.DenseVector)
+  commentId: M:g3.DenseMatrix.Multiply(g3.DenseVector,g3.DenseVector)
+  id: Multiply(g3.DenseVector,g3.DenseVector)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Multiply(DenseVector, DenseVector)
+  nameWithType: DenseMatrix.Multiply(DenseVector, DenseVector)
+  fullName: g3.DenseMatrix.Multiply(g3.DenseVector, g3.DenseVector)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 189
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Multiply(DenseVector X, DenseVector R)
+    parameters:
+    - id: X
+      type: g3.DenseVector
+    - id: R
+      type: g3.DenseVector
+    content.vb: Public Sub Multiply(X As DenseVector, R As DenseVector)
+  overload: g3.DenseMatrix.Multiply*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Multiply(System.Double[],System.Double[])
+  commentId: M:g3.DenseMatrix.Multiply(System.Double[],System.Double[])
+  id: Multiply(System.Double[],System.Double[])
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Double[], Double[])
+  nameWithType: DenseMatrix.Multiply(Double[], Double[])
+  fullName: g3.DenseMatrix.Multiply(System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 193
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Multiply(double[] X, double[] Result)
+    parameters:
+    - id: X
+      type: System.Double[]
+    - id: Result
+      type: System.Double[]
+    content.vb: Public Sub Multiply(X As Double(), Result As Double())
+  overload: g3.DenseMatrix.Multiply*
+  nameWithType.vb: DenseMatrix.Multiply(Double(), Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseMatrix.Multiply(System.Double(), System.Double())
+  name.vb: Multiply(Double(), Double())
+- uid: g3.DenseMatrix.Add(g3.DenseMatrix)
+  commentId: M:g3.DenseMatrix.Add(g3.DenseMatrix)
+  id: Add(g3.DenseMatrix)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Add(DenseMatrix)
+  nameWithType: DenseMatrix.Add(DenseMatrix)
+  fullName: g3.DenseMatrix.Add(g3.DenseMatrix)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 206
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Add(DenseMatrix M2)
+    parameters:
+    - id: M2
+      type: g3.DenseMatrix
+    content.vb: Public Sub Add(M2 As DenseMatrix)
+  overload: g3.DenseMatrix.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Add(g3.IMatrix)
+  commentId: M:g3.DenseMatrix.Add(g3.IMatrix)
+  id: Add(g3.IMatrix)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Add(IMatrix)
+  nameWithType: DenseMatrix.Add(IMatrix)
+  fullName: g3.DenseMatrix.Add(g3.IMatrix)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 213
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Add(IMatrix M2)
+    parameters:
+    - id: M2
+      type: g3.IMatrix
+    content.vb: Public Sub Add(M2 As IMatrix)
+  overload: g3.DenseMatrix.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.MulAdd(g3.DenseMatrix,System.Double)
+  commentId: M:g3.DenseMatrix.MulAdd(g3.DenseMatrix,System.Double)
+  id: MulAdd(g3.DenseMatrix,System.Double)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: MulAdd(DenseMatrix, Double)
+  nameWithType: DenseMatrix.MulAdd(DenseMatrix, Double)
+  fullName: g3.DenseMatrix.MulAdd(g3.DenseMatrix, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MulAdd
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 223
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void MulAdd(DenseMatrix M2, double s)
+    parameters:
+    - id: M2
+      type: g3.DenseMatrix
+    - id: s
+      type: System.Double
+    content.vb: Public Sub MulAdd(M2 As DenseMatrix, s As Double)
+  overload: g3.DenseMatrix.MulAdd*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.MulAdd(g3.IMatrix,System.Double)
+  commentId: M:g3.DenseMatrix.MulAdd(g3.IMatrix,System.Double)
+  id: MulAdd(g3.IMatrix,System.Double)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: MulAdd(IMatrix, Double)
+  nameWithType: DenseMatrix.MulAdd(IMatrix, Double)
+  fullName: g3.DenseMatrix.MulAdd(g3.IMatrix, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MulAdd
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 230
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void MulAdd(IMatrix M2, double s)
+    parameters:
+    - id: M2
+      type: g3.IMatrix
+    - id: s
+      type: System.Double
+    content.vb: Public Sub MulAdd(M2 As IMatrix, s As Double)
+  overload: g3.DenseMatrix.MulAdd*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Multiply(g3.DenseMatrix,System.Boolean)
+  commentId: M:g3.DenseMatrix.Multiply(g3.DenseMatrix,System.Boolean)
+  id: Multiply(g3.DenseMatrix,System.Boolean)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Multiply(DenseMatrix, Boolean)
+  nameWithType: DenseMatrix.Multiply(DenseMatrix, Boolean)
+  fullName: g3.DenseMatrix.Multiply(g3.DenseMatrix, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 241
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseMatrix Multiply(DenseMatrix M2, bool bParallel = true)
+    parameters:
+    - id: M2
+      type: g3.DenseMatrix
+    - id: bParallel
+      type: System.Boolean
+    return:
+      type: g3.DenseMatrix
+    content.vb: Public Function Multiply(M2 As DenseMatrix, bParallel As Boolean = True) As DenseMatrix
+  overload: g3.DenseMatrix.Multiply*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseMatrix.Multiply(g3.DenseMatrix,g3.DenseMatrix@,System.Boolean)
+  commentId: M:g3.DenseMatrix.Multiply(g3.DenseMatrix,g3.DenseMatrix@,System.Boolean)
+  id: Multiply(g3.DenseMatrix,g3.DenseMatrix@,System.Boolean)
+  parent: g3.DenseMatrix
+  langs:
+  - csharp
+  - vb
+  name: Multiply(DenseMatrix, ref DenseMatrix, Boolean)
+  nameWithType: DenseMatrix.Multiply(DenseMatrix, ref DenseMatrix, Boolean)
+  fullName: g3.DenseMatrix.Multiply(g3.DenseMatrix, ref g3.DenseMatrix, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/DenseMatrix.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply
+    path: ../Assets/geometry3Sharp/solvers/DenseMatrix.cs
+    startLine: 247
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Multiply(DenseMatrix M2, ref DenseMatrix R, bool bParallel = true)
+    parameters:
+    - id: M2
+      type: g3.DenseMatrix
+    - id: R
+      type: g3.DenseMatrix
+    - id: bParallel
+      type: System.Boolean
+    content.vb: Public Sub Multiply(M2 As DenseMatrix, ByRef R As DenseMatrix, bParallel As Boolean = True)
+  overload: g3.DenseMatrix.Multiply*
+  nameWithType.vb: DenseMatrix.Multiply(DenseMatrix, ByRef DenseMatrix, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseMatrix.Multiply(g3.DenseMatrix, ByRef g3.DenseMatrix, System.Boolean)
+  name.vb: Multiply(DenseMatrix, ByRef DenseMatrix, Boolean)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IMatrix
+  commentId: T:g3.IMatrix
+  parent: g3
+  name: IMatrix
+  nameWithType: IMatrix
+  fullName: g3.IMatrix
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DenseMatrix.#ctor*
+  commentId: Overload:g3.DenseMatrix.#ctor
+  name: DenseMatrix
+  nameWithType: DenseMatrix.DenseMatrix
+  fullName: g3.DenseMatrix.DenseMatrix
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.DenseMatrix
+  commentId: T:g3.DenseMatrix
+  parent: g3
+  name: DenseMatrix
+  nameWithType: DenseMatrix
+  fullName: g3.DenseMatrix
+- uid: g3.DenseMatrix.Buffer*
+  commentId: Overload:g3.DenseMatrix.Buffer
+  name: Buffer
+  nameWithType: DenseMatrix.Buffer
+  fullName: g3.DenseMatrix.Buffer
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.DenseMatrix.Set*
+  commentId: Overload:g3.DenseMatrix.Set
+  name: Set
+  nameWithType: DenseMatrix.Set
+  fullName: g3.DenseMatrix.Set
+- uid: g3.IMatrix.Set(System.Int32,System.Int32,System.Double)
+  commentId: M:g3.IMatrix.Set(System.Int32,System.Int32,System.Double)
+  parent: g3.IMatrix
+  isExternal: true
+  name: Set(Int32, Int32, Double)
+  nameWithType: IMatrix.Set(Int32, Int32, Double)
+  fullName: g3.IMatrix.Set(System.Int32, System.Int32, System.Double)
+  spec.csharp:
+  - uid: g3.IMatrix.Set(System.Int32,System.Int32,System.Double)
+    name: Set
+    nameWithType: IMatrix.Set
+    fullName: g3.IMatrix.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMatrix.Set(System.Int32,System.Int32,System.Double)
+    name: Set
+    nameWithType: IMatrix.Set
+    fullName: g3.IMatrix.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.DenseMatrix.Rows*
+  commentId: Overload:g3.DenseMatrix.Rows
+  name: Rows
+  nameWithType: DenseMatrix.Rows
+  fullName: g3.DenseMatrix.Rows
+- uid: g3.IMatrix.Rows
+  commentId: P:g3.IMatrix.Rows
+  parent: g3.IMatrix
+  name: Rows
+  nameWithType: IMatrix.Rows
+  fullName: g3.IMatrix.Rows
+- uid: g3.DenseMatrix.Columns*
+  commentId: Overload:g3.DenseMatrix.Columns
+  name: Columns
+  nameWithType: DenseMatrix.Columns
+  fullName: g3.DenseMatrix.Columns
+- uid: g3.IMatrix.Columns
+  commentId: P:g3.IMatrix.Columns
+  parent: g3.IMatrix
+  name: Columns
+  nameWithType: IMatrix.Columns
+  fullName: g3.IMatrix.Columns
+- uid: g3.DenseMatrix.Size*
+  commentId: Overload:g3.DenseMatrix.Size
+  name: Size
+  nameWithType: DenseMatrix.Size
+  fullName: g3.DenseMatrix.Size
+- uid: g3.IMatrix.Size
+  commentId: P:g3.IMatrix.Size
+  parent: g3.IMatrix
+  name: Size
+  nameWithType: IMatrix.Size
+  fullName: g3.IMatrix.Size
+- uid: g3.Index2i
+  commentId: T:g3.Index2i
+  parent: g3
+  name: Index2i
+  nameWithType: Index2i
+  fullName: g3.Index2i
+- uid: g3.DenseMatrix.Length*
+  commentId: Overload:g3.DenseMatrix.Length
+  name: Length
+  nameWithType: DenseMatrix.Length
+  fullName: g3.DenseMatrix.Length
+- uid: g3.DenseMatrix.Item*
+  commentId: Overload:g3.DenseMatrix.Item
+  name: Item
+  nameWithType: DenseMatrix.Item
+  fullName: g3.DenseMatrix.Item
+- uid: g3.IMatrix.Item(System.Int32,System.Int32)
+  commentId: P:g3.IMatrix.Item(System.Int32,System.Int32)
+  parent: g3.IMatrix
+  isExternal: true
+  name: Item[Int32, Int32]
+  nameWithType: IMatrix.Item[Int32, Int32]
+  fullName: g3.IMatrix.Item[System.Int32, System.Int32]
+  nameWithType.vb: IMatrix.Item(Int32, Int32)
+  fullName.vb: g3.IMatrix.Item(System.Int32, System.Int32)
+  name.vb: Item(Int32, Int32)
+  spec.csharp:
+  - uid: g3.IMatrix.Item(System.Int32,System.Int32)
+    name: Item
+    nameWithType: IMatrix.Item
+    fullName: g3.IMatrix.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: g3.IMatrix.Item(System.Int32,System.Int32)
+    name: Item
+    nameWithType: IMatrix.Item
+    fullName: g3.IMatrix.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DenseMatrix.Row*
+  commentId: Overload:g3.DenseMatrix.Row
+  name: Row
+  nameWithType: DenseMatrix.Row
+  fullName: g3.DenseMatrix.Row
+- uid: g3.DenseVector
+  commentId: T:g3.DenseVector
+  parent: g3
+  name: DenseVector
+  nameWithType: DenseVector
+  fullName: g3.DenseVector
+- uid: g3.DenseMatrix.Column*
+  commentId: Overload:g3.DenseMatrix.Column
+  name: Column
+  nameWithType: DenseMatrix.Column
+  fullName: g3.DenseMatrix.Column
+- uid: g3.DenseMatrix.Diagonal*
+  commentId: Overload:g3.DenseMatrix.Diagonal
+  name: Diagonal
+  nameWithType: DenseMatrix.Diagonal
+  fullName: g3.DenseMatrix.Diagonal
+- uid: g3.DenseMatrix.Transpose*
+  commentId: Overload:g3.DenseMatrix.Transpose
+  name: Transpose
+  nameWithType: DenseMatrix.Transpose
+  fullName: g3.DenseMatrix.Transpose
+- uid: g3.DenseMatrix.TransposeInPlace*
+  commentId: Overload:g3.DenseMatrix.TransposeInPlace
+  name: TransposeInPlace
+  nameWithType: DenseMatrix.TransposeInPlace
+  fullName: g3.DenseMatrix.TransposeInPlace
+- uid: g3.DenseMatrix.IsSymmetric*
+  commentId: Overload:g3.DenseMatrix.IsSymmetric
+  name: IsSymmetric
+  nameWithType: DenseMatrix.IsSymmetric
+  fullName: g3.DenseMatrix.IsSymmetric
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.DenseMatrix.IsPositiveDefinite*
+  commentId: Overload:g3.DenseMatrix.IsPositiveDefinite
+  name: IsPositiveDefinite
+  nameWithType: DenseMatrix.IsPositiveDefinite
+  fullName: g3.DenseMatrix.IsPositiveDefinite
+- uid: g3.DenseMatrix.EpsilonEquals*
+  commentId: Overload:g3.DenseMatrix.EpsilonEquals
+  name: EpsilonEquals
+  nameWithType: DenseMatrix.EpsilonEquals
+  fullName: g3.DenseMatrix.EpsilonEquals
+- uid: g3.DenseMatrix.Multiply*
+  commentId: Overload:g3.DenseMatrix.Multiply
+  name: Multiply
+  nameWithType: DenseMatrix.Multiply
+  fullName: g3.DenseMatrix.Multiply
+- uid: g3.DenseMatrix.Add*
+  commentId: Overload:g3.DenseMatrix.Add
+  name: Add
+  nameWithType: DenseMatrix.Add
+  fullName: g3.DenseMatrix.Add
+- uid: g3.DenseMatrix.MulAdd*
+  commentId: Overload:g3.DenseMatrix.MulAdd
+  name: MulAdd
+  nameWithType: DenseMatrix.MulAdd
+  fullName: g3.DenseMatrix.MulAdd

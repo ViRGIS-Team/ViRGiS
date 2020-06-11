@@ -1,0 +1,213 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.IGeoJSONObject
+  commentId: T:GeoJSON.Net.IGeoJSONObject
+  id: IGeoJSONObject
+  parent: GeoJSON.Net
+  children:
+  - GeoJSON.Net.IGeoJSONObject.BoundingBoxes
+  - GeoJSON.Net.IGeoJSONObject.CRS
+  - GeoJSON.Net.IGeoJSONObject.Type
+  langs:
+  - csharp
+  - vb
+  name: IGeoJSONObject
+  nameWithType: IGeoJSONObject
+  fullName: GeoJSON.Net.IGeoJSONObject
+  type: Interface
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/IGeoJSONObject.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IGeoJSONObject
+    path: ../Assets/GeoJSON.Net/IGeoJSONObject.cs
+    startLine: 7
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net
+  summary: "\nBase Interface for GeoJSONObject types.\n"
+  example: []
+  syntax:
+    content: public interface IGeoJSONObject
+    content.vb: Public Interface IGeoJSONObject
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: GeoJSON.Net.IGeoJSONObject.Type
+  commentId: P:GeoJSON.Net.IGeoJSONObject.Type
+  id: Type
+  parent: GeoJSON.Net.IGeoJSONObject
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IGeoJSONObject.Type
+  fullName: GeoJSON.Net.IGeoJSONObject.Type
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/IGeoJSONObject.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/GeoJSON.Net/IGeoJSONObject.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net
+  summary: "\nGets the (mandatory) type of the GeoJSON Object.\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-3\n"
+  example: []
+  syntax:
+    content: GeoJSONObjectType Type { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.GeoJSONObjectType
+      description: "\nThe type of the object.\n"
+    content.vb: ReadOnly Property Type As GeoJSONObjectType
+  overload: GeoJSON.Net.IGeoJSONObject.Type*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: GeoJSON.Net.IGeoJSONObject.CRS
+  commentId: P:GeoJSON.Net.IGeoJSONObject.CRS
+  id: CRS
+  parent: GeoJSON.Net.IGeoJSONObject
+  langs:
+  - csharp
+  - vb
+  name: CRS
+  nameWithType: IGeoJSONObject.CRS
+  fullName: GeoJSON.Net.IGeoJSONObject.CRS
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/IGeoJSONObject.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CRS
+    path: ../Assets/GeoJSON.Net/IGeoJSONObject.cs
+    startLine: 29
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net
+  summary: "\nGets the (optional) Coordinate Reference System Object.\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-4\n"
+  example: []
+  syntax:
+    content: ICRSObject CRS { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+      description: "\nThe Coordinate Reference System Objects.\n"
+    content.vb: ReadOnly Property CRS As ICRSObject
+  overload: GeoJSON.Net.IGeoJSONObject.CRS*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: GeoJSON.Net.IGeoJSONObject.BoundingBoxes
+  commentId: P:GeoJSON.Net.IGeoJSONObject.BoundingBoxes
+  id: BoundingBoxes
+  parent: GeoJSON.Net.IGeoJSONObject
+  langs:
+  - csharp
+  - vb
+  name: BoundingBoxes
+  nameWithType: IGeoJSONObject.BoundingBoxes
+  fullName: GeoJSON.Net.IGeoJSONObject.BoundingBoxes
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/IGeoJSONObject.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundingBoxes
+    path: ../Assets/GeoJSON.Net/IGeoJSONObject.cs
+    startLine: 44
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net
+  summary: "\nGets or sets the (optional) Bounding Boxes.\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-5\n"
+  example: []
+  syntax:
+    content: double[] BoundingBoxes { get; set; }
+    parameters: []
+    return:
+      type: System.Double[]
+      description: "\nThe value of the bbox member must be a 2*n array where n is the number of dimensions represented in the\ncontained geometries, with the lowest values for all axes followed by the highest values.\nThe axes order of a bbox follows the axes order of geometries.\nIn addition, the coordinate reference system for the bbox is assumed to match the coordinate reference\nsystem of the GeoJSON object of which it is a member.\n"
+    content.vb: Property BoundingBoxes As Double()
+  overload: GeoJSON.Net.IGeoJSONObject.BoundingBoxes*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: GeoJSON.Net
+  commentId: N:GeoJSON.Net
+  name: GeoJSON.Net
+  nameWithType: GeoJSON.Net
+  fullName: GeoJSON.Net
+- uid: GeoJSON.Net.IGeoJSONObject.Type*
+  commentId: Overload:GeoJSON.Net.IGeoJSONObject.Type
+  name: Type
+  nameWithType: IGeoJSONObject.Type
+  fullName: GeoJSON.Net.IGeoJSONObject.Type
+- uid: GeoJSON.Net.GeoJSONObjectType
+  commentId: T:GeoJSON.Net.GeoJSONObjectType
+  parent: GeoJSON.Net
+  name: GeoJSONObjectType
+  nameWithType: GeoJSONObjectType
+  fullName: GeoJSON.Net.GeoJSONObjectType
+- uid: GeoJSON.Net.IGeoJSONObject.CRS*
+  commentId: Overload:GeoJSON.Net.IGeoJSONObject.CRS
+  name: CRS
+  nameWithType: IGeoJSONObject.CRS
+  fullName: GeoJSON.Net.IGeoJSONObject.CRS
+- uid: GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: ICRSObject
+  nameWithType: ICRSObject
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+- uid: GeoJSON.Net.CoordinateReferenceSystem
+  commentId: N:GeoJSON.Net.CoordinateReferenceSystem
+  name: GeoJSON.Net.CoordinateReferenceSystem
+  nameWithType: GeoJSON.Net.CoordinateReferenceSystem
+  fullName: GeoJSON.Net.CoordinateReferenceSystem
+- uid: GeoJSON.Net.IGeoJSONObject.BoundingBoxes*
+  commentId: Overload:GeoJSON.Net.IGeoJSONObject.BoundingBoxes
+  name: BoundingBoxes
+  nameWithType: IGeoJSONObject.BoundingBoxes
+  fullName: GeoJSON.Net.IGeoJSONObject.BoundingBoxes
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()

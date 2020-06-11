@@ -1,0 +1,1561 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Circle2d
+  commentId: T:g3.Circle2d
+  id: Circle2d
+  parent: g3
+  children:
+  - g3.Circle2d.#ctor(g3.Vector2d,System.Double)
+  - g3.Circle2d.#ctor(System.Double)
+  - g3.Circle2d.ArcLength
+  - g3.Circle2d.Area
+  - g3.Circle2d.BoundingPolygonRadius(System.Double,System.Int32)
+  - g3.Circle2d.Bounds
+  - g3.Circle2d.Center
+  - g3.Circle2d.Circumference
+  - g3.Circle2d.Clone
+  - g3.Circle2d.Contains(g3.Vector2d)
+  - g3.Circle2d.Curvature
+  - g3.Circle2d.Diameter
+  - g3.Circle2d.Distance(g3.Vector2d)
+  - g3.Circle2d.HasArcLength
+  - g3.Circle2d.IsClosed
+  - g3.Circle2d.IsReversed
+  - g3.Circle2d.IsTransformable
+  - g3.Circle2d.ParamLength
+  - g3.Circle2d.Radius
+  - g3.Circle2d.RadiusArea(System.Double)
+  - g3.Circle2d.RadiusCircumference(System.Double)
+  - g3.Circle2d.Reverse
+  - g3.Circle2d.SampleArcLength(System.Double)
+  - g3.Circle2d.SampleDeg(System.Double)
+  - g3.Circle2d.SampleRad(System.Double)
+  - g3.Circle2d.SampleT(System.Double)
+  - g3.Circle2d.SignedCurvature
+  - g3.Circle2d.SignedDistance(g3.Vector2d)
+  - g3.Circle2d.TangentT(System.Double)
+  - g3.Circle2d.Transform(g3.ITransform2)
+  langs:
+  - csharp
+  - vb
+  name: Circle2d
+  nameWithType: Circle2d
+  fullName: g3.Circle2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Circle2d
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 4
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class Circle2d : IParametricCurve2d'
+    content.vb: >-
+      Public Class Circle2d
+          Implements IParametricCurve2d
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IParametricCurve2d
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Circle2d.Center
+  commentId: F:g3.Circle2d.Center
+  id: Center
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Circle2d.Center
+  fullName: g3.Circle2d.Center
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 6
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Center
+    return:
+      type: g3.Vector2d
+    content.vb: Public Center As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Radius
+  commentId: F:g3.Circle2d.Radius
+  id: Radius
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: Circle2d.Radius
+  fullName: g3.Circle2d.Radius
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Radius
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Radius
+    return:
+      type: System.Double
+    content.vb: Public Radius As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.IsReversed
+  commentId: F:g3.Circle2d.IsReversed
+  id: IsReversed
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: IsReversed
+  nameWithType: Circle2d.IsReversed
+  fullName: g3.Circle2d.IsReversed
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsReversed
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsReversed
+    return:
+      type: System.Boolean
+    content.vb: Public IsReversed As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.#ctor(System.Double)
+  commentId: M:g3.Circle2d.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Circle2d(Double)
+  nameWithType: Circle2d.Circle2d(Double)
+  fullName: g3.Circle2d.Circle2d(System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Circle2d(double radius)
+    parameters:
+    - id: radius
+      type: System.Double
+    content.vb: Public Sub New(radius As Double)
+  overload: g3.Circle2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.#ctor(g3.Vector2d,System.Double)
+  commentId: M:g3.Circle2d.#ctor(g3.Vector2d,System.Double)
+  id: '#ctor(g3.Vector2d,System.Double)'
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Circle2d(Vector2d, Double)
+  nameWithType: Circle2d.Circle2d(Vector2d, Double)
+  fullName: g3.Circle2d.Circle2d(g3.Vector2d, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Circle2d(Vector2d center, double radius)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: radius
+      type: System.Double
+    content.vb: Public Sub New(center As Vector2d, radius As Double)
+  overload: g3.Circle2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Curvature
+  commentId: P:g3.Circle2d.Curvature
+  id: Curvature
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Curvature
+  nameWithType: Circle2d.Curvature
+  fullName: g3.Circle2d.Curvature
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Curvature
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Curvature { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Curvature As Double
+  overload: g3.Circle2d.Curvature*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.SignedCurvature
+  commentId: P:g3.Circle2d.SignedCurvature
+  id: SignedCurvature
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: SignedCurvature
+  nameWithType: Circle2d.SignedCurvature
+  fullName: g3.Circle2d.SignedCurvature
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SignedCurvature
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SignedCurvature { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property SignedCurvature As Double
+  overload: g3.Circle2d.SignedCurvature*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.IsClosed
+  commentId: P:g3.Circle2d.IsClosed
+  id: IsClosed
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: Circle2d.IsClosed
+  fullName: g3.Circle2d.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClosed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClosed As Boolean
+  overload: g3.Circle2d.IsClosed*
+  implements:
+  - g3.IParametricCurve2d.IsClosed
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.Reverse
+  commentId: M:g3.Circle2d.Reverse
+  id: Reverse
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: Circle2d.Reverse()
+  fullName: g3.Circle2d.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse()
+    content.vb: Public Sub Reverse
+  overload: g3.Circle2d.Reverse*
+  implements:
+  - g3.IParametricCurve2d.Reverse
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Clone
+  commentId: M:g3.Circle2d.Clone
+  id: Clone
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: Circle2d.Clone()
+  fullName: g3.Circle2d.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IParametricCurve2d Clone()
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Public Function Clone As IParametricCurve2d
+  overload: g3.Circle2d.Clone*
+  implements:
+  - g3.IParametricCurve2d.Clone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.IsTransformable
+  commentId: P:g3.Circle2d.IsTransformable
+  id: IsTransformable
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: IsTransformable
+  nameWithType: Circle2d.IsTransformable
+  fullName: g3.Circle2d.IsTransformable
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTransformable
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsTransformable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTransformable As Boolean
+  overload: g3.Circle2d.IsTransformable*
+  implements:
+  - g3.IParametricCurve2d.IsTransformable
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.Transform(g3.ITransform2)
+  commentId: M:g3.Circle2d.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: Circle2d.Transform(ITransform2)
+  fullName: g3.Circle2d.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    content.vb: Public Sub Transform(xform As ITransform2)
+  overload: g3.Circle2d.Transform*
+  implements:
+  - g3.IParametricCurve2d.Transform(g3.ITransform2)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.SampleDeg(System.Double)
+  commentId: M:g3.Circle2d.SampleDeg(System.Double)
+  id: SampleDeg(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: SampleDeg(Double)
+  nameWithType: Circle2d.SampleDeg(Double)
+  fullName: g3.Circle2d.SampleDeg(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleDeg
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleDeg(double degrees)
+    parameters:
+    - id: degrees
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleDeg(degrees As Double) As Vector2d
+  overload: g3.Circle2d.SampleDeg*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.SampleRad(System.Double)
+  commentId: M:g3.Circle2d.SampleRad(System.Double)
+  id: SampleRad(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: SampleRad(Double)
+  nameWithType: Circle2d.SampleRad(Double)
+  fullName: g3.Circle2d.SampleRad(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleRad
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleRad(double radians)
+    parameters:
+    - id: radians
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleRad(radians As Double) As Vector2d
+  overload: g3.Circle2d.SampleRad*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.ParamLength
+  commentId: P:g3.Circle2d.ParamLength
+  id: ParamLength
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: ParamLength
+  nameWithType: Circle2d.ParamLength
+  fullName: g3.Circle2d.ParamLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParamLength
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ParamLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ParamLength As Double
+  overload: g3.Circle2d.ParamLength*
+  implements:
+  - g3.IParametricCurve2d.ParamLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.SampleT(System.Double)
+  commentId: M:g3.Circle2d.SampleT(System.Double)
+  id: SampleT(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: SampleT(Double)
+  nameWithType: Circle2d.SampleT(Double)
+  fullName: g3.Circle2d.SampleT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleT
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 77
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleT(t As Double) As Vector2d
+  overload: g3.Circle2d.SampleT*
+  implements:
+  - g3.IParametricCurve2d.SampleT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.TangentT(System.Double)
+  commentId: M:g3.Circle2d.TangentT(System.Double)
+  id: TangentT(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: TangentT(Double)
+  nameWithType: Circle2d.TangentT(Double)
+  fullName: g3.Circle2d.TangentT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TangentT
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d TangentT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function TangentT(t As Double) As Vector2d
+  overload: g3.Circle2d.TangentT*
+  implements:
+  - g3.IParametricCurve2d.TangentT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.HasArcLength
+  commentId: P:g3.Circle2d.HasArcLength
+  id: HasArcLength
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: HasArcLength
+  nameWithType: Circle2d.HasArcLength
+  fullName: g3.Circle2d.HasArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasArcLength
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasArcLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArcLength As Boolean
+  overload: g3.Circle2d.HasArcLength*
+  implements:
+  - g3.IParametricCurve2d.HasArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.ArcLength
+  commentId: P:g3.Circle2d.ArcLength
+  id: ArcLength
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: Circle2d.ArcLength
+  fullName: g3.Circle2d.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 96
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.Circle2d.ArcLength*
+  implements:
+  - g3.IParametricCurve2d.ArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.SampleArcLength(System.Double)
+  commentId: M:g3.Circle2d.SampleArcLength(System.Double)
+  id: SampleArcLength(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: SampleArcLength(Double)
+  nameWithType: Circle2d.SampleArcLength(Double)
+  fullName: g3.Circle2d.SampleArcLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleArcLength
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 102
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleArcLength(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleArcLength(a As Double) As Vector2d
+  overload: g3.Circle2d.SampleArcLength*
+  implements:
+  - g3.IParametricCurve2d.SampleArcLength(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Contains(g3.Vector2d)
+  commentId: M:g3.Circle2d.Contains(g3.Vector2d)
+  id: Contains(g3.Vector2d)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector2d)
+  nameWithType: Circle2d.Contains(Vector2d)
+  fullName: g3.Circle2d.Contains(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 110
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Contains(Vector2d p)
+    parameters:
+    - id: p
+      type: g3.Vector2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(p As Vector2d) As Boolean
+  overload: g3.Circle2d.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Circumference
+  commentId: P:g3.Circle2d.Circumference
+  id: Circumference
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Circumference
+  nameWithType: Circle2d.Circumference
+  fullName: g3.Circle2d.Circumference
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Circumference
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 116
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Circumference { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Circumference As Double
+  overload: g3.Circle2d.Circumference*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Diameter
+  commentId: P:g3.Circle2d.Diameter
+  id: Diameter
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Diameter
+  nameWithType: Circle2d.Diameter
+  fullName: g3.Circle2d.Diameter
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Diameter
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 120
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Diameter { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Diameter As Double
+  overload: g3.Circle2d.Diameter*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Area
+  commentId: P:g3.Circle2d.Area
+  id: Area
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: Circle2d.Area
+  fullName: g3.Circle2d.Area
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Area
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 124
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Area { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Area As Double
+  overload: g3.Circle2d.Area*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Bounds
+  commentId: P:g3.Circle2d.Bounds
+  id: Bounds
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: Circle2d.Bounds
+  fullName: g3.Circle2d.Bounds
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d Bounds { get; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public ReadOnly Property Bounds As AxisAlignedBox2d
+  overload: g3.Circle2d.Bounds*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Circle2d.SignedDistance(g3.Vector2d)
+  commentId: M:g3.Circle2d.SignedDistance(g3.Vector2d)
+  id: SignedDistance(g3.Vector2d)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: SignedDistance(Vector2d)
+  nameWithType: Circle2d.SignedDistance(Vector2d)
+  fullName: g3.Circle2d.SignedDistance(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SignedDistance
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 134
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SignedDistance(Vector2d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function SignedDistance(pt As Vector2d) As Double
+  overload: g3.Circle2d.SignedDistance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.Distance(g3.Vector2d)
+  commentId: M:g3.Circle2d.Distance(g3.Vector2d)
+  id: Distance(g3.Vector2d)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector2d)
+  nameWithType: Circle2d.Distance(Vector2d)
+  fullName: g3.Circle2d.Distance(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Distance
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 139
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Distance(Vector2d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function Distance(pt As Vector2d) As Double
+  overload: g3.Circle2d.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Circle2d.RadiusArea(System.Double)
+  commentId: M:g3.Circle2d.RadiusArea(System.Double)
+  id: RadiusArea(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: RadiusArea(Double)
+  nameWithType: Circle2d.RadiusArea(Double)
+  fullName: g3.Circle2d.RadiusArea(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RadiusArea
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 147
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double RadiusArea(double r)
+    parameters:
+    - id: r
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Shared Function RadiusArea(r As Double) As Double
+  overload: g3.Circle2d.RadiusArea*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Circle2d.RadiusCircumference(System.Double)
+  commentId: M:g3.Circle2d.RadiusCircumference(System.Double)
+  id: RadiusCircumference(System.Double)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: RadiusCircumference(Double)
+  nameWithType: Circle2d.RadiusCircumference(Double)
+  fullName: g3.Circle2d.RadiusCircumference(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RadiusCircumference
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 150
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double RadiusCircumference(double r)
+    parameters:
+    - id: r
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Shared Function RadiusCircumference(r As Double) As Double
+  overload: g3.Circle2d.RadiusCircumference*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Circle2d.BoundingPolygonRadius(System.Double,System.Int32)
+  commentId: M:g3.Circle2d.BoundingPolygonRadius(System.Double,System.Int32)
+  id: BoundingPolygonRadius(System.Double,System.Int32)
+  parent: g3.Circle2d
+  langs:
+  - csharp
+  - vb
+  name: BoundingPolygonRadius(Double, Int32)
+  nameWithType: Circle2d.BoundingPolygonRadius(Double, Int32)
+  fullName: g3.Circle2d.BoundingPolygonRadius(System.Double, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Circle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundingPolygonRadius
+    path: ../Assets/geometry3Sharp/curve/Circle2.cs
+    startLine: 157
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRadius of n-sided regular polygon that contains circle of radius r\n"
+  example: []
+  syntax:
+    content: public static double BoundingPolygonRadius(double r, int n)
+    parameters:
+    - id: r
+      type: System.Double
+    - id: n
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Shared Function BoundingPolygonRadius(r As Double, n As Integer) As Double
+  overload: g3.Circle2d.BoundingPolygonRadius*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Circle2d.#ctor*
+  commentId: Overload:g3.Circle2d.#ctor
+  name: Circle2d
+  nameWithType: Circle2d.Circle2d
+  fullName: g3.Circle2d.Circle2d
+- uid: g3.Circle2d.Curvature*
+  commentId: Overload:g3.Circle2d.Curvature
+  name: Curvature
+  nameWithType: Circle2d.Curvature
+  fullName: g3.Circle2d.Curvature
+- uid: g3.Circle2d.SignedCurvature*
+  commentId: Overload:g3.Circle2d.SignedCurvature
+  name: SignedCurvature
+  nameWithType: Circle2d.SignedCurvature
+  fullName: g3.Circle2d.SignedCurvature
+- uid: g3.Circle2d.IsClosed*
+  commentId: Overload:g3.Circle2d.IsClosed
+  name: IsClosed
+  nameWithType: Circle2d.IsClosed
+  fullName: g3.Circle2d.IsClosed
+- uid: g3.IParametricCurve2d.IsClosed
+  commentId: P:g3.IParametricCurve2d.IsClosed
+  parent: g3.IParametricCurve2d
+  name: IsClosed
+  nameWithType: IParametricCurve2d.IsClosed
+  fullName: g3.IParametricCurve2d.IsClosed
+- uid: g3.Circle2d.Reverse*
+  commentId: Overload:g3.Circle2d.Reverse
+  name: Reverse
+  nameWithType: Circle2d.Reverse
+  fullName: g3.Circle2d.Reverse
+- uid: g3.IParametricCurve2d.Reverse
+  commentId: M:g3.IParametricCurve2d.Reverse
+  parent: g3.IParametricCurve2d
+  name: Reverse()
+  nameWithType: IParametricCurve2d.Reverse()
+  fullName: g3.IParametricCurve2d.Reverse()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Circle2d.Clone*
+  commentId: Overload:g3.Circle2d.Clone
+  name: Clone
+  nameWithType: Circle2d.Clone
+  fullName: g3.Circle2d.Clone
+- uid: g3.IParametricCurve2d.Clone
+  commentId: M:g3.IParametricCurve2d.Clone
+  parent: g3.IParametricCurve2d
+  name: Clone()
+  nameWithType: IParametricCurve2d.Clone()
+  fullName: g3.IParametricCurve2d.Clone()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Circle2d.IsTransformable*
+  commentId: Overload:g3.Circle2d.IsTransformable
+  name: IsTransformable
+  nameWithType: Circle2d.IsTransformable
+  fullName: g3.Circle2d.IsTransformable
+- uid: g3.IParametricCurve2d.IsTransformable
+  commentId: P:g3.IParametricCurve2d.IsTransformable
+  parent: g3.IParametricCurve2d
+  name: IsTransformable
+  nameWithType: IParametricCurve2d.IsTransformable
+  fullName: g3.IParametricCurve2d.IsTransformable
+- uid: g3.Circle2d.Transform*
+  commentId: Overload:g3.Circle2d.Transform
+  name: Transform
+  nameWithType: Circle2d.Transform
+  fullName: g3.Circle2d.Transform
+- uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  commentId: M:g3.IParametricCurve2d.Transform(g3.ITransform2)
+  parent: g3.IParametricCurve2d
+  name: Transform(ITransform2)
+  nameWithType: IParametricCurve2d.Transform(ITransform2)
+  fullName: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.Circle2d.SampleDeg*
+  commentId: Overload:g3.Circle2d.SampleDeg
+  name: SampleDeg
+  nameWithType: Circle2d.SampleDeg
+  fullName: g3.Circle2d.SampleDeg
+- uid: g3.Circle2d.SampleRad*
+  commentId: Overload:g3.Circle2d.SampleRad
+  name: SampleRad
+  nameWithType: Circle2d.SampleRad
+  fullName: g3.Circle2d.SampleRad
+- uid: g3.Circle2d.ParamLength*
+  commentId: Overload:g3.Circle2d.ParamLength
+  name: ParamLength
+  nameWithType: Circle2d.ParamLength
+  fullName: g3.Circle2d.ParamLength
+- uid: g3.IParametricCurve2d.ParamLength
+  commentId: P:g3.IParametricCurve2d.ParamLength
+  parent: g3.IParametricCurve2d
+  name: ParamLength
+  nameWithType: IParametricCurve2d.ParamLength
+  fullName: g3.IParametricCurve2d.ParamLength
+- uid: g3.Circle2d.SampleT*
+  commentId: Overload:g3.Circle2d.SampleT
+  name: SampleT
+  nameWithType: Circle2d.SampleT
+  fullName: g3.Circle2d.SampleT
+- uid: g3.IParametricCurve2d.SampleT(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleT(Double)
+  nameWithType: IParametricCurve2d.SampleT(Double)
+  fullName: g3.IParametricCurve2d.SampleT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Circle2d.TangentT*
+  commentId: Overload:g3.Circle2d.TangentT
+  name: TangentT
+  nameWithType: Circle2d.TangentT
+  fullName: g3.Circle2d.TangentT
+- uid: g3.IParametricCurve2d.TangentT(System.Double)
+  commentId: M:g3.IParametricCurve2d.TangentT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: TangentT(Double)
+  nameWithType: IParametricCurve2d.TangentT(Double)
+  fullName: g3.IParametricCurve2d.TangentT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Circle2d.HasArcLength*
+  commentId: Overload:g3.Circle2d.HasArcLength
+  name: HasArcLength
+  nameWithType: Circle2d.HasArcLength
+  fullName: g3.Circle2d.HasArcLength
+- uid: g3.IParametricCurve2d.HasArcLength
+  commentId: P:g3.IParametricCurve2d.HasArcLength
+  parent: g3.IParametricCurve2d
+  name: HasArcLength
+  nameWithType: IParametricCurve2d.HasArcLength
+  fullName: g3.IParametricCurve2d.HasArcLength
+- uid: g3.Circle2d.ArcLength*
+  commentId: Overload:g3.Circle2d.ArcLength
+  name: ArcLength
+  nameWithType: Circle2d.ArcLength
+  fullName: g3.Circle2d.ArcLength
+- uid: g3.IParametricCurve2d.ArcLength
+  commentId: P:g3.IParametricCurve2d.ArcLength
+  parent: g3.IParametricCurve2d
+  name: ArcLength
+  nameWithType: IParametricCurve2d.ArcLength
+  fullName: g3.IParametricCurve2d.ArcLength
+- uid: g3.Circle2d.SampleArcLength*
+  commentId: Overload:g3.Circle2d.SampleArcLength
+  name: SampleArcLength
+  nameWithType: Circle2d.SampleArcLength
+  fullName: g3.Circle2d.SampleArcLength
+- uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleArcLength(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleArcLength(Double)
+  nameWithType: IParametricCurve2d.SampleArcLength(Double)
+  fullName: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Circle2d.Contains*
+  commentId: Overload:g3.Circle2d.Contains
+  name: Contains
+  nameWithType: Circle2d.Contains
+  fullName: g3.Circle2d.Contains
+- uid: g3.Circle2d.Circumference*
+  commentId: Overload:g3.Circle2d.Circumference
+  name: Circumference
+  nameWithType: Circle2d.Circumference
+  fullName: g3.Circle2d.Circumference
+- uid: g3.Circle2d.Diameter*
+  commentId: Overload:g3.Circle2d.Diameter
+  name: Diameter
+  nameWithType: Circle2d.Diameter
+  fullName: g3.Circle2d.Diameter
+- uid: g3.Circle2d.Area*
+  commentId: Overload:g3.Circle2d.Area
+  name: Area
+  nameWithType: Circle2d.Area
+  fullName: g3.Circle2d.Area
+- uid: g3.Circle2d.Bounds*
+  commentId: Overload:g3.Circle2d.Bounds
+  name: Bounds
+  nameWithType: Circle2d.Bounds
+  fullName: g3.Circle2d.Bounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.Circle2d.SignedDistance*
+  commentId: Overload:g3.Circle2d.SignedDistance
+  name: SignedDistance
+  nameWithType: Circle2d.SignedDistance
+  fullName: g3.Circle2d.SignedDistance
+- uid: g3.Circle2d.Distance*
+  commentId: Overload:g3.Circle2d.Distance
+  name: Distance
+  nameWithType: Circle2d.Distance
+  fullName: g3.Circle2d.Distance
+- uid: g3.Circle2d.RadiusArea*
+  commentId: Overload:g3.Circle2d.RadiusArea
+  name: RadiusArea
+  nameWithType: Circle2d.RadiusArea
+  fullName: g3.Circle2d.RadiusArea
+- uid: g3.Circle2d.RadiusCircumference*
+  commentId: Overload:g3.Circle2d.RadiusCircumference
+  name: RadiusCircumference
+  nameWithType: Circle2d.RadiusCircumference
+  fullName: g3.Circle2d.RadiusCircumference
+- uid: g3.Circle2d.BoundingPolygonRadius*
+  commentId: Overload:g3.Circle2d.BoundingPolygonRadius
+  name: BoundingPolygonRadius
+  nameWithType: Circle2d.BoundingPolygonRadius
+  fullName: g3.Circle2d.BoundingPolygonRadius
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

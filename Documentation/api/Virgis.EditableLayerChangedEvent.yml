@@ -15,7 +15,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: EditableLayerChangedEvent
     path: ../Assets/Scripts/EditSession.cs
@@ -29,17 +29,17 @@ items:
     content: >-
       [Serializable]
 
-      public class EditableLayerChangedEvent : UnityEvent<ILayer>, ISerializationCallbackReceiver
+      public class EditableLayerChangedEvent : UnityEvent<IVirgisLayer>, ISerializationCallbackReceiver
     content.vb: >-
       <Serializable>
 
       Public Class EditableLayerChangedEvent
-          Inherits UnityEvent(Of ILayer)
+          Inherits UnityEvent(Of IVirgisLayer)
           Implements ISerializationCallbackReceiver
   inheritance:
   - System.Object
   - UnityEngine.Events.UnityEventBase
-  - UnityEngine.Events.UnityEvent{Virgis.ILayer}
+  - UnityEngine.Events.UnityEvent{Virgis.IVirgisLayer}
   attributes:
   - type: System.SerializableAttribute
     ctor: System.SerializableAttribute.#ctor
@@ -70,16 +70,16 @@ references:
   name: UnityEventBase
   nameWithType: UnityEventBase
   fullName: UnityEngine.Events.UnityEventBase
-- uid: UnityEngine.Events.UnityEvent{Virgis.ILayer}
-  commentId: T:UnityEngine.Events.UnityEvent{Virgis.ILayer}
+- uid: UnityEngine.Events.UnityEvent{Virgis.IVirgisLayer}
+  commentId: T:UnityEngine.Events.UnityEvent{Virgis.IVirgisLayer}
   parent: UnityEngine.Events
   definition: UnityEngine.Events.UnityEvent`1
-  name: UnityEvent<ILayer>
-  nameWithType: UnityEvent<ILayer>
-  fullName: UnityEngine.Events.UnityEvent<Virgis.ILayer>
-  nameWithType.vb: UnityEvent(Of ILayer)
-  fullName.vb: UnityEngine.Events.UnityEvent(Of Virgis.ILayer)
-  name.vb: UnityEvent(Of ILayer)
+  name: UnityEvent<IVirgisLayer>
+  nameWithType: UnityEvent<IVirgisLayer>
+  fullName: UnityEngine.Events.UnityEvent<Virgis.IVirgisLayer>
+  nameWithType.vb: UnityEvent(Of IVirgisLayer)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of Virgis.IVirgisLayer)
+  name.vb: UnityEvent(Of IVirgisLayer)
   spec.csharp:
   - uid: UnityEngine.Events.UnityEvent`1
     name: UnityEvent
@@ -89,10 +89,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: Virgis.ILayer
-    name: ILayer
-    nameWithType: ILayer
-    fullName: Virgis.ILayer
+  - uid: Virgis.IVirgisLayer
+    name: IVirgisLayer
+    nameWithType: IVirgisLayer
+    fullName: Virgis.IVirgisLayer
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -105,10 +105,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: Virgis.ILayer
-    name: ILayer
-    nameWithType: ILayer
-    fullName: Virgis.ILayer
+  - uid: Virgis.IVirgisLayer
+    name: IVirgisLayer
+    nameWithType: IVirgisLayer
+    fullName: Virgis.IVirgisLayer
   - name: )
     nameWithType: )
     fullName: )

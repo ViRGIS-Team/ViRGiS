@@ -1,0 +1,504 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DenseGridTrilinearImplicit
+  commentId: T:g3.DenseGridTrilinearImplicit
+  id: DenseGridTrilinearImplicit
+  parent: g3
+  children:
+  - g3.DenseGridTrilinearImplicit.#ctor(g3.DenseGrid3f,g3.Vector3d,System.Double)
+  - g3.DenseGridTrilinearImplicit.#ctor(g3.MeshSignedDistanceGrid)
+  - g3.DenseGridTrilinearImplicit.Bounds
+  - g3.DenseGridTrilinearImplicit.CellSize
+  - g3.DenseGridTrilinearImplicit.Gradient(g3.Vector3d@)
+  - g3.DenseGridTrilinearImplicit.Grid
+  - g3.DenseGridTrilinearImplicit.GridOrigin
+  - g3.DenseGridTrilinearImplicit.Outside
+  - g3.DenseGridTrilinearImplicit.Value(g3.Vector3d@)
+  langs:
+  - csharp
+  - vb
+  name: DenseGridTrilinearImplicit
+  nameWithType: DenseGridTrilinearImplicit
+  fullName: g3.DenseGridTrilinearImplicit
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DenseGridTrilinearImplicit
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTri-linear interpolant for a 3D dense grid. Supports grid translation\nvia GridOrigin, but does not support scaling or rotation. If you need those,\nyou can wrap this in something that does the xform.\n"
+  example: []
+  syntax:
+    content: 'public class DenseGridTrilinearImplicit : BoundedImplicitFunction3d, ImplicitFunction3d'
+    content.vb: >-
+      Public Class DenseGridTrilinearImplicit
+          Implements BoundedImplicitFunction3d, ImplicitFunction3d
+  inheritance:
+  - System.Object
+  implements:
+  - g3.BoundedImplicitFunction3d
+  - g3.ImplicitFunction3d
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DenseGridTrilinearImplicit.Grid
+  commentId: F:g3.DenseGridTrilinearImplicit.Grid
+  id: Grid
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: DenseGridTrilinearImplicit.Grid
+  fullName: g3.DenseGridTrilinearImplicit.Grid
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Grid
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGrid3f Grid
+    return:
+      type: g3.DenseGrid3f
+    content.vb: Public Grid As DenseGrid3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.CellSize
+  commentId: F:g3.DenseGridTrilinearImplicit.CellSize
+  id: CellSize
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: CellSize
+  nameWithType: DenseGridTrilinearImplicit.CellSize
+  fullName: g3.DenseGridTrilinearImplicit.CellSize
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CellSize
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double CellSize
+    return:
+      type: System.Double
+    content.vb: Public CellSize As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.GridOrigin
+  commentId: F:g3.DenseGridTrilinearImplicit.GridOrigin
+  id: GridOrigin
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: GridOrigin
+  nameWithType: DenseGridTrilinearImplicit.GridOrigin
+  fullName: g3.DenseGridTrilinearImplicit.GridOrigin
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GridOrigin
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d GridOrigin
+    return:
+      type: g3.Vector3d
+    content.vb: Public GridOrigin As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.Outside
+  commentId: F:g3.DenseGridTrilinearImplicit.Outside
+  id: Outside
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: Outside
+  nameWithType: DenseGridTrilinearImplicit.Outside
+  fullName: g3.DenseGridTrilinearImplicit.Outside
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Outside
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Outside
+    return:
+      type: System.Double
+    content.vb: Public Outside As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.#ctor(g3.DenseGrid3f,g3.Vector3d,System.Double)
+  commentId: M:g3.DenseGridTrilinearImplicit.#ctor(g3.DenseGrid3f,g3.Vector3d,System.Double)
+  id: '#ctor(g3.DenseGrid3f,g3.Vector3d,System.Double)'
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: DenseGridTrilinearImplicit(DenseGrid3f, Vector3d, Double)
+  nameWithType: DenseGridTrilinearImplicit.DenseGridTrilinearImplicit(DenseGrid3f, Vector3d, Double)
+  fullName: g3.DenseGridTrilinearImplicit.DenseGridTrilinearImplicit(g3.DenseGrid3f, g3.Vector3d, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGridTrilinearImplicit(DenseGrid3f grid, Vector3d gridOrigin, double cellSize)
+    parameters:
+    - id: grid
+      type: g3.DenseGrid3f
+    - id: gridOrigin
+      type: g3.Vector3d
+    - id: cellSize
+      type: System.Double
+    content.vb: Public Sub New(grid As DenseGrid3f, gridOrigin As Vector3d, cellSize As Double)
+  overload: g3.DenseGridTrilinearImplicit.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.#ctor(g3.MeshSignedDistanceGrid)
+  commentId: M:g3.DenseGridTrilinearImplicit.#ctor(g3.MeshSignedDistanceGrid)
+  id: '#ctor(g3.MeshSignedDistanceGrid)'
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: DenseGridTrilinearImplicit(MeshSignedDistanceGrid)
+  nameWithType: DenseGridTrilinearImplicit.DenseGridTrilinearImplicit(MeshSignedDistanceGrid)
+  fullName: g3.DenseGridTrilinearImplicit.DenseGridTrilinearImplicit(g3.MeshSignedDistanceGrid)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGridTrilinearImplicit(MeshSignedDistanceGrid sdf_grid)
+    parameters:
+    - id: sdf_grid
+      type: g3.MeshSignedDistanceGrid
+    content.vb: Public Sub New(sdf_grid As MeshSignedDistanceGrid)
+  overload: g3.DenseGridTrilinearImplicit.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.Bounds
+  commentId: M:g3.DenseGridTrilinearImplicit.Bounds
+  id: Bounds
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: Bounds()
+  nameWithType: DenseGridTrilinearImplicit.Bounds()
+  fullName: g3.DenseGridTrilinearImplicit.Bounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 37
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox3d Bounds()
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Function Bounds As AxisAlignedBox3d
+  overload: g3.DenseGridTrilinearImplicit.Bounds*
+  implements:
+  - g3.BoundedImplicitFunction3d.Bounds
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DenseGridTrilinearImplicit.Value(g3.Vector3d@)
+  commentId: M:g3.DenseGridTrilinearImplicit.Value(g3.Vector3d@)
+  id: Value(g3.Vector3d@)
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: Value(ref Vector3d)
+  nameWithType: DenseGridTrilinearImplicit.Value(ref Vector3d)
+  fullName: g3.DenseGridTrilinearImplicit.Value(ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Value
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Value(ref Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function Value(ByRef pt As Vector3d) As Double
+  overload: g3.DenseGridTrilinearImplicit.Value*
+  implements:
+  - g3.ImplicitFunction3d.Value(g3.Vector3d@)
+  nameWithType.vb: DenseGridTrilinearImplicit.Value(ByRef Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseGridTrilinearImplicit.Value(ByRef g3.Vector3d)
+  name.vb: Value(ByRef Vector3d)
+- uid: g3.DenseGridTrilinearImplicit.Gradient(g3.Vector3d@)
+  commentId: M:g3.DenseGridTrilinearImplicit.Gradient(g3.Vector3d@)
+  id: Gradient(g3.Vector3d@)
+  parent: g3.DenseGridTrilinearImplicit
+  langs:
+  - csharp
+  - vb
+  name: Gradient(ref Vector3d)
+  nameWithType: DenseGridTrilinearImplicit.Gradient(ref Vector3d)
+  fullName: g3.DenseGridTrilinearImplicit.Gradient(ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Gradient
+    path: ../Assets/geometry3Sharp/implicit/GridImplicits3d.cs
+    startLine: 111
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Gradient(ref Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function Gradient(ByRef pt As Vector3d) As Vector3d
+  overload: g3.DenseGridTrilinearImplicit.Gradient*
+  nameWithType.vb: DenseGridTrilinearImplicit.Gradient(ByRef Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DenseGridTrilinearImplicit.Gradient(ByRef g3.Vector3d)
+  name.vb: Gradient(ByRef Vector3d)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.BoundedImplicitFunction3d
+  commentId: T:g3.BoundedImplicitFunction3d
+  parent: g3
+  name: BoundedImplicitFunction3d
+  nameWithType: BoundedImplicitFunction3d
+  fullName: g3.BoundedImplicitFunction3d
+- uid: g3.ImplicitFunction3d
+  commentId: T:g3.ImplicitFunction3d
+  parent: g3
+  name: ImplicitFunction3d
+  nameWithType: ImplicitFunction3d
+  fullName: g3.ImplicitFunction3d
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DenseGrid3f
+  commentId: T:g3.DenseGrid3f
+  parent: g3
+  name: DenseGrid3f
+  nameWithType: DenseGrid3f
+  fullName: g3.DenseGrid3f
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.DenseGridTrilinearImplicit.#ctor*
+  commentId: Overload:g3.DenseGridTrilinearImplicit.#ctor
+  name: DenseGridTrilinearImplicit
+  nameWithType: DenseGridTrilinearImplicit.DenseGridTrilinearImplicit
+  fullName: g3.DenseGridTrilinearImplicit.DenseGridTrilinearImplicit
+- uid: g3.MeshSignedDistanceGrid
+  commentId: T:g3.MeshSignedDistanceGrid
+  parent: g3
+  name: MeshSignedDistanceGrid
+  nameWithType: MeshSignedDistanceGrid
+  fullName: g3.MeshSignedDistanceGrid
+- uid: g3.DenseGridTrilinearImplicit.Bounds*
+  commentId: Overload:g3.DenseGridTrilinearImplicit.Bounds
+  name: Bounds
+  nameWithType: DenseGridTrilinearImplicit.Bounds
+  fullName: g3.DenseGridTrilinearImplicit.Bounds
+- uid: g3.BoundedImplicitFunction3d.Bounds
+  commentId: M:g3.BoundedImplicitFunction3d.Bounds
+  parent: g3.BoundedImplicitFunction3d
+  name: Bounds()
+  nameWithType: BoundedImplicitFunction3d.Bounds()
+  fullName: g3.BoundedImplicitFunction3d.Bounds()
+  spec.csharp:
+  - uid: g3.BoundedImplicitFunction3d.Bounds
+    name: Bounds
+    nameWithType: BoundedImplicitFunction3d.Bounds
+    fullName: g3.BoundedImplicitFunction3d.Bounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BoundedImplicitFunction3d.Bounds
+    name: Bounds
+    nameWithType: BoundedImplicitFunction3d.Bounds
+    fullName: g3.BoundedImplicitFunction3d.Bounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: g3.DenseGridTrilinearImplicit.Value*
+  commentId: Overload:g3.DenseGridTrilinearImplicit.Value
+  name: Value
+  nameWithType: DenseGridTrilinearImplicit.Value
+  fullName: g3.DenseGridTrilinearImplicit.Value
+- uid: g3.ImplicitFunction3d.Value(g3.Vector3d@)
+  commentId: M:g3.ImplicitFunction3d.Value(g3.Vector3d@)
+  parent: g3.ImplicitFunction3d
+  name: Value(Vector3d)
+  nameWithType: ImplicitFunction3d.Value(Vector3d)
+  fullName: g3.ImplicitFunction3d.Value(g3.Vector3d)
+  spec.csharp:
+  - uid: g3.ImplicitFunction3d.Value(g3.Vector3d@)
+    name: Value
+    nameWithType: ImplicitFunction3d.Value
+    fullName: g3.ImplicitFunction3d.Value
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.ImplicitFunction3d.Value(g3.Vector3d@)
+    name: Value
+    nameWithType: ImplicitFunction3d.Value
+    fullName: g3.ImplicitFunction3d.Value
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DenseGridTrilinearImplicit.Gradient*
+  commentId: Overload:g3.DenseGridTrilinearImplicit.Gradient
+  name: Gradient
+  nameWithType: DenseGridTrilinearImplicit.Gradient
+  fullName: g3.DenseGridTrilinearImplicit.Gradient

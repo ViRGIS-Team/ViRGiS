@@ -8,18 +8,14 @@ items:
   - Virgis.LineSegment.AddVertex(UnityEngine.Vector3)
   - Virgis.LineSegment.Delete
   - Virgis.LineSegment.Draw(UnityEngine.Vector3,UnityEngine.Vector3,System.Int32,System.Int32,System.Single)
-  - Virgis.LineSegment.GetClosest(UnityEngine.Vector3)
-  - Virgis.LineSegment.GetGeometry``1
   - Virgis.LineSegment.MoveAxis(Virgis.MoveArgs)
   - Virgis.LineSegment.MoveEnd(UnityEngine.Vector3)
   - Virgis.LineSegment.MoveStart(UnityEngine.Vector3)
   - Virgis.LineSegment.MoveTo(Virgis.MoveArgs)
   - Virgis.LineSegment.Selected(Virgis.SelectionTypes)
   - Virgis.LineSegment.SetMaterial(UnityEngine.Material,UnityEngine.Material)
-  - Virgis.LineSegment.Translate(Virgis.MoveArgs)
   - Virgis.LineSegment.UnSelected(Virgis.SelectionTypes)
   - Virgis.LineSegment.vEnd
-  - Virgis.LineSegment.VertexMove(Virgis.MoveArgs)
   - Virgis.LineSegment.vStart
   langs:
   - csharp
@@ -31,7 +27,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: LineSegment
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -42,31 +38,39 @@ items:
   summary: "\nControls an instance of a line segment\n"
   example: []
   syntax:
-    content: 'public class LineSegment : VirgisComponent, IVirgisComponent, IVirgisEntity'
+    content: 'public class LineSegment : VirgisFeature, IVirgisFeature, IVirgisEntity'
     content.vb: >-
       Public Class LineSegment
-          Inherits VirgisComponent
-          Implements IVirgisComponent, IVirgisEntity
+          Inherits VirgisFeature
+          Implements IVirgisFeature, IVirgisEntity
   inheritance:
   - System.Object
   - UnityEngine.Object
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
-  - Virgis.VirgisComponent
+  - Virgis.VirgisFeature
   implements:
-  - Virgis.IVirgisComponent
+  - Virgis.IVirgisFeature
   - Virgis.IVirgisEntity
   inheritedMembers:
-  - Virgis.VirgisComponent.mainMat
-  - Virgis.VirgisComponent.selectedMat
-  - Virgis.VirgisComponent.gisId
-  - Virgis.VirgisComponent.gisProperties
-  - Virgis.VirgisComponent.id
-  - Virgis.VirgisComponent.label
-  - Virgis.VirgisComponent.StartEditSession
-  - Virgis.VirgisComponent.ExitEditSession(System.Boolean)
-  - Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+  - Virgis.VirgisFeature.mainMat
+  - Virgis.VirgisFeature.selectedMat
+  - Virgis.VirgisFeature.gisId
+  - Virgis.VirgisFeature.gisProperties
+  - Virgis.VirgisFeature.label
+  - Virgis.VirgisFeature.StartEditSession
+  - Virgis.VirgisFeature.ExitEditSession(System.Boolean)
+  - Virgis.VirgisFeature.Translate(Virgis.MoveArgs)
+  - Virgis.VirgisFeature.VertexMove(Virgis.MoveArgs)
+  - Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - Virgis.VirgisFeature.RemoveVertex(Virgis.VirgisFeature)
+  - Virgis.VirgisFeature.GetGeometry``1
+  - Virgis.VirgisFeature.GetId
+  - Virgis.VirgisFeature.GetMetadata
+  - Virgis.VirgisFeature.Equals(System.Object)
+  - Virgis.VirgisFeature.GetHashCode
+  - Virgis.VirgisFeature.Equals(Virgis.VirgisFeature)
   modifiers.csharp:
   - public
   - class
@@ -87,7 +91,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: vStart
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -118,7 +122,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: vEnd
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -149,7 +153,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Draw
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -197,7 +201,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Selected
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -211,7 +215,7 @@ items:
     - id: button
       type: Virgis.SelectionTypes
     content.vb: Public Overrides Sub Selected(button As SelectionTypes)
-  overridden: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  overridden: Virgis.VirgisFeature.Selected(Virgis.SelectionTypes)
   overload: Virgis.LineSegment.Selected*
   modifiers.csharp:
   - public
@@ -233,7 +237,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: UnSelected
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -247,7 +251,7 @@ items:
     - id: button
       type: Virgis.SelectionTypes
     content.vb: Public Overrides Sub UnSelected(button As SelectionTypes)
-  overridden: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  overridden: Virgis.VirgisFeature.UnSelected(Virgis.SelectionTypes)
   overload: Virgis.LineSegment.UnSelected*
   modifiers.csharp:
   - public
@@ -269,7 +273,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: SetMaterial
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -285,7 +289,7 @@ items:
     - id: selectedMat
       type: UnityEngine.Material
     content.vb: Public Overrides Sub SetMaterial(mainMat As Material, selectedMat As Material)
-  overridden: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  overridden: Virgis.VirgisFeature.SetMaterial(UnityEngine.Material,UnityEngine.Material)
   overload: Virgis.LineSegment.SetMaterial*
   modifiers.csharp:
   - public
@@ -307,7 +311,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: MoveStart
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -340,7 +344,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: MoveEnd
     path: ../Assets/Scripts/Geometries/LineSegment.cs
@@ -359,78 +363,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Virgis.LineSegment.Translate(Virgis.MoveArgs)
-  commentId: M:Virgis.LineSegment.Translate(Virgis.MoveArgs)
-  id: Translate(Virgis.MoveArgs)
-  parent: Virgis.LineSegment
-  langs:
-  - csharp
-  - vb
-  name: Translate(MoveArgs)
-  nameWithType: LineSegment.Translate(MoveArgs)
-  fullName: Virgis.LineSegment.Translate(Virgis.MoveArgs)
-  type: Method
-  source:
-    remote:
-      path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
-      repo: https://github.com/runette/ViRGIS.git
-    id: Translate
-    path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 93
-  assemblies:
-  - Assembly-CSharp
-  namespace: Virgis
-  syntax:
-    content: public override void Translate(MoveArgs args)
-    parameters:
-    - id: args
-      type: Virgis.MoveArgs
-    content.vb: Public Overrides Sub Translate(args As MoveArgs)
-  overridden: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
-  overload: Virgis.LineSegment.Translate*
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-- uid: Virgis.LineSegment.VertexMove(Virgis.MoveArgs)
-  commentId: M:Virgis.LineSegment.VertexMove(Virgis.MoveArgs)
-  id: VertexMove(Virgis.MoveArgs)
-  parent: Virgis.LineSegment
-  langs:
-  - csharp
-  - vb
-  name: VertexMove(MoveArgs)
-  nameWithType: LineSegment.VertexMove(MoveArgs)
-  fullName: Virgis.LineSegment.VertexMove(Virgis.MoveArgs)
-  type: Method
-  source:
-    remote:
-      path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
-      repo: https://github.com/runette/ViRGIS.git
-    id: VertexMove
-    path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 97
-  assemblies:
-  - Assembly-CSharp
-  namespace: Virgis
-  syntax:
-    content: public override void VertexMove(MoveArgs args)
-    parameters:
-    - id: args
-      type: Virgis.MoveArgs
-    content.vb: Public Overrides Sub VertexMove(args As MoveArgs)
-  overridden: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
-  overload: Virgis.LineSegment.VertexMove*
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
 - uid: Virgis.LineSegment.MoveAxis(Virgis.MoveArgs)
   commentId: M:Virgis.LineSegment.MoveAxis(Virgis.MoveArgs)
   id: MoveAxis(Virgis.MoveArgs)
@@ -445,11 +377,11 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: MoveAxis
     path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 101
+    startLine: 92
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -459,7 +391,7 @@ items:
     - id: args
       type: Virgis.MoveArgs
     content.vb: Public Overrides Sub MoveAxis(args As MoveArgs)
-  overridden: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  overridden: Virgis.VirgisFeature.MoveAxis(Virgis.MoveArgs)
   overload: Virgis.LineSegment.MoveAxis*
   modifiers.csharp:
   - public
@@ -481,11 +413,11 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: MoveTo
     path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 106
+    startLine: 97
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -495,7 +427,7 @@ items:
     - id: args
       type: Virgis.MoveArgs
     content.vb: Public Overrides Sub MoveTo(args As MoveArgs)
-  overridden: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  overridden: Virgis.VirgisFeature.MoveTo(Virgis.MoveArgs)
   overload: Virgis.LineSegment.MoveTo*
   modifiers.csharp:
   - public
@@ -517,23 +449,23 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: AddVertex
     path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 111
+    startLine: 102
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
   syntax:
-    content: public override VirgisComponent AddVertex(Vector3 position)
+    content: public override VirgisFeature AddVertex(Vector3 position)
     parameters:
     - id: position
       type: UnityEngine.Vector3
     return:
-      type: Virgis.VirgisComponent
-    content.vb: Public Overrides Function AddVertex(position As Vector3) As VirgisComponent
-  overridden: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+      type: Virgis.VirgisFeature
+    content.vb: Public Overrides Function AddVertex(position As Vector3) As VirgisFeature
+  overridden: Virgis.VirgisFeature.AddVertex(UnityEngine.Vector3)
   overload: Virgis.LineSegment.AddVertex*
   modifiers.csharp:
   - public
@@ -555,11 +487,11 @@ items:
   source:
     remote:
       path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Delete
     path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 116
+    startLine: 107
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -571,84 +503,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: Virgis.LineSegment.GetClosest(UnityEngine.Vector3)
-  commentId: M:Virgis.LineSegment.GetClosest(UnityEngine.Vector3)
-  id: GetClosest(UnityEngine.Vector3)
-  parent: Virgis.LineSegment
-  langs:
-  - csharp
-  - vb
-  name: GetClosest(Vector3)
-  nameWithType: LineSegment.GetClosest(Vector3)
-  fullName: Virgis.LineSegment.GetClosest(UnityEngine.Vector3)
-  type: Method
-  source:
-    remote:
-      path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
-      repo: https://github.com/runette/ViRGIS.git
-    id: GetClosest
-    path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 120
-  assemblies:
-  - Assembly-CSharp
-  namespace: Virgis
-  syntax:
-    content: public override Vector3 GetClosest(Vector3 coords)
-    parameters:
-    - id: coords
-      type: UnityEngine.Vector3
-    return:
-      type: UnityEngine.Vector3
-    content.vb: Public Overrides Function GetClosest(coords As Vector3) As Vector3
-  overridden: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
-  overload: Virgis.LineSegment.GetClosest*
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-- uid: Virgis.LineSegment.GetGeometry``1
-  commentId: M:Virgis.LineSegment.GetGeometry``1
-  id: GetGeometry``1
-  parent: Virgis.LineSegment
-  langs:
-  - csharp
-  - vb
-  name: GetGeometry<T>()
-  nameWithType: LineSegment.GetGeometry<T>()
-  fullName: Virgis.LineSegment.GetGeometry<T>()
-  type: Method
-  source:
-    remote:
-      path: Assets/Scripts/Geometries/LineSegment.cs
-      branch: doc
-      repo: https://github.com/runette/ViRGIS.git
-    id: GetGeometry
-    path: ../Assets/Scripts/Geometries/LineSegment.cs
-    startLine: 124
-  assemblies:
-  - Assembly-CSharp
-  namespace: Virgis
-  syntax:
-    content: public override T GetGeometry<T>()
-    typeParameters:
-    - id: T
-    return:
-      type: '{T}'
-    content.vb: Public Overrides Function GetGeometry(Of T) As T
-  overridden: Virgis.VirgisComponent.GetGeometry``1
-  overload: Virgis.LineSegment.GetGeometry*
-  nameWithType.vb: LineSegment.GetGeometry(Of T)()
-  modifiers.csharp:
-  - public
-  - override
-  modifiers.vb:
-  - Public
-  - Overrides
-  fullName.vb: Virgis.LineSegment.GetGeometry(Of T)()
-  name.vb: GetGeometry(Of T)()
 references:
 - uid: Virgis
   commentId: N:Virgis
@@ -690,71 +544,65 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
-- uid: Virgis.VirgisComponent
-  commentId: T:Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature
+  commentId: T:Virgis.VirgisFeature
   parent: Virgis
-  name: VirgisComponent
-  nameWithType: VirgisComponent
-  fullName: Virgis.VirgisComponent
-- uid: Virgis.IVirgisComponent
-  commentId: T:Virgis.IVirgisComponent
+  name: VirgisFeature
+  nameWithType: VirgisFeature
+  fullName: Virgis.VirgisFeature
+- uid: Virgis.IVirgisFeature
+  commentId: T:Virgis.IVirgisFeature
   parent: Virgis
-  name: IVirgisComponent
-  nameWithType: IVirgisComponent
-  fullName: Virgis.IVirgisComponent
+  name: IVirgisFeature
+  nameWithType: IVirgisFeature
+  fullName: Virgis.IVirgisFeature
 - uid: Virgis.IVirgisEntity
   commentId: T:Virgis.IVirgisEntity
   parent: Virgis
   name: IVirgisEntity
   nameWithType: IVirgisEntity
   fullName: Virgis.IVirgisEntity
-- uid: Virgis.VirgisComponent.mainMat
-  commentId: F:Virgis.VirgisComponent.mainMat
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.mainMat
+  commentId: F:Virgis.VirgisFeature.mainMat
+  parent: Virgis.VirgisFeature
   name: mainMat
-  nameWithType: VirgisComponent.mainMat
-  fullName: Virgis.VirgisComponent.mainMat
-- uid: Virgis.VirgisComponent.selectedMat
-  commentId: F:Virgis.VirgisComponent.selectedMat
-  parent: Virgis.VirgisComponent
+  nameWithType: VirgisFeature.mainMat
+  fullName: Virgis.VirgisFeature.mainMat
+- uid: Virgis.VirgisFeature.selectedMat
+  commentId: F:Virgis.VirgisFeature.selectedMat
+  parent: Virgis.VirgisFeature
   name: selectedMat
-  nameWithType: VirgisComponent.selectedMat
-  fullName: Virgis.VirgisComponent.selectedMat
-- uid: Virgis.VirgisComponent.gisId
-  commentId: F:Virgis.VirgisComponent.gisId
-  parent: Virgis.VirgisComponent
+  nameWithType: VirgisFeature.selectedMat
+  fullName: Virgis.VirgisFeature.selectedMat
+- uid: Virgis.VirgisFeature.gisId
+  commentId: F:Virgis.VirgisFeature.gisId
+  parent: Virgis.VirgisFeature
   name: gisId
-  nameWithType: VirgisComponent.gisId
-  fullName: Virgis.VirgisComponent.gisId
-- uid: Virgis.VirgisComponent.gisProperties
-  commentId: F:Virgis.VirgisComponent.gisProperties
-  parent: Virgis.VirgisComponent
+  nameWithType: VirgisFeature.gisId
+  fullName: Virgis.VirgisFeature.gisId
+- uid: Virgis.VirgisFeature.gisProperties
+  commentId: F:Virgis.VirgisFeature.gisProperties
+  parent: Virgis.VirgisFeature
   name: gisProperties
-  nameWithType: VirgisComponent.gisProperties
-  fullName: Virgis.VirgisComponent.gisProperties
-- uid: Virgis.VirgisComponent.id
-  commentId: F:Virgis.VirgisComponent.id
-  parent: Virgis.VirgisComponent
-  name: id
-  nameWithType: VirgisComponent.id
-  fullName: Virgis.VirgisComponent.id
-- uid: Virgis.VirgisComponent.label
-  commentId: F:Virgis.VirgisComponent.label
-  parent: Virgis.VirgisComponent
+  nameWithType: VirgisFeature.gisProperties
+  fullName: Virgis.VirgisFeature.gisProperties
+- uid: Virgis.VirgisFeature.label
+  commentId: F:Virgis.VirgisFeature.label
+  parent: Virgis.VirgisFeature
   name: label
-  nameWithType: VirgisComponent.label
-  fullName: Virgis.VirgisComponent.label
-- uid: Virgis.VirgisComponent.StartEditSession
-  commentId: M:Virgis.VirgisComponent.StartEditSession
-  parent: Virgis.VirgisComponent
+  nameWithType: VirgisFeature.label
+  fullName: Virgis.VirgisFeature.label
+- uid: Virgis.VirgisFeature.StartEditSession
+  commentId: M:Virgis.VirgisFeature.StartEditSession
+  parent: Virgis.VirgisFeature
   name: StartEditSession()
-  nameWithType: VirgisComponent.StartEditSession()
-  fullName: Virgis.VirgisComponent.StartEditSession()
+  nameWithType: VirgisFeature.StartEditSession()
+  fullName: Virgis.VirgisFeature.StartEditSession()
   spec.csharp:
-  - uid: Virgis.VirgisComponent.StartEditSession
+  - uid: Virgis.VirgisFeature.StartEditSession
     name: StartEditSession
-    nameWithType: VirgisComponent.StartEditSession
-    fullName: Virgis.VirgisComponent.StartEditSession
+    nameWithType: VirgisFeature.StartEditSession
+    fullName: Virgis.VirgisFeature.StartEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -762,28 +610,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.StartEditSession
+  - uid: Virgis.VirgisFeature.StartEditSession
     name: StartEditSession
-    nameWithType: VirgisComponent.StartEditSession
-    fullName: Virgis.VirgisComponent.StartEditSession
+    nameWithType: VirgisFeature.StartEditSession
+    fullName: Virgis.VirgisFeature.StartEditSession
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
-  commentId: M:Virgis.VirgisComponent.ExitEditSession(System.Boolean)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.VirgisFeature.ExitEditSession(System.Boolean)
+  parent: Virgis.VirgisFeature
   isExternal: true
   name: ExitEditSession(Boolean)
-  nameWithType: VirgisComponent.ExitEditSession(Boolean)
-  fullName: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  nameWithType: VirgisFeature.ExitEditSession(Boolean)
+  fullName: Virgis.VirgisFeature.ExitEditSession(System.Boolean)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  - uid: Virgis.VirgisFeature.ExitEditSession(System.Boolean)
     name: ExitEditSession
-    nameWithType: VirgisComponent.ExitEditSession
-    fullName: Virgis.VirgisComponent.ExitEditSession
+    nameWithType: VirgisFeature.ExitEditSession
+    fullName: Virgis.VirgisFeature.ExitEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -796,10 +644,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.ExitEditSession(System.Boolean)
+  - uid: Virgis.VirgisFeature.ExitEditSession(System.Boolean)
     name: ExitEditSession
-    nameWithType: VirgisComponent.ExitEditSession
-    fullName: Virgis.VirgisComponent.ExitEditSession
+    nameWithType: VirgisFeature.ExitEditSession
+    fullName: Virgis.VirgisFeature.ExitEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -811,39 +659,365 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
-  commentId: M:Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
-  parent: Virgis.VirgisComponent
-  name: RemoveVertex(VirgisComponent)
-  nameWithType: VirgisComponent.RemoveVertex(VirgisComponent)
-  fullName: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
+- uid: Virgis.VirgisFeature.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisFeature.Translate(Virgis.MoveArgs)
+  parent: Virgis.VirgisFeature
+  name: Translate(MoveArgs)
+  nameWithType: VirgisFeature.Translate(MoveArgs)
+  fullName: Virgis.VirgisFeature.Translate(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
-    name: RemoveVertex
-    nameWithType: VirgisComponent.RemoveVertex
-    fullName: Virgis.VirgisComponent.RemoveVertex
+  - uid: Virgis.VirgisFeature.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: VirgisFeature.Translate
+    fullName: Virgis.VirgisFeature.Translate
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Virgis.VirgisComponent
-    name: VirgisComponent
-    nameWithType: VirgisComponent
-    fullName: Virgis.VirgisComponent
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.RemoveVertex(Virgis.VirgisComponent)
-    name: RemoveVertex
-    nameWithType: VirgisComponent.RemoveVertex
-    fullName: Virgis.VirgisComponent.RemoveVertex
+  - uid: Virgis.VirgisFeature.Translate(Virgis.MoveArgs)
+    name: Translate
+    nameWithType: VirgisFeature.Translate
+    fullName: Virgis.VirgisFeature.Translate
   - name: (
     nameWithType: (
     fullName: (
-  - uid: Virgis.VirgisComponent
-    name: VirgisComponent
-    nameWithType: VirgisComponent
-    fullName: Virgis.VirgisComponent
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisFeature.VertexMove(Virgis.MoveArgs)
+  parent: Virgis.VirgisFeature
+  name: VertexMove(MoveArgs)
+  nameWithType: VirgisFeature.VertexMove(MoveArgs)
+  fullName: Virgis.VirgisFeature.VertexMove(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisFeature.VertexMove
+    fullName: Virgis.VirgisFeature.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisFeature.VertexMove
+    fullName: Virgis.VirgisFeature.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3,System.Guid[])
+  parent: Virgis.VirgisFeature
+  isExternal: true
+  name: GetClosest(Vector3, Guid[])
+  nameWithType: VirgisFeature.GetClosest(Vector3, Guid[])
+  fullName: Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3, System.Guid[])
+  nameWithType.vb: VirgisFeature.GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3, System.Guid())
+  name.vb: GetClosest(Vector3, Guid())
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: VirgisFeature.GetClosest
+    fullName: Virgis.VirgisFeature.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: VirgisFeature.GetClosest
+    fullName: Virgis.VirgisFeature.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.RemoveVertex(Virgis.VirgisFeature)
+  commentId: M:Virgis.VirgisFeature.RemoveVertex(Virgis.VirgisFeature)
+  parent: Virgis.VirgisFeature
+  name: RemoveVertex(VirgisFeature)
+  nameWithType: VirgisFeature.RemoveVertex(VirgisFeature)
+  fullName: Virgis.VirgisFeature.RemoveVertex(Virgis.VirgisFeature)
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.RemoveVertex(Virgis.VirgisFeature)
+    name: RemoveVertex
+    nameWithType: VirgisFeature.RemoveVertex
+    fullName: Virgis.VirgisFeature.RemoveVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisFeature
+    name: VirgisFeature
+    nameWithType: VirgisFeature
+    fullName: Virgis.VirgisFeature
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.RemoveVertex(Virgis.VirgisFeature)
+    name: RemoveVertex
+    nameWithType: VirgisFeature.RemoveVertex
+    fullName: Virgis.VirgisFeature.RemoveVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisFeature
+    name: VirgisFeature
+    nameWithType: VirgisFeature
+    fullName: Virgis.VirgisFeature
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.GetGeometry``1
+  commentId: M:Virgis.VirgisFeature.GetGeometry``1
+  parent: Virgis.VirgisFeature
+  name: GetGeometry<T>()
+  nameWithType: VirgisFeature.GetGeometry<T>()
+  fullName: Virgis.VirgisFeature.GetGeometry<T>()
+  nameWithType.vb: VirgisFeature.GetGeometry(Of T)()
+  fullName.vb: Virgis.VirgisFeature.GetGeometry(Of T)()
+  name.vb: GetGeometry(Of T)()
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.GetGeometry``1
+    name: GetGeometry<T>
+    nameWithType: VirgisFeature.GetGeometry<T>
+    fullName: Virgis.VirgisFeature.GetGeometry<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.GetGeometry``1
+    name: GetGeometry(Of T)
+    nameWithType: VirgisFeature.GetGeometry(Of T)
+    fullName: Virgis.VirgisFeature.GetGeometry(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.GetId
+  commentId: M:Virgis.VirgisFeature.GetId
+  parent: Virgis.VirgisFeature
+  name: GetId()
+  nameWithType: VirgisFeature.GetId()
+  fullName: Virgis.VirgisFeature.GetId()
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.GetId
+    name: GetId
+    nameWithType: VirgisFeature.GetId
+    fullName: Virgis.VirgisFeature.GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.GetId
+    name: GetId
+    nameWithType: VirgisFeature.GetId
+    fullName: Virgis.VirgisFeature.GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.GetMetadata
+  commentId: M:Virgis.VirgisFeature.GetMetadata
+  parent: Virgis.VirgisFeature
+  name: GetMetadata()
+  nameWithType: VirgisFeature.GetMetadata()
+  fullName: Virgis.VirgisFeature.GetMetadata()
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.GetMetadata
+    name: GetMetadata
+    nameWithType: VirgisFeature.GetMetadata
+    fullName: Virgis.VirgisFeature.GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.GetMetadata
+    name: GetMetadata
+    nameWithType: VirgisFeature.GetMetadata
+    fullName: Virgis.VirgisFeature.GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.Equals(System.Object)
+  commentId: M:Virgis.VirgisFeature.Equals(System.Object)
+  parent: Virgis.VirgisFeature
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: VirgisFeature.Equals(Object)
+  fullName: Virgis.VirgisFeature.Equals(System.Object)
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.Equals(System.Object)
+    name: Equals
+    nameWithType: VirgisFeature.Equals
+    fullName: Virgis.VirgisFeature.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.Equals(System.Object)
+    name: Equals
+    nameWithType: VirgisFeature.Equals
+    fullName: Virgis.VirgisFeature.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.GetHashCode
+  commentId: M:Virgis.VirgisFeature.GetHashCode
+  parent: Virgis.VirgisFeature
+  name: GetHashCode()
+  nameWithType: VirgisFeature.GetHashCode()
+  fullName: Virgis.VirgisFeature.GetHashCode()
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.GetHashCode
+    name: GetHashCode
+    nameWithType: VirgisFeature.GetHashCode
+    fullName: Virgis.VirgisFeature.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.GetHashCode
+    name: GetHashCode
+    nameWithType: VirgisFeature.GetHashCode
+    fullName: Virgis.VirgisFeature.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisFeature.Equals(Virgis.VirgisFeature)
+  commentId: M:Virgis.VirgisFeature.Equals(Virgis.VirgisFeature)
+  parent: Virgis.VirgisFeature
+  name: Equals(VirgisFeature)
+  nameWithType: VirgisFeature.Equals(VirgisFeature)
+  fullName: Virgis.VirgisFeature.Equals(Virgis.VirgisFeature)
+  spec.csharp:
+  - uid: Virgis.VirgisFeature.Equals(Virgis.VirgisFeature)
+    name: Equals
+    nameWithType: VirgisFeature.Equals
+    fullName: Virgis.VirgisFeature.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisFeature
+    name: VirgisFeature
+    nameWithType: VirgisFeature
+    fullName: Virgis.VirgisFeature
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisFeature.Equals(Virgis.VirgisFeature)
+    name: Equals
+    nameWithType: VirgisFeature.Equals
+    fullName: Virgis.VirgisFeature.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisFeature
+    name: VirgisFeature
+    nameWithType: VirgisFeature
+    fullName: Virgis.VirgisFeature
   - name: )
     nameWithType: )
     fullName: )
@@ -885,17 +1059,17 @@ references:
   name: Single
   nameWithType: Single
   fullName: System.Single
-- uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
-  commentId: M:Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisFeature.Selected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisFeature
   name: Selected(SelectionTypes)
-  nameWithType: VirgisComponent.Selected(SelectionTypes)
-  fullName: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  nameWithType: VirgisFeature.Selected(SelectionTypes)
+  fullName: Virgis.VirgisFeature.Selected(Virgis.SelectionTypes)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisFeature.Selected(Virgis.SelectionTypes)
     name: Selected
-    nameWithType: VirgisComponent.Selected
-    fullName: Virgis.VirgisComponent.Selected
+    nameWithType: VirgisFeature.Selected
+    fullName: Virgis.VirgisFeature.Selected
   - name: (
     nameWithType: (
     fullName: (
@@ -907,10 +1081,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.Selected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisFeature.Selected(Virgis.SelectionTypes)
     name: Selected
-    nameWithType: VirgisComponent.Selected
-    fullName: Virgis.VirgisComponent.Selected
+    nameWithType: VirgisFeature.Selected
+    fullName: Virgis.VirgisFeature.Selected
   - name: (
     nameWithType: (
     fullName: (
@@ -932,17 +1106,17 @@ references:
   name: SelectionTypes
   nameWithType: SelectionTypes
   fullName: Virgis.SelectionTypes
-- uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
-  commentId: M:Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisFeature.UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisFeature
   name: UnSelected(SelectionTypes)
-  nameWithType: VirgisComponent.UnSelected(SelectionTypes)
-  fullName: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  nameWithType: VirgisFeature.UnSelected(SelectionTypes)
+  fullName: Virgis.VirgisFeature.UnSelected(Virgis.SelectionTypes)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisFeature.UnSelected(Virgis.SelectionTypes)
     name: UnSelected
-    nameWithType: VirgisComponent.UnSelected
-    fullName: Virgis.VirgisComponent.UnSelected
+    nameWithType: VirgisFeature.UnSelected
+    fullName: Virgis.VirgisFeature.UnSelected
   - name: (
     nameWithType: (
     fullName: (
@@ -954,10 +1128,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.UnSelected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisFeature.UnSelected(Virgis.SelectionTypes)
     name: UnSelected
-    nameWithType: VirgisComponent.UnSelected
-    fullName: Virgis.VirgisComponent.UnSelected
+    nameWithType: VirgisFeature.UnSelected
+    fullName: Virgis.VirgisFeature.UnSelected
   - name: (
     nameWithType: (
     fullName: (
@@ -973,18 +1147,18 @@ references:
   name: UnSelected
   nameWithType: LineSegment.UnSelected
   fullName: Virgis.LineSegment.UnSelected
-- uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
-  commentId: M:Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  commentId: M:Virgis.VirgisFeature.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  parent: Virgis.VirgisFeature
   isExternal: true
   name: SetMaterial(Material, Material)
-  nameWithType: VirgisComponent.SetMaterial(Material, Material)
-  fullName: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material, UnityEngine.Material)
+  nameWithType: VirgisFeature.SetMaterial(Material, Material)
+  fullName: Virgis.VirgisFeature.SetMaterial(UnityEngine.Material, UnityEngine.Material)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  - uid: Virgis.VirgisFeature.SetMaterial(UnityEngine.Material,UnityEngine.Material)
     name: SetMaterial
-    nameWithType: VirgisComponent.SetMaterial
-    fullName: Virgis.VirgisComponent.SetMaterial
+    nameWithType: VirgisFeature.SetMaterial
+    fullName: Virgis.VirgisFeature.SetMaterial
   - name: (
     nameWithType: (
     fullName: (
@@ -1005,10 +1179,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.SetMaterial(UnityEngine.Material,UnityEngine.Material)
+  - uid: Virgis.VirgisFeature.SetMaterial(UnityEngine.Material,UnityEngine.Material)
     name: SetMaterial
-    nameWithType: VirgisComponent.SetMaterial
-    fullName: Virgis.VirgisComponent.SetMaterial
+    nameWithType: VirgisFeature.SetMaterial
+    fullName: Virgis.VirgisFeature.SetMaterial
   - name: (
     nameWithType: (
     fullName: (
@@ -1050,105 +1224,17 @@ references:
   name: MoveEnd
   nameWithType: LineSegment.MoveEnd
   fullName: Virgis.LineSegment.MoveEnd
-- uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
-  commentId: M:Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
-  parent: Virgis.VirgisComponent
-  name: Translate(MoveArgs)
-  nameWithType: VirgisComponent.Translate(MoveArgs)
-  fullName: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
-  spec.csharp:
-  - uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
-    name: Translate
-    nameWithType: VirgisComponent.Translate
-    fullName: Virgis.VirgisComponent.Translate
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Virgis.MoveArgs
-    name: MoveArgs
-    nameWithType: MoveArgs
-    fullName: Virgis.MoveArgs
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Virgis.VirgisComponent.Translate(Virgis.MoveArgs)
-    name: Translate
-    nameWithType: VirgisComponent.Translate
-    fullName: Virgis.VirgisComponent.Translate
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Virgis.MoveArgs
-    name: MoveArgs
-    nameWithType: MoveArgs
-    fullName: Virgis.MoveArgs
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Virgis.LineSegment.Translate*
-  commentId: Overload:Virgis.LineSegment.Translate
-  name: Translate
-  nameWithType: LineSegment.Translate
-  fullName: Virgis.LineSegment.Translate
-- uid: Virgis.MoveArgs
-  commentId: T:Virgis.MoveArgs
-  parent: Virgis
-  name: MoveArgs
-  nameWithType: MoveArgs
-  fullName: Virgis.MoveArgs
-- uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
-  commentId: M:Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
-  parent: Virgis.VirgisComponent
-  name: VertexMove(MoveArgs)
-  nameWithType: VirgisComponent.VertexMove(MoveArgs)
-  fullName: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
-  spec.csharp:
-  - uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
-    name: VertexMove
-    nameWithType: VirgisComponent.VertexMove
-    fullName: Virgis.VirgisComponent.VertexMove
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Virgis.MoveArgs
-    name: MoveArgs
-    nameWithType: MoveArgs
-    fullName: Virgis.MoveArgs
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Virgis.VirgisComponent.VertexMove(Virgis.MoveArgs)
-    name: VertexMove
-    nameWithType: VirgisComponent.VertexMove
-    fullName: Virgis.VirgisComponent.VertexMove
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: Virgis.MoveArgs
-    name: MoveArgs
-    nameWithType: MoveArgs
-    fullName: Virgis.MoveArgs
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Virgis.LineSegment.VertexMove*
-  commentId: Overload:Virgis.LineSegment.VertexMove
-  name: VertexMove
-  nameWithType: LineSegment.VertexMove
-  fullName: Virgis.LineSegment.VertexMove
-- uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
-  commentId: M:Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisFeature.MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.VirgisFeature
   name: MoveAxis(MoveArgs)
-  nameWithType: VirgisComponent.MoveAxis(MoveArgs)
-  fullName: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  nameWithType: VirgisFeature.MoveAxis(MoveArgs)
+  fullName: Virgis.VirgisFeature.MoveAxis(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  - uid: Virgis.VirgisFeature.MoveAxis(Virgis.MoveArgs)
     name: MoveAxis
-    nameWithType: VirgisComponent.MoveAxis
-    fullName: Virgis.VirgisComponent.MoveAxis
+    nameWithType: VirgisFeature.MoveAxis
+    fullName: Virgis.VirgisFeature.MoveAxis
   - name: (
     nameWithType: (
     fullName: (
@@ -1160,10 +1246,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.MoveAxis(Virgis.MoveArgs)
+  - uid: Virgis.VirgisFeature.MoveAxis(Virgis.MoveArgs)
     name: MoveAxis
-    nameWithType: VirgisComponent.MoveAxis
-    fullName: Virgis.VirgisComponent.MoveAxis
+    nameWithType: VirgisFeature.MoveAxis
+    fullName: Virgis.VirgisFeature.MoveAxis
   - name: (
     nameWithType: (
     fullName: (
@@ -1179,17 +1265,23 @@ references:
   name: MoveAxis
   nameWithType: LineSegment.MoveAxis
   fullName: Virgis.LineSegment.MoveAxis
-- uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
-  commentId: M:Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.MoveArgs
+  commentId: T:Virgis.MoveArgs
+  parent: Virgis
+  name: MoveArgs
+  nameWithType: MoveArgs
+  fullName: Virgis.MoveArgs
+- uid: Virgis.VirgisFeature.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisFeature.MoveTo(Virgis.MoveArgs)
+  parent: Virgis.VirgisFeature
   name: MoveTo(MoveArgs)
-  nameWithType: VirgisComponent.MoveTo(MoveArgs)
-  fullName: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  nameWithType: VirgisFeature.MoveTo(MoveArgs)
+  fullName: Virgis.VirgisFeature.MoveTo(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  - uid: Virgis.VirgisFeature.MoveTo(Virgis.MoveArgs)
     name: MoveTo
-    nameWithType: VirgisComponent.MoveTo
-    fullName: Virgis.VirgisComponent.MoveTo
+    nameWithType: VirgisFeature.MoveTo
+    fullName: Virgis.VirgisFeature.MoveTo
   - name: (
     nameWithType: (
     fullName: (
@@ -1201,10 +1293,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.MoveTo(Virgis.MoveArgs)
+  - uid: Virgis.VirgisFeature.MoveTo(Virgis.MoveArgs)
     name: MoveTo
-    nameWithType: VirgisComponent.MoveTo
-    fullName: Virgis.VirgisComponent.MoveTo
+    nameWithType: VirgisFeature.MoveTo
+    fullName: Virgis.VirgisFeature.MoveTo
   - name: (
     nameWithType: (
     fullName: (
@@ -1220,18 +1312,18 @@ references:
   name: MoveTo
   nameWithType: LineSegment.MoveTo
   fullName: Virgis.LineSegment.MoveTo
-- uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
-  commentId: M:Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
-  parent: Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature.AddVertex(UnityEngine.Vector3)
+  commentId: M:Virgis.VirgisFeature.AddVertex(UnityEngine.Vector3)
+  parent: Virgis.VirgisFeature
   isExternal: true
   name: AddVertex(Vector3)
-  nameWithType: VirgisComponent.AddVertex(Vector3)
-  fullName: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  nameWithType: VirgisFeature.AddVertex(Vector3)
+  fullName: Virgis.VirgisFeature.AddVertex(UnityEngine.Vector3)
   spec.csharp:
-  - uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  - uid: Virgis.VirgisFeature.AddVertex(UnityEngine.Vector3)
     name: AddVertex
-    nameWithType: VirgisComponent.AddVertex
-    fullName: Virgis.VirgisComponent.AddVertex
+    nameWithType: VirgisFeature.AddVertex
+    fullName: Virgis.VirgisFeature.AddVertex
   - name: (
     nameWithType: (
     fullName: (
@@ -1244,10 +1336,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.VirgisComponent.AddVertex(UnityEngine.Vector3)
+  - uid: Virgis.VirgisFeature.AddVertex(UnityEngine.Vector3)
     name: AddVertex
-    nameWithType: VirgisComponent.AddVertex
-    fullName: Virgis.VirgisComponent.AddVertex
+    nameWithType: VirgisFeature.AddVertex
+    fullName: Virgis.VirgisFeature.AddVertex
   - name: (
     nameWithType: (
     fullName: (
@@ -1269,93 +1361,3 @@ references:
   name: Delete
   nameWithType: LineSegment.Delete
   fullName: Virgis.LineSegment.Delete
-- uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
-  commentId: M:Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
-  parent: Virgis.VirgisComponent
-  isExternal: true
-  name: GetClosest(Vector3)
-  nameWithType: VirgisComponent.GetClosest(Vector3)
-  fullName: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
-  spec.csharp:
-  - uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
-    name: GetClosest
-    nameWithType: VirgisComponent.GetClosest
-    fullName: Virgis.VirgisComponent.GetClosest
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    nameWithType: Vector3
-    fullName: UnityEngine.Vector3
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Virgis.VirgisComponent.GetClosest(UnityEngine.Vector3)
-    name: GetClosest
-    nameWithType: VirgisComponent.GetClosest
-    fullName: Virgis.VirgisComponent.GetClosest
-  - name: (
-    nameWithType: (
-    fullName: (
-  - uid: UnityEngine.Vector3
-    name: Vector3
-    nameWithType: Vector3
-    fullName: UnityEngine.Vector3
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Virgis.LineSegment.GetClosest*
-  commentId: Overload:Virgis.LineSegment.GetClosest
-  name: GetClosest
-  nameWithType: LineSegment.GetClosest
-  fullName: Virgis.LineSegment.GetClosest
-- uid: Virgis.VirgisComponent.GetGeometry``1
-  commentId: M:Virgis.VirgisComponent.GetGeometry``1
-  parent: Virgis.VirgisComponent
-  name: GetGeometry<T>()
-  nameWithType: VirgisComponent.GetGeometry<T>()
-  fullName: Virgis.VirgisComponent.GetGeometry<T>()
-  nameWithType.vb: VirgisComponent.GetGeometry(Of T)()
-  fullName.vb: Virgis.VirgisComponent.GetGeometry(Of T)()
-  name.vb: GetGeometry(Of T)()
-  spec.csharp:
-  - uid: Virgis.VirgisComponent.GetGeometry``1
-    name: GetGeometry<T>
-    nameWithType: VirgisComponent.GetGeometry<T>
-    fullName: Virgis.VirgisComponent.GetGeometry<T>
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-  spec.vb:
-  - uid: Virgis.VirgisComponent.GetGeometry``1
-    name: GetGeometry(Of T)
-    nameWithType: VirgisComponent.GetGeometry(Of T)
-    fullName: Virgis.VirgisComponent.GetGeometry(Of T)
-  - name: (
-    nameWithType: (
-    fullName: (
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: Virgis.LineSegment.GetGeometry*
-  commentId: Overload:Virgis.LineSegment.GetGeometry
-  name: GetGeometry
-  nameWithType: LineSegment.GetGeometry
-  fullName: Virgis.LineSegment.GetGeometry
-- uid: '{T}'
-  commentId: '!:T'
-  definition: T
-  name: T
-  nameWithType: T
-  fullName: T
-- uid: T
-  name: T
-  nameWithType: T
-  fullName: T

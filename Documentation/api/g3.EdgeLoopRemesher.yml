@@ -1,0 +1,3140 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.EdgeLoopRemesher
+  commentId: T:g3.EdgeLoopRemesher
+  id: EdgeLoopRemesher
+  parent: g3
+  children:
+  - g3.EdgeLoopRemesher.#ctor(g3.DMesh3,g3.EdgeLoop)
+  - g3.EdgeLoopRemesher.begin_smooth
+  - g3.EdgeLoopRemesher.end_pass
+  - g3.EdgeLoopRemesher.InputLoop
+  - g3.EdgeLoopRemesher.LocalSmoothingRings
+  - g3.EdgeLoopRemesher.next_edge(System.Int32,System.Boolean@)
+  - g3.EdgeLoopRemesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  - g3.EdgeLoopRemesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  - g3.EdgeLoopRemesher.OutputLoop
+  - g3.EdgeLoopRemesher.Precompute
+  - g3.EdgeLoopRemesher.project_vertices
+  - g3.EdgeLoopRemesher.smooth_vertices
+  - g3.EdgeLoopRemesher.start_edges
+  - g3.EdgeLoopRemesher.UpdateLoop(g3.EdgeLoop)
+  langs:
+  - csharp
+  - vb
+  name: EdgeLoopRemesher
+  nameWithType: EdgeLoopRemesher
+  fullName: g3.EdgeLoopRemesher
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeLoopRemesher
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nThis is a custom Remesher that only affects the edges along an EdgeLoop.\nThe edges are only split and collapsed, flipping is not permitted.\nThe loop vertices are smoothed along the loop, ie using curve laplacian\nrather than one-ring laplacian.\n\n[TODO] avoid rebuild_edge_list(). requires handling various cases below...\n[TODO] Precompute() seems overly expensive...?\n[TODO] local-smoothing impl is not very efficient. Should not be necessary to\nrebuild nbrhood each time if we are not changing it.\n"
+  example: []
+  syntax:
+    content: 'public class EdgeLoopRemesher : Remesher'
+    content.vb: >-
+      Public Class EdgeLoopRemesher
+          Inherits Remesher
+  inheritance:
+  - System.Object
+  - g3.MeshRefinerBase
+  - g3.Remesher
+  inheritedMembers:
+  - g3.Remesher.EnableFlips
+  - g3.Remesher.EnableCollapses
+  - g3.Remesher.EnableSplits
+  - g3.Remesher.EnableSmoothing
+  - g3.Remesher.PreventNormalFlips
+  - g3.Remesher.MinEdgeLength
+  - g3.Remesher.MaxEdgeLength
+  - g3.Remesher.SmoothSpeedT
+  - g3.Remesher.SmoothType
+  - g3.Remesher.CustomSmoothF
+  - g3.Remesher.VertexControlF
+  - g3.Remesher.DebugEdges
+  - g3.Remesher.ProjectionMode
+  - g3.Remesher.EnableParallelProjection
+  - g3.Remesher.EnableParallelSmooth
+  - g3.Remesher.EnableSmoothInPlace
+  - g3.Remesher.ProjectionTarget
+  - g3.Remesher.SetProjectionTarget(g3.IProjectionTarget)
+  - g3.Remesher.SetTargetEdgeLength(System.Double)
+  - g3.Remesher.ENABLE_PROFILING
+  - g3.Remesher.ModifiedEdgesLastPass
+  - g3.Remesher.BasicRemeshPass
+  - g3.Remesher.ProcessEdge(System.Int32)
+  - g3.Remesher.update_after_split(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo@)
+  - g3.Remesher.project_vertex(System.Int32,g3.IProjectionTarget)
+  - g3.Remesher.get_projected_collapse_position(System.Int32,g3.Vector3d)
+  - g3.Remesher.FullSmoothPass_InPlace(System.Boolean)
+  - g3.Remesher.FullSmoothPass_Buffer(System.Boolean)
+  - g3.Remesher.vBufferV
+  - g3.Remesher.vModifiedV
+  - g3.Remesher.InitializeVertexBufferForPass
+  - g3.Remesher.ApplyVertexBuffer(System.Boolean)
+  - g3.Remesher.ComputeSmoothedVertexPos(System.Int32,System.Func{g3.DMesh3,System.Int32,System.Double,g3.Vector3d},System.Boolean@)
+  - g3.Remesher.FullProjectionPass
+  - g3.Remesher.ENABLE_DEBUG_CHECKS
+  - g3.Remesher.DoDebugChecks
+  - g3.Remesher.begin_pass
+  - g3.Remesher.begin_ops
+  - g3.Remesher.end_ops
+  - g3.Remesher.end_smooth
+  - g3.Remesher.begin_project
+  - g3.Remesher.end_project
+  - g3.Remesher.begin_collapse
+  - g3.Remesher.end_collapse
+  - g3.Remesher.begin_flip
+  - g3.Remesher.end_flip
+  - g3.Remesher.begin_split
+  - g3.Remesher.end_split
+  - g3.MeshRefinerBase.mesh
+  - g3.MeshRefinerBase.constraints
+  - g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  - g3.MeshRefinerBase.EdgeFlipTolerance
+  - g3.MeshRefinerBase.edge_flip_tol
+  - g3.MeshRefinerBase.Mesh
+  - g3.MeshRefinerBase.Constraints
+  - g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  - g3.MeshRefinerBase.Progress
+  - g3.MeshRefinerBase.Cancelled
+  - g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  - g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  - g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  - g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  - g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  - g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  - g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  - g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.EdgeLoopRemesher.InputLoop
+  commentId: F:g3.EdgeLoopRemesher.InputLoop
+  id: InputLoop
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: InputLoop
+  nameWithType: EdgeLoopRemesher.InputLoop
+  fullName: g3.EdgeLoopRemesher.InputLoop
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InputLoop
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoop InputLoop
+    return:
+      type: g3.EdgeLoop
+    content.vb: Public InputLoop As EdgeLoop
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.EdgeLoopRemesher.OutputLoop
+  commentId: F:g3.EdgeLoopRemesher.OutputLoop
+  id: OutputLoop
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: OutputLoop
+  nameWithType: EdgeLoopRemesher.OutputLoop
+  fullName: g3.EdgeLoopRemesher.OutputLoop
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OutputLoop
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoop OutputLoop
+    return:
+      type: g3.EdgeLoop
+    content.vb: Public OutputLoop As EdgeLoop
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.EdgeLoopRemesher.LocalSmoothingRings
+  commentId: F:g3.EdgeLoopRemesher.LocalSmoothingRings
+  id: LocalSmoothingRings
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: LocalSmoothingRings
+  nameWithType: EdgeLoopRemesher.LocalSmoothingRings
+  fullName: g3.EdgeLoopRemesher.LocalSmoothingRings
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LocalSmoothingRings
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCan optionally include N one-rings around the loop in\nthe smoothing/projection pass. This will produce cleaner results.\n"
+  example: []
+  syntax:
+    content: public int LocalSmoothingRings
+    return:
+      type: System.Int32
+    content.vb: Public LocalSmoothingRings As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.EdgeLoopRemesher.#ctor(g3.DMesh3,g3.EdgeLoop)
+  commentId: M:g3.EdgeLoopRemesher.#ctor(g3.DMesh3,g3.EdgeLoop)
+  id: '#ctor(g3.DMesh3,g3.EdgeLoop)'
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: EdgeLoopRemesher(DMesh3, EdgeLoop)
+  nameWithType: EdgeLoopRemesher.EdgeLoopRemesher(DMesh3, EdgeLoop)
+  fullName: g3.EdgeLoopRemesher.EdgeLoopRemesher(g3.DMesh3, g3.EdgeLoop)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoopRemesher(DMesh3 m, EdgeLoop loop)
+    parameters:
+    - id: m
+      type: g3.DMesh3
+    - id: loop
+      type: g3.EdgeLoop
+    content.vb: Public Sub New(m As DMesh3, loop As EdgeLoop)
+  overload: g3.EdgeLoopRemesher.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.EdgeLoopRemesher.UpdateLoop(g3.EdgeLoop)
+  commentId: M:g3.EdgeLoopRemesher.UpdateLoop(g3.EdgeLoop)
+  id: UpdateLoop(g3.EdgeLoop)
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: UpdateLoop(EdgeLoop)
+  nameWithType: EdgeLoopRemesher.UpdateLoop(EdgeLoop)
+  fullName: g3.EdgeLoopRemesher.UpdateLoop(g3.EdgeLoop)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdateLoop
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void UpdateLoop(EdgeLoop loop)
+    parameters:
+    - id: loop
+      type: g3.EdgeLoop
+    content.vb: Public Sub UpdateLoop(loop As EdgeLoop)
+  overload: g3.EdgeLoopRemesher.UpdateLoop*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.EdgeLoopRemesher.Precompute
+  commentId: M:g3.EdgeLoopRemesher.Precompute
+  id: Precompute
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: Precompute()
+  nameWithType: EdgeLoopRemesher.Precompute()
+  fullName: g3.EdgeLoopRemesher.Precompute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Precompute
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override void Precompute()
+    content.vb: Public Overrides Sub Precompute
+  overridden: g3.Remesher.Precompute
+  overload: g3.EdgeLoopRemesher.Precompute*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.EdgeLoopRemesher.start_edges
+  commentId: M:g3.EdgeLoopRemesher.start_edges
+  id: start_edges
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: start_edges()
+  nameWithType: EdgeLoopRemesher.start_edges()
+  fullName: g3.EdgeLoopRemesher.start_edges()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: start_edges
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 66
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override int start_edges()
+    return:
+      type: System.Int32
+    content.vb: Protected Overrides Function start_edges As Integer
+  overridden: g3.Remesher.start_edges
+  overload: g3.EdgeLoopRemesher.start_edges*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: g3.EdgeLoopRemesher.next_edge(System.Int32,System.Boolean@)
+  commentId: M:g3.EdgeLoopRemesher.next_edge(System.Int32,System.Boolean@)
+  id: next_edge(System.Int32,System.Boolean@)
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: next_edge(Int32, out Boolean)
+  nameWithType: EdgeLoopRemesher.next_edge(Int32, out Boolean)
+  fullName: g3.EdgeLoopRemesher.next_edge(System.Int32, out System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: next_edge
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override int next_edge(int cur_eid, out bool bDone)
+    parameters:
+    - id: cur_eid
+      type: System.Int32
+    - id: bDone
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Protected Overrides Function next_edge(cur_eid As Integer, ByRef bDone As Boolean) As Integer
+  overridden: g3.Remesher.next_edge(System.Int32,System.Boolean@)
+  overload: g3.EdgeLoopRemesher.next_edge*
+  nameWithType.vb: EdgeLoopRemesher.next_edge(Int32, ByRef Boolean)
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+  fullName.vb: g3.EdgeLoopRemesher.next_edge(System.Int32, ByRef System.Boolean)
+  name.vb: next_edge(Int32, ByRef Boolean)
+- uid: g3.EdgeLoopRemesher.end_pass
+  commentId: M:g3.EdgeLoopRemesher.end_pass
+  id: end_pass
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: end_pass()
+  nameWithType: EdgeLoopRemesher.end_pass()
+  fullName: g3.EdgeLoopRemesher.end_pass()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: end_pass
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 98
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override void end_pass()
+    content.vb: Protected Overrides Sub end_pass
+  overridden: g3.Remesher.end_pass
+  overload: g3.EdgeLoopRemesher.end_pass*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: g3.EdgeLoopRemesher.begin_smooth
+  commentId: M:g3.EdgeLoopRemesher.begin_smooth
+  id: begin_smooth
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: begin_smooth()
+  nameWithType: EdgeLoopRemesher.begin_smooth()
+  fullName: g3.EdgeLoopRemesher.begin_smooth()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: begin_smooth
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override void begin_smooth()
+    content.vb: Protected Overrides Sub begin_smooth
+  overridden: g3.Remesher.begin_smooth
+  overload: g3.EdgeLoopRemesher.begin_smooth*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: g3.EdgeLoopRemesher.smooth_vertices
+  commentId: M:g3.EdgeLoopRemesher.smooth_vertices
+  id: smooth_vertices
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: smooth_vertices()
+  nameWithType: EdgeLoopRemesher.smooth_vertices()
+  fullName: g3.EdgeLoopRemesher.smooth_vertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: smooth_vertices
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 129
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override IEnumerable<int> smooth_vertices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Protected Overrides Function smooth_vertices As IEnumerable(Of Integer)
+  overridden: g3.Remesher.smooth_vertices
+  overload: g3.EdgeLoopRemesher.smooth_vertices*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: g3.EdgeLoopRemesher.project_vertices
+  commentId: M:g3.EdgeLoopRemesher.project_vertices
+  id: project_vertices
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: project_vertices()
+  nameWithType: EdgeLoopRemesher.project_vertices()
+  fullName: g3.EdgeLoopRemesher.project_vertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: project_vertices
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 158
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override IEnumerable<int> project_vertices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Protected Overrides Function project_vertices As IEnumerable(Of Integer)
+  overridden: g3.Remesher.project_vertices
+  overload: g3.EdgeLoopRemesher.project_vertices*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: g3.EdgeLoopRemesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  commentId: M:g3.EdgeLoopRemesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  id: OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: OnEdgeSplit(Int32, Int32, Int32, DMesh3.EdgeSplitInfo)
+  nameWithType: EdgeLoopRemesher.OnEdgeSplit(Int32, Int32, Int32, DMesh3.EdgeSplitInfo)
+  fullName: g3.EdgeLoopRemesher.OnEdgeSplit(System.Int32, System.Int32, System.Int32, g3.DMesh3.EdgeSplitInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OnEdgeSplit
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 168
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override void OnEdgeSplit(int edgeID, int va, int vb, DMesh3.EdgeSplitInfo splitInfo)
+    parameters:
+    - id: edgeID
+      type: System.Int32
+    - id: va
+      type: System.Int32
+    - id: vb
+      type: System.Int32
+    - id: splitInfo
+      type: g3.DMesh3.EdgeSplitInfo
+    content.vb: Protected Overrides Sub OnEdgeSplit(edgeID As Integer, va As Integer, vb As Integer, splitInfo As DMesh3.EdgeSplitInfo)
+  overridden: g3.Remesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  overload: g3.EdgeLoopRemesher.OnEdgeSplit*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+- uid: g3.EdgeLoopRemesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  commentId: M:g3.EdgeLoopRemesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  id: OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  parent: g3.EdgeLoopRemesher
+  langs:
+  - csharp
+  - vb
+  name: OnEdgeCollapse(Int32, Int32, Int32, DMesh3.EdgeCollapseInfo)
+  nameWithType: EdgeLoopRemesher.OnEdgeCollapse(Int32, Int32, Int32, DMesh3.EdgeCollapseInfo)
+  fullName: g3.EdgeLoopRemesher.OnEdgeCollapse(System.Int32, System.Int32, System.Int32, g3.DMesh3.EdgeCollapseInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OnEdgeCollapse
+    path: ../Assets/geometry3Sharp/mesh/EdgeLoopRemesher.cs
+    startLine: 188
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected override void OnEdgeCollapse(int edgeID, int va, int vb, DMesh3.EdgeCollapseInfo collapseInfo)
+    parameters:
+    - id: edgeID
+      type: System.Int32
+    - id: va
+      type: System.Int32
+    - id: vb
+      type: System.Int32
+    - id: collapseInfo
+      type: g3.DMesh3.EdgeCollapseInfo
+    content.vb: Protected Overrides Sub OnEdgeCollapse(edgeID As Integer, va As Integer, vb As Integer, collapseInfo As DMesh3.EdgeCollapseInfo)
+  overridden: g3.Remesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  overload: g3.EdgeLoopRemesher.OnEdgeCollapse*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.MeshRefinerBase
+  commentId: T:g3.MeshRefinerBase
+  parent: g3
+  name: MeshRefinerBase
+  nameWithType: MeshRefinerBase
+  fullName: g3.MeshRefinerBase
+- uid: g3.Remesher
+  commentId: T:g3.Remesher
+  parent: g3
+  name: Remesher
+  nameWithType: Remesher
+  fullName: g3.Remesher
+- uid: g3.Remesher.EnableFlips
+  commentId: F:g3.Remesher.EnableFlips
+  parent: g3.Remesher
+  name: EnableFlips
+  nameWithType: Remesher.EnableFlips
+  fullName: g3.Remesher.EnableFlips
+- uid: g3.Remesher.EnableCollapses
+  commentId: F:g3.Remesher.EnableCollapses
+  parent: g3.Remesher
+  name: EnableCollapses
+  nameWithType: Remesher.EnableCollapses
+  fullName: g3.Remesher.EnableCollapses
+- uid: g3.Remesher.EnableSplits
+  commentId: F:g3.Remesher.EnableSplits
+  parent: g3.Remesher
+  name: EnableSplits
+  nameWithType: Remesher.EnableSplits
+  fullName: g3.Remesher.EnableSplits
+- uid: g3.Remesher.EnableSmoothing
+  commentId: F:g3.Remesher.EnableSmoothing
+  parent: g3.Remesher
+  name: EnableSmoothing
+  nameWithType: Remesher.EnableSmoothing
+  fullName: g3.Remesher.EnableSmoothing
+- uid: g3.Remesher.PreventNormalFlips
+  commentId: F:g3.Remesher.PreventNormalFlips
+  parent: g3.Remesher
+  name: PreventNormalFlips
+  nameWithType: Remesher.PreventNormalFlips
+  fullName: g3.Remesher.PreventNormalFlips
+- uid: g3.Remesher.MinEdgeLength
+  commentId: F:g3.Remesher.MinEdgeLength
+  parent: g3.Remesher
+  name: MinEdgeLength
+  nameWithType: Remesher.MinEdgeLength
+  fullName: g3.Remesher.MinEdgeLength
+- uid: g3.Remesher.MaxEdgeLength
+  commentId: F:g3.Remesher.MaxEdgeLength
+  parent: g3.Remesher
+  name: MaxEdgeLength
+  nameWithType: Remesher.MaxEdgeLength
+  fullName: g3.Remesher.MaxEdgeLength
+- uid: g3.Remesher.SmoothSpeedT
+  commentId: F:g3.Remesher.SmoothSpeedT
+  parent: g3.Remesher
+  name: SmoothSpeedT
+  nameWithType: Remesher.SmoothSpeedT
+  fullName: g3.Remesher.SmoothSpeedT
+- uid: g3.Remesher.SmoothType
+  commentId: F:g3.Remesher.SmoothType
+  parent: g3.Remesher
+  name: SmoothType
+  nameWithType: Remesher.SmoothType
+  fullName: g3.Remesher.SmoothType
+- uid: g3.Remesher.CustomSmoothF
+  commentId: F:g3.Remesher.CustomSmoothF
+  parent: g3.Remesher
+  name: CustomSmoothF
+  nameWithType: Remesher.CustomSmoothF
+  fullName: g3.Remesher.CustomSmoothF
+- uid: g3.Remesher.VertexControlF
+  commentId: F:g3.Remesher.VertexControlF
+  parent: g3.Remesher
+  name: VertexControlF
+  nameWithType: Remesher.VertexControlF
+  fullName: g3.Remesher.VertexControlF
+- uid: g3.Remesher.DebugEdges
+  commentId: F:g3.Remesher.DebugEdges
+  parent: g3.Remesher
+  name: DebugEdges
+  nameWithType: Remesher.DebugEdges
+  fullName: g3.Remesher.DebugEdges
+- uid: g3.Remesher.ProjectionMode
+  commentId: F:g3.Remesher.ProjectionMode
+  parent: g3.Remesher
+  name: ProjectionMode
+  nameWithType: Remesher.ProjectionMode
+  fullName: g3.Remesher.ProjectionMode
+- uid: g3.Remesher.EnableParallelProjection
+  commentId: F:g3.Remesher.EnableParallelProjection
+  parent: g3.Remesher
+  name: EnableParallelProjection
+  nameWithType: Remesher.EnableParallelProjection
+  fullName: g3.Remesher.EnableParallelProjection
+- uid: g3.Remesher.EnableParallelSmooth
+  commentId: F:g3.Remesher.EnableParallelSmooth
+  parent: g3.Remesher
+  name: EnableParallelSmooth
+  nameWithType: Remesher.EnableParallelSmooth
+  fullName: g3.Remesher.EnableParallelSmooth
+- uid: g3.Remesher.EnableSmoothInPlace
+  commentId: F:g3.Remesher.EnableSmoothInPlace
+  parent: g3.Remesher
+  name: EnableSmoothInPlace
+  nameWithType: Remesher.EnableSmoothInPlace
+  fullName: g3.Remesher.EnableSmoothInPlace
+- uid: g3.Remesher.ProjectionTarget
+  commentId: P:g3.Remesher.ProjectionTarget
+  parent: g3.Remesher
+  name: ProjectionTarget
+  nameWithType: Remesher.ProjectionTarget
+  fullName: g3.Remesher.ProjectionTarget
+- uid: g3.Remesher.SetProjectionTarget(g3.IProjectionTarget)
+  commentId: M:g3.Remesher.SetProjectionTarget(g3.IProjectionTarget)
+  parent: g3.Remesher
+  name: SetProjectionTarget(IProjectionTarget)
+  nameWithType: Remesher.SetProjectionTarget(IProjectionTarget)
+  fullName: g3.Remesher.SetProjectionTarget(g3.IProjectionTarget)
+  spec.csharp:
+  - uid: g3.Remesher.SetProjectionTarget(g3.IProjectionTarget)
+    name: SetProjectionTarget
+    nameWithType: Remesher.SetProjectionTarget
+    fullName: g3.Remesher.SetProjectionTarget
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.IProjectionTarget
+    name: IProjectionTarget
+    nameWithType: IProjectionTarget
+    fullName: g3.IProjectionTarget
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.SetProjectionTarget(g3.IProjectionTarget)
+    name: SetProjectionTarget
+    nameWithType: Remesher.SetProjectionTarget
+    fullName: g3.Remesher.SetProjectionTarget
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.IProjectionTarget
+    name: IProjectionTarget
+    nameWithType: IProjectionTarget
+    fullName: g3.IProjectionTarget
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.SetTargetEdgeLength(System.Double)
+  commentId: M:g3.Remesher.SetTargetEdgeLength(System.Double)
+  parent: g3.Remesher
+  isExternal: true
+  name: SetTargetEdgeLength(Double)
+  nameWithType: Remesher.SetTargetEdgeLength(Double)
+  fullName: g3.Remesher.SetTargetEdgeLength(System.Double)
+  spec.csharp:
+  - uid: g3.Remesher.SetTargetEdgeLength(System.Double)
+    name: SetTargetEdgeLength
+    nameWithType: Remesher.SetTargetEdgeLength
+    fullName: g3.Remesher.SetTargetEdgeLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.SetTargetEdgeLength(System.Double)
+    name: SetTargetEdgeLength
+    nameWithType: Remesher.SetTargetEdgeLength
+    fullName: g3.Remesher.SetTargetEdgeLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.ENABLE_PROFILING
+  commentId: F:g3.Remesher.ENABLE_PROFILING
+  parent: g3.Remesher
+  name: ENABLE_PROFILING
+  nameWithType: Remesher.ENABLE_PROFILING
+  fullName: g3.Remesher.ENABLE_PROFILING
+- uid: g3.Remesher.ModifiedEdgesLastPass
+  commentId: F:g3.Remesher.ModifiedEdgesLastPass
+  parent: g3.Remesher
+  name: ModifiedEdgesLastPass
+  nameWithType: Remesher.ModifiedEdgesLastPass
+  fullName: g3.Remesher.ModifiedEdgesLastPass
+- uid: g3.Remesher.BasicRemeshPass
+  commentId: M:g3.Remesher.BasicRemeshPass
+  parent: g3.Remesher
+  name: BasicRemeshPass()
+  nameWithType: Remesher.BasicRemeshPass()
+  fullName: g3.Remesher.BasicRemeshPass()
+  spec.csharp:
+  - uid: g3.Remesher.BasicRemeshPass
+    name: BasicRemeshPass
+    nameWithType: Remesher.BasicRemeshPass
+    fullName: g3.Remesher.BasicRemeshPass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.BasicRemeshPass
+    name: BasicRemeshPass
+    nameWithType: Remesher.BasicRemeshPass
+    fullName: g3.Remesher.BasicRemeshPass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.ProcessEdge(System.Int32)
+  commentId: M:g3.Remesher.ProcessEdge(System.Int32)
+  parent: g3.Remesher
+  isExternal: true
+  name: ProcessEdge(Int32)
+  nameWithType: Remesher.ProcessEdge(Int32)
+  fullName: g3.Remesher.ProcessEdge(System.Int32)
+  spec.csharp:
+  - uid: g3.Remesher.ProcessEdge(System.Int32)
+    name: ProcessEdge
+    nameWithType: Remesher.ProcessEdge
+    fullName: g3.Remesher.ProcessEdge
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.ProcessEdge(System.Int32)
+    name: ProcessEdge
+    nameWithType: Remesher.ProcessEdge
+    fullName: g3.Remesher.ProcessEdge
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.update_after_split(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo@)
+  commentId: M:g3.Remesher.update_after_split(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo@)
+  parent: g3.Remesher
+  isExternal: true
+  name: update_after_split(Int32, Int32, Int32, DMesh3.EdgeSplitInfo)
+  nameWithType: Remesher.update_after_split(Int32, Int32, Int32, DMesh3.EdgeSplitInfo)
+  fullName: g3.Remesher.update_after_split(System.Int32, System.Int32, System.Int32, g3.DMesh3.EdgeSplitInfo)
+  spec.csharp:
+  - uid: g3.Remesher.update_after_split(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo@)
+    name: update_after_split
+    nameWithType: Remesher.update_after_split
+    fullName: g3.Remesher.update_after_split
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.DMesh3.EdgeSplitInfo
+    name: DMesh3.EdgeSplitInfo
+    nameWithType: DMesh3.EdgeSplitInfo
+    fullName: g3.DMesh3.EdgeSplitInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.update_after_split(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo@)
+    name: update_after_split
+    nameWithType: Remesher.update_after_split
+    fullName: g3.Remesher.update_after_split
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.DMesh3.EdgeSplitInfo
+    name: DMesh3.EdgeSplitInfo
+    nameWithType: DMesh3.EdgeSplitInfo
+    fullName: g3.DMesh3.EdgeSplitInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.project_vertex(System.Int32,g3.IProjectionTarget)
+  commentId: M:g3.Remesher.project_vertex(System.Int32,g3.IProjectionTarget)
+  parent: g3.Remesher
+  isExternal: true
+  name: project_vertex(Int32, IProjectionTarget)
+  nameWithType: Remesher.project_vertex(Int32, IProjectionTarget)
+  fullName: g3.Remesher.project_vertex(System.Int32, g3.IProjectionTarget)
+  spec.csharp:
+  - uid: g3.Remesher.project_vertex(System.Int32,g3.IProjectionTarget)
+    name: project_vertex
+    nameWithType: Remesher.project_vertex
+    fullName: g3.Remesher.project_vertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.IProjectionTarget
+    name: IProjectionTarget
+    nameWithType: IProjectionTarget
+    fullName: g3.IProjectionTarget
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.project_vertex(System.Int32,g3.IProjectionTarget)
+    name: project_vertex
+    nameWithType: Remesher.project_vertex
+    fullName: g3.Remesher.project_vertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.IProjectionTarget
+    name: IProjectionTarget
+    nameWithType: IProjectionTarget
+    fullName: g3.IProjectionTarget
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.get_projected_collapse_position(System.Int32,g3.Vector3d)
+  commentId: M:g3.Remesher.get_projected_collapse_position(System.Int32,g3.Vector3d)
+  parent: g3.Remesher
+  isExternal: true
+  name: get_projected_collapse_position(Int32, Vector3d)
+  nameWithType: Remesher.get_projected_collapse_position(Int32, Vector3d)
+  fullName: g3.Remesher.get_projected_collapse_position(System.Int32, g3.Vector3d)
+  spec.csharp:
+  - uid: g3.Remesher.get_projected_collapse_position(System.Int32,g3.Vector3d)
+    name: get_projected_collapse_position
+    nameWithType: Remesher.get_projected_collapse_position
+    fullName: g3.Remesher.get_projected_collapse_position
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.get_projected_collapse_position(System.Int32,g3.Vector3d)
+    name: get_projected_collapse_position
+    nameWithType: Remesher.get_projected_collapse_position
+    fullName: g3.Remesher.get_projected_collapse_position
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.FullSmoothPass_InPlace(System.Boolean)
+  commentId: M:g3.Remesher.FullSmoothPass_InPlace(System.Boolean)
+  parent: g3.Remesher
+  isExternal: true
+  name: FullSmoothPass_InPlace(Boolean)
+  nameWithType: Remesher.FullSmoothPass_InPlace(Boolean)
+  fullName: g3.Remesher.FullSmoothPass_InPlace(System.Boolean)
+  spec.csharp:
+  - uid: g3.Remesher.FullSmoothPass_InPlace(System.Boolean)
+    name: FullSmoothPass_InPlace
+    nameWithType: Remesher.FullSmoothPass_InPlace
+    fullName: g3.Remesher.FullSmoothPass_InPlace
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.FullSmoothPass_InPlace(System.Boolean)
+    name: FullSmoothPass_InPlace
+    nameWithType: Remesher.FullSmoothPass_InPlace
+    fullName: g3.Remesher.FullSmoothPass_InPlace
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.FullSmoothPass_Buffer(System.Boolean)
+  commentId: M:g3.Remesher.FullSmoothPass_Buffer(System.Boolean)
+  parent: g3.Remesher
+  isExternal: true
+  name: FullSmoothPass_Buffer(Boolean)
+  nameWithType: Remesher.FullSmoothPass_Buffer(Boolean)
+  fullName: g3.Remesher.FullSmoothPass_Buffer(System.Boolean)
+  spec.csharp:
+  - uid: g3.Remesher.FullSmoothPass_Buffer(System.Boolean)
+    name: FullSmoothPass_Buffer
+    nameWithType: Remesher.FullSmoothPass_Buffer
+    fullName: g3.Remesher.FullSmoothPass_Buffer
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.FullSmoothPass_Buffer(System.Boolean)
+    name: FullSmoothPass_Buffer
+    nameWithType: Remesher.FullSmoothPass_Buffer
+    fullName: g3.Remesher.FullSmoothPass_Buffer
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.vBufferV
+  commentId: F:g3.Remesher.vBufferV
+  parent: g3.Remesher
+  name: vBufferV
+  nameWithType: Remesher.vBufferV
+  fullName: g3.Remesher.vBufferV
+- uid: g3.Remesher.vModifiedV
+  commentId: F:g3.Remesher.vModifiedV
+  parent: g3.Remesher
+  name: vModifiedV
+  nameWithType: Remesher.vModifiedV
+  fullName: g3.Remesher.vModifiedV
+- uid: g3.Remesher.InitializeVertexBufferForPass
+  commentId: M:g3.Remesher.InitializeVertexBufferForPass
+  parent: g3.Remesher
+  name: InitializeVertexBufferForPass()
+  nameWithType: Remesher.InitializeVertexBufferForPass()
+  fullName: g3.Remesher.InitializeVertexBufferForPass()
+  spec.csharp:
+  - uid: g3.Remesher.InitializeVertexBufferForPass
+    name: InitializeVertexBufferForPass
+    nameWithType: Remesher.InitializeVertexBufferForPass
+    fullName: g3.Remesher.InitializeVertexBufferForPass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.InitializeVertexBufferForPass
+    name: InitializeVertexBufferForPass
+    nameWithType: Remesher.InitializeVertexBufferForPass
+    fullName: g3.Remesher.InitializeVertexBufferForPass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.ApplyVertexBuffer(System.Boolean)
+  commentId: M:g3.Remesher.ApplyVertexBuffer(System.Boolean)
+  parent: g3.Remesher
+  isExternal: true
+  name: ApplyVertexBuffer(Boolean)
+  nameWithType: Remesher.ApplyVertexBuffer(Boolean)
+  fullName: g3.Remesher.ApplyVertexBuffer(System.Boolean)
+  spec.csharp:
+  - uid: g3.Remesher.ApplyVertexBuffer(System.Boolean)
+    name: ApplyVertexBuffer
+    nameWithType: Remesher.ApplyVertexBuffer
+    fullName: g3.Remesher.ApplyVertexBuffer
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.ApplyVertexBuffer(System.Boolean)
+    name: ApplyVertexBuffer
+    nameWithType: Remesher.ApplyVertexBuffer
+    fullName: g3.Remesher.ApplyVertexBuffer
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.ComputeSmoothedVertexPos(System.Int32,System.Func{g3.DMesh3,System.Int32,System.Double,g3.Vector3d},System.Boolean@)
+  commentId: M:g3.Remesher.ComputeSmoothedVertexPos(System.Int32,System.Func{g3.DMesh3,System.Int32,System.Double,g3.Vector3d},System.Boolean@)
+  parent: g3.Remesher
+  isExternal: true
+  name: ComputeSmoothedVertexPos(Int32, Func<DMesh3, Int32, Double, Vector3d>, Boolean)
+  nameWithType: Remesher.ComputeSmoothedVertexPos(Int32, Func<DMesh3, Int32, Double, Vector3d>, Boolean)
+  fullName: g3.Remesher.ComputeSmoothedVertexPos(System.Int32, System.Func<g3.DMesh3, System.Int32, System.Double, g3.Vector3d>, System.Boolean)
+  nameWithType.vb: Remesher.ComputeSmoothedVertexPos(Int32, Func(Of DMesh3, Int32, Double, Vector3d), Boolean)
+  fullName.vb: g3.Remesher.ComputeSmoothedVertexPos(System.Int32, System.Func(Of g3.DMesh3, System.Int32, System.Double, g3.Vector3d), System.Boolean)
+  name.vb: ComputeSmoothedVertexPos(Int32, Func(Of DMesh3, Int32, Double, Vector3d), Boolean)
+  spec.csharp:
+  - uid: g3.Remesher.ComputeSmoothedVertexPos(System.Int32,System.Func{g3.DMesh3,System.Int32,System.Double,g3.Vector3d},System.Boolean@)
+    name: ComputeSmoothedVertexPos
+    nameWithType: Remesher.ComputeSmoothedVertexPos
+    fullName: g3.Remesher.ComputeSmoothedVertexPos
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.ComputeSmoothedVertexPos(System.Int32,System.Func{g3.DMesh3,System.Int32,System.Double,g3.Vector3d},System.Boolean@)
+    name: ComputeSmoothedVertexPos
+    nameWithType: Remesher.ComputeSmoothedVertexPos
+    fullName: g3.Remesher.ComputeSmoothedVertexPos
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.FullProjectionPass
+  commentId: M:g3.Remesher.FullProjectionPass
+  parent: g3.Remesher
+  name: FullProjectionPass()
+  nameWithType: Remesher.FullProjectionPass()
+  fullName: g3.Remesher.FullProjectionPass()
+  spec.csharp:
+  - uid: g3.Remesher.FullProjectionPass
+    name: FullProjectionPass
+    nameWithType: Remesher.FullProjectionPass
+    fullName: g3.Remesher.FullProjectionPass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.FullProjectionPass
+    name: FullProjectionPass
+    nameWithType: Remesher.FullProjectionPass
+    fullName: g3.Remesher.FullProjectionPass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.ENABLE_DEBUG_CHECKS
+  commentId: F:g3.Remesher.ENABLE_DEBUG_CHECKS
+  parent: g3.Remesher
+  name: ENABLE_DEBUG_CHECKS
+  nameWithType: Remesher.ENABLE_DEBUG_CHECKS
+  fullName: g3.Remesher.ENABLE_DEBUG_CHECKS
+- uid: g3.Remesher.DoDebugChecks
+  commentId: M:g3.Remesher.DoDebugChecks
+  parent: g3.Remesher
+  name: DoDebugChecks()
+  nameWithType: Remesher.DoDebugChecks()
+  fullName: g3.Remesher.DoDebugChecks()
+  spec.csharp:
+  - uid: g3.Remesher.DoDebugChecks
+    name: DoDebugChecks
+    nameWithType: Remesher.DoDebugChecks
+    fullName: g3.Remesher.DoDebugChecks
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.DoDebugChecks
+    name: DoDebugChecks
+    nameWithType: Remesher.DoDebugChecks
+    fullName: g3.Remesher.DoDebugChecks
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.begin_pass
+  commentId: M:g3.Remesher.begin_pass
+  parent: g3.Remesher
+  name: begin_pass()
+  nameWithType: Remesher.begin_pass()
+  fullName: g3.Remesher.begin_pass()
+  spec.csharp:
+  - uid: g3.Remesher.begin_pass
+    name: begin_pass
+    nameWithType: Remesher.begin_pass
+    fullName: g3.Remesher.begin_pass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_pass
+    name: begin_pass
+    nameWithType: Remesher.begin_pass
+    fullName: g3.Remesher.begin_pass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.begin_ops
+  commentId: M:g3.Remesher.begin_ops
+  parent: g3.Remesher
+  name: begin_ops()
+  nameWithType: Remesher.begin_ops()
+  fullName: g3.Remesher.begin_ops()
+  spec.csharp:
+  - uid: g3.Remesher.begin_ops
+    name: begin_ops
+    nameWithType: Remesher.begin_ops
+    fullName: g3.Remesher.begin_ops
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_ops
+    name: begin_ops
+    nameWithType: Remesher.begin_ops
+    fullName: g3.Remesher.begin_ops
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.end_ops
+  commentId: M:g3.Remesher.end_ops
+  parent: g3.Remesher
+  name: end_ops()
+  nameWithType: Remesher.end_ops()
+  fullName: g3.Remesher.end_ops()
+  spec.csharp:
+  - uid: g3.Remesher.end_ops
+    name: end_ops
+    nameWithType: Remesher.end_ops
+    fullName: g3.Remesher.end_ops
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_ops
+    name: end_ops
+    nameWithType: Remesher.end_ops
+    fullName: g3.Remesher.end_ops
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.end_smooth
+  commentId: M:g3.Remesher.end_smooth
+  parent: g3.Remesher
+  name: end_smooth()
+  nameWithType: Remesher.end_smooth()
+  fullName: g3.Remesher.end_smooth()
+  spec.csharp:
+  - uid: g3.Remesher.end_smooth
+    name: end_smooth
+    nameWithType: Remesher.end_smooth
+    fullName: g3.Remesher.end_smooth
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_smooth
+    name: end_smooth
+    nameWithType: Remesher.end_smooth
+    fullName: g3.Remesher.end_smooth
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.begin_project
+  commentId: M:g3.Remesher.begin_project
+  parent: g3.Remesher
+  name: begin_project()
+  nameWithType: Remesher.begin_project()
+  fullName: g3.Remesher.begin_project()
+  spec.csharp:
+  - uid: g3.Remesher.begin_project
+    name: begin_project
+    nameWithType: Remesher.begin_project
+    fullName: g3.Remesher.begin_project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_project
+    name: begin_project
+    nameWithType: Remesher.begin_project
+    fullName: g3.Remesher.begin_project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.end_project
+  commentId: M:g3.Remesher.end_project
+  parent: g3.Remesher
+  name: end_project()
+  nameWithType: Remesher.end_project()
+  fullName: g3.Remesher.end_project()
+  spec.csharp:
+  - uid: g3.Remesher.end_project
+    name: end_project
+    nameWithType: Remesher.end_project
+    fullName: g3.Remesher.end_project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_project
+    name: end_project
+    nameWithType: Remesher.end_project
+    fullName: g3.Remesher.end_project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.begin_collapse
+  commentId: M:g3.Remesher.begin_collapse
+  parent: g3.Remesher
+  name: begin_collapse()
+  nameWithType: Remesher.begin_collapse()
+  fullName: g3.Remesher.begin_collapse()
+  spec.csharp:
+  - uid: g3.Remesher.begin_collapse
+    name: begin_collapse
+    nameWithType: Remesher.begin_collapse
+    fullName: g3.Remesher.begin_collapse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_collapse
+    name: begin_collapse
+    nameWithType: Remesher.begin_collapse
+    fullName: g3.Remesher.begin_collapse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.end_collapse
+  commentId: M:g3.Remesher.end_collapse
+  parent: g3.Remesher
+  name: end_collapse()
+  nameWithType: Remesher.end_collapse()
+  fullName: g3.Remesher.end_collapse()
+  spec.csharp:
+  - uid: g3.Remesher.end_collapse
+    name: end_collapse
+    nameWithType: Remesher.end_collapse
+    fullName: g3.Remesher.end_collapse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_collapse
+    name: end_collapse
+    nameWithType: Remesher.end_collapse
+    fullName: g3.Remesher.end_collapse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.begin_flip
+  commentId: M:g3.Remesher.begin_flip
+  parent: g3.Remesher
+  name: begin_flip()
+  nameWithType: Remesher.begin_flip()
+  fullName: g3.Remesher.begin_flip()
+  spec.csharp:
+  - uid: g3.Remesher.begin_flip
+    name: begin_flip
+    nameWithType: Remesher.begin_flip
+    fullName: g3.Remesher.begin_flip
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_flip
+    name: begin_flip
+    nameWithType: Remesher.begin_flip
+    fullName: g3.Remesher.begin_flip
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.end_flip
+  commentId: M:g3.Remesher.end_flip
+  parent: g3.Remesher
+  name: end_flip()
+  nameWithType: Remesher.end_flip()
+  fullName: g3.Remesher.end_flip()
+  spec.csharp:
+  - uid: g3.Remesher.end_flip
+    name: end_flip
+    nameWithType: Remesher.end_flip
+    fullName: g3.Remesher.end_flip
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_flip
+    name: end_flip
+    nameWithType: Remesher.end_flip
+    fullName: g3.Remesher.end_flip
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.begin_split
+  commentId: M:g3.Remesher.begin_split
+  parent: g3.Remesher
+  name: begin_split()
+  nameWithType: Remesher.begin_split()
+  fullName: g3.Remesher.begin_split()
+  spec.csharp:
+  - uid: g3.Remesher.begin_split
+    name: begin_split
+    nameWithType: Remesher.begin_split
+    fullName: g3.Remesher.begin_split
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_split
+    name: begin_split
+    nameWithType: Remesher.begin_split
+    fullName: g3.Remesher.begin_split
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Remesher.end_split
+  commentId: M:g3.Remesher.end_split
+  parent: g3.Remesher
+  name: end_split()
+  nameWithType: Remesher.end_split()
+  fullName: g3.Remesher.end_split()
+  spec.csharp:
+  - uid: g3.Remesher.end_split
+    name: end_split
+    nameWithType: Remesher.end_split
+    fullName: g3.Remesher.end_split
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_split
+    name: end_split
+    nameWithType: Remesher.end_split
+    fullName: g3.Remesher.end_split
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.mesh
+  commentId: F:g3.MeshRefinerBase.mesh
+  parent: g3.MeshRefinerBase
+  name: mesh
+  nameWithType: MeshRefinerBase.mesh
+  fullName: g3.MeshRefinerBase.mesh
+- uid: g3.MeshRefinerBase.constraints
+  commentId: F:g3.MeshRefinerBase.constraints
+  parent: g3.MeshRefinerBase
+  name: constraints
+  nameWithType: MeshRefinerBase.constraints
+  fullName: g3.MeshRefinerBase.constraints
+- uid: g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  commentId: F:g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  parent: g3.MeshRefinerBase
+  name: AllowCollapseFixedVertsWithSameSetID
+  nameWithType: MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  fullName: g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+- uid: g3.MeshRefinerBase.EdgeFlipTolerance
+  commentId: P:g3.MeshRefinerBase.EdgeFlipTolerance
+  parent: g3.MeshRefinerBase
+  name: EdgeFlipTolerance
+  nameWithType: MeshRefinerBase.EdgeFlipTolerance
+  fullName: g3.MeshRefinerBase.EdgeFlipTolerance
+- uid: g3.MeshRefinerBase.edge_flip_tol
+  commentId: F:g3.MeshRefinerBase.edge_flip_tol
+  parent: g3.MeshRefinerBase
+  name: edge_flip_tol
+  nameWithType: MeshRefinerBase.edge_flip_tol
+  fullName: g3.MeshRefinerBase.edge_flip_tol
+- uid: g3.MeshRefinerBase.Mesh
+  commentId: P:g3.MeshRefinerBase.Mesh
+  parent: g3.MeshRefinerBase
+  name: Mesh
+  nameWithType: MeshRefinerBase.Mesh
+  fullName: g3.MeshRefinerBase.Mesh
+- uid: g3.MeshRefinerBase.Constraints
+  commentId: P:g3.MeshRefinerBase.Constraints
+  parent: g3.MeshRefinerBase
+  name: Constraints
+  nameWithType: MeshRefinerBase.Constraints
+  fullName: g3.MeshRefinerBase.Constraints
+- uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  commentId: M:g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  parent: g3.MeshRefinerBase
+  name: SetExternalConstraints(MeshConstraints)
+  nameWithType: MeshRefinerBase.SetExternalConstraints(MeshConstraints)
+  fullName: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+    name: SetExternalConstraints
+    nameWithType: MeshRefinerBase.SetExternalConstraints
+    fullName: g3.MeshRefinerBase.SetExternalConstraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.MeshConstraints
+    name: MeshConstraints
+    nameWithType: MeshConstraints
+    fullName: g3.MeshConstraints
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+    name: SetExternalConstraints
+    nameWithType: MeshRefinerBase.SetExternalConstraints
+    fullName: g3.MeshRefinerBase.SetExternalConstraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.MeshConstraints
+    name: MeshConstraints
+    nameWithType: MeshConstraints
+    fullName: g3.MeshConstraints
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.Progress
+  commentId: F:g3.MeshRefinerBase.Progress
+  parent: g3.MeshRefinerBase
+  name: Progress
+  nameWithType: MeshRefinerBase.Progress
+  fullName: g3.MeshRefinerBase.Progress
+- uid: g3.MeshRefinerBase.Cancelled
+  commentId: M:g3.MeshRefinerBase.Cancelled
+  parent: g3.MeshRefinerBase
+  name: Cancelled()
+  nameWithType: MeshRefinerBase.Cancelled()
+  fullName: g3.MeshRefinerBase.Cancelled()
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.Cancelled
+    name: Cancelled
+    nameWithType: MeshRefinerBase.Cancelled
+    fullName: g3.MeshRefinerBase.Cancelled
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.Cancelled
+    name: Cancelled
+    nameWithType: MeshRefinerBase.Cancelled
+    fullName: g3.MeshRefinerBase.Cancelled
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  commentId: M:g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  parent: g3.MeshRefinerBase
+  name: edge_flip_metric(Vector3d, Vector3d)
+  nameWithType: MeshRefinerBase.edge_flip_metric(Vector3d, Vector3d)
+  fullName: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d, g3.Vector3d)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+    name: edge_flip_metric
+    nameWithType: MeshRefinerBase.edge_flip_metric
+    fullName: g3.MeshRefinerBase.edge_flip_metric
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+    name: edge_flip_metric
+    nameWithType: MeshRefinerBase.edge_flip_metric
+    fullName: g3.MeshRefinerBase.edge_flip_metric
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  commentId: M:g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: collapse_creates_flip_or_invalid(Int32, Int32, Vector3d, Int32, Int32)
+  nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid(Int32, Int32, Vector3d, Int32, Int32)
+  fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32, System.Int32, g3.Vector3d, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+    name: collapse_creates_flip_or_invalid
+    nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid
+    fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+    name: collapse_creates_flip_or_invalid
+    nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid
+    fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: flip_inverts_normals(Int32, Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.flip_inverts_normals(Int32, Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.flip_inverts_normals(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: flip_inverts_normals
+    nameWithType: MeshRefinerBase.flip_inverts_normals
+    fullName: g3.MeshRefinerBase.flip_inverts_normals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: flip_inverts_normals
+    nameWithType: MeshRefinerBase.flip_inverts_normals
+    fullName: g3.MeshRefinerBase.flip_inverts_normals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  commentId: M:g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.can_collapse_constraints(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_constraints
+    nameWithType: MeshRefinerBase.can_collapse_constraints
+    fullName: g3.MeshRefinerBase.can_collapse_constraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_constraints
+    nameWithType: MeshRefinerBase.can_collapse_constraints
+    fullName: g3.MeshRefinerBase.can_collapse_constraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  commentId: M:g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: can_collapse_vtx(Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.can_collapse_vtx(Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.can_collapse_vtx(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_vtx
+    nameWithType: MeshRefinerBase.can_collapse_vtx
+    fullName: g3.MeshRefinerBase.can_collapse_vtx
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_vtx
+    nameWithType: MeshRefinerBase.can_collapse_vtx
+    fullName: g3.MeshRefinerBase.can_collapse_vtx
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  commentId: M:g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: vertex_is_fixed(Int32)
+  nameWithType: MeshRefinerBase.vertex_is_fixed(Int32)
+  fullName: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+    name: vertex_is_fixed
+    nameWithType: MeshRefinerBase.vertex_is_fixed
+    fullName: g3.MeshRefinerBase.vertex_is_fixed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+    name: vertex_is_fixed
+    nameWithType: MeshRefinerBase.vertex_is_fixed
+    fullName: g3.MeshRefinerBase.vertex_is_fixed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  commentId: M:g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: vertex_is_constrained(Int32)
+  nameWithType: MeshRefinerBase.vertex_is_constrained(Int32)
+  fullName: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+    name: vertex_is_constrained
+    nameWithType: MeshRefinerBase.vertex_is_constrained
+    fullName: g3.MeshRefinerBase.vertex_is_constrained
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+    name: vertex_is_constrained
+    nameWithType: MeshRefinerBase.vertex_is_constrained
+    fullName: g3.MeshRefinerBase.vertex_is_constrained
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  commentId: M:g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: get_vertex_constraint(Int32)
+  nameWithType: MeshRefinerBase.get_vertex_constraint(Int32)
+  fullName: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  commentId: M:g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: get_vertex_constraint(Int32, VertexConstraint)
+  nameWithType: MeshRefinerBase.get_vertex_constraint(Int32, VertexConstraint)
+  fullName: g3.MeshRefinerBase.get_vertex_constraint(System.Int32, g3.VertexConstraint)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VertexConstraint
+    name: VertexConstraint
+    nameWithType: VertexConstraint
+    fullName: g3.VertexConstraint
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VertexConstraint
+    name: VertexConstraint
+    nameWithType: VertexConstraint
+    fullName: g3.VertexConstraint
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.EdgeLoop
+  commentId: T:g3.EdgeLoop
+  parent: g3
+  name: EdgeLoop
+  nameWithType: EdgeLoop
+  fullName: g3.EdgeLoop
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.EdgeLoopRemesher.#ctor*
+  commentId: Overload:g3.EdgeLoopRemesher.#ctor
+  name: EdgeLoopRemesher
+  nameWithType: EdgeLoopRemesher.EdgeLoopRemesher
+  fullName: g3.EdgeLoopRemesher.EdgeLoopRemesher
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.EdgeLoopRemesher.UpdateLoop*
+  commentId: Overload:g3.EdgeLoopRemesher.UpdateLoop
+  name: UpdateLoop
+  nameWithType: EdgeLoopRemesher.UpdateLoop
+  fullName: g3.EdgeLoopRemesher.UpdateLoop
+- uid: g3.Remesher.Precompute
+  commentId: M:g3.Remesher.Precompute
+  parent: g3.Remesher
+  name: Precompute()
+  nameWithType: Remesher.Precompute()
+  fullName: g3.Remesher.Precompute()
+  spec.csharp:
+  - uid: g3.Remesher.Precompute
+    name: Precompute
+    nameWithType: Remesher.Precompute
+    fullName: g3.Remesher.Precompute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.Precompute
+    name: Precompute
+    nameWithType: Remesher.Precompute
+    fullName: g3.Remesher.Precompute
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.Precompute*
+  commentId: Overload:g3.EdgeLoopRemesher.Precompute
+  name: Precompute
+  nameWithType: EdgeLoopRemesher.Precompute
+  fullName: g3.EdgeLoopRemesher.Precompute
+- uid: g3.Remesher.start_edges
+  commentId: M:g3.Remesher.start_edges
+  parent: g3.Remesher
+  name: start_edges()
+  nameWithType: Remesher.start_edges()
+  fullName: g3.Remesher.start_edges()
+  spec.csharp:
+  - uid: g3.Remesher.start_edges
+    name: start_edges
+    nameWithType: Remesher.start_edges
+    fullName: g3.Remesher.start_edges
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.start_edges
+    name: start_edges
+    nameWithType: Remesher.start_edges
+    fullName: g3.Remesher.start_edges
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.start_edges*
+  commentId: Overload:g3.EdgeLoopRemesher.start_edges
+  name: start_edges
+  nameWithType: EdgeLoopRemesher.start_edges
+  fullName: g3.EdgeLoopRemesher.start_edges
+- uid: g3.Remesher.next_edge(System.Int32,System.Boolean@)
+  commentId: M:g3.Remesher.next_edge(System.Int32,System.Boolean@)
+  parent: g3.Remesher
+  isExternal: true
+  name: next_edge(Int32, Boolean)
+  nameWithType: Remesher.next_edge(Int32, Boolean)
+  fullName: g3.Remesher.next_edge(System.Int32, System.Boolean)
+  spec.csharp:
+  - uid: g3.Remesher.next_edge(System.Int32,System.Boolean@)
+    name: next_edge
+    nameWithType: Remesher.next_edge
+    fullName: g3.Remesher.next_edge
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.next_edge(System.Int32,System.Boolean@)
+    name: next_edge
+    nameWithType: Remesher.next_edge
+    fullName: g3.Remesher.next_edge
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.next_edge*
+  commentId: Overload:g3.EdgeLoopRemesher.next_edge
+  name: next_edge
+  nameWithType: EdgeLoopRemesher.next_edge
+  fullName: g3.EdgeLoopRemesher.next_edge
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Remesher.end_pass
+  commentId: M:g3.Remesher.end_pass
+  parent: g3.Remesher
+  name: end_pass()
+  nameWithType: Remesher.end_pass()
+  fullName: g3.Remesher.end_pass()
+  spec.csharp:
+  - uid: g3.Remesher.end_pass
+    name: end_pass
+    nameWithType: Remesher.end_pass
+    fullName: g3.Remesher.end_pass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.end_pass
+    name: end_pass
+    nameWithType: Remesher.end_pass
+    fullName: g3.Remesher.end_pass
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.end_pass*
+  commentId: Overload:g3.EdgeLoopRemesher.end_pass
+  name: end_pass
+  nameWithType: EdgeLoopRemesher.end_pass
+  fullName: g3.EdgeLoopRemesher.end_pass
+- uid: g3.Remesher.begin_smooth
+  commentId: M:g3.Remesher.begin_smooth
+  parent: g3.Remesher
+  name: begin_smooth()
+  nameWithType: Remesher.begin_smooth()
+  fullName: g3.Remesher.begin_smooth()
+  spec.csharp:
+  - uid: g3.Remesher.begin_smooth
+    name: begin_smooth
+    nameWithType: Remesher.begin_smooth
+    fullName: g3.Remesher.begin_smooth
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.begin_smooth
+    name: begin_smooth
+    nameWithType: Remesher.begin_smooth
+    fullName: g3.Remesher.begin_smooth
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.begin_smooth*
+  commentId: Overload:g3.EdgeLoopRemesher.begin_smooth
+  name: begin_smooth
+  nameWithType: EdgeLoopRemesher.begin_smooth
+  fullName: g3.EdgeLoopRemesher.begin_smooth
+- uid: g3.Remesher.smooth_vertices
+  commentId: M:g3.Remesher.smooth_vertices
+  parent: g3.Remesher
+  name: smooth_vertices()
+  nameWithType: Remesher.smooth_vertices()
+  fullName: g3.Remesher.smooth_vertices()
+  spec.csharp:
+  - uid: g3.Remesher.smooth_vertices
+    name: smooth_vertices
+    nameWithType: Remesher.smooth_vertices
+    fullName: g3.Remesher.smooth_vertices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.smooth_vertices
+    name: smooth_vertices
+    nameWithType: Remesher.smooth_vertices
+    fullName: g3.Remesher.smooth_vertices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.smooth_vertices*
+  commentId: Overload:g3.EdgeLoopRemesher.smooth_vertices
+  name: smooth_vertices
+  nameWithType: EdgeLoopRemesher.smooth_vertices
+  fullName: g3.EdgeLoopRemesher.smooth_vertices
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.Remesher.project_vertices
+  commentId: M:g3.Remesher.project_vertices
+  parent: g3.Remesher
+  name: project_vertices()
+  nameWithType: Remesher.project_vertices()
+  fullName: g3.Remesher.project_vertices()
+  spec.csharp:
+  - uid: g3.Remesher.project_vertices
+    name: project_vertices
+    nameWithType: Remesher.project_vertices
+    fullName: g3.Remesher.project_vertices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.project_vertices
+    name: project_vertices
+    nameWithType: Remesher.project_vertices
+    fullName: g3.Remesher.project_vertices
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.project_vertices*
+  commentId: Overload:g3.EdgeLoopRemesher.project_vertices
+  name: project_vertices
+  nameWithType: EdgeLoopRemesher.project_vertices
+  fullName: g3.EdgeLoopRemesher.project_vertices
+- uid: g3.Remesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  commentId: M:g3.Remesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+  parent: g3.Remesher
+  isExternal: true
+  name: OnEdgeSplit(Int32, Int32, Int32, DMesh3.EdgeSplitInfo)
+  nameWithType: Remesher.OnEdgeSplit(Int32, Int32, Int32, DMesh3.EdgeSplitInfo)
+  fullName: g3.Remesher.OnEdgeSplit(System.Int32, System.Int32, System.Int32, g3.DMesh3.EdgeSplitInfo)
+  spec.csharp:
+  - uid: g3.Remesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+    name: OnEdgeSplit
+    nameWithType: Remesher.OnEdgeSplit
+    fullName: g3.Remesher.OnEdgeSplit
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.DMesh3.EdgeSplitInfo
+    name: DMesh3.EdgeSplitInfo
+    nameWithType: DMesh3.EdgeSplitInfo
+    fullName: g3.DMesh3.EdgeSplitInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.OnEdgeSplit(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeSplitInfo)
+    name: OnEdgeSplit
+    nameWithType: Remesher.OnEdgeSplit
+    fullName: g3.Remesher.OnEdgeSplit
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.DMesh3.EdgeSplitInfo
+    name: DMesh3.EdgeSplitInfo
+    nameWithType: DMesh3.EdgeSplitInfo
+    fullName: g3.DMesh3.EdgeSplitInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.OnEdgeSplit*
+  commentId: Overload:g3.EdgeLoopRemesher.OnEdgeSplit
+  name: OnEdgeSplit
+  nameWithType: EdgeLoopRemesher.OnEdgeSplit
+  fullName: g3.EdgeLoopRemesher.OnEdgeSplit
+- uid: g3.DMesh3.EdgeSplitInfo
+  commentId: T:g3.DMesh3.EdgeSplitInfo
+  parent: g3
+  name: DMesh3.EdgeSplitInfo
+  nameWithType: DMesh3.EdgeSplitInfo
+  fullName: g3.DMesh3.EdgeSplitInfo
+- uid: g3.Remesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  commentId: M:g3.Remesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  parent: g3.Remesher
+  isExternal: true
+  name: OnEdgeCollapse(Int32, Int32, Int32, DMesh3.EdgeCollapseInfo)
+  nameWithType: Remesher.OnEdgeCollapse(Int32, Int32, Int32, DMesh3.EdgeCollapseInfo)
+  fullName: g3.Remesher.OnEdgeCollapse(System.Int32, System.Int32, System.Int32, g3.DMesh3.EdgeCollapseInfo)
+  spec.csharp:
+  - uid: g3.Remesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+    name: OnEdgeCollapse
+    nameWithType: Remesher.OnEdgeCollapse
+    fullName: g3.Remesher.OnEdgeCollapse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.DMesh3.EdgeCollapseInfo
+    name: DMesh3.EdgeCollapseInfo
+    nameWithType: DMesh3.EdgeCollapseInfo
+    fullName: g3.DMesh3.EdgeCollapseInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Remesher.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+    name: OnEdgeCollapse
+    nameWithType: Remesher.OnEdgeCollapse
+    fullName: g3.Remesher.OnEdgeCollapse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.DMesh3.EdgeCollapseInfo
+    name: DMesh3.EdgeCollapseInfo
+    nameWithType: DMesh3.EdgeCollapseInfo
+    fullName: g3.DMesh3.EdgeCollapseInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.EdgeLoopRemesher.OnEdgeCollapse*
+  commentId: Overload:g3.EdgeLoopRemesher.OnEdgeCollapse
+  name: OnEdgeCollapse
+  nameWithType: EdgeLoopRemesher.OnEdgeCollapse
+  fullName: g3.EdgeLoopRemesher.OnEdgeCollapse
+- uid: g3.DMesh3.EdgeCollapseInfo
+  commentId: T:g3.DMesh3.EdgeCollapseInfo
+  parent: g3
+  name: DMesh3.EdgeCollapseInfo
+  nameWithType: DMesh3.EdgeCollapseInfo
+  fullName: g3.DMesh3.EdgeCollapseInfo

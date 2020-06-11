@@ -5,7 +5,6 @@
 
 
 - [ViRGIS Project](#virgis-project)
-  * [Virtual Reality GIS in Unity](#virtual-reality-gis-in-unity)
 - [Overview](#overview)
 - [Documentation](#documentation)
 - [Getting ViRGIS](#getting-virgis)
@@ -30,7 +29,9 @@ Many of these features are currently available in various packages and initiativ
 
 # Documentation
 
-Go to [Documentation](https://www.virgis.org/docs)
+
+Go to [Documentation](www.virgis.org/docs/manua/geospatial.html)
+
 
 
 # Getting ViRGIS

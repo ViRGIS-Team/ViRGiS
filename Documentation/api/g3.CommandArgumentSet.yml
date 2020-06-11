@@ -1,0 +1,1128 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.CommandArgumentSet
+  commentId: T:g3.CommandArgumentSet
+  id: CommandArgumentSet
+  parent: g3
+  children:
+  - g3.CommandArgumentSet.error_invalid_value(System.String,System.String)
+  - g3.CommandArgumentSet.error_missing_argument(System.String)
+  - g3.CommandArgumentSet.Filenames
+  - g3.CommandArgumentSet.Flags
+  - g3.CommandArgumentSet.Floats
+  - g3.CommandArgumentSet.Integers
+  - g3.CommandArgumentSet.Parse(System.String[])
+  - g3.CommandArgumentSet.Register(System.String,System.Boolean)
+  - g3.CommandArgumentSet.Register(System.String,System.Int32)
+  - g3.CommandArgumentSet.Register(System.String,System.Single)
+  - g3.CommandArgumentSet.Register(System.String,System.String)
+  - g3.CommandArgumentSet.Saw(System.String)
+  - g3.CommandArgumentSet.SawArguments
+  - g3.CommandArgumentSet.Strings
+  - g3.CommandArgumentSet.Validate(System.String,System.String[])
+  langs:
+  - csharp
+  - vb
+  name: CommandArgumentSet
+  nameWithType: CommandArgumentSet
+  fullName: g3.CommandArgumentSet
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CommandArgumentSet
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class CommandArgumentSet
+    content.vb: Public Class CommandArgumentSet
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.CommandArgumentSet.Integers
+  commentId: F:g3.CommandArgumentSet.Integers
+  id: Integers
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Integers
+  nameWithType: CommandArgumentSet.Integers
+  fullName: g3.CommandArgumentSet.Integers
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Integers
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Dictionary<string, int> Integers
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Int32}
+    content.vb: Public Integers As Dictionary(Of String, Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Floats
+  commentId: F:g3.CommandArgumentSet.Floats
+  id: Floats
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Floats
+  nameWithType: CommandArgumentSet.Floats
+  fullName: g3.CommandArgumentSet.Floats
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Floats
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Dictionary<string, float> Floats
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Single}
+    content.vb: Public Floats As Dictionary(Of String, Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Strings
+  commentId: F:g3.CommandArgumentSet.Strings
+  id: Strings
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Strings
+  nameWithType: CommandArgumentSet.Strings
+  fullName: g3.CommandArgumentSet.Strings
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Strings
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Dictionary<string, string> Strings
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.String}
+    content.vb: Public Strings As Dictionary(Of String, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Flags
+  commentId: F:g3.CommandArgumentSet.Flags
+  id: Flags
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Flags
+  nameWithType: CommandArgumentSet.Flags
+  fullName: g3.CommandArgumentSet.Flags
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Flags
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Dictionary<string, bool> Flags
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Boolean}
+    content.vb: Public Flags As Dictionary(Of String, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.SawArguments
+  commentId: F:g3.CommandArgumentSet.SawArguments
+  id: SawArguments
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: SawArguments
+  nameWithType: CommandArgumentSet.SawArguments
+  fullName: g3.CommandArgumentSet.SawArguments
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SawArguments
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public HashSet<string> SawArguments
+    return:
+      type: System.Collections.Generic.HashSet{System.String}
+    content.vb: Public SawArguments As HashSet(Of String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Filenames
+  commentId: F:g3.CommandArgumentSet.Filenames
+  id: Filenames
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Filenames
+  nameWithType: CommandArgumentSet.Filenames
+  fullName: g3.CommandArgumentSet.Filenames
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Filenames
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 27
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<string> Filenames
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Filenames As List(Of String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Register(System.String,System.Int32)
+  commentId: M:g3.CommandArgumentSet.Register(System.String,System.Int32)
+  id: Register(System.String,System.Int32)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Register(String, Int32)
+  nameWithType: CommandArgumentSet.Register(String, Int32)
+  fullName: g3.CommandArgumentSet.Register(System.String, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Register
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Register(string argument, int defaultValue)
+    parameters:
+    - id: argument
+      type: System.String
+    - id: defaultValue
+      type: System.Int32
+    content.vb: Public Sub Register(argument As String, defaultValue As Integer)
+  overload: g3.CommandArgumentSet.Register*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Register(System.String,System.Single)
+  commentId: M:g3.CommandArgumentSet.Register(System.String,System.Single)
+  id: Register(System.String,System.Single)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Register(String, Single)
+  nameWithType: CommandArgumentSet.Register(String, Single)
+  fullName: g3.CommandArgumentSet.Register(System.String, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Register
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Register(string argument, float defaultValue)
+    parameters:
+    - id: argument
+      type: System.String
+    - id: defaultValue
+      type: System.Single
+    content.vb: Public Sub Register(argument As String, defaultValue As Single)
+  overload: g3.CommandArgumentSet.Register*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Register(System.String,System.Boolean)
+  commentId: M:g3.CommandArgumentSet.Register(System.String,System.Boolean)
+  id: Register(System.String,System.Boolean)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Register(String, Boolean)
+  nameWithType: CommandArgumentSet.Register(String, Boolean)
+  fullName: g3.CommandArgumentSet.Register(System.String, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Register
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Register(string argument, bool defaultValue)
+    parameters:
+    - id: argument
+      type: System.String
+    - id: defaultValue
+      type: System.Boolean
+    content.vb: Public Sub Register(argument As String, defaultValue As Boolean)
+  overload: g3.CommandArgumentSet.Register*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Register(System.String,System.String)
+  commentId: M:g3.CommandArgumentSet.Register(System.String,System.String)
+  id: Register(System.String,System.String)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Register(String, String)
+  nameWithType: CommandArgumentSet.Register(String, String)
+  fullName: g3.CommandArgumentSet.Register(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Register
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Register(string argument, string defaultValue)
+    parameters:
+    - id: argument
+      type: System.String
+    - id: defaultValue
+      type: System.String
+    content.vb: Public Sub Register(argument As String, defaultValue As String)
+  overload: g3.CommandArgumentSet.Register*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Saw(System.String)
+  commentId: M:g3.CommandArgumentSet.Saw(System.String)
+  id: Saw(System.String)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Saw(String)
+  nameWithType: CommandArgumentSet.Saw(String)
+  fullName: g3.CommandArgumentSet.Saw(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Saw
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 44
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Saw(string argument)
+    parameters:
+    - id: argument
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function Saw(argument As String) As Boolean
+  overload: g3.CommandArgumentSet.Saw*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CommandArgumentSet.Validate(System.String,System.String[])
+  commentId: M:g3.CommandArgumentSet.Validate(System.String,System.String[])
+  id: Validate(System.String,System.String[])
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Validate(String, String[])
+  nameWithType: CommandArgumentSet.Validate(String, String[])
+  fullName: g3.CommandArgumentSet.Validate(System.String, System.String[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Validate
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Validate(string sParam, params string[] values)
+    parameters:
+    - id: sParam
+      type: System.String
+    - id: values
+      type: System.String[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function Validate(sParam As String, ParamArray values As String()) As Boolean
+  overload: g3.CommandArgumentSet.Validate*
+  nameWithType.vb: CommandArgumentSet.Validate(String, String())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.CommandArgumentSet.Validate(System.String, System.String())
+  name.vb: Validate(String, String())
+- uid: g3.CommandArgumentSet.Parse(System.String[])
+  commentId: M:g3.CommandArgumentSet.Parse(System.String[])
+  id: Parse(System.String[])
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: Parse(String[])
+  nameWithType: CommandArgumentSet.Parse(String[])
+  fullName: g3.CommandArgumentSet.Parse(System.String[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Parse
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Parse(string[] arguments)
+    parameters:
+    - id: arguments
+      type: System.String[]
+    return:
+      type: System.Boolean
+    content.vb: Public Function Parse(arguments As String()) As Boolean
+  overload: g3.CommandArgumentSet.Parse*
+  nameWithType.vb: CommandArgumentSet.Parse(String())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.CommandArgumentSet.Parse(System.String())
+  name.vb: Parse(String())
+- uid: g3.CommandArgumentSet.error_missing_argument(System.String)
+  commentId: M:g3.CommandArgumentSet.error_missing_argument(System.String)
+  id: error_missing_argument(System.String)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: error_missing_argument(String)
+  nameWithType: CommandArgumentSet.error_missing_argument(String)
+  fullName: g3.CommandArgumentSet.error_missing_argument(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: error_missing_argument
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 126
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void error_missing_argument(string arg)
+    parameters:
+    - id: arg
+      type: System.String
+    content.vb: Protected Overridable Sub error_missing_argument(arg As String)
+  overload: g3.CommandArgumentSet.error_missing_argument*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.CommandArgumentSet.error_invalid_value(System.String,System.String)
+  commentId: M:g3.CommandArgumentSet.error_invalid_value(System.String,System.String)
+  id: error_invalid_value(System.String,System.String)
+  parent: g3.CommandArgumentSet
+  langs:
+  - csharp
+  - vb
+  name: error_invalid_value(String, String)
+  nameWithType: CommandArgumentSet.error_invalid_value(String, String)
+  fullName: g3.CommandArgumentSet.error_invalid_value(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/CommandArgumentSet.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: error_invalid_value
+    path: ../Assets/geometry3Sharp/core/CommandArgumentSet.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void error_invalid_value(string arg, string value)
+    parameters:
+    - id: arg
+      type: System.String
+    - id: value
+      type: System.String
+    content.vb: Protected Overridable Sub error_invalid_value(arg As String, value As String)
+  overload: g3.CommandArgumentSet.error_invalid_value*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.Dictionary{System.String,System.Int32}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Int32>
+  nameWithType: Dictionary<String, Int32>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Int32>
+  nameWithType.vb: Dictionary(Of String, Int32)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Int32)
+  name.vb: Dictionary(Of String, Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.Dictionary{System.String,System.Single}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Single}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Single>
+  nameWithType: Dictionary<String, Single>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Single>
+  nameWithType.vb: Dictionary(Of String, Single)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Single)
+  name.vb: Dictionary(Of String, Single)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, String>
+  nameWithType: Dictionary<String, String>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.String>
+  nameWithType.vb: Dictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.String)
+  name.vb: Dictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary{System.String,System.Boolean}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Boolean}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Boolean>
+  nameWithType: Dictionary<String, Boolean>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Boolean>
+  nameWithType.vb: Dictionary(Of String, Boolean)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Boolean)
+  name.vb: Dictionary(Of String, Boolean)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet{System.String}
+  commentId: T:System.Collections.Generic.HashSet{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<String>
+  nameWithType: HashSet<String>
+  fullName: System.Collections.Generic.HashSet<System.String>
+  nameWithType.vb: HashSet(Of String)
+  fullName.vb: System.Collections.Generic.HashSet(Of System.String)
+  name.vb: HashSet(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CommandArgumentSet.Register*
+  commentId: Overload:g3.CommandArgumentSet.Register
+  name: Register
+  nameWithType: CommandArgumentSet.Register
+  fullName: g3.CommandArgumentSet.Register
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.CommandArgumentSet.Saw*
+  commentId: Overload:g3.CommandArgumentSet.Saw
+  name: Saw
+  nameWithType: CommandArgumentSet.Saw
+  fullName: g3.CommandArgumentSet.Saw
+- uid: g3.CommandArgumentSet.Validate*
+  commentId: Overload:g3.CommandArgumentSet.Validate
+  name: Validate
+  nameWithType: CommandArgumentSet.Validate
+  fullName: g3.CommandArgumentSet.Validate
+- uid: System.String[]
+  isExternal: true
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.CommandArgumentSet.Parse*
+  commentId: Overload:g3.CommandArgumentSet.Parse
+  name: Parse
+  nameWithType: CommandArgumentSet.Parse
+  fullName: g3.CommandArgumentSet.Parse
+- uid: g3.CommandArgumentSet.error_missing_argument*
+  commentId: Overload:g3.CommandArgumentSet.error_missing_argument
+  name: error_missing_argument
+  nameWithType: CommandArgumentSet.error_missing_argument
+  fullName: g3.CommandArgumentSet.error_missing_argument
+- uid: g3.CommandArgumentSet.error_invalid_value*
+  commentId: Overload:g3.CommandArgumentSet.error_invalid_value
+  name: error_invalid_value
+  nameWithType: CommandArgumentSet.error_invalid_value
+  fullName: g3.CommandArgumentSet.error_invalid_value
