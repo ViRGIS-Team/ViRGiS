@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.PlyImport
+  commentId: T:Virgis.PlyImport
+  id: PlyImport
+  parent: Virgis
+  children:
+  - Virgis.PlyImport.Load(System.String,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: PlyImport
+  nameWithType: PlyImport
+  fullName: Virgis.PlyImport
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Adapters/PlyImport.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: PlyImport
+    path: ../Assets/Scripts/Adapters/PlyImport.cs
+    startLine: 15
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nImports a .ply file as a ParticleData Object\n\nAdapted from https://github.com/leon196/PointCloudExporter/blob/master/Assets/Scripts/SimpleImporter.cs\n"
+  example: []
+  syntax:
+    content: public class PlyImport
+    content.vb: Public Class PlyImport
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Virgis.PlyImport.Load(System.String,System.Int32)
+  commentId: M:Virgis.PlyImport.Load(System.String,System.Int32)
+  id: Load(System.String,System.Int32)
+  parent: Virgis.PlyImport
+  langs:
+  - csharp
+  - vb
+  name: Load(String, Int32)
+  nameWithType: PlyImport.Load(String, Int32)
+  fullName: Virgis.PlyImport.Load(System.String, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Adapters/PlyImport.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Load
+    path: ../Assets/Scripts/Adapters/PlyImport.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Task<ParticleData> Load(string filePath, int maximumVertex = 10000000)
+    parameters:
+    - id: filePath
+      type: System.String
+    - id: maximumVertex
+      type: System.Int32
+    return:
+      type: System.Threading.Tasks.Task{Virgis.ParticleData}
+    content.vb: Public Function Load(filePath As String, maximumVertex As Integer = 10000000) As Task(Of ParticleData)
+  overload: Virgis.PlyImport.Load*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Virgis.PlyImport.Load*
+  commentId: Overload:Virgis.PlyImport.Load
+  name: Load
+  nameWithType: PlyImport.Load
+  fullName: Virgis.PlyImport.Load
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Threading.Tasks.Task{Virgis.ParticleData}
+  commentId: T:System.Threading.Tasks.Task{Virgis.ParticleData}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ParticleData>
+  nameWithType: Task<ParticleData>
+  fullName: System.Threading.Tasks.Task<Virgis.ParticleData>
+  nameWithType.vb: Task(Of ParticleData)
+  fullName.vb: System.Threading.Tasks.Task(Of Virgis.ParticleData)
+  name.vb: Task(Of ParticleData)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Virgis.ParticleData
+    name: ParticleData
+    nameWithType: ParticleData
+    fullName: Virgis.ParticleData
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Virgis.ParticleData
+    name: ParticleData
+    nameWithType: ParticleData
+    fullName: Virgis.ParticleData
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

@@ -1,0 +1,403 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.ZoomEvent
+  commentId: T:Virgis.ZoomEvent
+  id: ZoomEvent
+  parent: Virgis
+  children:
+  - Virgis.ZoomEvent.#ctor
+  - Virgis.ZoomEvent.AddZoomChangeListerner(UnityEngine.Events.UnityAction{System.Single})
+  - Virgis.ZoomEvent.Change(System.Single)
+  - Virgis.ZoomEvent.GetScale
+  langs:
+  - csharp
+  - vb
+  name: ZoomEvent
+  nameWithType: ZoomEvent
+  fullName: Virgis.ZoomEvent
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/ZoomChange.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ZoomEvent
+    path: ../Assets/Scripts/ZoomChange.cs
+    startLine: 10
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nEvent type for Zoom Change Events\n"
+  example: []
+  syntax:
+    content: 'public class ZoomEvent : UnityEvent<float>, ISerializationCallbackReceiver'
+    content.vb: >-
+      Public Class ZoomEvent
+          Inherits UnityEvent(Of Single)
+          Implements ISerializationCallbackReceiver
+  inheritance:
+  - System.Object
+  - UnityEngine.Events.UnityEventBase
+  - UnityEngine.Events.UnityEvent{System.Single}
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Virgis.ZoomEvent.#ctor
+  commentId: M:Virgis.ZoomEvent.#ctor
+  id: '#ctor'
+  parent: Virgis.ZoomEvent
+  langs:
+  - csharp
+  - vb
+  name: ZoomEvent()
+  nameWithType: ZoomEvent.ZoomEvent()
+  fullName: Virgis.ZoomEvent.ZoomEvent()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/ZoomChange.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/Scripts/ZoomChange.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public ZoomEvent()
+    content.vb: Public Sub New
+  overload: Virgis.ZoomEvent.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.ZoomEvent.AddZoomChangeListerner(UnityEngine.Events.UnityAction{System.Single})
+  commentId: M:Virgis.ZoomEvent.AddZoomChangeListerner(UnityEngine.Events.UnityAction{System.Single})
+  id: AddZoomChangeListerner(UnityEngine.Events.UnityAction{System.Single})
+  parent: Virgis.ZoomEvent
+  langs:
+  - csharp
+  - vb
+  name: AddZoomChangeListerner(UnityAction<Single>)
+  nameWithType: ZoomEvent.AddZoomChangeListerner(UnityAction<Single>)
+  fullName: Virgis.ZoomEvent.AddZoomChangeListerner(UnityEngine.Events.UnityAction<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/ZoomChange.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddZoomChangeListerner
+    path: ../Assets/Scripts/ZoomChange.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public void AddZoomChangeListerner(UnityAction<float> action)
+    parameters:
+    - id: action
+      type: UnityEngine.Events.UnityAction{System.Single}
+    content.vb: Public Sub AddZoomChangeListerner(action As UnityAction(Of Single))
+  overload: Virgis.ZoomEvent.AddZoomChangeListerner*
+  nameWithType.vb: ZoomEvent.AddZoomChangeListerner(UnityAction(Of Single))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.ZoomEvent.AddZoomChangeListerner(UnityEngine.Events.UnityAction(Of System.Single))
+  name.vb: AddZoomChangeListerner(UnityAction(Of Single))
+- uid: Virgis.ZoomEvent.Change(System.Single)
+  commentId: M:Virgis.ZoomEvent.Change(System.Single)
+  id: Change(System.Single)
+  parent: Virgis.ZoomEvent
+  langs:
+  - csharp
+  - vb
+  name: Change(Single)
+  nameWithType: ZoomEvent.Change(Single)
+  fullName: Virgis.ZoomEvent.Change(System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/ZoomChange.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Change
+    path: ../Assets/Scripts/ZoomChange.cs
+    startLine: 23
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public void Change(float zoom)
+    parameters:
+    - id: zoom
+      type: System.Single
+    content.vb: Public Sub Change(zoom As Single)
+  overload: Virgis.ZoomEvent.Change*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Virgis.ZoomEvent.GetScale
+  commentId: M:Virgis.ZoomEvent.GetScale
+  id: GetScale
+  parent: Virgis.ZoomEvent
+  langs:
+  - csharp
+  - vb
+  name: GetScale()
+  nameWithType: ZoomEvent.GetScale()
+  fullName: Virgis.ZoomEvent.GetScale()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/ZoomChange.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetScale
+    path: ../Assets/Scripts/ZoomChange.cs
+    startLine: 31
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public float GetScale()
+    return:
+      type: System.Single
+    content.vb: Public Function GetScale As Single
+  overload: Virgis.ZoomEvent.GetScale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: UnityEngine.Events.UnityEventBase
+  commentId: T:UnityEngine.Events.UnityEventBase
+  parent: UnityEngine.Events
+  isExternal: true
+  name: UnityEventBase
+  nameWithType: UnityEventBase
+  fullName: UnityEngine.Events.UnityEventBase
+- uid: UnityEngine.Events.UnityEvent{System.Single}
+  commentId: T:UnityEngine.Events.UnityEvent{System.Single}
+  parent: UnityEngine.Events
+  definition: UnityEngine.Events.UnityEvent`1
+  name: UnityEvent<Single>
+  nameWithType: UnityEvent<Single>
+  fullName: UnityEngine.Events.UnityEvent<System.Single>
+  nameWithType.vb: UnityEvent(Of Single)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of System.Single)
+  name.vb: UnityEvent(Of Single)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Events
+  commentId: N:UnityEngine.Events
+  isExternal: true
+  name: UnityEngine.Events
+  nameWithType: UnityEngine.Events
+  fullName: UnityEngine.Events
+- uid: UnityEngine.Events.UnityEvent`1
+  commentId: T:UnityEngine.Events.UnityEvent`1
+  isExternal: true
+  name: UnityEvent<T0>
+  nameWithType: UnityEvent<T0>
+  fullName: UnityEngine.Events.UnityEvent<T0>
+  nameWithType.vb: UnityEvent(Of T0)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of T0)
+  name.vb: UnityEvent(Of T0)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T0
+    nameWithType: T0
+    fullName: T0
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T0
+    nameWithType: T0
+    fullName: T0
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.ZoomEvent.#ctor*
+  commentId: Overload:Virgis.ZoomEvent.#ctor
+  name: ZoomEvent
+  nameWithType: ZoomEvent.ZoomEvent
+  fullName: Virgis.ZoomEvent.ZoomEvent
+- uid: Virgis.ZoomEvent.AddZoomChangeListerner*
+  commentId: Overload:Virgis.ZoomEvent.AddZoomChangeListerner
+  name: AddZoomChangeListerner
+  nameWithType: ZoomEvent.AddZoomChangeListerner
+  fullName: Virgis.ZoomEvent.AddZoomChangeListerner
+- uid: UnityEngine.Events.UnityAction{System.Single}
+  commentId: T:UnityEngine.Events.UnityAction{System.Single}
+  parent: UnityEngine.Events
+  definition: UnityEngine.Events.UnityAction`1
+  name: UnityAction<Single>
+  nameWithType: UnityAction<Single>
+  fullName: UnityEngine.Events.UnityAction<System.Single>
+  nameWithType.vb: UnityAction(Of Single)
+  fullName.vb: UnityEngine.Events.UnityAction(Of System.Single)
+  name.vb: UnityAction(Of Single)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityAction`1
+    name: UnityAction
+    nameWithType: UnityAction
+    fullName: UnityEngine.Events.UnityAction
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityAction`1
+    name: UnityAction
+    nameWithType: UnityAction
+    fullName: UnityEngine.Events.UnityAction
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: UnityEngine.Events.UnityAction`1
+  commentId: T:UnityEngine.Events.UnityAction`1
+  isExternal: true
+  name: UnityAction<T0>
+  nameWithType: UnityAction<T0>
+  fullName: UnityEngine.Events.UnityAction<T0>
+  nameWithType.vb: UnityAction(Of T0)
+  fullName.vb: UnityEngine.Events.UnityAction(Of T0)
+  name.vb: UnityAction(Of T0)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityAction`1
+    name: UnityAction
+    nameWithType: UnityAction
+    fullName: UnityEngine.Events.UnityAction
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T0
+    nameWithType: T0
+    fullName: T0
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityAction`1
+    name: UnityAction
+    nameWithType: UnityAction
+    fullName: UnityEngine.Events.UnityAction
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T0
+    nameWithType: T0
+    fullName: T0
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.ZoomEvent.Change*
+  commentId: Overload:Virgis.ZoomEvent.Change
+  name: Change
+  nameWithType: ZoomEvent.Change
+  fullName: Virgis.ZoomEvent.Change
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: Virgis.ZoomEvent.GetScale*
+  commentId: Overload:Virgis.ZoomEvent.GetScale
+  name: GetScale
+  nameWithType: ZoomEvent.GetScale
+  fullName: Virgis.ZoomEvent.GetScale

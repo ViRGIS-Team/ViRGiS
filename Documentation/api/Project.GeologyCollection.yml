@@ -1,0 +1,227 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.GeologyCollection
+  commentId: T:Project.GeologyCollection
+  id: GeologyCollection
+  parent: Project
+  children:
+  - Project.GeologyCollection.Properties
+  langs:
+  - csharp
+  - vb
+  name: GeologyCollection
+  nameWithType: GeologyCollection
+  fullName: Project.GeologyCollection
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GeologyCollection
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 187
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: 'public class GeologyCollection : GeographyCollection'
+    content.vb: >-
+      Public Class GeologyCollection
+          Inherits GeographyCollection
+  inheritance:
+  - System.Object
+  - Project.TestableObject
+  - Project.RecordSet
+  - Project.GeographyCollection
+  inheritedMembers:
+  - Project.RecordSet.Id
+  - Project.RecordSet.DisplayName
+  - Project.RecordSet.Type
+  - Project.RecordSet.DataType
+  - Project.RecordSet.Source
+  - Project.RecordSet.Features
+  - Project.RecordSet.Position
+  - Project.RecordSet.Transform
+  - Project.TestableObject.ContainsKey(System.String)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.GeologyCollection.Properties
+  commentId: F:Project.GeologyCollection.Properties
+  id: Properties
+  parent: Project.GeologyCollection
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: GeologyCollection.Properties
+  fullName: Project.GeologyCollection.Properties
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Properties
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 190
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "properties")]
+
+      public GeologyCollection.GeoData Properties
+    return:
+      type: Project.GeologyCollection.GeoData
+    content.vb: >-
+      <JsonProperty(PropertyName:="properties")>
+
+      Public Properties As GeologyCollection.GeoData
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: properties
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.TestableObject
+  commentId: T:Project.TestableObject
+  parent: Project
+  name: TestableObject
+  nameWithType: TestableObject
+  fullName: Project.TestableObject
+- uid: Project.RecordSet
+  commentId: T:Project.RecordSet
+  parent: Project
+  name: RecordSet
+  nameWithType: RecordSet
+  fullName: Project.RecordSet
+- uid: Project.GeographyCollection
+  commentId: T:Project.GeographyCollection
+  parent: Project
+  name: GeographyCollection
+  nameWithType: GeographyCollection
+  fullName: Project.GeographyCollection
+- uid: Project.RecordSet.Id
+  commentId: F:Project.RecordSet.Id
+  parent: Project.RecordSet
+  name: Id
+  nameWithType: RecordSet.Id
+  fullName: Project.RecordSet.Id
+- uid: Project.RecordSet.DisplayName
+  commentId: F:Project.RecordSet.DisplayName
+  parent: Project.RecordSet
+  name: DisplayName
+  nameWithType: RecordSet.DisplayName
+  fullName: Project.RecordSet.DisplayName
+- uid: Project.RecordSet.Type
+  commentId: F:Project.RecordSet.Type
+  parent: Project.RecordSet
+  name: Type
+  nameWithType: RecordSet.Type
+  fullName: Project.RecordSet.Type
+- uid: Project.RecordSet.DataType
+  commentId: F:Project.RecordSet.DataType
+  parent: Project.RecordSet
+  name: DataType
+  nameWithType: RecordSet.DataType
+  fullName: Project.RecordSet.DataType
+- uid: Project.RecordSet.Source
+  commentId: F:Project.RecordSet.Source
+  parent: Project.RecordSet
+  name: Source
+  nameWithType: RecordSet.Source
+  fullName: Project.RecordSet.Source
+- uid: Project.RecordSet.Features
+  commentId: F:Project.RecordSet.Features
+  parent: Project.RecordSet
+  name: Features
+  nameWithType: RecordSet.Features
+  fullName: Project.RecordSet.Features
+- uid: Project.RecordSet.Position
+  commentId: F:Project.RecordSet.Position
+  parent: Project.RecordSet
+  name: Position
+  nameWithType: RecordSet.Position
+  fullName: Project.RecordSet.Position
+- uid: Project.RecordSet.Transform
+  commentId: F:Project.RecordSet.Transform
+  parent: Project.RecordSet
+  name: Transform
+  nameWithType: RecordSet.Transform
+  fullName: Project.RecordSet.Transform
+- uid: Project.TestableObject.ContainsKey(System.String)
+  commentId: M:Project.TestableObject.ContainsKey(System.String)
+  parent: Project.TestableObject
+  isExternal: true
+  name: ContainsKey(String)
+  nameWithType: TestableObject.ContainsKey(String)
+  fullName: Project.TestableObject.ContainsKey(System.String)
+  spec.csharp:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Project.GeologyCollection.GeoData
+  commentId: T:Project.GeologyCollection.GeoData
+  parent: Project
+  name: GeologyCollection.GeoData
+  nameWithType: GeologyCollection.GeoData
+  fullName: Project.GeologyCollection.GeoData

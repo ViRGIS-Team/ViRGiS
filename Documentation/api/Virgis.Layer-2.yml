@@ -1,0 +1,2199 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.Layer`2
+  commentId: T:Virgis.Layer`2
+  id: Layer`2
+  parent: Virgis
+  children:
+  - Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  - Virgis.Layer`2._checkpoint
+  - Virgis.Layer`2._draw
+  - Virgis.Layer`2._editable
+  - Virgis.Layer`2._id
+  - Virgis.Layer`2._init(`0)
+  - Virgis.Layer`2._save
+  - Virgis.Layer`2._visible
+  - Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  - Virgis.Layer`2.changed
+  - Virgis.Layer`2.CheckPoint
+  - Virgis.Layer`2.Draw
+  - Virgis.Layer`2.ExitEditSession(System.Boolean)
+  - Virgis.Layer`2.features
+  - Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - Virgis.Layer`2.GetFeature(System.Guid)
+  - Virgis.Layer`2.GetFeatureShape
+  - Virgis.Layer`2.GetId
+  - Virgis.Layer`2.GetMetadata
+  - Virgis.Layer`2.Init(`0)
+  - Virgis.Layer`2.IsEditable
+  - Virgis.Layer`2.IsVisible
+  - Virgis.Layer`2.layer
+  - Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  - Virgis.Layer`2.Save
+  - Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  - Virgis.Layer`2.SetEditable(System.Boolean)
+  - Virgis.Layer`2.SetVisible(System.Boolean)
+  - Virgis.Layer`2.StartEditSession
+  - Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  - Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  langs:
+  - csharp
+  - vb
+  name: Layer<T, S>
+  nameWithType: Layer<T, S>
+  fullName: Virgis.Layer<T, S>
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Layer
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 50
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nAbstract parent for all Layer entities\n"
+  example: []
+  syntax:
+    content: 'public abstract class Layer<T, S> : MonoBehaviour, ILayer where T : RecordSet'
+    typeParameters:
+    - id: T
+    - id: S
+    content.vb: >-
+      Public MustInherit Class Layer(Of T As RecordSet, S)
+          Inherits MonoBehaviour
+          Implements ILayer
+  inheritance:
+  - System.Object
+  - UnityEngine.Object
+  - UnityEngine.Component
+  - UnityEngine.Behaviour
+  - UnityEngine.MonoBehaviour
+  derivedClasses:
+  - Virgis.DataPlotter
+  - Virgis.LineLayer
+  - Virgis.MapInitialize
+  - Virgis.MeshLayer
+  - Virgis.PointCloudLayer
+  - Virgis.PointLayer
+  - Virgis.PolygonLayer
+  implements:
+  - Virgis.ILayer
+  nameWithType.vb: Layer(Of T, S)
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+  fullName.vb: Virgis.Layer(Of T, S)
+  name.vb: Layer(Of T, S)
+- uid: Virgis.Layer`2.layer
+  commentId: F:Virgis.Layer`2.layer
+  id: layer
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: layer
+  nameWithType: Layer<T, S>.layer
+  fullName: Virgis.Layer<T, S>.layer
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: layer
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 56
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public T layer
+    return:
+      type: '{T}'
+    content.vb: Public layer As T
+  nameWithType.vb: Layer(Of T, S).layer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).layer
+- uid: Virgis.Layer`2.features
+  commentId: F:Virgis.Layer`2.features
+  id: features
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: features
+  nameWithType: Layer<T, S>.features
+  fullName: Virgis.Layer<T, S>.features
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: features
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public S features
+    return:
+      type: '{S}'
+    content.vb: Public features As S
+  nameWithType.vb: Layer(Of T, S).features
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).features
+- uid: Virgis.Layer`2.changed
+  commentId: F:Virgis.Layer`2.changed
+  id: changed
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: changed
+  nameWithType: Layer<T, S>.changed
+  fullName: Virgis.Layer<T, S>.changed
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: changed
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 58
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public bool changed
+    return:
+      type: System.Boolean
+    content.vb: Public changed As Boolean
+  nameWithType.vb: Layer(Of T, S).changed
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).changed
+- uid: Virgis.Layer`2._id
+  commentId: F:Virgis.Layer`2._id
+  id: _id
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _id
+  nameWithType: Layer<T, S>._id
+  fullName: Virgis.Layer<T, S>._id
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _id
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 60
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected Guid _id
+    return:
+      type: System.Guid
+    content.vb: Protected _id As Guid
+  nameWithType.vb: Layer(Of T, S)._id
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.Layer(Of T, S)._id
+- uid: Virgis.Layer`2._visible
+  commentId: F:Virgis.Layer`2._visible
+  id: _visible
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _visible
+  nameWithType: Layer<T, S>._visible
+  fullName: Virgis.Layer<T, S>._visible
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _visible
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 61
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected bool _visible
+    return:
+      type: System.Boolean
+    content.vb: Protected _visible As Boolean
+  nameWithType.vb: Layer(Of T, S)._visible
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.Layer(Of T, S)._visible
+- uid: Virgis.Layer`2._editable
+  commentId: F:Virgis.Layer`2._editable
+  id: _editable
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _editable
+  nameWithType: Layer<T, S>._editable
+  fullName: Virgis.Layer<T, S>._editable
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _editable
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 62
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected bool _editable
+    return:
+      type: System.Boolean
+    content.vb: Protected _editable As Boolean
+  nameWithType.vb: Layer(Of T, S)._editable
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.Layer(Of T, S)._editable
+- uid: Virgis.Layer`2.Init(`0)
+  commentId: M:Virgis.Layer`2.Init(`0)
+  id: Init(`0)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: Init(T)
+  nameWithType: Layer<T, S>.Init(T)
+  fullName: Virgis.Layer<T, S>.Init(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Init
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 86
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled to initialise this layer\n\nIf the data cannot be read, fails quitely and creates an empty layer\n"
+  example: []
+  syntax:
+    content: public Task<Layer<T, S>> Init(T layer)
+    parameters:
+    - id: layer
+      type: '{T}'
+      description: The GeographyCollection object that defines this layer
+    return:
+      type: System.Threading.Tasks.Task{Virgis.Layer`2}
+      description: refernce to this GameObject for chaining
+    content.vb: Public Function Init(layer As T) As Task(Of Layer(Of T, S))
+  overload: Virgis.Layer`2.Init*
+  nameWithType.vb: Layer(Of T, S).Init(T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).Init(T)
+- uid: Virgis.Layer`2._init(`0)
+  commentId: M:Virgis.Layer`2._init(`0)
+  id: _init(`0)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _init(T)
+  nameWithType: Layer<T, S>._init(T)
+  fullName: Virgis.Layer<T, S>._init(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _init
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 98
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nImplement the layer specific init code in this method\n"
+  example: []
+  syntax:
+    content: protected abstract Task _init(T layer)
+    parameters:
+    - id: layer
+      type: '{T}'
+      description: ''
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Protected MustOverride Function _init(layer As T) As Task
+  overload: Virgis.Layer`2._init*
+  nameWithType.vb: Layer(Of T, S)._init(T)
+  modifiers.csharp:
+  - protected
+  - abstract
+  modifiers.vb:
+  - Protected
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S)._init(T)
+- uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  id: AddFeature(UnityEngine.Vector3[])
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: AddFeature(Vector3[])
+  nameWithType: Layer<T, S>.AddFeature(Vector3[])
+  fullName: Virgis.Layer<T, S>.AddFeature(UnityEngine.Vector3[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddFeature
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 104
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCall this to create a new feature\n"
+  example: []
+  syntax:
+    content: public VirgisComponent AddFeature(Vector3[] geometry)
+    parameters:
+    - id: geometry
+      type: UnityEngine.Vector3[]
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Public Function AddFeature(geometry As Vector3()) As VirgisComponent
+  overload: Virgis.Layer`2.AddFeature*
+  implements:
+  - Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  nameWithType.vb: Layer(Of T, S).AddFeature(Vector3())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).AddFeature(UnityEngine.Vector3())
+  name.vb: AddFeature(Vector3())
+- uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  id: _addFeature(UnityEngine.Vector3[])
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _addFeature(Vector3[])
+  nameWithType: Layer<T, S>._addFeature(Vector3[])
+  fullName: Virgis.Layer<T, S>._addFeature(UnityEngine.Vector3[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _addFeature
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 115
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected abstract VirgisComponent _addFeature(Vector3[] geometry)
+    parameters:
+    - id: geometry
+      type: UnityEngine.Vector3[]
+    return:
+      type: Virgis.VirgisComponent
+    content.vb: Protected MustOverride Function _addFeature(geometry As Vector3()) As VirgisComponent
+  overload: Virgis.Layer`2._addFeature*
+  nameWithType.vb: Layer(Of T, S)._addFeature(Vector3())
+  modifiers.csharp:
+  - protected
+  - abstract
+  modifiers.vb:
+  - Protected
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S)._addFeature(UnityEngine.Vector3())
+  name.vb: _addFeature(Vector3())
+- uid: Virgis.Layer`2.Draw
+  commentId: M:Virgis.Layer`2.Draw
+  id: Draw
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: Draw()
+  nameWithType: Layer<T, S>.Draw()
+  fullName: Virgis.Layer<T, S>.Draw()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Draw
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 120
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nDraw the layer based upon the features in the features GeographyCollection\n"
+  example: []
+  syntax:
+    content: public void Draw()
+    content.vb: Public Sub Draw
+  overload: Virgis.Layer`2.Draw*
+  implements:
+  - Virgis.ILayer.Draw
+  nameWithType.vb: Layer(Of T, S).Draw()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).Draw()
+- uid: Virgis.Layer`2._draw
+  commentId: M:Virgis.Layer`2._draw
+  id: _draw
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _draw()
+  nameWithType: Layer<T, S>._draw()
+  fullName: Virgis.Layer<T, S>._draw()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _draw
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 143
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nImplment the layer specific draw code in this method\n"
+  example: []
+  syntax:
+    content: protected abstract void _draw()
+    content.vb: Protected MustOverride Sub _draw
+  overload: Virgis.Layer`2._draw*
+  nameWithType.vb: Layer(Of T, S)._draw()
+  modifiers.csharp:
+  - protected
+  - abstract
+  modifiers.vb:
+  - Protected
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S)._draw()
+- uid: Virgis.Layer`2.CheckPoint
+  commentId: M:Virgis.Layer`2.CheckPoint
+  id: CheckPoint
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: CheckPoint()
+  nameWithType: Layer<T, S>.CheckPoint()
+  fullName: Virgis.Layer<T, S>.CheckPoint()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: CheckPoint
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 150
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCall this to tell the layers to create a checkpoint. \n\nOnly valid outside of an Edit Session. Inside an Edit Session use Save() as CheckPoint() will do nothing\n"
+  example: []
+  syntax:
+    content: public void CheckPoint()
+    content.vb: Public Sub CheckPoint
+  overload: Virgis.Layer`2.CheckPoint*
+  implements:
+  - Virgis.ILayer.CheckPoint
+  nameWithType.vb: Layer(Of T, S).CheckPoint()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).CheckPoint()
+- uid: Virgis.Layer`2._checkpoint
+  commentId: M:Virgis.Layer`2._checkpoint
+  id: _checkpoint
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _checkpoint()
+  nameWithType: Layer<T, S>._checkpoint()
+  fullName: Virgis.Layer<T, S>._checkpoint()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _checkpoint
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 160
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nImplement the layer specific checkpoint code here\n"
+  example: []
+  syntax:
+    content: protected abstract void _checkpoint()
+    content.vb: Protected MustOverride Sub _checkpoint
+  overload: Virgis.Layer`2._checkpoint*
+  nameWithType.vb: Layer(Of T, S)._checkpoint()
+  modifiers.csharp:
+  - protected
+  - abstract
+  modifiers.vb:
+  - Protected
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S)._checkpoint()
+- uid: Virgis.Layer`2.Save
+  commentId: M:Virgis.Layer`2.Save
+  id: Save
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: Save()
+  nameWithType: Layer<T, S>.Save()
+  fullName: Virgis.Layer<T, S>.Save()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Save
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 166
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled to save the current layer data to source\n"
+  example: []
+  syntax:
+    content: public RecordSet Save()
+    return:
+      type: Project.RecordSet
+      description: A copy of the data save dot the source
+    content.vb: Public Function Save As RecordSet
+  overload: Virgis.Layer`2.Save*
+  implements:
+  - Virgis.ILayer.Save
+  nameWithType.vb: Layer(Of T, S).Save()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).Save()
+- uid: Virgis.Layer`2._save
+  commentId: M:Virgis.Layer`2._save
+  id: _save
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: _save()
+  nameWithType: Layer<T, S>._save()
+  fullName: Virgis.Layer<T, S>._save()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: _save
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 177
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nImplment the layer specific draw code in this method\n"
+  example: []
+  syntax:
+    content: protected abstract void _save()
+    content.vb: Protected MustOverride Sub _save
+  overload: Virgis.Layer`2._save*
+  nameWithType.vb: Layer(Of T, S)._save()
+  modifiers.csharp:
+  - protected
+  - abstract
+  modifiers.vb:
+  - Protected
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S)._save()
+- uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  id: Translate(Virgis.MoveArgs)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: Translate(MoveArgs)
+  nameWithType: Layer<T, S>.Translate(MoveArgs)
+  fullName: Virgis.Layer<T, S>.Translate(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 183
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled Whenever a member entity is asked to Translate\n"
+  example: []
+  syntax:
+    content: public abstract void Translate(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+      description: MoveArge Object
+    content.vb: Public MustOverride Sub Translate(args As MoveArgs)
+  overload: Virgis.Layer`2.Translate*
+  nameWithType.vb: Layer(Of T, S).Translate(MoveArgs)
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S).Translate(Virgis.MoveArgs)
+- uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  id: MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: MoveAxis(MoveArgs)
+  nameWithType: Layer<T, S>.MoveAxis(MoveArgs)
+  fullName: Virgis.Layer<T, S>.MoveAxis(Virgis.MoveArgs)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: MoveAxis
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 189
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled whenevr a member entity is asked to Change Axis\n"
+  example: []
+  syntax:
+    content: public abstract void MoveAxis(MoveArgs args)
+    parameters:
+    - id: args
+      type: Virgis.MoveArgs
+      description: MoveArgs Object
+    content.vb: Public MustOverride Sub MoveAxis(args As MoveArgs)
+  overload: Virgis.Layer`2.MoveAxis*
+  nameWithType.vb: Layer(Of T, S).MoveAxis(MoveArgs)
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S).MoveAxis(Virgis.MoveArgs)
+- uid: Virgis.Layer`2.StartEditSession
+  commentId: M:Virgis.Layer`2.StartEditSession
+  id: StartEditSession
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: StartEditSession()
+  nameWithType: Layer<T, S>.StartEditSession()
+  fullName: Virgis.Layer<T, S>.StartEditSession()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: StartEditSession
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 194
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled when an edit session starts\n"
+  example: []
+  syntax:
+    content: public virtual void StartEditSession()
+    content.vb: Public Overridable Sub StartEditSession
+  overload: Virgis.Layer`2.StartEditSession*
+  nameWithType.vb: Layer(Of T, S).StartEditSession()
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: Virgis.Layer(Of T, S).StartEditSession()
+- uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.Layer`2.ExitEditSession(System.Boolean)
+  id: ExitEditSession(System.Boolean)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: ExitEditSession(Boolean)
+  nameWithType: Layer<T, S>.ExitEditSession(Boolean)
+  fullName: Virgis.Layer<T, S>.ExitEditSession(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: ExitEditSession
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 202
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled when an edit session ends\n"
+  example: []
+  syntax:
+    content: public virtual void ExitEditSession(bool saved)
+    parameters:
+    - id: saved
+      type: System.Boolean
+      description: true if stop and save, false if stop and discard
+    content.vb: Public Overridable Sub ExitEditSession(saved As Boolean)
+  overload: Virgis.Layer`2.ExitEditSession*
+  nameWithType.vb: Layer(Of T, S).ExitEditSession(Boolean)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: Virgis.Layer(Of T, S).ExitEditSession(System.Boolean)
+- uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  id: Selected(Virgis.SelectionTypes)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: Selected(SelectionTypes)
+  nameWithType: Layer<T, S>.Selected(SelectionTypes)
+  fullName: Virgis.Layer<T, S>.Selected(Virgis.SelectionTypes)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: Selected
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 210
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\ncalled when a daughter IVirgisEntity is selected\n"
+  example: []
+  syntax:
+    content: public virtual void Selected(SelectionTypes button)
+    parameters:
+    - id: button
+      type: Virgis.SelectionTypes
+      description: SelectionType
+    content.vb: Public Overridable Sub Selected(button As SelectionTypes)
+  overload: Virgis.Layer`2.Selected*
+  nameWithType.vb: Layer(Of T, S).Selected(SelectionTypes)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: Virgis.Layer(Of T, S).Selected(Virgis.SelectionTypes)
+- uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  id: UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: UnSelected(SelectionTypes)
+  nameWithType: Layer<T, S>.UnSelected(SelectionTypes)
+  fullName: Virgis.Layer<T, S>.UnSelected(Virgis.SelectionTypes)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: UnSelected
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 218
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nCalled when a daughter IVirgisEntity is UnSelected\n"
+  example: []
+  syntax:
+    content: public virtual void UnSelected(SelectionTypes button)
+    parameters:
+    - id: button
+      type: Virgis.SelectionTypes
+      description: SelectionType
+    content.vb: Public Overridable Sub UnSelected(button As SelectionTypes)
+  overload: Virgis.Layer`2.UnSelected*
+  nameWithType.vb: Layer(Of T, S).UnSelected(SelectionTypes)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: Virgis.Layer(Of T, S).UnSelected(Virgis.SelectionTypes)
+- uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  id: GetClosest(UnityEngine.Vector3,System.Guid[])
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: GetClosest(Vector3, Guid[])
+  nameWithType: Layer<T, S>.GetClosest(Vector3, Guid[])
+  fullName: Virgis.Layer<T, S>.GetClosest(UnityEngine.Vector3, System.Guid[])
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetClosest
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 227
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nGet the Closest Feature to the coordinates. Exclude any Component Ids in the Exclude Array. The exclude lis  is primarily used to avoid a GetClosest to a Faeture picking up the feature itself\n"
+  example: []
+  syntax:
+    content: public VirgisComponent GetClosest(Vector3 coords, Guid[] exclude)
+    parameters:
+    - id: coords
+      type: UnityEngine.Vector3
+      description: 'coordinates '
+    - id: exclude
+      type: System.Guid[]
+    return:
+      type: Virgis.VirgisComponent
+      description: returns the featue contained in an enitity of type S
+    content.vb: Public Function GetClosest(coords As Vector3, exclude As Guid()) As VirgisComponent
+  overload: Virgis.Layer`2.GetClosest*
+  implements:
+  - Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+  nameWithType.vb: Layer(Of T, S).GetClosest(Vector3, Guid())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).GetClosest(UnityEngine.Vector3, System.Guid())
+  name.vb: GetClosest(Vector3, Guid())
+- uid: Virgis.Layer`2.GetFeature(System.Guid)
+  commentId: M:Virgis.Layer`2.GetFeature(System.Guid)
+  id: GetFeature(System.Guid)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: GetFeature(Guid)
+  nameWithType: Layer<T, S>.GetFeature(Guid)
+  fullName: Virgis.Layer<T, S>.GetFeature(System.Guid)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFeature
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 240
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nGet the feature that matches the ID provided \n"
+  example: []
+  syntax:
+    content: public VirgisComponent GetFeature(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+      description: ID
+    return:
+      type: Virgis.VirgisComponent
+      description: returns the featue contained in an enitity of type S
+    content.vb: Public Function GetFeature(id As Guid) As VirgisComponent
+  overload: Virgis.Layer`2.GetFeature*
+  implements:
+  - Virgis.ILayer.GetFeature(System.Guid)
+  nameWithType.vb: Layer(Of T, S).GetFeature(Guid)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).GetFeature(System.Guid)
+- uid: Virgis.Layer`2.GetId
+  commentId: M:Virgis.Layer`2.GetId
+  id: GetId
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: GetId()
+  nameWithType: Layer<T, S>.GetId()
+  fullName: Virgis.Layer<T, S>.GetId()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetId
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 244
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public Guid GetId()
+    return:
+      type: System.Guid
+    content.vb: Public Function GetId As Guid
+  overload: Virgis.Layer`2.GetId*
+  implements:
+  - Virgis.ILayer.GetId
+  nameWithType.vb: Layer(Of T, S).GetId()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).GetId()
+- uid: Virgis.Layer`2.GetMetadata
+  commentId: M:Virgis.Layer`2.GetMetadata
+  id: GetMetadata
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: GetMetadata()
+  nameWithType: Layer<T, S>.GetMetadata()
+  fullName: Virgis.Layer<T, S>.GetMetadata()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetMetadata
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 248
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public RecordSet GetMetadata()
+    return:
+      type: Project.RecordSet
+    content.vb: Public Function GetMetadata As RecordSet
+  overload: Virgis.Layer`2.GetMetadata*
+  implements:
+  - Virgis.ILayer.GetMetadata
+  nameWithType.vb: Layer(Of T, S).GetMetadata()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).GetMetadata()
+- uid: Virgis.Layer`2.GetFeatureShape
+  commentId: M:Virgis.Layer`2.GetFeatureShape
+  id: GetFeatureShape
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: GetFeatureShape()
+  nameWithType: Layer<T, S>.GetFeatureShape()
+  fullName: Virgis.Layer<T, S>.GetFeatureShape()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFeatureShape
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 252
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public abstract GameObject GetFeatureShape()
+    return:
+      type: UnityEngine.GameObject
+    content.vb: Public MustOverride Function GetFeatureShape As GameObject
+  overload: Virgis.Layer`2.GetFeatureShape*
+  implements:
+  - Virgis.ILayer.GetFeatureShape
+  nameWithType.vb: Layer(Of T, S).GetFeatureShape()
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+  fullName.vb: Virgis.Layer(Of T, S).GetFeatureShape()
+- uid: Virgis.Layer`2.SetVisible(System.Boolean)
+  commentId: M:Virgis.Layer`2.SetVisible(System.Boolean)
+  id: SetVisible(System.Boolean)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: SetVisible(Boolean)
+  nameWithType: Layer<T, S>.SetVisible(Boolean)
+  fullName: Virgis.Layer<T, S>.SetVisible(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetVisible
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 254
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public void SetVisible(bool visible)
+    parameters:
+    - id: visible
+      type: System.Boolean
+    content.vb: Public Sub SetVisible(visible As Boolean)
+  overload: Virgis.Layer`2.SetVisible*
+  implements:
+  - Virgis.ILayer.SetVisible(System.Boolean)
+  nameWithType.vb: Layer(Of T, S).SetVisible(Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).SetVisible(System.Boolean)
+- uid: Virgis.Layer`2.IsVisible
+  commentId: M:Virgis.Layer`2.IsVisible
+  id: IsVisible
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: IsVisible()
+  nameWithType: Layer<T, S>.IsVisible()
+  fullName: Virgis.Layer<T, S>.IsVisible()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsVisible
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 264
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public bool IsVisible()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsVisible As Boolean
+  overload: Virgis.Layer`2.IsVisible*
+  implements:
+  - Virgis.ILayer.IsVisible
+  nameWithType.vb: Layer(Of T, S).IsVisible()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).IsVisible()
+- uid: Virgis.Layer`2.SetEditable(System.Boolean)
+  commentId: M:Virgis.Layer`2.SetEditable(System.Boolean)
+  id: SetEditable(System.Boolean)
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: SetEditable(Boolean)
+  nameWithType: Layer<T, S>.SetEditable(Boolean)
+  fullName: Virgis.Layer<T, S>.SetEditable(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetEditable
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 268
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public void SetEditable(bool inSession)
+    parameters:
+    - id: inSession
+      type: System.Boolean
+    content.vb: Public Sub SetEditable(inSession As Boolean)
+  overload: Virgis.Layer`2.SetEditable*
+  implements:
+  - Virgis.ILayer.SetEditable(System.Boolean)
+  nameWithType.vb: Layer(Of T, S).SetEditable(Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).SetEditable(System.Boolean)
+- uid: Virgis.Layer`2.IsEditable
+  commentId: M:Virgis.Layer`2.IsEditable
+  id: IsEditable
+  parent: Virgis.Layer`2
+  langs:
+  - csharp
+  - vb
+  name: IsEditable()
+  nameWithType: Layer<T, S>.IsEditable()
+  fullName: Virgis.Layer<T, S>.IsEditable()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Layer.cs
+      branch: doc
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsEditable
+    path: ../Assets/Scripts/Basic Types/Layer.cs
+    startLine: 272
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public bool IsEditable()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsEditable As Boolean
+  overload: Virgis.Layer`2.IsEditable*
+  implements:
+  - Virgis.ILayer.IsEditable
+  nameWithType.vb: Layer(Of T, S).IsEditable()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.Layer(Of T, S).IsEditable()
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: UnityEngine.Object
+  commentId: T:UnityEngine.Object
+  parent: UnityEngine
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: UnityEngine.Object
+- uid: UnityEngine.Component
+  commentId: T:UnityEngine.Component
+  parent: UnityEngine
+  isExternal: true
+  name: Component
+  nameWithType: Component
+  fullName: UnityEngine.Component
+- uid: UnityEngine.Behaviour
+  commentId: T:UnityEngine.Behaviour
+  parent: UnityEngine
+  isExternal: true
+  name: Behaviour
+  nameWithType: Behaviour
+  fullName: UnityEngine.Behaviour
+- uid: UnityEngine.MonoBehaviour
+  commentId: T:UnityEngine.MonoBehaviour
+  parent: UnityEngine
+  isExternal: true
+  name: MonoBehaviour
+  nameWithType: MonoBehaviour
+  fullName: UnityEngine.MonoBehaviour
+- uid: Virgis.ILayer
+  commentId: T:Virgis.ILayer
+  parent: Virgis
+  name: ILayer
+  nameWithType: ILayer
+  fullName: Virgis.ILayer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: '{S}'
+  commentId: '!:S'
+  definition: S
+  name: S
+  nameWithType: S
+  fullName: S
+- uid: S
+  commentId: '!:S'
+  name: S
+  nameWithType: S
+  fullName: S
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: Virgis.Layer`2.Init*
+  commentId: Overload:Virgis.Layer`2.Init
+  name: Init
+  nameWithType: Layer<T, S>.Init
+  fullName: Virgis.Layer<T, S>.Init
+  nameWithType.vb: Layer(Of T, S).Init
+  fullName.vb: Virgis.Layer(Of T, S).Init
+- uid: System.Threading.Tasks.Task{Virgis.Layer`2}
+  commentId: T:System.Threading.Tasks.Task{Virgis.Layer`2}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<Layer<T, S>>
+  nameWithType: Task<Layer<T, S>>
+  fullName: System.Threading.Tasks.Task<Virgis.Layer<T, S>>
+  nameWithType.vb: Task(Of Layer(Of T, S))
+  fullName.vb: System.Threading.Tasks.Task(Of Virgis.Layer(Of T, S))
+  name.vb: Task(Of Layer(Of T, S))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Virgis.Layer`2
+    name: Layer
+    nameWithType: Layer
+    fullName: Virgis.Layer
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Virgis.Layer`2
+    name: Layer
+    nameWithType: Layer
+    fullName: Virgis.Layer
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Virgis.Layer`2._init*
+  commentId: Overload:Virgis.Layer`2._init
+  name: _init
+  nameWithType: Layer<T, S>._init
+  fullName: Virgis.Layer<T, S>._init
+  nameWithType.vb: Layer(Of T, S)._init
+  fullName.vb: Virgis.Layer(Of T, S)._init
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Virgis.Layer`2.AddFeature*
+  commentId: Overload:Virgis.Layer`2.AddFeature
+  name: AddFeature
+  nameWithType: Layer<T, S>.AddFeature
+  fullName: Virgis.Layer<T, S>.AddFeature
+  nameWithType.vb: Layer(Of T, S).AddFeature
+  fullName.vb: Virgis.Layer(Of T, S).AddFeature
+- uid: Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  parent: Virgis.ILayer
+  isExternal: true
+  name: AddFeature(Vector3[])
+  nameWithType: ILayer.AddFeature(Vector3[])
+  fullName: Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+  nameWithType.vb: ILayer.AddFeature(Vector3())
+  fullName.vb: Virgis.ILayer.AddFeature(UnityEngine.Vector3())
+  name.vb: AddFeature(Vector3())
+  spec.csharp:
+  - uid: Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+    name: AddFeature
+    nameWithType: ILayer.AddFeature
+    fullName: Virgis.ILayer.AddFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.AddFeature(UnityEngine.Vector3[])
+    name: AddFeature
+    nameWithType: ILayer.AddFeature
+    fullName: Virgis.ILayer.AddFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: UnityEngine.Vector3[]
+  isExternal: true
+  name: Vector3[]
+  nameWithType: Vector3[]
+  fullName: UnityEngine.Vector3[]
+  nameWithType.vb: Vector3()
+  fullName.vb: UnityEngine.Vector3()
+  name.vb: Vector3()
+  spec.csharp:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.VirgisComponent
+  commentId: T:Virgis.VirgisComponent
+  parent: Virgis
+  name: VirgisComponent
+  nameWithType: VirgisComponent
+  fullName: Virgis.VirgisComponent
+- uid: Virgis.Layer`2._addFeature*
+  commentId: Overload:Virgis.Layer`2._addFeature
+  name: _addFeature
+  nameWithType: Layer<T, S>._addFeature
+  fullName: Virgis.Layer<T, S>._addFeature
+  nameWithType.vb: Layer(Of T, S)._addFeature
+  fullName.vb: Virgis.Layer(Of T, S)._addFeature
+- uid: Virgis.Layer`2.Draw*
+  commentId: Overload:Virgis.Layer`2.Draw
+  name: Draw
+  nameWithType: Layer<T, S>.Draw
+  fullName: Virgis.Layer<T, S>.Draw
+  nameWithType.vb: Layer(Of T, S).Draw
+  fullName.vb: Virgis.Layer(Of T, S).Draw
+- uid: Virgis.ILayer.Draw
+  commentId: M:Virgis.ILayer.Draw
+  parent: Virgis.ILayer
+  name: Draw()
+  nameWithType: ILayer.Draw()
+  fullName: Virgis.ILayer.Draw()
+  spec.csharp:
+  - uid: Virgis.ILayer.Draw
+    name: Draw
+    nameWithType: ILayer.Draw
+    fullName: Virgis.ILayer.Draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.Draw
+    name: Draw
+    nameWithType: ILayer.Draw
+    fullName: Virgis.ILayer.Draw
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._draw*
+  commentId: Overload:Virgis.Layer`2._draw
+  name: _draw
+  nameWithType: Layer<T, S>._draw
+  fullName: Virgis.Layer<T, S>._draw
+  nameWithType.vb: Layer(Of T, S)._draw
+  fullName.vb: Virgis.Layer(Of T, S)._draw
+- uid: Virgis.Layer`2.CheckPoint*
+  commentId: Overload:Virgis.Layer`2.CheckPoint
+  name: CheckPoint
+  nameWithType: Layer<T, S>.CheckPoint
+  fullName: Virgis.Layer<T, S>.CheckPoint
+  nameWithType.vb: Layer(Of T, S).CheckPoint
+  fullName.vb: Virgis.Layer(Of T, S).CheckPoint
+- uid: Virgis.ILayer.CheckPoint
+  commentId: M:Virgis.ILayer.CheckPoint
+  parent: Virgis.ILayer
+  name: CheckPoint()
+  nameWithType: ILayer.CheckPoint()
+  fullName: Virgis.ILayer.CheckPoint()
+  spec.csharp:
+  - uid: Virgis.ILayer.CheckPoint
+    name: CheckPoint
+    nameWithType: ILayer.CheckPoint
+    fullName: Virgis.ILayer.CheckPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.CheckPoint
+    name: CheckPoint
+    nameWithType: ILayer.CheckPoint
+    fullName: Virgis.ILayer.CheckPoint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2._checkpoint*
+  commentId: Overload:Virgis.Layer`2._checkpoint
+  name: _checkpoint
+  nameWithType: Layer<T, S>._checkpoint
+  fullName: Virgis.Layer<T, S>._checkpoint
+  nameWithType.vb: Layer(Of T, S)._checkpoint
+  fullName.vb: Virgis.Layer(Of T, S)._checkpoint
+- uid: Virgis.Layer`2.Save*
+  commentId: Overload:Virgis.Layer`2.Save
+  name: Save
+  nameWithType: Layer<T, S>.Save
+  fullName: Virgis.Layer<T, S>.Save
+  nameWithType.vb: Layer(Of T, S).Save
+  fullName.vb: Virgis.Layer(Of T, S).Save
+- uid: Virgis.ILayer.Save
+  commentId: M:Virgis.ILayer.Save
+  parent: Virgis.ILayer
+  name: Save()
+  nameWithType: ILayer.Save()
+  fullName: Virgis.ILayer.Save()
+  spec.csharp:
+  - uid: Virgis.ILayer.Save
+    name: Save
+    nameWithType: ILayer.Save
+    fullName: Virgis.ILayer.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.Save
+    name: Save
+    nameWithType: ILayer.Save
+    fullName: Virgis.ILayer.Save
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.RecordSet
+  commentId: T:Project.RecordSet
+  parent: Project
+  name: RecordSet
+  nameWithType: RecordSet
+  fullName: Project.RecordSet
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: Virgis.Layer`2._save*
+  commentId: Overload:Virgis.Layer`2._save
+  name: _save
+  nameWithType: Layer<T, S>._save
+  fullName: Virgis.Layer<T, S>._save
+  nameWithType.vb: Layer(Of T, S)._save
+  fullName.vb: Virgis.Layer(Of T, S)._save
+- uid: Virgis.Layer`2.Translate*
+  commentId: Overload:Virgis.Layer`2.Translate
+  name: Translate
+  nameWithType: Layer<T, S>.Translate
+  fullName: Virgis.Layer<T, S>.Translate
+  nameWithType.vb: Layer(Of T, S).Translate
+  fullName.vb: Virgis.Layer(Of T, S).Translate
+- uid: Virgis.MoveArgs
+  commentId: T:Virgis.MoveArgs
+  parent: Virgis
+  name: MoveArgs
+  nameWithType: MoveArgs
+  fullName: Virgis.MoveArgs
+- uid: Virgis.Layer`2.MoveAxis*
+  commentId: Overload:Virgis.Layer`2.MoveAxis
+  name: MoveAxis
+  nameWithType: Layer<T, S>.MoveAxis
+  fullName: Virgis.Layer<T, S>.MoveAxis
+  nameWithType.vb: Layer(Of T, S).MoveAxis
+  fullName.vb: Virgis.Layer(Of T, S).MoveAxis
+- uid: Virgis.Layer`2.StartEditSession*
+  commentId: Overload:Virgis.Layer`2.StartEditSession
+  name: StartEditSession
+  nameWithType: Layer<T, S>.StartEditSession
+  fullName: Virgis.Layer<T, S>.StartEditSession
+  nameWithType.vb: Layer(Of T, S).StartEditSession
+  fullName.vb: Virgis.Layer(Of T, S).StartEditSession
+- uid: Virgis.Layer`2.ExitEditSession*
+  commentId: Overload:Virgis.Layer`2.ExitEditSession
+  name: ExitEditSession
+  nameWithType: Layer<T, S>.ExitEditSession
+  fullName: Virgis.Layer<T, S>.ExitEditSession
+  nameWithType.vb: Layer(Of T, S).ExitEditSession
+  fullName.vb: Virgis.Layer(Of T, S).ExitEditSession
+- uid: Virgis.Layer`2.Selected*
+  commentId: Overload:Virgis.Layer`2.Selected
+  name: Selected
+  nameWithType: Layer<T, S>.Selected
+  fullName: Virgis.Layer<T, S>.Selected
+  nameWithType.vb: Layer(Of T, S).Selected
+  fullName.vb: Virgis.Layer(Of T, S).Selected
+- uid: Virgis.SelectionTypes
+  commentId: T:Virgis.SelectionTypes
+  parent: Virgis
+  name: SelectionTypes
+  nameWithType: SelectionTypes
+  fullName: Virgis.SelectionTypes
+- uid: Virgis.Layer`2.UnSelected*
+  commentId: Overload:Virgis.Layer`2.UnSelected
+  name: UnSelected
+  nameWithType: Layer<T, S>.UnSelected
+  fullName: Virgis.Layer<T, S>.UnSelected
+  nameWithType.vb: Layer(Of T, S).UnSelected
+  fullName.vb: Virgis.Layer(Of T, S).UnSelected
+- uid: Virgis.Layer`2.GetClosest*
+  commentId: Overload:Virgis.Layer`2.GetClosest
+  name: GetClosest
+  nameWithType: Layer<T, S>.GetClosest
+  fullName: Virgis.Layer<T, S>.GetClosest
+  nameWithType.vb: Layer(Of T, S).GetClosest
+  fullName.vb: Virgis.Layer(Of T, S).GetClosest
+- uid: Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+  parent: Virgis.ILayer
+  isExternal: true
+  name: GetClosest(Vector3, Guid[])
+  nameWithType: ILayer.GetClosest(Vector3, Guid[])
+  fullName: Virgis.ILayer.GetClosest(UnityEngine.Vector3, System.Guid[])
+  nameWithType.vb: ILayer.GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.ILayer.GetClosest(UnityEngine.Vector3, System.Guid())
+  name.vb: GetClosest(Vector3, Guid())
+  spec.csharp:
+  - uid: Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: ILayer.GetClosest
+    fullName: Virgis.ILayer.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.GetClosest(UnityEngine.Vector3,System.Guid[])
+    name: GetClosest
+    nameWithType: ILayer.GetClosest
+    fullName: Virgis.ILayer.GetClosest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: UnityEngine.Vector3
+    name: Vector3
+    nameWithType: Vector3
+    fullName: UnityEngine.Vector3
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: System.Guid[]
+  isExternal: true
+  name: Guid[]
+  nameWithType: Guid[]
+  fullName: System.Guid[]
+  nameWithType.vb: Guid()
+  fullName.vb: System.Guid()
+  name.vb: Guid()
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.Layer`2.GetFeature*
+  commentId: Overload:Virgis.Layer`2.GetFeature
+  name: GetFeature
+  nameWithType: Layer<T, S>.GetFeature
+  fullName: Virgis.Layer<T, S>.GetFeature
+  nameWithType.vb: Layer(Of T, S).GetFeature
+  fullName.vb: Virgis.Layer(Of T, S).GetFeature
+- uid: Virgis.ILayer.GetFeature(System.Guid)
+  commentId: M:Virgis.ILayer.GetFeature(System.Guid)
+  parent: Virgis.ILayer
+  isExternal: true
+  name: GetFeature(Guid)
+  nameWithType: ILayer.GetFeature(Guid)
+  fullName: Virgis.ILayer.GetFeature(System.Guid)
+  spec.csharp:
+  - uid: Virgis.ILayer.GetFeature(System.Guid)
+    name: GetFeature
+    nameWithType: ILayer.GetFeature
+    fullName: Virgis.ILayer.GetFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.GetFeature(System.Guid)
+    name: GetFeature
+    nameWithType: ILayer.GetFeature
+    fullName: Virgis.ILayer.GetFeature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Guid
+    name: Guid
+    nameWithType: Guid
+    fullName: System.Guid
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetId*
+  commentId: Overload:Virgis.Layer`2.GetId
+  name: GetId
+  nameWithType: Layer<T, S>.GetId
+  fullName: Virgis.Layer<T, S>.GetId
+  nameWithType.vb: Layer(Of T, S).GetId
+  fullName.vb: Virgis.Layer(Of T, S).GetId
+- uid: Virgis.ILayer.GetId
+  commentId: M:Virgis.ILayer.GetId
+  parent: Virgis.ILayer
+  name: GetId()
+  nameWithType: ILayer.GetId()
+  fullName: Virgis.ILayer.GetId()
+  spec.csharp:
+  - uid: Virgis.ILayer.GetId
+    name: GetId
+    nameWithType: ILayer.GetId
+    fullName: Virgis.ILayer.GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.GetId
+    name: GetId
+    nameWithType: ILayer.GetId
+    fullName: Virgis.ILayer.GetId
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetMetadata*
+  commentId: Overload:Virgis.Layer`2.GetMetadata
+  name: GetMetadata
+  nameWithType: Layer<T, S>.GetMetadata
+  fullName: Virgis.Layer<T, S>.GetMetadata
+  nameWithType.vb: Layer(Of T, S).GetMetadata
+  fullName.vb: Virgis.Layer(Of T, S).GetMetadata
+- uid: Virgis.ILayer.GetMetadata
+  commentId: M:Virgis.ILayer.GetMetadata
+  parent: Virgis.ILayer
+  name: GetMetadata()
+  nameWithType: ILayer.GetMetadata()
+  fullName: Virgis.ILayer.GetMetadata()
+  spec.csharp:
+  - uid: Virgis.ILayer.GetMetadata
+    name: GetMetadata
+    nameWithType: ILayer.GetMetadata
+    fullName: Virgis.ILayer.GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.GetMetadata
+    name: GetMetadata
+    nameWithType: ILayer.GetMetadata
+    fullName: Virgis.ILayer.GetMetadata
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.GetFeatureShape*
+  commentId: Overload:Virgis.Layer`2.GetFeatureShape
+  name: GetFeatureShape
+  nameWithType: Layer<T, S>.GetFeatureShape
+  fullName: Virgis.Layer<T, S>.GetFeatureShape
+  nameWithType.vb: Layer(Of T, S).GetFeatureShape
+  fullName.vb: Virgis.Layer(Of T, S).GetFeatureShape
+- uid: Virgis.ILayer.GetFeatureShape
+  commentId: M:Virgis.ILayer.GetFeatureShape
+  parent: Virgis.ILayer
+  name: GetFeatureShape()
+  nameWithType: ILayer.GetFeatureShape()
+  fullName: Virgis.ILayer.GetFeatureShape()
+  spec.csharp:
+  - uid: Virgis.ILayer.GetFeatureShape
+    name: GetFeatureShape
+    nameWithType: ILayer.GetFeatureShape
+    fullName: Virgis.ILayer.GetFeatureShape
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.GetFeatureShape
+    name: GetFeatureShape
+    nameWithType: ILayer.GetFeatureShape
+    fullName: Virgis.ILayer.GetFeatureShape
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: UnityEngine.GameObject
+  commentId: T:UnityEngine.GameObject
+  parent: UnityEngine
+  isExternal: true
+  name: GameObject
+  nameWithType: GameObject
+  fullName: UnityEngine.GameObject
+- uid: Virgis.Layer`2.SetVisible*
+  commentId: Overload:Virgis.Layer`2.SetVisible
+  name: SetVisible
+  nameWithType: Layer<T, S>.SetVisible
+  fullName: Virgis.Layer<T, S>.SetVisible
+  nameWithType.vb: Layer(Of T, S).SetVisible
+  fullName.vb: Virgis.Layer(Of T, S).SetVisible
+- uid: Virgis.ILayer.SetVisible(System.Boolean)
+  commentId: M:Virgis.ILayer.SetVisible(System.Boolean)
+  parent: Virgis.ILayer
+  isExternal: true
+  name: SetVisible(Boolean)
+  nameWithType: ILayer.SetVisible(Boolean)
+  fullName: Virgis.ILayer.SetVisible(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.ILayer.SetVisible(System.Boolean)
+    name: SetVisible
+    nameWithType: ILayer.SetVisible
+    fullName: Virgis.ILayer.SetVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.SetVisible(System.Boolean)
+    name: SetVisible
+    nameWithType: ILayer.SetVisible
+    fullName: Virgis.ILayer.SetVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.IsVisible*
+  commentId: Overload:Virgis.Layer`2.IsVisible
+  name: IsVisible
+  nameWithType: Layer<T, S>.IsVisible
+  fullName: Virgis.Layer<T, S>.IsVisible
+  nameWithType.vb: Layer(Of T, S).IsVisible
+  fullName.vb: Virgis.Layer(Of T, S).IsVisible
+- uid: Virgis.ILayer.IsVisible
+  commentId: M:Virgis.ILayer.IsVisible
+  parent: Virgis.ILayer
+  name: IsVisible()
+  nameWithType: ILayer.IsVisible()
+  fullName: Virgis.ILayer.IsVisible()
+  spec.csharp:
+  - uid: Virgis.ILayer.IsVisible
+    name: IsVisible
+    nameWithType: ILayer.IsVisible
+    fullName: Virgis.ILayer.IsVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.IsVisible
+    name: IsVisible
+    nameWithType: ILayer.IsVisible
+    fullName: Virgis.ILayer.IsVisible
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.SetEditable*
+  commentId: Overload:Virgis.Layer`2.SetEditable
+  name: SetEditable
+  nameWithType: Layer<T, S>.SetEditable
+  fullName: Virgis.Layer<T, S>.SetEditable
+  nameWithType.vb: Layer(Of T, S).SetEditable
+  fullName.vb: Virgis.Layer(Of T, S).SetEditable
+- uid: Virgis.ILayer.SetEditable(System.Boolean)
+  commentId: M:Virgis.ILayer.SetEditable(System.Boolean)
+  parent: Virgis.ILayer
+  isExternal: true
+  name: SetEditable(Boolean)
+  nameWithType: ILayer.SetEditable(Boolean)
+  fullName: Virgis.ILayer.SetEditable(System.Boolean)
+  spec.csharp:
+  - uid: Virgis.ILayer.SetEditable(System.Boolean)
+    name: SetEditable
+    nameWithType: ILayer.SetEditable
+    fullName: Virgis.ILayer.SetEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.SetEditable(System.Boolean)
+    name: SetEditable
+    nameWithType: ILayer.SetEditable
+    fullName: Virgis.ILayer.SetEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.Layer`2.IsEditable*
+  commentId: Overload:Virgis.Layer`2.IsEditable
+  name: IsEditable
+  nameWithType: Layer<T, S>.IsEditable
+  fullName: Virgis.Layer<T, S>.IsEditable
+  nameWithType.vb: Layer(Of T, S).IsEditable
+  fullName.vb: Virgis.Layer(Of T, S).IsEditable
+- uid: Virgis.ILayer.IsEditable
+  commentId: M:Virgis.ILayer.IsEditable
+  parent: Virgis.ILayer
+  name: IsEditable()
+  nameWithType: ILayer.IsEditable()
+  fullName: Virgis.ILayer.IsEditable()
+  spec.csharp:
+  - uid: Virgis.ILayer.IsEditable
+    name: IsEditable
+    nameWithType: ILayer.IsEditable
+    fullName: Virgis.ILayer.IsEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.ILayer.IsEditable
+    name: IsEditable
+    nameWithType: ILayer.IsEditable
+    fullName: Virgis.ILayer.IsEditable
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
