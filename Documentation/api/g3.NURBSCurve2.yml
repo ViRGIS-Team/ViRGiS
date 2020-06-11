@@ -1,0 +1,2737 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.NURBSCurve2
+  commentId: T:g3.NURBSCurve2
+  id: NURBSCurve2
+  parent: g3
+  children:
+  - g3.NURBSCurve2.#ctor
+  - g3.NURBSCurve2.#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Boolean)
+  - g3.NURBSCurve2.#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Double[],System.Boolean)
+  - g3.NURBSCurve2.ArcLength
+  - g3.NURBSCurve2.Clone
+  - g3.NURBSCurve2.CreateControl(g3.Vector2d[],System.Double[])
+  - g3.NURBSCurve2.Get(System.Double,g3.NURBSCurve2.CurveDerivatives@)
+  - g3.NURBSCurve2.GetBasis
+  - g3.NURBSCurve2.GetContinuousParamIntervals
+  - g3.NURBSCurve2.GetControlPoint(System.Int32)
+  - g3.NURBSCurve2.GetControlWeight(System.Int32)
+  - g3.NURBSCurve2.GetDegree
+  - g3.NURBSCurve2.GetFirstDerivative(System.Double)
+  - g3.NURBSCurve2.GetKnot(System.Int32)
+  - g3.NURBSCurve2.GetNumCtrlPoints
+  - g3.NURBSCurve2.GetParamIntervals
+  - g3.NURBSCurve2.GetPosition(System.Double)
+  - g3.NURBSCurve2.GetSecondDerivative(System.Double)
+  - g3.NURBSCurve2.GetThirdDerivative(System.Double)
+  - g3.NURBSCurve2.HasArcLength
+  - g3.NURBSCurve2.is_closed
+  - g3.NURBSCurve2.IsClosed
+  - g3.NURBSCurve2.IsTransformable
+  - g3.NURBSCurve2.IsUniform
+  - g3.NURBSCurve2.mBasis
+  - g3.NURBSCurve2.mCtrlPoint
+  - g3.NURBSCurve2.mCtrlWeight
+  - g3.NURBSCurve2.mLoop
+  - g3.NURBSCurve2.mNumCtrlPoints
+  - g3.NURBSCurve2.mReplicate
+  - g3.NURBSCurve2.ParamLength
+  - g3.NURBSCurve2.Reverse
+  - g3.NURBSCurve2.SampleArcLength(System.Double)
+  - g3.NURBSCurve2.SampleT(System.Double)
+  - g3.NURBSCurve2.SetControlPoint(System.Int32,g3.Vector2d)
+  - g3.NURBSCurve2.SetControlWeight(System.Int32,System.Double)
+  - g3.NURBSCurve2.SetKnot(System.Int32,System.Double)
+  - g3.NURBSCurve2.TangentT(System.Double)
+  - g3.NURBSCurve2.Transform(g3.ITransform2)
+  langs:
+  - csharp
+  - vb
+  name: NURBSCurve2
+  nameWithType: NURBSCurve2
+  fullName: g3.NURBSCurve2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NURBSCurve2
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class NURBSCurve2 : BaseCurve2, IParametricCurve2d'
+    content.vb: >-
+      Public Class NURBSCurve2
+          Inherits BaseCurve2
+          Implements IParametricCurve2d
+  inheritance:
+  - System.Object
+  - g3.BaseCurve2
+  implements:
+  - g3.IParametricCurve2d
+  inheritedMembers:
+  - g3.BaseCurve2.mTMin
+  - g3.BaseCurve2.mTMax
+  - g3.BaseCurve2.GetMinTime
+  - g3.BaseCurve2.GetMaxTime
+  - g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+  - g3.BaseCurve2.GetSpeed(System.Double)
+  - g3.BaseCurve2.GetLength(System.Double,System.Double)
+  - g3.BaseCurve2.GetTotalLength
+  - g3.BaseCurve2.GetTangent(System.Double)
+  - g3.BaseCurve2.GetNormal(System.Double)
+  - g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  - g3.BaseCurve2.GetCurvature(System.Double)
+  - g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.NURBSCurve2.#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Boolean)
+  commentId: M:g3.NURBSCurve2.#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Boolean)
+  id: '#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Boolean)'
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: NURBSCurve2(Int32, Vector2d[], Double[], Int32, Boolean, Boolean)
+  nameWithType: NURBSCurve2.NURBSCurve2(Int32, Vector2d[], Double[], Int32, Boolean, Boolean)
+  fullName: g3.NURBSCurve2.NURBSCurve2(System.Int32, g3.Vector2d[], System.Double[], System.Int32, System.Boolean, System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public NURBSCurve2(int numCtrlPoints, Vector2d[] ctrlPoint, double[] ctrlWeight, int degree, bool loop, bool open)
+    parameters:
+    - id: numCtrlPoints
+      type: System.Int32
+    - id: ctrlPoint
+      type: g3.Vector2d[]
+    - id: ctrlWeight
+      type: System.Double[]
+    - id: degree
+      type: System.Int32
+    - id: loop
+      type: System.Boolean
+    - id: open
+      type: System.Boolean
+    content.vb: Public Sub New(numCtrlPoints As Integer, ctrlPoint As Vector2d(), ctrlWeight As Double(), degree As Integer, loop As Boolean, open As Boolean)
+  overload: g3.NURBSCurve2.#ctor*
+  nameWithType.vb: NURBSCurve2.NURBSCurve2(Int32, Vector2d(), Double(), Int32, Boolean, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.NURBSCurve2.NURBSCurve2(System.Int32, g3.Vector2d(), System.Double(), System.Int32, System.Boolean, System.Boolean)
+  name.vb: NURBSCurve2(Int32, Vector2d(), Double(), Int32, Boolean, Boolean)
+- uid: g3.NURBSCurve2.#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Double[],System.Boolean)
+  commentId: M:g3.NURBSCurve2.#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Double[],System.Boolean)
+  id: '#ctor(System.Int32,g3.Vector2d[],System.Double[],System.Int32,System.Boolean,System.Double[],System.Boolean)'
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: NURBSCurve2(Int32, Vector2d[], Double[], Int32, Boolean, Double[], Boolean)
+  nameWithType: NURBSCurve2.NURBSCurve2(Int32, Vector2d[], Double[], Int32, Boolean, Double[], Boolean)
+  fullName: g3.NURBSCurve2.NURBSCurve2(System.Int32, g3.Vector2d[], System.Double[], System.Int32, System.Boolean, System.Double[], System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public NURBSCurve2(int numCtrlPoints, Vector2d[] ctrlPoint, double[] ctrlWeight, int degree, bool loop, double[] knot, bool bIsInteriorKnot = true)
+    parameters:
+    - id: numCtrlPoints
+      type: System.Int32
+    - id: ctrlPoint
+      type: g3.Vector2d[]
+    - id: ctrlWeight
+      type: System.Double[]
+    - id: degree
+      type: System.Int32
+    - id: loop
+      type: System.Boolean
+    - id: knot
+      type: System.Double[]
+    - id: bIsInteriorKnot
+      type: System.Boolean
+    content.vb: Public Sub New(numCtrlPoints As Integer, ctrlPoint As Vector2d(), ctrlWeight As Double(), degree As Integer, loop As Boolean, knot As Double(), bIsInteriorKnot As Boolean = True)
+  overload: g3.NURBSCurve2.#ctor*
+  nameWithType.vb: NURBSCurve2.NURBSCurve2(Int32, Vector2d(), Double(), Int32, Boolean, Double(), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.NURBSCurve2.NURBSCurve2(System.Int32, g3.Vector2d(), System.Double(), System.Int32, System.Boolean, System.Double(), System.Boolean)
+  name.vb: NURBSCurve2(Int32, Vector2d(), Double(), Int32, Boolean, Double(), Boolean)
+- uid: g3.NURBSCurve2.#ctor
+  commentId: M:g3.NURBSCurve2.#ctor
+  id: '#ctor'
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: NURBSCurve2()
+  nameWithType: NURBSCurve2.NURBSCurve2()
+  fullName: g3.NURBSCurve2.NURBSCurve2()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 100
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected NURBSCurve2()
+    content.vb: Protected Sub New
+  overload: g3.NURBSCurve2.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.GetNumCtrlPoints
+  commentId: M:g3.NURBSCurve2.GetNumCtrlPoints
+  id: GetNumCtrlPoints
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetNumCtrlPoints()
+  nameWithType: NURBSCurve2.GetNumCtrlPoints()
+  fullName: g3.NURBSCurve2.GetNumCtrlPoints()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNumCtrlPoints
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetNumCtrlPoints()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetNumCtrlPoints As Integer
+  overload: g3.NURBSCurve2.GetNumCtrlPoints*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetDegree
+  commentId: M:g3.NURBSCurve2.GetDegree
+  id: GetDegree
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetDegree()
+  nameWithType: NURBSCurve2.GetDegree()
+  fullName: g3.NURBSCurve2.GetDegree()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetDegree
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 110
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetDegree()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetDegree As Integer
+  overload: g3.NURBSCurve2.GetDegree*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.IsUniform
+  commentId: M:g3.NURBSCurve2.IsUniform
+  id: IsUniform
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: IsUniform()
+  nameWithType: NURBSCurve2.IsUniform()
+  fullName: g3.NURBSCurve2.IsUniform()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsUniform
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsUniform()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsUniform As Boolean
+  overload: g3.NURBSCurve2.IsUniform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.SetControlPoint(System.Int32,g3.Vector2d)
+  commentId: M:g3.NURBSCurve2.SetControlPoint(System.Int32,g3.Vector2d)
+  id: SetControlPoint(System.Int32,g3.Vector2d)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: SetControlPoint(Int32, Vector2d)
+  nameWithType: NURBSCurve2.SetControlPoint(Int32, Vector2d)
+  fullName: g3.NURBSCurve2.SetControlPoint(System.Int32, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetControlPoint
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetControlPoint(int i, Vector2d ctrl)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: ctrl
+      type: g3.Vector2d
+    content.vb: Public Sub SetControlPoint(i As Integer, ctrl As Vector2d)
+  overload: g3.NURBSCurve2.SetControlPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetControlPoint(System.Int32)
+  commentId: M:g3.NURBSCurve2.GetControlPoint(System.Int32)
+  id: GetControlPoint(System.Int32)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetControlPoint(Int32)
+  nameWithType: NURBSCurve2.GetControlPoint(Int32)
+  fullName: g3.NURBSCurve2.GetControlPoint(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetControlPoint
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 144
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d GetControlPoint(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetControlPoint(i As Integer) As Vector2d
+  overload: g3.NURBSCurve2.GetControlPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.SetControlWeight(System.Int32,System.Double)
+  commentId: M:g3.NURBSCurve2.SetControlWeight(System.Int32,System.Double)
+  id: SetControlWeight(System.Int32,System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: SetControlWeight(Int32, Double)
+  nameWithType: NURBSCurve2.SetControlWeight(Int32, Double)
+  fullName: g3.NURBSCurve2.SetControlWeight(System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetControlWeight
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 149
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetControlWeight(int i, double weight)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: weight
+      type: System.Double
+    content.vb: Public Sub SetControlWeight(i As Integer, weight As Double)
+  overload: g3.NURBSCurve2.SetControlWeight*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetControlWeight(System.Int32)
+  commentId: M:g3.NURBSCurve2.GetControlWeight(System.Int32)
+  id: GetControlWeight(System.Int32)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetControlWeight(Int32)
+  nameWithType: NURBSCurve2.GetControlWeight(Int32)
+  fullName: g3.NURBSCurve2.GetControlWeight(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetControlWeight
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 158
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetControlWeight(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetControlWeight(i As Integer) As Double
+  overload: g3.NURBSCurve2.GetControlWeight*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.SetKnot(System.Int32,System.Double)
+  commentId: M:g3.NURBSCurve2.SetKnot(System.Int32,System.Double)
+  id: SetKnot(System.Int32,System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: SetKnot(Int32, Double)
+  nameWithType: NURBSCurve2.SetKnot(Int32, Double)
+  fullName: g3.NURBSCurve2.SetKnot(System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetKnot
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 167
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetKnot(int i, double value)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: value
+      type: System.Double
+    content.vb: Public Sub SetKnot(i As Integer, value As Double)
+  overload: g3.NURBSCurve2.SetKnot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetKnot(System.Int32)
+  commentId: M:g3.NURBSCurve2.GetKnot(System.Int32)
+  id: GetKnot(System.Int32)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetKnot(Int32)
+  nameWithType: NURBSCurve2.GetKnot(Int32)
+  fullName: g3.NURBSCurve2.GetKnot(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetKnot
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 170
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetKnot(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetKnot(i As Integer) As Double
+  overload: g3.NURBSCurve2.GetKnot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetPosition(System.Double)
+  commentId: M:g3.NURBSCurve2.GetPosition(System.Double)
+  id: GetPosition(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetPosition(Double)
+  nameWithType: NURBSCurve2.GetPosition(Double)
+  fullName: g3.NURBSCurve2.GetPosition(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetPosition
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 178
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetPosition(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetPosition(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetPosition(System.Double)
+  overload: g3.NURBSCurve2.GetPosition*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.NURBSCurve2.GetFirstDerivative(System.Double)
+  commentId: M:g3.NURBSCurve2.GetFirstDerivative(System.Double)
+  id: GetFirstDerivative(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetFirstDerivative(Double)
+  nameWithType: NURBSCurve2.GetFirstDerivative(Double)
+  fullName: g3.NURBSCurve2.GetFirstDerivative(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetFirstDerivative
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 202
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetFirstDerivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetFirstDerivative(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetFirstDerivative(System.Double)
+  overload: g3.NURBSCurve2.GetFirstDerivative*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.NURBSCurve2.GetSecondDerivative(System.Double)
+  commentId: M:g3.NURBSCurve2.GetSecondDerivative(System.Double)
+  id: GetSecondDerivative(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetSecondDerivative(Double)
+  nameWithType: NURBSCurve2.GetSecondDerivative(Double)
+  fullName: g3.NURBSCurve2.GetSecondDerivative(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetSecondDerivative
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 235
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetSecondDerivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetSecondDerivative(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetSecondDerivative(System.Double)
+  overload: g3.NURBSCurve2.GetSecondDerivative*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.NURBSCurve2.GetThirdDerivative(System.Double)
+  commentId: M:g3.NURBSCurve2.GetThirdDerivative(System.Double)
+  id: GetThirdDerivative(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetThirdDerivative(Double)
+  nameWithType: NURBSCurve2.GetThirdDerivative(Double)
+  fullName: g3.NURBSCurve2.GetThirdDerivative(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetThirdDerivative
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 243
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector2d GetThirdDerivative(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Overrides Function GetThirdDerivative(t As Double) As Vector2d
+  overridden: g3.BaseCurve2.GetThirdDerivative(System.Double)
+  overload: g3.NURBSCurve2.GetThirdDerivative*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.NURBSCurve2.Get(System.Double,g3.NURBSCurve2.CurveDerivatives@)
+  commentId: M:g3.NURBSCurve2.Get(System.Double,g3.NURBSCurve2.CurveDerivatives@)
+  id: Get(System.Double,g3.NURBSCurve2.CurveDerivatives@)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: Get(Double, ref NURBSCurve2.CurveDerivatives)
+  nameWithType: NURBSCurve2.Get(Double, ref NURBSCurve2.CurveDerivatives)
+  fullName: g3.NURBSCurve2.Get(System.Double, ref g3.NURBSCurve2.CurveDerivatives)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Get
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 264
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Get(double t, ref NURBSCurve2.CurveDerivatives result)
+    parameters:
+    - id: t
+      type: System.Double
+    - id: result
+      type: g3.NURBSCurve2.CurveDerivatives
+    content.vb: Public Sub Get(t As Double, ByRef result As NURBSCurve2.CurveDerivatives)
+  overload: g3.NURBSCurve2.Get*
+  nameWithType.vb: NURBSCurve2.Get(Double, ByRef NURBSCurve2.CurveDerivatives)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.NURBSCurve2.Get(System.Double, ByRef g3.NURBSCurve2.CurveDerivatives)
+  name.vb: Get(Double, ByRef NURBSCurve2.CurveDerivatives)
+- uid: g3.NURBSCurve2.GetBasis
+  commentId: M:g3.NURBSCurve2.GetBasis
+  id: GetBasis
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetBasis()
+  nameWithType: NURBSCurve2.GetBasis()
+  fullName: g3.NURBSCurve2.GetBasis()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetBasis
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 348
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BSplineBasis GetBasis()
+    return:
+      type: g3.BSplineBasis
+    content.vb: Public Function GetBasis As BSplineBasis
+  overload: g3.NURBSCurve2.GetBasis*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.CreateControl(g3.Vector2d[],System.Double[])
+  commentId: M:g3.NURBSCurve2.CreateControl(g3.Vector2d[],System.Double[])
+  id: CreateControl(g3.Vector2d[],System.Double[])
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: CreateControl(Vector2d[], Double[])
+  nameWithType: NURBSCurve2.CreateControl(Vector2d[], Double[])
+  fullName: g3.NURBSCurve2.CreateControl(g3.Vector2d[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CreateControl
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 355
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void CreateControl(Vector2d[] ctrlPoint, double[] ctrlWeight)
+    parameters:
+    - id: ctrlPoint
+      type: g3.Vector2d[]
+    - id: ctrlWeight
+      type: System.Double[]
+    content.vb: Protected Sub CreateControl(ctrlPoint As Vector2d(), ctrlWeight As Double())
+  overload: g3.NURBSCurve2.CreateControl*
+  nameWithType.vb: NURBSCurve2.CreateControl(Vector2d(), Double())
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.NURBSCurve2.CreateControl(g3.Vector2d(), System.Double())
+  name.vb: CreateControl(Vector2d(), Double())
+- uid: g3.NURBSCurve2.mNumCtrlPoints
+  commentId: F:g3.NURBSCurve2.mNumCtrlPoints
+  id: mNumCtrlPoints
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: mNumCtrlPoints
+  nameWithType: NURBSCurve2.mNumCtrlPoints
+  fullName: g3.NURBSCurve2.mNumCtrlPoints
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mNumCtrlPoints
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 373
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int mNumCtrlPoints
+    return:
+      type: System.Int32
+    content.vb: Protected mNumCtrlPoints As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.mCtrlPoint
+  commentId: F:g3.NURBSCurve2.mCtrlPoint
+  id: mCtrlPoint
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: mCtrlPoint
+  nameWithType: NURBSCurve2.mCtrlPoint
+  fullName: g3.NURBSCurve2.mCtrlPoint
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mCtrlPoint
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 374
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector2d[] mCtrlPoint
+    return:
+      type: g3.Vector2d[]
+    content.vb: Protected mCtrlPoint As Vector2d()
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.mCtrlWeight
+  commentId: F:g3.NURBSCurve2.mCtrlWeight
+  id: mCtrlWeight
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: mCtrlWeight
+  nameWithType: NURBSCurve2.mCtrlWeight
+  fullName: g3.NURBSCurve2.mCtrlWeight
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mCtrlWeight
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 375
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[] mCtrlWeight
+    return:
+      type: System.Double[]
+    content.vb: Protected mCtrlWeight As Double()
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.mLoop
+  commentId: F:g3.NURBSCurve2.mLoop
+  id: mLoop
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: mLoop
+  nameWithType: NURBSCurve2.mLoop
+  fullName: g3.NURBSCurve2.mLoop
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mLoop
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 376
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool mLoop
+    return:
+      type: System.Boolean
+    content.vb: Protected mLoop As Boolean
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.mBasis
+  commentId: F:g3.NURBSCurve2.mBasis
+  id: mBasis
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: mBasis
+  nameWithType: NURBSCurve2.mBasis
+  fullName: g3.NURBSCurve2.mBasis
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mBasis
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 377
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected BSplineBasis mBasis
+    return:
+      type: g3.BSplineBasis
+    content.vb: Protected mBasis As BSplineBasis
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.mReplicate
+  commentId: F:g3.NURBSCurve2.mReplicate
+  id: mReplicate
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: mReplicate
+  nameWithType: NURBSCurve2.mReplicate
+  fullName: g3.NURBSCurve2.mReplicate
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mReplicate
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 378
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int mReplicate
+    return:
+      type: System.Int32
+    content.vb: Protected mReplicate As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.is_closed
+  commentId: F:g3.NURBSCurve2.is_closed
+  id: is_closed
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: is_closed
+  nameWithType: NURBSCurve2.is_closed
+  fullName: g3.NURBSCurve2.is_closed
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: is_closed
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 380
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool is_closed
+    return:
+      type: System.Boolean
+    content.vb: Protected is_closed As Boolean
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.NURBSCurve2.IsClosed
+  commentId: P:g3.NURBSCurve2.IsClosed
+  id: IsClosed
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: NURBSCurve2.IsClosed
+  fullName: g3.NURBSCurve2.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 392
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClosed { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsClosed As Boolean
+  overload: g3.NURBSCurve2.IsClosed*
+  implements:
+  - g3.IParametricCurve2d.IsClosed
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.ParamLength
+  commentId: P:g3.NURBSCurve2.ParamLength
+  id: ParamLength
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: ParamLength
+  nameWithType: NURBSCurve2.ParamLength
+  fullName: g3.NURBSCurve2.ParamLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParamLength
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 398
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ParamLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ParamLength As Double
+  overload: g3.NURBSCurve2.ParamLength*
+  implements:
+  - g3.IParametricCurve2d.ParamLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.NURBSCurve2.SampleT(System.Double)
+  commentId: M:g3.NURBSCurve2.SampleT(System.Double)
+  id: SampleT(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: SampleT(Double)
+  nameWithType: NURBSCurve2.SampleT(Double)
+  fullName: g3.NURBSCurve2.SampleT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleT
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 401
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleT(t As Double) As Vector2d
+  overload: g3.NURBSCurve2.SampleT*
+  implements:
+  - g3.IParametricCurve2d.SampleT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.TangentT(System.Double)
+  commentId: M:g3.NURBSCurve2.TangentT(System.Double)
+  id: TangentT(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: TangentT(Double)
+  nameWithType: NURBSCurve2.TangentT(Double)
+  fullName: g3.NURBSCurve2.TangentT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TangentT
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 405
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d TangentT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function TangentT(t As Double) As Vector2d
+  overload: g3.NURBSCurve2.TangentT*
+  implements:
+  - g3.IParametricCurve2d.TangentT(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.HasArcLength
+  commentId: P:g3.NURBSCurve2.HasArcLength
+  id: HasArcLength
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: HasArcLength
+  nameWithType: NURBSCurve2.HasArcLength
+  fullName: g3.NURBSCurve2.HasArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasArcLength
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 409
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasArcLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasArcLength As Boolean
+  overload: g3.NURBSCurve2.HasArcLength*
+  implements:
+  - g3.IParametricCurve2d.HasArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.NURBSCurve2.ArcLength
+  commentId: P:g3.NURBSCurve2.ArcLength
+  id: ArcLength
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: NURBSCurve2.ArcLength
+  fullName: g3.NURBSCurve2.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 412
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.NURBSCurve2.ArcLength*
+  implements:
+  - g3.IParametricCurve2d.ArcLength
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.NURBSCurve2.SampleArcLength(System.Double)
+  commentId: M:g3.NURBSCurve2.SampleArcLength(System.Double)
+  id: SampleArcLength(System.Double)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: SampleArcLength(Double)
+  nameWithType: NURBSCurve2.SampleArcLength(Double)
+  fullName: g3.NURBSCurve2.SampleArcLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleArcLength
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 415
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d SampleArcLength(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function SampleArcLength(a As Double) As Vector2d
+  overload: g3.NURBSCurve2.SampleArcLength*
+  implements:
+  - g3.IParametricCurve2d.SampleArcLength(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.Reverse
+  commentId: M:g3.NURBSCurve2.Reverse
+  id: Reverse
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: NURBSCurve2.Reverse()
+  fullName: g3.NURBSCurve2.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 421
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse()
+    content.vb: Public Sub Reverse
+  overload: g3.NURBSCurve2.Reverse*
+  implements:
+  - g3.IParametricCurve2d.Reverse
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.Clone
+  commentId: M:g3.NURBSCurve2.Clone
+  id: Clone
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: NURBSCurve2.Clone()
+  fullName: g3.NURBSCurve2.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 425
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IParametricCurve2d Clone()
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Public Function Clone As IParametricCurve2d
+  overload: g3.NURBSCurve2.Clone*
+  implements:
+  - g3.IParametricCurve2d.Clone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.IsTransformable
+  commentId: P:g3.NURBSCurve2.IsTransformable
+  id: IsTransformable
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: IsTransformable
+  nameWithType: NURBSCurve2.IsTransformable
+  fullName: g3.NURBSCurve2.IsTransformable
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTransformable
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 438
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsTransformable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTransformable As Boolean
+  overload: g3.NURBSCurve2.IsTransformable*
+  implements:
+  - g3.IParametricCurve2d.IsTransformable
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.NURBSCurve2.Transform(g3.ITransform2)
+  commentId: M:g3.NURBSCurve2.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: NURBSCurve2.Transform(ITransform2)
+  fullName: g3.NURBSCurve2.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 439
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    content.vb: Public Sub Transform(xform As ITransform2)
+  overload: g3.NURBSCurve2.Transform*
+  implements:
+  - g3.IParametricCurve2d.Transform(g3.ITransform2)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetParamIntervals
+  commentId: M:g3.NURBSCurve2.GetParamIntervals
+  id: GetParamIntervals
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetParamIntervals()
+  nameWithType: NURBSCurve2.GetParamIntervals()
+  fullName: g3.NURBSCurve2.GetParamIntervals()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetParamIntervals
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 448
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<double> GetParamIntervals()
+    return:
+      type: System.Collections.Generic.List{System.Double}
+    content.vb: Public Function GetParamIntervals As List(Of Double)
+  overload: g3.NURBSCurve2.GetParamIntervals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.NURBSCurve2.GetContinuousParamIntervals
+  commentId: M:g3.NURBSCurve2.GetContinuousParamIntervals
+  id: GetContinuousParamIntervals
+  parent: g3.NURBSCurve2
+  langs:
+  - csharp
+  - vb
+  name: GetContinuousParamIntervals()
+  nameWithType: NURBSCurve2.GetContinuousParamIntervals()
+  fullName: g3.NURBSCurve2.GetContinuousParamIntervals()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/NURBSCurve2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetContinuousParamIntervals
+    path: ../Assets/geometry3Sharp/curve/NURBSCurve2.cs
+    startLine: 469
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<double> GetContinuousParamIntervals()
+    return:
+      type: System.Collections.Generic.List{System.Double}
+    content.vb: Public Function GetContinuousParamIntervals As List(Of Double)
+  overload: g3.NURBSCurve2.GetContinuousParamIntervals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.BaseCurve2
+  commentId: T:g3.BaseCurve2
+  parent: g3
+  name: BaseCurve2
+  nameWithType: BaseCurve2
+  fullName: g3.BaseCurve2
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: g3.BaseCurve2.mTMin
+  commentId: F:g3.BaseCurve2.mTMin
+  parent: g3.BaseCurve2
+  name: mTMin
+  nameWithType: BaseCurve2.mTMin
+  fullName: g3.BaseCurve2.mTMin
+- uid: g3.BaseCurve2.mTMax
+  commentId: F:g3.BaseCurve2.mTMax
+  parent: g3.BaseCurve2
+  name: mTMax
+  nameWithType: BaseCurve2.mTMax
+  fullName: g3.BaseCurve2.mTMax
+- uid: g3.BaseCurve2.GetMinTime
+  commentId: M:g3.BaseCurve2.GetMinTime
+  parent: g3.BaseCurve2
+  name: GetMinTime()
+  nameWithType: BaseCurve2.GetMinTime()
+  fullName: g3.BaseCurve2.GetMinTime()
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetMinTime
+    name: GetMinTime
+    nameWithType: BaseCurve2.GetMinTime
+    fullName: g3.BaseCurve2.GetMinTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetMinTime
+    name: GetMinTime
+    nameWithType: BaseCurve2.GetMinTime
+    fullName: g3.BaseCurve2.GetMinTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetMaxTime
+  commentId: M:g3.BaseCurve2.GetMaxTime
+  parent: g3.BaseCurve2
+  name: GetMaxTime()
+  nameWithType: BaseCurve2.GetMaxTime()
+  fullName: g3.BaseCurve2.GetMaxTime()
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetMaxTime
+    name: GetMaxTime
+    nameWithType: BaseCurve2.GetMaxTime
+    fullName: g3.BaseCurve2.GetMaxTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetMaxTime
+    name: GetMaxTime
+    nameWithType: BaseCurve2.GetMaxTime
+    fullName: g3.BaseCurve2.GetMaxTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+  commentId: M:g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: SetTimeInterval(Double, Double)
+  nameWithType: BaseCurve2.SetTimeInterval(Double, Double)
+  fullName: g3.BaseCurve2.SetTimeInterval(System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+    name: SetTimeInterval
+    nameWithType: BaseCurve2.SetTimeInterval
+    fullName: g3.BaseCurve2.SetTimeInterval
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.SetTimeInterval(System.Double,System.Double)
+    name: SetTimeInterval
+    nameWithType: BaseCurve2.SetTimeInterval
+    fullName: g3.BaseCurve2.SetTimeInterval
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetSpeed(System.Double)
+  commentId: M:g3.BaseCurve2.GetSpeed(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetSpeed(Double)
+  nameWithType: BaseCurve2.GetSpeed(Double)
+  fullName: g3.BaseCurve2.GetSpeed(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetSpeed(System.Double)
+    name: GetSpeed
+    nameWithType: BaseCurve2.GetSpeed
+    fullName: g3.BaseCurve2.GetSpeed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetSpeed(System.Double)
+    name: GetSpeed
+    nameWithType: BaseCurve2.GetSpeed
+    fullName: g3.BaseCurve2.GetSpeed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetLength(System.Double,System.Double)
+  commentId: M:g3.BaseCurve2.GetLength(System.Double,System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetLength(Double, Double)
+  nameWithType: BaseCurve2.GetLength(Double, Double)
+  fullName: g3.BaseCurve2.GetLength(System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetLength(System.Double,System.Double)
+    name: GetLength
+    nameWithType: BaseCurve2.GetLength
+    fullName: g3.BaseCurve2.GetLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetLength(System.Double,System.Double)
+    name: GetLength
+    nameWithType: BaseCurve2.GetLength
+    fullName: g3.BaseCurve2.GetLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetTotalLength
+  commentId: M:g3.BaseCurve2.GetTotalLength
+  parent: g3.BaseCurve2
+  name: GetTotalLength()
+  nameWithType: BaseCurve2.GetTotalLength()
+  fullName: g3.BaseCurve2.GetTotalLength()
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetTotalLength
+    name: GetTotalLength
+    nameWithType: BaseCurve2.GetTotalLength
+    fullName: g3.BaseCurve2.GetTotalLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetTotalLength
+    name: GetTotalLength
+    nameWithType: BaseCurve2.GetTotalLength
+    fullName: g3.BaseCurve2.GetTotalLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetTangent(System.Double)
+  commentId: M:g3.BaseCurve2.GetTangent(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetTangent(Double)
+  nameWithType: BaseCurve2.GetTangent(Double)
+  fullName: g3.BaseCurve2.GetTangent(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetTangent(System.Double)
+    name: GetTangent
+    nameWithType: BaseCurve2.GetTangent
+    fullName: g3.BaseCurve2.GetTangent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetTangent(System.Double)
+    name: GetTangent
+    nameWithType: BaseCurve2.GetTangent
+    fullName: g3.BaseCurve2.GetTangent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetNormal(System.Double)
+  commentId: M:g3.BaseCurve2.GetNormal(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetNormal(Double)
+  nameWithType: BaseCurve2.GetNormal(Double)
+  fullName: g3.BaseCurve2.GetNormal(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetNormal(System.Double)
+    name: GetNormal
+    nameWithType: BaseCurve2.GetNormal
+    fullName: g3.BaseCurve2.GetNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetNormal(System.Double)
+    name: GetNormal
+    nameWithType: BaseCurve2.GetNormal
+    fullName: g3.BaseCurve2.GetNormal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetFrame(Double, Vector2d, Vector2d, Vector2d)
+  nameWithType: BaseCurve2.GetFrame(Double, Vector2d, Vector2d, Vector2d)
+  fullName: g3.BaseCurve2.GetFrame(System.Double, g3.Vector2d, g3.Vector2d, g3.Vector2d)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+    name: GetFrame
+    nameWithType: BaseCurve2.GetFrame
+    fullName: g3.BaseCurve2.GetFrame
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetFrame(System.Double,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+    name: GetFrame
+    nameWithType: BaseCurve2.GetFrame
+    fullName: g3.BaseCurve2.GetFrame
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetCurvature(System.Double)
+  commentId: M:g3.BaseCurve2.GetCurvature(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetCurvature(Double)
+  nameWithType: BaseCurve2.GetCurvature(Double)
+  fullName: g3.BaseCurve2.GetCurvature(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetCurvature(System.Double)
+    name: GetCurvature
+    nameWithType: BaseCurve2.GetCurvature
+    fullName: g3.BaseCurve2.GetCurvature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetCurvature(System.Double)
+    name: GetCurvature
+    nameWithType: BaseCurve2.GetCurvature
+    fullName: g3.BaseCurve2.GetCurvature
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+  commentId: M:g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetTime(Double, Int32, Double)
+  nameWithType: BaseCurve2.GetTime(Double, Int32, Double)
+  fullName: g3.BaseCurve2.GetTime(System.Double, System.Int32, System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+    name: GetTime
+    nameWithType: BaseCurve2.GetTime
+    fullName: g3.BaseCurve2.GetTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetTime(System.Double,System.Int32,System.Double)
+    name: GetTime
+    nameWithType: BaseCurve2.GetTime
+    fullName: g3.BaseCurve2.GetTime
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.NURBSCurve2.#ctor*
+  commentId: Overload:g3.NURBSCurve2.#ctor
+  name: NURBSCurve2
+  nameWithType: NURBSCurve2.NURBSCurve2
+  fullName: g3.NURBSCurve2.NURBSCurve2
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Vector2d[]
+  isExternal: true
+  name: Vector2d[]
+  nameWithType: Vector2d[]
+  fullName: g3.Vector2d[]
+  nameWithType.vb: Vector2d()
+  fullName.vb: g3.Vector2d()
+  name.vb: Vector2d()
+  spec.csharp:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.NURBSCurve2.GetNumCtrlPoints*
+  commentId: Overload:g3.NURBSCurve2.GetNumCtrlPoints
+  name: GetNumCtrlPoints
+  nameWithType: NURBSCurve2.GetNumCtrlPoints
+  fullName: g3.NURBSCurve2.GetNumCtrlPoints
+- uid: g3.NURBSCurve2.GetDegree*
+  commentId: Overload:g3.NURBSCurve2.GetDegree
+  name: GetDegree
+  nameWithType: NURBSCurve2.GetDegree
+  fullName: g3.NURBSCurve2.GetDegree
+- uid: g3.NURBSCurve2.IsUniform*
+  commentId: Overload:g3.NURBSCurve2.IsUniform
+  name: IsUniform
+  nameWithType: NURBSCurve2.IsUniform
+  fullName: g3.NURBSCurve2.IsUniform
+- uid: g3.NURBSCurve2.SetControlPoint*
+  commentId: Overload:g3.NURBSCurve2.SetControlPoint
+  name: SetControlPoint
+  nameWithType: NURBSCurve2.SetControlPoint
+  fullName: g3.NURBSCurve2.SetControlPoint
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.NURBSCurve2.GetControlPoint*
+  commentId: Overload:g3.NURBSCurve2.GetControlPoint
+  name: GetControlPoint
+  nameWithType: NURBSCurve2.GetControlPoint
+  fullName: g3.NURBSCurve2.GetControlPoint
+- uid: g3.NURBSCurve2.SetControlWeight*
+  commentId: Overload:g3.NURBSCurve2.SetControlWeight
+  name: SetControlWeight
+  nameWithType: NURBSCurve2.SetControlWeight
+  fullName: g3.NURBSCurve2.SetControlWeight
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.NURBSCurve2.GetControlWeight*
+  commentId: Overload:g3.NURBSCurve2.GetControlWeight
+  name: GetControlWeight
+  nameWithType: NURBSCurve2.GetControlWeight
+  fullName: g3.NURBSCurve2.GetControlWeight
+- uid: g3.NURBSCurve2.SetKnot*
+  commentId: Overload:g3.NURBSCurve2.SetKnot
+  name: SetKnot
+  nameWithType: NURBSCurve2.SetKnot
+  fullName: g3.NURBSCurve2.SetKnot
+- uid: g3.NURBSCurve2.GetKnot*
+  commentId: Overload:g3.NURBSCurve2.GetKnot
+  name: GetKnot
+  nameWithType: NURBSCurve2.GetKnot
+  fullName: g3.NURBSCurve2.GetKnot
+- uid: g3.BaseCurve2.GetPosition(System.Double)
+  commentId: M:g3.BaseCurve2.GetPosition(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetPosition(Double)
+  nameWithType: BaseCurve2.GetPosition(Double)
+  fullName: g3.BaseCurve2.GetPosition(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetPosition(System.Double)
+    name: GetPosition
+    nameWithType: BaseCurve2.GetPosition
+    fullName: g3.BaseCurve2.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetPosition(System.Double)
+    name: GetPosition
+    nameWithType: BaseCurve2.GetPosition
+    fullName: g3.BaseCurve2.GetPosition
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.GetPosition*
+  commentId: Overload:g3.NURBSCurve2.GetPosition
+  name: GetPosition
+  nameWithType: NURBSCurve2.GetPosition
+  fullName: g3.NURBSCurve2.GetPosition
+- uid: g3.BaseCurve2.GetFirstDerivative(System.Double)
+  commentId: M:g3.BaseCurve2.GetFirstDerivative(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetFirstDerivative(Double)
+  nameWithType: BaseCurve2.GetFirstDerivative(Double)
+  fullName: g3.BaseCurve2.GetFirstDerivative(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetFirstDerivative(System.Double)
+    name: GetFirstDerivative
+    nameWithType: BaseCurve2.GetFirstDerivative
+    fullName: g3.BaseCurve2.GetFirstDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetFirstDerivative(System.Double)
+    name: GetFirstDerivative
+    nameWithType: BaseCurve2.GetFirstDerivative
+    fullName: g3.BaseCurve2.GetFirstDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.GetFirstDerivative*
+  commentId: Overload:g3.NURBSCurve2.GetFirstDerivative
+  name: GetFirstDerivative
+  nameWithType: NURBSCurve2.GetFirstDerivative
+  fullName: g3.NURBSCurve2.GetFirstDerivative
+- uid: g3.BaseCurve2.GetSecondDerivative(System.Double)
+  commentId: M:g3.BaseCurve2.GetSecondDerivative(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetSecondDerivative(Double)
+  nameWithType: BaseCurve2.GetSecondDerivative(Double)
+  fullName: g3.BaseCurve2.GetSecondDerivative(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetSecondDerivative(System.Double)
+    name: GetSecondDerivative
+    nameWithType: BaseCurve2.GetSecondDerivative
+    fullName: g3.BaseCurve2.GetSecondDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetSecondDerivative(System.Double)
+    name: GetSecondDerivative
+    nameWithType: BaseCurve2.GetSecondDerivative
+    fullName: g3.BaseCurve2.GetSecondDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.GetSecondDerivative*
+  commentId: Overload:g3.NURBSCurve2.GetSecondDerivative
+  name: GetSecondDerivative
+  nameWithType: NURBSCurve2.GetSecondDerivative
+  fullName: g3.NURBSCurve2.GetSecondDerivative
+- uid: g3.BaseCurve2.GetThirdDerivative(System.Double)
+  commentId: M:g3.BaseCurve2.GetThirdDerivative(System.Double)
+  parent: g3.BaseCurve2
+  isExternal: true
+  name: GetThirdDerivative(Double)
+  nameWithType: BaseCurve2.GetThirdDerivative(Double)
+  fullName: g3.BaseCurve2.GetThirdDerivative(System.Double)
+  spec.csharp:
+  - uid: g3.BaseCurve2.GetThirdDerivative(System.Double)
+    name: GetThirdDerivative
+    nameWithType: BaseCurve2.GetThirdDerivative
+    fullName: g3.BaseCurve2.GetThirdDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BaseCurve2.GetThirdDerivative(System.Double)
+    name: GetThirdDerivative
+    nameWithType: BaseCurve2.GetThirdDerivative
+    fullName: g3.BaseCurve2.GetThirdDerivative
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.GetThirdDerivative*
+  commentId: Overload:g3.NURBSCurve2.GetThirdDerivative
+  name: GetThirdDerivative
+  nameWithType: NURBSCurve2.GetThirdDerivative
+  fullName: g3.NURBSCurve2.GetThirdDerivative
+- uid: g3.NURBSCurve2.Get*
+  commentId: Overload:g3.NURBSCurve2.Get
+  name: Get
+  nameWithType: NURBSCurve2.Get
+  fullName: g3.NURBSCurve2.Get
+- uid: g3.NURBSCurve2.CurveDerivatives
+  commentId: T:g3.NURBSCurve2.CurveDerivatives
+  parent: g3
+  name: NURBSCurve2.CurveDerivatives
+  nameWithType: NURBSCurve2.CurveDerivatives
+  fullName: g3.NURBSCurve2.CurveDerivatives
+- uid: g3.NURBSCurve2.GetBasis*
+  commentId: Overload:g3.NURBSCurve2.GetBasis
+  name: GetBasis
+  nameWithType: NURBSCurve2.GetBasis
+  fullName: g3.NURBSCurve2.GetBasis
+- uid: g3.BSplineBasis
+  commentId: T:g3.BSplineBasis
+  parent: g3
+  name: BSplineBasis
+  nameWithType: BSplineBasis
+  fullName: g3.BSplineBasis
+- uid: g3.NURBSCurve2.CreateControl*
+  commentId: Overload:g3.NURBSCurve2.CreateControl
+  name: CreateControl
+  nameWithType: NURBSCurve2.CreateControl
+  fullName: g3.NURBSCurve2.CreateControl
+- uid: g3.NURBSCurve2.IsClosed*
+  commentId: Overload:g3.NURBSCurve2.IsClosed
+  name: IsClosed
+  nameWithType: NURBSCurve2.IsClosed
+  fullName: g3.NURBSCurve2.IsClosed
+- uid: g3.IParametricCurve2d.IsClosed
+  commentId: P:g3.IParametricCurve2d.IsClosed
+  parent: g3.IParametricCurve2d
+  name: IsClosed
+  nameWithType: IParametricCurve2d.IsClosed
+  fullName: g3.IParametricCurve2d.IsClosed
+- uid: g3.NURBSCurve2.ParamLength*
+  commentId: Overload:g3.NURBSCurve2.ParamLength
+  name: ParamLength
+  nameWithType: NURBSCurve2.ParamLength
+  fullName: g3.NURBSCurve2.ParamLength
+- uid: g3.IParametricCurve2d.ParamLength
+  commentId: P:g3.IParametricCurve2d.ParamLength
+  parent: g3.IParametricCurve2d
+  name: ParamLength
+  nameWithType: IParametricCurve2d.ParamLength
+  fullName: g3.IParametricCurve2d.ParamLength
+- uid: g3.NURBSCurve2.SampleT*
+  commentId: Overload:g3.NURBSCurve2.SampleT
+  name: SampleT
+  nameWithType: NURBSCurve2.SampleT
+  fullName: g3.NURBSCurve2.SampleT
+- uid: g3.IParametricCurve2d.SampleT(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleT(Double)
+  nameWithType: IParametricCurve2d.SampleT(Double)
+  fullName: g3.IParametricCurve2d.SampleT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleT(System.Double)
+    name: SampleT
+    nameWithType: IParametricCurve2d.SampleT
+    fullName: g3.IParametricCurve2d.SampleT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.TangentT*
+  commentId: Overload:g3.NURBSCurve2.TangentT
+  name: TangentT
+  nameWithType: NURBSCurve2.TangentT
+  fullName: g3.NURBSCurve2.TangentT
+- uid: g3.IParametricCurve2d.TangentT(System.Double)
+  commentId: M:g3.IParametricCurve2d.TangentT(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: TangentT(Double)
+  nameWithType: IParametricCurve2d.TangentT(Double)
+  fullName: g3.IParametricCurve2d.TangentT(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.TangentT(System.Double)
+    name: TangentT
+    nameWithType: IParametricCurve2d.TangentT
+    fullName: g3.IParametricCurve2d.TangentT
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.HasArcLength*
+  commentId: Overload:g3.NURBSCurve2.HasArcLength
+  name: HasArcLength
+  nameWithType: NURBSCurve2.HasArcLength
+  fullName: g3.NURBSCurve2.HasArcLength
+- uid: g3.IParametricCurve2d.HasArcLength
+  commentId: P:g3.IParametricCurve2d.HasArcLength
+  parent: g3.IParametricCurve2d
+  name: HasArcLength
+  nameWithType: IParametricCurve2d.HasArcLength
+  fullName: g3.IParametricCurve2d.HasArcLength
+- uid: g3.NURBSCurve2.ArcLength*
+  commentId: Overload:g3.NURBSCurve2.ArcLength
+  name: ArcLength
+  nameWithType: NURBSCurve2.ArcLength
+  fullName: g3.NURBSCurve2.ArcLength
+- uid: g3.IParametricCurve2d.ArcLength
+  commentId: P:g3.IParametricCurve2d.ArcLength
+  parent: g3.IParametricCurve2d
+  name: ArcLength
+  nameWithType: IParametricCurve2d.ArcLength
+  fullName: g3.IParametricCurve2d.ArcLength
+- uid: g3.NURBSCurve2.SampleArcLength*
+  commentId: Overload:g3.NURBSCurve2.SampleArcLength
+  name: SampleArcLength
+  nameWithType: NURBSCurve2.SampleArcLength
+  fullName: g3.NURBSCurve2.SampleArcLength
+- uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleArcLength(System.Double)
+  parent: g3.IParametricCurve2d
+  isExternal: true
+  name: SampleArcLength(Double)
+  nameWithType: IParametricCurve2d.SampleArcLength(Double)
+  fullName: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+    name: SampleArcLength
+    nameWithType: IParametricCurve2d.SampleArcLength
+    fullName: g3.IParametricCurve2d.SampleArcLength
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.Reverse*
+  commentId: Overload:g3.NURBSCurve2.Reverse
+  name: Reverse
+  nameWithType: NURBSCurve2.Reverse
+  fullName: g3.NURBSCurve2.Reverse
+- uid: g3.IParametricCurve2d.Reverse
+  commentId: M:g3.IParametricCurve2d.Reverse
+  parent: g3.IParametricCurve2d
+  name: Reverse()
+  nameWithType: IParametricCurve2d.Reverse()
+  fullName: g3.IParametricCurve2d.Reverse()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Reverse
+    name: Reverse
+    nameWithType: IParametricCurve2d.Reverse
+    fullName: g3.IParametricCurve2d.Reverse
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.Clone*
+  commentId: Overload:g3.NURBSCurve2.Clone
+  name: Clone
+  nameWithType: NURBSCurve2.Clone
+  fullName: g3.NURBSCurve2.Clone
+- uid: g3.IParametricCurve2d.Clone
+  commentId: M:g3.IParametricCurve2d.Clone
+  parent: g3.IParametricCurve2d
+  name: Clone()
+  nameWithType: IParametricCurve2d.Clone()
+  fullName: g3.IParametricCurve2d.Clone()
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Clone
+    name: Clone
+    nameWithType: IParametricCurve2d.Clone
+    fullName: g3.IParametricCurve2d.Clone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NURBSCurve2.IsTransformable*
+  commentId: Overload:g3.NURBSCurve2.IsTransformable
+  name: IsTransformable
+  nameWithType: NURBSCurve2.IsTransformable
+  fullName: g3.NURBSCurve2.IsTransformable
+- uid: g3.IParametricCurve2d.IsTransformable
+  commentId: P:g3.IParametricCurve2d.IsTransformable
+  parent: g3.IParametricCurve2d
+  name: IsTransformable
+  nameWithType: IParametricCurve2d.IsTransformable
+  fullName: g3.IParametricCurve2d.IsTransformable
+- uid: g3.NURBSCurve2.Transform*
+  commentId: Overload:g3.NURBSCurve2.Transform
+  name: Transform
+  nameWithType: NURBSCurve2.Transform
+  fullName: g3.NURBSCurve2.Transform
+- uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  commentId: M:g3.IParametricCurve2d.Transform(g3.ITransform2)
+  parent: g3.IParametricCurve2d
+  name: Transform(ITransform2)
+  nameWithType: IParametricCurve2d.Transform(ITransform2)
+  fullName: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  spec.csharp:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+    name: Transform
+    nameWithType: IParametricCurve2d.Transform
+    fullName: g3.IParametricCurve2d.Transform
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.ITransform2
+    name: ITransform2
+    nameWithType: ITransform2
+    fullName: g3.ITransform2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.NURBSCurve2.GetParamIntervals*
+  commentId: Overload:g3.NURBSCurve2.GetParamIntervals
+  name: GetParamIntervals
+  nameWithType: NURBSCurve2.GetParamIntervals
+  fullName: g3.NURBSCurve2.GetParamIntervals
+- uid: System.Collections.Generic.List{System.Double}
+  commentId: T:System.Collections.Generic.List{System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Double>
+  nameWithType: List<Double>
+  fullName: System.Collections.Generic.List<System.Double>
+  nameWithType.vb: List(Of Double)
+  fullName.vb: System.Collections.Generic.List(Of System.Double)
+  name.vb: List(Of Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.NURBSCurve2.GetContinuousParamIntervals*
+  commentId: Overload:g3.NURBSCurve2.GetContinuousParamIntervals
+  name: GetContinuousParamIntervals
+  nameWithType: NURBSCurve2.GetContinuousParamIntervals
+  fullName: g3.NURBSCurve2.GetContinuousParamIntervals

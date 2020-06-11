@@ -1,0 +1,1413 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Util
+  commentId: T:g3.Util
+  id: Util
+  parent: g3
+  children:
+  - g3.Util.AppendArrays``1(System.Object[])
+  - g3.Util.BufferCopy(System.Int32[],System.Int32[])
+  - g3.Util.BufferCopy(System.Single[],System.Single[])
+  - g3.Util.ByteArrayToStructure(System.Byte[],System.Object@)
+  - g3.Util.DebugBreakOnDevAssert
+  - g3.Util.gBreakToDebugger
+  - g3.Util.gDevAssert(System.Boolean,System.String)
+  - g3.Util.IsASCIIControlChar(System.Int32)
+  - g3.Util.IsBinaryFile(System.String,System.Int32)
+  - g3.Util.IsBinaryStream(System.IO.Stream,System.Int32)
+  - g3.Util.IsBitSet(System.Byte,System.Int32)
+  - g3.Util.IsBitSet(System.Int32,System.Int32)
+  - g3.Util.IsRunningOnMono
+  - g3.Util.IsTextString(System.Byte[])
+  - g3.Util.MakeFloatFormatString(System.Int32,System.Int32)
+  - g3.Util.MakeVec3FormatString(System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.Util.ParseDouble(System.String,System.Double)
+  - g3.Util.ParseFloat(System.String,System.Single)
+  - g3.Util.ParseInt(System.String,System.Int32)
+  - g3.Util.StructureToByteArray(System.Object)
+  - g3.Util.ToHexString(System.Byte[],System.Boolean)
+  - g3.Util.ToSecMilli(System.TimeSpan)
+  - g3.Util.WriteDebugMesh(g3.IMesh,System.String)
+  - g3.Util.WriteDebugMeshAndMarkers(g3.IMesh,System.Collections.Generic.List{g3.Vector3d},System.String)
+  langs:
+  - csharp
+  - vb
+  name: Util
+  nameWithType: Util
+  fullName: g3.Util
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Util
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class Util
+    content.vb: Public Module Util
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.Util.gBreakToDebugger
+  commentId: M:g3.Util.gBreakToDebugger
+  id: gBreakToDebugger
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: gBreakToDebugger()
+  nameWithType: Util.gBreakToDebugger()
+  fullName: g3.Util.gBreakToDebugger()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: gBreakToDebugger
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void gBreakToDebugger()
+    content.vb: Public Shared Sub gBreakToDebugger
+  overload: g3.Util.gBreakToDebugger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.DebugBreakOnDevAssert
+  commentId: F:g3.Util.DebugBreakOnDevAssert
+  id: DebugBreakOnDevAssert
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: DebugBreakOnDevAssert
+  nameWithType: Util.DebugBreakOnDevAssert
+  fullName: g3.Util.DebugBreakOnDevAssert
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DebugBreakOnDevAssert
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool DebugBreakOnDevAssert
+    return:
+      type: System.Boolean
+    content.vb: Public Shared DebugBreakOnDevAssert As Boolean
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.gDevAssert(System.Boolean,System.String)
+  commentId: M:g3.Util.gDevAssert(System.Boolean,System.String)
+  id: gDevAssert(System.Boolean,System.String)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: gDevAssert(Boolean, String)
+  nameWithType: Util.gDevAssert(Boolean, String)
+  fullName: g3.Util.gDevAssert(System.Boolean, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: gDevAssert
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      [Conditional("DEBUG")]
+
+      public static void gDevAssert(bool bValue, string message = "gDevAssert")
+    parameters:
+    - id: bValue
+      type: System.Boolean
+    - id: message
+      type: System.String
+    content.vb: >-
+      <Conditional("DEBUG")>
+
+      Public Shared Sub gDevAssert(bValue As Boolean, message As String = "gDevAssert")
+  overload: g3.Util.gDevAssert*
+  attributes:
+  - type: System.Diagnostics.ConditionalAttribute
+    ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DEBUG
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.IsRunningOnMono
+  commentId: M:g3.Util.IsRunningOnMono
+  id: IsRunningOnMono
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsRunningOnMono()
+  nameWithType: Util.IsRunningOnMono()
+  fullName: g3.Util.IsRunningOnMono()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsRunningOnMono
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool IsRunningOnMono()
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsRunningOnMono As Boolean
+  overload: g3.Util.IsRunningOnMono*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.IsBitSet(System.Byte,System.Int32)
+  commentId: M:g3.Util.IsBitSet(System.Byte,System.Int32)
+  id: IsBitSet(System.Byte,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsBitSet(Byte, Int32)
+  nameWithType: Util.IsBitSet(Byte, Int32)
+  fullName: g3.Util.IsBitSet(System.Byte, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBitSet
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool IsBitSet(byte b, int pos)
+    parameters:
+    - id: b
+      type: System.Byte
+    - id: pos
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsBitSet(b As Byte, pos As Integer) As Boolean
+  overload: g3.Util.IsBitSet*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.IsBitSet(System.Int32,System.Int32)
+  commentId: M:g3.Util.IsBitSet(System.Int32,System.Int32)
+  id: IsBitSet(System.Int32,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsBitSet(Int32, Int32)
+  nameWithType: Util.IsBitSet(Int32, Int32)
+  fullName: g3.Util.IsBitSet(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBitSet
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool IsBitSet(int n, int pos)
+    parameters:
+    - id: n
+      type: System.Int32
+    - id: pos
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsBitSet(n As Integer, pos As Integer) As Boolean
+  overload: g3.Util.IsBitSet*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.IsTextString(System.Byte[])
+  commentId: M:g3.Util.IsTextString(System.Byte[])
+  id: IsTextString(System.Byte[])
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsTextString(Byte[])
+  nameWithType: Util.IsTextString(Byte[])
+  fullName: g3.Util.IsTextString(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTextString
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool IsTextString(byte[] array)
+    parameters:
+    - id: array
+      type: System.Byte[]
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsTextString(array As Byte()) As Boolean
+  overload: g3.Util.IsTextString*
+  nameWithType.vb: Util.IsTextString(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.IsTextString(System.Byte())
+  name.vb: IsTextString(Byte())
+- uid: g3.Util.IsBinaryFile(System.String,System.Int32)
+  commentId: M:g3.Util.IsBinaryFile(System.String,System.Int32)
+  id: IsBinaryFile(System.String,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsBinaryFile(String, Int32)
+  nameWithType: Util.IsBinaryFile(String, Int32)
+  fullName: g3.Util.IsBinaryFile(System.String, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBinaryFile
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 70
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ncheck if file contains bytes that correspond to ascii control characters,\nwhich would not occur in a plain text file, but are likely in a binary file.\n(note: this is not conclusive! for example if binary file was all FF&apos;s, this would return true)\n"
+  example: []
+  syntax:
+    content: public static bool IsBinaryFile(string path, int max_search_len = -1)
+    parameters:
+    - id: path
+      type: System.String
+    - id: max_search_len
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsBinaryFile(path As String, max_search_len As Integer = -1) As Boolean
+  overload: g3.Util.IsBinaryFile*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.IsBinaryStream(System.IO.Stream,System.Int32)
+  commentId: M:g3.Util.IsBinaryStream(System.IO.Stream,System.Int32)
+  id: IsBinaryStream(System.IO.Stream,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsBinaryStream(Stream, Int32)
+  nameWithType: Util.IsBinaryStream(Stream, Int32)
+  fullName: g3.Util.IsBinaryStream(System.IO.Stream, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBinaryStream
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 80
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSee IsBinaryFile()\n"
+  example: []
+  syntax:
+    content: public static bool IsBinaryStream(Stream streamIn, int max_search_len = -1)
+    parameters:
+    - id: streamIn
+      type: System.IO.Stream
+    - id: max_search_len
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsBinaryStream(streamIn As Stream, max_search_len As Integer = -1) As Boolean
+  overload: g3.Util.IsBinaryStream*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.IsASCIIControlChar(System.Int32)
+  commentId: M:g3.Util.IsASCIIControlChar(System.Int32)
+  id: IsASCIIControlChar(System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: IsASCIIControlChar(Int32)
+  nameWithType: Util.IsASCIIControlChar(Int32)
+  fullName: g3.Util.IsASCIIControlChar(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsASCIIControlChar
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 112
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ntest if character is ascii control character, which (presumably?) won&apos;t\noccur in unicode files?\n"
+  example: []
+  syntax:
+    content: public static bool IsASCIIControlChar(int ch)
+    parameters:
+    - id: ch
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsASCIIControlChar(ch As Integer) As Boolean
+  overload: g3.Util.IsASCIIControlChar*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.ToHexString(System.Byte[],System.Boolean)
+  commentId: M:g3.Util.ToHexString(System.Byte[],System.Boolean)
+  id: ToHexString(System.Byte[],System.Boolean)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: ToHexString(Byte[], Boolean)
+  nameWithType: Util.ToHexString(Byte[], Boolean)
+  fullName: g3.Util.ToHexString(System.Byte[], System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToHexString
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static string ToHexString(byte[] bytes, bool upperCase = false)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+    - id: upperCase
+      type: System.Boolean
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToHexString(bytes As Byte(), upperCase As Boolean = False) As String
+  overload: g3.Util.ToHexString*
+  nameWithType.vb: Util.ToHexString(Byte(), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.ToHexString(System.Byte(), System.Boolean)
+  name.vb: ToHexString(Byte(), Boolean)
+- uid: g3.Util.ParseInt(System.String,System.Int32)
+  commentId: M:g3.Util.ParseInt(System.String,System.Int32)
+  id: ParseInt(System.String,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: ParseInt(String, Int32)
+  nameWithType: Util.ParseInt(String, Int32)
+  fullName: g3.Util.ParseInt(System.String, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParseInt
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static float ParseInt(string s, int nDefault)
+    parameters:
+    - id: s
+      type: System.String
+    - id: nDefault
+      type: System.Int32
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ParseInt(s As String, nDefault As Integer) As Single
+  overload: g3.Util.ParseInt*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.ParseFloat(System.String,System.Single)
+  commentId: M:g3.Util.ParseFloat(System.String,System.Single)
+  id: ParseFloat(System.String,System.Single)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: ParseFloat(String, Single)
+  nameWithType: Util.ParseFloat(String, Single)
+  fullName: g3.Util.ParseFloat(System.String, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParseFloat
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 137
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static float ParseFloat(string s, float fDefault)
+    parameters:
+    - id: s
+      type: System.String
+    - id: fDefault
+      type: System.Single
+    return:
+      type: System.Single
+    content.vb: Public Shared Function ParseFloat(s As String, fDefault As Single) As Single
+  overload: g3.Util.ParseFloat*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.ParseDouble(System.String,System.Double)
+  commentId: M:g3.Util.ParseDouble(System.String,System.Double)
+  id: ParseDouble(System.String,System.Double)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: ParseDouble(String, Double)
+  nameWithType: Util.ParseDouble(String, Double)
+  fullName: g3.Util.ParseDouble(System.String, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParseDouble
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 144
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double ParseDouble(string s, double fDefault)
+    parameters:
+    - id: s
+      type: System.String
+    - id: fDefault
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Shared Function ParseDouble(s As String, fDefault As Double) As Double
+  overload: g3.Util.ParseDouble*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.BufferCopy(System.Single[],System.Single[])
+  commentId: M:g3.Util.BufferCopy(System.Single[],System.Single[])
+  id: BufferCopy(System.Single[],System.Single[])
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: BufferCopy(Single[], Single[])
+  nameWithType: Util.BufferCopy(Single[], Single[])
+  fullName: g3.Util.BufferCopy(System.Single[], System.Single[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BufferCopy
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 154
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static float[] BufferCopy(float[] from, float[] to)
+    parameters:
+    - id: from
+      type: System.Single[]
+    - id: to
+      type: System.Single[]
+    return:
+      type: System.Single[]
+    content.vb: Public Shared Function BufferCopy(from As Single(), to As Single()) As Single()
+  overload: g3.Util.BufferCopy*
+  nameWithType.vb: Util.BufferCopy(Single(), Single())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.BufferCopy(System.Single(), System.Single())
+  name.vb: BufferCopy(Single(), Single())
+- uid: g3.Util.BufferCopy(System.Int32[],System.Int32[])
+  commentId: M:g3.Util.BufferCopy(System.Int32[],System.Int32[])
+  id: BufferCopy(System.Int32[],System.Int32[])
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: BufferCopy(Int32[], Int32[])
+  nameWithType: Util.BufferCopy(Int32[], Int32[])
+  fullName: g3.Util.BufferCopy(System.Int32[], System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BufferCopy
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 163
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static int[] BufferCopy(int[] from, int[] to)
+    parameters:
+    - id: from
+      type: System.Int32[]
+    - id: to
+      type: System.Int32[]
+    return:
+      type: System.Int32[]
+    content.vb: Public Shared Function BufferCopy(from As Integer(), to As Integer()) As Integer()
+  overload: g3.Util.BufferCopy*
+  nameWithType.vb: Util.BufferCopy(Int32(), Int32())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.BufferCopy(System.Int32(), System.Int32())
+  name.vb: BufferCopy(Int32(), Int32())
+- uid: g3.Util.MakeFloatFormatString(System.Int32,System.Int32)
+  commentId: M:g3.Util.MakeFloatFormatString(System.Int32,System.Int32)
+  id: MakeFloatFormatString(System.Int32,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: MakeFloatFormatString(Int32, Int32)
+  nameWithType: Util.MakeFloatFormatString(Int32, Int32)
+  fullName: g3.Util.MakeFloatFormatString(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeFloatFormatString
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 175
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static string MakeFloatFormatString(int i, int nPrecision)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: nPrecision
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Shared Function MakeFloatFormatString(i As Integer, nPrecision As Integer) As String
+  overload: g3.Util.MakeFloatFormatString*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.MakeVec3FormatString(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Util.MakeVec3FormatString(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: MakeVec3FormatString(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: MakeVec3FormatString(Int32, Int32, Int32, Int32)
+  nameWithType: Util.MakeVec3FormatString(Int32, Int32, Int32, Int32)
+  fullName: g3.Util.MakeVec3FormatString(System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeVec3FormatString
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 179
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static string MakeVec3FormatString(int i0, int i1, int i2, int nPrecision)
+    parameters:
+    - id: i0
+      type: System.Int32
+    - id: i1
+      type: System.Int32
+    - id: i2
+      type: System.Int32
+    - id: nPrecision
+      type: System.Int32
+    return:
+      type: System.String
+    content.vb: Public Shared Function MakeVec3FormatString(i0 As Integer, i1 As Integer, i2 As Integer, nPrecision As Integer) As String
+  overload: g3.Util.MakeVec3FormatString*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.ToSecMilli(System.TimeSpan)
+  commentId: M:g3.Util.ToSecMilli(System.TimeSpan)
+  id: ToSecMilli(System.TimeSpan)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: ToSecMilli(TimeSpan)
+  nameWithType: Util.ToSecMilli(TimeSpan)
+  fullName: g3.Util.ToSecMilli(System.TimeSpan)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToSecMilli
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 186
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static string ToSecMilli(TimeSpan t)
+    parameters:
+    - id: t
+      type: System.TimeSpan
+    return:
+      type: System.String
+    content.vb: Public Shared Function ToSecMilli(t As TimeSpan) As String
+  overload: g3.Util.ToSecMilli*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.AppendArrays``1(System.Object[])
+  commentId: M:g3.Util.AppendArrays``1(System.Object[])
+  id: AppendArrays``1(System.Object[])
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: AppendArrays<T>(Object[])
+  nameWithType: Util.AppendArrays<T>(Object[])
+  fullName: g3.Util.AppendArrays<T>(System.Object[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendArrays
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 197
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static T[] AppendArrays<T>(params object[] args)
+    parameters:
+    - id: args
+      type: System.Object[]
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}[]'
+    content.vb: Public Shared Function AppendArrays(Of T)(ParamArray args As Object()) As T()
+  overload: g3.Util.AppendArrays*
+  nameWithType.vb: Util.AppendArrays(Of T)(Object())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.AppendArrays(Of T)(System.Object())
+  name.vb: AppendArrays(Of T)(Object())
+- uid: g3.Util.StructureToByteArray(System.Object)
+  commentId: M:g3.Util.StructureToByteArray(System.Object)
+  id: StructureToByteArray(System.Object)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: StructureToByteArray(Object)
+  nameWithType: Util.StructureToByteArray(Object)
+  fullName: g3.Util.StructureToByteArray(System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StructureToByteArray
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 219
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static byte[] StructureToByteArray(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Byte[]
+    content.vb: Public Shared Function StructureToByteArray(obj As Object) As Byte()
+  overload: g3.Util.StructureToByteArray*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.ByteArrayToStructure(System.Byte[],System.Object@)
+  commentId: M:g3.Util.ByteArrayToStructure(System.Byte[],System.Object@)
+  id: ByteArrayToStructure(System.Byte[],System.Object@)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: ByteArrayToStructure(Byte[], ref Object)
+  nameWithType: Util.ByteArrayToStructure(Byte[], ref Object)
+  fullName: g3.Util.ByteArrayToStructure(System.Byte[], ref System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ByteArrayToStructure
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 230
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ByteArrayToStructure(byte[] bytearray, ref object obj)
+    parameters:
+    - id: bytearray
+      type: System.Byte[]
+    - id: obj
+      type: System.Object
+    content.vb: Public Shared Sub ByteArrayToStructure(bytearray As Byte(), ByRef obj As Object)
+  overload: g3.Util.ByteArrayToStructure*
+  nameWithType.vb: Util.ByteArrayToStructure(Byte(), ByRef Object)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.ByteArrayToStructure(System.Byte(), ByRef System.Object)
+  name.vb: ByteArrayToStructure(Byte(), ByRef Object)
+- uid: g3.Util.WriteDebugMesh(g3.IMesh,System.String)
+  commentId: M:g3.Util.WriteDebugMesh(g3.IMesh,System.String)
+  id: WriteDebugMesh(g3.IMesh,System.String)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: WriteDebugMesh(IMesh, String)
+  nameWithType: Util.WriteDebugMesh(IMesh, String)
+  fullName: g3.Util.WriteDebugMesh(g3.IMesh, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WriteDebugMesh
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 241
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void WriteDebugMesh(IMesh mesh, string sPath)
+    parameters:
+    - id: mesh
+      type: g3.IMesh
+    - id: sPath
+      type: System.String
+    content.vb: Public Shared Sub WriteDebugMesh(mesh As IMesh, sPath As String)
+  overload: g3.Util.WriteDebugMesh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Util.WriteDebugMeshAndMarkers(g3.IMesh,System.Collections.Generic.List{g3.Vector3d},System.String)
+  commentId: M:g3.Util.WriteDebugMeshAndMarkers(g3.IMesh,System.Collections.Generic.List{g3.Vector3d},System.String)
+  id: WriteDebugMeshAndMarkers(g3.IMesh,System.Collections.Generic.List{g3.Vector3d},System.String)
+  parent: g3.Util
+  langs:
+  - csharp
+  - vb
+  name: WriteDebugMeshAndMarkers(IMesh, List<Vector3d>, String)
+  nameWithType: Util.WriteDebugMeshAndMarkers(IMesh, List<Vector3d>, String)
+  fullName: g3.Util.WriteDebugMeshAndMarkers(g3.IMesh, System.Collections.Generic.List<g3.Vector3d>, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/Util.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WriteDebugMeshAndMarkers
+    path: ../Assets/geometry3Sharp/core/Util.cs
+    startLine: 251
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void WriteDebugMeshAndMarkers(IMesh mesh, List<Vector3d> Markers, string sPath)
+    parameters:
+    - id: mesh
+      type: g3.IMesh
+    - id: Markers
+      type: System.Collections.Generic.List{g3.Vector3d}
+    - id: sPath
+      type: System.String
+    content.vb: Public Shared Sub WriteDebugMeshAndMarkers(mesh As IMesh, Markers As List(Of Vector3d), sPath As String)
+  overload: g3.Util.WriteDebugMeshAndMarkers*
+  nameWithType.vb: Util.WriteDebugMeshAndMarkers(IMesh, List(Of Vector3d), String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Util.WriteDebugMeshAndMarkers(g3.IMesh, System.Collections.Generic.List(Of g3.Vector3d), System.String)
+  name.vb: WriteDebugMeshAndMarkers(IMesh, List(Of Vector3d), String)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Util.gBreakToDebugger*
+  commentId: Overload:g3.Util.gBreakToDebugger
+  name: gBreakToDebugger
+  nameWithType: Util.gBreakToDebugger
+  fullName: g3.Util.gBreakToDebugger
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Util.gDevAssert*
+  commentId: Overload:g3.Util.gDevAssert
+  name: gDevAssert
+  nameWithType: Util.gDevAssert
+  fullName: g3.Util.gDevAssert
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.Util.IsRunningOnMono*
+  commentId: Overload:g3.Util.IsRunningOnMono
+  name: IsRunningOnMono
+  nameWithType: Util.IsRunningOnMono
+  fullName: g3.Util.IsRunningOnMono
+- uid: g3.Util.IsBitSet*
+  commentId: Overload:g3.Util.IsBitSet
+  name: IsBitSet
+  nameWithType: Util.IsBitSet
+  fullName: g3.Util.IsBitSet
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  name: Byte
+  nameWithType: Byte
+  fullName: System.Byte
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Util.IsTextString*
+  commentId: Overload:g3.Util.IsTextString
+  name: IsTextString
+  nameWithType: Util.IsTextString
+  fullName: g3.Util.IsTextString
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Util.IsBinaryFile*
+  commentId: Overload:g3.Util.IsBinaryFile
+  name: IsBinaryFile
+  nameWithType: Util.IsBinaryFile
+  fullName: g3.Util.IsBinaryFile
+- uid: g3.Util.IsBinaryStream*
+  commentId: Overload:g3.Util.IsBinaryStream
+  name: IsBinaryStream
+  nameWithType: Util.IsBinaryStream
+  fullName: g3.Util.IsBinaryStream
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: g3.Util.IsASCIIControlChar*
+  commentId: Overload:g3.Util.IsASCIIControlChar
+  name: IsASCIIControlChar
+  nameWithType: Util.IsASCIIControlChar
+  fullName: g3.Util.IsASCIIControlChar
+- uid: g3.Util.ToHexString*
+  commentId: Overload:g3.Util.ToHexString
+  name: ToHexString
+  nameWithType: Util.ToHexString
+  fullName: g3.Util.ToHexString
+- uid: g3.Util.ParseInt*
+  commentId: Overload:g3.Util.ParseInt
+  name: ParseInt
+  nameWithType: Util.ParseInt
+  fullName: g3.Util.ParseInt
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.Util.ParseFloat*
+  commentId: Overload:g3.Util.ParseFloat
+  name: ParseFloat
+  nameWithType: Util.ParseFloat
+  fullName: g3.Util.ParseFloat
+- uid: g3.Util.ParseDouble*
+  commentId: Overload:g3.Util.ParseDouble
+  name: ParseDouble
+  nameWithType: Util.ParseDouble
+  fullName: g3.Util.ParseDouble
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Util.BufferCopy*
+  commentId: Overload:g3.Util.BufferCopy
+  name: BufferCopy
+  nameWithType: Util.BufferCopy
+  fullName: g3.Util.BufferCopy
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Util.MakeFloatFormatString*
+  commentId: Overload:g3.Util.MakeFloatFormatString
+  name: MakeFloatFormatString
+  nameWithType: Util.MakeFloatFormatString
+  fullName: g3.Util.MakeFloatFormatString
+- uid: g3.Util.MakeVec3FormatString*
+  commentId: Overload:g3.Util.MakeVec3FormatString
+  name: MakeVec3FormatString
+  nameWithType: Util.MakeVec3FormatString
+  fullName: g3.Util.MakeVec3FormatString
+- uid: g3.Util.ToSecMilli*
+  commentId: Overload:g3.Util.ToSecMilli
+  name: ToSecMilli
+  nameWithType: Util.ToSecMilli
+  fullName: g3.Util.ToSecMilli
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: g3.Util.AppendArrays*
+  commentId: Overload:g3.Util.AppendArrays
+  name: AppendArrays
+  nameWithType: Util.AppendArrays
+  fullName: g3.Util.AppendArrays
+- uid: System.Object[]
+  isExternal: true
+  name: Object[]
+  nameWithType: Object[]
+  fullName: System.Object[]
+  nameWithType.vb: Object()
+  fullName.vb: System.Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Util.StructureToByteArray*
+  commentId: Overload:g3.Util.StructureToByteArray
+  name: StructureToByteArray
+  nameWithType: Util.StructureToByteArray
+  fullName: g3.Util.StructureToByteArray
+- uid: g3.Util.ByteArrayToStructure*
+  commentId: Overload:g3.Util.ByteArrayToStructure
+  name: ByteArrayToStructure
+  nameWithType: Util.ByteArrayToStructure
+  fullName: g3.Util.ByteArrayToStructure
+- uid: g3.Util.WriteDebugMesh*
+  commentId: Overload:g3.Util.WriteDebugMesh
+  name: WriteDebugMesh
+  nameWithType: Util.WriteDebugMesh
+  fullName: g3.Util.WriteDebugMesh
+- uid: g3.IMesh
+  commentId: T:g3.IMesh
+  parent: g3
+  name: IMesh
+  nameWithType: IMesh
+  fullName: g3.IMesh
+- uid: g3.Util.WriteDebugMeshAndMarkers*
+  commentId: Overload:g3.Util.WriteDebugMeshAndMarkers
+  name: WriteDebugMeshAndMarkers
+  nameWithType: Util.WriteDebugMeshAndMarkers
+  fullName: g3.Util.WriteDebugMeshAndMarkers
+- uid: System.Collections.Generic.List{g3.Vector3d}
+  commentId: T:System.Collections.Generic.List{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Vector3d>
+  nameWithType: List<Vector3d>
+  fullName: System.Collections.Generic.List<g3.Vector3d>
+  nameWithType.vb: List(Of Vector3d)
+  fullName.vb: System.Collections.Generic.List(Of g3.Vector3d)
+  name.vb: List(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

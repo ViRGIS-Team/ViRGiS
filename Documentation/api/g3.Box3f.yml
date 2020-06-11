@@ -1,0 +1,1176 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Box3f
+  commentId: T:g3.Box3f
+  id: Box3f
+  parent: g3
+  children:
+  - g3.Box3f.#ctor(g3.AxisAlignedBox3f)
+  - g3.Box3f.#ctor(g3.Vector3f)
+  - g3.Box3f.#ctor(g3.Vector3f,g3.Vector3f)
+  - g3.Box3f.#ctor(g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f)
+  - g3.Box3f.Axis(System.Int32)
+  - g3.Box3f.AxisX
+  - g3.Box3f.AxisY
+  - g3.Box3f.AxisZ
+  - g3.Box3f.Center
+  - g3.Box3f.ComputeVertices
+  - g3.Box3f.ComputeVertices(g3.Vector3f[])
+  - g3.Box3f.Contain(g3.Box3f)
+  - g3.Box3f.Contain(g3.Vector3f)
+  - g3.Box3f.Contains(g3.Vector3f)
+  - g3.Box3f.Diagonal
+  - g3.Box3f.Empty
+  - g3.Box3f.Expand(System.Single)
+  - g3.Box3f.Extent
+  - g3.Box3f.MaxExtent
+  - g3.Box3f.MinExtent
+  - g3.Box3f.Scale(g3.Vector3f)
+  - g3.Box3f.ScaleExtents(g3.Vector3f)
+  - g3.Box3f.ToAABB
+  - g3.Box3f.Translate(g3.Vector3f)
+  - g3.Box3f.VerticesItr
+  - g3.Box3f.Volume
+  langs:
+  - csharp
+  - vb
+  name: Box3f
+  nameWithType: Box3f
+  fullName: g3.Box3f
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Box3f
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 446
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public struct Box3f
+    content.vb: Public Structure Box3f
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.Box3f.Center
+  commentId: F:g3.Box3f.Center
+  id: Center
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Box3f.Center
+  fullName: g3.Box3f.Center
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 453
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f Center
+    return:
+      type: g3.Vector3f
+    content.vb: Public Center As Vector3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.AxisX
+  commentId: F:g3.Box3f.AxisX
+  id: AxisX
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: AxisX
+  nameWithType: Box3f.AxisX
+  fullName: g3.Box3f.AxisX
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisX
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 454
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f AxisX
+    return:
+      type: g3.Vector3f
+    content.vb: Public AxisX As Vector3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.AxisY
+  commentId: F:g3.Box3f.AxisY
+  id: AxisY
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: AxisY
+  nameWithType: Box3f.AxisY
+  fullName: g3.Box3f.AxisY
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisY
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 455
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f AxisY
+    return:
+      type: g3.Vector3f
+    content.vb: Public AxisY As Vector3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.AxisZ
+  commentId: F:g3.Box3f.AxisZ
+  id: AxisZ
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: AxisZ
+  nameWithType: Box3f.AxisZ
+  fullName: g3.Box3f.AxisZ
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisZ
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 456
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f AxisZ
+    return:
+      type: g3.Vector3f
+    content.vb: Public AxisZ As Vector3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Extent
+  commentId: F:g3.Box3f.Extent
+  id: Extent
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Extent
+  nameWithType: Box3f.Extent
+  fullName: g3.Box3f.Extent
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Extent
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 457
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f Extent
+    return:
+      type: g3.Vector3f
+    content.vb: Public Extent As Vector3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.#ctor(g3.Vector3f)
+  commentId: M:g3.Box3f.#ctor(g3.Vector3f)
+  id: '#ctor(g3.Vector3f)'
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Box3f(Vector3f)
+  nameWithType: Box3f.Box3f(Vector3f)
+  fullName: g3.Box3f.Box3f(g3.Vector3f)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 459
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box3f(Vector3f center)
+    parameters:
+    - id: center
+      type: g3.Vector3f
+    content.vb: Public Sub New(center As Vector3f)
+  overload: g3.Box3f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.#ctor(g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f)
+  commentId: M:g3.Box3f.#ctor(g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f)
+  id: '#ctor(g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f,g3.Vector3f)'
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Box3f(Vector3f, Vector3f, Vector3f, Vector3f, Vector3f)
+  nameWithType: Box3f.Box3f(Vector3f, Vector3f, Vector3f, Vector3f, Vector3f)
+  fullName: g3.Box3f.Box3f(g3.Vector3f, g3.Vector3f, g3.Vector3f, g3.Vector3f, g3.Vector3f)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 466
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box3f(Vector3f center, Vector3f x, Vector3f y, Vector3f z, Vector3f extent)
+    parameters:
+    - id: center
+      type: g3.Vector3f
+    - id: x
+      type: g3.Vector3f
+    - id: y
+      type: g3.Vector3f
+    - id: z
+      type: g3.Vector3f
+    - id: extent
+      type: g3.Vector3f
+    content.vb: Public Sub New(center As Vector3f, x As Vector3f, y As Vector3f, z As Vector3f, extent As Vector3f)
+  overload: g3.Box3f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.#ctor(g3.Vector3f,g3.Vector3f)
+  commentId: M:g3.Box3f.#ctor(g3.Vector3f,g3.Vector3f)
+  id: '#ctor(g3.Vector3f,g3.Vector3f)'
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Box3f(Vector3f, Vector3f)
+  nameWithType: Box3f.Box3f(Vector3f, Vector3f)
+  fullName: g3.Box3f.Box3f(g3.Vector3f, g3.Vector3f)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 472
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box3f(Vector3f center, Vector3f extent)
+    parameters:
+    - id: center
+      type: g3.Vector3f
+    - id: extent
+      type: g3.Vector3f
+    content.vb: Public Sub New(center As Vector3f, extent As Vector3f)
+  overload: g3.Box3f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.#ctor(g3.AxisAlignedBox3f)
+  commentId: M:g3.Box3f.#ctor(g3.AxisAlignedBox3f)
+  id: '#ctor(g3.AxisAlignedBox3f)'
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Box3f(AxisAlignedBox3f)
+  nameWithType: Box3f.Box3f(AxisAlignedBox3f)
+  fullName: g3.Box3f.Box3f(g3.AxisAlignedBox3f)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 479
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box3f(AxisAlignedBox3f aaBox)
+    parameters:
+    - id: aaBox
+      type: g3.AxisAlignedBox3f
+    content.vb: Public Sub New(aaBox As AxisAlignedBox3f)
+  overload: g3.Box3f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Empty
+  commentId: F:g3.Box3f.Empty
+  id: Empty
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: Box3f.Empty
+  fullName: g3.Box3f.Empty
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Empty
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 488
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Box3f Empty
+    return:
+      type: g3.Box3f
+    content.vb: Public Shared ReadOnly Empty As Box3f
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Box3f.Axis(System.Int32)
+  commentId: M:g3.Box3f.Axis(System.Int32)
+  id: Axis(System.Int32)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Axis(Int32)
+  nameWithType: Box3f.Axis(Int32)
+  fullName: g3.Box3f.Axis(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Axis
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 491
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f Axis(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector3f
+    content.vb: Public Function Axis(i As Integer) As Vector3f
+  overload: g3.Box3f.Axis*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.ComputeVertices
+  commentId: M:g3.Box3f.ComputeVertices
+  id: ComputeVertices
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: ComputeVertices()
+  nameWithType: Box3f.ComputeVertices()
+  fullName: g3.Box3f.ComputeVertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeVertices
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 497
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f[] ComputeVertices()
+    return:
+      type: g3.Vector3f[]
+    content.vb: Public Function ComputeVertices As Vector3f()
+  overload: g3.Box3f.ComputeVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.ComputeVertices(g3.Vector3f[])
+  commentId: M:g3.Box3f.ComputeVertices(g3.Vector3f[])
+  id: ComputeVertices(g3.Vector3f[])
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: ComputeVertices(Vector3f[])
+  nameWithType: Box3f.ComputeVertices(Vector3f[])
+  fullName: g3.Box3f.ComputeVertices(g3.Vector3f[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeVertices
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 502
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ComputeVertices(Vector3f[] vertex)
+    parameters:
+    - id: vertex
+      type: g3.Vector3f[]
+    content.vb: Public Sub ComputeVertices(vertex As Vector3f())
+  overload: g3.Box3f.ComputeVertices*
+  nameWithType.vb: Box3f.ComputeVertices(Vector3f())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Box3f.ComputeVertices(g3.Vector3f())
+  name.vb: ComputeVertices(Vector3f())
+- uid: g3.Box3f.VerticesItr
+  commentId: M:g3.Box3f.VerticesItr
+  id: VerticesItr
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: VerticesItr()
+  nameWithType: Box3f.VerticesItr()
+  fullName: g3.Box3f.VerticesItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VerticesItr
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 517
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector3f> VerticesItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector3f}
+    content.vb: Public Function VerticesItr As IEnumerable(Of Vector3f)
+  overload: g3.Box3f.VerticesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.ToAABB
+  commentId: M:g3.Box3f.ToAABB
+  id: ToAABB
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: ToAABB()
+  nameWithType: Box3f.ToAABB()
+  fullName: g3.Box3f.ToAABB()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToAABB
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 533
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox3f ToAABB()
+    return:
+      type: g3.AxisAlignedBox3f
+    content.vb: Public Function ToAABB As AxisAlignedBox3f
+  overload: g3.Box3f.ToAABB*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.MaxExtent
+  commentId: P:g3.Box3f.MaxExtent
+  id: MaxExtent
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: MaxExtent
+  nameWithType: Box3f.MaxExtent
+  fullName: g3.Box3f.MaxExtent
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxExtent
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 554
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double MaxExtent { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property MaxExtent As Double
+  overload: g3.Box3f.MaxExtent*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box3f.MinExtent
+  commentId: P:g3.Box3f.MinExtent
+  id: MinExtent
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: MinExtent
+  nameWithType: Box3f.MinExtent
+  fullName: g3.Box3f.MinExtent
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinExtent
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 557
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double MinExtent { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property MinExtent As Double
+  overload: g3.Box3f.MinExtent*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box3f.Diagonal
+  commentId: P:g3.Box3f.Diagonal
+  id: Diagonal
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Diagonal
+  nameWithType: Box3f.Diagonal
+  fullName: g3.Box3f.Diagonal
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Diagonal
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 560
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f Diagonal { get; }
+    parameters: []
+    return:
+      type: g3.Vector3f
+    content.vb: Public ReadOnly Property Diagonal As Vector3f
+  overload: g3.Box3f.Diagonal*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box3f.Volume
+  commentId: P:g3.Box3f.Volume
+  id: Volume
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Volume
+  nameWithType: Box3f.Volume
+  fullName: g3.Box3f.Volume
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Volume
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 564
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Volume { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Volume As Double
+  overload: g3.Box3f.Volume*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box3f.Contain(g3.Vector3f)
+  commentId: M:g3.Box3f.Contain(g3.Vector3f)
+  id: Contain(g3.Vector3f)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Contain(Vector3f)
+  nameWithType: Box3f.Contain(Vector3f)
+  fullName: g3.Box3f.Contain(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contain
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 568
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Contain(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    content.vb: Public Sub Contain(v As Vector3f)
+  overload: g3.Box3f.Contain*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Contain(g3.Box3f)
+  commentId: M:g3.Box3f.Contain(g3.Box3f)
+  id: Contain(g3.Box3f)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Contain(Box3f)
+  nameWithType: Box3f.Contain(Box3f)
+  fullName: g3.Box3f.Contain(g3.Box3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contain
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 586
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Contain(Box3f o)
+    parameters:
+    - id: o
+      type: g3.Box3f
+    content.vb: Public Sub Contain(o As Box3f)
+  overload: g3.Box3f.Contain*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Contains(g3.Vector3f)
+  commentId: M:g3.Box3f.Contains(g3.Vector3f)
+  id: Contains(g3.Vector3f)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector3f)
+  nameWithType: Box3f.Contains(Vector3f)
+  fullName: g3.Box3f.Contains(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 592
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Contains(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(v As Vector3f) As Boolean
+  overload: g3.Box3f.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Expand(System.Single)
+  commentId: M:g3.Box3f.Expand(System.Single)
+  id: Expand(System.Single)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Expand(Single)
+  nameWithType: Box3f.Expand(Single)
+  fullName: g3.Box3f.Expand(System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Expand
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 599
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Expand(float f)
+    parameters:
+    - id: f
+      type: System.Single
+    content.vb: Public Sub Expand(f As Single)
+  overload: g3.Box3f.Expand*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Translate(g3.Vector3f)
+  commentId: M:g3.Box3f.Translate(g3.Vector3f)
+  id: Translate(g3.Vector3f)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector3f)
+  nameWithType: Box3f.Translate(Vector3f)
+  fullName: g3.Box3f.Translate(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 603
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Translate(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    content.vb: Public Sub Translate(v As Vector3f)
+  overload: g3.Box3f.Translate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.Scale(g3.Vector3f)
+  commentId: M:g3.Box3f.Scale(g3.Vector3f)
+  id: Scale(g3.Vector3f)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: Scale(Vector3f)
+  nameWithType: Box3f.Scale(Vector3f)
+  fullName: g3.Box3f.Scale(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 607
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Scale(Vector3f s)
+    parameters:
+    - id: s
+      type: g3.Vector3f
+    content.vb: Public Sub Scale(s As Vector3f)
+  overload: g3.Box3f.Scale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box3f.ScaleExtents(g3.Vector3f)
+  commentId: M:g3.Box3f.ScaleExtents(g3.Vector3f)
+  id: ScaleExtents(g3.Vector3f)
+  parent: g3.Box3f
+  langs:
+  - csharp
+  - vb
+  name: ScaleExtents(Vector3f)
+  nameWithType: Box3f.ScaleExtents(Vector3f)
+  fullName: g3.Box3f.ScaleExtents(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ScaleExtents
+    path: ../Assets/geometry3Sharp/math/Box3.cs
+    startLine: 616
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ScaleExtents(Vector3f s)
+    parameters:
+    - id: s
+      type: g3.Vector3f
+    content.vb: Public Sub ScaleExtents(s As Vector3f)
+  overload: g3.Box3f.ScaleExtents*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.Box3f.#ctor*
+  commentId: Overload:g3.Box3f.#ctor
+  name: Box3f
+  nameWithType: Box3f.Box3f
+  fullName: g3.Box3f.Box3f
+- uid: g3.AxisAlignedBox3f
+  commentId: T:g3.AxisAlignedBox3f
+  parent: g3
+  name: AxisAlignedBox3f
+  nameWithType: AxisAlignedBox3f
+  fullName: g3.AxisAlignedBox3f
+- uid: g3.Box3f
+  commentId: T:g3.Box3f
+  parent: g3
+  name: Box3f
+  nameWithType: Box3f
+  fullName: g3.Box3f
+- uid: g3.Box3f.Axis*
+  commentId: Overload:g3.Box3f.Axis
+  name: Axis
+  nameWithType: Box3f.Axis
+  fullName: g3.Box3f.Axis
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Box3f.ComputeVertices*
+  commentId: Overload:g3.Box3f.ComputeVertices
+  name: ComputeVertices
+  nameWithType: Box3f.ComputeVertices
+  fullName: g3.Box3f.ComputeVertices
+- uid: g3.Vector3f[]
+  isExternal: true
+  name: Vector3f[]
+  nameWithType: Vector3f[]
+  fullName: g3.Vector3f[]
+  nameWithType.vb: Vector3f()
+  fullName.vb: g3.Vector3f()
+  name.vb: Vector3f()
+  spec.csharp:
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Box3f.VerticesItr*
+  commentId: Overload:g3.Box3f.VerticesItr
+  name: VerticesItr
+  nameWithType: Box3f.VerticesItr
+  fullName: g3.Box3f.VerticesItr
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3f}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3f}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3f>
+  nameWithType: IEnumerable<Vector3f>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3f>
+  nameWithType.vb: IEnumerable(Of Vector3f)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3f)
+  name.vb: IEnumerable(Of Vector3f)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.Box3f.ToAABB*
+  commentId: Overload:g3.Box3f.ToAABB
+  name: ToAABB
+  nameWithType: Box3f.ToAABB
+  fullName: g3.Box3f.ToAABB
+- uid: g3.Box3f.MaxExtent*
+  commentId: Overload:g3.Box3f.MaxExtent
+  name: MaxExtent
+  nameWithType: Box3f.MaxExtent
+  fullName: g3.Box3f.MaxExtent
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Box3f.MinExtent*
+  commentId: Overload:g3.Box3f.MinExtent
+  name: MinExtent
+  nameWithType: Box3f.MinExtent
+  fullName: g3.Box3f.MinExtent
+- uid: g3.Box3f.Diagonal*
+  commentId: Overload:g3.Box3f.Diagonal
+  name: Diagonal
+  nameWithType: Box3f.Diagonal
+  fullName: g3.Box3f.Diagonal
+- uid: g3.Box3f.Volume*
+  commentId: Overload:g3.Box3f.Volume
+  name: Volume
+  nameWithType: Box3f.Volume
+  fullName: g3.Box3f.Volume
+- uid: g3.Box3f.Contain*
+  commentId: Overload:g3.Box3f.Contain
+  name: Contain
+  nameWithType: Box3f.Contain
+  fullName: g3.Box3f.Contain
+- uid: g3.Box3f.Contains*
+  commentId: Overload:g3.Box3f.Contains
+  name: Contains
+  nameWithType: Box3f.Contains
+  fullName: g3.Box3f.Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Box3f.Expand*
+  commentId: Overload:g3.Box3f.Expand
+  name: Expand
+  nameWithType: Box3f.Expand
+  fullName: g3.Box3f.Expand
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.Box3f.Translate*
+  commentId: Overload:g3.Box3f.Translate
+  name: Translate
+  nameWithType: Box3f.Translate
+  fullName: g3.Box3f.Translate
+- uid: g3.Box3f.Scale*
+  commentId: Overload:g3.Box3f.Scale
+  name: Scale
+  nameWithType: Box3f.Scale
+  fullName: g3.Box3f.Scale
+- uid: g3.Box3f.ScaleExtents*
+  commentId: Overload:g3.Box3f.ScaleExtents
+  name: ScaleExtents
+  nameWithType: Box3f.ScaleExtents
+  fullName: g3.Box3f.ScaleExtents

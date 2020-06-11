@@ -1,0 +1,344 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+  id: DefaultCRS
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  children:
+  - GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance
+  langs:
+  - csharp
+  - vb
+  name: DefaultCRS
+  nameWithType: DefaultCRS
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+  type: Class
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/DefaultCRS.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultCRS
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/DefaultCRS.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nThe default CRS is a geographic coordinate reference system,\nusing the WGS84 datum, and with longitude and latitude units of decimal degrees.\nsee https://tools.ietf.org/html/rfc7946#section-4\n"
+  remarks: "\nDefines the GeoJSON Coordinate Reference System Objects (CRS) types originally defined in the geojson.org v1.0 spec\nsee http://geojson.org/geojson-spec.html#coordinate-reference-system-objects.\nThe current RFC removes the CRS type, but allows to be left in for backwards compatibility. See https://tools.ietf.org/html/rfc7946#section-4\n"
+  example: []
+  syntax:
+    content: 'public class DefaultCRS : NamedCRS, IEqualityComparer<CRSBase>, IEquatable<CRSBase>, ICRSObject'
+    content.vb: >-
+      Public Class DefaultCRS
+          Inherits NamedCRS
+          Implements IEqualityComparer(Of CRSBase), IEquatable(Of CRSBase), ICRSObject
+  inheritance:
+  - System.Object
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - GeoJSON.Net.CoordinateReferenceSystem.NamedCRS
+  implements:
+  - GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+  inheritedMembers:
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance
+  commentId: P:GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance
+  id: Instance
+  parent: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: DefaultCRS.Instance
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/DefaultCRS.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Instance
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/DefaultCRS.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nGets the instance.\n"
+  example: []
+  syntax:
+    content: public static DefaultCRS Instance { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+      description: "\nThe instance.\n"
+    content.vb: Public Shared ReadOnly Property Instance As DefaultCRS
+  overload: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+references:
+- uid: GeoJSON.Net.CoordinateReferenceSystem
+  commentId: N:GeoJSON.Net.CoordinateReferenceSystem
+  name: GeoJSON.Net.CoordinateReferenceSystem
+  nameWithType: GeoJSON.Net.CoordinateReferenceSystem
+  fullName: GeoJSON.Net.CoordinateReferenceSystem
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: CRSBase
+  nameWithType: CRSBase
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+- uid: GeoJSON.Net.CoordinateReferenceSystem.NamedCRS
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.NamedCRS
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: NamedCRS
+  nameWithType: NamedCRS
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.NamedCRS
+- uid: GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: ICRSObject
+  nameWithType: ICRSObject
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.ICRSObject
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  commentId: P:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  name: Properties
+  nameWithType: CRSBase.Properties
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  commentId: P:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  name: Type
+  nameWithType: CRSBase.Type
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: CRSBase.Equals(Object)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  spec.csharp:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+    name: Equals
+    nameWithType: CRSBase.Equals
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+    name: Equals
+    nameWithType: CRSBase.Equals
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  name: Equals(CRSBase)
+  nameWithType: CRSBase.Equals(CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  spec.csharp:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+    name: Equals
+    nameWithType: CRSBase.Equals
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+    name: Equals
+    nameWithType: CRSBase.Equals
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  name: Equals(CRSBase, CRSBase)
+  nameWithType: CRSBase.Equals(CRSBase, CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase, GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  spec.csharp:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+    name: Equals
+    nameWithType: CRSBase.Equals
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+    name: Equals
+    nameWithType: CRSBase.Equals
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  name: GetHashCode()
+  nameWithType: CRSBase.GetHashCode()
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode()
+  spec.csharp:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+    name: GetHashCode
+    nameWithType: CRSBase.GetHashCode
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+    name: GetHashCode
+    nameWithType: CRSBase.GetHashCode
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  name: GetHashCode(CRSBase)
+  nameWithType: CRSBase.GetHashCode(CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  spec.csharp:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+    name: GetHashCode
+    nameWithType: CRSBase.GetHashCode
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+    name: GetHashCode
+    nameWithType: CRSBase.GetHashCode
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    name: CRSBase
+    nameWithType: CRSBase
+    fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance
+  name: Instance
+  nameWithType: DefaultCRS.Instance
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS.Instance
+- uid: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: DefaultCRS
+  nameWithType: DefaultCRS
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.DefaultCRS

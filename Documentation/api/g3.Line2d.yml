@@ -1,0 +1,666 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Line2d
+  commentId: T:g3.Line2d
+  id: Line2d
+  parent: g3
+  children:
+  - g3.Line2d.#ctor(g3.Vector2d,g3.Vector2d)
+  - g3.Line2d.#ctor(g3.Vector2d@,g3.Vector2d@)
+  - g3.Line2d.Direction
+  - g3.Line2d.DistanceSquared(g3.Vector2d)
+  - g3.Line2d.FromPoints(g3.Vector2d,g3.Vector2d)
+  - g3.Line2d.FromPoints(g3.Vector2d@,g3.Vector2d@)
+  - g3.Line2d.IntersectionPoint(g3.Line2d@,System.Double)
+  - g3.Line2d.op_Explicit(g3.Line2d)~g3.Line2f
+  - g3.Line2d.op_Implicit(g3.Line2f)~g3.Line2d
+  - g3.Line2d.Origin
+  - g3.Line2d.PointAt(System.Double)
+  - g3.Line2d.Project(g3.Vector2d)
+  - g3.Line2d.WhichSide(g3.Vector2d,System.Double)
+  - g3.Line2d.WhichSide(g3.Vector2d@,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: Line2d
+  nameWithType: Line2d
+  fullName: g3.Line2d
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Line2d
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public struct Line2d
+    content.vb: Public Structure Line2d
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.Line2d.Origin
+  commentId: F:g3.Line2d.Origin
+  id: Origin
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Origin
+  nameWithType: Line2d.Origin
+  fullName: g3.Line2d.Origin
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Origin
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Origin
+    return:
+      type: g3.Vector2d
+    content.vb: Public Origin As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.Direction
+  commentId: F:g3.Line2d.Direction
+  id: Direction
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: Line2d.Direction
+  fullName: g3.Line2d.Direction
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Direction
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Direction
+    return:
+      type: g3.Vector2d
+    content.vb: Public Direction As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.#ctor(g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.Line2d.#ctor(g3.Vector2d,g3.Vector2d)
+  id: '#ctor(g3.Vector2d,g3.Vector2d)'
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Line2d(Vector2d, Vector2d)
+  nameWithType: Line2d.Line2d(Vector2d, Vector2d)
+  fullName: g3.Line2d.Line2d(g3.Vector2d, g3.Vector2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Line2d(Vector2d origin, Vector2d direction)
+    parameters:
+    - id: origin
+      type: g3.Vector2d
+    - id: direction
+      type: g3.Vector2d
+    content.vb: Public Sub New(origin As Vector2d, direction As Vector2d)
+  overload: g3.Line2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.#ctor(g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.Line2d.#ctor(g3.Vector2d@,g3.Vector2d@)
+  id: '#ctor(g3.Vector2d@,g3.Vector2d@)'
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Line2d(ref Vector2d, ref Vector2d)
+  nameWithType: Line2d.Line2d(ref Vector2d, ref Vector2d)
+  fullName: g3.Line2d.Line2d(ref g3.Vector2d, ref g3.Vector2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Line2d(ref Vector2d origin, ref Vector2d direction)
+    parameters:
+    - id: origin
+      type: g3.Vector2d
+    - id: direction
+      type: g3.Vector2d
+    content.vb: Public Sub New(ByRef origin As Vector2d, ByRef direction As Vector2d)
+  overload: g3.Line2d.#ctor*
+  nameWithType.vb: Line2d.Line2d(ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Line2d.Line2d(ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: Line2d(ByRef Vector2d, ByRef Vector2d)
+- uid: g3.Line2d.FromPoints(g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.Line2d.FromPoints(g3.Vector2d,g3.Vector2d)
+  id: FromPoints(g3.Vector2d,g3.Vector2d)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: FromPoints(Vector2d, Vector2d)
+  nameWithType: Line2d.FromPoints(Vector2d, Vector2d)
+  fullName: g3.Line2d.FromPoints(g3.Vector2d, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromPoints
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Line2d FromPoints(Vector2d p0, Vector2d p1)
+    parameters:
+    - id: p0
+      type: g3.Vector2d
+    - id: p1
+      type: g3.Vector2d
+    return:
+      type: g3.Line2d
+    content.vb: Public Shared Function FromPoints(p0 As Vector2d, p1 As Vector2d) As Line2d
+  overload: g3.Line2d.FromPoints*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Line2d.FromPoints(g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.Line2d.FromPoints(g3.Vector2d@,g3.Vector2d@)
+  id: FromPoints(g3.Vector2d@,g3.Vector2d@)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: FromPoints(ref Vector2d, ref Vector2d)
+  nameWithType: Line2d.FromPoints(ref Vector2d, ref Vector2d)
+  fullName: g3.Line2d.FromPoints(ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromPoints
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Line2d FromPoints(ref Vector2d p0, ref Vector2d p1)
+    parameters:
+    - id: p0
+      type: g3.Vector2d
+    - id: p1
+      type: g3.Vector2d
+    return:
+      type: g3.Line2d
+    content.vb: Public Shared Function FromPoints(ByRef p0 As Vector2d, ByRef p1 As Vector2d) As Line2d
+  overload: g3.Line2d.FromPoints*
+  nameWithType.vb: Line2d.FromPoints(ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Line2d.FromPoints(ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: FromPoints(ByRef Vector2d, ByRef Vector2d)
+- uid: g3.Line2d.PointAt(System.Double)
+  commentId: M:g3.Line2d.PointAt(System.Double)
+  id: PointAt(System.Double)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: PointAt(Double)
+  nameWithType: Line2d.PointAt(Double)
+  fullName: g3.Line2d.PointAt(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointAt
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d PointAt(double d)
+    parameters:
+    - id: d
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function PointAt(d As Double) As Vector2d
+  overload: g3.Line2d.PointAt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.Project(g3.Vector2d)
+  commentId: M:g3.Line2d.Project(g3.Vector2d)
+  id: Project(g3.Vector2d)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector2d)
+  nameWithType: Line2d.Project(Vector2d)
+  fullName: g3.Line2d.Project(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Project(Vector2d p)
+    parameters:
+    - id: p
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function Project(p As Vector2d) As Double
+  overload: g3.Line2d.Project*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.DistanceSquared(g3.Vector2d)
+  commentId: M:g3.Line2d.DistanceSquared(g3.Vector2d)
+  id: DistanceSquared(g3.Vector2d)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2d)
+  nameWithType: Line2d.DistanceSquared(Vector2d)
+  fullName: g3.Line2d.DistanceSquared(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector2d p)
+    parameters:
+    - id: p
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(p As Vector2d) As Double
+  overload: g3.Line2d.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.WhichSide(g3.Vector2d,System.Double)
+  commentId: M:g3.Line2d.WhichSide(g3.Vector2d,System.Double)
+  id: WhichSide(g3.Vector2d,System.Double)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: WhichSide(Vector2d, Double)
+  nameWithType: Line2d.WhichSide(Vector2d, Double)
+  fullName: g3.Line2d.WhichSide(g3.Vector2d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WhichSide
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 54
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nReturns:\n+1, on right of line\n-1, on left of line\n0, on the line\n"
+  example: []
+  syntax:
+    content: public int WhichSide(Vector2d test, double tol = 0)
+    parameters:
+    - id: test
+      type: g3.Vector2d
+    - id: tol
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Function WhichSide(test As Vector2d, tol As Double = 0) As Integer
+  overload: g3.Line2d.WhichSide*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Line2d.WhichSide(g3.Vector2d@,System.Double)
+  commentId: M:g3.Line2d.WhichSide(g3.Vector2d@,System.Double)
+  id: WhichSide(g3.Vector2d@,System.Double)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: WhichSide(ref Vector2d, Double)
+  nameWithType: Line2d.WhichSide(ref Vector2d, Double)
+  fullName: g3.Line2d.WhichSide(ref g3.Vector2d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WhichSide
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int WhichSide(ref Vector2d test, double tol = 0)
+    parameters:
+    - id: test
+      type: g3.Vector2d
+    - id: tol
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Function WhichSide(ByRef test As Vector2d, tol As Double = 0) As Integer
+  overload: g3.Line2d.WhichSide*
+  nameWithType.vb: Line2d.WhichSide(ByRef Vector2d, Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Line2d.WhichSide(ByRef g3.Vector2d, System.Double)
+  name.vb: WhichSide(ByRef Vector2d, Double)
+- uid: g3.Line2d.IntersectionPoint(g3.Line2d@,System.Double)
+  commentId: M:g3.Line2d.IntersectionPoint(g3.Line2d@,System.Double)
+  id: IntersectionPoint(g3.Line2d@,System.Double)
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: IntersectionPoint(ref Line2d, Double)
+  nameWithType: Line2d.IntersectionPoint(ref Line2d, Double)
+  fullName: g3.Line2d.IntersectionPoint(ref g3.Line2d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntersectionPoint
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 80
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCalculate intersection point between this line and another one.\nReturns Vector2d.MaxValue if lines are parallel.\n"
+  example: []
+  syntax:
+    content: public Vector2d IntersectionPoint(ref Line2d other, double dotThresh = 1E-08)
+    parameters:
+    - id: other
+      type: g3.Line2d
+    - id: dotThresh
+      type: System.Double
+    return:
+      type: g3.Vector2d
+      description: ''
+    content.vb: Public Function IntersectionPoint(ByRef other As Line2d, dotThresh As Double = 1E-08) As Vector2d
+  overload: g3.Line2d.IntersectionPoint*
+  nameWithType.vb: Line2d.IntersectionPoint(ByRef Line2d, Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Line2d.IntersectionPoint(ByRef g3.Line2d, System.Double)
+  name.vb: IntersectionPoint(ByRef Line2d, Double)
+- uid: g3.Line2d.op_Implicit(g3.Line2f)~g3.Line2d
+  commentId: M:g3.Line2d.op_Implicit(g3.Line2f)~g3.Line2d
+  id: op_Implicit(g3.Line2f)~g3.Line2d
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Line2f to Line2d)
+  nameWithType: Line2d.Implicit(Line2f to Line2d)
+  fullName: g3.Line2d.Implicit(g3.Line2f to g3.Line2d)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 100
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static implicit operator Line2d(Line2f v)
+    parameters:
+    - id: v
+      type: g3.Line2f
+    return:
+      type: g3.Line2d
+    content.vb: Public Shared Widening Operator CType(v As Line2f) As Line2d
+  overload: g3.Line2d.op_Implicit*
+  nameWithType.vb: Line2d.Widening(Line2f to Line2d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Line2d.Widening(g3.Line2f to g3.Line2d)
+  name.vb: Widening(Line2f to Line2d)
+- uid: g3.Line2d.op_Explicit(g3.Line2d)~g3.Line2f
+  commentId: M:g3.Line2d.op_Explicit(g3.Line2d)~g3.Line2f
+  id: op_Explicit(g3.Line2d)~g3.Line2f
+  parent: g3.Line2d
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Line2d to Line2f)
+  nameWithType: Line2d.Explicit(Line2d to Line2f)
+  fullName: g3.Line2d.Explicit(g3.Line2d to g3.Line2f)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Line2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Line2.cs
+    startLine: 104
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Line2f(Line2d v)
+    parameters:
+    - id: v
+      type: g3.Line2d
+    return:
+      type: g3.Line2f
+    content.vb: Public Shared Narrowing Operator CType(v As Line2d) As Line2f
+  overload: g3.Line2d.op_Explicit*
+  nameWithType.vb: Line2d.Narrowing(Line2d to Line2f)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Line2d.Narrowing(g3.Line2d to g3.Line2f)
+  name.vb: Narrowing(Line2d to Line2f)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.Line2d.#ctor*
+  commentId: Overload:g3.Line2d.#ctor
+  name: Line2d
+  nameWithType: Line2d.Line2d
+  fullName: g3.Line2d.Line2d
+- uid: g3.Line2d.FromPoints*
+  commentId: Overload:g3.Line2d.FromPoints
+  name: FromPoints
+  nameWithType: Line2d.FromPoints
+  fullName: g3.Line2d.FromPoints
+- uid: g3.Line2d
+  commentId: T:g3.Line2d
+  parent: g3
+  name: Line2d
+  nameWithType: Line2d
+  fullName: g3.Line2d
+- uid: g3.Line2d.PointAt*
+  commentId: Overload:g3.Line2d.PointAt
+  name: PointAt
+  nameWithType: Line2d.PointAt
+  fullName: g3.Line2d.PointAt
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Line2d.Project*
+  commentId: Overload:g3.Line2d.Project
+  name: Project
+  nameWithType: Line2d.Project
+  fullName: g3.Line2d.Project
+- uid: g3.Line2d.DistanceSquared*
+  commentId: Overload:g3.Line2d.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Line2d.DistanceSquared
+  fullName: g3.Line2d.DistanceSquared
+- uid: g3.Line2d.WhichSide*
+  commentId: Overload:g3.Line2d.WhichSide
+  name: WhichSide
+  nameWithType: Line2d.WhichSide
+  fullName: g3.Line2d.WhichSide
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Line2d.IntersectionPoint*
+  commentId: Overload:g3.Line2d.IntersectionPoint
+  name: IntersectionPoint
+  nameWithType: Line2d.IntersectionPoint
+  fullName: g3.Line2d.IntersectionPoint
+- uid: g3.Line2d.op_Implicit*
+  commentId: Overload:g3.Line2d.op_Implicit
+  name: Implicit
+  nameWithType: Line2d.Implicit
+  fullName: g3.Line2d.Implicit
+  nameWithType.vb: Line2d.Widening
+  fullName.vb: g3.Line2d.Widening
+  name.vb: Widening
+- uid: g3.Line2f
+  commentId: T:g3.Line2f
+  parent: g3
+  name: Line2f
+  nameWithType: Line2f
+  fullName: g3.Line2f
+- uid: g3.Line2d.op_Explicit*
+  commentId: Overload:g3.Line2d.op_Explicit
+  name: Explicit
+  nameWithType: Line2d.Explicit
+  fullName: g3.Line2d.Explicit
+  nameWithType.vb: Line2d.Narrowing
+  fullName.vb: g3.Line2d.Narrowing
+  name.vb: Narrowing

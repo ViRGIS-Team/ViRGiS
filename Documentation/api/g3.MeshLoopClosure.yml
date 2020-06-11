@@ -1,0 +1,766 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshLoopClosure
+  commentId: T:g3.MeshLoopClosure
+  id: MeshLoopClosure
+  parent: g3
+  children:
+  - g3.MeshLoopClosure.#ctor(g3.DMesh3,g3.EdgeLoop)
+  - g3.MeshLoopClosure.cleanup_boundary(g3.DMesh3,g3.EdgeLoop,System.Double,System.Collections.Generic.List{System.Int32}@,System.Int32)
+  - g3.MeshLoopClosure.Close
+  - g3.MeshLoopClosure.Close_Flat
+  - g3.MeshLoopClosure.ExtrudeGroup
+  - g3.MeshLoopClosure.FillGroup
+  - g3.MeshLoopClosure.FlatClosePlane
+  - g3.MeshLoopClosure.InitialBorderLoop
+  - g3.MeshLoopClosure.Mesh
+  - g3.MeshLoopClosure.smooth_loop(g3.DMesh3,g3.EdgeLoop,System.Int32)
+  - g3.MeshLoopClosure.smooth_region(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  - g3.MeshLoopClosure.TargetEdgeLen
+  - g3.MeshLoopClosure.Validate
+  langs:
+  - csharp
+  - vb
+  name: MeshLoopClosure
+  nameWithType: MeshLoopClosure
+  fullName: g3.MeshLoopClosure
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshLoopClosure
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 6
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class MeshLoopClosure
+    content.vb: Public Class MeshLoopClosure
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshLoopClosure.Mesh
+  commentId: F:g3.MeshLoopClosure.Mesh
+  id: Mesh
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshLoopClosure.Mesh
+  fullName: g3.MeshLoopClosure.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.InitialBorderLoop
+  commentId: F:g3.MeshLoopClosure.InitialBorderLoop
+  id: InitialBorderLoop
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: InitialBorderLoop
+  nameWithType: MeshLoopClosure.InitialBorderLoop
+  fullName: g3.MeshLoopClosure.InitialBorderLoop
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InitialBorderLoop
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoop InitialBorderLoop
+    return:
+      type: g3.EdgeLoop
+    content.vb: Public InitialBorderLoop As EdgeLoop
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.FlatClosePlane
+  commentId: F:g3.MeshLoopClosure.FlatClosePlane
+  id: FlatClosePlane
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: FlatClosePlane
+  nameWithType: MeshLoopClosure.FlatClosePlane
+  fullName: g3.MeshLoopClosure.FlatClosePlane
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FlatClosePlane
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Frame3f FlatClosePlane
+    return:
+      type: g3.Frame3f
+    content.vb: Public FlatClosePlane As Frame3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.TargetEdgeLen
+  commentId: F:g3.MeshLoopClosure.TargetEdgeLen
+  id: TargetEdgeLen
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: TargetEdgeLen
+  nameWithType: MeshLoopClosure.TargetEdgeLen
+  fullName: g3.MeshLoopClosure.TargetEdgeLen
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TargetEdgeLen
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double TargetEdgeLen
+    return:
+      type: System.Double
+    content.vb: Public TargetEdgeLen As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.ExtrudeGroup
+  commentId: F:g3.MeshLoopClosure.ExtrudeGroup
+  id: ExtrudeGroup
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: ExtrudeGroup
+  nameWithType: MeshLoopClosure.ExtrudeGroup
+  fullName: g3.MeshLoopClosure.ExtrudeGroup
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ExtrudeGroup
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int ExtrudeGroup
+    return:
+      type: System.Int32
+    content.vb: Public ExtrudeGroup As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.FillGroup
+  commentId: F:g3.MeshLoopClosure.FillGroup
+  id: FillGroup
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: FillGroup
+  nameWithType: MeshLoopClosure.FillGroup
+  fullName: g3.MeshLoopClosure.FillGroup
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FillGroup
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int FillGroup
+    return:
+      type: System.Int32
+    content.vb: Public FillGroup As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.#ctor(g3.DMesh3,g3.EdgeLoop)
+  commentId: M:g3.MeshLoopClosure.#ctor(g3.DMesh3,g3.EdgeLoop)
+  id: '#ctor(g3.DMesh3,g3.EdgeLoop)'
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: MeshLoopClosure(DMesh3, EdgeLoop)
+  nameWithType: MeshLoopClosure.MeshLoopClosure(DMesh3, EdgeLoop)
+  fullName: g3.MeshLoopClosure.MeshLoopClosure(g3.DMesh3, g3.EdgeLoop)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshLoopClosure(DMesh3 mesh, EdgeLoop border_loop)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: border_loop
+      type: g3.EdgeLoop
+    content.vb: Public Sub New(mesh As DMesh3, border_loop As EdgeLoop)
+  overload: g3.MeshLoopClosure.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.Validate
+  commentId: M:g3.MeshLoopClosure.Validate
+  id: Validate
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: Validate()
+  nameWithType: MeshLoopClosure.Validate()
+  fullName: g3.MeshLoopClosure.Validate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Validate
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual ValidationStatus Validate()
+    return:
+      type: g3.ValidationStatus
+    content.vb: Public Overridable Function Validate As ValidationStatus
+  overload: g3.MeshLoopClosure.Validate*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshLoopClosure.Close
+  commentId: M:g3.MeshLoopClosure.Close
+  id: Close
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: MeshLoopClosure.Close()
+  fullName: g3.MeshLoopClosure.Close()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Close
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual bool Close()
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Function Close As Boolean
+  overload: g3.MeshLoopClosure.Close*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshLoopClosure.Close_Flat
+  commentId: M:g3.MeshLoopClosure.Close_Flat
+  id: Close_Flat
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: Close_Flat()
+  nameWithType: MeshLoopClosure.Close_Flat()
+  fullName: g3.MeshLoopClosure.Close_Flat()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Close_Flat
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Close_Flat()
+    content.vb: Public Sub Close_Flat
+  overload: g3.MeshLoopClosure.Close_Flat*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshLoopClosure.smooth_region(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  commentId: M:g3.MeshLoopClosure.smooth_region(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  id: smooth_region(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: smooth_region(DMesh3, IEnumerable<Int32>, Int32)
+  nameWithType: MeshLoopClosure.smooth_region(DMesh3, IEnumerable<Int32>, Int32)
+  fullName: g3.MeshLoopClosure.smooth_region(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: smooth_region
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 159
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void smooth_region(DMesh3 mesh, IEnumerable<int> vertices, int nRings)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: nRings
+      type: System.Int32
+    content.vb: Public Shared Sub smooth_region(mesh As DMesh3, vertices As IEnumerable(Of Integer), nRings As Integer)
+  overload: g3.MeshLoopClosure.smooth_region*
+  nameWithType.vb: MeshLoopClosure.smooth_region(DMesh3, IEnumerable(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshLoopClosure.smooth_region(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32), System.Int32)
+  name.vb: smooth_region(DMesh3, IEnumerable(Of Int32), Int32)
+- uid: g3.MeshLoopClosure.smooth_loop(g3.DMesh3,g3.EdgeLoop,System.Int32)
+  commentId: M:g3.MeshLoopClosure.smooth_loop(g3.DMesh3,g3.EdgeLoop,System.Int32)
+  id: smooth_loop(g3.DMesh3,g3.EdgeLoop,System.Int32)
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: smooth_loop(DMesh3, EdgeLoop, Int32)
+  nameWithType: MeshLoopClosure.smooth_loop(DMesh3, EdgeLoop, Int32)
+  fullName: g3.MeshLoopClosure.smooth_loop(g3.DMesh3, g3.EdgeLoop, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: smooth_loop
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 181
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void smooth_loop(DMesh3 mesh, EdgeLoop loop, int nRings)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: loop
+      type: g3.EdgeLoop
+    - id: nRings
+      type: System.Int32
+    content.vb: Public Shared Sub smooth_loop(mesh As DMesh3, loop As EdgeLoop, nRings As Integer)
+  overload: g3.MeshLoopClosure.smooth_loop*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshLoopClosure.cleanup_boundary(g3.DMesh3,g3.EdgeLoop,System.Double,System.Collections.Generic.List{System.Int32}@,System.Int32)
+  commentId: M:g3.MeshLoopClosure.cleanup_boundary(g3.DMesh3,g3.EdgeLoop,System.Double,System.Collections.Generic.List{System.Int32}@,System.Int32)
+  id: cleanup_boundary(g3.DMesh3,g3.EdgeLoop,System.Double,System.Collections.Generic.List{System.Int32}@,System.Int32)
+  parent: g3.MeshLoopClosure
+  langs:
+  - csharp
+  - vb
+  name: cleanup_boundary(DMesh3, EdgeLoop, Double, out List<Int32>, Int32)
+  nameWithType: MeshLoopClosure.cleanup_boundary(DMesh3, EdgeLoop, Double, out List<Int32>, Int32)
+  fullName: g3.MeshLoopClosure.cleanup_boundary(g3.DMesh3, g3.EdgeLoop, System.Double, out System.Collections.Generic.List<System.Int32>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: cleanup_boundary
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshLoopClosure.cs
+    startLine: 210
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void cleanup_boundary(DMesh3 mesh, EdgeLoop loop, double target_edge_len, out List<int> result_edges, int nRings = 3)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: loop
+      type: g3.EdgeLoop
+    - id: target_edge_len
+      type: System.Double
+    - id: result_edges
+      type: System.Collections.Generic.List{System.Int32}
+    - id: nRings
+      type: System.Int32
+    content.vb: Public Shared Sub cleanup_boundary(mesh As DMesh3, loop As EdgeLoop, target_edge_len As Double, ByRef result_edges As List(Of Integer), nRings As Integer = 3)
+  overload: g3.MeshLoopClosure.cleanup_boundary*
+  nameWithType.vb: MeshLoopClosure.cleanup_boundary(DMesh3, EdgeLoop, Double, ByRef List(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshLoopClosure.cleanup_boundary(g3.DMesh3, g3.EdgeLoop, System.Double, ByRef System.Collections.Generic.List(Of System.Int32), System.Int32)
+  name.vb: cleanup_boundary(DMesh3, EdgeLoop, Double, ByRef List(Of Int32), Int32)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.EdgeLoop
+  commentId: T:g3.EdgeLoop
+  parent: g3
+  name: EdgeLoop
+  nameWithType: EdgeLoop
+  fullName: g3.EdgeLoop
+- uid: g3.Frame3f
+  commentId: T:g3.Frame3f
+  parent: g3
+  name: Frame3f
+  nameWithType: Frame3f
+  fullName: g3.Frame3f
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshLoopClosure.#ctor*
+  commentId: Overload:g3.MeshLoopClosure.#ctor
+  name: MeshLoopClosure
+  nameWithType: MeshLoopClosure.MeshLoopClosure
+  fullName: g3.MeshLoopClosure.MeshLoopClosure
+- uid: g3.MeshLoopClosure.Validate*
+  commentId: Overload:g3.MeshLoopClosure.Validate
+  name: Validate
+  nameWithType: MeshLoopClosure.Validate
+  fullName: g3.MeshLoopClosure.Validate
+- uid: g3.ValidationStatus
+  commentId: T:g3.ValidationStatus
+  parent: g3
+  name: ValidationStatus
+  nameWithType: ValidationStatus
+  fullName: g3.ValidationStatus
+- uid: g3.MeshLoopClosure.Close*
+  commentId: Overload:g3.MeshLoopClosure.Close
+  name: Close
+  nameWithType: MeshLoopClosure.Close
+  fullName: g3.MeshLoopClosure.Close
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshLoopClosure.Close_Flat*
+  commentId: Overload:g3.MeshLoopClosure.Close_Flat
+  name: Close_Flat
+  nameWithType: MeshLoopClosure.Close_Flat
+  fullName: g3.MeshLoopClosure.Close_Flat
+- uid: g3.MeshLoopClosure.smooth_region*
+  commentId: Overload:g3.MeshLoopClosure.smooth_region
+  name: smooth_region
+  nameWithType: MeshLoopClosure.smooth_region
+  fullName: g3.MeshLoopClosure.smooth_region
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshLoopClosure.smooth_loop*
+  commentId: Overload:g3.MeshLoopClosure.smooth_loop
+  name: smooth_loop
+  nameWithType: MeshLoopClosure.smooth_loop
+  fullName: g3.MeshLoopClosure.smooth_loop
+- uid: g3.MeshLoopClosure.cleanup_boundary*
+  commentId: Overload:g3.MeshLoopClosure.cleanup_boundary
+  name: cleanup_boundary
+  nameWithType: MeshLoopClosure.cleanup_boundary
+  fullName: g3.MeshLoopClosure.cleanup_boundary
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

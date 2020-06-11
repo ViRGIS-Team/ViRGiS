@@ -1,0 +1,725 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.TransformSequence2
+  commentId: T:g3.TransformSequence2
+  id: TransformSequence2
+  parent: g3
+  children:
+  - g3.TransformSequence2.#ctor
+  - g3.TransformSequence2.Append(g3.ITransform2)
+  - g3.TransformSequence2.RotationDeg(System.Double)
+  - g3.TransformSequence2.RotationDeg(System.Double,g3.Vector2d)
+  - g3.TransformSequence2.RotationRad(System.Double)
+  - g3.TransformSequence2.RotationRad(System.Double,g3.Vector2d)
+  - g3.TransformSequence2.Scale(g3.Vector2d)
+  - g3.TransformSequence2.Scale(g3.Vector2d,g3.Vector2d)
+  - g3.TransformSequence2.TransformN(g3.Vector2d)
+  - g3.TransformSequence2.TransformP(g3.Vector2d)
+  - g3.TransformSequence2.TransformScalar(System.Double)
+  - g3.TransformSequence2.Translation(g3.Vector2d)
+  - g3.TransformSequence2.Translation(System.Double,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: TransformSequence2
+  nameWithType: TransformSequence2
+  fullName: g3.TransformSequence2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TransformSequence2
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTransformSequence stores an ordered list of basic transformations.\nThis can be useful if you need to construct some modifications and want\nto use the same set later. For example, if you have a hierarchy of objects\nwith relative transformations and want to &quot;save&quot; the nested transform sequence\nwithout having to hold references to the original objects.\n\nUse the Append() functions to add different transform types, and the TransformX()\nto apply the sequence\n"
+  example: []
+  syntax:
+    content: 'public class TransformSequence2 : ITransform2'
+    content.vb: >-
+      Public Class TransformSequence2
+          Implements ITransform2
+  inheritance:
+  - System.Object
+  implements:
+  - g3.ITransform2
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.TransformSequence2.#ctor
+  commentId: M:g3.TransformSequence2.#ctor
+  id: '#ctor'
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: TransformSequence2()
+  nameWithType: TransformSequence2.TransformSequence2()
+  fullName: g3.TransformSequence2.TransformSequence2()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 71
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2()
+    content.vb: Public Sub New
+  overload: g3.TransformSequence2.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.Translation(g3.Vector2d)
+  commentId: M:g3.TransformSequence2.Translation(g3.Vector2d)
+  id: Translation(g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: Translation(Vector2d)
+  nameWithType: TransformSequence2.Translation(Vector2d)
+  fullName: g3.TransformSequence2.Translation(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translation
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 Translation(Vector2d dv)
+    parameters:
+    - id: dv
+      type: g3.Vector2d
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function Translation(dv As Vector2d) As TransformSequence2
+  overload: g3.TransformSequence2.Translation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.Translation(System.Double,System.Double)
+  commentId: M:g3.TransformSequence2.Translation(System.Double,System.Double)
+  id: Translation(System.Double,System.Double)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: Translation(Double, Double)
+  nameWithType: TransformSequence2.Translation(Double, Double)
+  fullName: g3.TransformSequence2.Translation(System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translation
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 86
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 Translation(double dx, double dy)
+    parameters:
+    - id: dx
+      type: System.Double
+    - id: dy
+      type: System.Double
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function Translation(dx As Double, dy As Double) As TransformSequence2
+  overload: g3.TransformSequence2.Translation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.RotationRad(System.Double)
+  commentId: M:g3.TransformSequence2.RotationRad(System.Double)
+  id: RotationRad(System.Double)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: RotationRad(Double)
+  nameWithType: TransformSequence2.RotationRad(Double)
+  fullName: g3.TransformSequence2.RotationRad(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RotationRad
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 RotationRad(double angle)
+    parameters:
+    - id: angle
+      type: System.Double
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function RotationRad(angle As Double) As TransformSequence2
+  overload: g3.TransformSequence2.RotationRad*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.RotationDeg(System.Double)
+  commentId: M:g3.TransformSequence2.RotationDeg(System.Double)
+  id: RotationDeg(System.Double)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: RotationDeg(Double)
+  nameWithType: TransformSequence2.RotationDeg(Double)
+  fullName: g3.TransformSequence2.RotationDeg(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RotationDeg
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 RotationDeg(double angle)
+    parameters:
+    - id: angle
+      type: System.Double
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function RotationDeg(angle As Double) As TransformSequence2
+  overload: g3.TransformSequence2.RotationDeg*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.RotationRad(System.Double,g3.Vector2d)
+  commentId: M:g3.TransformSequence2.RotationRad(System.Double,g3.Vector2d)
+  id: RotationRad(System.Double,g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: RotationRad(Double, Vector2d)
+  nameWithType: TransformSequence2.RotationRad(Double, Vector2d)
+  fullName: g3.TransformSequence2.RotationRad(System.Double, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RotationRad
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 108
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 RotationRad(double angle, Vector2d aroundPt)
+    parameters:
+    - id: angle
+      type: System.Double
+    - id: aroundPt
+      type: g3.Vector2d
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function RotationRad(angle As Double, aroundPt As Vector2d) As TransformSequence2
+  overload: g3.TransformSequence2.RotationRad*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.RotationDeg(System.Double,g3.Vector2d)
+  commentId: M:g3.TransformSequence2.RotationDeg(System.Double,g3.Vector2d)
+  id: RotationDeg(System.Double,g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: RotationDeg(Double, Vector2d)
+  nameWithType: TransformSequence2.RotationDeg(Double, Vector2d)
+  fullName: g3.TransformSequence2.RotationDeg(System.Double, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RotationDeg
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 116
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 RotationDeg(double angle, Vector2d aroundPt)
+    parameters:
+    - id: angle
+      type: System.Double
+    - id: aroundPt
+      type: g3.Vector2d
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function RotationDeg(angle As Double, aroundPt As Vector2d) As TransformSequence2
+  overload: g3.TransformSequence2.RotationDeg*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.Scale(g3.Vector2d)
+  commentId: M:g3.TransformSequence2.Scale(g3.Vector2d)
+  id: Scale(g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: Scale(Vector2d)
+  nameWithType: TransformSequence2.Scale(Vector2d)
+  fullName: g3.TransformSequence2.Scale(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 120
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 Scale(Vector2d s)
+    parameters:
+    - id: s
+      type: g3.Vector2d
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function Scale(s As Vector2d) As TransformSequence2
+  overload: g3.TransformSequence2.Scale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.Scale(g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.TransformSequence2.Scale(g3.Vector2d,g3.Vector2d)
+  id: Scale(g3.Vector2d,g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: Scale(Vector2d, Vector2d)
+  nameWithType: TransformSequence2.Scale(Vector2d, Vector2d)
+  fullName: g3.TransformSequence2.Scale(g3.Vector2d, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 129
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 Scale(Vector2d s, Vector2d aroundPt)
+    parameters:
+    - id: s
+      type: g3.Vector2d
+    - id: aroundPt
+      type: g3.Vector2d
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function Scale(s As Vector2d, aroundPt As Vector2d) As TransformSequence2
+  overload: g3.TransformSequence2.Scale*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.Append(g3.ITransform2)
+  commentId: M:g3.TransformSequence2.Append(g3.ITransform2)
+  id: Append(g3.ITransform2)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: Append(ITransform2)
+  nameWithType: TransformSequence2.Append(ITransform2)
+  fullName: g3.TransformSequence2.Append(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Append
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 138
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence2 Append(ITransform2 t2)
+    parameters:
+    - id: t2
+      type: g3.ITransform2
+    return:
+      type: g3.TransformSequence2
+    content.vb: Public Function Append(t2 As ITransform2) As TransformSequence2
+  overload: g3.TransformSequence2.Append*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.TransformP(g3.Vector2d)
+  commentId: M:g3.TransformSequence2.TransformP(g3.Vector2d)
+  id: TransformP(g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: TransformP(Vector2d)
+  nameWithType: TransformSequence2.TransformP(Vector2d)
+  fullName: g3.TransformSequence2.TransformP(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TransformP
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 152
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply transforms to point\n"
+  example: []
+  syntax:
+    content: public Vector2d TransformP(Vector2d p)
+    parameters:
+    - id: p
+      type: g3.Vector2d
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function TransformP(p As Vector2d) As Vector2d
+  overload: g3.TransformSequence2.TransformP*
+  implements:
+  - g3.ITransform2.TransformP(g3.Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.TransformN(g3.Vector2d)
+  commentId: M:g3.TransformSequence2.TransformN(g3.Vector2d)
+  id: TransformN(g3.Vector2d)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: TransformN(Vector2d)
+  nameWithType: TransformSequence2.TransformN(Vector2d)
+  fullName: g3.TransformSequence2.TransformN(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TransformN
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 198
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply transforms to normalized vector\n"
+  example: []
+  syntax:
+    content: public Vector2d TransformN(Vector2d n)
+    parameters:
+    - id: n
+      type: g3.Vector2d
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function TransformN(n As Vector2d) As Vector2d
+  overload: g3.TransformSequence2.TransformN*
+  implements:
+  - g3.ITransform2.TransformN(g3.Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformSequence2.TransformScalar(System.Double)
+  commentId: M:g3.TransformSequence2.TransformScalar(System.Double)
+  id: TransformScalar(System.Double)
+  parent: g3.TransformSequence2
+  langs:
+  - csharp
+  - vb
+  name: TransformScalar(Double)
+  nameWithType: TransformSequence2.TransformScalar(Double)
+  fullName: g3.TransformSequence2.TransformScalar(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/TransformSequence2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TransformScalar
+    path: ../Assets/geometry3Sharp/math/TransformSequence2.cs
+    startLine: 243
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply transforms to scalar dimension\n"
+  example: []
+  syntax:
+    content: public double TransformScalar(double s)
+    parameters:
+    - id: s
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function TransformScalar(s As Double) As Double
+  overload: g3.TransformSequence2.TransformScalar*
+  implements:
+  - g3.ITransform2.TransformScalar(System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.TransformSequence2.#ctor*
+  commentId: Overload:g3.TransformSequence2.#ctor
+  name: TransformSequence2
+  nameWithType: TransformSequence2.TransformSequence2
+  fullName: g3.TransformSequence2.TransformSequence2
+- uid: g3.TransformSequence2.Translation*
+  commentId: Overload:g3.TransformSequence2.Translation
+  name: Translation
+  nameWithType: TransformSequence2.Translation
+  fullName: g3.TransformSequence2.Translation
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.TransformSequence2
+  commentId: T:g3.TransformSequence2
+  parent: g3
+  name: TransformSequence2
+  nameWithType: TransformSequence2
+  fullName: g3.TransformSequence2
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.TransformSequence2.RotationRad*
+  commentId: Overload:g3.TransformSequence2.RotationRad
+  name: RotationRad
+  nameWithType: TransformSequence2.RotationRad
+  fullName: g3.TransformSequence2.RotationRad
+- uid: g3.TransformSequence2.RotationDeg*
+  commentId: Overload:g3.TransformSequence2.RotationDeg
+  name: RotationDeg
+  nameWithType: TransformSequence2.RotationDeg
+  fullName: g3.TransformSequence2.RotationDeg
+- uid: g3.TransformSequence2.Scale*
+  commentId: Overload:g3.TransformSequence2.Scale
+  name: Scale
+  nameWithType: TransformSequence2.Scale
+  fullName: g3.TransformSequence2.Scale
+- uid: g3.TransformSequence2.Append*
+  commentId: Overload:g3.TransformSequence2.Append
+  name: Append
+  nameWithType: TransformSequence2.Append
+  fullName: g3.TransformSequence2.Append
+- uid: g3.TransformSequence2.TransformP*
+  commentId: Overload:g3.TransformSequence2.TransformP
+  name: TransformP
+  nameWithType: TransformSequence2.TransformP
+  fullName: g3.TransformSequence2.TransformP
+- uid: g3.ITransform2.TransformP(g3.Vector2d)
+  commentId: M:g3.ITransform2.TransformP(g3.Vector2d)
+  parent: g3.ITransform2
+  name: TransformP(Vector2d)
+  nameWithType: ITransform2.TransformP(Vector2d)
+  fullName: g3.ITransform2.TransformP(g3.Vector2d)
+  spec.csharp:
+  - uid: g3.ITransform2.TransformP(g3.Vector2d)
+    name: TransformP
+    nameWithType: ITransform2.TransformP
+    fullName: g3.ITransform2.TransformP
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.ITransform2.TransformP(g3.Vector2d)
+    name: TransformP
+    nameWithType: ITransform2.TransformP
+    fullName: g3.ITransform2.TransformP
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.TransformSequence2.TransformN*
+  commentId: Overload:g3.TransformSequence2.TransformN
+  name: TransformN
+  nameWithType: TransformSequence2.TransformN
+  fullName: g3.TransformSequence2.TransformN
+- uid: g3.ITransform2.TransformN(g3.Vector2d)
+  commentId: M:g3.ITransform2.TransformN(g3.Vector2d)
+  parent: g3.ITransform2
+  name: TransformN(Vector2d)
+  nameWithType: ITransform2.TransformN(Vector2d)
+  fullName: g3.ITransform2.TransformN(g3.Vector2d)
+  spec.csharp:
+  - uid: g3.ITransform2.TransformN(g3.Vector2d)
+    name: TransformN
+    nameWithType: ITransform2.TransformN
+    fullName: g3.ITransform2.TransformN
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.ITransform2.TransformN(g3.Vector2d)
+    name: TransformN
+    nameWithType: ITransform2.TransformN
+    fullName: g3.ITransform2.TransformN
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.TransformSequence2.TransformScalar*
+  commentId: Overload:g3.TransformSequence2.TransformScalar
+  name: TransformScalar
+  nameWithType: TransformSequence2.TransformScalar
+  fullName: g3.TransformSequence2.TransformScalar
+- uid: g3.ITransform2.TransformScalar(System.Double)
+  commentId: M:g3.ITransform2.TransformScalar(System.Double)
+  parent: g3.ITransform2
+  isExternal: true
+  name: TransformScalar(Double)
+  nameWithType: ITransform2.TransformScalar(Double)
+  fullName: g3.ITransform2.TransformScalar(System.Double)
+  spec.csharp:
+  - uid: g3.ITransform2.TransformScalar(System.Double)
+    name: TransformScalar
+    nameWithType: ITransform2.TransformScalar
+    fullName: g3.ITransform2.TransformScalar
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.ITransform2.TransformScalar(System.Double)
+    name: TransformScalar
+    nameWithType: ITransform2.TransformScalar
+    fullName: g3.ITransform2.TransformScalar
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

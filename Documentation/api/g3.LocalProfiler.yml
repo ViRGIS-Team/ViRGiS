@@ -1,0 +1,765 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.LocalProfiler
+  commentId: T:g3.LocalProfiler
+  id: LocalProfiler
+  parent: g3
+  children:
+  - g3.LocalProfiler.Accumulated(System.String)
+  - g3.LocalProfiler.AllAccumulatedTicks(System.String)
+  - g3.LocalProfiler.AllAccumulatedTimes(System.String,System.String)
+  - g3.LocalProfiler.AllTicks(System.String)
+  - g3.LocalProfiler.AllTimes(System.String,System.String)
+  - g3.LocalProfiler.Dispose
+  - g3.LocalProfiler.DivideAllAccumulated(System.Int32)
+  - g3.LocalProfiler.Elapsed(System.String)
+  - g3.LocalProfiler.Get(System.String)
+  - g3.LocalProfiler.Reset(System.String)
+  - g3.LocalProfiler.ResetAccumulated(System.String)
+  - g3.LocalProfiler.ResetAllAccumulated(System.String)
+  - g3.LocalProfiler.Start(System.String)
+  - g3.LocalProfiler.Stop(System.String)
+  - g3.LocalProfiler.StopAll
+  - g3.LocalProfiler.StopAllAndStartNew(System.String)
+  - g3.LocalProfiler.StopAndAccumulate(System.String,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: LocalProfiler
+  nameWithType: LocalProfiler
+  fullName: g3.LocalProfiler
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LocalProfiler
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 73
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class LocalProfiler : IDisposable'
+    content.vb: >-
+      Public Class LocalProfiler
+          Implements IDisposable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.LocalProfiler.Start(System.String)
+  commentId: M:g3.LocalProfiler.Start(System.String)
+  id: Start(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Start(String)
+  nameWithType: LocalProfiler.Start(String)
+  fullName: g3.LocalProfiler.Start(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Start
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BlockTimer Start(string label)
+    parameters:
+    - id: label
+      type: System.String
+    return:
+      type: g3.BlockTimer
+    content.vb: Public Function Start(label As String) As BlockTimer
+  overload: g3.LocalProfiler.Start*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.StopAllAndStartNew(System.String)
+  commentId: M:g3.LocalProfiler.StopAllAndStartNew(System.String)
+  id: StopAllAndStartNew(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: StopAllAndStartNew(String)
+  nameWithType: LocalProfiler.StopAllAndStartNew(String)
+  fullName: g3.LocalProfiler.StopAllAndStartNew(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StopAllAndStartNew
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 90
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BlockTimer StopAllAndStartNew(string label)
+    parameters:
+    - id: label
+      type: System.String
+    return:
+      type: g3.BlockTimer
+    content.vb: Public Function StopAllAndStartNew(label As String) As BlockTimer
+  overload: g3.LocalProfiler.StopAllAndStartNew*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.Get(System.String)
+  commentId: M:g3.LocalProfiler.Get(System.String)
+  id: Get(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Get(String)
+  nameWithType: LocalProfiler.Get(String)
+  fullName: g3.LocalProfiler.Get(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Get
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 96
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BlockTimer Get(string label)
+    parameters:
+    - id: label
+      type: System.String
+    return:
+      type: g3.BlockTimer
+    content.vb: Public Function Get(label As String) As BlockTimer
+  overload: g3.LocalProfiler.Get*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.Stop(System.String)
+  commentId: M:g3.LocalProfiler.Stop(System.String)
+  id: Stop(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Stop(String)
+  nameWithType: LocalProfiler.Stop(String)
+  fullName: g3.LocalProfiler.Stop(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Stop
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 102
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Stop(string label)
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub Stop(label As String)
+  overload: g3.LocalProfiler.Stop*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.StopAll
+  commentId: M:g3.LocalProfiler.StopAll
+  id: StopAll
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: StopAll()
+  nameWithType: LocalProfiler.StopAll()
+  fullName: g3.LocalProfiler.StopAll()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StopAll
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void StopAll()
+    content.vb: Public Sub StopAll
+  overload: g3.LocalProfiler.StopAll*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.StopAndAccumulate(System.String,System.Boolean)
+  commentId: M:g3.LocalProfiler.StopAndAccumulate(System.String,System.Boolean)
+  id: StopAndAccumulate(System.String,System.Boolean)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: StopAndAccumulate(String, Boolean)
+  nameWithType: LocalProfiler.StopAndAccumulate(String, Boolean)
+  fullName: g3.LocalProfiler.StopAndAccumulate(System.String, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StopAndAccumulate
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 115
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void StopAndAccumulate(string label, bool bReset = false)
+    parameters:
+    - id: label
+      type: System.String
+    - id: bReset
+      type: System.Boolean
+    content.vb: Public Sub StopAndAccumulate(label As String, bReset As Boolean = False)
+  overload: g3.LocalProfiler.StopAndAccumulate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.Reset(System.String)
+  commentId: M:g3.LocalProfiler.Reset(System.String)
+  id: Reset(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Reset(String)
+  nameWithType: LocalProfiler.Reset(String)
+  fullName: g3.LocalProfiler.Reset(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reset
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 120
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reset(string label)
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub Reset(label As String)
+  overload: g3.LocalProfiler.Reset*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.ResetAccumulated(System.String)
+  commentId: M:g3.LocalProfiler.ResetAccumulated(System.String)
+  id: ResetAccumulated(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: ResetAccumulated(String)
+  nameWithType: LocalProfiler.ResetAccumulated(String)
+  fullName: g3.LocalProfiler.ResetAccumulated(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ResetAccumulated
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 125
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ResetAccumulated(string label)
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub ResetAccumulated(label As String)
+  overload: g3.LocalProfiler.ResetAccumulated*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.ResetAllAccumulated(System.String)
+  commentId: M:g3.LocalProfiler.ResetAllAccumulated(System.String)
+  id: ResetAllAccumulated(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: ResetAllAccumulated(String)
+  nameWithType: LocalProfiler.ResetAllAccumulated(String)
+  fullName: g3.LocalProfiler.ResetAllAccumulated(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ResetAllAccumulated
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ResetAllAccumulated(string label)
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub ResetAllAccumulated(label As String)
+  overload: g3.LocalProfiler.ResetAllAccumulated*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.DivideAllAccumulated(System.Int32)
+  commentId: M:g3.LocalProfiler.DivideAllAccumulated(System.Int32)
+  id: DivideAllAccumulated(System.Int32)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: DivideAllAccumulated(Int32)
+  nameWithType: LocalProfiler.DivideAllAccumulated(Int32)
+  fullName: g3.LocalProfiler.DivideAllAccumulated(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DivideAllAccumulated
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 136
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void DivideAllAccumulated(int div)
+    parameters:
+    - id: div
+      type: System.Int32
+    content.vb: Public Sub DivideAllAccumulated(div As Integer)
+  overload: g3.LocalProfiler.DivideAllAccumulated*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.Elapsed(System.String)
+  commentId: M:g3.LocalProfiler.Elapsed(System.String)
+  id: Elapsed(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Elapsed(String)
+  nameWithType: LocalProfiler.Elapsed(String)
+  fullName: g3.LocalProfiler.Elapsed(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Elapsed
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 144
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public string Elapsed(string label)
+    parameters:
+    - id: label
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function Elapsed(label As String) As String
+  overload: g3.LocalProfiler.Elapsed*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.Accumulated(System.String)
+  commentId: M:g3.LocalProfiler.Accumulated(System.String)
+  id: Accumulated(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Accumulated(String)
+  nameWithType: LocalProfiler.Accumulated(String)
+  fullName: g3.LocalProfiler.Accumulated(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Accumulated
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 148
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public string Accumulated(string label)
+    parameters:
+    - id: label
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function Accumulated(label As String) As String
+  overload: g3.LocalProfiler.Accumulated*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.AllTicks(System.String)
+  commentId: M:g3.LocalProfiler.AllTicks(System.String)
+  id: AllTicks(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: AllTicks(String)
+  nameWithType: LocalProfiler.AllTicks(String)
+  fullName: g3.LocalProfiler.AllTicks(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllTicks
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 154
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public string AllTicks(string prefix = "Times:")
+    parameters:
+    - id: prefix
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function AllTicks(prefix As String = "Times:") As String
+  overload: g3.LocalProfiler.AllTicks*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.AllAccumulatedTicks(System.String)
+  commentId: M:g3.LocalProfiler.AllAccumulatedTicks(System.String)
+  id: AllAccumulatedTicks(System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: AllAccumulatedTicks(String)
+  nameWithType: LocalProfiler.AllAccumulatedTicks(String)
+  fullName: g3.LocalProfiler.AllAccumulatedTicks(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllAccumulatedTicks
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 164
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public string AllAccumulatedTicks(string prefix = "Times:")
+    parameters:
+    - id: prefix
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function AllAccumulatedTicks(prefix As String = "Times:") As String
+  overload: g3.LocalProfiler.AllAccumulatedTicks*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.AllTimes(System.String,System.String)
+  commentId: M:g3.LocalProfiler.AllTimes(System.String,System.String)
+  id: AllTimes(System.String,System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: AllTimes(String, String)
+  nameWithType: LocalProfiler.AllTimes(String, String)
+  fullName: g3.LocalProfiler.AllTimes(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllTimes
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 176
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public string AllTimes(string prefix = "Times:", string separator = " ")
+    parameters:
+    - id: prefix
+      type: System.String
+    - id: separator
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function AllTimes(prefix As String = "Times:", separator As String = " ") As String
+  overload: g3.LocalProfiler.AllTimes*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.AllAccumulatedTimes(System.String,System.String)
+  commentId: M:g3.LocalProfiler.AllAccumulatedTimes(System.String,System.String)
+  id: AllAccumulatedTimes(System.String,System.String)
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: AllAccumulatedTimes(String, String)
+  nameWithType: LocalProfiler.AllAccumulatedTimes(String, String)
+  fullName: g3.LocalProfiler.AllAccumulatedTimes(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllAccumulatedTimes
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 187
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public string AllAccumulatedTimes(string prefix = "Times:", string separator = " ")
+    parameters:
+    - id: prefix
+      type: System.String
+    - id: separator
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Public Function AllAccumulatedTimes(prefix As String = "Times:", separator As String = " ") As String
+  overload: g3.LocalProfiler.AllAccumulatedTimes*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.LocalProfiler.Dispose
+  commentId: M:g3.LocalProfiler.Dispose
+  id: Dispose
+  parent: g3.LocalProfiler
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: LocalProfiler.Dispose()
+  fullName: g3.LocalProfiler.Dispose()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/ProfileUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dispose
+    path: ../Assets/geometry3Sharp/core/ProfileUtil.cs
+    startLine: 200
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose
+  overload: g3.LocalProfiler.Dispose*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.LocalProfiler.Start*
+  commentId: Overload:g3.LocalProfiler.Start
+  name: Start
+  nameWithType: LocalProfiler.Start
+  fullName: g3.LocalProfiler.Start
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.BlockTimer
+  commentId: T:g3.BlockTimer
+  parent: g3
+  name: BlockTimer
+  nameWithType: BlockTimer
+  fullName: g3.BlockTimer
+- uid: g3.LocalProfiler.StopAllAndStartNew*
+  commentId: Overload:g3.LocalProfiler.StopAllAndStartNew
+  name: StopAllAndStartNew
+  nameWithType: LocalProfiler.StopAllAndStartNew
+  fullName: g3.LocalProfiler.StopAllAndStartNew
+- uid: g3.LocalProfiler.Get*
+  commentId: Overload:g3.LocalProfiler.Get
+  name: Get
+  nameWithType: LocalProfiler.Get
+  fullName: g3.LocalProfiler.Get
+- uid: g3.LocalProfiler.Stop*
+  commentId: Overload:g3.LocalProfiler.Stop
+  name: Stop
+  nameWithType: LocalProfiler.Stop
+  fullName: g3.LocalProfiler.Stop
+- uid: g3.LocalProfiler.StopAll*
+  commentId: Overload:g3.LocalProfiler.StopAll
+  name: StopAll
+  nameWithType: LocalProfiler.StopAll
+  fullName: g3.LocalProfiler.StopAll
+- uid: g3.LocalProfiler.StopAndAccumulate*
+  commentId: Overload:g3.LocalProfiler.StopAndAccumulate
+  name: StopAndAccumulate
+  nameWithType: LocalProfiler.StopAndAccumulate
+  fullName: g3.LocalProfiler.StopAndAccumulate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.LocalProfiler.Reset*
+  commentId: Overload:g3.LocalProfiler.Reset
+  name: Reset
+  nameWithType: LocalProfiler.Reset
+  fullName: g3.LocalProfiler.Reset
+- uid: g3.LocalProfiler.ResetAccumulated*
+  commentId: Overload:g3.LocalProfiler.ResetAccumulated
+  name: ResetAccumulated
+  nameWithType: LocalProfiler.ResetAccumulated
+  fullName: g3.LocalProfiler.ResetAccumulated
+- uid: g3.LocalProfiler.ResetAllAccumulated*
+  commentId: Overload:g3.LocalProfiler.ResetAllAccumulated
+  name: ResetAllAccumulated
+  nameWithType: LocalProfiler.ResetAllAccumulated
+  fullName: g3.LocalProfiler.ResetAllAccumulated
+- uid: g3.LocalProfiler.DivideAllAccumulated*
+  commentId: Overload:g3.LocalProfiler.DivideAllAccumulated
+  name: DivideAllAccumulated
+  nameWithType: LocalProfiler.DivideAllAccumulated
+  fullName: g3.LocalProfiler.DivideAllAccumulated
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.LocalProfiler.Elapsed*
+  commentId: Overload:g3.LocalProfiler.Elapsed
+  name: Elapsed
+  nameWithType: LocalProfiler.Elapsed
+  fullName: g3.LocalProfiler.Elapsed
+- uid: g3.LocalProfiler.Accumulated*
+  commentId: Overload:g3.LocalProfiler.Accumulated
+  name: Accumulated
+  nameWithType: LocalProfiler.Accumulated
+  fullName: g3.LocalProfiler.Accumulated
+- uid: g3.LocalProfiler.AllTicks*
+  commentId: Overload:g3.LocalProfiler.AllTicks
+  name: AllTicks
+  nameWithType: LocalProfiler.AllTicks
+  fullName: g3.LocalProfiler.AllTicks
+- uid: g3.LocalProfiler.AllAccumulatedTicks*
+  commentId: Overload:g3.LocalProfiler.AllAccumulatedTicks
+  name: AllAccumulatedTicks
+  nameWithType: LocalProfiler.AllAccumulatedTicks
+  fullName: g3.LocalProfiler.AllAccumulatedTicks
+- uid: g3.LocalProfiler.AllTimes*
+  commentId: Overload:g3.LocalProfiler.AllTimes
+  name: AllTimes
+  nameWithType: LocalProfiler.AllTimes
+  fullName: g3.LocalProfiler.AllTimes
+- uid: g3.LocalProfiler.AllAccumulatedTimes*
+  commentId: Overload:g3.LocalProfiler.AllAccumulatedTimes
+  name: AllAccumulatedTimes
+  nameWithType: LocalProfiler.AllAccumulatedTimes
+  fullName: g3.LocalProfiler.AllAccumulatedTimes
+- uid: g3.LocalProfiler.Dispose*
+  commentId: Overload:g3.LocalProfiler.Dispose
+  name: Dispose
+  nameWithType: LocalProfiler.Dispose
+  fullName: g3.LocalProfiler.Dispose

@@ -1,0 +1,1536 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DSubmesh3
+  commentId: T:g3.DSubmesh3
+  id: DSubmesh3
+  parent: g3
+  children:
+  - g3.DSubmesh3.#ctor(g3.DMesh3)
+  - g3.DSubmesh3.#ctor(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  - g3.DSubmesh3.#ctor(g3.DMesh3,System.Int32[])
+  - g3.DSubmesh3.BaseBorderE
+  - g3.DSubmesh3.BaseBorderV
+  - g3.DSubmesh3.BaseBoundaryE
+  - g3.DSubmesh3.BaseMesh
+  - g3.DSubmesh3.BaseSubmeshV
+  - g3.DSubmesh3.BaseToSubT
+  - g3.DSubmesh3.BaseToSubV
+  - g3.DSubmesh3.Compute(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  - g3.DSubmesh3.Compute(System.Int32[])
+  - g3.DSubmesh3.ComputeBoundaryInfo(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  - g3.DSubmesh3.ComputeBoundaryInfo(System.Int32[])
+  - g3.DSubmesh3.ComputeTriMaps
+  - g3.DSubmesh3.MapEdgesToSubmesh(System.Int32[])
+  - g3.DSubmesh3.MapEdgeToBaseMesh(System.Int32)
+  - g3.DSubmesh3.MapEdgeToSubmesh(System.Int32)
+  - g3.DSubmesh3.MapTrianglesToSubmesh(System.Int32[])
+  - g3.DSubmesh3.MapTriangleToBaseMesh(System.Int32)
+  - g3.DSubmesh3.MapTriangleToSubmesh(System.Int32)
+  - g3.DSubmesh3.MapVertexToBaseMesh(System.Int32)
+  - g3.DSubmesh3.MapVertexToSubmesh(System.Int32)
+  - g3.DSubmesh3.MapVerticesToBaseMesh(g3.Index2i)
+  - g3.DSubmesh3.MapVerticesToSubmesh(g3.Index2i)
+  - g3.DSubmesh3.MapVerticesToSubmesh(System.Int32[])
+  - g3.DSubmesh3.OverrideGroupID
+  - g3.DSubmesh3.QuickSubmesh(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.DSubmesh3.QuickSubmesh(g3.DMesh3,System.Int32[])
+  - g3.DSubmesh3.SubMesh
+  - g3.DSubmesh3.SubToBaseT
+  - g3.DSubmesh3.SubToBaseV
+  - g3.DSubmesh3.WantComponents
+  langs:
+  - csharp
+  - vb
+  name: DSubmesh3
+  nameWithType: DSubmesh3
+  fullName: g3.DSubmesh3
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DSubmesh3
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class DSubmesh3
+    content.vb: Public Class DSubmesh3
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DSubmesh3.BaseMesh
+  commentId: F:g3.DSubmesh3.BaseMesh
+  id: BaseMesh
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseMesh
+  nameWithType: DSubmesh3.BaseMesh
+  fullName: g3.DSubmesh3.BaseMesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseMesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 BaseMesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public BaseMesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.SubMesh
+  commentId: F:g3.DSubmesh3.SubMesh
+  id: SubMesh
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: SubMesh
+  nameWithType: DSubmesh3.SubMesh
+  fullName: g3.DSubmesh3.SubMesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SubMesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 SubMesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public SubMesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.WantComponents
+  commentId: F:g3.DSubmesh3.WantComponents
+  id: WantComponents
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: WantComponents
+  nameWithType: DSubmesh3.WantComponents
+  fullName: g3.DSubmesh3.WantComponents
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WantComponents
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshComponents WantComponents
+    return:
+      type: g3.MeshComponents
+    content.vb: Public WantComponents As MeshComponents
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.ComputeTriMaps
+  commentId: F:g3.DSubmesh3.ComputeTriMaps
+  id: ComputeTriMaps
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: ComputeTriMaps
+  nameWithType: DSubmesh3.ComputeTriMaps
+  fullName: g3.DSubmesh3.ComputeTriMaps
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeTriMaps
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool ComputeTriMaps
+    return:
+      type: System.Boolean
+    content.vb: Public ComputeTriMaps As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.OverrideGroupID
+  commentId: F:g3.DSubmesh3.OverrideGroupID
+  id: OverrideGroupID
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: OverrideGroupID
+  nameWithType: DSubmesh3.OverrideGroupID
+  fullName: g3.DSubmesh3.OverrideGroupID
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OverrideGroupID
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int OverrideGroupID
+    return:
+      type: System.Int32
+    content.vb: Public OverrideGroupID As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.BaseSubmeshV
+  commentId: F:g3.DSubmesh3.BaseSubmeshV
+  id: BaseSubmeshV
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseSubmeshV
+  nameWithType: DSubmesh3.BaseSubmeshV
+  fullName: g3.DSubmesh3.BaseSubmeshV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseSubmeshV
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexFlagSet BaseSubmeshV
+    return:
+      type: g3.IndexFlagSet
+    content.vb: Public BaseSubmeshV As IndexFlagSet
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.BaseToSubV
+  commentId: F:g3.DSubmesh3.BaseToSubV
+  id: BaseToSubV
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseToSubV
+  nameWithType: DSubmesh3.BaseToSubV
+  fullName: g3.DSubmesh3.BaseToSubV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseToSubV
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexMap BaseToSubV
+    return:
+      type: g3.IndexMap
+    content.vb: Public BaseToSubV As IndexMap
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.SubToBaseV
+  commentId: F:g3.DSubmesh3.SubToBaseV
+  id: SubToBaseV
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: SubToBaseV
+  nameWithType: DSubmesh3.SubToBaseV
+  fullName: g3.DSubmesh3.SubToBaseV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SubToBaseV
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<int> SubToBaseV
+    return:
+      type: g3.DVector{System.Int32}
+    content.vb: Public SubToBaseV As DVector(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.BaseToSubT
+  commentId: F:g3.DSubmesh3.BaseToSubT
+  id: BaseToSubT
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseToSubT
+  nameWithType: DSubmesh3.BaseToSubT
+  fullName: g3.DSubmesh3.BaseToSubT
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseToSubT
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexMap BaseToSubT
+    return:
+      type: g3.IndexMap
+    content.vb: Public BaseToSubT As IndexMap
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.SubToBaseT
+  commentId: F:g3.DSubmesh3.SubToBaseT
+  id: SubToBaseT
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: SubToBaseT
+  nameWithType: DSubmesh3.SubToBaseT
+  fullName: g3.DSubmesh3.SubToBaseT
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SubToBaseT
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<int> SubToBaseT
+    return:
+      type: g3.DVector{System.Int32}
+    content.vb: Public SubToBaseT As DVector(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.BaseBorderE
+  commentId: F:g3.DSubmesh3.BaseBorderE
+  id: BaseBorderE
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseBorderE
+  nameWithType: DSubmesh3.BaseBorderE
+  fullName: g3.DSubmesh3.BaseBorderE
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseBorderE
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexHashSet BaseBorderE
+    return:
+      type: g3.IndexHashSet
+    content.vb: Public BaseBorderE As IndexHashSet
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.BaseBoundaryE
+  commentId: F:g3.DSubmesh3.BaseBoundaryE
+  id: BaseBoundaryE
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseBoundaryE
+  nameWithType: DSubmesh3.BaseBoundaryE
+  fullName: g3.DSubmesh3.BaseBoundaryE
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseBoundaryE
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexHashSet BaseBoundaryE
+    return:
+      type: g3.IndexHashSet
+    content.vb: Public BaseBoundaryE As IndexHashSet
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.BaseBorderV
+  commentId: F:g3.DSubmesh3.BaseBorderV
+  id: BaseBorderV
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: BaseBorderV
+  nameWithType: DSubmesh3.BaseBorderV
+  fullName: g3.DSubmesh3.BaseBorderV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BaseBorderV
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IndexHashSet BaseBorderV
+    return:
+      type: g3.IndexHashSet
+    content.vb: Public BaseBorderV As IndexHashSet
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.#ctor(g3.DMesh3,System.Int32[])
+  commentId: M:g3.DSubmesh3.#ctor(g3.DMesh3,System.Int32[])
+  id: '#ctor(g3.DMesh3,System.Int32[])'
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: DSubmesh3(DMesh3, Int32[])
+  nameWithType: DSubmesh3.DSubmesh3(DMesh3, Int32[])
+  fullName: g3.DSubmesh3.DSubmesh3(g3.DMesh3, System.Int32[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DSubmesh3(DMesh3 mesh, int[] subTriangles)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: subTriangles
+      type: System.Int32[]
+    content.vb: Public Sub New(mesh As DMesh3, subTriangles As Integer())
+  overload: g3.DSubmesh3.#ctor*
+  nameWithType.vb: DSubmesh3.DSubmesh3(DMesh3, Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.DSubmesh3(g3.DMesh3, System.Int32())
+  name.vb: DSubmesh3(DMesh3, Int32())
+- uid: g3.DSubmesh3.#ctor(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  commentId: M:g3.DSubmesh3.#ctor(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  id: '#ctor(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)'
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: DSubmesh3(DMesh3, IEnumerable<Int32>, Int32)
+  nameWithType: DSubmesh3.DSubmesh3(DMesh3, IEnumerable<Int32>, Int32)
+  fullName: g3.DSubmesh3.DSubmesh3(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DSubmesh3(DMesh3 mesh, IEnumerable<int> subTriangles, int nTriEstimate = 0)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: subTriangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: nTriEstimate
+      type: System.Int32
+    content.vb: Public Sub New(mesh As DMesh3, subTriangles As IEnumerable(Of Integer), nTriEstimate As Integer = 0)
+  overload: g3.DSubmesh3.#ctor*
+  nameWithType.vb: DSubmesh3.DSubmesh3(DMesh3, IEnumerable(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.DSubmesh3(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32), System.Int32)
+  name.vb: DSubmesh3(DMesh3, IEnumerable(Of Int32), Int32)
+- uid: g3.DSubmesh3.#ctor(g3.DMesh3)
+  commentId: M:g3.DSubmesh3.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: DSubmesh3(DMesh3)
+  nameWithType: DSubmesh3.DSubmesh3(DMesh3)
+  fullName: g3.DSubmesh3.DSubmesh3(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DSubmesh3(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub New(mesh As DMesh3)
+  overload: g3.DSubmesh3.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.Compute(System.Int32[])
+  commentId: M:g3.DSubmesh3.Compute(System.Int32[])
+  id: Compute(System.Int32[])
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: Compute(Int32[])
+  nameWithType: DSubmesh3.Compute(Int32[])
+  fullName: g3.DSubmesh3.Compute(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Compute(int[] subTriangles)
+    parameters:
+    - id: subTriangles
+      type: System.Int32[]
+    content.vb: Public Sub Compute(subTriangles As Integer())
+  overload: g3.DSubmesh3.Compute*
+  nameWithType.vb: DSubmesh3.Compute(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.Compute(System.Int32())
+  name.vb: Compute(Int32())
+- uid: g3.DSubmesh3.Compute(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  commentId: M:g3.DSubmesh3.Compute(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  id: Compute(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: Compute(IEnumerable<Int32>, Int32)
+  nameWithType: DSubmesh3.Compute(IEnumerable<Int32>, Int32)
+  fullName: g3.DSubmesh3.Compute(System.Collections.Generic.IEnumerable<System.Int32>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 52
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Compute(IEnumerable<int> subTriangles, int nTriEstimate = 0)
+    parameters:
+    - id: subTriangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: nTriEstimate
+      type: System.Int32
+    content.vb: Public Sub Compute(subTriangles As IEnumerable(Of Integer), nTriEstimate As Integer = 0)
+  overload: g3.DSubmesh3.Compute*
+  nameWithType.vb: DSubmesh3.Compute(IEnumerable(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.Compute(System.Collections.Generic.IEnumerable(Of System.Int32), System.Int32)
+  name.vb: Compute(IEnumerable(Of Int32), Int32)
+- uid: g3.DSubmesh3.MapVertexToSubmesh(System.Int32)
+  commentId: M:g3.DSubmesh3.MapVertexToSubmesh(System.Int32)
+  id: MapVertexToSubmesh(System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapVertexToSubmesh(Int32)
+  nameWithType: DSubmesh3.MapVertexToSubmesh(Int32)
+  fullName: g3.DSubmesh3.MapVertexToSubmesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapVertexToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MapVertexToSubmesh(int base_vID)
+    parameters:
+    - id: base_vID
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function MapVertexToSubmesh(base_vID As Integer) As Integer
+  overload: g3.DSubmesh3.MapVertexToSubmesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapVertexToBaseMesh(System.Int32)
+  commentId: M:g3.DSubmesh3.MapVertexToBaseMesh(System.Int32)
+  id: MapVertexToBaseMesh(System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapVertexToBaseMesh(Int32)
+  nameWithType: DSubmesh3.MapVertexToBaseMesh(Int32)
+  fullName: g3.DSubmesh3.MapVertexToBaseMesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapVertexToBaseMesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MapVertexToBaseMesh(int sub_vID)
+    parameters:
+    - id: sub_vID
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function MapVertexToBaseMesh(sub_vID As Integer) As Integer
+  overload: g3.DSubmesh3.MapVertexToBaseMesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapVerticesToSubmesh(g3.Index2i)
+  commentId: M:g3.DSubmesh3.MapVerticesToSubmesh(g3.Index2i)
+  id: MapVerticesToSubmesh(g3.Index2i)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapVerticesToSubmesh(Index2i)
+  nameWithType: DSubmesh3.MapVerticesToSubmesh(Index2i)
+  fullName: g3.DSubmesh3.MapVerticesToSubmesh(g3.Index2i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapVerticesToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index2i MapVerticesToSubmesh(Index2i v)
+    parameters:
+    - id: v
+      type: g3.Index2i
+    return:
+      type: g3.Index2i
+    content.vb: Public Function MapVerticesToSubmesh(v As Index2i) As Index2i
+  overload: g3.DSubmesh3.MapVerticesToSubmesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapVerticesToBaseMesh(g3.Index2i)
+  commentId: M:g3.DSubmesh3.MapVerticesToBaseMesh(g3.Index2i)
+  id: MapVerticesToBaseMesh(g3.Index2i)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapVerticesToBaseMesh(Index2i)
+  nameWithType: DSubmesh3.MapVerticesToBaseMesh(Index2i)
+  fullName: g3.DSubmesh3.MapVerticesToBaseMesh(g3.Index2i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapVerticesToBaseMesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 68
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index2i MapVerticesToBaseMesh(Index2i v)
+    parameters:
+    - id: v
+      type: g3.Index2i
+    return:
+      type: g3.Index2i
+    content.vb: Public Function MapVerticesToBaseMesh(v As Index2i) As Index2i
+  overload: g3.DSubmesh3.MapVerticesToBaseMesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapVerticesToSubmesh(System.Int32[])
+  commentId: M:g3.DSubmesh3.MapVerticesToSubmesh(System.Int32[])
+  id: MapVerticesToSubmesh(System.Int32[])
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapVerticesToSubmesh(Int32[])
+  nameWithType: DSubmesh3.MapVerticesToSubmesh(Int32[])
+  fullName: g3.DSubmesh3.MapVerticesToSubmesh(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapVerticesToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void MapVerticesToSubmesh(int[] vertices)
+    parameters:
+    - id: vertices
+      type: System.Int32[]
+    content.vb: Public Sub MapVerticesToSubmesh(vertices As Integer())
+  overload: g3.DSubmesh3.MapVerticesToSubmesh*
+  nameWithType.vb: DSubmesh3.MapVerticesToSubmesh(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.MapVerticesToSubmesh(System.Int32())
+  name.vb: MapVerticesToSubmesh(Int32())
+- uid: g3.DSubmesh3.MapEdgeToSubmesh(System.Int32)
+  commentId: M:g3.DSubmesh3.MapEdgeToSubmesh(System.Int32)
+  id: MapEdgeToSubmesh(System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapEdgeToSubmesh(Int32)
+  nameWithType: DSubmesh3.MapEdgeToSubmesh(Int32)
+  fullName: g3.DSubmesh3.MapEdgeToSubmesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapEdgeToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 79
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MapEdgeToSubmesh(int base_eid)
+    parameters:
+    - id: base_eid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function MapEdgeToSubmesh(base_eid As Integer) As Integer
+  overload: g3.DSubmesh3.MapEdgeToSubmesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapEdgesToSubmesh(System.Int32[])
+  commentId: M:g3.DSubmesh3.MapEdgesToSubmesh(System.Int32[])
+  id: MapEdgesToSubmesh(System.Int32[])
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapEdgesToSubmesh(Int32[])
+  nameWithType: DSubmesh3.MapEdgesToSubmesh(Int32[])
+  fullName: g3.DSubmesh3.MapEdgesToSubmesh(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapEdgesToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 85
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void MapEdgesToSubmesh(int[] edges)
+    parameters:
+    - id: edges
+      type: System.Int32[]
+    content.vb: Public Sub MapEdgesToSubmesh(edges As Integer())
+  overload: g3.DSubmesh3.MapEdgesToSubmesh*
+  nameWithType.vb: DSubmesh3.MapEdgesToSubmesh(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.MapEdgesToSubmesh(System.Int32())
+  name.vb: MapEdgesToSubmesh(Int32())
+- uid: g3.DSubmesh3.MapEdgeToBaseMesh(System.Int32)
+  commentId: M:g3.DSubmesh3.MapEdgeToBaseMesh(System.Int32)
+  id: MapEdgeToBaseMesh(System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapEdgeToBaseMesh(Int32)
+  nameWithType: DSubmesh3.MapEdgeToBaseMesh(Int32)
+  fullName: g3.DSubmesh3.MapEdgeToBaseMesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapEdgeToBaseMesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MapEdgeToBaseMesh(int sub_eid)
+    parameters:
+    - id: sub_eid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function MapEdgeToBaseMesh(sub_eid As Integer) As Integer
+  overload: g3.DSubmesh3.MapEdgeToBaseMesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapTriangleToSubmesh(System.Int32)
+  commentId: M:g3.DSubmesh3.MapTriangleToSubmesh(System.Int32)
+  id: MapTriangleToSubmesh(System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapTriangleToSubmesh(Int32)
+  nameWithType: DSubmesh3.MapTriangleToSubmesh(Int32)
+  fullName: g3.DSubmesh3.MapTriangleToSubmesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapTriangleToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 99
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MapTriangleToSubmesh(int base_tID)
+    parameters:
+    - id: base_tID
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function MapTriangleToSubmesh(base_tID As Integer) As Integer
+  overload: g3.DSubmesh3.MapTriangleToSubmesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapTriangleToBaseMesh(System.Int32)
+  commentId: M:g3.DSubmesh3.MapTriangleToBaseMesh(System.Int32)
+  id: MapTriangleToBaseMesh(System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapTriangleToBaseMesh(Int32)
+  nameWithType: DSubmesh3.MapTriangleToBaseMesh(Int32)
+  fullName: g3.DSubmesh3.MapTriangleToBaseMesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapTriangleToBaseMesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 105
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MapTriangleToBaseMesh(int sub_tID)
+    parameters:
+    - id: sub_tID
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function MapTriangleToBaseMesh(sub_tID As Integer) As Integer
+  overload: g3.DSubmesh3.MapTriangleToBaseMesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DSubmesh3.MapTrianglesToSubmesh(System.Int32[])
+  commentId: M:g3.DSubmesh3.MapTrianglesToSubmesh(System.Int32[])
+  id: MapTrianglesToSubmesh(System.Int32[])
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: MapTrianglesToSubmesh(Int32[])
+  nameWithType: DSubmesh3.MapTrianglesToSubmesh(Int32[])
+  fullName: g3.DSubmesh3.MapTrianglesToSubmesh(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapTrianglesToSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void MapTrianglesToSubmesh(int[] triangles)
+    parameters:
+    - id: triangles
+      type: System.Int32[]
+    content.vb: Public Sub MapTrianglesToSubmesh(triangles As Integer())
+  overload: g3.DSubmesh3.MapTrianglesToSubmesh*
+  nameWithType.vb: DSubmesh3.MapTrianglesToSubmesh(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.MapTrianglesToSubmesh(System.Int32())
+  name.vb: MapTrianglesToSubmesh(Int32())
+- uid: g3.DSubmesh3.ComputeBoundaryInfo(System.Int32[])
+  commentId: M:g3.DSubmesh3.ComputeBoundaryInfo(System.Int32[])
+  id: ComputeBoundaryInfo(System.Int32[])
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: ComputeBoundaryInfo(Int32[])
+  nameWithType: DSubmesh3.ComputeBoundaryInfo(Int32[])
+  fullName: g3.DSubmesh3.ComputeBoundaryInfo(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeBoundaryInfo
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 125
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ComputeBoundaryInfo(int[] subTriangles)
+    parameters:
+    - id: subTriangles
+      type: System.Int32[]
+    content.vb: Public Sub ComputeBoundaryInfo(subTriangles As Integer())
+  overload: g3.DSubmesh3.ComputeBoundaryInfo*
+  nameWithType.vb: DSubmesh3.ComputeBoundaryInfo(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.ComputeBoundaryInfo(System.Int32())
+  name.vb: ComputeBoundaryInfo(Int32())
+- uid: g3.DSubmesh3.ComputeBoundaryInfo(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  commentId: M:g3.DSubmesh3.ComputeBoundaryInfo(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  id: ComputeBoundaryInfo(System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: ComputeBoundaryInfo(IEnumerable<Int32>, Int32)
+  nameWithType: DSubmesh3.ComputeBoundaryInfo(IEnumerable<Int32>, Int32)
+  fullName: g3.DSubmesh3.ComputeBoundaryInfo(System.Collections.Generic.IEnumerable<System.Int32>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeBoundaryInfo
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 128
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ComputeBoundaryInfo(IEnumerable<int> triangles, int tri_count_est)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: tri_count_est
+      type: System.Int32
+    content.vb: Public Sub ComputeBoundaryInfo(triangles As IEnumerable(Of Integer), tri_count_est As Integer)
+  overload: g3.DSubmesh3.ComputeBoundaryInfo*
+  nameWithType.vb: DSubmesh3.ComputeBoundaryInfo(IEnumerable(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSubmesh3.ComputeBoundaryInfo(System.Collections.Generic.IEnumerable(Of System.Int32), System.Int32)
+  name.vb: ComputeBoundaryInfo(IEnumerable(Of Int32), Int32)
+- uid: g3.DSubmesh3.QuickSubmesh(g3.DMesh3,System.Int32[])
+  commentId: M:g3.DSubmesh3.QuickSubmesh(g3.DMesh3,System.Int32[])
+  id: QuickSubmesh(g3.DMesh3,System.Int32[])
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: QuickSubmesh(DMesh3, Int32[])
+  nameWithType: DSubmesh3.QuickSubmesh(DMesh3, Int32[])
+  fullName: g3.DSubmesh3.QuickSubmesh(g3.DMesh3, System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: QuickSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 220
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static DMesh3 QuickSubmesh(DMesh3 mesh, int[] triangles)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: triangles
+      type: System.Int32[]
+    return:
+      type: g3.DMesh3
+    content.vb: Public Shared Function QuickSubmesh(mesh As DMesh3, triangles As Integer()) As DMesh3
+  overload: g3.DSubmesh3.QuickSubmesh*
+  nameWithType.vb: DSubmesh3.QuickSubmesh(DMesh3, Int32())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.DSubmesh3.QuickSubmesh(g3.DMesh3, System.Int32())
+  name.vb: QuickSubmesh(DMesh3, Int32())
+- uid: g3.DSubmesh3.QuickSubmesh(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.DSubmesh3.QuickSubmesh(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  id: QuickSubmesh(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.DSubmesh3
+  langs:
+  - csharp
+  - vb
+  name: QuickSubmesh(DMesh3, IEnumerable<Int32>)
+  nameWithType: DSubmesh3.QuickSubmesh(DMesh3, IEnumerable<Int32>)
+  fullName: g3.DSubmesh3.QuickSubmesh(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DSubmesh3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: QuickSubmesh
+    path: ../Assets/geometry3Sharp/mesh/DSubmesh3.cs
+    startLine: 224
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static DMesh3 QuickSubmesh(DMesh3 mesh, IEnumerable<int> triangles)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    return:
+      type: g3.DMesh3
+    content.vb: Public Shared Function QuickSubmesh(mesh As DMesh3, triangles As IEnumerable(Of Integer)) As DMesh3
+  overload: g3.DSubmesh3.QuickSubmesh*
+  nameWithType.vb: DSubmesh3.QuickSubmesh(DMesh3, IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.DSubmesh3.QuickSubmesh(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: QuickSubmesh(DMesh3, IEnumerable(Of Int32))
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshComponents
+  commentId: T:g3.MeshComponents
+  parent: g3
+  name: MeshComponents
+  nameWithType: MeshComponents
+  fullName: g3.MeshComponents
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IndexFlagSet
+  commentId: T:g3.IndexFlagSet
+  parent: g3
+  name: IndexFlagSet
+  nameWithType: IndexFlagSet
+  fullName: g3.IndexFlagSet
+- uid: g3.IndexMap
+  commentId: T:g3.IndexMap
+  parent: g3
+  name: IndexMap
+  nameWithType: IndexMap
+  fullName: g3.IndexMap
+- uid: g3.DVector{System.Int32}
+  commentId: T:g3.DVector{System.Int32}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Int32>
+  nameWithType: DVector<Int32>
+  fullName: g3.DVector<System.Int32>
+  nameWithType.vb: DVector(Of Int32)
+  fullName.vb: g3.DVector(Of System.Int32)
+  name.vb: DVector(Of Int32)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector`1
+  commentId: T:g3.DVector`1
+  parent: g3
+  name: DVector<T>
+  nameWithType: DVector<T>
+  fullName: g3.DVector<T>
+  nameWithType.vb: DVector(Of T)
+  fullName.vb: g3.DVector(Of T)
+  name.vb: DVector(Of T)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.IndexHashSet
+  commentId: T:g3.IndexHashSet
+  parent: g3
+  name: IndexHashSet
+  nameWithType: IndexHashSet
+  fullName: g3.IndexHashSet
+- uid: g3.DSubmesh3.#ctor*
+  commentId: Overload:g3.DSubmesh3.#ctor
+  name: DSubmesh3
+  nameWithType: DSubmesh3.DSubmesh3
+  fullName: g3.DSubmesh3.DSubmesh3
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.DSubmesh3.Compute*
+  commentId: Overload:g3.DSubmesh3.Compute
+  name: Compute
+  nameWithType: DSubmesh3.Compute
+  fullName: g3.DSubmesh3.Compute
+- uid: g3.DSubmesh3.MapVertexToSubmesh*
+  commentId: Overload:g3.DSubmesh3.MapVertexToSubmesh
+  name: MapVertexToSubmesh
+  nameWithType: DSubmesh3.MapVertexToSubmesh
+  fullName: g3.DSubmesh3.MapVertexToSubmesh
+- uid: g3.DSubmesh3.MapVertexToBaseMesh*
+  commentId: Overload:g3.DSubmesh3.MapVertexToBaseMesh
+  name: MapVertexToBaseMesh
+  nameWithType: DSubmesh3.MapVertexToBaseMesh
+  fullName: g3.DSubmesh3.MapVertexToBaseMesh
+- uid: g3.DSubmesh3.MapVerticesToSubmesh*
+  commentId: Overload:g3.DSubmesh3.MapVerticesToSubmesh
+  name: MapVerticesToSubmesh
+  nameWithType: DSubmesh3.MapVerticesToSubmesh
+  fullName: g3.DSubmesh3.MapVerticesToSubmesh
+- uid: g3.Index2i
+  commentId: T:g3.Index2i
+  parent: g3
+  name: Index2i
+  nameWithType: Index2i
+  fullName: g3.Index2i
+- uid: g3.DSubmesh3.MapVerticesToBaseMesh*
+  commentId: Overload:g3.DSubmesh3.MapVerticesToBaseMesh
+  name: MapVerticesToBaseMesh
+  nameWithType: DSubmesh3.MapVerticesToBaseMesh
+  fullName: g3.DSubmesh3.MapVerticesToBaseMesh
+- uid: g3.DSubmesh3.MapEdgeToSubmesh*
+  commentId: Overload:g3.DSubmesh3.MapEdgeToSubmesh
+  name: MapEdgeToSubmesh
+  nameWithType: DSubmesh3.MapEdgeToSubmesh
+  fullName: g3.DSubmesh3.MapEdgeToSubmesh
+- uid: g3.DSubmesh3.MapEdgesToSubmesh*
+  commentId: Overload:g3.DSubmesh3.MapEdgesToSubmesh
+  name: MapEdgesToSubmesh
+  nameWithType: DSubmesh3.MapEdgesToSubmesh
+  fullName: g3.DSubmesh3.MapEdgesToSubmesh
+- uid: g3.DSubmesh3.MapEdgeToBaseMesh*
+  commentId: Overload:g3.DSubmesh3.MapEdgeToBaseMesh
+  name: MapEdgeToBaseMesh
+  nameWithType: DSubmesh3.MapEdgeToBaseMesh
+  fullName: g3.DSubmesh3.MapEdgeToBaseMesh
+- uid: g3.DSubmesh3.MapTriangleToSubmesh*
+  commentId: Overload:g3.DSubmesh3.MapTriangleToSubmesh
+  name: MapTriangleToSubmesh
+  nameWithType: DSubmesh3.MapTriangleToSubmesh
+  fullName: g3.DSubmesh3.MapTriangleToSubmesh
+- uid: g3.DSubmesh3.MapTriangleToBaseMesh*
+  commentId: Overload:g3.DSubmesh3.MapTriangleToBaseMesh
+  name: MapTriangleToBaseMesh
+  nameWithType: DSubmesh3.MapTriangleToBaseMesh
+  fullName: g3.DSubmesh3.MapTriangleToBaseMesh
+- uid: g3.DSubmesh3.MapTrianglesToSubmesh*
+  commentId: Overload:g3.DSubmesh3.MapTrianglesToSubmesh
+  name: MapTrianglesToSubmesh
+  nameWithType: DSubmesh3.MapTrianglesToSubmesh
+  fullName: g3.DSubmesh3.MapTrianglesToSubmesh
+- uid: g3.DSubmesh3.ComputeBoundaryInfo*
+  commentId: Overload:g3.DSubmesh3.ComputeBoundaryInfo
+  name: ComputeBoundaryInfo
+  nameWithType: DSubmesh3.ComputeBoundaryInfo
+  fullName: g3.DSubmesh3.ComputeBoundaryInfo
+- uid: g3.DSubmesh3.QuickSubmesh*
+  commentId: Overload:g3.DSubmesh3.QuickSubmesh
+  name: QuickSubmesh
+  nameWithType: DSubmesh3.QuickSubmesh
+  fullName: g3.DSubmesh3.QuickSubmesh

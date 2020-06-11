@@ -1,0 +1,1187 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.CachingMeshSDF
+  commentId: T:g3.CachingMeshSDF
+  id: CachingMeshSDF
+  parent: g3
+  children:
+  - g3.CachingMeshSDF.#ctor(g3.DMesh3,System.Double,g3.DMeshAABBTree3)
+  - g3.CachingMeshSDF.CancelF
+  - g3.CachingMeshSDF.CellCenter(System.Int32,System.Int32,System.Int32)
+  - g3.CachingMeshSDF.CellSize
+  - g3.CachingMeshSDF.ClosestTriGrid
+  - g3.CachingMeshSDF.ComputeSigns
+  - g3.CachingMeshSDF.DebugPrint
+  - g3.CachingMeshSDF.Dimensions
+  - g3.CachingMeshSDF.ExpandBounds
+  - g3.CachingMeshSDF.GetValue(g3.Vector3i)
+  - g3.CachingMeshSDF.Grid
+  - g3.CachingMeshSDF.GridOrigin
+  - g3.CachingMeshSDF.Initialize
+  - g3.CachingMeshSDF.InsideMode
+  - g3.CachingMeshSDF.IntersectionsGrid
+  - g3.CachingMeshSDF.Item(g3.Vector3i)
+  - g3.CachingMeshSDF.Item(System.Int32,System.Int32,System.Int32)
+  - g3.CachingMeshSDF.MaxOffsetDistance
+  - g3.CachingMeshSDF.Mesh
+  - g3.CachingMeshSDF.orientation(System.Double,System.Double,System.Double,System.Double,System.Double@)
+  - g3.CachingMeshSDF.point_in_triangle_2d(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@)
+  - g3.CachingMeshSDF.Spatial
+  - g3.CachingMeshSDF.UseParallel
+  - g3.CachingMeshSDF.WantClosestTriGrid
+  - g3.CachingMeshSDF.WantIntersectionsGrid
+  langs:
+  - csharp
+  - vb
+  name: CachingMeshSDF
+  nameWithType: CachingMeshSDF
+  fullName: g3.CachingMeshSDF
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CachingMeshSDF
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n[RMS] this is variant of MeshSignedDistanceGrid that does lazy evaluation of actual distances,\nusing mesh spatial data structure. This is much faster if we are doing continuation-method\nmarching cubes as only values on surface will be computed!\n\n\n\nCompute discretely-sampled (ie gridded) signed distance field for a mesh\nThe basic approach is, first compute exact distances in a narrow band, and then\nextend out to rest of grid using fast &quot;sweeping&quot; (ie like a distance transform).\nThe resulting unsigned grid is then signed using ray-intersection counting, which\nis also computed on the grid, so no BVH is necessary\n\nIf you set ComputeMode to NarrowBandOnly, result is a narrow-band signed distance field.\nThis is quite a bit faster as the sweeping is the most computationally-intensive step.\n\nCaveats:\n- the &quot;narrow band&quot; is based on triangle bounding boxes, so it is not necessarily\nthat &quot;narrow&quot; if you have large triangles on a diagonal to grid axes\n\n\nPotential optimizations:\n- Often we have a spatial data structure that would allow faster computation of the\nnarrow-band distances (which become quite expensive if we want a wider band!)\nNot clear how to take advantage of this though. Perhaps we could have a binary\ngrid that, in first pass, we set bits inside triangle bboxes to 1? Or perhaps\nsame as current code, but we use spatial-dist, and so for each ijk we only compute once?\n(then have to test for computed value at each cell of each triangle...)\n\n\nThis code is based on the C++ implementation found at https://github.com/christopherbatty/SDFGen\nOriginal license was public domain. \nPermission granted by Christopher Batty to include C# port under Boost license.\n"
+  example: []
+  syntax:
+    content: public class CachingMeshSDF
+    content.vb: Public Class CachingMeshSDF
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.CachingMeshSDF.Mesh
+  commentId: F:g3.CachingMeshSDF.Mesh
+  id: Mesh
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: CachingMeshSDF.Mesh
+  fullName: g3.CachingMeshSDF.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.Spatial
+  commentId: F:g3.CachingMeshSDF.Spatial
+  id: Spatial
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Spatial
+  nameWithType: CachingMeshSDF.Spatial
+  fullName: g3.CachingMeshSDF.Spatial
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Spatial
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMeshAABBTree3 Spatial
+    return:
+      type: g3.DMeshAABBTree3
+    content.vb: Public Spatial As DMeshAABBTree3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.CellSize
+  commentId: F:g3.CachingMeshSDF.CellSize
+  id: CellSize
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: CellSize
+  nameWithType: CachingMeshSDF.CellSize
+  fullName: g3.CachingMeshSDF.CellSize
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CellSize
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float CellSize
+    return:
+      type: System.Single
+    content.vb: Public CellSize As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.ExpandBounds
+  commentId: F:g3.CachingMeshSDF.ExpandBounds
+  id: ExpandBounds
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: ExpandBounds
+  nameWithType: CachingMeshSDF.ExpandBounds
+  fullName: g3.CachingMeshSDF.ExpandBounds
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ExpandBounds
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d ExpandBounds
+    return:
+      type: g3.Vector3d
+    content.vb: Public ExpandBounds As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.MaxOffsetDistance
+  commentId: F:g3.CachingMeshSDF.MaxOffsetDistance
+  id: MaxOffsetDistance
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: MaxOffsetDistance
+  nameWithType: CachingMeshSDF.MaxOffsetDistance
+  fullName: g3.CachingMeshSDF.MaxOffsetDistance
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxOffsetDistance
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float MaxOffsetDistance
+    return:
+      type: System.Single
+    content.vb: Public MaxOffsetDistance As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.UseParallel
+  commentId: F:g3.CachingMeshSDF.UseParallel
+  id: UseParallel
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: UseParallel
+  nameWithType: CachingMeshSDF.UseParallel
+  fullName: g3.CachingMeshSDF.UseParallel
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UseParallel
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool UseParallel
+    return:
+      type: System.Boolean
+    content.vb: Public UseParallel As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.ComputeSigns
+  commentId: F:g3.CachingMeshSDF.ComputeSigns
+  id: ComputeSigns
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: ComputeSigns
+  nameWithType: CachingMeshSDF.ComputeSigns
+  fullName: g3.CachingMeshSDF.ComputeSigns
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeSigns
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 64
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool ComputeSigns
+    return:
+      type: System.Boolean
+    content.vb: Public ComputeSigns As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.InsideMode
+  commentId: F:g3.CachingMeshSDF.InsideMode
+  id: InsideMode
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: InsideMode
+  nameWithType: CachingMeshSDF.InsideMode
+  fullName: g3.CachingMeshSDF.InsideMode
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsideMode
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 77
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public CachingMeshSDF.InsideModes InsideMode
+    return:
+      type: g3.CachingMeshSDF.InsideModes
+    content.vb: Public InsideMode As CachingMeshSDF.InsideModes
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.WantClosestTriGrid
+  commentId: F:g3.CachingMeshSDF.WantClosestTriGrid
+  id: WantClosestTriGrid
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: WantClosestTriGrid
+  nameWithType: CachingMeshSDF.WantClosestTriGrid
+  fullName: g3.CachingMeshSDF.WantClosestTriGrid
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WantClosestTriGrid
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 81
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool WantClosestTriGrid
+    return:
+      type: System.Boolean
+    content.vb: Public WantClosestTriGrid As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.WantIntersectionsGrid
+  commentId: F:g3.CachingMeshSDF.WantIntersectionsGrid
+  id: WantIntersectionsGrid
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: WantIntersectionsGrid
+  nameWithType: CachingMeshSDF.WantIntersectionsGrid
+  fullName: g3.CachingMeshSDF.WantIntersectionsGrid
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WantIntersectionsGrid
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool WantIntersectionsGrid
+    return:
+      type: System.Boolean
+    content.vb: Public WantIntersectionsGrid As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.CancelF
+  commentId: F:g3.CachingMeshSDF.CancelF
+  id: CancelF
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: CancelF
+  nameWithType: CachingMeshSDF.CancelF
+  fullName: g3.CachingMeshSDF.CancelF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CancelF
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 87
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: 'if this function returns true, we should abort calculation '
+  example: []
+  syntax:
+    content: public Func<bool> CancelF
+    return:
+      type: System.Func{System.Boolean}
+    content.vb: Public CancelF As Func(Of Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.DebugPrint
+  commentId: F:g3.CachingMeshSDF.DebugPrint
+  id: DebugPrint
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: DebugPrint
+  nameWithType: CachingMeshSDF.DebugPrint
+  fullName: g3.CachingMeshSDF.DebugPrint
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DebugPrint
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 90
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool DebugPrint
+    return:
+      type: System.Boolean
+    content.vb: Public DebugPrint As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.#ctor(g3.DMesh3,System.Double,g3.DMeshAABBTree3)
+  commentId: M:g3.CachingMeshSDF.#ctor(g3.DMesh3,System.Double,g3.DMeshAABBTree3)
+  id: '#ctor(g3.DMesh3,System.Double,g3.DMeshAABBTree3)'
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: CachingMeshSDF(DMesh3, Double, DMeshAABBTree3)
+  nameWithType: CachingMeshSDF.CachingMeshSDF(DMesh3, Double, DMeshAABBTree3)
+  fullName: g3.CachingMeshSDF.CachingMeshSDF(g3.DMesh3, System.Double, g3.DMeshAABBTree3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 99
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public CachingMeshSDF(DMesh3 mesh, double cellSize, DMeshAABBTree3 spatial)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: cellSize
+      type: System.Double
+    - id: spatial
+      type: g3.DMeshAABBTree3
+    content.vb: Public Sub New(mesh As DMesh3, cellSize As Double, spatial As DMeshAABBTree3)
+  overload: g3.CachingMeshSDF.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.Initialize
+  commentId: M:g3.CachingMeshSDF.Initialize
+  id: Initialize
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: CachingMeshSDF.Initialize()
+  fullName: g3.CachingMeshSDF.Initialize()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Initialize
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 111
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Initialize()
+    content.vb: Public Sub Initialize
+  overload: g3.CachingMeshSDF.Initialize*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.GetValue(g3.Vector3i)
+  commentId: M:g3.CachingMeshSDF.GetValue(g3.Vector3i)
+  id: GetValue(g3.Vector3i)
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: GetValue(Vector3i)
+  nameWithType: CachingMeshSDF.GetValue(Vector3i)
+  fullName: g3.CachingMeshSDF.GetValue(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetValue
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 152
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float GetValue(Vector3i idx)
+    parameters:
+    - id: idx
+      type: g3.Vector3i
+    return:
+      type: System.Single
+    content.vb: Public Function GetValue(idx As Vector3i) As Single
+  overload: g3.CachingMeshSDF.GetValue*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.Dimensions
+  commentId: P:g3.CachingMeshSDF.Dimensions
+  id: Dimensions
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Dimensions
+  nameWithType: CachingMeshSDF.Dimensions
+  fullName: g3.CachingMeshSDF.Dimensions
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dimensions
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 183
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i Dimensions { get; }
+    parameters: []
+    return:
+      type: g3.Vector3i
+    content.vb: Public ReadOnly Property Dimensions As Vector3i
+  overload: g3.CachingMeshSDF.Dimensions*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.CachingMeshSDF.Grid
+  commentId: P:g3.CachingMeshSDF.Grid
+  id: Grid
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: CachingMeshSDF.Grid
+  fullName: g3.CachingMeshSDF.Grid
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Grid
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 190
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSDF grid available after calling Compute()\n"
+  example: []
+  syntax:
+    content: public DenseGrid3f Grid { get; }
+    parameters: []
+    return:
+      type: g3.DenseGrid3f
+    content.vb: Public ReadOnly Property Grid As DenseGrid3f
+  overload: g3.CachingMeshSDF.Grid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.CachingMeshSDF.GridOrigin
+  commentId: P:g3.CachingMeshSDF.GridOrigin
+  id: GridOrigin
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: GridOrigin
+  nameWithType: CachingMeshSDF.GridOrigin
+  fullName: g3.CachingMeshSDF.GridOrigin
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GridOrigin
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 197
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nOrigin of the SDF grid, in same coordinates as mesh\n"
+  example: []
+  syntax:
+    content: public Vector3f GridOrigin { get; }
+    parameters: []
+    return:
+      type: g3.Vector3f
+    content.vb: Public ReadOnly Property GridOrigin As Vector3f
+  overload: g3.CachingMeshSDF.GridOrigin*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.CachingMeshSDF.ClosestTriGrid
+  commentId: P:g3.CachingMeshSDF.ClosestTriGrid
+  id: ClosestTriGrid
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: ClosestTriGrid
+  nameWithType: CachingMeshSDF.ClosestTriGrid
+  fullName: g3.CachingMeshSDF.ClosestTriGrid
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ClosestTriGrid
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 202
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGrid3i ClosestTriGrid { get; }
+    parameters: []
+    return:
+      type: g3.DenseGrid3i
+    content.vb: Public ReadOnly Property ClosestTriGrid As DenseGrid3i
+  overload: g3.CachingMeshSDF.ClosestTriGrid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.CachingMeshSDF.IntersectionsGrid
+  commentId: P:g3.CachingMeshSDF.IntersectionsGrid
+  id: IntersectionsGrid
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: IntersectionsGrid
+  nameWithType: CachingMeshSDF.IntersectionsGrid
+  fullName: g3.CachingMeshSDF.IntersectionsGrid
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntersectionsGrid
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 209
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGrid3i IntersectionsGrid { get; }
+    parameters: []
+    return:
+      type: g3.DenseGrid3i
+    content.vb: Public ReadOnly Property IntersectionsGrid As DenseGrid3i
+  overload: g3.CachingMeshSDF.IntersectionsGrid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.CachingMeshSDF.Item(System.Int32,System.Int32,System.Int32)
+  commentId: P:g3.CachingMeshSDF.Item(System.Int32,System.Int32,System.Int32)
+  id: Item(System.Int32,System.Int32,System.Int32)
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32, Int32, Int32]
+  nameWithType: CachingMeshSDF.Item[Int32, Int32, Int32]
+  fullName: g3.CachingMeshSDF.Item[System.Int32, System.Int32, System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 218
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float this[int i, int j, int k] { get; }
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Item(i As Integer, j As Integer, k As Integer) As Single
+  overload: g3.CachingMeshSDF.Item*
+  nameWithType.vb: CachingMeshSDF.Item(Int32, Int32, Int32)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.CachingMeshSDF.Item(System.Int32, System.Int32, System.Int32)
+  name.vb: Item(Int32, Int32, Int32)
+- uid: g3.CachingMeshSDF.Item(g3.Vector3i)
+  commentId: P:g3.CachingMeshSDF.Item(g3.Vector3i)
+  id: Item(g3.Vector3i)
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: Item[Vector3i]
+  nameWithType: CachingMeshSDF.Item[Vector3i]
+  fullName: g3.CachingMeshSDF.Item[g3.Vector3i]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 221
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float this[Vector3i idx] { get; }
+    parameters:
+    - id: idx
+      type: g3.Vector3i
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property Item(idx As Vector3i) As Single
+  overload: g3.CachingMeshSDF.Item*
+  nameWithType.vb: CachingMeshSDF.Item(Vector3i)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.CachingMeshSDF.Item(g3.Vector3i)
+  name.vb: Item(Vector3i)
+- uid: g3.CachingMeshSDF.CellCenter(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.CachingMeshSDF.CellCenter(System.Int32,System.Int32,System.Int32)
+  id: CellCenter(System.Int32,System.Int32,System.Int32)
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: CellCenter(Int32, Int32, Int32)
+  nameWithType: CachingMeshSDF.CellCenter(Int32, Int32, Int32)
+  fullName: g3.CachingMeshSDF.CellCenter(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CellCenter
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 225
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3f CellCenter(int i, int j, int k)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    return:
+      type: g3.Vector3f
+    content.vb: Public Function CellCenter(i As Integer, j As Integer, k As Integer) As Vector3f
+  overload: g3.CachingMeshSDF.CellCenter*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDF.orientation(System.Double,System.Double,System.Double,System.Double,System.Double@)
+  commentId: M:g3.CachingMeshSDF.orientation(System.Double,System.Double,System.Double,System.Double,System.Double@)
+  id: orientation(System.Double,System.Double,System.Double,System.Double,System.Double@)
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: orientation(Double, Double, Double, Double, out Double)
+  nameWithType: CachingMeshSDF.orientation(Double, Double, Double, Double, out Double)
+  fullName: g3.CachingMeshSDF.orientation(System.Double, System.Double, System.Double, System.Double, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: orientation
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 360
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static int orientation(double x1, double y1, double x2, double y2, out double twice_signed_area)
+    parameters:
+    - id: x1
+      type: System.Double
+    - id: y1
+      type: System.Double
+    - id: x2
+      type: System.Double
+    - id: y2
+      type: System.Double
+    - id: twice_signed_area
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function orientation(x1 As Double, y1 As Double, x2 As Double, y2 As Double, ByRef twice_signed_area As Double) As Integer
+  overload: g3.CachingMeshSDF.orientation*
+  nameWithType.vb: CachingMeshSDF.orientation(Double, Double, Double, Double, ByRef Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CachingMeshSDF.orientation(System.Double, System.Double, System.Double, System.Double, ByRef System.Double)
+  name.vb: orientation(Double, Double, Double, Double, ByRef Double)
+- uid: g3.CachingMeshSDF.point_in_triangle_2d(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@)
+  commentId: M:g3.CachingMeshSDF.point_in_triangle_2d(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@)
+  id: point_in_triangle_2d(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@)
+  parent: g3.CachingMeshSDF
+  langs:
+  - csharp
+  - vb
+  name: point_in_triangle_2d(Double, Double, Double, Double, Double, Double, Double, Double, out Double, out Double, out Double)
+  nameWithType: CachingMeshSDF.point_in_triangle_2d(Double, Double, Double, Double, Double, Double, Double, Double, out Double, out Double, out Double)
+  fullName: g3.CachingMeshSDF.point_in_triangle_2d(System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, out System.Double, out System.Double, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: point_in_triangle_2d
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 375
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool point_in_triangle_2d(double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3, out double a, out double b, out double c)
+    parameters:
+    - id: x0
+      type: System.Double
+    - id: y0
+      type: System.Double
+    - id: x1
+      type: System.Double
+    - id: y1
+      type: System.Double
+    - id: x2
+      type: System.Double
+    - id: y2
+      type: System.Double
+    - id: x3
+      type: System.Double
+    - id: y3
+      type: System.Double
+    - id: a
+      type: System.Double
+    - id: b
+      type: System.Double
+    - id: c
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function point_in_triangle_2d(x0 As Double, y0 As Double, x1 As Double, y1 As Double, x2 As Double, y2 As Double, x3 As Double, y3 As Double, ByRef a As Double, ByRef b As Double, ByRef c As Double) As Boolean
+  overload: g3.CachingMeshSDF.point_in_triangle_2d*
+  nameWithType.vb: CachingMeshSDF.point_in_triangle_2d(Double, Double, Double, Double, Double, Double, Double, Double, ByRef Double, ByRef Double, ByRef Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CachingMeshSDF.point_in_triangle_2d(System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, ByRef System.Double, ByRef System.Double, ByRef System.Double)
+  name.vb: point_in_triangle_2d(Double, Double, Double, Double, Double, Double, Double, Double, ByRef Double, ByRef Double, ByRef Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.DMeshAABBTree3
+  commentId: T:g3.DMeshAABBTree3
+  parent: g3
+  name: DMeshAABBTree3
+  nameWithType: DMeshAABBTree3
+  fullName: g3.DMeshAABBTree3
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.CachingMeshSDF.InsideModes
+  commentId: T:g3.CachingMeshSDF.InsideModes
+  parent: g3
+  name: CachingMeshSDF.InsideModes
+  nameWithType: CachingMeshSDF.InsideModes
+  fullName: g3.CachingMeshSDF.InsideModes
+- uid: System.Func{System.Boolean}
+  commentId: T:System.Func{System.Boolean}
+  parent: System
+  definition: System.Func`1
+  name: Func<Boolean>
+  nameWithType: Func<Boolean>
+  fullName: System.Func<System.Boolean>
+  nameWithType.vb: Func(Of Boolean)
+  fullName.vb: System.Func(Of System.Boolean)
+  name.vb: Func(Of Boolean)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CachingMeshSDF.#ctor*
+  commentId: Overload:g3.CachingMeshSDF.#ctor
+  name: CachingMeshSDF
+  nameWithType: CachingMeshSDF.CachingMeshSDF
+  fullName: g3.CachingMeshSDF.CachingMeshSDF
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.CachingMeshSDF.Initialize*
+  commentId: Overload:g3.CachingMeshSDF.Initialize
+  name: Initialize
+  nameWithType: CachingMeshSDF.Initialize
+  fullName: g3.CachingMeshSDF.Initialize
+- uid: g3.CachingMeshSDF.GetValue*
+  commentId: Overload:g3.CachingMeshSDF.GetValue
+  name: GetValue
+  nameWithType: CachingMeshSDF.GetValue
+  fullName: g3.CachingMeshSDF.GetValue
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  parent: g3
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+- uid: g3.CachingMeshSDF.Dimensions*
+  commentId: Overload:g3.CachingMeshSDF.Dimensions
+  name: Dimensions
+  nameWithType: CachingMeshSDF.Dimensions
+  fullName: g3.CachingMeshSDF.Dimensions
+- uid: g3.CachingMeshSDF.Grid*
+  commentId: Overload:g3.CachingMeshSDF.Grid
+  name: Grid
+  nameWithType: CachingMeshSDF.Grid
+  fullName: g3.CachingMeshSDF.Grid
+- uid: g3.DenseGrid3f
+  commentId: T:g3.DenseGrid3f
+  parent: g3
+  name: DenseGrid3f
+  nameWithType: DenseGrid3f
+  fullName: g3.DenseGrid3f
+- uid: g3.CachingMeshSDF.GridOrigin*
+  commentId: Overload:g3.CachingMeshSDF.GridOrigin
+  name: GridOrigin
+  nameWithType: CachingMeshSDF.GridOrigin
+  fullName: g3.CachingMeshSDF.GridOrigin
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.CachingMeshSDF.ClosestTriGrid*
+  commentId: Overload:g3.CachingMeshSDF.ClosestTriGrid
+  name: ClosestTriGrid
+  nameWithType: CachingMeshSDF.ClosestTriGrid
+  fullName: g3.CachingMeshSDF.ClosestTriGrid
+- uid: g3.DenseGrid3i
+  commentId: T:g3.DenseGrid3i
+  parent: g3
+  name: DenseGrid3i
+  nameWithType: DenseGrid3i
+  fullName: g3.DenseGrid3i
+- uid: g3.CachingMeshSDF.IntersectionsGrid*
+  commentId: Overload:g3.CachingMeshSDF.IntersectionsGrid
+  name: IntersectionsGrid
+  nameWithType: CachingMeshSDF.IntersectionsGrid
+  fullName: g3.CachingMeshSDF.IntersectionsGrid
+- uid: g3.CachingMeshSDF.Item*
+  commentId: Overload:g3.CachingMeshSDF.Item
+  name: Item
+  nameWithType: CachingMeshSDF.Item
+  fullName: g3.CachingMeshSDF.Item
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.CachingMeshSDF.CellCenter*
+  commentId: Overload:g3.CachingMeshSDF.CellCenter
+  name: CellCenter
+  nameWithType: CachingMeshSDF.CellCenter
+  fullName: g3.CachingMeshSDF.CellCenter
+- uid: g3.CachingMeshSDF.orientation*
+  commentId: Overload:g3.CachingMeshSDF.orientation
+  name: orientation
+  nameWithType: CachingMeshSDF.orientation
+  fullName: g3.CachingMeshSDF.orientation
+- uid: g3.CachingMeshSDF.point_in_triangle_2d*
+  commentId: Overload:g3.CachingMeshSDF.point_in_triangle_2d
+  name: point_in_triangle_2d
+  nameWithType: CachingMeshSDF.point_in_triangle_2d
+  fullName: g3.CachingMeshSDF.point_in_triangle_2d

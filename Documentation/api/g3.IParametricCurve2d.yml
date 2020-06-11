@@ -1,0 +1,485 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  id: IParametricCurve2d
+  parent: g3
+  children:
+  - g3.IParametricCurve2d.ArcLength
+  - g3.IParametricCurve2d.Clone
+  - g3.IParametricCurve2d.HasArcLength
+  - g3.IParametricCurve2d.IsClosed
+  - g3.IParametricCurve2d.IsTransformable
+  - g3.IParametricCurve2d.ParamLength
+  - g3.IParametricCurve2d.Reverse
+  - g3.IParametricCurve2d.SampleArcLength(System.Double)
+  - g3.IParametricCurve2d.SampleT(System.Double)
+  - g3.IParametricCurve2d.TangentT(System.Double)
+  - g3.IParametricCurve2d.Transform(g3.ITransform2)
+  langs:
+  - csharp
+  - vb
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+  type: Interface
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IParametricCurve2d
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public interface IParametricCurve2d
+    content.vb: Public Interface IParametricCurve2d
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: g3.IParametricCurve2d.IsClosed
+  commentId: P:g3.IParametricCurve2d.IsClosed
+  id: IsClosed
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: IParametricCurve2d.IsClosed
+  fullName: g3.IParametricCurve2d.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: bool IsClosed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsClosed As Boolean
+  overload: g3.IParametricCurve2d.IsClosed*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: g3.IParametricCurve2d.ParamLength
+  commentId: P:g3.IParametricCurve2d.ParamLength
+  id: ParamLength
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: ParamLength
+  nameWithType: IParametricCurve2d.ParamLength
+  fullName: g3.IParametricCurve2d.ParamLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ParamLength
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: double ParamLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: ReadOnly Property ParamLength As Double
+  overload: g3.IParametricCurve2d.ParamLength*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: g3.IParametricCurve2d.SampleT(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleT(System.Double)
+  id: SampleT(System.Double)
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: SampleT(Double)
+  nameWithType: IParametricCurve2d.SampleT(Double)
+  fullName: g3.IParametricCurve2d.SampleT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleT
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 52
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: Vector2d SampleT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Function SampleT(t As Double) As Vector2d
+  overload: g3.IParametricCurve2d.SampleT*
+- uid: g3.IParametricCurve2d.TangentT(System.Double)
+  commentId: M:g3.IParametricCurve2d.TangentT(System.Double)
+  id: TangentT(System.Double)
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: TangentT(Double)
+  nameWithType: IParametricCurve2d.TangentT(Double)
+  fullName: g3.IParametricCurve2d.TangentT(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TangentT
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: Vector2d TangentT(double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Function TangentT(t As Double) As Vector2d
+  overload: g3.IParametricCurve2d.TangentT*
+- uid: g3.IParametricCurve2d.HasArcLength
+  commentId: P:g3.IParametricCurve2d.HasArcLength
+  id: HasArcLength
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: HasArcLength
+  nameWithType: IParametricCurve2d.HasArcLength
+  fullName: g3.IParametricCurve2d.HasArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasArcLength
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: bool HasArcLength { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property HasArcLength As Boolean
+  overload: g3.IParametricCurve2d.HasArcLength*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: g3.IParametricCurve2d.ArcLength
+  commentId: P:g3.IParametricCurve2d.ArcLength
+  id: ArcLength
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: IParametricCurve2d.ArcLength
+  fullName: g3.IParametricCurve2d.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: ReadOnly Property ArcLength As Double
+  overload: g3.IParametricCurve2d.ArcLength*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  commentId: M:g3.IParametricCurve2d.SampleArcLength(System.Double)
+  id: SampleArcLength(System.Double)
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: SampleArcLength(Double)
+  nameWithType: IParametricCurve2d.SampleArcLength(Double)
+  fullName: g3.IParametricCurve2d.SampleArcLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampleArcLength
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: Vector2d SampleArcLength(double a)
+    parameters:
+    - id: a
+      type: System.Double
+    return:
+      type: g3.Vector2d
+    content.vb: Function SampleArcLength(a As Double) As Vector2d
+  overload: g3.IParametricCurve2d.SampleArcLength*
+- uid: g3.IParametricCurve2d.Reverse
+  commentId: M:g3.IParametricCurve2d.Reverse
+  id: Reverse
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: IParametricCurve2d.Reverse()
+  fullName: g3.IParametricCurve2d.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: void Reverse()
+    content.vb: Sub Reverse
+  overload: g3.IParametricCurve2d.Reverse*
+- uid: g3.IParametricCurve2d.IsTransformable
+  commentId: P:g3.IParametricCurve2d.IsTransformable
+  id: IsTransformable
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: IsTransformable
+  nameWithType: IParametricCurve2d.IsTransformable
+  fullName: g3.IParametricCurve2d.IsTransformable
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsTransformable
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: bool IsTransformable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsTransformable As Boolean
+  overload: g3.IParametricCurve2d.IsTransformable*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  commentId: M:g3.IParametricCurve2d.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: IParametricCurve2d.Transform(ITransform2)
+  fullName: g3.IParametricCurve2d.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: void Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    content.vb: Sub Transform(xform As ITransform2)
+  overload: g3.IParametricCurve2d.Transform*
+- uid: g3.IParametricCurve2d.Clone
+  commentId: M:g3.IParametricCurve2d.Clone
+  id: Clone
+  parent: g3.IParametricCurve2d
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: IParametricCurve2d.Clone()
+  fullName: g3.IParametricCurve2d.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/ICurve.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/ICurve.cs
+    startLine: 64
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: IParametricCurve2d Clone()
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Function Clone As IParametricCurve2d
+  overload: g3.IParametricCurve2d.Clone*
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IParametricCurve2d.IsClosed*
+  commentId: Overload:g3.IParametricCurve2d.IsClosed
+  name: IsClosed
+  nameWithType: IParametricCurve2d.IsClosed
+  fullName: g3.IParametricCurve2d.IsClosed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IParametricCurve2d.ParamLength*
+  commentId: Overload:g3.IParametricCurve2d.ParamLength
+  name: ParamLength
+  nameWithType: IParametricCurve2d.ParamLength
+  fullName: g3.IParametricCurve2d.ParamLength
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.IParametricCurve2d.SampleT*
+  commentId: Overload:g3.IParametricCurve2d.SampleT
+  name: SampleT
+  nameWithType: IParametricCurve2d.SampleT
+  fullName: g3.IParametricCurve2d.SampleT
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.IParametricCurve2d.TangentT*
+  commentId: Overload:g3.IParametricCurve2d.TangentT
+  name: TangentT
+  nameWithType: IParametricCurve2d.TangentT
+  fullName: g3.IParametricCurve2d.TangentT
+- uid: g3.IParametricCurve2d.HasArcLength*
+  commentId: Overload:g3.IParametricCurve2d.HasArcLength
+  name: HasArcLength
+  nameWithType: IParametricCurve2d.HasArcLength
+  fullName: g3.IParametricCurve2d.HasArcLength
+- uid: g3.IParametricCurve2d.ArcLength*
+  commentId: Overload:g3.IParametricCurve2d.ArcLength
+  name: ArcLength
+  nameWithType: IParametricCurve2d.ArcLength
+  fullName: g3.IParametricCurve2d.ArcLength
+- uid: g3.IParametricCurve2d.SampleArcLength*
+  commentId: Overload:g3.IParametricCurve2d.SampleArcLength
+  name: SampleArcLength
+  nameWithType: IParametricCurve2d.SampleArcLength
+  fullName: g3.IParametricCurve2d.SampleArcLength
+- uid: g3.IParametricCurve2d.Reverse*
+  commentId: Overload:g3.IParametricCurve2d.Reverse
+  name: Reverse
+  nameWithType: IParametricCurve2d.Reverse
+  fullName: g3.IParametricCurve2d.Reverse
+- uid: g3.IParametricCurve2d.IsTransformable*
+  commentId: Overload:g3.IParametricCurve2d.IsTransformable
+  name: IsTransformable
+  nameWithType: IParametricCurve2d.IsTransformable
+  fullName: g3.IParametricCurve2d.IsTransformable
+- uid: g3.IParametricCurve2d.Transform*
+  commentId: Overload:g3.IParametricCurve2d.Transform
+  name: Transform
+  nameWithType: IParametricCurve2d.Transform
+  fullName: g3.IParametricCurve2d.Transform
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.IParametricCurve2d.Clone*
+  commentId: Overload:g3.IParametricCurve2d.Clone
+  name: Clone
+  nameWithType: IParametricCurve2d.Clone
+  fullName: g3.IParametricCurve2d.Clone
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d

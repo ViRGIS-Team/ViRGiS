@@ -1,0 +1,698 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.TransformedMeshProjectionTarget
+  commentId: T:g3.TransformedMeshProjectionTarget
+  id: TransformedMeshProjectionTarget
+  parent: g3
+  children:
+  - g3.TransformedMeshProjectionTarget.#ctor
+  - g3.TransformedMeshProjectionTarget.#ctor(g3.DMesh3)
+  - g3.TransformedMeshProjectionTarget.#ctor(g3.DMesh3,g3.ISpatial)
+  - g3.TransformedMeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  - g3.TransformedMeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+  - g3.TransformedMeshProjectionTarget.SetTransform(g3.TransformSequence)
+  - g3.TransformedMeshProjectionTarget.SourceToTargetXForm
+  - g3.TransformedMeshProjectionTarget.TargetToSourceXForm
+  langs:
+  - csharp
+  - vb
+  name: TransformedMeshProjectionTarget
+  nameWithType: TransformedMeshProjectionTarget
+  fullName: g3.TransformedMeshProjectionTarget
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TransformedMeshProjectionTarget
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nExtension of MeshProjectionTarget that allows the target to have a transformation\nrelative to it&apos;s internal space. Call SetTransform(), or initialize the transforms yourself\n"
+  example: []
+  syntax:
+    content: 'public class TransformedMeshProjectionTarget : MeshProjectionTarget, IOrientedProjectionTarget, IProjectionTarget'
+    content.vb: >-
+      Public Class TransformedMeshProjectionTarget
+          Inherits MeshProjectionTarget
+          Implements IOrientedProjectionTarget, IProjectionTarget
+  inheritance:
+  - System.Object
+  - g3.MeshProjectionTarget
+  implements:
+  - g3.IOrientedProjectionTarget
+  - g3.IProjectionTarget
+  inheritedMembers:
+  - g3.MeshProjectionTarget.Mesh
+  - g3.MeshProjectionTarget.Spatial
+  - g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Boolean)
+  - g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.TransformedMeshProjectionTarget.SourceToTargetXForm
+  commentId: F:g3.TransformedMeshProjectionTarget.SourceToTargetXForm
+  id: SourceToTargetXForm
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: SourceToTargetXForm
+  nameWithType: TransformedMeshProjectionTarget.SourceToTargetXForm
+  fullName: g3.TransformedMeshProjectionTarget.SourceToTargetXForm
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SourceToTargetXForm
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 86
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence SourceToTargetXForm
+    return:
+      type: g3.TransformSequence
+    content.vb: Public SourceToTargetXForm As TransformSequence
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformedMeshProjectionTarget.TargetToSourceXForm
+  commentId: F:g3.TransformedMeshProjectionTarget.TargetToSourceXForm
+  id: TargetToSourceXForm
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: TargetToSourceXForm
+  nameWithType: TransformedMeshProjectionTarget.TargetToSourceXForm
+  fullName: g3.TransformedMeshProjectionTarget.TargetToSourceXForm
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TargetToSourceXForm
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 87
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformSequence TargetToSourceXForm
+    return:
+      type: g3.TransformSequence
+    content.vb: Public TargetToSourceXForm As TransformSequence
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformedMeshProjectionTarget.#ctor
+  commentId: M:g3.TransformedMeshProjectionTarget.#ctor
+  id: '#ctor'
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: TransformedMeshProjectionTarget()
+  nameWithType: TransformedMeshProjectionTarget.TransformedMeshProjectionTarget()
+  fullName: g3.TransformedMeshProjectionTarget.TransformedMeshProjectionTarget()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformedMeshProjectionTarget()
+    content.vb: Public Sub New
+  overload: g3.TransformedMeshProjectionTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformedMeshProjectionTarget.#ctor(g3.DMesh3,g3.ISpatial)
+  commentId: M:g3.TransformedMeshProjectionTarget.#ctor(g3.DMesh3,g3.ISpatial)
+  id: '#ctor(g3.DMesh3,g3.ISpatial)'
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: TransformedMeshProjectionTarget(DMesh3, ISpatial)
+  nameWithType: TransformedMeshProjectionTarget.TransformedMeshProjectionTarget(DMesh3, ISpatial)
+  fullName: g3.TransformedMeshProjectionTarget.TransformedMeshProjectionTarget(g3.DMesh3, g3.ISpatial)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 90
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformedMeshProjectionTarget(DMesh3 mesh, ISpatial spatial)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: spatial
+      type: g3.ISpatial
+    content.vb: Public Sub New(mesh As DMesh3, spatial As ISpatial)
+  overload: g3.TransformedMeshProjectionTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformedMeshProjectionTarget.#ctor(g3.DMesh3)
+  commentId: M:g3.TransformedMeshProjectionTarget.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: TransformedMeshProjectionTarget(DMesh3)
+  nameWithType: TransformedMeshProjectionTarget.TransformedMeshProjectionTarget(DMesh3)
+  fullName: g3.TransformedMeshProjectionTarget.TransformedMeshProjectionTarget(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 93
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public TransformedMeshProjectionTarget(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub New(mesh As DMesh3)
+  overload: g3.TransformedMeshProjectionTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformedMeshProjectionTarget.SetTransform(g3.TransformSequence)
+  commentId: M:g3.TransformedMeshProjectionTarget.SetTransform(g3.TransformSequence)
+  id: SetTransform(g3.TransformSequence)
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: SetTransform(TransformSequence)
+  nameWithType: TransformedMeshProjectionTarget.SetTransform(TransformSequence)
+  fullName: g3.TransformedMeshProjectionTarget.SetTransform(g3.TransformSequence)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetTransform
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetTransform(TransformSequence sourceToTargetX)
+    parameters:
+    - id: sourceToTargetX
+      type: g3.TransformSequence
+    content.vb: Public Sub SetTransform(sourceToTargetX As TransformSequence)
+  overload: g3.TransformedMeshProjectionTarget.SetTransform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TransformedMeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+  commentId: M:g3.TransformedMeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+  id: Project(g3.Vector3d,System.Int32)
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector3d, Int32)
+  nameWithType: TransformedMeshProjectionTarget.Project(Vector3d, Int32)
+  fullName: g3.TransformedMeshProjectionTarget.Project(g3.Vector3d, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector3d Project(Vector3d vPoint, int identifier = -1)
+    parameters:
+    - id: vPoint
+      type: g3.Vector3d
+    - id: identifier
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Public Overrides Function Project(vPoint As Vector3d, identifier As Integer = -1) As Vector3d
+  overridden: g3.MeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+  overload: g3.TransformedMeshProjectionTarget.Project*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.TransformedMeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  commentId: M:g3.TransformedMeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  id: Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  parent: g3.TransformedMeshProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector3d, out Vector3d, Int32)
+  nameWithType: TransformedMeshProjectionTarget.Project(Vector3d, out Vector3d, Int32)
+  fullName: g3.TransformedMeshProjectionTarget.Project(g3.Vector3d, out g3.Vector3d, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/spatial/BasicProjectionTargets.cs
+    startLine: 111
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override Vector3d Project(Vector3d vPoint, out Vector3d vProjectNormal, int identifier = -1)
+    parameters:
+    - id: vPoint
+      type: g3.Vector3d
+    - id: vProjectNormal
+      type: g3.Vector3d
+    - id: identifier
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Public Overrides Function Project(vPoint As Vector3d, ByRef vProjectNormal As Vector3d, identifier As Integer = -1) As Vector3d
+  overridden: g3.MeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  overload: g3.TransformedMeshProjectionTarget.Project*
+  nameWithType.vb: TransformedMeshProjectionTarget.Project(Vector3d, ByRef Vector3d, Int32)
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: g3.TransformedMeshProjectionTarget.Project(g3.Vector3d, ByRef g3.Vector3d, System.Int32)
+  name.vb: Project(Vector3d, ByRef Vector3d, Int32)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.MeshProjectionTarget
+  commentId: T:g3.MeshProjectionTarget
+  parent: g3
+  name: MeshProjectionTarget
+  nameWithType: MeshProjectionTarget
+  fullName: g3.MeshProjectionTarget
+- uid: g3.IOrientedProjectionTarget
+  commentId: T:g3.IOrientedProjectionTarget
+  parent: g3
+  name: IOrientedProjectionTarget
+  nameWithType: IOrientedProjectionTarget
+  fullName: g3.IOrientedProjectionTarget
+- uid: g3.IProjectionTarget
+  commentId: T:g3.IProjectionTarget
+  parent: g3
+  name: IProjectionTarget
+  nameWithType: IProjectionTarget
+  fullName: g3.IProjectionTarget
+- uid: g3.MeshProjectionTarget.Mesh
+  commentId: P:g3.MeshProjectionTarget.Mesh
+  parent: g3.MeshProjectionTarget
+  name: Mesh
+  nameWithType: MeshProjectionTarget.Mesh
+  fullName: g3.MeshProjectionTarget.Mesh
+- uid: g3.MeshProjectionTarget.Spatial
+  commentId: P:g3.MeshProjectionTarget.Spatial
+  parent: g3.MeshProjectionTarget
+  name: Spatial
+  nameWithType: MeshProjectionTarget.Spatial
+  fullName: g3.MeshProjectionTarget.Spatial
+- uid: g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Boolean)
+  commentId: M:g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Boolean)
+  parent: g3.MeshProjectionTarget
+  isExternal: true
+  name: Auto(DMesh3, Boolean)
+  nameWithType: MeshProjectionTarget.Auto(DMesh3, Boolean)
+  fullName: g3.MeshProjectionTarget.Auto(g3.DMesh3, System.Boolean)
+  spec.csharp:
+  - uid: g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Boolean)
+    name: Auto
+    nameWithType: MeshProjectionTarget.Auto
+    fullName: g3.MeshProjectionTarget.Auto
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Boolean)
+    name: Auto
+    nameWithType: MeshProjectionTarget.Auto
+    fullName: g3.MeshProjectionTarget.Auto
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  commentId: M:g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+  parent: g3.MeshProjectionTarget
+  isExternal: true
+  name: Auto(DMesh3, IEnumerable<Int32>, Int32)
+  nameWithType: MeshProjectionTarget.Auto(DMesh3, IEnumerable<Int32>, Int32)
+  fullName: g3.MeshProjectionTarget.Auto(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>, System.Int32)
+  nameWithType.vb: MeshProjectionTarget.Auto(DMesh3, IEnumerable(Of Int32), Int32)
+  fullName.vb: g3.MeshProjectionTarget.Auto(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32), System.Int32)
+  name.vb: Auto(DMesh3, IEnumerable(Of Int32), Int32)
+  spec.csharp:
+  - uid: g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+    name: Auto
+    nameWithType: MeshProjectionTarget.Auto
+    fullName: g3.MeshProjectionTarget.Auto
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshProjectionTarget.Auto(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Int32)
+    name: Auto
+    nameWithType: MeshProjectionTarget.Auto
+    fullName: g3.MeshProjectionTarget.Auto
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.TransformSequence
+  commentId: T:g3.TransformSequence
+  parent: g3
+  name: TransformSequence
+  nameWithType: TransformSequence
+  fullName: g3.TransformSequence
+- uid: g3.TransformedMeshProjectionTarget.#ctor*
+  commentId: Overload:g3.TransformedMeshProjectionTarget.#ctor
+  name: TransformedMeshProjectionTarget
+  nameWithType: TransformedMeshProjectionTarget.TransformedMeshProjectionTarget
+  fullName: g3.TransformedMeshProjectionTarget.TransformedMeshProjectionTarget
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.ISpatial
+  commentId: T:g3.ISpatial
+  parent: g3
+  name: ISpatial
+  nameWithType: ISpatial
+  fullName: g3.ISpatial
+- uid: g3.TransformedMeshProjectionTarget.SetTransform*
+  commentId: Overload:g3.TransformedMeshProjectionTarget.SetTransform
+  name: SetTransform
+  nameWithType: TransformedMeshProjectionTarget.SetTransform
+  fullName: g3.TransformedMeshProjectionTarget.SetTransform
+- uid: g3.MeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+  commentId: M:g3.MeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+  parent: g3.MeshProjectionTarget
+  isExternal: true
+  name: Project(Vector3d, Int32)
+  nameWithType: MeshProjectionTarget.Project(Vector3d, Int32)
+  fullName: g3.MeshProjectionTarget.Project(g3.Vector3d, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+    name: Project
+    nameWithType: MeshProjectionTarget.Project
+    fullName: g3.MeshProjectionTarget.Project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshProjectionTarget.Project(g3.Vector3d,System.Int32)
+    name: Project
+    nameWithType: MeshProjectionTarget.Project
+    fullName: g3.MeshProjectionTarget.Project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.TransformedMeshProjectionTarget.Project*
+  commentId: Overload:g3.TransformedMeshProjectionTarget.Project
+  name: Project
+  nameWithType: TransformedMeshProjectionTarget.Project
+  fullName: g3.TransformedMeshProjectionTarget.Project
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  commentId: M:g3.MeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+  parent: g3.MeshProjectionTarget
+  isExternal: true
+  name: Project(Vector3d, Vector3d, Int32)
+  nameWithType: MeshProjectionTarget.Project(Vector3d, Vector3d, Int32)
+  fullName: g3.MeshProjectionTarget.Project(g3.Vector3d, g3.Vector3d, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+    name: Project
+    nameWithType: MeshProjectionTarget.Project
+    fullName: g3.MeshProjectionTarget.Project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshProjectionTarget.Project(g3.Vector3d,g3.Vector3d@,System.Int32)
+    name: Project
+    nameWithType: MeshProjectionTarget.Project
+    fullName: g3.MeshProjectionTarget.Project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

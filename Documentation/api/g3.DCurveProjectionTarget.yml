@@ -1,0 +1,253 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DCurveProjectionTarget
+  commentId: T:g3.DCurveProjectionTarget
+  id: DCurveProjectionTarget
+  parent: g3
+  children:
+  - g3.DCurveProjectionTarget.#ctor(g3.DCurve3)
+  - g3.DCurveProjectionTarget.Curve
+  - g3.DCurveProjectionTarget.Project(g3.Vector3d,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: DCurveProjectionTarget
+  nameWithType: DCurveProjectionTarget
+  fullName: g3.DCurveProjectionTarget
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveProjection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DCurveProjectionTarget
+    path: ../Assets/geometry3Sharp/spatial/DCurveProjection.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class DCurveProjectionTarget : IProjectionTarget'
+    content.vb: >-
+      Public Class DCurveProjectionTarget
+          Implements IProjectionTarget
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IProjectionTarget
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DCurveProjectionTarget.Curve
+  commentId: F:g3.DCurveProjectionTarget.Curve
+  id: Curve
+  parent: g3.DCurveProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: Curve
+  nameWithType: DCurveProjectionTarget.Curve
+  fullName: g3.DCurveProjectionTarget.Curve
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveProjection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Curve
+    path: ../Assets/geometry3Sharp/spatial/DCurveProjection.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DCurve3 Curve
+    return:
+      type: g3.DCurve3
+    content.vb: Public Curve As DCurve3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurveProjectionTarget.#ctor(g3.DCurve3)
+  commentId: M:g3.DCurveProjectionTarget.#ctor(g3.DCurve3)
+  id: '#ctor(g3.DCurve3)'
+  parent: g3.DCurveProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: DCurveProjectionTarget(DCurve3)
+  nameWithType: DCurveProjectionTarget.DCurveProjectionTarget(DCurve3)
+  fullName: g3.DCurveProjectionTarget.DCurveProjectionTarget(g3.DCurve3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveProjection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/DCurveProjection.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DCurveProjectionTarget(DCurve3 curve)
+    parameters:
+    - id: curve
+      type: g3.DCurve3
+    content.vb: Public Sub New(curve As DCurve3)
+  overload: g3.DCurveProjectionTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurveProjectionTarget.Project(g3.Vector3d,System.Int32)
+  commentId: M:g3.DCurveProjectionTarget.Project(g3.Vector3d,System.Int32)
+  id: Project(g3.Vector3d,System.Int32)
+  parent: g3.DCurveProjectionTarget
+  langs:
+  - csharp
+  - vb
+  name: Project(Vector3d, Int32)
+  nameWithType: DCurveProjectionTarget.Project(Vector3d, Int32)
+  fullName: g3.DCurveProjectionTarget.Project(g3.Vector3d, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveProjection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Project
+    path: ../Assets/geometry3Sharp/spatial/DCurveProjection.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Project(Vector3d vPoint, int identifier = -1)
+    parameters:
+    - id: vPoint
+      type: g3.Vector3d
+    - id: identifier
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function Project(vPoint As Vector3d, identifier As Integer = -1) As Vector3d
+  overload: g3.DCurveProjectionTarget.Project*
+  implements:
+  - g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IProjectionTarget
+  commentId: T:g3.IProjectionTarget
+  parent: g3
+  name: IProjectionTarget
+  nameWithType: IProjectionTarget
+  fullName: g3.IProjectionTarget
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DCurve3
+  commentId: T:g3.DCurve3
+  parent: g3
+  name: DCurve3
+  nameWithType: DCurve3
+  fullName: g3.DCurve3
+- uid: g3.DCurveProjectionTarget.#ctor*
+  commentId: Overload:g3.DCurveProjectionTarget.#ctor
+  name: DCurveProjectionTarget
+  nameWithType: DCurveProjectionTarget.DCurveProjectionTarget
+  fullName: g3.DCurveProjectionTarget.DCurveProjectionTarget
+- uid: g3.DCurveProjectionTarget.Project*
+  commentId: Overload:g3.DCurveProjectionTarget.Project
+  name: Project
+  nameWithType: DCurveProjectionTarget.Project
+  fullName: g3.DCurveProjectionTarget.Project
+- uid: g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+  commentId: M:g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+  parent: g3.IProjectionTarget
+  isExternal: true
+  name: Project(Vector3d, Int32)
+  nameWithType: IProjectionTarget.Project(Vector3d, Int32)
+  fullName: g3.IProjectionTarget.Project(g3.Vector3d, System.Int32)
+  spec.csharp:
+  - uid: g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+    name: Project
+    nameWithType: IProjectionTarget.Project
+    fullName: g3.IProjectionTarget.Project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IProjectionTarget.Project(g3.Vector3d,System.Int32)
+    name: Project
+    nameWithType: IProjectionTarget.Project
+    fullName: g3.IProjectionTarget.Project
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

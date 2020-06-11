@@ -1,0 +1,490 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.PlanarComplex.Element
+  commentId: T:g3.PlanarComplex.Element
+  id: PlanarComplex.Element
+  parent: g3
+  children:
+  - g3.PlanarComplex.Element.Bounds
+  - g3.PlanarComplex.Element.Clone
+  - g3.PlanarComplex.Element.Color
+  - g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  - g3.PlanarComplex.Element.HasSetColor
+  - g3.PlanarComplex.Element.ID
+  - g3.PlanarComplex.Element.SegmentItr
+  - g3.PlanarComplex.Element.source
+  langs:
+  - csharp
+  - vb
+  name: PlanarComplex.Element
+  nameWithType: PlanarComplex.Element
+  fullName: g3.PlanarComplex.Element
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Element
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract class Element
+    content.vb: Public MustInherit Class Element
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - g3.PlanarComplex.SmoothCurveElement
+  - g3.PlanarComplex.SmoothLoopElement
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: g3.PlanarComplex.Element.source
+  commentId: F:g3.PlanarComplex.Element.source
+  id: source
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: source
+  nameWithType: PlanarComplex.Element.source
+  fullName: g3.PlanarComplex.Element.source
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: source
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IParametricCurve2d source
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Public source As IParametricCurve2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Element.ID
+  commentId: F:g3.PlanarComplex.Element.ID
+  id: ID
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: PlanarComplex.Element.ID
+  fullName: g3.PlanarComplex.Element.ID
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ID
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int ID
+    return:
+      type: System.Int32
+    content.vb: Public ID As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Element.Color
+  commentId: P:g3.PlanarComplex.Element.Color
+  id: Color
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: PlanarComplex.Element.Color
+  fullName: g3.PlanarComplex.Element.Color
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Color
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 37
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Colorf Color { get; set; }
+    parameters: []
+    return:
+      type: g3.Colorf
+    content.vb: Public Property Color As Colorf
+  overload: g3.PlanarComplex.Element.Color*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Element.HasSetColor
+  commentId: P:g3.PlanarComplex.Element.HasSetColor
+  id: HasSetColor
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: HasSetColor
+  nameWithType: PlanarComplex.Element.HasSetColor
+  fullName: g3.PlanarComplex.Element.HasSetColor
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasSetColor
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasSetColor { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasSetColor As Boolean
+  overload: g3.PlanarComplex.Element.HasSetColor*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  commentId: M:g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  id: copy_to(g3.PlanarComplex.Element)
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: copy_to(PlanarComplex.Element)
+  nameWithType: PlanarComplex.Element.copy_to(PlanarComplex.Element)
+  fullName: g3.PlanarComplex.Element.copy_to(g3.PlanarComplex.Element)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: copy_to
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void copy_to(PlanarComplex.Element new_element)
+    parameters:
+    - id: new_element
+      type: g3.PlanarComplex.Element
+    content.vb: Protected Sub copy_to(new_element As PlanarComplex.Element)
+  overload: g3.PlanarComplex.Element.copy_to*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.PlanarComplex.Element.SegmentItr
+  commentId: M:g3.PlanarComplex.Element.SegmentItr
+  id: SegmentItr
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: SegmentItr()
+  nameWithType: PlanarComplex.Element.SegmentItr()
+  fullName: g3.PlanarComplex.Element.SegmentItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 54
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract IEnumerable<Segment2d> SegmentItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Segment2d}
+    content.vb: Public MustOverride Function SegmentItr As IEnumerable(Of Segment2d)
+  overload: g3.PlanarComplex.Element.SegmentItr*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: g3.PlanarComplex.Element.Bounds
+  commentId: M:g3.PlanarComplex.Element.Bounds
+  id: Bounds
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: Bounds()
+  nameWithType: PlanarComplex.Element.Bounds()
+  fullName: g3.PlanarComplex.Element.Bounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract AxisAlignedBox2d Bounds()
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public MustOverride Function Bounds As AxisAlignedBox2d
+  overload: g3.PlanarComplex.Element.Bounds*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: g3.PlanarComplex.Element.Clone
+  commentId: M:g3.PlanarComplex.Element.Clone
+  id: Clone
+  parent: g3.PlanarComplex.Element
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: PlanarComplex.Element.Clone()
+  fullName: g3.PlanarComplex.Element.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public abstract PlanarComplex.Element Clone()
+    return:
+      type: g3.PlanarComplex.Element
+    content.vb: Public MustOverride Function Clone As PlanarComplex.Element
+  overload: g3.PlanarComplex.Element.Clone*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.PlanarComplex.Element.Color*
+  commentId: Overload:g3.PlanarComplex.Element.Color
+  name: Color
+  nameWithType: PlanarComplex.Element.Color
+  fullName: g3.PlanarComplex.Element.Color
+- uid: g3.Colorf
+  commentId: T:g3.Colorf
+  parent: g3
+  name: Colorf
+  nameWithType: Colorf
+  fullName: g3.Colorf
+- uid: g3.PlanarComplex.Element.HasSetColor*
+  commentId: Overload:g3.PlanarComplex.Element.HasSetColor
+  name: HasSetColor
+  nameWithType: PlanarComplex.Element.HasSetColor
+  fullName: g3.PlanarComplex.Element.HasSetColor
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.PlanarComplex.Element.copy_to*
+  commentId: Overload:g3.PlanarComplex.Element.copy_to
+  name: copy_to
+  nameWithType: PlanarComplex.Element.copy_to
+  fullName: g3.PlanarComplex.Element.copy_to
+- uid: g3.PlanarComplex.Element
+  commentId: T:g3.PlanarComplex.Element
+  parent: g3
+  name: PlanarComplex.Element
+  nameWithType: PlanarComplex.Element
+  fullName: g3.PlanarComplex.Element
+- uid: g3.PlanarComplex.Element.SegmentItr*
+  commentId: Overload:g3.PlanarComplex.Element.SegmentItr
+  name: SegmentItr
+  nameWithType: PlanarComplex.Element.SegmentItr
+  fullName: g3.PlanarComplex.Element.SegmentItr
+- uid: System.Collections.Generic.IEnumerable{g3.Segment2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Segment2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Segment2d>
+  nameWithType: IEnumerable<Segment2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Segment2d>
+  nameWithType.vb: IEnumerable(Of Segment2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Segment2d)
+  name.vb: IEnumerable(Of Segment2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.PlanarComplex.Element.Bounds*
+  commentId: Overload:g3.PlanarComplex.Element.Bounds
+  name: Bounds
+  nameWithType: PlanarComplex.Element.Bounds
+  fullName: g3.PlanarComplex.Element.Bounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.PlanarComplex.Element.Clone*
+  commentId: Overload:g3.PlanarComplex.Element.Clone
+  name: Clone
+  nameWithType: PlanarComplex.Element.Clone
+  fullName: g3.PlanarComplex.Element.Clone

@@ -1,0 +1,560 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshExtrudeLoop
+  commentId: T:g3.MeshExtrudeLoop
+  id: MeshExtrudeLoop
+  parent: g3
+  children:
+  - g3.MeshExtrudeLoop.#ctor(g3.DMesh3,g3.EdgeLoop)
+  - g3.MeshExtrudeLoop.Extrude(System.Int32)
+  - g3.MeshExtrudeLoop.Loop
+  - g3.MeshExtrudeLoop.Mesh
+  - g3.MeshExtrudeLoop.NewLoop
+  - g3.MeshExtrudeLoop.NewTriangles
+  - g3.MeshExtrudeLoop.PositionF
+  - g3.MeshExtrudeLoop.Validate
+  langs:
+  - csharp
+  - vb
+  name: MeshExtrudeLoop
+  nameWithType: MeshExtrudeLoop
+  fullName: g3.MeshExtrudeLoop
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshExtrudeLoop
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nAssumption is that Loop is a boundary loop on Mesh.\nOperation makes a duplicate loop of vertices, at location defind by PositionF,\nthen stitches input and new loops together with a ring of triangles.\n"
+  example: []
+  syntax:
+    content: public class MeshExtrudeLoop
+    content.vb: Public Class MeshExtrudeLoop
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshExtrudeLoop.Mesh
+  commentId: F:g3.MeshExtrudeLoop.Mesh
+  id: Mesh
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshExtrudeLoop.Mesh
+  fullName: g3.MeshExtrudeLoop.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshExtrudeLoop.Loop
+  commentId: F:g3.MeshExtrudeLoop.Loop
+  id: Loop
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: Loop
+  nameWithType: MeshExtrudeLoop.Loop
+  fullName: g3.MeshExtrudeLoop.Loop
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Loop
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoop Loop
+    return:
+      type: g3.EdgeLoop
+    content.vb: Public Loop As EdgeLoop
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshExtrudeLoop.PositionF
+  commentId: F:g3.MeshExtrudeLoop.PositionF
+  id: PositionF
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: PositionF
+  nameWithType: MeshExtrudeLoop.PositionF
+  fullName: g3.MeshExtrudeLoop.PositionF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PositionF
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<Vector3d, Vector3f, int, Vector3d> PositionF
+    return:
+      type: System.Func{g3.Vector3d,g3.Vector3f,System.Int32,g3.Vector3d}
+    content.vb: Public PositionF As Func(Of Vector3d, Vector3f, Integer, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshExtrudeLoop.NewTriangles
+  commentId: F:g3.MeshExtrudeLoop.NewTriangles
+  id: NewTriangles
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: NewTriangles
+  nameWithType: MeshExtrudeLoop.NewTriangles
+  fullName: g3.MeshExtrudeLoop.NewTriangles
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewTriangles
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] NewTriangles
+    return:
+      type: System.Int32[]
+    content.vb: Public NewTriangles As Integer()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshExtrudeLoop.NewLoop
+  commentId: F:g3.MeshExtrudeLoop.NewLoop
+  id: NewLoop
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: NewLoop
+  nameWithType: MeshExtrudeLoop.NewLoop
+  fullName: g3.MeshExtrudeLoop.NewLoop
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewLoop
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoop NewLoop
+    return:
+      type: g3.EdgeLoop
+    content.vb: Public NewLoop As EdgeLoop
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshExtrudeLoop.#ctor(g3.DMesh3,g3.EdgeLoop)
+  commentId: M:g3.MeshExtrudeLoop.#ctor(g3.DMesh3,g3.EdgeLoop)
+  id: '#ctor(g3.DMesh3,g3.EdgeLoop)'
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: MeshExtrudeLoop(DMesh3, EdgeLoop)
+  nameWithType: MeshExtrudeLoop.MeshExtrudeLoop(DMesh3, EdgeLoop)
+  fullName: g3.MeshExtrudeLoop.MeshExtrudeLoop(g3.DMesh3, g3.EdgeLoop)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshExtrudeLoop(DMesh3 mesh, EdgeLoop loop)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: loop
+      type: g3.EdgeLoop
+    content.vb: Public Sub New(mesh As DMesh3, loop As EdgeLoop)
+  overload: g3.MeshExtrudeLoop.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshExtrudeLoop.Validate
+  commentId: M:g3.MeshExtrudeLoop.Validate
+  id: Validate
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: Validate()
+  nameWithType: MeshExtrudeLoop.Validate()
+  fullName: g3.MeshExtrudeLoop.Validate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Validate
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 37
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual ValidationStatus Validate()
+    return:
+      type: g3.ValidationStatus
+    content.vb: Public Overridable Function Validate As ValidationStatus
+  overload: g3.MeshExtrudeLoop.Validate*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.MeshExtrudeLoop.Extrude(System.Int32)
+  commentId: M:g3.MeshExtrudeLoop.Extrude(System.Int32)
+  id: Extrude(System.Int32)
+  parent: g3.MeshExtrudeLoop
+  langs:
+  - csharp
+  - vb
+  name: Extrude(Int32)
+  nameWithType: MeshExtrudeLoop.Extrude(Int32)
+  fullName: g3.MeshExtrudeLoop.Extrude(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Extrude
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshExtrudeLoop.cs
+    startLine: 44
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual bool Extrude(int group_id = -1)
+    parameters:
+    - id: group_id
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Function Extrude(group_id As Integer = -1) As Boolean
+  overload: g3.MeshExtrudeLoop.Extrude*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.EdgeLoop
+  commentId: T:g3.EdgeLoop
+  parent: g3
+  name: EdgeLoop
+  nameWithType: EdgeLoop
+  fullName: g3.EdgeLoop
+- uid: System.Func{g3.Vector3d,g3.Vector3f,System.Int32,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,g3.Vector3f,System.Int32,g3.Vector3d}
+  parent: System
+  definition: System.Func`4
+  name: Func<Vector3d, Vector3f, Int32, Vector3d>
+  nameWithType: Func<Vector3d, Vector3f, Int32, Vector3d>
+  fullName: System.Func<g3.Vector3d, g3.Vector3f, System.Int32, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Vector3f, Int32, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, g3.Vector3f, System.Int32, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Vector3f, Int32, Vector3d)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`4
+  commentId: T:System.Func`4
+  isExternal: true
+  name: Func<T1, T2, T3, TResult>
+  nameWithType: Func<T1, T2, T3, TResult>
+  fullName: System.Func<T1, T2, T3, TResult>
+  nameWithType.vb: Func(Of T1, T2, T3, TResult)
+  fullName.vb: System.Func(Of T1, T2, T3, TResult)
+  name.vb: Func(Of T1, T2, T3, TResult)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T3
+    nameWithType: T3
+    fullName: T3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T3
+    nameWithType: T3
+    fullName: T3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.MeshExtrudeLoop.#ctor*
+  commentId: Overload:g3.MeshExtrudeLoop.#ctor
+  name: MeshExtrudeLoop
+  nameWithType: MeshExtrudeLoop.MeshExtrudeLoop
+  fullName: g3.MeshExtrudeLoop.MeshExtrudeLoop
+- uid: g3.MeshExtrudeLoop.Validate*
+  commentId: Overload:g3.MeshExtrudeLoop.Validate
+  name: Validate
+  nameWithType: MeshExtrudeLoop.Validate
+  fullName: g3.MeshExtrudeLoop.Validate
+- uid: g3.ValidationStatus
+  commentId: T:g3.ValidationStatus
+  parent: g3
+  name: ValidationStatus
+  nameWithType: ValidationStatus
+  fullName: g3.ValidationStatus
+- uid: g3.MeshExtrudeLoop.Extrude*
+  commentId: Overload:g3.MeshExtrudeLoop.Extrude
+  name: Extrude
+  nameWithType: MeshExtrudeLoop.Extrude
+  fullName: g3.MeshExtrudeLoop.Extrude
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

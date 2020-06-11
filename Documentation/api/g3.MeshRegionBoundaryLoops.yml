@@ -1,0 +1,691 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshRegionBoundaryLoops
+  commentId: T:g3.MeshRegionBoundaryLoops
+  id: MeshRegionBoundaryLoops
+  parent: g3
+  children:
+  - g3.MeshRegionBoundaryLoops.#ctor(g3.DMesh3,System.Int32[],System.Boolean)
+  - g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges(System.Int32,System.Int32[])
+  - g3.MeshRegionBoundaryLoops.Compute
+  - g3.MeshRegionBoundaryLoops.Count
+  - g3.MeshRegionBoundaryLoops.GetEnumerator
+  - g3.MeshRegionBoundaryLoops.Item(System.Int32)
+  - g3.MeshRegionBoundaryLoops.Loops
+  - g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  - g3.MeshRegionBoundaryLoops.Mesh
+  - g3.MeshRegionBoundaryLoops.vertex_boundary_edges(System.Int32,System.Int32@,System.Int32@)
+  langs:
+  - csharp
+  - vb
+  name: MeshRegionBoundaryLoops
+  nameWithType: MeshRegionBoundaryLoops
+  fullName: g3.MeshRegionBoundaryLoops
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshRegionBoundaryLoops
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nExtract boundary EdgeLoops for subregions of Mesh\n"
+  example: []
+  syntax:
+    content: 'public class MeshRegionBoundaryLoops : IEnumerable<EdgeLoop>, IEnumerable'
+    content.vb: >-
+      Public Class MeshRegionBoundaryLoops
+          Implements IEnumerable(Of EdgeLoop), IEnumerable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshRegionBoundaryLoops.Mesh
+  commentId: F:g3.MeshRegionBoundaryLoops.Mesh
+  id: Mesh
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshRegionBoundaryLoops.Mesh
+  fullName: g3.MeshRegionBoundaryLoops.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRegionBoundaryLoops.Loops
+  commentId: F:g3.MeshRegionBoundaryLoops.Loops
+  id: Loops
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: Loops
+  nameWithType: MeshRegionBoundaryLoops.Loops
+  fullName: g3.MeshRegionBoundaryLoops.Loops
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Loops
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<EdgeLoop> Loops
+    return:
+      type: System.Collections.Generic.List{g3.EdgeLoop}
+    content.vb: Public Loops As List(Of EdgeLoop)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRegionBoundaryLoops.#ctor(g3.DMesh3,System.Int32[],System.Boolean)
+  commentId: M:g3.MeshRegionBoundaryLoops.#ctor(g3.DMesh3,System.Int32[],System.Boolean)
+  id: '#ctor(g3.DMesh3,System.Int32[],System.Boolean)'
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: MeshRegionBoundaryLoops(DMesh3, Int32[], Boolean)
+  nameWithType: MeshRegionBoundaryLoops.MeshRegionBoundaryLoops(DMesh3, Int32[], Boolean)
+  fullName: g3.MeshRegionBoundaryLoops.MeshRegionBoundaryLoops(g3.DMesh3, System.Int32[], System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshRegionBoundaryLoops(DMesh3 mesh, int[] RegionTris, bool bAutoCompute = true)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: RegionTris
+      type: System.Int32[]
+    - id: bAutoCompute
+      type: System.Boolean
+    content.vb: Public Sub New(mesh As DMesh3, RegionTris As Integer(), bAutoCompute As Boolean = True)
+  overload: g3.MeshRegionBoundaryLoops.#ctor*
+  nameWithType.vb: MeshRegionBoundaryLoops.MeshRegionBoundaryLoops(DMesh3, Int32(), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshRegionBoundaryLoops.MeshRegionBoundaryLoops(g3.DMesh3, System.Int32(), System.Boolean)
+  name.vb: MeshRegionBoundaryLoops(DMesh3, Int32(), Boolean)
+- uid: g3.MeshRegionBoundaryLoops.Count
+  commentId: P:g3.MeshRegionBoundaryLoops.Count
+  id: Count
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: MeshRegionBoundaryLoops.Count
+  fullName: g3.MeshRegionBoundaryLoops.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 54
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: g3.MeshRegionBoundaryLoops.Count*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshRegionBoundaryLoops.Item(System.Int32)
+  commentId: P:g3.MeshRegionBoundaryLoops.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: MeshRegionBoundaryLoops.Item[Int32]
+  fullName: g3.MeshRegionBoundaryLoops.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public EdgeLoop this[int index] { get; }
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: g3.EdgeLoop
+    content.vb: Public ReadOnly Property Item(index As Integer) As EdgeLoop
+  overload: g3.MeshRegionBoundaryLoops.Item*
+  nameWithType.vb: MeshRegionBoundaryLoops.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.MeshRegionBoundaryLoops.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.MeshRegionBoundaryLoops.GetEnumerator
+  commentId: M:g3.MeshRegionBoundaryLoops.GetEnumerator
+  id: GetEnumerator
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: MeshRegionBoundaryLoops.GetEnumerator()
+  fullName: g3.MeshRegionBoundaryLoops.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<EdgeLoop> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{g3.EdgeLoop}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of EdgeLoop)
+  overload: g3.MeshRegionBoundaryLoops.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  commentId: P:g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  id: MaxVerticesLoopIndex
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: MaxVerticesLoopIndex
+  nameWithType: MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  fullName: g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxVerticesLoopIndex
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 73
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nIndex of Loop with largest vertex count\n"
+  example: []
+  syntax:
+    content: public int MaxVerticesLoopIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxVerticesLoopIndex As Integer
+  overload: g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshRegionBoundaryLoops.vertex_boundary_edges(System.Int32,System.Int32@,System.Int32@)
+  commentId: M:g3.MeshRegionBoundaryLoops.vertex_boundary_edges(System.Int32,System.Int32@,System.Int32@)
+  id: vertex_boundary_edges(System.Int32,System.Int32@,System.Int32@)
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: vertex_boundary_edges(Int32, ref Int32, ref Int32)
+  nameWithType: MeshRegionBoundaryLoops.vertex_boundary_edges(Int32, ref Int32, ref Int32)
+  fullName: g3.MeshRegionBoundaryLoops.vertex_boundary_edges(System.Int32, ref System.Int32, ref System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertex_boundary_edges
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 130
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int vertex_boundary_edges(int vID, ref int e0, ref int e1)
+    parameters:
+    - id: vID
+      type: System.Int32
+    - id: e0
+      type: System.Int32
+    - id: e1
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function vertex_boundary_edges(vID As Integer, ByRef e0 As Integer, ByRef e1 As Integer) As Integer
+  overload: g3.MeshRegionBoundaryLoops.vertex_boundary_edges*
+  nameWithType.vb: MeshRegionBoundaryLoops.vertex_boundary_edges(Int32, ByRef Int32, ByRef Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshRegionBoundaryLoops.vertex_boundary_edges(System.Int32, ByRef System.Int32, ByRef System.Int32)
+  name.vb: vertex_boundary_edges(Int32, ByRef Int32, ByRef Int32)
+- uid: g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges(System.Int32,System.Int32[])
+  commentId: M:g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges(System.Int32,System.Int32[])
+  id: all_vertex_boundary_edges(System.Int32,System.Int32[])
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: all_vertex_boundary_edges(Int32, Int32[])
+  nameWithType: MeshRegionBoundaryLoops.all_vertex_boundary_edges(Int32, Int32[])
+  fullName: g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges(System.Int32, System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: all_vertex_boundary_edges
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 148
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int all_vertex_boundary_edges(int vID, int[] e)
+    parameters:
+    - id: vID
+      type: System.Int32
+    - id: e
+      type: System.Int32[]
+    return:
+      type: System.Int32
+    content.vb: Public Function all_vertex_boundary_edges(vID As Integer, e As Integer()) As Integer
+  overload: g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges*
+  nameWithType.vb: MeshRegionBoundaryLoops.all_vertex_boundary_edges(Int32, Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges(System.Int32, System.Int32())
+  name.vb: all_vertex_boundary_edges(Int32, Int32())
+- uid: g3.MeshRegionBoundaryLoops.Compute
+  commentId: M:g3.MeshRegionBoundaryLoops.Compute
+  id: Compute
+  parent: g3.MeshRegionBoundaryLoops
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: MeshRegionBoundaryLoops.Compute()
+  fullName: g3.MeshRegionBoundaryLoops.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshRegionBoundaryLoops.cs
+    startLine: 166
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind the set of EdgeLoops bounding &apos;in&apos; triangles. Note that if we encounter topological\nissues, we will throw MeshBoundaryLoopsException w/ more info (if possible)\n"
+  example: []
+  syntax:
+    content: public bool Compute()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Compute As Boolean
+  overload: g3.MeshRegionBoundaryLoops.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: System.Collections.Generic.List{g3.EdgeLoop}
+  commentId: T:System.Collections.Generic.List{g3.EdgeLoop}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<EdgeLoop>
+  nameWithType: List<EdgeLoop>
+  fullName: System.Collections.Generic.List<g3.EdgeLoop>
+  nameWithType.vb: List(Of EdgeLoop)
+  fullName.vb: System.Collections.Generic.List(Of g3.EdgeLoop)
+  name.vb: List(Of EdgeLoop)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.EdgeLoop
+    name: EdgeLoop
+    nameWithType: EdgeLoop
+    fullName: g3.EdgeLoop
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.EdgeLoop
+    name: EdgeLoop
+    nameWithType: EdgeLoop
+    fullName: g3.EdgeLoop
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshRegionBoundaryLoops.#ctor*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.#ctor
+  name: MeshRegionBoundaryLoops
+  nameWithType: MeshRegionBoundaryLoops.MeshRegionBoundaryLoops
+  fullName: g3.MeshRegionBoundaryLoops.MeshRegionBoundaryLoops
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshRegionBoundaryLoops.Count*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.Count
+  name: Count
+  nameWithType: MeshRegionBoundaryLoops.Count
+  fullName: g3.MeshRegionBoundaryLoops.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshRegionBoundaryLoops.Item*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.Item
+  name: Item
+  nameWithType: MeshRegionBoundaryLoops.Item
+  fullName: g3.MeshRegionBoundaryLoops.Item
+- uid: g3.EdgeLoop
+  commentId: T:g3.EdgeLoop
+  parent: g3
+  name: EdgeLoop
+  nameWithType: EdgeLoop
+  fullName: g3.EdgeLoop
+- uid: g3.MeshRegionBoundaryLoops.GetEnumerator*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.GetEnumerator
+  name: GetEnumerator
+  nameWithType: MeshRegionBoundaryLoops.GetEnumerator
+  fullName: g3.MeshRegionBoundaryLoops.GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{g3.EdgeLoop}
+  commentId: T:System.Collections.Generic.IEnumerator{g3.EdgeLoop}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<EdgeLoop>
+  nameWithType: IEnumerator<EdgeLoop>
+  fullName: System.Collections.Generic.IEnumerator<g3.EdgeLoop>
+  nameWithType.vb: IEnumerator(Of EdgeLoop)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of g3.EdgeLoop)
+  name.vb: IEnumerator(Of EdgeLoop)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.EdgeLoop
+    name: EdgeLoop
+    nameWithType: EdgeLoop
+    fullName: g3.EdgeLoop
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.EdgeLoop
+    name: EdgeLoop
+    nameWithType: EdgeLoop
+    fullName: g3.EdgeLoop
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  name: MaxVerticesLoopIndex
+  nameWithType: MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+  fullName: g3.MeshRegionBoundaryLoops.MaxVerticesLoopIndex
+- uid: g3.MeshRegionBoundaryLoops.vertex_boundary_edges*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.vertex_boundary_edges
+  name: vertex_boundary_edges
+  nameWithType: MeshRegionBoundaryLoops.vertex_boundary_edges
+  fullName: g3.MeshRegionBoundaryLoops.vertex_boundary_edges
+- uid: g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges
+  name: all_vertex_boundary_edges
+  nameWithType: MeshRegionBoundaryLoops.all_vertex_boundary_edges
+  fullName: g3.MeshRegionBoundaryLoops.all_vertex_boundary_edges
+- uid: g3.MeshRegionBoundaryLoops.Compute*
+  commentId: Overload:g3.MeshRegionBoundaryLoops.Compute
+  name: Compute
+  nameWithType: MeshRegionBoundaryLoops.Compute
+  fullName: g3.MeshRegionBoundaryLoops.Compute

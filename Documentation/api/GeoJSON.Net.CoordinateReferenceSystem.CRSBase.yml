@@ -1,0 +1,713 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  id: CRSBase
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  children:
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Equality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Inequality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  - GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  langs:
+  - csharp
+  - vb
+  name: CRSBase
+  nameWithType: CRSBase
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  type: Class
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CRSBase
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 12
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nBase class for all IGeometryObject implementing types\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonObject(MemberSerialization.OptIn)]
+
+      public abstract class CRSBase : IEqualityComparer<CRSBase>, IEquatable<CRSBase>
+    content.vb: >-
+      <JsonObject(MemberSerialization.OptIn)>
+
+      Public MustInherit Class CRSBase
+          Implements IEqualityComparer(Of CRSBase), IEquatable(Of CRSBase)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - GeoJSON.Net.CoordinateReferenceSystem.LinkedCRS
+  - GeoJSON.Net.CoordinateReferenceSystem.NamedCRS
+  attributes:
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor(Newtonsoft.Json.MemberSerialization)
+    arguments:
+    - type: Newtonsoft.Json.MemberSerialization
+      value: 1
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  commentId: P:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  id: Properties
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: CRSBase.Properties
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Properties
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nGets the properties.\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "properties", Required = Required.Always)]
+
+      public Dictionary<string, object> Properties { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+    content.vb: >-
+      <JsonProperty(PropertyName:="properties", Required:=Required.Always)>
+
+      Public ReadOnly Property Properties As Dictionary(Of String, Object)
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: properties
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  commentId: P:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  id: Type
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: CRSBase.Type
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nGets the type of the GeometryObject object.\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "type", Required = Required.Always)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public CRSType Type { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSType
+    content.vb: >-
+      <JsonProperty(PropertyName:="type", Required:=Required.Always)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public ReadOnly Property Type As CRSType
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: type
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: CRSBase.Equals(Object)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 33
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nDetermines whether the specified object is equal to the current object\n"
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  id: Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Equals(CRSBase)
+  nameWithType: CRSBase.Equals(CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 41
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nDetermines whether the specified object is equal to the current object\n"
+  example: []
+  syntax:
+    content: public bool Equals(CRSBase other)
+    parameters:
+    - id: other
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As CRSBase) As Boolean
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  id: Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Equals(CRSBase, CRSBase)
+  nameWithType: CRSBase.Equals(CRSBase, CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals(GeoJSON.Net.CoordinateReferenceSystem.CRSBase, GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 49
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nDetermines whether the specified object instances are considered equal\n"
+  example: []
+  syntax:
+    content: public bool Equals(CRSBase left, CRSBase right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    - id: right
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(left As CRSBase, right As CRSBase) As Boolean
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Equality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Equality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  id: op_Equality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Equality(CRSBase, CRSBase)
+  nameWithType: CRSBase.Equality(CRSBase, CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase, GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Equality
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 92
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nDetermines whether the specified object instances are considered equal\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(CRSBase left, CRSBase right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    - id: right
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As CRSBase, right As CRSBase) As Boolean
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Inequality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Inequality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  id: op_Inequality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase,GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: Inequality(CRSBase, CRSBase)
+  nameWithType: CRSBase.Inequality(CRSBase, CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Inequality(GeoJSON.Net.CoordinateReferenceSystem.CRSBase, GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Inequality
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 108
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nDetermines whether the specified object instances are not considered equal\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(CRSBase left, CRSBase right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    - id: right
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As CRSBase, right As CRSBase) As Boolean
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  id: GetHashCode
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: CRSBase.GetHashCode()
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 116
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nReturns the hash code for this instance\n"
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.Object.GetHashCode
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  commentId: M:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  id: GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  parent: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode(CRSBase)
+  nameWithType: CRSBase.GetHashCode(CRSBase)
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode(GeoJSON.Net.CoordinateReferenceSystem.CRSBase)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/CoordinateReferenceSystem/CRSBase.cs
+    startLine: 141
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.CoordinateReferenceSystem
+  summary: "\nReturns the hash code for the specified object\n"
+  example: []
+  syntax:
+    content: public int GetHashCode(CRSBase obj)
+    parameters:
+    - id: obj
+      type: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+    return:
+      type: System.Int32
+    content.vb: Public Function GetHashCode(obj As CRSBase) As Integer
+  overload: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: GeoJSON.Net.CoordinateReferenceSystem
+  commentId: N:GeoJSON.Net.CoordinateReferenceSystem
+  name: GeoJSON.Net.CoordinateReferenceSystem
+  nameWithType: GeoJSON.Net.CoordinateReferenceSystem
+  fullName: GeoJSON.Net.CoordinateReferenceSystem
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+  name: Properties
+  nameWithType: CRSBase.Properties
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Properties
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Object>
+  nameWithType: Dictionary<String, Object>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+  name: Type
+  nameWithType: CRSBase.Type
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Type
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSType
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.CRSType
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: CRSType
+  nameWithType: CRSType
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSType
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+  name: Equals
+  nameWithType: CRSBase.Equals
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  commentId: T:GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+  parent: GeoJSON.Net.CoordinateReferenceSystem
+  name: CRSBase
+  nameWithType: CRSBase
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Equality*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Equality
+  name: Equality
+  nameWithType: CRSBase.Equality
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Equality
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Inequality*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.op_Inequality
+  name: Inequality
+  nameWithType: CRSBase.Inequality
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.Inequality
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode*
+  commentId: Overload:GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+  name: GetHashCode
+  nameWithType: CRSBase.GetHashCode
+  fullName: GeoJSON.Net.CoordinateReferenceSystem.CRSBase.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

@@ -1,0 +1,312 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.SingularValueDecomposition
+  commentId: T:g3.SingularValueDecomposition
+  id: SingularValueDecomposition
+  parent: g3
+  children:
+  - g3.SingularValueDecomposition.#ctor(System.Int32,System.Int32,System.Int32)
+  - g3.SingularValueDecomposition.GetSingularValues(System.Double[])
+  - g3.SingularValueDecomposition.GetU(System.Double[])
+  - g3.SingularValueDecomposition.GetV(System.Double[])
+  - g3.SingularValueDecomposition.Solve(System.Double[],System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: SingularValueDecomposition
+  nameWithType: SingularValueDecomposition
+  fullName: g3.SingularValueDecomposition
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SingularValueDecomposition
+    path: ../Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSingular Value Decomposition of arbitrary matrix A\nComputes U/S/V of  A = U * S * V^T\n\nUseful Properties:\nS = square-roots of eigenvalues of A\nU = eigenvectors of A * A^T\nV = eigenvectors of A^T * A\nU * V^T = rotation matrix closest to A \nV * Inv(S) * U^T = psuedoinverse of A\n\nU and/or V are rotation matrices but may also contain reflections\nDetection: det(U) or det(v) == -1\nRemoval: if ( det(U) == -1 ) { U *= -1; S *= -1 }\n     if ( det(V) == -1 ) { V *= -1; S *= -1 }     (right? seems to work)\n\n"
+  example: []
+  syntax:
+    content: public class SingularValueDecomposition
+    content.vb: Public Class SingularValueDecomposition
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.SingularValueDecomposition.#ctor(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.SingularValueDecomposition.#ctor(System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,System.Int32)'
+  parent: g3.SingularValueDecomposition
+  langs:
+  - csharp
+  - vb
+  name: SingularValueDecomposition(Int32, Int32, Int32)
+  nameWithType: SingularValueDecomposition.SingularValueDecomposition(Int32, Int32, Int32)
+  fullName: g3.SingularValueDecomposition.SingularValueDecomposition(System.Int32, System.Int32, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SingularValueDecomposition(int numRows, int numCols, int maxIterations)
+    parameters:
+    - id: numRows
+      type: System.Int32
+    - id: numCols
+      type: System.Int32
+    - id: maxIterations
+      type: System.Int32
+    content.vb: Public Sub New(numRows As Integer, numCols As Integer, maxIterations As Integer)
+  overload: g3.SingularValueDecomposition.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SingularValueDecomposition.Solve(System.Double[],System.Int32)
+  commentId: M:g3.SingularValueDecomposition.Solve(System.Double[],System.Int32)
+  id: Solve(System.Double[],System.Int32)
+  parent: g3.SingularValueDecomposition
+  langs:
+  - csharp
+  - vb
+  name: Solve(Double[], Int32)
+  nameWithType: SingularValueDecomposition.Solve(Double[], Int32)
+  fullName: g3.SingularValueDecomposition.Solve(System.Double[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Solve
+    path: ../Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public uint Solve(double[] input, int sortType = -1)
+    parameters:
+    - id: input
+      type: System.Double[]
+    - id: sortType
+      type: System.Int32
+    return:
+      type: System.UInt32
+    content.vb: Public Function Solve(input As Double(), sortType As Integer = -1) As UInteger
+  overload: g3.SingularValueDecomposition.Solve*
+  nameWithType.vb: SingularValueDecomposition.Solve(Double(), Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SingularValueDecomposition.Solve(System.Double(), System.Int32)
+  name.vb: Solve(Double(), Int32)
+- uid: g3.SingularValueDecomposition.GetSingularValues(System.Double[])
+  commentId: M:g3.SingularValueDecomposition.GetSingularValues(System.Double[])
+  id: GetSingularValues(System.Double[])
+  parent: g3.SingularValueDecomposition
+  langs:
+  - csharp
+  - vb
+  name: GetSingularValues(Double[])
+  nameWithType: SingularValueDecomposition.GetSingularValues(Double[])
+  fullName: g3.SingularValueDecomposition.GetSingularValues(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetSingularValues
+    path: ../Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+    startLine: 150
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetSingularValues(double[] singularValues)
+    parameters:
+    - id: singularValues
+      type: System.Double[]
+    content.vb: Public Sub GetSingularValues(singularValues As Double())
+  overload: g3.SingularValueDecomposition.GetSingularValues*
+  nameWithType.vb: SingularValueDecomposition.GetSingularValues(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SingularValueDecomposition.GetSingularValues(System.Double())
+  name.vb: GetSingularValues(Double())
+- uid: g3.SingularValueDecomposition.GetU(System.Double[])
+  commentId: M:g3.SingularValueDecomposition.GetU(System.Double[])
+  id: GetU(System.Double[])
+  parent: g3.SingularValueDecomposition
+  langs:
+  - csharp
+  - vb
+  name: GetU(Double[])
+  nameWithType: SingularValueDecomposition.GetU(Double[])
+  fullName: g3.SingularValueDecomposition.GetU(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetU
+    path: ../Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+    startLine: 171
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetU(double[] uMatrix)
+    parameters:
+    - id: uMatrix
+      type: System.Double[]
+    content.vb: Public Sub GetU(uMatrix As Double())
+  overload: g3.SingularValueDecomposition.GetU*
+  nameWithType.vb: SingularValueDecomposition.GetU(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SingularValueDecomposition.GetU(System.Double())
+  name.vb: GetU(Double())
+- uid: g3.SingularValueDecomposition.GetV(System.Double[])
+  commentId: M:g3.SingularValueDecomposition.GetV(System.Double[])
+  id: GetV(System.Double[])
+  parent: g3.SingularValueDecomposition
+  langs:
+  - csharp
+  - vb
+  name: GetV(Double[])
+  nameWithType: SingularValueDecomposition.GetV(Double[])
+  fullName: g3.SingularValueDecomposition.GetV(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetV
+    path: ../Assets/geometry3Sharp/solvers/SingularValueDecomposition.cs
+    startLine: 256
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void GetV(double[] vMatrix)
+    parameters:
+    - id: vMatrix
+      type: System.Double[]
+    content.vb: Public Sub GetV(vMatrix As Double())
+  overload: g3.SingularValueDecomposition.GetV*
+  nameWithType.vb: SingularValueDecomposition.GetV(Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SingularValueDecomposition.GetV(System.Double())
+  name.vb: GetV(Double())
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.SingularValueDecomposition.#ctor*
+  commentId: Overload:g3.SingularValueDecomposition.#ctor
+  name: SingularValueDecomposition
+  nameWithType: SingularValueDecomposition.SingularValueDecomposition
+  fullName: g3.SingularValueDecomposition.SingularValueDecomposition
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.SingularValueDecomposition.Solve*
+  commentId: Overload:g3.SingularValueDecomposition.Solve
+  name: Solve
+  nameWithType: SingularValueDecomposition.Solve
+  fullName: g3.SingularValueDecomposition.Solve
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: g3.SingularValueDecomposition.GetSingularValues*
+  commentId: Overload:g3.SingularValueDecomposition.GetSingularValues
+  name: GetSingularValues
+  nameWithType: SingularValueDecomposition.GetSingularValues
+  fullName: g3.SingularValueDecomposition.GetSingularValues
+- uid: g3.SingularValueDecomposition.GetU*
+  commentId: Overload:g3.SingularValueDecomposition.GetU
+  name: GetU
+  nameWithType: SingularValueDecomposition.GetU
+  fullName: g3.SingularValueDecomposition.GetU
+- uid: g3.SingularValueDecomposition.GetV*
+  commentId: Overload:g3.SingularValueDecomposition.GetV
+  name: GetV
+  nameWithType: SingularValueDecomposition.GetV
+  fullName: g3.SingularValueDecomposition.GetV

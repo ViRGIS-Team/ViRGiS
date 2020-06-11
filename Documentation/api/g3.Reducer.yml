@@ -1,0 +1,3117 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Reducer
+  commentId: T:g3.Reducer
+  id: Reducer
+  parent: g3
+  children:
+  - g3.Reducer.#ctor
+  - g3.Reducer.#ctor(g3.DMesh3)
+  - g3.Reducer.begin_collapse
+  - g3.Reducer.begin_ops
+  - g3.Reducer.begin_pass
+  - g3.Reducer.begin_project
+  - g3.Reducer.begin_setup
+  - g3.Reducer.CollapseEdge(System.Int32,g3.Vector3d,System.Int32@)
+  - g3.Reducer.DebugCheckVertexConstraints
+  - g3.Reducer.DebugEdges
+  - g3.Reducer.DoDebugChecks
+  - g3.Reducer.DoReduce
+  - g3.Reducer.EdgeQuadrics
+  - g3.Reducer.EdgeQueue
+  - g3.Reducer.ENABLE_DEBUG_CHECKS
+  - g3.Reducer.ENABLE_PROFILING
+  - g3.Reducer.end_collapse
+  - g3.Reducer.end_ops
+  - g3.Reducer.end_pass
+  - g3.Reducer.end_project
+  - g3.Reducer.end_setup
+  - g3.Reducer.FastCollapsePass(System.Double,System.Int32,System.Boolean)
+  - g3.Reducer.FullProjectionPass
+  - g3.Reducer.get_projected_collapse_position(System.Int32,g3.Vector3d)
+  - g3.Reducer.HaveBoundary
+  - g3.Reducer.InitializeQueue
+  - g3.Reducer.InitializeVertexQuadrics
+  - g3.Reducer.IsBoundaryV(System.Int32)
+  - g3.Reducer.IsBoundaryVtxCache
+  - g3.Reducer.MinEdgeLength
+  - g3.Reducer.MinimizeQuadricPositionError
+  - g3.Reducer.next_edge(System.Int32,System.Boolean@)
+  - g3.Reducer.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  - g3.Reducer.OptimalPoint(System.Int32,g3.QuadricError@,System.Int32,System.Int32)
+  - g3.Reducer.Precompute(System.Boolean)
+  - g3.Reducer.PreserveBoundaryShape
+  - g3.Reducer.project_vertex(System.Int32,g3.IProjectionTarget)
+  - g3.Reducer.project_vertices
+  - g3.Reducer.ProjectionMode
+  - g3.Reducer.ReduceMode
+  - g3.Reducer.ReduceToEdgeLength(System.Double)
+  - g3.Reducer.ReduceToTriangleCount(System.Int32)
+  - g3.Reducer.ReduceToVertexCount(System.Int32)
+  - g3.Reducer.Reproject
+  - g3.Reducer.RuntimeDebugCheck(System.Int32)
+  - g3.Reducer.SetProjectionTarget(g3.IProjectionTarget)
+  - g3.Reducer.start_edges
+  - g3.Reducer.target
+  - g3.Reducer.TargetCount
+  - g3.Reducer.UpdateNeighbours(System.Int32)
+  - g3.Reducer.vertQuadrics
+  langs:
+  - csharp
+  - vb
+  name: Reducer
+  nameWithType: Reducer
+  fullName: g3.Reducer
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reducer
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class Reducer : MeshRefinerBase'
+    content.vb: >-
+      Public Class Reducer
+          Inherits MeshRefinerBase
+  inheritance:
+  - System.Object
+  - g3.MeshRefinerBase
+  inheritedMembers:
+  - g3.MeshRefinerBase.mesh
+  - g3.MeshRefinerBase.constraints
+  - g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  - g3.MeshRefinerBase.EdgeFlipTolerance
+  - g3.MeshRefinerBase.edge_flip_tol
+  - g3.MeshRefinerBase.Mesh
+  - g3.MeshRefinerBase.Constraints
+  - g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  - g3.MeshRefinerBase.Progress
+  - g3.MeshRefinerBase.Cancelled
+  - g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  - g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  - g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  - g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  - g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  - g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  - g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  - g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Reducer.target
+  commentId: F:g3.Reducer.target
+  id: target
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: target
+  nameWithType: Reducer.target
+  fullName: g3.Reducer.target
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: target
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected IProjectionTarget target
+    return:
+      type: g3.IProjectionTarget
+    content.vb: Protected target As IProjectionTarget
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.MinimizeQuadricPositionError
+  commentId: F:g3.Reducer.MinimizeQuadricPositionError
+  id: MinimizeQuadricPositionError
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: MinimizeQuadricPositionError
+  nameWithType: Reducer.MinimizeQuadricPositionError
+  fullName: g3.Reducer.MinimizeQuadricPositionError
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinimizeQuadricPositionError
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool MinimizeQuadricPositionError
+    return:
+      type: System.Boolean
+    content.vb: Public MinimizeQuadricPositionError As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.PreserveBoundaryShape
+  commentId: F:g3.Reducer.PreserveBoundaryShape
+  id: PreserveBoundaryShape
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: PreserveBoundaryShape
+  nameWithType: Reducer.PreserveBoundaryShape
+  fullName: g3.Reducer.PreserveBoundaryShape
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PreserveBoundaryShape
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool PreserveBoundaryShape
+    return:
+      type: System.Boolean
+    content.vb: Public PreserveBoundaryShape As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.DebugEdges
+  commentId: F:g3.Reducer.DebugEdges
+  id: DebugEdges
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: DebugEdges
+  nameWithType: Reducer.DebugEdges
+  fullName: g3.Reducer.DebugEdges
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DebugEdges
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<int> DebugEdges
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public DebugEdges As List(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.ProjectionMode
+  commentId: F:g3.Reducer.ProjectionMode
+  id: ProjectionMode
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ProjectionMode
+  nameWithType: Reducer.ProjectionMode
+  fullName: g3.Reducer.ProjectionMode
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ProjectionMode
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Reducer.TargetProjectionMode ProjectionMode
+    return:
+      type: g3.Reducer.TargetProjectionMode
+    content.vb: Public ProjectionMode As Reducer.TargetProjectionMode
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.ENABLE_PROFILING
+  commentId: F:g3.Reducer.ENABLE_PROFILING
+  id: ENABLE_PROFILING
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ENABLE_PROFILING
+  nameWithType: Reducer.ENABLE_PROFILING
+  fullName: g3.Reducer.ENABLE_PROFILING
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ENABLE_PROFILING
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool ENABLE_PROFILING
+    return:
+      type: System.Boolean
+    content.vb: Public ENABLE_PROFILING As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.#ctor(g3.DMesh3)
+  commentId: M:g3.Reducer.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: Reducer(DMesh3)
+  nameWithType: Reducer.Reducer(DMesh3)
+  fullName: g3.Reducer.Reducer(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Reducer(DMesh3 m)
+    parameters:
+    - id: m
+      type: g3.DMesh3
+    content.vb: Public Sub New(m As DMesh3)
+  overload: g3.Reducer.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.#ctor
+  commentId: M:g3.Reducer.#ctor
+  id: '#ctor'
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: Reducer()
+  nameWithType: Reducer.Reducer()
+  fullName: g3.Reducer.Reducer()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Reducer()
+    content.vb: Protected Sub New
+  overload: g3.Reducer.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.SetProjectionTarget(g3.IProjectionTarget)
+  commentId: M:g3.Reducer.SetProjectionTarget(g3.IProjectionTarget)
+  id: SetProjectionTarget(g3.IProjectionTarget)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: SetProjectionTarget(IProjectionTarget)
+  nameWithType: Reducer.SetProjectionTarget(IProjectionTarget)
+  fullName: g3.Reducer.SetProjectionTarget(g3.IProjectionTarget)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetProjectionTarget
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetProjectionTarget(IProjectionTarget target)
+    parameters:
+    - id: target
+      type: g3.IProjectionTarget
+    content.vb: Public Sub SetProjectionTarget(target As IProjectionTarget)
+  overload: g3.Reducer.SetProjectionTarget*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.MinEdgeLength
+  commentId: F:g3.Reducer.MinEdgeLength
+  id: MinEdgeLength
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: MinEdgeLength
+  nameWithType: Reducer.MinEdgeLength
+  fullName: g3.Reducer.MinEdgeLength
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinEdgeLength
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 64
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double MinEdgeLength
+    return:
+      type: System.Double
+    content.vb: Protected MinEdgeLength As Double
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.TargetCount
+  commentId: F:g3.Reducer.TargetCount
+  id: TargetCount
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: TargetCount
+  nameWithType: Reducer.TargetCount
+  fullName: g3.Reducer.TargetCount
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TargetCount
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int TargetCount
+    return:
+      type: System.Int32
+    content.vb: Protected TargetCount As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.ReduceMode
+  commentId: F:g3.Reducer.ReduceMode
+  id: ReduceMode
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ReduceMode
+  nameWithType: Reducer.ReduceMode
+  fullName: g3.Reducer.ReduceMode
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ReduceMode
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 70
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Reducer.TargetModes ReduceMode
+    return:
+      type: g3.Reducer.TargetModes
+    content.vb: Protected ReduceMode As Reducer.TargetModes
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.DoReduce
+  commentId: M:g3.Reducer.DoReduce
+  id: DoReduce
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: DoReduce()
+  nameWithType: Reducer.DoReduce()
+  fullName: g3.Reducer.DoReduce()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DoReduce
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 74
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void DoReduce()
+    content.vb: Public Overridable Sub DoReduce
+  overload: g3.Reducer.DoReduce*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Reducer.ReduceToTriangleCount(System.Int32)
+  commentId: M:g3.Reducer.ReduceToTriangleCount(System.Int32)
+  id: ReduceToTriangleCount(System.Int32)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ReduceToTriangleCount(Int32)
+  nameWithType: Reducer.ReduceToTriangleCount(Int32)
+  fullName: g3.Reducer.ReduceToTriangleCount(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ReduceToTriangleCount
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 134
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void ReduceToTriangleCount(int nCount)
+    parameters:
+    - id: nCount
+      type: System.Int32
+    content.vb: Public Overridable Sub ReduceToTriangleCount(nCount As Integer)
+  overload: g3.Reducer.ReduceToTriangleCount*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Reducer.ReduceToVertexCount(System.Int32)
+  commentId: M:g3.Reducer.ReduceToVertexCount(System.Int32)
+  id: ReduceToVertexCount(System.Int32)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ReduceToVertexCount(Int32)
+  nameWithType: Reducer.ReduceToVertexCount(Int32)
+  fullName: g3.Reducer.ReduceToVertexCount(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ReduceToVertexCount
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 142
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void ReduceToVertexCount(int nCount)
+    parameters:
+    - id: nCount
+      type: System.Int32
+    content.vb: Public Overridable Sub ReduceToVertexCount(nCount As Integer)
+  overload: g3.Reducer.ReduceToVertexCount*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Reducer.ReduceToEdgeLength(System.Double)
+  commentId: M:g3.Reducer.ReduceToEdgeLength(System.Double)
+  id: ReduceToEdgeLength(System.Double)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ReduceToEdgeLength(Double)
+  nameWithType: Reducer.ReduceToEdgeLength(Double)
+  fullName: g3.Reducer.ReduceToEdgeLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ReduceToEdgeLength
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 150
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void ReduceToEdgeLength(double minEdgeLen)
+    parameters:
+    - id: minEdgeLen
+      type: System.Double
+    content.vb: Public Overridable Sub ReduceToEdgeLength(minEdgeLen As Double)
+  overload: g3.Reducer.ReduceToEdgeLength*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Reducer.FastCollapsePass(System.Double,System.Int32,System.Boolean)
+  commentId: M:g3.Reducer.FastCollapsePass(System.Double,System.Int32,System.Boolean)
+  id: FastCollapsePass(System.Double,System.Int32,System.Boolean)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: FastCollapsePass(Double, Int32, Boolean)
+  nameWithType: Reducer.FastCollapsePass(Double, Int32, Boolean)
+  fullName: g3.Reducer.FastCollapsePass(System.Double, System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FastCollapsePass
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 168
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void FastCollapsePass(double fMinEdgeLength, int nRounds = 1, bool MeshIsClosedHint = false)
+    parameters:
+    - id: fMinEdgeLength
+      type: System.Double
+    - id: nRounds
+      type: System.Int32
+    - id: MeshIsClosedHint
+      type: System.Boolean
+    content.vb: Public Overridable Sub FastCollapsePass(fMinEdgeLength As Double, nRounds As Integer = 1, MeshIsClosedHint As Boolean = False)
+  overload: g3.Reducer.FastCollapsePass*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Reducer.vertQuadrics
+  commentId: F:g3.Reducer.vertQuadrics
+  id: vertQuadrics
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: vertQuadrics
+  nameWithType: Reducer.vertQuadrics
+  fullName: g3.Reducer.vertQuadrics
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertQuadrics
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 243
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected QuadricError[] vertQuadrics
+    return:
+      type: g3.QuadricError[]
+    content.vb: Protected vertQuadrics As QuadricError()
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.InitializeVertexQuadrics
+  commentId: M:g3.Reducer.InitializeVertexQuadrics
+  id: InitializeVertexQuadrics
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: InitializeVertexQuadrics()
+  nameWithType: Reducer.InitializeVertexQuadrics()
+  fullName: g3.Reducer.InitializeVertexQuadrics()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InitializeVertexQuadrics
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 244
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void InitializeVertexQuadrics()
+    content.vb: Protected Overridable Sub InitializeVertexQuadrics
+  overload: g3.Reducer.InitializeVertexQuadrics*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.EdgeQuadrics
+  commentId: F:g3.Reducer.EdgeQuadrics
+  id: EdgeQuadrics
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: EdgeQuadrics
+  nameWithType: Reducer.EdgeQuadrics
+  fullName: g3.Reducer.EdgeQuadrics
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeQuadrics
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 291
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Reducer.QEdge[] EdgeQuadrics
+    return:
+      type: g3.Reducer.QEdge[]
+    content.vb: Protected EdgeQuadrics As Reducer.QEdge()
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.EdgeQueue
+  commentId: F:g3.Reducer.EdgeQueue
+  id: EdgeQueue
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: EdgeQueue
+  nameWithType: Reducer.EdgeQueue
+  fullName: g3.Reducer.EdgeQueue
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeQueue
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 292
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected IndexPriorityQueue EdgeQueue
+    return:
+      type: g3.IndexPriorityQueue
+    content.vb: Protected EdgeQueue As IndexPriorityQueue
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.InitializeQueue
+  commentId: M:g3.Reducer.InitializeQueue
+  id: InitializeQueue
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: InitializeQueue()
+  nameWithType: Reducer.InitializeQueue()
+  fullName: g3.Reducer.InitializeQueue()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InitializeQueue
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 294
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void InitializeQueue()
+    content.vb: Protected Overridable Sub InitializeQueue
+  overload: g3.Reducer.InitializeQueue*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.OptimalPoint(System.Int32,g3.QuadricError@,System.Int32,System.Int32)
+  commentId: M:g3.Reducer.OptimalPoint(System.Int32,g3.QuadricError@,System.Int32,System.Int32)
+  id: OptimalPoint(System.Int32,g3.QuadricError@,System.Int32,System.Int32)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: OptimalPoint(Int32, ref QuadricError, Int32, Int32)
+  nameWithType: Reducer.OptimalPoint(Int32, ref QuadricError, Int32, Int32)
+  fullName: g3.Reducer.OptimalPoint(System.Int32, ref g3.QuadricError, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OptimalPoint
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 350
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector3d OptimalPoint(int eid, ref QuadricError q, int ea, int eb)
+    parameters:
+    - id: eid
+      type: System.Int32
+    - id: q
+      type: g3.QuadricError
+    - id: ea
+      type: System.Int32
+    - id: eb
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Protected Function OptimalPoint(eid As Integer, ByRef q As QuadricError, ea As Integer, eb As Integer) As Vector3d
+  overload: g3.Reducer.OptimalPoint*
+  nameWithType.vb: Reducer.OptimalPoint(Int32, ByRef QuadricError, Int32, Int32)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.Reducer.OptimalPoint(System.Int32, ByRef g3.QuadricError, System.Int32, System.Int32)
+  name.vb: OptimalPoint(Int32, ByRef QuadricError, Int32, Int32)
+- uid: g3.Reducer.UpdateNeighbours(System.Int32)
+  commentId: M:g3.Reducer.UpdateNeighbours(System.Int32)
+  id: UpdateNeighbours(System.Int32)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: UpdateNeighbours(Int32)
+  nameWithType: Reducer.UpdateNeighbours(Int32)
+  fullName: g3.Reducer.UpdateNeighbours(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdateNeighbours
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 400
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void UpdateNeighbours(int vid)
+    parameters:
+    - id: vid
+      type: System.Int32
+    content.vb: Protected Overridable Sub UpdateNeighbours(vid As Integer)
+  overload: g3.Reducer.UpdateNeighbours*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.Reproject
+  commentId: M:g3.Reducer.Reproject
+  id: Reproject
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: Reproject()
+  nameWithType: Reducer.Reproject()
+  fullName: g3.Reducer.Reproject()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reproject
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 417
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void Reproject()
+    content.vb: Protected Overridable Sub Reproject
+  overload: g3.Reducer.Reproject*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.HaveBoundary
+  commentId: F:g3.Reducer.HaveBoundary
+  id: HaveBoundary
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: HaveBoundary
+  nameWithType: Reducer.HaveBoundary
+  fullName: g3.Reducer.HaveBoundary
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HaveBoundary
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 428
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool HaveBoundary
+    return:
+      type: System.Boolean
+    content.vb: Protected HaveBoundary As Boolean
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.IsBoundaryVtxCache
+  commentId: F:g3.Reducer.IsBoundaryVtxCache
+  id: IsBoundaryVtxCache
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: IsBoundaryVtxCache
+  nameWithType: Reducer.IsBoundaryVtxCache
+  fullName: g3.Reducer.IsBoundaryVtxCache
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBoundaryVtxCache
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 429
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool[] IsBoundaryVtxCache
+    return:
+      type: System.Boolean[]
+    content.vb: Protected IsBoundaryVtxCache As Boolean()
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.Precompute(System.Boolean)
+  commentId: M:g3.Reducer.Precompute(System.Boolean)
+  id: Precompute(System.Boolean)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: Precompute(Boolean)
+  nameWithType: Reducer.Precompute(Boolean)
+  fullName: g3.Reducer.Precompute(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Precompute
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 430
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void Precompute(bool bMeshIsClosed = false)
+    parameters:
+    - id: bMeshIsClosed
+      type: System.Boolean
+    content.vb: Protected Overridable Sub Precompute(bMeshIsClosed As Boolean = False)
+  overload: g3.Reducer.Precompute*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.IsBoundaryV(System.Int32)
+  commentId: M:g3.Reducer.IsBoundaryV(System.Int32)
+  id: IsBoundaryV(System.Int32)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: IsBoundaryV(Int32)
+  nameWithType: Reducer.IsBoundaryV(Int32)
+  fullName: g3.Reducer.IsBoundaryV(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBoundaryV
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 443
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool IsBoundaryV(int vid)
+    parameters:
+    - id: vid
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function IsBoundaryV(vid As Integer) As Boolean
+  overload: g3.Reducer.IsBoundaryV*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  commentId: M:g3.Reducer.OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  id: OnEdgeCollapse(System.Int32,System.Int32,System.Int32,g3.DMesh3.EdgeCollapseInfo)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: OnEdgeCollapse(Int32, Int32, Int32, DMesh3.EdgeCollapseInfo)
+  nameWithType: Reducer.OnEdgeCollapse(Int32, Int32, Int32, DMesh3.EdgeCollapseInfo)
+  fullName: g3.Reducer.OnEdgeCollapse(System.Int32, System.Int32, System.Int32, g3.DMesh3.EdgeCollapseInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OnEdgeCollapse
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 454
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void OnEdgeCollapse(int edgeID, int va, int vb, DMesh3.EdgeCollapseInfo collapseInfo)
+    parameters:
+    - id: edgeID
+      type: System.Int32
+    - id: va
+      type: System.Int32
+    - id: vb
+      type: System.Int32
+    - id: collapseInfo
+      type: g3.DMesh3.EdgeCollapseInfo
+    content.vb: Protected Overridable Sub OnEdgeCollapse(edgeID As Integer, va As Integer, vb As Integer, collapseInfo As DMesh3.EdgeCollapseInfo)
+  overload: g3.Reducer.OnEdgeCollapse*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.start_edges
+  commentId: M:g3.Reducer.start_edges
+  id: start_edges
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: start_edges()
+  nameWithType: Reducer.start_edges()
+  fullName: g3.Reducer.start_edges()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: start_edges
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 470
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual int start_edges()
+    return:
+      type: System.Int32
+    content.vb: Protected Overridable Function start_edges As Integer
+  overload: g3.Reducer.start_edges*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.next_edge(System.Int32,System.Boolean@)
+  commentId: M:g3.Reducer.next_edge(System.Int32,System.Boolean@)
+  id: next_edge(System.Int32,System.Boolean@)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: next_edge(Int32, out Boolean)
+  nameWithType: Reducer.next_edge(Int32, out Boolean)
+  fullName: g3.Reducer.next_edge(System.Int32, out System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: next_edge
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 475
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual int next_edge(int cur_eid, out bool bDone)
+    parameters:
+    - id: cur_eid
+      type: System.Int32
+    - id: bDone
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Protected Overridable Function next_edge(cur_eid As Integer, ByRef bDone As Boolean) As Integer
+  overload: g3.Reducer.next_edge*
+  nameWithType.vb: Reducer.next_edge(Int32, ByRef Boolean)
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+  fullName.vb: g3.Reducer.next_edge(System.Int32, ByRef System.Boolean)
+  name.vb: next_edge(Int32, ByRef Boolean)
+- uid: g3.Reducer.project_vertices
+  commentId: M:g3.Reducer.project_vertices
+  id: project_vertices
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: project_vertices()
+  nameWithType: Reducer.project_vertices()
+  fullName: g3.Reducer.project_vertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: project_vertices
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 483
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual IEnumerable<int> project_vertices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Protected Overridable Function project_vertices As IEnumerable(Of Integer)
+  overload: g3.Reducer.project_vertices*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.CollapseEdge(System.Int32,g3.Vector3d,System.Int32@)
+  commentId: M:g3.Reducer.CollapseEdge(System.Int32,g3.Vector3d,System.Int32@)
+  id: CollapseEdge(System.Int32,g3.Vector3d,System.Int32@)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: CollapseEdge(Int32, Vector3d, out Int32)
+  nameWithType: Reducer.CollapseEdge(Int32, Vector3d, out Int32)
+  fullName: g3.Reducer.CollapseEdge(System.Int32, g3.Vector3d, out System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CollapseEdge
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 502
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual Reducer.ProcessResult CollapseEdge(int edgeID, Vector3d vNewPos, out int collapseToV)
+    parameters:
+    - id: edgeID
+      type: System.Int32
+    - id: vNewPos
+      type: g3.Vector3d
+    - id: collapseToV
+      type: System.Int32
+    return:
+      type: g3.Reducer.ProcessResult
+    content.vb: Protected Overridable Function CollapseEdge(edgeID As Integer, vNewPos As Vector3d, ByRef collapseToV As Integer) As Reducer.ProcessResult
+  overload: g3.Reducer.CollapseEdge*
+  nameWithType.vb: Reducer.CollapseEdge(Int32, Vector3d, ByRef Int32)
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+  fullName.vb: g3.Reducer.CollapseEdge(System.Int32, g3.Vector3d, ByRef System.Int32)
+  name.vb: CollapseEdge(Int32, Vector3d, ByRef Int32)
+- uid: g3.Reducer.project_vertex(System.Int32,g3.IProjectionTarget)
+  commentId: M:g3.Reducer.project_vertex(System.Int32,g3.IProjectionTarget)
+  id: project_vertex(System.Int32,g3.IProjectionTarget)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: project_vertex(Int32, IProjectionTarget)
+  nameWithType: Reducer.project_vertex(Int32, IProjectionTarget)
+  fullName: g3.Reducer.project_vertex(System.Int32, g3.IProjectionTarget)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: project_vertex
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 609
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void project_vertex(int vID, IProjectionTarget targetIn)
+    parameters:
+    - id: vID
+      type: System.Int32
+    - id: targetIn
+      type: g3.IProjectionTarget
+    content.vb: Protected Sub project_vertex(vID As Integer, targetIn As IProjectionTarget)
+  overload: g3.Reducer.project_vertex*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.get_projected_collapse_position(System.Int32,g3.Vector3d)
+  commentId: M:g3.Reducer.get_projected_collapse_position(System.Int32,g3.Vector3d)
+  id: get_projected_collapse_position(System.Int32,g3.Vector3d)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: get_projected_collapse_position(Int32, Vector3d)
+  nameWithType: Reducer.get_projected_collapse_position(Int32, Vector3d)
+  fullName: g3.Reducer.get_projected_collapse_position(System.Int32, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: get_projected_collapse_position
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 617
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected Vector3d get_projected_collapse_position(int vid, Vector3d vNewPos)
+    parameters:
+    - id: vid
+      type: System.Int32
+    - id: vNewPos
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Protected Function get_projected_collapse_position(vid As Integer, vNewPos As Vector3d) As Vector3d
+  overload: g3.Reducer.get_projected_collapse_position*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Reducer.FullProjectionPass
+  commentId: M:g3.Reducer.FullProjectionPass
+  id: FullProjectionPass
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: FullProjectionPass()
+  nameWithType: Reducer.FullProjectionPass()
+  fullName: g3.Reducer.FullProjectionPass()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FullProjectionPass
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 637
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void FullProjectionPass()
+    content.vb: Protected Overridable Sub FullProjectionPass
+  overload: g3.Reducer.FullProjectionPass*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.RuntimeDebugCheck(System.Int32)
+  commentId: M:g3.Reducer.RuntimeDebugCheck(System.Int32)
+  id: RuntimeDebugCheck(System.Int32)
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: RuntimeDebugCheck(Int32)
+  nameWithType: Reducer.RuntimeDebugCheck(Int32)
+  fullName: g3.Reducer.RuntimeDebugCheck(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RuntimeDebugCheck
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 653
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      [Conditional("DEBUG")]
+
+      protected virtual void RuntimeDebugCheck(int eid)
+    parameters:
+    - id: eid
+      type: System.Int32
+    content.vb: >-
+      <Conditional("DEBUG")>
+
+      Protected Overridable Sub RuntimeDebugCheck(eid As Integer)
+  overload: g3.Reducer.RuntimeDebugCheck*
+  attributes:
+  - type: System.Diagnostics.ConditionalAttribute
+    ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DEBUG
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.ENABLE_DEBUG_CHECKS
+  commentId: F:g3.Reducer.ENABLE_DEBUG_CHECKS
+  id: ENABLE_DEBUG_CHECKS
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: ENABLE_DEBUG_CHECKS
+  nameWithType: Reducer.ENABLE_DEBUG_CHECKS
+  fullName: g3.Reducer.ENABLE_DEBUG_CHECKS
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ENABLE_DEBUG_CHECKS
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 661
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool ENABLE_DEBUG_CHECKS
+    return:
+      type: System.Boolean
+    content.vb: Public ENABLE_DEBUG_CHECKS As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Reducer.DoDebugChecks
+  commentId: M:g3.Reducer.DoDebugChecks
+  id: DoDebugChecks
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: DoDebugChecks()
+  nameWithType: Reducer.DoDebugChecks()
+  fullName: g3.Reducer.DoDebugChecks()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DoDebugChecks
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 662
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void DoDebugChecks()
+    content.vb: Protected Overridable Sub DoDebugChecks
+  overload: g3.Reducer.DoDebugChecks*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.DebugCheckVertexConstraints
+  commentId: M:g3.Reducer.DebugCheckVertexConstraints
+  id: DebugCheckVertexConstraints
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: DebugCheckVertexConstraints()
+  nameWithType: Reducer.DebugCheckVertexConstraints()
+  fullName: g3.Reducer.DebugCheckVertexConstraints()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DebugCheckVertexConstraints
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 684
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void DebugCheckVertexConstraints()
+    content.vb: Protected Overridable Sub DebugCheckVertexConstraints
+  overload: g3.Reducer.DebugCheckVertexConstraints*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.begin_pass
+  commentId: M:g3.Reducer.begin_pass
+  id: begin_pass
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: begin_pass()
+  nameWithType: Reducer.begin_pass()
+  fullName: g3.Reducer.begin_pass()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: begin_pass
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 710
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void begin_pass()
+    content.vb: Protected Overridable Sub begin_pass
+  overload: g3.Reducer.begin_pass*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.end_pass
+  commentId: M:g3.Reducer.end_pass
+  id: end_pass
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: end_pass()
+  nameWithType: Reducer.end_pass()
+  fullName: g3.Reducer.end_pass()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: end_pass
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 721
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void end_pass()
+    content.vb: Protected Overridable Sub end_pass
+  overload: g3.Reducer.end_pass*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.begin_ops
+  commentId: M:g3.Reducer.begin_ops
+  id: begin_ops
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: begin_ops()
+  nameWithType: Reducer.begin_ops()
+  fullName: g3.Reducer.begin_ops()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: begin_ops
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 732
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void begin_ops()
+    content.vb: Protected Overridable Sub begin_ops
+  overload: g3.Reducer.begin_ops*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.end_ops
+  commentId: M:g3.Reducer.end_ops
+  id: end_ops
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: end_ops()
+  nameWithType: Reducer.end_ops()
+  fullName: g3.Reducer.end_ops()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: end_ops
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 735
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void end_ops()
+    content.vb: Protected Overridable Sub end_ops
+  overload: g3.Reducer.end_ops*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.begin_setup
+  commentId: M:g3.Reducer.begin_setup
+  id: begin_setup
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: begin_setup()
+  nameWithType: Reducer.begin_setup()
+  fullName: g3.Reducer.begin_setup()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: begin_setup
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 738
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void begin_setup()
+    content.vb: Protected Overridable Sub begin_setup
+  overload: g3.Reducer.begin_setup*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.end_setup
+  commentId: M:g3.Reducer.end_setup
+  id: end_setup
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: end_setup()
+  nameWithType: Reducer.end_setup()
+  fullName: g3.Reducer.end_setup()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: end_setup
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 741
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void end_setup()
+    content.vb: Protected Overridable Sub end_setup
+  overload: g3.Reducer.end_setup*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.begin_project
+  commentId: M:g3.Reducer.begin_project
+  id: begin_project
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: begin_project()
+  nameWithType: Reducer.begin_project()
+  fullName: g3.Reducer.begin_project()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: begin_project
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 745
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void begin_project()
+    content.vb: Protected Overridable Sub begin_project
+  overload: g3.Reducer.begin_project*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.end_project
+  commentId: M:g3.Reducer.end_project
+  id: end_project
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: end_project()
+  nameWithType: Reducer.end_project()
+  fullName: g3.Reducer.end_project()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: end_project
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 748
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void end_project()
+    content.vb: Protected Overridable Sub end_project
+  overload: g3.Reducer.end_project*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.begin_collapse
+  commentId: M:g3.Reducer.begin_collapse
+  id: begin_collapse
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: begin_collapse()
+  nameWithType: Reducer.begin_collapse()
+  fullName: g3.Reducer.begin_collapse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: begin_collapse
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 752
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void begin_collapse()
+    content.vb: Protected Overridable Sub begin_collapse
+  overload: g3.Reducer.begin_collapse*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.Reducer.end_collapse
+  commentId: M:g3.Reducer.end_collapse
+  id: end_collapse
+  parent: g3.Reducer
+  langs:
+  - csharp
+  - vb
+  name: end_collapse()
+  nameWithType: Reducer.end_collapse()
+  fullName: g3.Reducer.end_collapse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/Reducer.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: end_collapse
+    path: ../Assets/geometry3Sharp/mesh/Reducer.cs
+    startLine: 755
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void end_collapse()
+    content.vb: Protected Overridable Sub end_collapse
+  overload: g3.Reducer.end_collapse*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.MeshRefinerBase
+  commentId: T:g3.MeshRefinerBase
+  parent: g3
+  name: MeshRefinerBase
+  nameWithType: MeshRefinerBase
+  fullName: g3.MeshRefinerBase
+- uid: g3.MeshRefinerBase.mesh
+  commentId: F:g3.MeshRefinerBase.mesh
+  parent: g3.MeshRefinerBase
+  name: mesh
+  nameWithType: MeshRefinerBase.mesh
+  fullName: g3.MeshRefinerBase.mesh
+- uid: g3.MeshRefinerBase.constraints
+  commentId: F:g3.MeshRefinerBase.constraints
+  parent: g3.MeshRefinerBase
+  name: constraints
+  nameWithType: MeshRefinerBase.constraints
+  fullName: g3.MeshRefinerBase.constraints
+- uid: g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  commentId: F:g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  parent: g3.MeshRefinerBase
+  name: AllowCollapseFixedVertsWithSameSetID
+  nameWithType: MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  fullName: g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+- uid: g3.MeshRefinerBase.EdgeFlipTolerance
+  commentId: P:g3.MeshRefinerBase.EdgeFlipTolerance
+  parent: g3.MeshRefinerBase
+  name: EdgeFlipTolerance
+  nameWithType: MeshRefinerBase.EdgeFlipTolerance
+  fullName: g3.MeshRefinerBase.EdgeFlipTolerance
+- uid: g3.MeshRefinerBase.edge_flip_tol
+  commentId: F:g3.MeshRefinerBase.edge_flip_tol
+  parent: g3.MeshRefinerBase
+  name: edge_flip_tol
+  nameWithType: MeshRefinerBase.edge_flip_tol
+  fullName: g3.MeshRefinerBase.edge_flip_tol
+- uid: g3.MeshRefinerBase.Mesh
+  commentId: P:g3.MeshRefinerBase.Mesh
+  parent: g3.MeshRefinerBase
+  name: Mesh
+  nameWithType: MeshRefinerBase.Mesh
+  fullName: g3.MeshRefinerBase.Mesh
+- uid: g3.MeshRefinerBase.Constraints
+  commentId: P:g3.MeshRefinerBase.Constraints
+  parent: g3.MeshRefinerBase
+  name: Constraints
+  nameWithType: MeshRefinerBase.Constraints
+  fullName: g3.MeshRefinerBase.Constraints
+- uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  commentId: M:g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  parent: g3.MeshRefinerBase
+  name: SetExternalConstraints(MeshConstraints)
+  nameWithType: MeshRefinerBase.SetExternalConstraints(MeshConstraints)
+  fullName: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+    name: SetExternalConstraints
+    nameWithType: MeshRefinerBase.SetExternalConstraints
+    fullName: g3.MeshRefinerBase.SetExternalConstraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.MeshConstraints
+    name: MeshConstraints
+    nameWithType: MeshConstraints
+    fullName: g3.MeshConstraints
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+    name: SetExternalConstraints
+    nameWithType: MeshRefinerBase.SetExternalConstraints
+    fullName: g3.MeshRefinerBase.SetExternalConstraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.MeshConstraints
+    name: MeshConstraints
+    nameWithType: MeshConstraints
+    fullName: g3.MeshConstraints
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.Progress
+  commentId: F:g3.MeshRefinerBase.Progress
+  parent: g3.MeshRefinerBase
+  name: Progress
+  nameWithType: MeshRefinerBase.Progress
+  fullName: g3.MeshRefinerBase.Progress
+- uid: g3.MeshRefinerBase.Cancelled
+  commentId: M:g3.MeshRefinerBase.Cancelled
+  parent: g3.MeshRefinerBase
+  name: Cancelled()
+  nameWithType: MeshRefinerBase.Cancelled()
+  fullName: g3.MeshRefinerBase.Cancelled()
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.Cancelled
+    name: Cancelled
+    nameWithType: MeshRefinerBase.Cancelled
+    fullName: g3.MeshRefinerBase.Cancelled
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.Cancelled
+    name: Cancelled
+    nameWithType: MeshRefinerBase.Cancelled
+    fullName: g3.MeshRefinerBase.Cancelled
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  commentId: M:g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  parent: g3.MeshRefinerBase
+  name: edge_flip_metric(Vector3d, Vector3d)
+  nameWithType: MeshRefinerBase.edge_flip_metric(Vector3d, Vector3d)
+  fullName: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d, g3.Vector3d)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+    name: edge_flip_metric
+    nameWithType: MeshRefinerBase.edge_flip_metric
+    fullName: g3.MeshRefinerBase.edge_flip_metric
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+    name: edge_flip_metric
+    nameWithType: MeshRefinerBase.edge_flip_metric
+    fullName: g3.MeshRefinerBase.edge_flip_metric
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  commentId: M:g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: collapse_creates_flip_or_invalid(Int32, Int32, Vector3d, Int32, Int32)
+  nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid(Int32, Int32, Vector3d, Int32, Int32)
+  fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32, System.Int32, g3.Vector3d, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+    name: collapse_creates_flip_or_invalid
+    nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid
+    fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+    name: collapse_creates_flip_or_invalid
+    nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid
+    fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: flip_inverts_normals(Int32, Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.flip_inverts_normals(Int32, Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.flip_inverts_normals(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: flip_inverts_normals
+    nameWithType: MeshRefinerBase.flip_inverts_normals
+    fullName: g3.MeshRefinerBase.flip_inverts_normals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+    name: flip_inverts_normals
+    nameWithType: MeshRefinerBase.flip_inverts_normals
+    fullName: g3.MeshRefinerBase.flip_inverts_normals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  commentId: M:g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.can_collapse_constraints(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_constraints
+    nameWithType: MeshRefinerBase.can_collapse_constraints
+    fullName: g3.MeshRefinerBase.can_collapse_constraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_constraints
+    nameWithType: MeshRefinerBase.can_collapse_constraints
+    fullName: g3.MeshRefinerBase.can_collapse_constraints
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  commentId: M:g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: can_collapse_vtx(Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.can_collapse_vtx(Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.can_collapse_vtx(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_vtx
+    nameWithType: MeshRefinerBase.can_collapse_vtx
+    fullName: g3.MeshRefinerBase.can_collapse_vtx
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+    name: can_collapse_vtx
+    nameWithType: MeshRefinerBase.can_collapse_vtx
+    fullName: g3.MeshRefinerBase.can_collapse_vtx
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  commentId: M:g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: vertex_is_fixed(Int32)
+  nameWithType: MeshRefinerBase.vertex_is_fixed(Int32)
+  fullName: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+    name: vertex_is_fixed
+    nameWithType: MeshRefinerBase.vertex_is_fixed
+    fullName: g3.MeshRefinerBase.vertex_is_fixed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+    name: vertex_is_fixed
+    nameWithType: MeshRefinerBase.vertex_is_fixed
+    fullName: g3.MeshRefinerBase.vertex_is_fixed
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  commentId: M:g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: vertex_is_constrained(Int32)
+  nameWithType: MeshRefinerBase.vertex_is_constrained(Int32)
+  fullName: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+    name: vertex_is_constrained
+    nameWithType: MeshRefinerBase.vertex_is_constrained
+    fullName: g3.MeshRefinerBase.vertex_is_constrained
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+    name: vertex_is_constrained
+    nameWithType: MeshRefinerBase.vertex_is_constrained
+    fullName: g3.MeshRefinerBase.vertex_is_constrained
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  commentId: M:g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: get_vertex_constraint(Int32)
+  nameWithType: MeshRefinerBase.get_vertex_constraint(Int32)
+  fullName: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  commentId: M:g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  parent: g3.MeshRefinerBase
+  isExternal: true
+  name: get_vertex_constraint(Int32, VertexConstraint)
+  nameWithType: MeshRefinerBase.get_vertex_constraint(Int32, VertexConstraint)
+  fullName: g3.MeshRefinerBase.get_vertex_constraint(System.Int32, g3.VertexConstraint)
+  spec.csharp:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VertexConstraint
+    name: VertexConstraint
+    nameWithType: VertexConstraint
+    fullName: g3.VertexConstraint
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+    name: get_vertex_constraint
+    nameWithType: MeshRefinerBase.get_vertex_constraint
+    fullName: g3.MeshRefinerBase.get_vertex_constraint
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VertexConstraint
+    name: VertexConstraint
+    nameWithType: VertexConstraint
+    fullName: g3.VertexConstraint
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IProjectionTarget
+  commentId: T:g3.IProjectionTarget
+  parent: g3
+  name: IProjectionTarget
+  nameWithType: IProjectionTarget
+  fullName: g3.IProjectionTarget
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.Reducer.TargetProjectionMode
+  commentId: T:g3.Reducer.TargetProjectionMode
+  parent: g3
+  name: Reducer.TargetProjectionMode
+  nameWithType: Reducer.TargetProjectionMode
+  fullName: g3.Reducer.TargetProjectionMode
+- uid: g3.Reducer.#ctor*
+  commentId: Overload:g3.Reducer.#ctor
+  name: Reducer
+  nameWithType: Reducer.Reducer
+  fullName: g3.Reducer.Reducer
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.Reducer.SetProjectionTarget*
+  commentId: Overload:g3.Reducer.SetProjectionTarget
+  name: SetProjectionTarget
+  nameWithType: Reducer.SetProjectionTarget
+  fullName: g3.Reducer.SetProjectionTarget
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Reducer.TargetModes
+  commentId: T:g3.Reducer.TargetModes
+  parent: g3
+  name: Reducer.TargetModes
+  nameWithType: Reducer.TargetModes
+  fullName: g3.Reducer.TargetModes
+- uid: g3.Reducer.DoReduce*
+  commentId: Overload:g3.Reducer.DoReduce
+  name: DoReduce
+  nameWithType: Reducer.DoReduce
+  fullName: g3.Reducer.DoReduce
+- uid: g3.Reducer.ReduceToTriangleCount*
+  commentId: Overload:g3.Reducer.ReduceToTriangleCount
+  name: ReduceToTriangleCount
+  nameWithType: Reducer.ReduceToTriangleCount
+  fullName: g3.Reducer.ReduceToTriangleCount
+- uid: g3.Reducer.ReduceToVertexCount*
+  commentId: Overload:g3.Reducer.ReduceToVertexCount
+  name: ReduceToVertexCount
+  nameWithType: Reducer.ReduceToVertexCount
+  fullName: g3.Reducer.ReduceToVertexCount
+- uid: g3.Reducer.ReduceToEdgeLength*
+  commentId: Overload:g3.Reducer.ReduceToEdgeLength
+  name: ReduceToEdgeLength
+  nameWithType: Reducer.ReduceToEdgeLength
+  fullName: g3.Reducer.ReduceToEdgeLength
+- uid: g3.Reducer.FastCollapsePass*
+  commentId: Overload:g3.Reducer.FastCollapsePass
+  name: FastCollapsePass
+  nameWithType: Reducer.FastCollapsePass
+  fullName: g3.Reducer.FastCollapsePass
+- uid: g3.QuadricError[]
+  isExternal: true
+  name: QuadricError[]
+  nameWithType: QuadricError[]
+  fullName: g3.QuadricError[]
+  nameWithType.vb: QuadricError()
+  fullName.vb: g3.QuadricError()
+  name.vb: QuadricError()
+  spec.csharp:
+  - uid: g3.QuadricError
+    name: QuadricError
+    nameWithType: QuadricError
+    fullName: g3.QuadricError
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.QuadricError
+    name: QuadricError
+    nameWithType: QuadricError
+    fullName: g3.QuadricError
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Reducer.InitializeVertexQuadrics*
+  commentId: Overload:g3.Reducer.InitializeVertexQuadrics
+  name: InitializeVertexQuadrics
+  nameWithType: Reducer.InitializeVertexQuadrics
+  fullName: g3.Reducer.InitializeVertexQuadrics
+- uid: g3.Reducer.QEdge[]
+  isExternal: true
+  name: Reducer.QEdge[]
+  nameWithType: Reducer.QEdge[]
+  fullName: g3.Reducer.QEdge[]
+  nameWithType.vb: Reducer.QEdge()
+  fullName.vb: g3.Reducer.QEdge()
+  name.vb: Reducer.QEdge()
+  spec.csharp:
+  - uid: g3.Reducer.QEdge
+    name: Reducer.QEdge
+    nameWithType: Reducer.QEdge
+    fullName: g3.Reducer.QEdge
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Reducer.QEdge
+    name: Reducer.QEdge
+    nameWithType: Reducer.QEdge
+    fullName: g3.Reducer.QEdge
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.IndexPriorityQueue
+  commentId: T:g3.IndexPriorityQueue
+  parent: g3
+  name: IndexPriorityQueue
+  nameWithType: IndexPriorityQueue
+  fullName: g3.IndexPriorityQueue
+- uid: g3.Reducer.InitializeQueue*
+  commentId: Overload:g3.Reducer.InitializeQueue
+  name: InitializeQueue
+  nameWithType: Reducer.InitializeQueue
+  fullName: g3.Reducer.InitializeQueue
+- uid: g3.Reducer.OptimalPoint*
+  commentId: Overload:g3.Reducer.OptimalPoint
+  name: OptimalPoint
+  nameWithType: Reducer.OptimalPoint
+  fullName: g3.Reducer.OptimalPoint
+- uid: g3.QuadricError
+  commentId: T:g3.QuadricError
+  parent: g3
+  name: QuadricError
+  nameWithType: QuadricError
+  fullName: g3.QuadricError
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.Reducer.UpdateNeighbours*
+  commentId: Overload:g3.Reducer.UpdateNeighbours
+  name: UpdateNeighbours
+  nameWithType: Reducer.UpdateNeighbours
+  fullName: g3.Reducer.UpdateNeighbours
+- uid: g3.Reducer.Reproject*
+  commentId: Overload:g3.Reducer.Reproject
+  name: Reproject
+  nameWithType: Reducer.Reproject
+  fullName: g3.Reducer.Reproject
+- uid: System.Boolean[]
+  isExternal: true
+  name: Boolean[]
+  nameWithType: Boolean[]
+  fullName: System.Boolean[]
+  nameWithType.vb: Boolean()
+  fullName.vb: System.Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Reducer.Precompute*
+  commentId: Overload:g3.Reducer.Precompute
+  name: Precompute
+  nameWithType: Reducer.Precompute
+  fullName: g3.Reducer.Precompute
+- uid: g3.Reducer.IsBoundaryV*
+  commentId: Overload:g3.Reducer.IsBoundaryV
+  name: IsBoundaryV
+  nameWithType: Reducer.IsBoundaryV
+  fullName: g3.Reducer.IsBoundaryV
+- uid: g3.Reducer.OnEdgeCollapse*
+  commentId: Overload:g3.Reducer.OnEdgeCollapse
+  name: OnEdgeCollapse
+  nameWithType: Reducer.OnEdgeCollapse
+  fullName: g3.Reducer.OnEdgeCollapse
+- uid: g3.DMesh3.EdgeCollapseInfo
+  commentId: T:g3.DMesh3.EdgeCollapseInfo
+  parent: g3
+  name: DMesh3.EdgeCollapseInfo
+  nameWithType: DMesh3.EdgeCollapseInfo
+  fullName: g3.DMesh3.EdgeCollapseInfo
+- uid: g3.Reducer.start_edges*
+  commentId: Overload:g3.Reducer.start_edges
+  name: start_edges
+  nameWithType: Reducer.start_edges
+  fullName: g3.Reducer.start_edges
+- uid: g3.Reducer.next_edge*
+  commentId: Overload:g3.Reducer.next_edge
+  name: next_edge
+  nameWithType: Reducer.next_edge
+  fullName: g3.Reducer.next_edge
+- uid: g3.Reducer.project_vertices*
+  commentId: Overload:g3.Reducer.project_vertices
+  name: project_vertices
+  nameWithType: Reducer.project_vertices
+  fullName: g3.Reducer.project_vertices
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Reducer.CollapseEdge*
+  commentId: Overload:g3.Reducer.CollapseEdge
+  name: CollapseEdge
+  nameWithType: Reducer.CollapseEdge
+  fullName: g3.Reducer.CollapseEdge
+- uid: g3.Reducer.ProcessResult
+  commentId: T:g3.Reducer.ProcessResult
+  parent: g3
+  name: Reducer.ProcessResult
+  nameWithType: Reducer.ProcessResult
+  fullName: g3.Reducer.ProcessResult
+- uid: g3.Reducer.project_vertex*
+  commentId: Overload:g3.Reducer.project_vertex
+  name: project_vertex
+  nameWithType: Reducer.project_vertex
+  fullName: g3.Reducer.project_vertex
+- uid: g3.Reducer.get_projected_collapse_position*
+  commentId: Overload:g3.Reducer.get_projected_collapse_position
+  name: get_projected_collapse_position
+  nameWithType: Reducer.get_projected_collapse_position
+  fullName: g3.Reducer.get_projected_collapse_position
+- uid: g3.Reducer.FullProjectionPass*
+  commentId: Overload:g3.Reducer.FullProjectionPass
+  name: FullProjectionPass
+  nameWithType: Reducer.FullProjectionPass
+  fullName: g3.Reducer.FullProjectionPass
+- uid: g3.Reducer.RuntimeDebugCheck*
+  commentId: Overload:g3.Reducer.RuntimeDebugCheck
+  name: RuntimeDebugCheck
+  nameWithType: Reducer.RuntimeDebugCheck
+  fullName: g3.Reducer.RuntimeDebugCheck
+- uid: g3.Reducer.DoDebugChecks*
+  commentId: Overload:g3.Reducer.DoDebugChecks
+  name: DoDebugChecks
+  nameWithType: Reducer.DoDebugChecks
+  fullName: g3.Reducer.DoDebugChecks
+- uid: g3.Reducer.DebugCheckVertexConstraints*
+  commentId: Overload:g3.Reducer.DebugCheckVertexConstraints
+  name: DebugCheckVertexConstraints
+  nameWithType: Reducer.DebugCheckVertexConstraints
+  fullName: g3.Reducer.DebugCheckVertexConstraints
+- uid: g3.Reducer.begin_pass*
+  commentId: Overload:g3.Reducer.begin_pass
+  name: begin_pass
+  nameWithType: Reducer.begin_pass
+  fullName: g3.Reducer.begin_pass
+- uid: g3.Reducer.end_pass*
+  commentId: Overload:g3.Reducer.end_pass
+  name: end_pass
+  nameWithType: Reducer.end_pass
+  fullName: g3.Reducer.end_pass
+- uid: g3.Reducer.begin_ops*
+  commentId: Overload:g3.Reducer.begin_ops
+  name: begin_ops
+  nameWithType: Reducer.begin_ops
+  fullName: g3.Reducer.begin_ops
+- uid: g3.Reducer.end_ops*
+  commentId: Overload:g3.Reducer.end_ops
+  name: end_ops
+  nameWithType: Reducer.end_ops
+  fullName: g3.Reducer.end_ops
+- uid: g3.Reducer.begin_setup*
+  commentId: Overload:g3.Reducer.begin_setup
+  name: begin_setup
+  nameWithType: Reducer.begin_setup
+  fullName: g3.Reducer.begin_setup
+- uid: g3.Reducer.end_setup*
+  commentId: Overload:g3.Reducer.end_setup
+  name: end_setup
+  nameWithType: Reducer.end_setup
+  fullName: g3.Reducer.end_setup
+- uid: g3.Reducer.begin_project*
+  commentId: Overload:g3.Reducer.begin_project
+  name: begin_project
+  nameWithType: Reducer.begin_project
+  fullName: g3.Reducer.begin_project
+- uid: g3.Reducer.end_project*
+  commentId: Overload:g3.Reducer.end_project
+  name: end_project
+  nameWithType: Reducer.end_project
+  fullName: g3.Reducer.end_project
+- uid: g3.Reducer.begin_collapse*
+  commentId: Overload:g3.Reducer.begin_collapse
+  name: begin_collapse
+  nameWithType: Reducer.begin_collapse
+  fullName: g3.Reducer.begin_collapse
+- uid: g3.Reducer.end_collapse*
+  commentId: Overload:g3.Reducer.end_collapse
+  name: end_collapse
+  nameWithType: Reducer.end_collapse
+  fullName: g3.Reducer.end_collapse

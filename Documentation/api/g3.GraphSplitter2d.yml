@@ -1,0 +1,460 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.GraphSplitter2d
+  commentId: T:g3.GraphSplitter2d
+  id: GraphSplitter2d
+  parent: g3
+  children:
+  - g3.GraphSplitter2d.#ctor(g3.DGraph2)
+  - g3.GraphSplitter2d.do_split(g3.Line2d,System.Boolean,System.Int32)
+  - g3.GraphSplitter2d.Graph
+  - g3.GraphSplitter2d.InsertedEdgesID
+  - g3.GraphSplitter2d.InsertLine(g3.Line2d,System.Int32)
+  - g3.GraphSplitter2d.InsideTestF
+  - g3.GraphSplitter2d.OnVertexTol
+  langs:
+  - csharp
+  - vb
+  name: GraphSplitter2d
+  nameWithType: GraphSplitter2d
+  fullName: g3.GraphSplitter2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GraphSplitter2d
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nThis class is used to bisect an existing DGraph2 with infinite lines.\nThis is easier than inserting new segments, which can be done using Arrangement2d.\n\nComputations are done in double precision. Use at your own risk.\n\n[TODO]\n- computation of signs for a split-line is currently O(N). If inserting many\nparallel lines, can improve this using standard sorting.\n"
+  example: []
+  syntax:
+    content: public class GraphSplitter2d
+    content.vb: Public Class GraphSplitter2d
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.GraphSplitter2d.Graph
+  commentId: F:g3.GraphSplitter2d.Graph
+  id: Graph
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: Graph
+  nameWithType: GraphSplitter2d.Graph
+  fullName: g3.GraphSplitter2d.Graph
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Graph
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DGraph2 Graph
+    return:
+      type: g3.DGraph2
+    content.vb: Public Graph As DGraph2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.GraphSplitter2d.OnVertexTol
+  commentId: F:g3.GraphSplitter2d.OnVertexTol
+  id: OnVertexTol
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: OnVertexTol
+  nameWithType: GraphSplitter2d.OnVertexTol
+  fullName: g3.GraphSplitter2d.OnVertexTol
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OnVertexTol
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ntolerance for WhichSide(vtx) tests\n"
+  example: []
+  syntax:
+    content: public double OnVertexTol
+    return:
+      type: System.Double
+    content.vb: Public OnVertexTol As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.GraphSplitter2d.InsertedEdgesID
+  commentId: F:g3.GraphSplitter2d.InsertedEdgesID
+  id: InsertedEdgesID
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: InsertedEdgesID
+  nameWithType: GraphSplitter2d.InsertedEdgesID
+  fullName: g3.GraphSplitter2d.InsertedEdgesID
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertedEdgesID
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ndefault ID for new edges, can override in specific functions\n"
+  example: []
+  syntax:
+    content: public int InsertedEdgesID
+    return:
+      type: System.Int32
+    content.vb: Public InsertedEdgesID As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.GraphSplitter2d.InsideTestF
+  commentId: F:g3.GraphSplitter2d.InsideTestF
+  id: InsideTestF
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: InsideTestF
+  nameWithType: GraphSplitter2d.InsideTestF
+  fullName: g3.GraphSplitter2d.InsideTestF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsideTestF
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nwhen inserting new segments, we check if their midpoint passes this test\n"
+  example: []
+  syntax:
+    content: public Func<Vector2d, bool> InsideTestF
+    return:
+      type: System.Func{g3.Vector2d,System.Boolean}
+    content.vb: Public InsideTestF As Func(Of Vector2d, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.GraphSplitter2d.#ctor(g3.DGraph2)
+  commentId: M:g3.GraphSplitter2d.#ctor(g3.DGraph2)
+  id: '#ctor(g3.DGraph2)'
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: GraphSplitter2d(DGraph2)
+  nameWithType: GraphSplitter2d.GraphSplitter2d(DGraph2)
+  fullName: g3.GraphSplitter2d.GraphSplitter2d(g3.DGraph2)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 37
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public GraphSplitter2d(DGraph2 graph)
+    parameters:
+    - id: graph
+      type: g3.DGraph2
+    content.vb: Public Sub New(graph As DGraph2)
+  overload: g3.GraphSplitter2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.GraphSplitter2d.InsertLine(g3.Line2d,System.Int32)
+  commentId: M:g3.GraphSplitter2d.InsertLine(g3.Line2d,System.Int32)
+  id: InsertLine(g3.Line2d,System.Int32)
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: InsertLine(Line2d, Int32)
+  nameWithType: GraphSplitter2d.InsertLine(Line2d, Int32)
+  fullName: g3.GraphSplitter2d.InsertLine(g3.Line2d, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertLine
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nsplit all graph edges that intersect line, and insert segments\nconnecting these points\n"
+  example: []
+  syntax:
+    content: public void InsertLine(Line2d line, int insert_edges_id = -1)
+    parameters:
+    - id: line
+      type: g3.Line2d
+    - id: insert_edges_id
+      type: System.Int32
+    content.vb: Public Sub InsertLine(line As Line2d, insert_edges_id As Integer = -1)
+  overload: g3.GraphSplitter2d.InsertLine*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.GraphSplitter2d.do_split(g3.Line2d,System.Boolean,System.Int32)
+  commentId: M:g3.GraphSplitter2d.do_split(g3.Line2d,System.Boolean,System.Int32)
+  id: do_split(g3.Line2d,System.Boolean,System.Int32)
+  parent: g3.GraphSplitter2d
+  langs:
+  - csharp
+  - vb
+  name: do_split(Line2d, Boolean, Int32)
+  nameWithType: GraphSplitter2d.do_split(Line2d, Boolean, Int32)
+  fullName: g3.GraphSplitter2d.do_split(g3.Line2d, System.Boolean, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: do_split
+    path: ../Assets/geometry3Sharp/comp_geom/GraphSplitter2d.cs
+    startLine: 70
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void do_split(Line2d line, bool insert_edges, int insert_gid)
+    parameters:
+    - id: line
+      type: g3.Line2d
+    - id: insert_edges
+      type: System.Boolean
+    - id: insert_gid
+      type: System.Int32
+    content.vb: Protected Overridable Sub do_split(line As Line2d, insert_edges As Boolean, insert_gid As Integer)
+  overload: g3.GraphSplitter2d.do_split*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DGraph2
+  commentId: T:g3.DGraph2
+  parent: g3
+  name: DGraph2
+  nameWithType: DGraph2
+  fullName: g3.DGraph2
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Func{g3.Vector2d,System.Boolean}
+  commentId: T:System.Func{g3.Vector2d,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Vector2d, Boolean>
+  nameWithType: Func<Vector2d, Boolean>
+  fullName: System.Func<g3.Vector2d, System.Boolean>
+  nameWithType.vb: Func(Of Vector2d, Boolean)
+  fullName.vb: System.Func(Of g3.Vector2d, System.Boolean)
+  name.vb: Func(Of Vector2d, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.GraphSplitter2d.#ctor*
+  commentId: Overload:g3.GraphSplitter2d.#ctor
+  name: GraphSplitter2d
+  nameWithType: GraphSplitter2d.GraphSplitter2d
+  fullName: g3.GraphSplitter2d.GraphSplitter2d
+- uid: g3.GraphSplitter2d.InsertLine*
+  commentId: Overload:g3.GraphSplitter2d.InsertLine
+  name: InsertLine
+  nameWithType: GraphSplitter2d.InsertLine
+  fullName: g3.GraphSplitter2d.InsertLine
+- uid: g3.Line2d
+  commentId: T:g3.Line2d
+  parent: g3
+  name: Line2d
+  nameWithType: Line2d
+  fullName: g3.Line2d
+- uid: g3.GraphSplitter2d.do_split*
+  commentId: Overload:g3.GraphSplitter2d.do_split
+  name: do_split
+  nameWithType: GraphSplitter2d.do_split
+  fullName: g3.GraphSplitter2d.do_split
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

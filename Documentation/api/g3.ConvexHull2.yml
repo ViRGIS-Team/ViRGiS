@@ -1,0 +1,463 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.ConvexHull2
+  commentId: T:g3.ConvexHull2
+  id: ConvexHull2
+  parent: g3
+  children:
+  - g3.ConvexHull2.#ctor(System.Collections.Generic.IList{g3.Vector2d},System.Double,g3.QueryNumberType)
+  - g3.ConvexHull2.Dimension
+  - g3.ConvexHull2.Get1DHullInfo(g3.Vector2d@,g3.Vector2d@)
+  - g3.ConvexHull2.GetHullPolygon
+  - g3.ConvexHull2.HullIndices
+  - g3.ConvexHull2.NumSimplices
+  langs:
+  - csharp
+  - vb
+  name: ConvexHull2
+  nameWithType: ConvexHull2
+  fullName: g3.ConvexHull2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvexHull2
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nConstruct convex hull of a set of 2D points, with various accuracy levels.\n\nHullIndices provides ordered indices of vertices of input points that form hull.\n"
+  example: []
+  syntax:
+    content: public class ConvexHull2
+    content.vb: Public Class ConvexHull2
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.ConvexHull2.Dimension
+  commentId: P:g3.ConvexHull2.Dimension
+  id: Dimension
+  parent: g3.ConvexHull2
+  langs:
+  - csharp
+  - vb
+  name: Dimension
+  nameWithType: ConvexHull2.Dimension
+  fullName: g3.ConvexHull2.Dimension
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dimension
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Dimension { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Dimension As Integer
+  overload: g3.ConvexHull2.Dimension*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.ConvexHull2.NumSimplices
+  commentId: P:g3.ConvexHull2.NumSimplices
+  id: NumSimplices
+  parent: g3.ConvexHull2
+  langs:
+  - csharp
+  - vb
+  name: NumSimplices
+  nameWithType: ConvexHull2.NumSimplices
+  fullName: g3.ConvexHull2.NumSimplices
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NumSimplices
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nNumber of convex polygon edges\n"
+  example: []
+  syntax:
+    content: public int NumSimplices { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property NumSimplices As Integer
+  overload: g3.ConvexHull2.NumSimplices*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.ConvexHull2.HullIndices
+  commentId: P:g3.ConvexHull2.HullIndices
+  id: HullIndices
+  parent: g3.ConvexHull2
+  langs:
+  - csharp
+  - vb
+  name: HullIndices
+  nameWithType: ConvexHull2.HullIndices
+  fullName: g3.ConvexHull2.HullIndices
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HullIndices
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 69
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\narray of indices into V that represent the convex polygon edges (NumSimplices total elements)\nThe i-th edge has vertices\nvertex[0] = V[I[i]]\nvertex[1] = V[I[(i+1) % SQ]]\n"
+  example: []
+  syntax:
+    content: public int[] HullIndices { get; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property HullIndices As Integer()
+  overload: g3.ConvexHull2.HullIndices*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.ConvexHull2.#ctor(System.Collections.Generic.IList{g3.Vector2d},System.Double,g3.QueryNumberType)
+  commentId: M:g3.ConvexHull2.#ctor(System.Collections.Generic.IList{g3.Vector2d},System.Double,g3.QueryNumberType)
+  id: '#ctor(System.Collections.Generic.IList{g3.Vector2d},System.Double,g3.QueryNumberType)'
+  parent: g3.ConvexHull2
+  langs:
+  - csharp
+  - vb
+  name: ConvexHull2(IList<Vector2d>, Double, QueryNumberType)
+  nameWithType: ConvexHull2.ConvexHull2(IList<Vector2d>, Double, QueryNumberType)
+  fullName: g3.ConvexHull2.ConvexHull2(System.Collections.Generic.IList<g3.Vector2d>, System.Double, g3.QueryNumberType)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCompute convex hull of input points. \nepsilon is only used for check if points lie on a line (1d hull), not for rest of compute.\n"
+  example: []
+  syntax:
+    content: public ConvexHull2(IList<Vector2d> vertices, double epsilon, QueryNumberType queryType)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    - id: epsilon
+      type: System.Double
+    - id: queryType
+      type: g3.QueryNumberType
+    content.vb: Public Sub New(vertices As IList(Of Vector2d), epsilon As Double, queryType As QueryNumberType)
+  overload: g3.ConvexHull2.#ctor*
+  nameWithType.vb: ConvexHull2.ConvexHull2(IList(Of Vector2d), Double, QueryNumberType)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.ConvexHull2.ConvexHull2(System.Collections.Generic.IList(Of g3.Vector2d), System.Double, g3.QueryNumberType)
+  name.vb: ConvexHull2(IList(Of Vector2d), Double, QueryNumberType)
+- uid: g3.ConvexHull2.Get1DHullInfo(g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.ConvexHull2.Get1DHullInfo(g3.Vector2d@,g3.Vector2d@)
+  id: Get1DHullInfo(g3.Vector2d@,g3.Vector2d@)
+  parent: g3.ConvexHull2
+  langs:
+  - csharp
+  - vb
+  name: Get1DHullInfo(out Vector2d, out Vector2d)
+  nameWithType: ConvexHull2.Get1DHullInfo(out Vector2d, out Vector2d)
+  fullName: g3.ConvexHull2.Get1DHullInfo(out g3.Vector2d, out g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Get1DHullInfo
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 212
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nIf the resulting Dimension == 1, then you can use this to get some info...\n"
+  example: []
+  syntax:
+    content: public void Get1DHullInfo(out Vector2d origin, out Vector2d direction)
+    parameters:
+    - id: origin
+      type: g3.Vector2d
+    - id: direction
+      type: g3.Vector2d
+    content.vb: Public Sub Get1DHullInfo(ByRef origin As Vector2d, ByRef direction As Vector2d)
+  overload: g3.ConvexHull2.Get1DHullInfo*
+  nameWithType.vb: ConvexHull2.Get1DHullInfo(ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.ConvexHull2.Get1DHullInfo(ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: Get1DHullInfo(ByRef Vector2d, ByRef Vector2d)
+- uid: g3.ConvexHull2.GetHullPolygon
+  commentId: M:g3.ConvexHull2.GetHullPolygon
+  id: GetHullPolygon
+  parent: g3.ConvexHull2
+  langs:
+  - csharp
+  - vb
+  name: GetHullPolygon()
+  nameWithType: ConvexHull2.GetHullPolygon()
+  fullName: g3.ConvexHull2.GetHullPolygon()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHullPolygon
+    path: ../Assets/geometry3Sharp/comp_geom/ConvexHull2.cs
+    startLine: 222
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nExtract convex hull polygon from input points\n"
+  example: []
+  syntax:
+    content: public Polygon2d GetHullPolygon()
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Function GetHullPolygon As Polygon2d
+  overload: g3.ConvexHull2.GetHullPolygon*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.ConvexHull2.Dimension*
+  commentId: Overload:g3.ConvexHull2.Dimension
+  name: Dimension
+  nameWithType: ConvexHull2.Dimension
+  fullName: g3.ConvexHull2.Dimension
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.ConvexHull2.NumSimplices*
+  commentId: Overload:g3.ConvexHull2.NumSimplices
+  name: NumSimplices
+  nameWithType: ConvexHull2.NumSimplices
+  fullName: g3.ConvexHull2.NumSimplices
+- uid: g3.ConvexHull2.HullIndices*
+  commentId: Overload:g3.ConvexHull2.HullIndices
+  name: HullIndices
+  nameWithType: ConvexHull2.HullIndices
+  fullName: g3.ConvexHull2.HullIndices
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.ConvexHull2.#ctor*
+  commentId: Overload:g3.ConvexHull2.#ctor
+  name: ConvexHull2
+  nameWithType: ConvexHull2.ConvexHull2
+  fullName: g3.ConvexHull2.ConvexHull2
+- uid: System.Collections.Generic.IList{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IList{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Vector2d>
+  nameWithType: IList<Vector2d>
+  fullName: System.Collections.Generic.IList<g3.Vector2d>
+  nameWithType.vb: IList(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Vector2d)
+  name.vb: IList(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.QueryNumberType
+  commentId: T:g3.QueryNumberType
+  parent: g3
+  name: QueryNumberType
+  nameWithType: QueryNumberType
+  fullName: g3.QueryNumberType
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.ConvexHull2.Get1DHullInfo*
+  commentId: Overload:g3.ConvexHull2.Get1DHullInfo
+  name: Get1DHullInfo
+  nameWithType: ConvexHull2.Get1DHullInfo
+  fullName: g3.ConvexHull2.Get1DHullInfo
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.ConvexHull2.GetHullPolygon*
+  commentId: Overload:g3.ConvexHull2.GetHullPolygon
+  name: GetHullPolygon
+  nameWithType: ConvexHull2.GetHullPolygon
+  fullName: g3.ConvexHull2.GetHullPolygon
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d

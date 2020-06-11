@@ -1,0 +1,870 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.ModifyVerticesMeshChange
+  commentId: T:g3.ModifyVerticesMeshChange
+  id: ModifyVerticesMeshChange
+  parent: g3
+  children:
+  - g3.ModifyVerticesMeshChange.#ctor(g3.DMesh3,g3.MeshComponents)
+  - g3.ModifyVerticesMeshChange.AppendNewVertex(g3.DMesh3,System.Int32)
+  - g3.ModifyVerticesMeshChange.Apply(g3.DMesh3)
+  - g3.ModifyVerticesMeshChange.ModifiedV
+  - g3.ModifyVerticesMeshChange.NewColors
+  - g3.ModifyVerticesMeshChange.NewNormals
+  - g3.ModifyVerticesMeshChange.NewPositions
+  - g3.ModifyVerticesMeshChange.NewUVs
+  - g3.ModifyVerticesMeshChange.OldColors
+  - g3.ModifyVerticesMeshChange.OldNormals
+  - g3.ModifyVerticesMeshChange.OldPositions
+  - g3.ModifyVerticesMeshChange.OldUVs
+  - g3.ModifyVerticesMeshChange.OnApplyF
+  - g3.ModifyVerticesMeshChange.OnRevertF
+  - g3.ModifyVerticesMeshChange.Revert(g3.DMesh3)
+  langs:
+  - csharp
+  - vb
+  name: ModifyVerticesMeshChange
+  nameWithType: ModifyVerticesMeshChange
+  fullName: g3.ModifyVerticesMeshChange
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ModifyVerticesMeshChange
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nMesh change for vertex deformations. Currently minimal support for initializing buffers.\nAppendNewVertex() can be used to accumulate modified vertices and their initial positions.\n"
+  example: []
+  syntax:
+    content: public class ModifyVerticesMeshChange
+    content.vb: Public Class ModifyVerticesMeshChange
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.ModifyVerticesMeshChange.ModifiedV
+  commentId: F:g3.ModifyVerticesMeshChange.ModifiedV
+  id: ModifiedV
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: ModifiedV
+  nameWithType: ModifyVerticesMeshChange.ModifiedV
+  fullName: g3.ModifyVerticesMeshChange.ModifiedV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ModifiedV
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<int> ModifiedV
+    return:
+      type: g3.DVector{System.Int32}
+    content.vb: Public ModifiedV As DVector(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.OldPositions
+  commentId: F:g3.ModifyVerticesMeshChange.OldPositions
+  id: OldPositions
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: OldPositions
+  nameWithType: ModifyVerticesMeshChange.OldPositions
+  fullName: g3.ModifyVerticesMeshChange.OldPositions
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OldPositions
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3d> OldPositions
+    return:
+      type: g3.DVector{g3.Vector3d}
+    content.vb: Public OldPositions As DVector(Of Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.NewPositions
+  commentId: F:g3.ModifyVerticesMeshChange.NewPositions
+  id: NewPositions
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: NewPositions
+  nameWithType: ModifyVerticesMeshChange.NewPositions
+  fullName: g3.ModifyVerticesMeshChange.NewPositions
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewPositions
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3d> NewPositions
+    return:
+      type: g3.DVector{g3.Vector3d}
+    content.vb: Public NewPositions As DVector(Of Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.OldNormals
+  commentId: F:g3.ModifyVerticesMeshChange.OldNormals
+  id: OldNormals
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: OldNormals
+  nameWithType: ModifyVerticesMeshChange.OldNormals
+  fullName: g3.ModifyVerticesMeshChange.OldNormals
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OldNormals
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3f> OldNormals
+    return:
+      type: g3.DVector{g3.Vector3f}
+    content.vb: Public OldNormals As DVector(Of Vector3f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.NewNormals
+  commentId: F:g3.ModifyVerticesMeshChange.NewNormals
+  id: NewNormals
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: NewNormals
+  nameWithType: ModifyVerticesMeshChange.NewNormals
+  fullName: g3.ModifyVerticesMeshChange.NewNormals
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewNormals
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3f> NewNormals
+    return:
+      type: g3.DVector{g3.Vector3f}
+    content.vb: Public NewNormals As DVector(Of Vector3f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.OldColors
+  commentId: F:g3.ModifyVerticesMeshChange.OldColors
+  id: OldColors
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: OldColors
+  nameWithType: ModifyVerticesMeshChange.OldColors
+  fullName: g3.ModifyVerticesMeshChange.OldColors
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OldColors
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3f> OldColors
+    return:
+      type: g3.DVector{g3.Vector3f}
+    content.vb: Public OldColors As DVector(Of Vector3f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.NewColors
+  commentId: F:g3.ModifyVerticesMeshChange.NewColors
+  id: NewColors
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: NewColors
+  nameWithType: ModifyVerticesMeshChange.NewColors
+  fullName: g3.ModifyVerticesMeshChange.NewColors
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewColors
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3f> NewColors
+    return:
+      type: g3.DVector{g3.Vector3f}
+    content.vb: Public NewColors As DVector(Of Vector3f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.OldUVs
+  commentId: F:g3.ModifyVerticesMeshChange.OldUVs
+  id: OldUVs
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: OldUVs
+  nameWithType: ModifyVerticesMeshChange.OldUVs
+  fullName: g3.ModifyVerticesMeshChange.OldUVs
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OldUVs
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector2f> OldUVs
+    return:
+      type: g3.DVector{g3.Vector2f}
+    content.vb: Public OldUVs As DVector(Of Vector2f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.NewUVs
+  commentId: F:g3.ModifyVerticesMeshChange.NewUVs
+  id: NewUVs
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: NewUVs
+  nameWithType: ModifyVerticesMeshChange.NewUVs
+  fullName: g3.ModifyVerticesMeshChange.NewUVs
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewUVs
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector2f> NewUVs
+    return:
+      type: g3.DVector{g3.Vector2f}
+    content.vb: Public NewUVs As DVector(Of Vector2f)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.OnApplyF
+  commentId: F:g3.ModifyVerticesMeshChange.OnApplyF
+  id: OnApplyF
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: OnApplyF
+  nameWithType: ModifyVerticesMeshChange.OnApplyF
+  fullName: g3.ModifyVerticesMeshChange.OnApplyF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OnApplyF
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Action<ModifyVerticesMeshChange> OnApplyF
+    return:
+      type: System.Action{g3.ModifyVerticesMeshChange}
+    content.vb: Public OnApplyF As Action(Of ModifyVerticesMeshChange)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.OnRevertF
+  commentId: F:g3.ModifyVerticesMeshChange.OnRevertF
+  id: OnRevertF
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: OnRevertF
+  nameWithType: ModifyVerticesMeshChange.OnRevertF
+  fullName: g3.ModifyVerticesMeshChange.OnRevertF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OnRevertF
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Action<ModifyVerticesMeshChange> OnRevertF
+    return:
+      type: System.Action{g3.ModifyVerticesMeshChange}
+    content.vb: Public OnRevertF As Action(Of ModifyVerticesMeshChange)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.#ctor(g3.DMesh3,g3.MeshComponents)
+  commentId: M:g3.ModifyVerticesMeshChange.#ctor(g3.DMesh3,g3.MeshComponents)
+  id: '#ctor(g3.DMesh3,g3.MeshComponents)'
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: ModifyVerticesMeshChange(DMesh3, MeshComponents)
+  nameWithType: ModifyVerticesMeshChange.ModifyVerticesMeshChange(DMesh3, MeshComponents)
+  fullName: g3.ModifyVerticesMeshChange.ModifyVerticesMeshChange(g3.DMesh3, g3.MeshComponents)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ModifyVerticesMeshChange(DMesh3 mesh, MeshComponents wantComponents = MeshComponents.VertexNormals | MeshComponents.VertexColors | MeshComponents.VertexUVs | MeshComponents.FaceGroups | MeshComponents.All)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: wantComponents
+      type: g3.MeshComponents
+    content.vb: Public Sub New(mesh As DMesh3, wantComponents As MeshComponents = MeshComponents.VertexNormals Or MeshComponents.VertexColors Or MeshComponents.VertexUVs Or MeshComponents.FaceGroups Or MeshComponents.All)
+  overload: g3.ModifyVerticesMeshChange.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.AppendNewVertex(g3.DMesh3,System.Int32)
+  commentId: M:g3.ModifyVerticesMeshChange.AppendNewVertex(g3.DMesh3,System.Int32)
+  id: AppendNewVertex(g3.DMesh3,System.Int32)
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: AppendNewVertex(DMesh3, Int32)
+  nameWithType: ModifyVerticesMeshChange.AppendNewVertex(DMesh3, Int32)
+  fullName: g3.ModifyVerticesMeshChange.AppendNewVertex(g3.DMesh3, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendNewVertex
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendNewVertex(DMesh3 mesh, int vid)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: vid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendNewVertex(mesh As DMesh3, vid As Integer) As Integer
+  overload: g3.ModifyVerticesMeshChange.AppendNewVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.Apply(g3.DMesh3)
+  commentId: M:g3.ModifyVerticesMeshChange.Apply(g3.DMesh3)
+  id: Apply(g3.DMesh3)
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: Apply(DMesh3)
+  nameWithType: ModifyVerticesMeshChange.Apply(DMesh3)
+  fullName: g3.ModifyVerticesMeshChange.Apply(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Apply
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Apply(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub Apply(mesh As DMesh3)
+  overload: g3.ModifyVerticesMeshChange.Apply*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ModifyVerticesMeshChange.Revert(g3.DMesh3)
+  commentId: M:g3.ModifyVerticesMeshChange.Revert(g3.DMesh3)
+  id: Revert(g3.DMesh3)
+  parent: g3.ModifyVerticesMeshChange
+  langs:
+  - csharp
+  - vb
+  name: Revert(DMesh3)
+  nameWithType: ModifyVerticesMeshChange.Revert(DMesh3)
+  fullName: g3.ModifyVerticesMeshChange.Revert(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Revert
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Changes.cs
+    startLine: 67
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Revert(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub Revert(mesh As DMesh3)
+  overload: g3.ModifyVerticesMeshChange.Revert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DVector{System.Int32}
+  commentId: T:g3.DVector{System.Int32}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Int32>
+  nameWithType: DVector<Int32>
+  fullName: g3.DVector<System.Int32>
+  nameWithType.vb: DVector(Of Int32)
+  fullName.vb: g3.DVector(Of System.Int32)
+  name.vb: DVector(Of Int32)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector`1
+  commentId: T:g3.DVector`1
+  parent: g3
+  name: DVector<T>
+  nameWithType: DVector<T>
+  fullName: g3.DVector<T>
+  nameWithType.vb: DVector(Of T)
+  fullName.vb: g3.DVector(Of T)
+  name.vb: DVector(Of T)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector{g3.Vector3d}
+  commentId: T:g3.DVector{g3.Vector3d}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Vector3d>
+  nameWithType: DVector<Vector3d>
+  fullName: g3.DVector<g3.Vector3d>
+  nameWithType.vb: DVector(Of Vector3d)
+  fullName.vb: g3.DVector(Of g3.Vector3d)
+  name.vb: DVector(Of Vector3d)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector{g3.Vector3f}
+  commentId: T:g3.DVector{g3.Vector3f}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Vector3f>
+  nameWithType: DVector<Vector3f>
+  fullName: g3.DVector<g3.Vector3f>
+  nameWithType.vb: DVector(Of Vector3f)
+  fullName.vb: g3.DVector(Of g3.Vector3f)
+  name.vb: DVector(Of Vector3f)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector{g3.Vector2f}
+  commentId: T:g3.DVector{g3.Vector2f}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Vector2f>
+  nameWithType: DVector<Vector2f>
+  fullName: g3.DVector<g3.Vector2f>
+  nameWithType.vb: DVector(Of Vector2f)
+  fullName.vb: g3.DVector(Of g3.Vector2f)
+  name.vb: DVector(Of Vector2f)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action{g3.ModifyVerticesMeshChange}
+  commentId: T:System.Action{g3.ModifyVerticesMeshChange}
+  parent: System
+  definition: System.Action`1
+  name: Action<ModifyVerticesMeshChange>
+  nameWithType: Action<ModifyVerticesMeshChange>
+  fullName: System.Action<g3.ModifyVerticesMeshChange>
+  nameWithType.vb: Action(Of ModifyVerticesMeshChange)
+  fullName.vb: System.Action(Of g3.ModifyVerticesMeshChange)
+  name.vb: Action(Of ModifyVerticesMeshChange)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.ModifyVerticesMeshChange
+    name: ModifyVerticesMeshChange
+    nameWithType: ModifyVerticesMeshChange
+    fullName: g3.ModifyVerticesMeshChange
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.ModifyVerticesMeshChange
+    name: ModifyVerticesMeshChange
+    nameWithType: ModifyVerticesMeshChange
+    fullName: g3.ModifyVerticesMeshChange
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.ModifyVerticesMeshChange.#ctor*
+  commentId: Overload:g3.ModifyVerticesMeshChange.#ctor
+  name: ModifyVerticesMeshChange
+  nameWithType: ModifyVerticesMeshChange.ModifyVerticesMeshChange
+  fullName: g3.ModifyVerticesMeshChange.ModifyVerticesMeshChange
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshComponents
+  commentId: T:g3.MeshComponents
+  parent: g3
+  name: MeshComponents
+  nameWithType: MeshComponents
+  fullName: g3.MeshComponents
+- uid: g3.ModifyVerticesMeshChange.AppendNewVertex*
+  commentId: Overload:g3.ModifyVerticesMeshChange.AppendNewVertex
+  name: AppendNewVertex
+  nameWithType: ModifyVerticesMeshChange.AppendNewVertex
+  fullName: g3.ModifyVerticesMeshChange.AppendNewVertex
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.ModifyVerticesMeshChange.Apply*
+  commentId: Overload:g3.ModifyVerticesMeshChange.Apply
+  name: Apply
+  nameWithType: ModifyVerticesMeshChange.Apply
+  fullName: g3.ModifyVerticesMeshChange.Apply
+- uid: g3.ModifyVerticesMeshChange.Revert*
+  commentId: Overload:g3.ModifyVerticesMeshChange.Revert
+  name: Revert
+  nameWithType: ModifyVerticesMeshChange.Revert
+  fullName: g3.ModifyVerticesMeshChange.Revert
