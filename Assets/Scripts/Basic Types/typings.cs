@@ -5,7 +5,6 @@ using GeoJSON.Net.Geometry;
 using g3;
 using System;
 using Mapbox.Unity.Utilities;
-using Mapbox.Utils;
 
 
 namespace Virgis
@@ -32,6 +31,29 @@ namespace Virgis
         SELECT,     // Select a sing;le vertex
         SELECTALL,  // Select all verteces
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
+    }
+
+    public static class UnityLayers {
+        public static LayerMask POINT { 
+            get {
+                return LayerMask.GetMask("Pointlike Entities");
+            }
+        }
+        public static LayerMask LINE { 
+            get {
+                return LayerMask.GetMask("Linelike Entities");
+            } 
+        }
+        public static LayerMask SHAPE {
+            get {
+                return LayerMask.GetMask("Shapelike Entities");
+            }
+        }
+        public static LayerMask MESH {
+            get {
+                return LayerMask.GetMask("Meshlike Entities");
+            }
+        }
     }
 
     public static class Vector3ExtebnsionMethods {
@@ -276,7 +298,7 @@ namespace Virgis
         public Guid Id;
         public int Vertex;
         public bool isVertex;
-        public VirgisComponent Com;
+        public VirgisFeature Com;
         public LineSegment Line;
 
         public override bool Equals(object obj)

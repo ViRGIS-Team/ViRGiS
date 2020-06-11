@@ -4,8 +4,6 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using System;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
 
 
 namespace Virgis
@@ -13,7 +11,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a data pointor handle
     /// </summary>
-    public class Datapoint : VirgisComponent
+    public class Datapoint : VirgisFeature
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
 
@@ -42,18 +40,18 @@ namespace Virgis
         public override void UnSelected(SelectionTypes button){
             thisRenderer.material = mainMat;
             if (button != SelectionTypes.BROADCAST){
-                transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
                 MoveArgs args = new MoveArgs();
                 switch (AppState.instance.editSession.mode){
                     case EditSession.EditMode.None:
                         break;
                     case EditSession.EditMode.SnapAnchor:
-                        List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2 ), Quaternion.identity).ToList().FindAll( item => item.transform.position != transform.position);
+                        LayerMask layerMask = UnityLayers.POINT;
+                        List<Collider> hitColliders = Physics.OverlapBox(transform.position, transform.TransformVector(Vector3.one / 2 ), Quaternion.identity, layerMask).ToList().FindAll( item => item.transform.position != transform.position);
                         if (hitColliders.Count > 0)
                         {
                             args.oldPos = transform.position;
                             args.pos = hitColliders.First<Collider>().transform.position;
-                            args.id = id;
+                            args.id = GetId();
                             args.translate = args.pos - args.oldPos;
                             SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
                         }
@@ -61,12 +59,13 @@ namespace Virgis
                     case EditSession.EditMode.SnapGrid:
                         args.oldPos = transform.position;
                         args.pos = transform.position.Round(AppState.instance.map.transform.TransformVector(Vector3.one * (AppState.instance.project.ContainsKey("GridScale") && AppState.instance.project.GridScale != 0 ? AppState.instance.project.GridScale :  1f)).magnitude);;
-                        args.id = id;
+                        args.id = GetId();
                         args.translate = args.pos - transform.position;
                         SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
                         break;
                 }
             }
+            transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
         }
 
  
@@ -84,10 +83,10 @@ namespace Virgis
 
         public override void MoveTo(MoveArgs args) {
             if (args.translate != Vector3.zero) {
-                args.id = id;
+                args.id = GetId();
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
             } else if (args.pos != Vector3.zero && args.pos != transform.position) {
-                args.id = id;
+                args.id = GetId();
                 args.translate = args.pos - transform.position;
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
@@ -99,11 +98,11 @@ namespace Virgis
         /// </summary>
         /// <param name="argsin">MoveArgs</param>
         void TranslateHandle(MoveArgs argsin) {
-            if (argsin.id == id) {
+            if (argsin.id == GetId()) {
                 MoveArgs argsout = new MoveArgs();
                 argsout.oldPos = transform.position;
                 transform.Translate(argsin.translate, Space.World);
-                argsout.id = id;
+                argsout.id = GetId();
                 argsout.pos = transform.position;
                 SendMessageUpwards("VertexMove", argsout, SendMessageOptions.DontRequireReceiver);
             }
@@ -123,8 +122,8 @@ namespace Virgis
             
         }
 
-        public override Vector3 GetClosest(Vector3 coords) {
-            return transform.position;
+        public override VirgisFeature GetClosest(Vector3 coords, Guid[] excludes) {
+            return this;
         }
 
         public void Delete() {

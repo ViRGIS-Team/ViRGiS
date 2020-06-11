@@ -41,7 +41,7 @@ namespace Virgis {
         /// Call this method everytime a new project has been loaded,
         /// e.g. New Project, Open Project
         public void Init() {
-            ILayer firstLayer = (ILayer) _layers[0];
+            IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
             firstLayer.SetEditable(true);
             _editSession.editableLayer = firstLayer;
         }

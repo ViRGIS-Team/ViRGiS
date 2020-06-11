@@ -10,24 +10,36 @@ namespace Virgis
 {
 
 
-    public class PointCloudLayer : Layer<GeographyCollection, ParticleData>
+    public class PointCloudLayer : VirgisLayer<GeographyCollection, ParticleData>
     {
         // The prefab for the data points to be instantiated
         public Material material;
         public GameObject handle;
         public GameObject pointCloud;
         public List<GameObject> meshes;
+        public Material HandleMaterial;
 
         private GameObject model;
+        private Dictionary<string, Unit> symbology;
+        private Material mainMat;
+        private Material selectedMat;
 
 
         protected override async Task _init(GeographyCollection layer)
         {
             PlyImport reader = new PlyImport();
-            features = await reader.Load(layer.Source); ;
+            features = await reader.Load(layer.Source);
+            symbology = layer.Properties.Units;
+
+            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
+            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            mainMat = Instantiate(HandleMaterial);
+            mainMat.SetColor("_BaseColor", col);
+            selectedMat = Instantiate(HandleMaterial);
+            selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry)
+        protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
@@ -57,7 +69,7 @@ namespace Virgis
             GameObject centreHandle = Instantiate(handle, gameObject.transform.position, Quaternion.identity);
             centreHandle.transform.parent = transform;
             centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
-            centreHandle.SendMessage("SetColor", (Color)symbology["handle"].Color);
+            centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
         }
 
         public override void Translate(MoveArgs args)
@@ -105,7 +117,8 @@ namespace Virgis
             layer.Transform.Scale = transform.localScale;
         }
 
-        public override GameObject GetFeatureShape() {
+        public override GameObject GetFeatureShape()
+        {
             return handle;
         }
 
