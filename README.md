@@ -29,7 +29,7 @@ Many of these features are currently available in various packages and initiativ
 
 # Documentation
 
-Go to [Documentation](www.virgis.org/docs/manual)
+Go to [Documentation](www.virgis.org/docs/manua/geospatial.html)
 
 
 # Getting ViRGIS
