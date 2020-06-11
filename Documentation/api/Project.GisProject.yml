@@ -1,0 +1,656 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.GisProject
+  commentId: T:Project.GisProject
+  id: GisProject
+  parent: Project
+  children:
+  - Project.GisProject.Camera
+  - Project.GisProject.Cameras
+  - Project.GisProject.GridScale
+  - Project.GisProject.MapScale
+  - Project.GisProject.Name
+  - Project.GisProject.Origin
+  - Project.GisProject.RecordSets
+  - Project.GisProject.Scale
+  langs:
+  - csharp
+  - vb
+  name: GisProject
+  nameWithType: GisProject
+  fullName: Project.GisProject
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GisProject
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 15
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: 'public class GisProject : TestableObject'
+    content.vb: >-
+      Public Class GisProject
+          Inherits TestableObject
+  inheritance:
+  - System.Object
+  - Project.TestableObject
+  inheritedMembers:
+  - Project.TestableObject.ContainsKey(System.String)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.GisProject.Name
+  commentId: F:Project.GisProject.Name
+  id: Name
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: GisProject.Name
+  fullName: Project.GisProject.Name
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Name
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "name", Required = Required.Always)]
+
+      public string Name
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="name", Required:=Required.Always)>
+
+      Public Name As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: name
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.Origin
+  commentId: F:Project.GisProject.Origin
+  id: Origin
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: Origin
+  nameWithType: GisProject.Origin
+  fullName: Project.GisProject.Origin
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Origin
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 21
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "origin", Required = Required.Always)]
+
+      public Point Origin
+    return:
+      type: GeoJSON.Net.Geometry.Point
+    content.vb: >-
+      <JsonProperty(PropertyName:="origin", Required:=Required.Always)>
+
+      Public Origin As Point
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: origin
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.MapScale
+  commentId: F:Project.GisProject.MapScale
+  id: MapScale
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: MapScale
+  nameWithType: GisProject.MapScale
+  fullName: Project.GisProject.MapScale
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapScale
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "mapscale", Required = Required.Always)]
+
+      public int MapScale
+    return:
+      type: System.Int32
+    content.vb: >-
+      <JsonProperty(PropertyName:="mapscale", Required:=Required.Always)>
+
+      Public MapScale As Integer
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: mapscale
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.Scale
+  commentId: F:Project.GisProject.Scale
+  id: Scale
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: Scale
+  nameWithType: GisProject.Scale
+  fullName: Project.GisProject.Scale
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 27
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "scale", Required = Required.Always)]
+
+      public float Scale
+    return:
+      type: System.Single
+    content.vb: >-
+      <JsonProperty(PropertyName:="scale", Required:=Required.Always)>
+
+      Public Scale As Single
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: scale
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.GridScale
+  commentId: F:Project.GisProject.GridScale
+  id: GridScale
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: GridScale
+  nameWithType: GisProject.GridScale
+  fullName: Project.GisProject.GridScale
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GridScale
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 30
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "grid-scale")]
+
+      public float GridScale
+    return:
+      type: System.Single
+    content.vb: >-
+      <JsonProperty(PropertyName:="grid-scale")>
+
+      Public GridScale As Single
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: grid-scale
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.Cameras
+  commentId: F:Project.GisProject.Cameras
+  id: Cameras
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: Cameras
+  nameWithType: GisProject.Cameras
+  fullName: Project.GisProject.Cameras
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Cameras
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 33
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "cameras", Required = Required.Always)]
+
+      public List<Point> Cameras
+    return:
+      type: System.Collections.Generic.List{GeoJSON.Net.Geometry.Point}
+    content.vb: >-
+      <JsonProperty(PropertyName:="cameras", Required:=Required.Always)>
+
+      Public Cameras As List(Of Point)
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: cameras
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.RecordSets
+  commentId: F:Project.GisProject.RecordSets
+  id: RecordSets
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: RecordSets
+  nameWithType: GisProject.RecordSets
+  fullName: Project.GisProject.RecordSets
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RecordSets
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 37
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "recordsets", Required = Required.Always)]
+
+      [JsonConverter(typeof(RecordsetConverter))]
+
+      public List<RecordSet> RecordSets
+    return:
+      type: System.Collections.Generic.List{Project.RecordSet}
+    content.vb: >-
+      <JsonProperty(PropertyName:="recordsets", Required:=Required.Always)>
+
+      <JsonConverter(GetType(RecordsetConverter))>
+
+      Public RecordSets As List(Of RecordSet)
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: recordsets
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Project.RecordsetConverter
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GisProject.Camera
+  commentId: P:Project.GisProject.Camera
+  id: Camera
+  parent: Project.GisProject
+  langs:
+  - csharp
+  - vb
+  name: Camera
+  nameWithType: GisProject.Camera
+  fullName: Project.GisProject.Camera
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Camera
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 39
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public Point Camera { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.Geometry.Point
+    content.vb: Public ReadOnly Property Camera As Point
+  overload: Project.GisProject.Camera*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.TestableObject
+  commentId: T:Project.TestableObject
+  parent: Project
+  name: TestableObject
+  nameWithType: TestableObject
+  fullName: Project.TestableObject
+- uid: Project.TestableObject.ContainsKey(System.String)
+  commentId: M:Project.TestableObject.ContainsKey(System.String)
+  parent: Project.TestableObject
+  isExternal: true
+  name: ContainsKey(String)
+  nameWithType: TestableObject.ContainsKey(String)
+  fullName: Project.TestableObject.ContainsKey(System.String)
+  spec.csharp:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: GeoJSON.Net.Geometry.Point
+  commentId: T:GeoJSON.Net.Geometry.Point
+  parent: GeoJSON.Net.Geometry
+  name: Point
+  nameWithType: Point
+  fullName: GeoJSON.Net.Geometry.Point
+- uid: GeoJSON.Net.Geometry
+  commentId: N:GeoJSON.Net.Geometry
+  name: GeoJSON.Net.Geometry
+  nameWithType: GeoJSON.Net.Geometry
+  fullName: GeoJSON.Net.Geometry
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: System.Collections.Generic.List{GeoJSON.Net.Geometry.Point}
+  commentId: T:System.Collections.Generic.List{GeoJSON.Net.Geometry.Point}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Point>
+  nameWithType: List<Point>
+  fullName: System.Collections.Generic.List<GeoJSON.Net.Geometry.Point>
+  nameWithType.vb: List(Of Point)
+  fullName.vb: System.Collections.Generic.List(Of GeoJSON.Net.Geometry.Point)
+  name.vb: List(Of Point)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: GeoJSON.Net.Geometry.Point
+    name: Point
+    nameWithType: Point
+    fullName: GeoJSON.Net.Geometry.Point
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: GeoJSON.Net.Geometry.Point
+    name: Point
+    nameWithType: Point
+    fullName: GeoJSON.Net.Geometry.Point
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.List{Project.RecordSet}
+  commentId: T:System.Collections.Generic.List{Project.RecordSet}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<RecordSet>
+  nameWithType: List<RecordSet>
+  fullName: System.Collections.Generic.List<Project.RecordSet>
+  nameWithType.vb: List(Of RecordSet)
+  fullName.vb: System.Collections.Generic.List(Of Project.RecordSet)
+  name.vb: List(Of RecordSet)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Project.RecordSet
+    name: RecordSet
+    nameWithType: RecordSet
+    fullName: Project.RecordSet
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Project.RecordSet
+    name: RecordSet
+    nameWithType: RecordSet
+    fullName: Project.RecordSet
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.GisProject.Camera*
+  commentId: Overload:Project.GisProject.Camera
+  name: Camera
+  nameWithType: GisProject.Camera
+  fullName: Project.GisProject.Camera

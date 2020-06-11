@@ -1,0 +1,924 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.VectorArray2f
+  commentId: T:g3.VectorArray2f
+  id: VectorArray2f
+  parent: g3
+  children:
+  - g3.VectorArray2f.#ctor(System.Int32)
+  - g3.VectorArray2f.#ctor(System.Single[])
+  - g3.VectorArray2f.AsVector2f
+  - g3.VectorArray2f.Item(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: VectorArray2f
+  nameWithType: VectorArray2f
+  fullName: g3.VectorArray2f
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/VectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VectorArray2f
+    path: ../Assets/geometry3Sharp/core/VectorArray.cs
+    startLine: 233
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class VectorArray2f : VectorArray2<float>, IEnumerable<float>, IEnumerable'
+    content.vb: >-
+      Public Class VectorArray2f
+          Inherits VectorArray2(Of Single)
+          Implements IEnumerable(Of Single), IEnumerable
+  inheritance:
+  - System.Object
+  - g3.VectorArray2{System.Single}
+  inheritedMembers:
+  - g3.VectorArray2{System.Single}.array
+  - g3.VectorArray2{System.Single}.Count
+  - g3.VectorArray2{System.Single}.GetEnumerator
+  - g3.VectorArray2{System.Single}.Resize(System.Int32)
+  - g3.VectorArray2{System.Single}.Set(System.Int32,System.Single,System.Single)
+  - g3.VectorArray2{System.Single}.Set(System.Int32,System.Int32,g3.VectorArray2{System.Single})
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.VectorArray2f.#ctor(System.Int32)
+  commentId: M:g3.VectorArray2f.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: g3.VectorArray2f
+  langs:
+  - csharp
+  - vb
+  name: VectorArray2f(Int32)
+  nameWithType: VectorArray2f.VectorArray2f(Int32)
+  fullName: g3.VectorArray2f.VectorArray2f(System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/VectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/VectorArray.cs
+    startLine: 235
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public VectorArray2f(int nCount)
+    parameters:
+    - id: nCount
+      type: System.Int32
+    content.vb: Public Sub New(nCount As Integer)
+  overload: g3.VectorArray2f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.VectorArray2f.#ctor(System.Single[])
+  commentId: M:g3.VectorArray2f.#ctor(System.Single[])
+  id: '#ctor(System.Single[])'
+  parent: g3.VectorArray2f
+  langs:
+  - csharp
+  - vb
+  name: VectorArray2f(Single[])
+  nameWithType: VectorArray2f.VectorArray2f(Single[])
+  fullName: g3.VectorArray2f.VectorArray2f(System.Single[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/VectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/VectorArray.cs
+    startLine: 236
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public VectorArray2f(float[] data)
+    parameters:
+    - id: data
+      type: System.Single[]
+    content.vb: Public Sub New(data As Single())
+  overload: g3.VectorArray2f.#ctor*
+  nameWithType.vb: VectorArray2f.VectorArray2f(Single())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.VectorArray2f.VectorArray2f(System.Single())
+  name.vb: VectorArray2f(Single())
+- uid: g3.VectorArray2f.Item(System.Int32)
+  commentId: P:g3.VectorArray2f.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.VectorArray2f
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: VectorArray2f.Item[Int32]
+  fullName: g3.VectorArray2f.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/VectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/core/VectorArray.cs
+    startLine: 237
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2f this[int i] { get; set; }
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2f
+    content.vb: Public Property Item(i As Integer) As Vector2f
+  overload: g3.VectorArray2f.Item*
+  nameWithType.vb: VectorArray2f.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.VectorArray2f.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.VectorArray2f.AsVector2f
+  commentId: M:g3.VectorArray2f.AsVector2f
+  id: AsVector2f
+  parent: g3.VectorArray2f
+  langs:
+  - csharp
+  - vb
+  name: AsVector2f()
+  nameWithType: VectorArray2f.AsVector2f()
+  fullName: g3.VectorArray2f.AsVector2f()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/VectorArray.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AsVector2f
+    path: ../Assets/geometry3Sharp/core/VectorArray.cs
+    startLine: 242
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector2d> AsVector2f()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    content.vb: Public Function AsVector2f As IEnumerable(Of Vector2d)
+  overload: g3.VectorArray2f.AsVector2f*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.VectorArray2{System.Single}
+  commentId: T:g3.VectorArray2{System.Single}
+  parent: g3
+  definition: g3.VectorArray2`1
+  name: VectorArray2<Single>
+  nameWithType: VectorArray2<Single>
+  fullName: g3.VectorArray2<System.Single>
+  nameWithType.vb: VectorArray2(Of Single)
+  fullName.vb: g3.VectorArray2(Of System.Single)
+  name.vb: VectorArray2(Of Single)
+  spec.csharp:
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2{System.Single}.array
+  commentId: F:g3.VectorArray2{System.Single}.array
+  parent: g3.VectorArray2{System.Single}
+  definition: g3.VectorArray2`1.array
+  name: array
+  nameWithType: VectorArray2<Single>.array
+  fullName: g3.VectorArray2<System.Single>.array
+  nameWithType.vb: VectorArray2(Of Single).array
+  fullName.vb: g3.VectorArray2(Of System.Single).array
+- uid: g3.VectorArray2{System.Single}.Count
+  commentId: P:g3.VectorArray2{System.Single}.Count
+  parent: g3.VectorArray2{System.Single}
+  definition: g3.VectorArray2`1.Count
+  name: Count
+  nameWithType: VectorArray2<Single>.Count
+  fullName: g3.VectorArray2<System.Single>.Count
+  nameWithType.vb: VectorArray2(Of Single).Count
+  fullName.vb: g3.VectorArray2(Of System.Single).Count
+- uid: g3.VectorArray2{System.Single}.GetEnumerator
+  commentId: M:g3.VectorArray2{System.Single}.GetEnumerator
+  parent: g3.VectorArray2{System.Single}
+  definition: g3.VectorArray2`1.GetEnumerator
+  name: GetEnumerator()
+  nameWithType: VectorArray2<Single>.GetEnumerator()
+  fullName: g3.VectorArray2<System.Single>.GetEnumerator()
+  nameWithType.vb: VectorArray2(Of Single).GetEnumerator()
+  fullName.vb: g3.VectorArray2(Of System.Single).GetEnumerator()
+  spec.csharp:
+  - uid: g3.VectorArray2`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: VectorArray2<Single>.GetEnumerator
+    fullName: g3.VectorArray2<System.Single>.GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: VectorArray2(Of Single).GetEnumerator
+    fullName: g3.VectorArray2(Of System.Single).GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2{System.Single}.Resize(System.Int32)
+  commentId: M:g3.VectorArray2{System.Single}.Resize(System.Int32)
+  parent: g3.VectorArray2{System.Single}
+  definition: g3.VectorArray2`1.Resize(System.Int32)
+  name: Resize(Int32)
+  nameWithType: VectorArray2<Single>.Resize(Int32)
+  fullName: g3.VectorArray2<System.Single>.Resize(System.Int32)
+  nameWithType.vb: VectorArray2(Of Single).Resize(Int32)
+  fullName.vb: g3.VectorArray2(Of System.Single).Resize(System.Int32)
+  spec.csharp:
+  - uid: g3.VectorArray2`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: VectorArray2<Single>.Resize
+    fullName: g3.VectorArray2<System.Single>.Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: VectorArray2(Of Single).Resize
+    fullName: g3.VectorArray2(Of System.Single).Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2{System.Single}.Set(System.Int32,System.Single,System.Single)
+  commentId: M:g3.VectorArray2{System.Single}.Set(System.Int32,System.Single,System.Single)
+  parent: g3.VectorArray2{System.Single}
+  definition: g3.VectorArray2`1.Set(System.Int32,`0,`0)
+  name: Set(Int32, Single, Single)
+  nameWithType: VectorArray2<Single>.Set(Int32, Single, Single)
+  fullName: g3.VectorArray2<System.Single>.Set(System.Int32, System.Single, System.Single)
+  nameWithType.vb: VectorArray2(Of Single).Set(Int32, Single, Single)
+  fullName.vb: g3.VectorArray2(Of System.Single).Set(System.Int32, System.Single, System.Single)
+  spec.csharp:
+  - uid: g3.VectorArray2`1.Set(System.Int32,`0,`0)
+    name: Set
+    nameWithType: VectorArray2<Single>.Set
+    fullName: g3.VectorArray2<System.Single>.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.Set(System.Int32,`0,`0)
+    name: Set
+    nameWithType: VectorArray2(Of Single).Set
+    fullName: g3.VectorArray2(Of System.Single).Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2{System.Single}.Set(System.Int32,System.Int32,g3.VectorArray2{System.Single})
+  commentId: M:g3.VectorArray2{System.Single}.Set(System.Int32,System.Int32,g3.VectorArray2{System.Single})
+  parent: g3.VectorArray2{System.Single}
+  definition: g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+  name: Set(Int32, Int32, VectorArray2<Single>)
+  nameWithType: VectorArray2<Single>.Set(Int32, Int32, VectorArray2<Single>)
+  fullName: g3.VectorArray2<System.Single>.Set(System.Int32, System.Int32, g3.VectorArray2<System.Single>)
+  nameWithType.vb: VectorArray2(Of Single).Set(Int32, Int32, VectorArray2(Of Single))
+  fullName.vb: g3.VectorArray2(Of System.Single).Set(System.Int32, System.Int32, g3.VectorArray2(Of System.Single))
+  name.vb: Set(Int32, Int32, VectorArray2(Of Single))
+  spec.csharp:
+  - uid: g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+    name: Set
+    nameWithType: VectorArray2<Single>.Set
+    fullName: g3.VectorArray2<System.Single>.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+    name: Set
+    nameWithType: VectorArray2(Of Single).Set
+    fullName: g3.VectorArray2(Of System.Single).Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.VectorArray2`1
+  commentId: T:g3.VectorArray2`1
+  parent: g3
+  name: VectorArray2<T>
+  nameWithType: VectorArray2<T>
+  fullName: g3.VectorArray2<T>
+  nameWithType.vb: VectorArray2(Of T)
+  fullName.vb: g3.VectorArray2(Of T)
+  name.vb: VectorArray2(Of T)
+  spec.csharp:
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2`1.array
+  commentId: F:g3.VectorArray2`1.array
+  name: array
+  nameWithType: VectorArray2<T>.array
+  fullName: g3.VectorArray2<T>.array
+  nameWithType.vb: VectorArray2(Of T).array
+  fullName.vb: g3.VectorArray2(Of T).array
+- uid: g3.VectorArray2`1.Count
+  commentId: P:g3.VectorArray2`1.Count
+  name: Count
+  nameWithType: VectorArray2<T>.Count
+  fullName: g3.VectorArray2<T>.Count
+  nameWithType.vb: VectorArray2(Of T).Count
+  fullName.vb: g3.VectorArray2(Of T).Count
+- uid: g3.VectorArray2`1.GetEnumerator
+  commentId: M:g3.VectorArray2`1.GetEnumerator
+  name: GetEnumerator()
+  nameWithType: VectorArray2<T>.GetEnumerator()
+  fullName: g3.VectorArray2<T>.GetEnumerator()
+  nameWithType.vb: VectorArray2(Of T).GetEnumerator()
+  fullName.vb: g3.VectorArray2(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: g3.VectorArray2`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: VectorArray2<T>.GetEnumerator
+    fullName: g3.VectorArray2<T>.GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.GetEnumerator
+    name: GetEnumerator
+    nameWithType: VectorArray2(Of T).GetEnumerator
+    fullName: g3.VectorArray2(Of T).GetEnumerator
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2`1.Resize(System.Int32)
+  commentId: M:g3.VectorArray2`1.Resize(System.Int32)
+  isExternal: true
+  name: Resize(Int32)
+  nameWithType: VectorArray2<T>.Resize(Int32)
+  fullName: g3.VectorArray2<T>.Resize(System.Int32)
+  nameWithType.vb: VectorArray2(Of T).Resize(Int32)
+  fullName.vb: g3.VectorArray2(Of T).Resize(System.Int32)
+  spec.csharp:
+  - uid: g3.VectorArray2`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: VectorArray2<T>.Resize
+    fullName: g3.VectorArray2<T>.Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.Resize(System.Int32)
+    name: Resize
+    nameWithType: VectorArray2(Of T).Resize
+    fullName: g3.VectorArray2(Of T).Resize
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2`1.Set(System.Int32,`0,`0)
+  commentId: M:g3.VectorArray2`1.Set(System.Int32,`0,`0)
+  isExternal: true
+  name: Set(Int32, T, T)
+  nameWithType: VectorArray2<T>.Set(Int32, T, T)
+  fullName: g3.VectorArray2<T>.Set(System.Int32, T, T)
+  nameWithType.vb: VectorArray2(Of T).Set(Int32, T, T)
+  fullName.vb: g3.VectorArray2(Of T).Set(System.Int32, T, T)
+  spec.csharp:
+  - uid: g3.VectorArray2`1.Set(System.Int32,`0,`0)
+    name: Set
+    nameWithType: VectorArray2<T>.Set
+    fullName: g3.VectorArray2<T>.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.Set(System.Int32,`0,`0)
+    name: Set
+    nameWithType: VectorArray2(Of T).Set
+    fullName: g3.VectorArray2(Of T).Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+  commentId: M:g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+  isExternal: true
+  name: Set(Int32, Int32, VectorArray2<T>)
+  nameWithType: VectorArray2<T>.Set(Int32, Int32, VectorArray2<T>)
+  fullName: g3.VectorArray2<T>.Set(System.Int32, System.Int32, g3.VectorArray2<T>)
+  nameWithType.vb: VectorArray2(Of T).Set(Int32, Int32, VectorArray2(Of T))
+  fullName.vb: g3.VectorArray2(Of T).Set(System.Int32, System.Int32, g3.VectorArray2(Of T))
+  name.vb: Set(Int32, Int32, VectorArray2(Of T))
+  spec.csharp:
+  - uid: g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+    name: Set
+    nameWithType: VectorArray2<T>.Set
+    fullName: g3.VectorArray2<T>.Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.VectorArray2`1.Set(System.Int32,System.Int32,g3.VectorArray2{`0})
+    name: Set
+    nameWithType: VectorArray2(Of T).Set
+    fullName: g3.VectorArray2(Of T).Set
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.VectorArray2`1
+    name: VectorArray2
+    nameWithType: VectorArray2
+    fullName: g3.VectorArray2
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.VectorArray2f.#ctor*
+  commentId: Overload:g3.VectorArray2f.#ctor
+  name: VectorArray2f
+  nameWithType: VectorArray2f.VectorArray2f
+  fullName: g3.VectorArray2f.VectorArray2f
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.VectorArray2f.Item*
+  commentId: Overload:g3.VectorArray2f.Item
+  name: Item
+  nameWithType: VectorArray2f.Item
+  fullName: g3.VectorArray2f.Item
+- uid: g3.Vector2f
+  commentId: T:g3.Vector2f
+  parent: g3
+  name: Vector2f
+  nameWithType: Vector2f
+  fullName: g3.Vector2f
+- uid: g3.VectorArray2f.AsVector2f*
+  commentId: Overload:g3.VectorArray2f.AsVector2f
+  name: AsVector2f
+  nameWithType: VectorArray2f.AsVector2f
+  fullName: g3.VectorArray2f.AsVector2f
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2d>
+  nameWithType: IEnumerable<Vector2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2d>
+  nameWithType.vb: IEnumerable(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2d)
+  name.vb: IEnumerable(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

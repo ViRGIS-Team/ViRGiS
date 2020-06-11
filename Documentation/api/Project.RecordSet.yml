@@ -1,0 +1,692 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.RecordSet
+  commentId: T:Project.RecordSet
+  id: RecordSet
+  parent: Project
+  children:
+  - Project.RecordSet.DataType
+  - Project.RecordSet.DisplayName
+  - Project.RecordSet.Features
+  - Project.RecordSet.Id
+  - Project.RecordSet.Position
+  - Project.RecordSet.Properties
+  - Project.RecordSet.Source
+  - Project.RecordSet.Transform
+  - Project.RecordSet.Type
+  langs:
+  - csharp
+  - vb
+  name: RecordSet
+  nameWithType: RecordSet
+  fullName: Project.RecordSet
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RecordSet
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 45
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: 'public class RecordSet : TestableObject'
+    content.vb: >-
+      Public Class RecordSet
+          Inherits TestableObject
+  inheritance:
+  - System.Object
+  - Project.TestableObject
+  derivedClasses:
+  - Project.GeographyCollection
+  inheritedMembers:
+  - Project.TestableObject.ContainsKey(System.String)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.RecordSet.Id
+  commentId: F:Project.RecordSet.Id
+  id: Id
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: RecordSet.Id
+  fullName: Project.RecordSet.Id
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Id
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 48
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "id", Required = Required.Always)]
+
+      public string Id
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="id", Required:=Required.Always)>
+
+      Public Id As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: id
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.DisplayName
+  commentId: F:Project.RecordSet.DisplayName
+  id: DisplayName
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: RecordSet.DisplayName
+  fullName: Project.RecordSet.DisplayName
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DisplayName
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 50
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "display-name")]
+
+      public string DisplayName
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="display-name")>
+
+      Public DisplayName As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: display-name
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Type
+  commentId: F:Project.RecordSet.Type
+  id: Type
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: RecordSet.Type
+  fullName: Project.RecordSet.Type
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 52
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "type", Required = Required.Always)]
+
+      public string Type
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="type", Required:=Required.Always)>
+
+      Public Type As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: type
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.DataType
+  commentId: F:Project.RecordSet.DataType
+  id: DataType
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: DataType
+  nameWithType: RecordSet.DataType
+  fullName: Project.RecordSet.DataType
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DataType
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 55
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "datatype", Required = Required.Always)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public RecordSetDataType DataType
+    return:
+      type: Project.RecordSetDataType
+    content.vb: >-
+      <JsonProperty(PropertyName:="datatype", Required:=Required.Always)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public DataType As RecordSetDataType
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: datatype
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Source
+  commentId: F:Project.RecordSet.Source
+  id: Source
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: RecordSet.Source
+  fullName: Project.RecordSet.Source
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Source
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "source")]
+
+      public string Source
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="source")>
+
+      Public Source As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: source
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Features
+  commentId: F:Project.RecordSet.Features
+  id: Features
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Features
+  nameWithType: RecordSet.Features
+  fullName: Project.RecordSet.Features
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Features
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 59
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "features")]
+
+      public FeatureCollection Features
+    return:
+      type: GeoJSON.Net.Feature.FeatureCollection
+    content.vb: >-
+      <JsonProperty(PropertyName:="features")>
+
+      Public Features As FeatureCollection
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: features
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Position
+  commentId: F:Project.RecordSet.Position
+  id: Position
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: RecordSet.Position
+  fullName: Project.RecordSet.Position
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Position
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 61
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "position")]
+
+      public Point Position
+    return:
+      type: GeoJSON.Net.Geometry.Point
+    content.vb: >-
+      <JsonProperty(PropertyName:="position")>
+
+      Public Position As Point
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: position
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Transform
+  commentId: F:Project.RecordSet.Transform
+  id: Transform
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Transform
+  nameWithType: RecordSet.Transform
+  fullName: Project.RecordSet.Transform
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 63
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "transform")]
+
+      public JsonTransform Transform
+    return:
+      type: Project.JsonTransform
+    content.vb: >-
+      <JsonProperty(PropertyName:="transform")>
+
+      Public Transform As JsonTransform
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: transform
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Properties
+  commentId: F:Project.RecordSet.Properties
+  id: Properties
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: RecordSet.Properties
+  fullName: Project.RecordSet.Properties
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Properties
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 65
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "properties")]
+
+      public Dictionary<string, object> Properties
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+    content.vb: >-
+      <JsonProperty(PropertyName:="properties")>
+
+      Public Properties As Dictionary(Of String, Object)
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: properties
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.TestableObject
+  commentId: T:Project.TestableObject
+  parent: Project
+  name: TestableObject
+  nameWithType: TestableObject
+  fullName: Project.TestableObject
+- uid: Project.TestableObject.ContainsKey(System.String)
+  commentId: M:Project.TestableObject.ContainsKey(System.String)
+  parent: Project.TestableObject
+  isExternal: true
+  name: ContainsKey(String)
+  nameWithType: TestableObject.ContainsKey(String)
+  fullName: Project.TestableObject.ContainsKey(System.String)
+  spec.csharp:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Project.RecordSetDataType
+  commentId: T:Project.RecordSetDataType
+  parent: Project
+  name: RecordSetDataType
+  nameWithType: RecordSetDataType
+  fullName: Project.RecordSetDataType
+- uid: GeoJSON.Net.Feature.FeatureCollection
+  commentId: T:GeoJSON.Net.Feature.FeatureCollection
+  parent: GeoJSON.Net.Feature
+  name: FeatureCollection
+  nameWithType: FeatureCollection
+  fullName: GeoJSON.Net.Feature.FeatureCollection
+- uid: GeoJSON.Net.Feature
+  commentId: N:GeoJSON.Net.Feature
+  name: GeoJSON.Net.Feature
+  nameWithType: GeoJSON.Net.Feature
+  fullName: GeoJSON.Net.Feature
+- uid: GeoJSON.Net.Geometry.Point
+  commentId: T:GeoJSON.Net.Geometry.Point
+  parent: GeoJSON.Net.Geometry
+  name: Point
+  nameWithType: Point
+  fullName: GeoJSON.Net.Geometry.Point
+- uid: GeoJSON.Net.Geometry
+  commentId: N:GeoJSON.Net.Geometry
+  name: GeoJSON.Net.Geometry
+  nameWithType: GeoJSON.Net.Geometry
+  fullName: GeoJSON.Net.Geometry
+- uid: Project.JsonTransform
+  commentId: T:Project.JsonTransform
+  parent: Project
+  name: JsonTransform
+  nameWithType: JsonTransform
+  fullName: Project.JsonTransform
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Object>
+  nameWithType: Dictionary<String, Object>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

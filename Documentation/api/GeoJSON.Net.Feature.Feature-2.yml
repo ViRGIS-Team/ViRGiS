@@ -1,0 +1,956 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.Feature.Feature`2
+  commentId: T:GeoJSON.Net.Feature.Feature`2
+  id: Feature`2
+  parent: GeoJSON.Net.Feature
+  children:
+  - GeoJSON.Net.Feature.Feature`2.#ctor(`0,`1,System.String)
+  - GeoJSON.Net.Feature.Feature`2.Equals(GeoJSON.Net.Feature.Feature{`0,`1})
+  - GeoJSON.Net.Feature.Feature`2.Equals(System.Object)
+  - GeoJSON.Net.Feature.Feature`2.Geometry
+  - GeoJSON.Net.Feature.Feature`2.GetHashCode
+  - GeoJSON.Net.Feature.Feature`2.Id
+  - GeoJSON.Net.Feature.Feature`2.op_Equality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  - GeoJSON.Net.Feature.Feature`2.op_Inequality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  - GeoJSON.Net.Feature.Feature`2.Properties
+  - GeoJSON.Net.Feature.Feature`2.Type
+  langs:
+  - csharp
+  - vb
+  name: Feature<TGeometry, TProps>
+  nameWithType: Feature<TGeometry, TProps>
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>
+  type: Class
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Feature
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 21
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nA GeoJSON Feature Object; generic version for strongly typed <xref href=\"GeoJSON.Net.Feature.Feature%602.Geometry\" data-throw-if-not-resolved=\"false\"></xref>\nand <xref href=\"GeoJSON.Net.Feature.Feature%602.Properties\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-3.2\n"
+  example: []
+  syntax:
+    content: 'public class Feature<TGeometry, TProps> : GeoJSONObject, IGeoJSONObject, IEqualityComparer<GeoJSONObject>, IEquatable<GeoJSONObject>, IEquatable<Feature<TGeometry, TProps>> where TGeometry : IGeometryObject'
+    typeParameters:
+    - id: TGeometry
+    - id: TProps
+    content.vb: >-
+      Public Class Feature(Of TGeometry As IGeometryObject, TProps)
+          Inherits GeoJSONObject
+          Implements IGeoJSONObject, IEqualityComparer(Of GeoJSONObject), IEquatable(Of GeoJSONObject), IEquatable(Of Feature(Of TGeometry, TProps))
+  inheritance:
+  - System.Object
+  - GeoJSON.Net.GeoJSONObject
+  derivedClasses:
+  - GeoJSON.Net.Feature.Feature`1
+  implements:
+  - GeoJSON.Net.IGeoJSONObject
+  inheritedMembers:
+  - GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  - GeoJSON.Net.GeoJSONObject.CRS
+  - GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  - GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  - GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  nameWithType.vb: Feature(Of TGeometry, TProps)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps)
+  name.vb: Feature(Of TGeometry, TProps)
+- uid: GeoJSON.Net.Feature.Feature`2.#ctor(`0,`1,System.String)
+  commentId: M:GeoJSON.Net.Feature.Feature`2.#ctor(`0,`1,System.String)
+  id: '#ctor(`0,`1,System.String)'
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Feature(TGeometry, TProps, String)
+  nameWithType: Feature<TGeometry, TProps>.Feature(TGeometry, TProps, String)
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Feature(TGeometry, TProps, System.String)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public Feature(TGeometry geometry, TProps properties, string id = null)
+    parameters:
+    - id: geometry
+      type: '{TGeometry}'
+    - id: properties
+      type: '{TProps}'
+    - id: id
+      type: System.String
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(geometry As TGeometry, properties As TProps, id As String = Nothing)
+  overload: GeoJSON.Net.Feature.Feature`2.#ctor*
+  attributes:
+  - type: Newtonsoft.Json.JsonConstructorAttribute
+    ctor: Newtonsoft.Json.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: Feature(Of TGeometry, TProps).Feature(TGeometry, TProps, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Feature(TGeometry, TProps, System.String)
+- uid: GeoJSON.Net.Feature.Feature`2.Type
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Type
+  id: Type
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Feature<TGeometry, TProps>.Type
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Type
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 32
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: public override GeoJSONObjectType Type { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.GeoJSONObjectType
+    content.vb: Public Overrides ReadOnly Property Type As GeoJSONObjectType
+  overridden: GeoJSON.Net.GeoJSONObject.Type
+  overload: GeoJSON.Net.Feature.Feature`2.Type*
+  nameWithType.vb: Feature(Of TGeometry, TProps).Type
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Type
+- uid: GeoJSON.Net.Feature.Feature`2.Id
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Id
+  id: Id
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Feature<TGeometry, TProps>.Id
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Id
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Id
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 34
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "id", NullValueHandling = NullValueHandling.Ignore)]
+
+      public string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="id", NullValueHandling:=NullValueHandling.Ignore)>
+
+      Public ReadOnly Property Id As String
+  overload: GeoJSON.Net.Feature.Feature`2.Id*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: id
+    - name: NullValueHandling
+      type: Newtonsoft.Json.NullValueHandling
+      value: 1
+  nameWithType.vb: Feature(Of TGeometry, TProps).Id
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Id
+- uid: GeoJSON.Net.Feature.Feature`2.Geometry
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Geometry
+  id: Geometry
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Geometry
+  nameWithType: Feature<TGeometry, TProps>.Geometry
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Geometry
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Geometry
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 37
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "geometry", Required = Required.AllowNull)]
+
+      [JsonConverter(typeof(GeometryConverter))]
+
+      public TGeometry Geometry { get; }
+    parameters: []
+    return:
+      type: '{TGeometry}'
+    content.vb: >-
+      <JsonProperty(PropertyName:="geometry", Required:=Required.AllowNull)>
+
+      <JsonConverter(GetType(GeometryConverter))>
+
+      Public ReadOnly Property Geometry As TGeometry
+  overload: GeoJSON.Net.Feature.Feature`2.Geometry*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: geometry
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 1
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: GeoJSON.Net.Converters.GeometryConverter
+  nameWithType.vb: Feature(Of TGeometry, TProps).Geometry
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Geometry
+- uid: GeoJSON.Net.Feature.Feature`2.Properties
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Properties
+  id: Properties
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: Feature<TGeometry, TProps>.Properties
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Properties
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Properties
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 41
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "properties", Required = Required.AllowNull)]
+
+      public TProps Properties { get; }
+    parameters: []
+    return:
+      type: '{TProps}'
+    content.vb: >-
+      <JsonProperty(PropertyName:="properties", Required:=Required.AllowNull)>
+
+      Public ReadOnly Property Properties As TProps
+  overload: GeoJSON.Net.Feature.Feature`2.Properties*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: properties
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 1
+  nameWithType.vb: Feature(Of TGeometry, TProps).Properties
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Properties
+- uid: GeoJSON.Net.Feature.Feature`2.Equals(GeoJSON.Net.Feature.Feature{`0,`1})
+  commentId: M:GeoJSON.Net.Feature.Feature`2.Equals(GeoJSON.Net.Feature.Feature{`0,`1})
+  id: Equals(GeoJSON.Net.Feature.Feature{`0,`1})
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Equals(Feature<TGeometry, TProps>)
+  nameWithType: Feature<TGeometry, TProps>.Equals(Feature<TGeometry, TProps>)
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Equals(GeoJSON.Net.Feature.Feature<TGeometry, TProps>)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 56
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nEquality comparer.\n"
+  remarks: "\nIn contrast to <see cref=\"!:Feature.Equals(Feature)\"></see>, this implementation returns true only\nif <xref href=\"GeoJSON.Net.Feature.Feature%602.Id\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"GeoJSON.Net.Feature.Feature%602.Properties\" data-throw-if-not-resolved=\"false\"></xref> are also equal. See\n<a href=\"https://github.com/GeoJSON-Net/GeoJSON.Net/issues/80\">#80</a> for discussion. The rationale\nhere is that a user explicitly specifying the property type most probably cares about the properties\nequality.\n"
+  example: []
+  syntax:
+    content: public bool Equals(Feature<TGeometry, TProps> other)
+    parameters:
+    - id: other
+      type: GeoJSON.Net.Feature.Feature`2
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Function Equals(other As Feature(Of TGeometry, TProps)) As Boolean
+  overload: GeoJSON.Net.Feature.Feature`2.Equals*
+  nameWithType.vb: Feature(Of TGeometry, TProps).Equals(Feature(Of TGeometry, TProps))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Equals(GeoJSON.Net.Feature.Feature(Of TGeometry, TProps))
+  name.vb: Equals(Feature(Of TGeometry, TProps))
+- uid: GeoJSON.Net.Feature.Feature`2.Equals(System.Object)
+  commentId: M:GeoJSON.Net.Feature.Feature`2.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: Feature<TGeometry, TProps>.Equals(Object)
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 66
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  overload: GeoJSON.Net.Feature.Feature`2.Equals*
+  nameWithType.vb: Feature(Of TGeometry, TProps).Equals(Object)
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Equals(System.Object)
+- uid: GeoJSON.Net.Feature.Feature`2.GetHashCode
+  commentId: M:GeoJSON.Net.Feature.Feature`2.GetHashCode
+  id: GetHashCode
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Feature<TGeometry, TProps>.GetHashCode()
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 74
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: GeoJSON.Net.GeoJSONObject.GetHashCode
+  overload: GeoJSON.Net.Feature.Feature`2.GetHashCode*
+  nameWithType.vb: Feature(Of TGeometry, TProps).GetHashCode()
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).GetHashCode()
+- uid: GeoJSON.Net.Feature.Feature`2.op_Equality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  commentId: M:GeoJSON.Net.Feature.Feature`2.op_Equality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  id: op_Equality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Equality(Feature<TGeometry, TProps>, Feature<TGeometry, TProps>)
+  nameWithType: Feature<TGeometry, TProps>.Equality(Feature<TGeometry, TProps>, Feature<TGeometry, TProps>)
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Equality(GeoJSON.Net.Feature.Feature<TGeometry, TProps>, GeoJSON.Net.Feature.Feature<TGeometry, TProps>)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Equality
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 86
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: public static bool operator ==(Feature<TGeometry, TProps> left, Feature<TGeometry, TProps> right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Feature.Feature`2
+    - id: right
+      type: GeoJSON.Net.Feature.Feature`2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Feature(Of TGeometry, TProps), right As Feature(Of TGeometry, TProps)) As Boolean
+  overload: GeoJSON.Net.Feature.Feature`2.op_Equality*
+  nameWithType.vb: Feature(Of TGeometry, TProps).Equality(Feature(Of TGeometry, TProps), Feature(Of TGeometry, TProps))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Equality(GeoJSON.Net.Feature.Feature(Of TGeometry, TProps), GeoJSON.Net.Feature.Feature(Of TGeometry, TProps))
+  name.vb: Equality(Feature(Of TGeometry, TProps), Feature(Of TGeometry, TProps))
+- uid: GeoJSON.Net.Feature.Feature`2.op_Inequality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  commentId: M:GeoJSON.Net.Feature.Feature`2.op_Inequality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  id: op_Inequality(GeoJSON.Net.Feature.Feature{`0,`1},GeoJSON.Net.Feature.Feature{`0,`1})
+  parent: GeoJSON.Net.Feature.Feature`2
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Feature<TGeometry, TProps>, Feature<TGeometry, TProps>)
+  nameWithType: Feature<TGeometry, TProps>.Inequality(Feature<TGeometry, TProps>, Feature<TGeometry, TProps>)
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Inequality(GeoJSON.Net.Feature.Feature<TGeometry, TProps>, GeoJSON.Net.Feature.Feature<TGeometry, TProps>)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/Feature.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Inequality
+    path: ../Assets/GeoJSON.Net/Feature/Feature.cs
+    startLine: 91
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: public static bool operator !=(Feature<TGeometry, TProps> left, Feature<TGeometry, TProps> right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Feature.Feature`2
+    - id: right
+      type: GeoJSON.Net.Feature.Feature`2
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Feature(Of TGeometry, TProps), right As Feature(Of TGeometry, TProps)) As Boolean
+  overload: GeoJSON.Net.Feature.Feature`2.op_Inequality*
+  nameWithType.vb: Feature(Of TGeometry, TProps).Inequality(Feature(Of TGeometry, TProps), Feature(Of TGeometry, TProps))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Inequality(GeoJSON.Net.Feature.Feature(Of TGeometry, TProps), GeoJSON.Net.Feature.Feature(Of TGeometry, TProps))
+  name.vb: Inequality(Feature(Of TGeometry, TProps), Feature(Of TGeometry, TProps))
+references:
+- uid: GeoJSON.Net.Feature.Feature`2.Geometry
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Geometry
+  name: Geometry
+  nameWithType: Feature<TGeometry, TProps>.Geometry
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Geometry
+  nameWithType.vb: Feature(Of TGeometry, TProps).Geometry
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Geometry
+- uid: GeoJSON.Net.Feature.Feature`2.Properties
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Properties
+  name: Properties
+  nameWithType: Feature<TGeometry, TProps>.Properties
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Properties
+  nameWithType.vb: Feature(Of TGeometry, TProps).Properties
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Properties
+- uid: GeoJSON.Net.Feature
+  commentId: N:GeoJSON.Net.Feature
+  name: GeoJSON.Net.Feature
+  nameWithType: GeoJSON.Net.Feature
+  fullName: GeoJSON.Net.Feature
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: GeoJSON.Net.GeoJSONObject
+  commentId: T:GeoJSON.Net.GeoJSONObject
+  parent: GeoJSON.Net
+  name: GeoJSONObject
+  nameWithType: GeoJSONObject
+  fullName: GeoJSON.Net.GeoJSONObject
+- uid: GeoJSON.Net.IGeoJSONObject
+  commentId: T:GeoJSON.Net.IGeoJSONObject
+  parent: GeoJSON.Net
+  name: IGeoJSONObject
+  nameWithType: IGeoJSONObject
+  fullName: GeoJSON.Net.IGeoJSONObject
+- uid: GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  commentId: P:GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  parent: GeoJSON.Net.GeoJSONObject
+  name: BoundingBoxes
+  nameWithType: GeoJSONObject.BoundingBoxes
+  fullName: GeoJSON.Net.GeoJSONObject.BoundingBoxes
+- uid: GeoJSON.Net.GeoJSONObject.CRS
+  commentId: P:GeoJSON.Net.GeoJSONObject.CRS
+  parent: GeoJSON.Net.GeoJSONObject
+  name: CRS
+  nameWithType: GeoJSONObject.CRS
+  fullName: GeoJSON.Net.GeoJSONObject.CRS
+- uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Equals(GeoJSONObject)
+  nameWithType: GeoJSONObject.Equals(GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Equals(GeoJSONObject, GeoJSONObject)
+  nameWithType: GeoJSONObject.Equals(GeoJSONObject, GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject, GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: GetHashCode(GeoJSONObject)
+  nameWithType: GeoJSONObject.GetHashCode(GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeoJSON.Net
+  commentId: N:GeoJSON.Net
+  name: GeoJSON.Net
+  nameWithType: GeoJSON.Net
+  fullName: GeoJSON.Net
+- uid: GeoJSON.Net.Feature.Feature`2.#ctor*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.#ctor
+  name: Feature
+  nameWithType: Feature<TGeometry, TProps>.Feature
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Feature
+  nameWithType.vb: Feature(Of TGeometry, TProps).Feature
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Feature
+- uid: '{TGeometry}'
+  commentId: '!:TGeometry'
+  definition: TGeometry
+  name: TGeometry
+  nameWithType: TGeometry
+  fullName: TGeometry
+- uid: '{TProps}'
+  commentId: '!:TProps'
+  definition: TProps
+  name: TProps
+  nameWithType: TProps
+  fullName: TProps
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: TGeometry
+  name: TGeometry
+  nameWithType: TGeometry
+  fullName: TGeometry
+- uid: TProps
+  name: TProps
+  nameWithType: TProps
+  fullName: TProps
+- uid: GeoJSON.Net.GeoJSONObject.Type
+  commentId: P:GeoJSON.Net.GeoJSONObject.Type
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Type
+  nameWithType: GeoJSONObject.Type
+  fullName: GeoJSON.Net.GeoJSONObject.Type
+- uid: GeoJSON.Net.Feature.Feature`2.Type*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.Type
+  name: Type
+  nameWithType: Feature<TGeometry, TProps>.Type
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Type
+  nameWithType.vb: Feature(Of TGeometry, TProps).Type
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Type
+- uid: GeoJSON.Net.GeoJSONObjectType
+  commentId: T:GeoJSON.Net.GeoJSONObjectType
+  parent: GeoJSON.Net
+  name: GeoJSONObjectType
+  nameWithType: GeoJSONObjectType
+  fullName: GeoJSON.Net.GeoJSONObjectType
+- uid: GeoJSON.Net.Feature.Feature`2.Id*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.Id
+  name: Id
+  nameWithType: Feature<TGeometry, TProps>.Id
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Id
+  nameWithType.vb: Feature(Of TGeometry, TProps).Id
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Id
+- uid: GeoJSON.Net.Feature.Feature`2.Geometry*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.Geometry
+  name: Geometry
+  nameWithType: Feature<TGeometry, TProps>.Geometry
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Geometry
+  nameWithType.vb: Feature(Of TGeometry, TProps).Geometry
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Geometry
+- uid: GeoJSON.Net.Feature.Feature`2.Properties*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.Properties
+  name: Properties
+  nameWithType: Feature<TGeometry, TProps>.Properties
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Properties
+  nameWithType.vb: Feature(Of TGeometry, TProps).Properties
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Properties
+- uid: GeoJSON.Net.Feature.Feature`2.Id
+  commentId: P:GeoJSON.Net.Feature.Feature`2.Id
+  name: Id
+  nameWithType: Feature<TGeometry, TProps>.Id
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Id
+  nameWithType.vb: Feature(Of TGeometry, TProps).Id
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Id
+- uid: GeoJSON.Net.Feature.Feature`2.Equals*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.Equals
+  name: Equals
+  nameWithType: Feature<TGeometry, TProps>.Equals
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Equals
+  nameWithType.vb: Feature(Of TGeometry, TProps).Equals
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Equals
+- uid: GeoJSON.Net.Feature.Feature`2
+  commentId: T:GeoJSON.Net.Feature.Feature`2
+  parent: GeoJSON.Net.Feature
+  name: Feature<TGeometry, TProps>
+  nameWithType: Feature<TGeometry, TProps>
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>
+  nameWithType.vb: Feature(Of TGeometry, TProps)
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps)
+  name.vb: Feature(Of TGeometry, TProps)
+  spec.csharp:
+  - uid: GeoJSON.Net.Feature.Feature`2
+    name: Feature
+    nameWithType: Feature
+    fullName: GeoJSON.Net.Feature.Feature
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TGeometry
+    nameWithType: TGeometry
+    fullName: TGeometry
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TProps
+    nameWithType: TProps
+    fullName: TProps
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: GeoJSON.Net.Feature.Feature`2
+    name: Feature
+    nameWithType: Feature
+    fullName: GeoJSON.Net.Feature.Feature
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TGeometry
+    nameWithType: TGeometry
+    fullName: TGeometry
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TProps
+    nameWithType: TProps
+    fullName: TProps
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  parent: GeoJSON.Net.GeoJSONObject
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: GeoJSONObject.Equals(Object)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+  commentId: M:GeoJSON.Net.GeoJSONObject.GetHashCode
+  parent: GeoJSON.Net.GeoJSONObject
+  name: GetHashCode()
+  nameWithType: GeoJSONObject.GetHashCode()
+  fullName: GeoJSON.Net.GeoJSONObject.GetHashCode()
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Feature.Feature`2.GetHashCode*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.GetHashCode
+  name: GetHashCode
+  nameWithType: Feature<TGeometry, TProps>.GetHashCode
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.GetHashCode
+  nameWithType.vb: Feature(Of TGeometry, TProps).GetHashCode
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: GeoJSON.Net.Feature.Feature`2.op_Equality*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.op_Equality
+  name: Equality
+  nameWithType: Feature<TGeometry, TProps>.Equality
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Equality
+  nameWithType.vb: Feature(Of TGeometry, TProps).Equality
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Equality
+- uid: GeoJSON.Net.Feature.Feature`2.op_Inequality*
+  commentId: Overload:GeoJSON.Net.Feature.Feature`2.op_Inequality
+  name: Inequality
+  nameWithType: Feature<TGeometry, TProps>.Inequality
+  fullName: GeoJSON.Net.Feature.Feature<TGeometry, TProps>.Inequality
+  nameWithType.vb: Feature(Of TGeometry, TProps).Inequality
+  fullName.vb: GeoJSON.Net.Feature.Feature(Of TGeometry, TProps).Inequality

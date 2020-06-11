@@ -1,0 +1,367 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.GeologyCollection.GeoData
+  commentId: T:Project.GeologyCollection.GeoData
+  id: GeologyCollection.GeoData
+  parent: Project
+  children:
+  - Project.GeologyCollection.GeoData.Lines
+  - Project.GeologyCollection.GeoData.Units
+  - Project.GeologyCollection.GeoData.xSect
+  langs:
+  - csharp
+  - vb
+  name: GeologyCollection.GeoData
+  nameWithType: GeologyCollection.GeoData
+  fullName: Project.GeologyCollection.GeoData
+  type: Struct
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GeoData
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 192
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public struct GeoData
+    content.vb: Public Structure GeoData
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: Project.GeologyCollection.GeoData.Units
+  commentId: F:Project.GeologyCollection.GeoData.Units
+  id: Units
+  parent: Project.GeologyCollection.GeoData
+  langs:
+  - csharp
+  - vb
+  name: Units
+  nameWithType: GeologyCollection.GeoData.Units
+  fullName: Project.GeologyCollection.GeoData.Units
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Units
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 195
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "units", Required = Required.Always)]
+
+      public Dictionary<string, Unit> Units
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,Project.Unit}
+    content.vb: >-
+      <JsonProperty(PropertyName:="units", Required:=Required.Always)>
+
+      Public Units As Dictionary(Of String, Unit)
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: units
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GeologyCollection.GeoData.Lines
+  commentId: F:Project.GeologyCollection.GeoData.Lines
+  id: Lines
+  parent: Project.GeologyCollection.GeoData
+  langs:
+  - csharp
+  - vb
+  name: Lines
+  nameWithType: GeologyCollection.GeoData.Lines
+  fullName: Project.GeologyCollection.GeoData.Lines
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Lines
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 197
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "lines")]
+
+      public Dictionary<string, GeoTypes> Lines
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,Project.GeoTypes}
+    content.vb: >-
+      <JsonProperty(PropertyName:="lines")>
+
+      Public Lines As Dictionary(Of String, GeoTypes)
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: lines
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.GeologyCollection.GeoData.xSect
+  commentId: F:Project.GeologyCollection.GeoData.xSect
+  id: xSect
+  parent: Project.GeologyCollection.GeoData
+  langs:
+  - csharp
+  - vb
+  name: xSect
+  nameWithType: GeologyCollection.GeoData.xSect
+  fullName: Project.GeologyCollection.GeoData.xSect
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: xSect
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 199
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "x_sect_type")]
+
+      public string xSect
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="x_sect_type")>
+
+      Public xSect As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: x_sect_type
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Collections.Generic.Dictionary{System.String,Project.Unit}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,Project.Unit}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Unit>
+  nameWithType: Dictionary<String, Unit>
+  fullName: System.Collections.Generic.Dictionary<System.String, Project.Unit>
+  nameWithType.vb: Dictionary(Of String, Unit)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, Project.Unit)
+  name.vb: Dictionary(Of String, Unit)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Project.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: Project.Unit
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Project.Unit
+    name: Unit
+    nameWithType: Unit
+    fullName: Project.Unit
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.Dictionary{System.String,Project.GeoTypes}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,Project.GeoTypes}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, GeoTypes>
+  nameWithType: Dictionary<String, GeoTypes>
+  fullName: System.Collections.Generic.Dictionary<System.String, Project.GeoTypes>
+  nameWithType.vb: Dictionary(Of String, GeoTypes)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, Project.GeoTypes)
+  name.vb: Dictionary(Of String, GeoTypes)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Project.GeoTypes
+    name: GeoTypes
+    nameWithType: GeoTypes
+    fullName: Project.GeoTypes
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Project.GeoTypes
+    name: GeoTypes
+    nameWithType: GeoTypes
+    fullName: Project.GeoTypes
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

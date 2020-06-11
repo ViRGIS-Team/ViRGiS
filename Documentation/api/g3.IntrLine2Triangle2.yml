@@ -1,0 +1,700 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IntrLine2Triangle2
+  commentId: T:g3.IntrLine2Triangle2
+  id: IntrLine2Triangle2
+  parent: g3
+  children:
+  - g3.IntrLine2Triangle2.#ctor(g3.Line2d,g3.Triangle2d)
+  - g3.IntrLine2Triangle2.Compute
+  - g3.IntrLine2Triangle2.Find
+  - g3.IntrLine2Triangle2.GetInterval(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d,g3.Vector3i,g3.Vector2d@)
+  - g3.IntrLine2Triangle2.IsSimpleIntersection
+  - g3.IntrLine2Triangle2.Line
+  - g3.IntrLine2Triangle2.Param0
+  - g3.IntrLine2Triangle2.Param1
+  - g3.IntrLine2Triangle2.Point0
+  - g3.IntrLine2Triangle2.Point1
+  - g3.IntrLine2Triangle2.Quantity
+  - g3.IntrLine2Triangle2.Result
+  - g3.IntrLine2Triangle2.Triangle
+  - g3.IntrLine2Triangle2.TriangleLineRelations(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d@,g3.Vector3i@,System.Int32@,System.Int32@,System.Int32@)
+  - g3.IntrLine2Triangle2.Type
+  langs:
+  - csharp
+  - vb
+  name: IntrLine2Triangle2
+  nameWithType: IntrLine2Triangle2
+  fullName: g3.IntrLine2Triangle2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntrLine2Triangle2
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class IntrLine2Triangle2
+    content.vb: Public Class IntrLine2Triangle2
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.IntrLine2Triangle2.Line
+  commentId: P:g3.IntrLine2Triangle2.Line
+  id: Line
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Line
+  nameWithType: IntrLine2Triangle2.Line
+  fullName: g3.IntrLine2Triangle2.Line
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Line
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Line2d Line { get; set; }
+    parameters: []
+    return:
+      type: g3.Line2d
+    content.vb: Public Property Line As Line2d
+  overload: g3.IntrLine2Triangle2.Line*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Triangle
+  commentId: P:g3.IntrLine2Triangle2.Triangle
+  id: Triangle
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Triangle
+  nameWithType: IntrLine2Triangle2.Triangle
+  fullName: g3.IntrLine2Triangle2.Triangle
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Triangle
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Triangle2d Triangle { get; set; }
+    parameters: []
+    return:
+      type: g3.Triangle2d
+    content.vb: Public Property Triangle As Triangle2d
+  overload: g3.IntrLine2Triangle2.Triangle*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Quantity
+  commentId: F:g3.IntrLine2Triangle2.Quantity
+  id: Quantity
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Quantity
+  nameWithType: IntrLine2Triangle2.Quantity
+  fullName: g3.IntrLine2Triangle2.Quantity
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Quantity
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Quantity
+    return:
+      type: System.Int32
+    content.vb: Public Quantity As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Result
+  commentId: F:g3.IntrLine2Triangle2.Result
+  id: Result
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: IntrLine2Triangle2.Result
+  fullName: g3.IntrLine2Triangle2.Result
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Result
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntersectionResult Result
+    return:
+      type: g3.IntersectionResult
+    content.vb: Public Result As IntersectionResult
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Type
+  commentId: F:g3.IntrLine2Triangle2.Type
+  id: Type
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IntrLine2Triangle2.Type
+  fullName: g3.IntrLine2Triangle2.Type
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntersectionType Type
+    return:
+      type: g3.IntersectionType
+    content.vb: Public Type As IntersectionType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.IsSimpleIntersection
+  commentId: P:g3.IntrLine2Triangle2.IsSimpleIntersection
+  id: IsSimpleIntersection
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: IsSimpleIntersection
+  nameWithType: IntrLine2Triangle2.IsSimpleIntersection
+  fullName: g3.IntrLine2Triangle2.IsSimpleIntersection
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsSimpleIntersection
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsSimpleIntersection { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSimpleIntersection As Boolean
+  overload: g3.IntrLine2Triangle2.IsSimpleIntersection*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.IntrLine2Triangle2.Point0
+  commentId: F:g3.IntrLine2Triangle2.Point0
+  id: Point0
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Point0
+  nameWithType: IntrLine2Triangle2.Point0
+  fullName: g3.IntrLine2Triangle2.Point0
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Point0
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Point0
+    return:
+      type: g3.Vector2d
+    content.vb: Public Point0 As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Point1
+  commentId: F:g3.IntrLine2Triangle2.Point1
+  id: Point1
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Point1
+  nameWithType: IntrLine2Triangle2.Point1
+  fullName: g3.IntrLine2Triangle2.Point1
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Point1
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Point1
+    return:
+      type: g3.Vector2d
+    content.vb: Public Point1 As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Param0
+  commentId: F:g3.IntrLine2Triangle2.Param0
+  id: Param0
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Param0
+  nameWithType: IntrLine2Triangle2.Param0
+  fullName: g3.IntrLine2Triangle2.Param0
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Param0
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Param0
+    return:
+      type: System.Double
+    content.vb: Public Param0 As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Param1
+  commentId: F:g3.IntrLine2Triangle2.Param1
+  id: Param1
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Param1
+  nameWithType: IntrLine2Triangle2.Param1
+  fullName: g3.IntrLine2Triangle2.Param1
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Param1
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Param1
+    return:
+      type: System.Double
+    content.vb: Public Param1 As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.#ctor(g3.Line2d,g3.Triangle2d)
+  commentId: M:g3.IntrLine2Triangle2.#ctor(g3.Line2d,g3.Triangle2d)
+  id: '#ctor(g3.Line2d,g3.Triangle2d)'
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: IntrLine2Triangle2(Line2d, Triangle2d)
+  nameWithType: IntrLine2Triangle2.IntrLine2Triangle2(Line2d, Triangle2d)
+  fullName: g3.IntrLine2Triangle2.IntrLine2Triangle2(g3.Line2d, g3.Triangle2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntrLine2Triangle2(Line2d l, Triangle2d t)
+    parameters:
+    - id: l
+      type: g3.Line2d
+    - id: t
+      type: g3.Triangle2d
+    content.vb: Public Sub New(l As Line2d, t As Triangle2d)
+  overload: g3.IntrLine2Triangle2.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Compute
+  commentId: M:g3.IntrLine2Triangle2.Compute
+  id: Compute
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: IntrLine2Triangle2.Compute()
+  fullName: g3.IntrLine2Triangle2.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntrLine2Triangle2 Compute()
+    return:
+      type: g3.IntrLine2Triangle2
+    content.vb: Public Function Compute As IntrLine2Triangle2
+  overload: g3.IntrLine2Triangle2.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.Find
+  commentId: M:g3.IntrLine2Triangle2.Find
+  id: Find
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Find()
+  nameWithType: IntrLine2Triangle2.Find()
+  fullName: g3.IntrLine2Triangle2.Find()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Find
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Find()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Find As Boolean
+  overload: g3.IntrLine2Triangle2.Find*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrLine2Triangle2.TriangleLineRelations(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d@,g3.Vector3i@,System.Int32@,System.Int32@,System.Int32@)
+  commentId: M:g3.IntrLine2Triangle2.TriangleLineRelations(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d@,g3.Vector3i@,System.Int32@,System.Int32@,System.Int32@)
+  id: TriangleLineRelations(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d@,g3.Vector3i@,System.Int32@,System.Int32@,System.Int32@)
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: TriangleLineRelations(Vector2d, Vector2d, Triangle2d, ref Vector3d, ref Vector3i, ref Int32, ref Int32, ref Int32)
+  nameWithType: IntrLine2Triangle2.TriangleLineRelations(Vector2d, Vector2d, Triangle2d, ref Vector3d, ref Vector3i, ref Int32, ref Int32, ref Int32)
+  fullName: g3.IntrLine2Triangle2.TriangleLineRelations(g3.Vector2d, g3.Vector2d, g3.Triangle2d, ref g3.Vector3d, ref g3.Vector3i, ref System.Int32, ref System.Int32, ref System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TriangleLineRelations
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 105
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void TriangleLineRelations(Vector2d origin, Vector2d direction, Triangle2d tri, ref Vector3d dist, ref Vector3i sign, ref int positive, ref int negative, ref int zero)
+    parameters:
+    - id: origin
+      type: g3.Vector2d
+    - id: direction
+      type: g3.Vector2d
+    - id: tri
+      type: g3.Triangle2d
+    - id: dist
+      type: g3.Vector3d
+    - id: sign
+      type: g3.Vector3i
+    - id: positive
+      type: System.Int32
+    - id: negative
+      type: System.Int32
+    - id: zero
+      type: System.Int32
+    content.vb: Public Shared Sub TriangleLineRelations(origin As Vector2d, direction As Vector2d, tri As Triangle2d, ByRef dist As Vector3d, ByRef sign As Vector3i, ByRef positive As Integer, ByRef negative As Integer, ByRef zero As Integer)
+  overload: g3.IntrLine2Triangle2.TriangleLineRelations*
+  nameWithType.vb: IntrLine2Triangle2.TriangleLineRelations(Vector2d, Vector2d, Triangle2d, ByRef Vector3d, ByRef Vector3i, ByRef Int32, ByRef Int32, ByRef Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntrLine2Triangle2.TriangleLineRelations(g3.Vector2d, g3.Vector2d, g3.Triangle2d, ByRef g3.Vector3d, ByRef g3.Vector3i, ByRef System.Int32, ByRef System.Int32, ByRef System.Int32)
+  name.vb: TriangleLineRelations(Vector2d, Vector2d, Triangle2d, ByRef Vector3d, ByRef Vector3i, ByRef Int32, ByRef Int32, ByRef Int32)
+- uid: g3.IntrLine2Triangle2.GetInterval(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d,g3.Vector3i,g3.Vector2d@)
+  commentId: M:g3.IntrLine2Triangle2.GetInterval(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d,g3.Vector3i,g3.Vector2d@)
+  id: GetInterval(g3.Vector2d,g3.Vector2d,g3.Triangle2d,g3.Vector3d,g3.Vector3i,g3.Vector2d@)
+  parent: g3.IntrLine2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: GetInterval(Vector2d, Vector2d, Triangle2d, Vector3d, Vector3i, ref Vector2d)
+  nameWithType: IntrLine2Triangle2.GetInterval(Vector2d, Vector2d, Triangle2d, Vector3d, Vector3i, ref Vector2d)
+  fullName: g3.IntrLine2Triangle2.GetInterval(g3.Vector2d, g3.Vector2d, g3.Triangle2d, g3.Vector3d, g3.Vector3i, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetInterval
+    path: ../Assets/geometry3Sharp/intersection/IntrLine2Triangle2.cs
+    startLine: 137
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void GetInterval(Vector2d origin, Vector2d direction, Triangle2d tri, Vector3d dist, Vector3i sign, ref Vector2d param)
+    parameters:
+    - id: origin
+      type: g3.Vector2d
+    - id: direction
+      type: g3.Vector2d
+    - id: tri
+      type: g3.Triangle2d
+    - id: dist
+      type: g3.Vector3d
+    - id: sign
+      type: g3.Vector3i
+    - id: param
+      type: g3.Vector2d
+    content.vb: Public Shared Sub GetInterval(origin As Vector2d, direction As Vector2d, tri As Triangle2d, dist As Vector3d, sign As Vector3i, ByRef param As Vector2d)
+  overload: g3.IntrLine2Triangle2.GetInterval*
+  nameWithType.vb: IntrLine2Triangle2.GetInterval(Vector2d, Vector2d, Triangle2d, Vector3d, Vector3i, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntrLine2Triangle2.GetInterval(g3.Vector2d, g3.Vector2d, g3.Triangle2d, g3.Vector3d, g3.Vector3i, ByRef g3.Vector2d)
+  name.vb: GetInterval(Vector2d, Vector2d, Triangle2d, Vector3d, Vector3i, ByRef Vector2d)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IntrLine2Triangle2.Line*
+  commentId: Overload:g3.IntrLine2Triangle2.Line
+  name: Line
+  nameWithType: IntrLine2Triangle2.Line
+  fullName: g3.IntrLine2Triangle2.Line
+- uid: g3.Line2d
+  commentId: T:g3.Line2d
+  parent: g3
+  name: Line2d
+  nameWithType: Line2d
+  fullName: g3.Line2d
+- uid: g3.IntrLine2Triangle2.Triangle*
+  commentId: Overload:g3.IntrLine2Triangle2.Triangle
+  name: Triangle
+  nameWithType: IntrLine2Triangle2.Triangle
+  fullName: g3.IntrLine2Triangle2.Triangle
+- uid: g3.Triangle2d
+  commentId: T:g3.Triangle2d
+  parent: g3
+  name: Triangle2d
+  nameWithType: Triangle2d
+  fullName: g3.Triangle2d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IntersectionResult
+  commentId: T:g3.IntersectionResult
+  parent: g3
+  name: IntersectionResult
+  nameWithType: IntersectionResult
+  fullName: g3.IntersectionResult
+- uid: g3.IntersectionType
+  commentId: T:g3.IntersectionType
+  parent: g3
+  name: IntersectionType
+  nameWithType: IntersectionType
+  fullName: g3.IntersectionType
+- uid: g3.IntrLine2Triangle2.IsSimpleIntersection*
+  commentId: Overload:g3.IntrLine2Triangle2.IsSimpleIntersection
+  name: IsSimpleIntersection
+  nameWithType: IntrLine2Triangle2.IsSimpleIntersection
+  fullName: g3.IntrLine2Triangle2.IsSimpleIntersection
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.IntrLine2Triangle2.#ctor*
+  commentId: Overload:g3.IntrLine2Triangle2.#ctor
+  name: IntrLine2Triangle2
+  nameWithType: IntrLine2Triangle2.IntrLine2Triangle2
+  fullName: g3.IntrLine2Triangle2.IntrLine2Triangle2
+- uid: g3.IntrLine2Triangle2.Compute*
+  commentId: Overload:g3.IntrLine2Triangle2.Compute
+  name: Compute
+  nameWithType: IntrLine2Triangle2.Compute
+  fullName: g3.IntrLine2Triangle2.Compute
+- uid: g3.IntrLine2Triangle2
+  commentId: T:g3.IntrLine2Triangle2
+  parent: g3
+  name: IntrLine2Triangle2
+  nameWithType: IntrLine2Triangle2
+  fullName: g3.IntrLine2Triangle2
+- uid: g3.IntrLine2Triangle2.Find*
+  commentId: Overload:g3.IntrLine2Triangle2.Find
+  name: Find
+  nameWithType: IntrLine2Triangle2.Find
+  fullName: g3.IntrLine2Triangle2.Find
+- uid: g3.IntrLine2Triangle2.TriangleLineRelations*
+  commentId: Overload:g3.IntrLine2Triangle2.TriangleLineRelations
+  name: TriangleLineRelations
+  nameWithType: IntrLine2Triangle2.TriangleLineRelations
+  fullName: g3.IntrLine2Triangle2.TriangleLineRelations
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  parent: g3
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+- uid: g3.IntrLine2Triangle2.GetInterval*
+  commentId: Overload:g3.IntrLine2Triangle2.GetInterval
+  name: GetInterval
+  nameWithType: IntrLine2Triangle2.GetInterval
+  fullName: g3.IntrLine2Triangle2.GetInterval

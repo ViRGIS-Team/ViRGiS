@@ -1,0 +1,1800 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.KdTree`1
+  commentId: T:Virgis.KdTree`1
+  id: KdTree`1
+  parent: Virgis
+  children:
+  - Virgis.KdTree`1.#ctor(System.Boolean)
+  - Virgis.KdTree`1._count
+  - Virgis.KdTree`1._distance(UnityEngine.Vector3,UnityEngine.Vector3)
+  - Virgis.KdTree`1._findClosest(UnityEngine.Vector3,System.Collections.Generic.List{`0})
+  - Virgis.KdTree`1._getSplitValue(System.Int32,UnityEngine.Vector3)
+  - Virgis.KdTree`1._just2D
+  - Virgis.KdTree`1._last
+  - Virgis.KdTree`1._LastUpdate
+  - Virgis.KdTree`1._open
+  - Virgis.KdTree`1._root
+  - Virgis.KdTree`1.Add(`0)
+  - Virgis.KdTree`1.AddAll(System.Collections.Generic.List{`0})
+  - Virgis.KdTree`1.AverageSearchDeep
+  - Virgis.KdTree`1.AverageSearchLength
+  - Virgis.KdTree`1.Clear
+  - Virgis.KdTree`1.Count
+  - Virgis.KdTree`1.CountAll(System.Predicate{`0})
+  - Virgis.KdTree`1.Find(System.Predicate{`0})
+  - Virgis.KdTree`1.FindAll(System.Predicate{`0})
+  - Virgis.KdTree`1.FindClose(UnityEngine.Vector3)
+  - Virgis.KdTree`1.FindClosest(UnityEngine.Vector3)
+  - Virgis.KdTree`1.GetEnumerator
+  - Virgis.KdTree`1.IsReadOnly
+  - Virgis.KdTree`1.Item(System.Int32)
+  - Virgis.KdTree`1.RemoveAll(System.Predicate{`0})
+  - Virgis.KdTree`1.RemoveAt(System.Int32)
+  - Virgis.KdTree`1.ToList
+  - Virgis.KdTree`1.UpdatePositions
+  - Virgis.KdTree`1.UpdatePositions(System.Single)
+  langs:
+  - csharp
+  - vb
+  name: KdTree<T>
+  nameWithType: KdTree<T>
+  fullName: Virgis.KdTree<T>
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: KdTree
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 8
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: 'public class KdTree<T> : IEnumerable<T>, IEnumerable where T : Component'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Class KdTree(Of T As Component)
+          Implements IEnumerable(Of T), IEnumerable
+  inheritance:
+  - System.Object
+  nameWithType.vb: KdTree(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: Virgis.KdTree(Of T)
+  name.vb: KdTree(Of T)
+- uid: Virgis.KdTree`1._root
+  commentId: F:Virgis.KdTree`1._root
+  id: _root
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _root
+  nameWithType: KdTree<T>._root
+  fullName: Virgis.KdTree<T>._root
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _root
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 10
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected KdTree<T>.KdNode _root
+    return:
+      type: Virgis.KdTree`1.KdNode
+    content.vb: Protected _root As KdTree(Of T).KdNode
+  nameWithType.vb: KdTree(Of T)._root
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._root
+- uid: Virgis.KdTree`1._last
+  commentId: F:Virgis.KdTree`1._last
+  id: _last
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _last
+  nameWithType: KdTree<T>._last
+  fullName: Virgis.KdTree<T>._last
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _last
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 11
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected KdTree<T>.KdNode _last
+    return:
+      type: Virgis.KdTree`1.KdNode
+    content.vb: Protected _last As KdTree(Of T).KdNode
+  nameWithType.vb: KdTree(Of T)._last
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._last
+- uid: Virgis.KdTree`1._count
+  commentId: F:Virgis.KdTree`1._count
+  id: _count
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _count
+  nameWithType: KdTree<T>._count
+  fullName: Virgis.KdTree<T>._count
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _count
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 12
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected int _count
+    return:
+      type: System.Int32
+    content.vb: Protected _count As Integer
+  nameWithType.vb: KdTree(Of T)._count
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._count
+- uid: Virgis.KdTree`1._just2D
+  commentId: F:Virgis.KdTree`1._just2D
+  id: _just2D
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _just2D
+  nameWithType: KdTree<T>._just2D
+  fullName: Virgis.KdTree<T>._just2D
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _just2D
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 13
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected bool _just2D
+    return:
+      type: System.Boolean
+    content.vb: Protected _just2D As Boolean
+  nameWithType.vb: KdTree(Of T)._just2D
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._just2D
+- uid: Virgis.KdTree`1._LastUpdate
+  commentId: F:Virgis.KdTree`1._LastUpdate
+  id: _LastUpdate
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _LastUpdate
+  nameWithType: KdTree<T>._LastUpdate
+  fullName: Virgis.KdTree<T>._LastUpdate
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _LastUpdate
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 14
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected float _LastUpdate
+    return:
+      type: System.Single
+    content.vb: Protected _LastUpdate As Single
+  nameWithType.vb: KdTree(Of T)._LastUpdate
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._LastUpdate
+- uid: Virgis.KdTree`1._open
+  commentId: F:Virgis.KdTree`1._open
+  id: _open
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _open
+  nameWithType: KdTree<T>._open
+  fullName: Virgis.KdTree<T>._open
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _open
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 15
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected KdTree<T>.KdNode[] _open
+    return:
+      type: Virgis.KdTree`1.KdNode[]
+    content.vb: Protected _open As KdTree(Of T).KdNode()
+  nameWithType.vb: KdTree(Of T)._open
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._open
+- uid: Virgis.KdTree`1.Count
+  commentId: P:Virgis.KdTree`1.Count
+  id: Count
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: KdTree<T>.Count
+  fullName: Virgis.KdTree<T>.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Virgis.KdTree`1.Count*
+  nameWithType.vb: KdTree(Of T).Count
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Virgis.KdTree(Of T).Count
+- uid: Virgis.KdTree`1.IsReadOnly
+  commentId: P:Virgis.KdTree`1.IsReadOnly
+  id: IsReadOnly
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: KdTree<T>.IsReadOnly
+  fullName: Virgis.KdTree<T>.IsReadOnly
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsReadOnly
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: Virgis.KdTree`1.IsReadOnly*
+  nameWithType.vb: KdTree(Of T).IsReadOnly
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Virgis.KdTree(Of T).IsReadOnly
+- uid: Virgis.KdTree`1.AverageSearchLength
+  commentId: P:Virgis.KdTree`1.AverageSearchLength
+  id: AverageSearchLength
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: AverageSearchLength
+  nameWithType: KdTree<T>.AverageSearchLength
+  fullName: Virgis.KdTree<T>.AverageSearchLength
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AverageSearchLength
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 19
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public float AverageSearchLength { get; protected set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property AverageSearchLength As Single
+  overload: Virgis.KdTree`1.AverageSearchLength*
+  nameWithType.vb: KdTree(Of T).AverageSearchLength
+  modifiers.csharp:
+  - public
+  - get
+  - protected set
+  modifiers.vb:
+  - Public
+  - Get
+  - Protected Set
+  fullName.vb: Virgis.KdTree(Of T).AverageSearchLength
+- uid: Virgis.KdTree`1.AverageSearchDeep
+  commentId: P:Virgis.KdTree`1.AverageSearchDeep
+  id: AverageSearchDeep
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: AverageSearchDeep
+  nameWithType: KdTree<T>.AverageSearchDeep
+  fullName: Virgis.KdTree<T>.AverageSearchDeep
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AverageSearchDeep
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public float AverageSearchDeep { get; protected set; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public Property AverageSearchDeep As Single
+  overload: Virgis.KdTree`1.AverageSearchDeep*
+  nameWithType.vb: KdTree(Of T).AverageSearchDeep
+  modifiers.csharp:
+  - public
+  - get
+  - protected set
+  modifiers.vb:
+  - Public
+  - Get
+  - Protected Set
+  fullName.vb: Virgis.KdTree(Of T).AverageSearchDeep
+- uid: Virgis.KdTree`1.#ctor(System.Boolean)
+  commentId: M:Virgis.KdTree`1.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: KdTree(Boolean)
+  nameWithType: KdTree<T>.KdTree(Boolean)
+  fullName: Virgis.KdTree<T>.KdTree(System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\ncreate a tree\n"
+  example: []
+  syntax:
+    content: public KdTree(bool just2D = false)
+    parameters:
+    - id: just2D
+      type: System.Boolean
+      description: just use x/z
+    content.vb: Public Sub New(just2D As Boolean = False)
+  overload: Virgis.KdTree`1.#ctor*
+  nameWithType.vb: KdTree(Of T).KdTree(Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).KdTree(System.Boolean)
+- uid: Virgis.KdTree`1.Item(System.Int32)
+  commentId: P:Virgis.KdTree`1.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: KdTree<T>.Item[Int32]
+  fullName: Virgis.KdTree<T>.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 31
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: public T this[int key] { get; }
+    parameters:
+    - id: key
+      type: System.Int32
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property Item(key As Integer) As T
+  overload: Virgis.KdTree`1.Item*
+  nameWithType.vb: KdTree(Of T).Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Virgis.KdTree(Of T).Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: Virgis.KdTree`1.Add(`0)
+  commentId: M:Virgis.KdTree`1.Add(`0)
+  id: Add(`0)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: Add(T)
+  nameWithType: KdTree<T>.Add(T)
+  fullName: Virgis.KdTree<T>.Add(T)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 48
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nadd item\n"
+  example: []
+  syntax:
+    content: public void Add(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: item
+    content.vb: Public Sub Add(item As T)
+  overload: Virgis.KdTree`1.Add*
+  nameWithType.vb: KdTree(Of T).Add(T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).Add(T)
+- uid: Virgis.KdTree`1.AddAll(System.Collections.Generic.List{`0})
+  commentId: M:Virgis.KdTree`1.AddAll(System.Collections.Generic.List{`0})
+  id: AddAll(System.Collections.Generic.List{`0})
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: AddAll(List<T>)
+  nameWithType: KdTree<T>.AddAll(List<T>)
+  fullName: Virgis.KdTree<T>.AddAll(System.Collections.Generic.List<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddAll
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nbatch add items\n"
+  example: []
+  syntax:
+    content: public void AddAll(List<T> items)
+    parameters:
+    - id: items
+      type: System.Collections.Generic.List{{T}}
+      description: items
+    content.vb: Public Sub AddAll(items As List(Of T))
+  overload: Virgis.KdTree`1.AddAll*
+  nameWithType.vb: KdTree(Of T).AddAll(List(Of T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).AddAll(System.Collections.Generic.List(Of T))
+  name.vb: AddAll(List(Of T))
+- uid: Virgis.KdTree`1.FindAll(System.Predicate{`0})
+  commentId: M:Virgis.KdTree`1.FindAll(System.Predicate{`0})
+  id: FindAll(System.Predicate{`0})
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: FindAll(Predicate<T>)
+  nameWithType: KdTree<T>.FindAll(Predicate<T>)
+  fullName: Virgis.KdTree<T>.FindAll(System.Predicate<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindAll
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 67
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nfind all objects that matches the given predicate\n"
+  example: []
+  syntax:
+    content: public KdTree<T> FindAll(Predicate<T> match)
+    parameters:
+    - id: match
+      type: System.Predicate{{T}}
+      description: lamda expression
+    return:
+      type: Virgis.KdTree`1
+    content.vb: Public Function FindAll(match As Predicate(Of T)) As KdTree(Of T)
+  overload: Virgis.KdTree`1.FindAll*
+  nameWithType.vb: KdTree(Of T).FindAll(Predicate(Of T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).FindAll(System.Predicate(Of T))
+  name.vb: FindAll(Predicate(Of T))
+- uid: Virgis.KdTree`1.Find(System.Predicate{`0})
+  commentId: M:Virgis.KdTree`1.Find(System.Predicate{`0})
+  id: Find(System.Predicate{`0})
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: Find(Predicate<T>)
+  nameWithType: KdTree<T>.Find(Predicate<T>)
+  fullName: Virgis.KdTree<T>.Find(System.Predicate<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Find
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 80
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nfind first object that matches the given predicate\n"
+  example: []
+  syntax:
+    content: public T Find(Predicate<T> match)
+    parameters:
+    - id: match
+      type: System.Predicate{{T}}
+      description: lamda expression
+    return:
+      type: '{T}'
+    content.vb: Public Function Find(match As Predicate(Of T)) As T
+  overload: Virgis.KdTree`1.Find*
+  nameWithType.vb: KdTree(Of T).Find(Predicate(Of T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).Find(System.Predicate(Of T))
+  name.vb: Find(Predicate(Of T))
+- uid: Virgis.KdTree`1.RemoveAt(System.Int32)
+  commentId: M:Virgis.KdTree`1.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(Int32)
+  nameWithType: KdTree<T>.RemoveAt(Int32)
+  fullName: Virgis.KdTree<T>.RemoveAt(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveAt
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 95
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nRemove at position i (position in list or loop)\n"
+  example: []
+  syntax:
+    content: public void RemoveAt(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    content.vb: Public Sub RemoveAt(i As Integer)
+  overload: Virgis.KdTree`1.RemoveAt*
+  nameWithType.vb: KdTree(Of T).RemoveAt(Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).RemoveAt(System.Int32)
+- uid: Virgis.KdTree`1.RemoveAll(System.Predicate{`0})
+  commentId: M:Virgis.KdTree`1.RemoveAll(System.Predicate{`0})
+  id: RemoveAll(System.Predicate{`0})
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveAll(Predicate<T>)
+  nameWithType: KdTree<T>.RemoveAll(Predicate<T>)
+  fullName: Virgis.KdTree<T>.RemoveAll(System.Predicate<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveAll
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 113
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nremove all objects that matches the given predicate\n"
+  example: []
+  syntax:
+    content: public void RemoveAll(Predicate<T> match)
+    parameters:
+    - id: match
+      type: System.Predicate{{T}}
+      description: lamda expression
+    content.vb: Public Sub RemoveAll(match As Predicate(Of T))
+  overload: Virgis.KdTree`1.RemoveAll*
+  nameWithType.vb: KdTree(Of T).RemoveAll(Predicate(Of T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).RemoveAll(System.Predicate(Of T))
+  name.vb: RemoveAll(Predicate(Of T))
+- uid: Virgis.KdTree`1.CountAll(System.Predicate{`0})
+  commentId: M:Virgis.KdTree`1.CountAll(System.Predicate{`0})
+  id: CountAll(System.Predicate{`0})
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: CountAll(Predicate<T>)
+  nameWithType: KdTree<T>.CountAll(Predicate<T>)
+  fullName: Virgis.KdTree<T>.CountAll(System.Predicate<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CountAll
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 132
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\ncount all objects that matches the given predicate\n"
+  example: []
+  syntax:
+    content: public int CountAll(Predicate<T> match)
+    parameters:
+    - id: match
+      type: System.Predicate{{T}}
+      description: lamda expression
+    return:
+      type: System.Int32
+      description: matching object count
+    content.vb: Public Function CountAll(match As Predicate(Of T)) As Integer
+  overload: Virgis.KdTree`1.CountAll*
+  nameWithType.vb: KdTree(Of T).CountAll(Predicate(Of T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).CountAll(System.Predicate(Of T))
+  name.vb: CountAll(Predicate(Of T))
+- uid: Virgis.KdTree`1.Clear
+  commentId: M:Virgis.KdTree`1.Clear
+  id: Clear
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: KdTree<T>.Clear()
+  fullName: Virgis.KdTree<T>.Clear()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clear
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 144
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nclear tree\n"
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear
+  overload: Virgis.KdTree`1.Clear*
+  nameWithType.vb: KdTree(Of T).Clear()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).Clear()
+- uid: Virgis.KdTree`1.UpdatePositions(System.Single)
+  commentId: M:Virgis.KdTree`1.UpdatePositions(System.Single)
+  id: UpdatePositions(System.Single)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: UpdatePositions(Single)
+  nameWithType: KdTree<T>.UpdatePositions(Single)
+  fullName: Virgis.KdTree<T>.UpdatePositions(System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdatePositions
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 158
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nUpdate positions (if objects moved)\n"
+  example: []
+  syntax:
+    content: public void UpdatePositions(float rate)
+    parameters:
+    - id: rate
+      type: System.Single
+      description: Updates per second
+    content.vb: Public Sub UpdatePositions(rate As Single)
+  overload: Virgis.KdTree`1.UpdatePositions*
+  nameWithType.vb: KdTree(Of T).UpdatePositions(Single)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).UpdatePositions(System.Single)
+- uid: Virgis.KdTree`1.UpdatePositions
+  commentId: M:Virgis.KdTree`1.UpdatePositions
+  id: UpdatePositions
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: UpdatePositions()
+  nameWithType: KdTree<T>.UpdatePositions()
+  fullName: Virgis.KdTree<T>.UpdatePositions()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdatePositions
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 171
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nUpdate positions (if objects moved)\n"
+  example: []
+  syntax:
+    content: public void UpdatePositions()
+    content.vb: Public Sub UpdatePositions
+  overload: Virgis.KdTree`1.UpdatePositions*
+  nameWithType.vb: KdTree(Of T).UpdatePositions()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).UpdatePositions()
+- uid: Virgis.KdTree`1.GetEnumerator
+  commentId: M:Virgis.KdTree`1.GetEnumerator
+  id: GetEnumerator
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: KdTree<T>.GetEnumerator()
+  fullName: Virgis.KdTree<T>.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 199
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nMethod to enable foreach-loops\n"
+  example: []
+  syntax:
+    content: public IEnumerator<T> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{{T}}
+      description: Enumberator
+    content.vb: Public Function GetEnumerator As IEnumerator(Of T)
+  overload: Virgis.KdTree`1.GetEnumerator*
+  nameWithType.vb: KdTree(Of T).GetEnumerator()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).GetEnumerator()
+- uid: Virgis.KdTree`1.ToList
+  commentId: M:Virgis.KdTree`1.ToList
+  id: ToList
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: ToList()
+  nameWithType: KdTree<T>.ToList()
+  fullName: Virgis.KdTree<T>.ToList()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToList
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 213
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nConvert to list\n"
+  example: []
+  syntax:
+    content: public List<T> ToList()
+    return:
+      type: System.Collections.Generic.List{{T}}
+      description: list
+    content.vb: Public Function ToList As List(Of T)
+  overload: Virgis.KdTree`1.ToList*
+  nameWithType.vb: KdTree(Of T).ToList()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).ToList()
+- uid: Virgis.KdTree`1._distance(UnityEngine.Vector3,UnityEngine.Vector3)
+  commentId: M:Virgis.KdTree`1._distance(UnityEngine.Vector3,UnityEngine.Vector3)
+  id: _distance(UnityEngine.Vector3,UnityEngine.Vector3)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _distance(Vector3, Vector3)
+  nameWithType: KdTree<T>._distance(Vector3, Vector3)
+  fullName: Virgis.KdTree<T>._distance(UnityEngine.Vector3, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _distance
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 229
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected float _distance(Vector3 a, Vector3 b)
+    parameters:
+    - id: a
+      type: UnityEngine.Vector3
+    - id: b
+      type: UnityEngine.Vector3
+    return:
+      type: System.Single
+    content.vb: Protected Function _distance(a As Vector3, b As Vector3) As Single
+  overload: Virgis.KdTree`1._distance*
+  nameWithType.vb: KdTree(Of T)._distance(Vector3, Vector3)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._distance(UnityEngine.Vector3, UnityEngine.Vector3)
+- uid: Virgis.KdTree`1._getSplitValue(System.Int32,UnityEngine.Vector3)
+  commentId: M:Virgis.KdTree`1._getSplitValue(System.Int32,UnityEngine.Vector3)
+  id: _getSplitValue(System.Int32,UnityEngine.Vector3)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _getSplitValue(Int32, Vector3)
+  nameWithType: KdTree<T>._getSplitValue(Int32, Vector3)
+  fullName: Virgis.KdTree<T>._getSplitValue(System.Int32, UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _getSplitValue
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 236
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected float _getSplitValue(int level, Vector3 position)
+    parameters:
+    - id: level
+      type: System.Int32
+    - id: position
+      type: UnityEngine.Vector3
+    return:
+      type: System.Single
+    content.vb: Protected Function _getSplitValue(level As Integer, position As Vector3) As Single
+  overload: Virgis.KdTree`1._getSplitValue*
+  nameWithType.vb: KdTree(Of T)._getSplitValue(Int32, Vector3)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._getSplitValue(System.Int32, UnityEngine.Vector3)
+- uid: Virgis.KdTree`1.FindClosest(UnityEngine.Vector3)
+  commentId: M:Virgis.KdTree`1.FindClosest(UnityEngine.Vector3)
+  id: FindClosest(UnityEngine.Vector3)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: FindClosest(Vector3)
+  nameWithType: KdTree<T>.FindClosest(Vector3)
+  fullName: Virgis.KdTree<T>.FindClosest(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindClosest
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 300
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nFind closest object to given position\n"
+  example: []
+  syntax:
+    content: public T FindClosest(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: position
+    return:
+      type: '{T}'
+      description: closest object
+    content.vb: Public Function FindClosest(position As Vector3) As T
+  overload: Virgis.KdTree`1.FindClosest*
+  nameWithType.vb: KdTree(Of T).FindClosest(Vector3)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).FindClosest(UnityEngine.Vector3)
+- uid: Virgis.KdTree`1.FindClose(UnityEngine.Vector3)
+  commentId: M:Virgis.KdTree`1.FindClose(UnityEngine.Vector3)
+  id: FindClose(UnityEngine.Vector3)
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: FindClose(Vector3)
+  nameWithType: KdTree<T>.FindClose(Vector3)
+  fullName: Virgis.KdTree<T>.FindClose(UnityEngine.Vector3)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindClose
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 310
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nFind close objects to given position\n"
+  example: []
+  syntax:
+    content: public IEnumerable<T> FindClose(Vector3 position)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+      description: position
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: close object
+    content.vb: Public Function FindClose(position As Vector3) As IEnumerable(Of T)
+  overload: Virgis.KdTree`1.FindClose*
+  nameWithType.vb: KdTree(Of T).FindClose(Vector3)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Virgis.KdTree(Of T).FindClose(UnityEngine.Vector3)
+- uid: Virgis.KdTree`1._findClosest(UnityEngine.Vector3,System.Collections.Generic.List{`0})
+  commentId: M:Virgis.KdTree`1._findClosest(UnityEngine.Vector3,System.Collections.Generic.List{`0})
+  id: _findClosest(UnityEngine.Vector3,System.Collections.Generic.List{`0})
+  parent: Virgis.KdTree`1
+  langs:
+  - csharp
+  - vb
+  name: _findClosest(Vector3, List<T>)
+  nameWithType: KdTree<T>._findClosest(Vector3, List<T>)
+  fullName: Virgis.KdTree<T>._findClosest(UnityEngine.Vector3, System.Collections.Generic.List<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/KdTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: _findClosest
+    path: ../Assets/Scripts/Basic Types/KdTree.cs
+    startLine: 317
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  syntax:
+    content: protected T _findClosest(Vector3 position, List<T> traversed = null)
+    parameters:
+    - id: position
+      type: UnityEngine.Vector3
+    - id: traversed
+      type: System.Collections.Generic.List{{T}}
+    return:
+      type: '{T}'
+    content.vb: Protected Function _findClosest(position As Vector3, traversed As List(Of T) = Nothing) As T
+  overload: Virgis.KdTree`1._findClosest*
+  nameWithType.vb: KdTree(Of T)._findClosest(Vector3, List(Of T))
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: Virgis.KdTree(Of T)._findClosest(UnityEngine.Vector3, System.Collections.Generic.List(Of T))
+  name.vb: _findClosest(Vector3, List(Of T))
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Virgis.KdTree`1.KdNode
+  commentId: T:Virgis.KdTree`1.KdNode
+  parent: Virgis
+  name: KdTree.KdNode<>
+  nameWithType: KdTree.KdNode<>
+  fullName: Virgis.KdTree.KdNode<>
+  nameWithType.vb: KdTree.KdNode(Of )
+  fullName.vb: Virgis.KdTree.KdNode(Of )
+  name.vb: KdTree.KdNode(Of )
+  spec.csharp:
+  - uid: Virgis.KdTree`1.KdNode
+    name: KdTree.KdNode
+    nameWithType: KdTree.KdNode
+    fullName: Virgis.KdTree.KdNode
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Virgis.KdTree`1.KdNode
+    name: KdTree.KdNode
+    nameWithType: KdTree.KdNode
+    fullName: Virgis.KdTree.KdNode
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: Virgis.KdTree`1.KdNode[]
+  isExternal: true
+  name: KdTree.KdNode<>[]
+  nameWithType: KdTree.KdNode<>[]
+  fullName: Virgis.KdTree.KdNode<>[]
+  nameWithType.vb: KdTree.KdNode(Of )()
+  fullName.vb: Virgis.KdTree.KdNode(Of )()
+  name.vb: KdTree.KdNode(Of )()
+  spec.csharp:
+  - uid: Virgis.KdTree`1.KdNode
+    name: KdTree.KdNode
+    nameWithType: KdTree.KdNode
+    fullName: Virgis.KdTree.KdNode
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: Virgis.KdTree`1.KdNode
+    name: KdTree.KdNode
+    nameWithType: KdTree.KdNode
+    fullName: Virgis.KdTree.KdNode
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Virgis.KdTree`1.Count*
+  commentId: Overload:Virgis.KdTree`1.Count
+  name: Count
+  nameWithType: KdTree<T>.Count
+  fullName: Virgis.KdTree<T>.Count
+  nameWithType.vb: KdTree(Of T).Count
+  fullName.vb: Virgis.KdTree(Of T).Count
+- uid: Virgis.KdTree`1.IsReadOnly*
+  commentId: Overload:Virgis.KdTree`1.IsReadOnly
+  name: IsReadOnly
+  nameWithType: KdTree<T>.IsReadOnly
+  fullName: Virgis.KdTree<T>.IsReadOnly
+  nameWithType.vb: KdTree(Of T).IsReadOnly
+  fullName.vb: Virgis.KdTree(Of T).IsReadOnly
+- uid: Virgis.KdTree`1.AverageSearchLength*
+  commentId: Overload:Virgis.KdTree`1.AverageSearchLength
+  name: AverageSearchLength
+  nameWithType: KdTree<T>.AverageSearchLength
+  fullName: Virgis.KdTree<T>.AverageSearchLength
+  nameWithType.vb: KdTree(Of T).AverageSearchLength
+  fullName.vb: Virgis.KdTree(Of T).AverageSearchLength
+- uid: Virgis.KdTree`1.AverageSearchDeep*
+  commentId: Overload:Virgis.KdTree`1.AverageSearchDeep
+  name: AverageSearchDeep
+  nameWithType: KdTree<T>.AverageSearchDeep
+  fullName: Virgis.KdTree<T>.AverageSearchDeep
+  nameWithType.vb: KdTree(Of T).AverageSearchDeep
+  fullName.vb: Virgis.KdTree(Of T).AverageSearchDeep
+- uid: Virgis.KdTree`1.#ctor*
+  commentId: Overload:Virgis.KdTree`1.#ctor
+  name: KdTree
+  nameWithType: KdTree<T>.KdTree
+  fullName: Virgis.KdTree<T>.KdTree
+  nameWithType.vb: KdTree(Of T).KdTree
+  fullName.vb: Virgis.KdTree(Of T).KdTree
+- uid: Virgis.KdTree`1.Item*
+  commentId: Overload:Virgis.KdTree`1.Item
+  name: Item
+  nameWithType: KdTree<T>.Item
+  fullName: Virgis.KdTree<T>.Item
+  nameWithType.vb: KdTree(Of T).Item
+  fullName.vb: Virgis.KdTree(Of T).Item
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Virgis.KdTree`1.Add*
+  commentId: Overload:Virgis.KdTree`1.Add
+  name: Add
+  nameWithType: KdTree<T>.Add
+  fullName: Virgis.KdTree<T>.Add
+  nameWithType.vb: KdTree(Of T).Add
+  fullName.vb: Virgis.KdTree(Of T).Add
+- uid: Virgis.KdTree`1.AddAll*
+  commentId: Overload:Virgis.KdTree`1.AddAll
+  name: AddAll
+  nameWithType: KdTree<T>.AddAll
+  fullName: Virgis.KdTree<T>.AddAll
+  nameWithType.vb: KdTree(Of T).AddAll
+  fullName.vb: Virgis.KdTree(Of T).AddAll
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Virgis.KdTree`1.FindAll*
+  commentId: Overload:Virgis.KdTree`1.FindAll
+  name: FindAll
+  nameWithType: KdTree<T>.FindAll
+  fullName: Virgis.KdTree<T>.FindAll
+  nameWithType.vb: KdTree(Of T).FindAll
+  fullName.vb: Virgis.KdTree(Of T).FindAll
+- uid: System.Predicate{{T}}
+  commentId: T:System.Predicate{`0}
+  parent: System
+  definition: System.Predicate`1
+  name: Predicate<T>
+  nameWithType: Predicate<T>
+  fullName: System.Predicate<T>
+  nameWithType.vb: Predicate(Of T)
+  fullName.vb: System.Predicate(Of T)
+  name.vb: Predicate(Of T)
+  spec.csharp:
+  - uid: System.Predicate`1
+    name: Predicate
+    nameWithType: Predicate
+    fullName: System.Predicate
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Predicate`1
+    name: Predicate
+    nameWithType: Predicate
+    fullName: System.Predicate
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.KdTree`1
+  commentId: T:Virgis.KdTree`1
+  parent: Virgis
+  name: KdTree<T>
+  nameWithType: KdTree<T>
+  fullName: Virgis.KdTree<T>
+  nameWithType.vb: KdTree(Of T)
+  fullName.vb: Virgis.KdTree(Of T)
+  name.vb: KdTree(Of T)
+  spec.csharp:
+  - uid: Virgis.KdTree`1
+    name: KdTree
+    nameWithType: KdTree
+    fullName: Virgis.KdTree
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Virgis.KdTree`1
+    name: KdTree
+    nameWithType: KdTree
+    fullName: Virgis.KdTree
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Predicate`1
+  commentId: T:System.Predicate`1
+  isExternal: true
+  name: Predicate<T>
+  nameWithType: Predicate<T>
+  fullName: System.Predicate<T>
+  nameWithType.vb: Predicate(Of T)
+  fullName.vb: System.Predicate(Of T)
+  name.vb: Predicate(Of T)
+  spec.csharp:
+  - uid: System.Predicate`1
+    name: Predicate
+    nameWithType: Predicate
+    fullName: System.Predicate
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Predicate`1
+    name: Predicate
+    nameWithType: Predicate
+    fullName: System.Predicate
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.KdTree`1.Find*
+  commentId: Overload:Virgis.KdTree`1.Find
+  name: Find
+  nameWithType: KdTree<T>.Find
+  fullName: Virgis.KdTree<T>.Find
+  nameWithType.vb: KdTree(Of T).Find
+  fullName.vb: Virgis.KdTree(Of T).Find
+- uid: Virgis.KdTree`1.RemoveAt*
+  commentId: Overload:Virgis.KdTree`1.RemoveAt
+  name: RemoveAt
+  nameWithType: KdTree<T>.RemoveAt
+  fullName: Virgis.KdTree<T>.RemoveAt
+  nameWithType.vb: KdTree(Of T).RemoveAt
+  fullName.vb: Virgis.KdTree(Of T).RemoveAt
+- uid: Virgis.KdTree`1.RemoveAll*
+  commentId: Overload:Virgis.KdTree`1.RemoveAll
+  name: RemoveAll
+  nameWithType: KdTree<T>.RemoveAll
+  fullName: Virgis.KdTree<T>.RemoveAll
+  nameWithType.vb: KdTree(Of T).RemoveAll
+  fullName.vb: Virgis.KdTree(Of T).RemoveAll
+- uid: Virgis.KdTree`1.CountAll*
+  commentId: Overload:Virgis.KdTree`1.CountAll
+  name: CountAll
+  nameWithType: KdTree<T>.CountAll
+  fullName: Virgis.KdTree<T>.CountAll
+  nameWithType.vb: KdTree(Of T).CountAll
+  fullName.vb: Virgis.KdTree(Of T).CountAll
+- uid: Virgis.KdTree`1.Clear*
+  commentId: Overload:Virgis.KdTree`1.Clear
+  name: Clear
+  nameWithType: KdTree<T>.Clear
+  fullName: Virgis.KdTree<T>.Clear
+  nameWithType.vb: KdTree(Of T).Clear
+  fullName.vb: Virgis.KdTree(Of T).Clear
+- uid: Virgis.KdTree`1.UpdatePositions*
+  commentId: Overload:Virgis.KdTree`1.UpdatePositions
+  name: UpdatePositions
+  nameWithType: KdTree<T>.UpdatePositions
+  fullName: Virgis.KdTree<T>.UpdatePositions
+  nameWithType.vb: KdTree(Of T).UpdatePositions
+  fullName.vb: Virgis.KdTree(Of T).UpdatePositions
+- uid: Virgis.KdTree`1.GetEnumerator*
+  commentId: Overload:Virgis.KdTree`1.GetEnumerator
+  name: GetEnumerator
+  nameWithType: KdTree<T>.GetEnumerator
+  fullName: Virgis.KdTree<T>.GetEnumerator
+  nameWithType.vb: KdTree(Of T).GetEnumerator
+  fullName.vb: Virgis.KdTree(Of T).GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{{T}}
+  commentId: T:System.Collections.Generic.IEnumerator{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.KdTree`1.ToList*
+  commentId: Overload:Virgis.KdTree`1.ToList
+  name: ToList
+  nameWithType: KdTree<T>.ToList
+  fullName: Virgis.KdTree<T>.ToList
+  nameWithType.vb: KdTree(Of T).ToList
+  fullName.vb: Virgis.KdTree(Of T).ToList
+- uid: Virgis.KdTree`1._distance*
+  commentId: Overload:Virgis.KdTree`1._distance
+  name: _distance
+  nameWithType: KdTree<T>._distance
+  fullName: Virgis.KdTree<T>._distance
+  nameWithType.vb: KdTree(Of T)._distance
+  fullName.vb: Virgis.KdTree(Of T)._distance
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine
+- uid: Virgis.KdTree`1._getSplitValue*
+  commentId: Overload:Virgis.KdTree`1._getSplitValue
+  name: _getSplitValue
+  nameWithType: KdTree<T>._getSplitValue
+  fullName: Virgis.KdTree<T>._getSplitValue
+  nameWithType.vb: KdTree(Of T)._getSplitValue
+  fullName.vb: Virgis.KdTree(Of T)._getSplitValue
+- uid: Virgis.KdTree`1.FindClosest*
+  commentId: Overload:Virgis.KdTree`1.FindClosest
+  name: FindClosest
+  nameWithType: KdTree<T>.FindClosest
+  fullName: Virgis.KdTree<T>.FindClosest
+  nameWithType.vb: KdTree(Of T).FindClosest
+  fullName.vb: Virgis.KdTree(Of T).FindClosest
+- uid: Virgis.KdTree`1.FindClose*
+  commentId: Overload:Virgis.KdTree`1.FindClose
+  name: FindClose
+  nameWithType: KdTree<T>.FindClose
+  fullName: Virgis.KdTree<T>.FindClose
+  nameWithType.vb: KdTree(Of T).FindClose
+  fullName.vb: Virgis.KdTree(Of T).FindClose
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.KdTree`1._findClosest*
+  commentId: Overload:Virgis.KdTree`1._findClosest
+  name: _findClosest
+  nameWithType: KdTree<T>._findClosest
+  fullName: Virgis.KdTree<T>._findClosest
+  nameWithType.vb: KdTree(Of T)._findClosest
+  fullName.vb: Virgis.KdTree(Of T)._findClosest

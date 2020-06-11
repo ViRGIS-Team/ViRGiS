@@ -1,0 +1,1393 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.SVGWriter
+  commentId: T:g3.SVGWriter
+  id: SVGWriter
+  parent: g3
+  children:
+  - g3.SVGWriter.#ctor
+  - g3.SVGWriter.AddArc(g3.Arc2d)
+  - g3.SVGWriter.AddArc(g3.Arc2d,g3.SVGWriter.Style)
+  - g3.SVGWriter.AddBox(g3.AxisAlignedBox2d)
+  - g3.SVGWriter.AddBox(g3.AxisAlignedBox2d,g3.SVGWriter.Style)
+  - g3.SVGWriter.AddCircle(g3.Circle2d)
+  - g3.SVGWriter.AddCircle(g3.Circle2d,g3.SVGWriter.Style)
+  - g3.SVGWriter.AddComplex(g3.PlanarComplex)
+  - g3.SVGWriter.AddGraph(g3.DGraph2)
+  - g3.SVGWriter.AddGraph(g3.DGraph2,g3.SVGWriter.Style)
+  - g3.SVGWriter.AddLine(g3.Segment2d)
+  - g3.SVGWriter.AddLine(g3.Segment2d,g3.SVGWriter.Style)
+  - g3.SVGWriter.AddPolygon(g3.Polygon2d)
+  - g3.SVGWriter.AddPolygon(g3.Polygon2d,g3.SVGWriter.Style)
+  - g3.SVGWriter.AddPolyline(g3.PolyLine2d)
+  - g3.SVGWriter.AddPolyline(g3.PolyLine2d,g3.SVGWriter.Style)
+  - g3.SVGWriter.BoundsPad
+  - g3.SVGWriter.DefaultArcStyle
+  - g3.SVGWriter.DefaultCircleStyle
+  - g3.SVGWriter.DefaultDGraphStyle
+  - g3.SVGWriter.DefaultLineStyle
+  - g3.SVGWriter.DefaultPolygonStyle
+  - g3.SVGWriter.DefaultPolylineStyle
+  - g3.SVGWriter.FlipY
+  - g3.SVGWriter.MapPt(g3.Vector2d)
+  - g3.SVGWriter.Precision
+  - g3.SVGWriter.QuickWrite(g3.DGraph2,System.String,System.Double)
+  - g3.SVGWriter.QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Double)
+  - g3.SVGWriter.QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.String)
+  - g3.SVGWriter.SetDefaultLineWidth(System.Single)
+  - g3.SVGWriter.Write(System.String)
+  langs:
+  - csharp
+  - vb
+  name: SVGWriter
+  nameWithType: SVGWriter
+  fullName: g3.SVGWriter
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SVGWriter
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class SVGWriter
+    content.vb: Public Class SVGWriter
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.SVGWriter.FlipY
+  commentId: F:g3.SVGWriter.FlipY
+  id: FlipY
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: FlipY
+  nameWithType: SVGWriter.FlipY
+  fullName: g3.SVGWriter.FlipY
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FlipY
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool FlipY
+    return:
+      type: System.Boolean
+    content.vb: Public FlipY As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.DefaultPolygonStyle
+  commentId: F:g3.SVGWriter.DefaultPolygonStyle
+  id: DefaultPolygonStyle
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultPolygonStyle
+  nameWithType: SVGWriter.DefaultPolygonStyle
+  fullName: g3.SVGWriter.DefaultPolygonStyle
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultPolygonStyle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter.Style DefaultPolygonStyle
+    return:
+      type: g3.SVGWriter.Style
+    content.vb: Public DefaultPolygonStyle As SVGWriter.Style
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.DefaultPolylineStyle
+  commentId: F:g3.SVGWriter.DefaultPolylineStyle
+  id: DefaultPolylineStyle
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultPolylineStyle
+  nameWithType: SVGWriter.DefaultPolylineStyle
+  fullName: g3.SVGWriter.DefaultPolylineStyle
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultPolylineStyle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter.Style DefaultPolylineStyle
+    return:
+      type: g3.SVGWriter.Style
+    content.vb: Public DefaultPolylineStyle As SVGWriter.Style
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.DefaultDGraphStyle
+  commentId: F:g3.SVGWriter.DefaultDGraphStyle
+  id: DefaultDGraphStyle
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultDGraphStyle
+  nameWithType: SVGWriter.DefaultDGraphStyle
+  fullName: g3.SVGWriter.DefaultDGraphStyle
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultDGraphStyle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter.Style DefaultDGraphStyle
+    return:
+      type: g3.SVGWriter.Style
+    content.vb: Public DefaultDGraphStyle As SVGWriter.Style
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.DefaultCircleStyle
+  commentId: F:g3.SVGWriter.DefaultCircleStyle
+  id: DefaultCircleStyle
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultCircleStyle
+  nameWithType: SVGWriter.DefaultCircleStyle
+  fullName: g3.SVGWriter.DefaultCircleStyle
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultCircleStyle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 43
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter.Style DefaultCircleStyle
+    return:
+      type: g3.SVGWriter.Style
+    content.vb: Public DefaultCircleStyle As SVGWriter.Style
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.DefaultArcStyle
+  commentId: F:g3.SVGWriter.DefaultArcStyle
+  id: DefaultArcStyle
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultArcStyle
+  nameWithType: SVGWriter.DefaultArcStyle
+  fullName: g3.SVGWriter.DefaultArcStyle
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultArcStyle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 44
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter.Style DefaultArcStyle
+    return:
+      type: g3.SVGWriter.Style
+    content.vb: Public DefaultArcStyle As SVGWriter.Style
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.DefaultLineStyle
+  commentId: F:g3.SVGWriter.DefaultLineStyle
+  id: DefaultLineStyle
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: DefaultLineStyle
+  nameWithType: SVGWriter.DefaultLineStyle
+  fullName: g3.SVGWriter.DefaultLineStyle
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DefaultLineStyle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter.Style DefaultLineStyle
+    return:
+      type: g3.SVGWriter.Style
+    content.vb: Public DefaultLineStyle As SVGWriter.Style
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.Precision
+  commentId: F:g3.SVGWriter.Precision
+  id: Precision
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: Precision
+  nameWithType: SVGWriter.Precision
+  fullName: g3.SVGWriter.Precision
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Precision
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Precision
+    return:
+      type: System.Int32
+    content.vb: Public Precision As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.BoundsPad
+  commentId: F:g3.SVGWriter.BoundsPad
+  id: BoundsPad
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: BoundsPad
+  nameWithType: SVGWriter.BoundsPad
+  fullName: g3.SVGWriter.BoundsPad
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsPad
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 54
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double BoundsPad
+    return:
+      type: System.Double
+    content.vb: Public BoundsPad As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.#ctor
+  commentId: M:g3.SVGWriter.#ctor
+  id: '#ctor'
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: SVGWriter()
+  nameWithType: SVGWriter.SVGWriter()
+  fullName: g3.SVGWriter.SVGWriter()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SVGWriter()
+    content.vb: Public Sub New
+  overload: g3.SVGWriter.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.SetDefaultLineWidth(System.Single)
+  commentId: M:g3.SVGWriter.SetDefaultLineWidth(System.Single)
+  id: SetDefaultLineWidth(System.Single)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: SetDefaultLineWidth(Single)
+  nameWithType: SVGWriter.SetDefaultLineWidth(Single)
+  fullName: g3.SVGWriter.SetDefaultLineWidth(System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetDefaultLineWidth
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 71
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetDefaultLineWidth(float width)
+    parameters:
+    - id: width
+      type: System.Single
+    content.vb: Public Sub SetDefaultLineWidth(width As Single)
+  overload: g3.SVGWriter.SetDefaultLineWidth*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddPolygon(g3.Polygon2d)
+  commentId: M:g3.SVGWriter.AddPolygon(g3.Polygon2d)
+  id: AddPolygon(g3.Polygon2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddPolygon(Polygon2d)
+  nameWithType: SVGWriter.AddPolygon(Polygon2d)
+  fullName: g3.SVGWriter.AddPolygon(g3.Polygon2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddPolygon
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddPolygon(Polygon2d poly)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    content.vb: Public Sub AddPolygon(poly As Polygon2d)
+  overload: g3.SVGWriter.AddPolygon*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddPolygon(g3.Polygon2d,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddPolygon(g3.Polygon2d,g3.SVGWriter.Style)
+  id: AddPolygon(g3.Polygon2d,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddPolygon(Polygon2d, SVGWriter.Style)
+  nameWithType: SVGWriter.AddPolygon(Polygon2d, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddPolygon(g3.Polygon2d, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddPolygon
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 87
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddPolygon(Polygon2d poly, SVGWriter.Style style)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddPolygon(poly As Polygon2d, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddPolygon*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddBox(g3.AxisAlignedBox2d)
+  commentId: M:g3.SVGWriter.AddBox(g3.AxisAlignedBox2d)
+  id: AddBox(g3.AxisAlignedBox2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddBox(AxisAlignedBox2d)
+  nameWithType: SVGWriter.AddBox(AxisAlignedBox2d)
+  fullName: g3.SVGWriter.AddBox(g3.AxisAlignedBox2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddBox
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddBox(AxisAlignedBox2d box)
+    parameters:
+    - id: box
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Sub AddBox(box As AxisAlignedBox2d)
+  overload: g3.SVGWriter.AddBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddBox(g3.AxisAlignedBox2d,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddBox(g3.AxisAlignedBox2d,g3.SVGWriter.Style)
+  id: AddBox(g3.AxisAlignedBox2d,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddBox(AxisAlignedBox2d, SVGWriter.Style)
+  nameWithType: SVGWriter.AddBox(AxisAlignedBox2d, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddBox(g3.AxisAlignedBox2d, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddBox
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddBox(AxisAlignedBox2d box, SVGWriter.Style style)
+    parameters:
+    - id: box
+      type: g3.AxisAlignedBox2d
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddBox(box As AxisAlignedBox2d, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddPolyline(g3.PolyLine2d)
+  commentId: M:g3.SVGWriter.AddPolyline(g3.PolyLine2d)
+  id: AddPolyline(g3.PolyLine2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddPolyline(PolyLine2d)
+  nameWithType: SVGWriter.AddPolyline(PolyLine2d)
+  fullName: g3.SVGWriter.AddPolyline(g3.PolyLine2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddPolyline
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddPolyline(PolyLine2d poly)
+    parameters:
+    - id: poly
+      type: g3.PolyLine2d
+    content.vb: Public Sub AddPolyline(poly As PolyLine2d)
+  overload: g3.SVGWriter.AddPolyline*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddPolyline(g3.PolyLine2d,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddPolyline(g3.PolyLine2d,g3.SVGWriter.Style)
+  id: AddPolyline(g3.PolyLine2d,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddPolyline(PolyLine2d, SVGWriter.Style)
+  nameWithType: SVGWriter.AddPolyline(PolyLine2d, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddPolyline(g3.PolyLine2d, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddPolyline
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 111
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddPolyline(PolyLine2d poly, SVGWriter.Style style)
+    parameters:
+    - id: poly
+      type: g3.PolyLine2d
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddPolyline(poly As PolyLine2d, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddPolyline*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddGraph(g3.DGraph2)
+  commentId: M:g3.SVGWriter.AddGraph(g3.DGraph2)
+  id: AddGraph(g3.DGraph2)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddGraph(DGraph2)
+  nameWithType: SVGWriter.AddGraph(DGraph2)
+  fullName: g3.SVGWriter.AddGraph(g3.DGraph2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddGraph
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 118
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddGraph(DGraph2 graph)
+    parameters:
+    - id: graph
+      type: g3.DGraph2
+    content.vb: Public Sub AddGraph(graph As DGraph2)
+  overload: g3.SVGWriter.AddGraph*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddGraph(g3.DGraph2,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddGraph(g3.DGraph2,g3.SVGWriter.Style)
+  id: AddGraph(g3.DGraph2,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddGraph(DGraph2, SVGWriter.Style)
+  nameWithType: SVGWriter.AddGraph(DGraph2, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddGraph(g3.DGraph2, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddGraph
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 123
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddGraph(DGraph2 graph, SVGWriter.Style style)
+    parameters:
+    - id: graph
+      type: g3.DGraph2
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddGraph(graph As DGraph2, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddGraph*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddCircle(g3.Circle2d)
+  commentId: M:g3.SVGWriter.AddCircle(g3.Circle2d)
+  id: AddCircle(g3.Circle2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddCircle(Circle2d)
+  nameWithType: SVGWriter.AddCircle(Circle2d)
+  fullName: g3.SVGWriter.AddCircle(g3.Circle2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddCircle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 131
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddCircle(Circle2d circle)
+    parameters:
+    - id: circle
+      type: g3.Circle2d
+    content.vb: Public Sub AddCircle(circle As Circle2d)
+  overload: g3.SVGWriter.AddCircle*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddCircle(g3.Circle2d,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddCircle(g3.Circle2d,g3.SVGWriter.Style)
+  id: AddCircle(g3.Circle2d,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddCircle(Circle2d, SVGWriter.Style)
+  nameWithType: SVGWriter.AddCircle(Circle2d, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddCircle(g3.Circle2d, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddCircle
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddCircle(Circle2d circle, SVGWriter.Style style)
+    parameters:
+    - id: circle
+      type: g3.Circle2d
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddCircle(circle As Circle2d, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddCircle*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddArc(g3.Arc2d)
+  commentId: M:g3.SVGWriter.AddArc(g3.Arc2d)
+  id: AddArc(g3.Arc2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddArc(Arc2d)
+  nameWithType: SVGWriter.AddArc(Arc2d)
+  fullName: g3.SVGWriter.AddArc(g3.Arc2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddArc
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 142
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddArc(Arc2d arc)
+    parameters:
+    - id: arc
+      type: g3.Arc2d
+    content.vb: Public Sub AddArc(arc As Arc2d)
+  overload: g3.SVGWriter.AddArc*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddArc(g3.Arc2d,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddArc(g3.Arc2d,g3.SVGWriter.Style)
+  id: AddArc(g3.Arc2d,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddArc(Arc2d, SVGWriter.Style)
+  nameWithType: SVGWriter.AddArc(Arc2d, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddArc(g3.Arc2d, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddArc
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 147
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddArc(Arc2d arc, SVGWriter.Style style)
+    parameters:
+    - id: arc
+      type: g3.Arc2d
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddArc(arc As Arc2d, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddArc*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddLine(g3.Segment2d)
+  commentId: M:g3.SVGWriter.AddLine(g3.Segment2d)
+  id: AddLine(g3.Segment2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddLine(Segment2d)
+  nameWithType: SVGWriter.AddLine(Segment2d)
+  fullName: g3.SVGWriter.AddLine(g3.Segment2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddLine
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 155
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddLine(Segment2d segment)
+    parameters:
+    - id: segment
+      type: g3.Segment2d
+    content.vb: Public Sub AddLine(segment As Segment2d)
+  overload: g3.SVGWriter.AddLine*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddLine(g3.Segment2d,g3.SVGWriter.Style)
+  commentId: M:g3.SVGWriter.AddLine(g3.Segment2d,g3.SVGWriter.Style)
+  id: AddLine(g3.Segment2d,g3.SVGWriter.Style)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddLine(Segment2d, SVGWriter.Style)
+  nameWithType: SVGWriter.AddLine(Segment2d, SVGWriter.Style)
+  fullName: g3.SVGWriter.AddLine(g3.Segment2d, g3.SVGWriter.Style)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddLine
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 159
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddLine(Segment2d segment, SVGWriter.Style style)
+    parameters:
+    - id: segment
+      type: g3.Segment2d
+    - id: style
+      type: g3.SVGWriter.Style
+    content.vb: Public Sub AddLine(segment As Segment2d, style As SVGWriter.Style)
+  overload: g3.SVGWriter.AddLine*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.AddComplex(g3.PlanarComplex)
+  commentId: M:g3.SVGWriter.AddComplex(g3.PlanarComplex)
+  id: AddComplex(g3.PlanarComplex)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: AddComplex(PlanarComplex)
+  nameWithType: SVGWriter.AddComplex(PlanarComplex)
+  fullName: g3.SVGWriter.AddComplex(g3.PlanarComplex)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddComplex
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 167
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AddComplex(PlanarComplex complex)
+    parameters:
+    - id: complex
+      type: g3.PlanarComplex
+    content.vb: Public Sub AddComplex(complex As PlanarComplex)
+  overload: g3.SVGWriter.AddComplex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.Write(System.String)
+  commentId: M:g3.SVGWriter.Write(System.String)
+  id: Write(System.String)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: Write(String)
+  nameWithType: SVGWriter.Write(String)
+  fullName: g3.SVGWriter.Write(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Write
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 175
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IOWriteResult Write(string sFilename)
+    parameters:
+    - id: sFilename
+      type: System.String
+    return:
+      type: g3.IOWriteResult
+    content.vb: Public Function Write(sFilename As String) As IOWriteResult
+  overload: g3.SVGWriter.Write*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SVGWriter.QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Double)
+  commentId: M:g3.SVGWriter.QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Double)
+  id: QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Double)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: QuickWrite(List<GeneralPolygon2d>, String, Double)
+  nameWithType: SVGWriter.QuickWrite(List<GeneralPolygon2d>, String, Double)
+  fullName: g3.SVGWriter.QuickWrite(System.Collections.Generic.List<g3.GeneralPolygon2d>, System.String, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: QuickWrite
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 228
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void QuickWrite(List<GeneralPolygon2d> polygons, string sPath, double line_width = 1)
+    parameters:
+    - id: polygons
+      type: System.Collections.Generic.List{g3.GeneralPolygon2d}
+    - id: sPath
+      type: System.String
+    - id: line_width
+      type: System.Double
+    content.vb: Public Shared Sub QuickWrite(polygons As List(Of GeneralPolygon2d), sPath As String, line_width As Double = 1)
+  overload: g3.SVGWriter.QuickWrite*
+  nameWithType.vb: SVGWriter.QuickWrite(List(Of GeneralPolygon2d), String, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.SVGWriter.QuickWrite(System.Collections.Generic.List(Of g3.GeneralPolygon2d), System.String, System.Double)
+  name.vb: QuickWrite(List(Of GeneralPolygon2d), String, Double)
+- uid: g3.SVGWriter.QuickWrite(g3.DGraph2,System.String,System.Double)
+  commentId: M:g3.SVGWriter.QuickWrite(g3.DGraph2,System.String,System.Double)
+  id: QuickWrite(g3.DGraph2,System.String,System.Double)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: QuickWrite(DGraph2, String, Double)
+  nameWithType: SVGWriter.QuickWrite(DGraph2, String, Double)
+  fullName: g3.SVGWriter.QuickWrite(g3.DGraph2, System.String, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: QuickWrite
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 246
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void QuickWrite(DGraph2 graph, string sPath, double line_width = 1)
+    parameters:
+    - id: graph
+      type: g3.DGraph2
+    - id: sPath
+      type: System.String
+    - id: line_width
+      type: System.Double
+    content.vb: Public Shared Sub QuickWrite(graph As DGraph2, sPath As String, line_width As Double = 1)
+  overload: g3.SVGWriter.QuickWrite*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.SVGWriter.QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.String)
+  commentId: M:g3.SVGWriter.QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.String)
+  id: QuickWrite(System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.Collections.Generic.List{g3.GeneralPolygon2d},System.String,System.Single,System.String)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: QuickWrite(List<GeneralPolygon2d>, String, Single, List<GeneralPolygon2d>, String, Single, String)
+  nameWithType: SVGWriter.QuickWrite(List<GeneralPolygon2d>, String, Single, List<GeneralPolygon2d>, String, Single, String)
+  fullName: g3.SVGWriter.QuickWrite(System.Collections.Generic.List<g3.GeneralPolygon2d>, System.String, System.Single, System.Collections.Generic.List<g3.GeneralPolygon2d>, System.String, System.Single, System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: QuickWrite
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 254
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void QuickWrite(List<GeneralPolygon2d> polygons1, string color1, float width1, List<GeneralPolygon2d> polygons2, string color2, float width2, string sPath)
+    parameters:
+    - id: polygons1
+      type: System.Collections.Generic.List{g3.GeneralPolygon2d}
+    - id: color1
+      type: System.String
+    - id: width1
+      type: System.Single
+    - id: polygons2
+      type: System.Collections.Generic.List{g3.GeneralPolygon2d}
+    - id: color2
+      type: System.String
+    - id: width2
+      type: System.Single
+    - id: sPath
+      type: System.String
+    content.vb: Public Shared Sub QuickWrite(polygons1 As List(Of GeneralPolygon2d), color1 As String, width1 As Single, polygons2 As List(Of GeneralPolygon2d), color2 As String, width2 As Single, sPath As String)
+  overload: g3.SVGWriter.QuickWrite*
+  nameWithType.vb: SVGWriter.QuickWrite(List(Of GeneralPolygon2d), String, Single, List(Of GeneralPolygon2d), String, Single, String)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.SVGWriter.QuickWrite(System.Collections.Generic.List(Of g3.GeneralPolygon2d), System.String, System.Single, System.Collections.Generic.List(Of g3.GeneralPolygon2d), System.String, System.Single, System.String)
+  name.vb: QuickWrite(List(Of GeneralPolygon2d), String, Single, List(Of GeneralPolygon2d), String, Single, String)
+- uid: g3.SVGWriter.MapPt(g3.Vector2d)
+  commentId: M:g3.SVGWriter.MapPt(g3.Vector2d)
+  id: MapPt(g3.Vector2d)
+  parent: g3.SVGWriter
+  langs:
+  - csharp
+  - vb
+  name: MapPt(Vector2d)
+  nameWithType: SVGWriter.MapPt(Vector2d)
+  fullName: g3.SVGWriter.MapPt(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/SVGWriter.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MapPt
+    path: ../Assets/geometry3Sharp/io/SVGWriter.cs
+    startLine: 283
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual Vector2d MapPt(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    return:
+      type: g3.Vector2d
+    content.vb: Protected Overridable Function MapPt(v As Vector2d) As Vector2d
+  overload: g3.SVGWriter.MapPt*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.SVGWriter.Style
+  commentId: T:g3.SVGWriter.Style
+  parent: g3
+  name: SVGWriter.Style
+  nameWithType: SVGWriter.Style
+  fullName: g3.SVGWriter.Style
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.SVGWriter.#ctor*
+  commentId: Overload:g3.SVGWriter.#ctor
+  name: SVGWriter
+  nameWithType: SVGWriter.SVGWriter
+  fullName: g3.SVGWriter.SVGWriter
+- uid: g3.SVGWriter.SetDefaultLineWidth*
+  commentId: Overload:g3.SVGWriter.SetDefaultLineWidth
+  name: SetDefaultLineWidth
+  nameWithType: SVGWriter.SetDefaultLineWidth
+  fullName: g3.SVGWriter.SetDefaultLineWidth
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.SVGWriter.AddPolygon*
+  commentId: Overload:g3.SVGWriter.AddPolygon
+  name: AddPolygon
+  nameWithType: SVGWriter.AddPolygon
+  fullName: g3.SVGWriter.AddPolygon
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: g3.SVGWriter.AddBox*
+  commentId: Overload:g3.SVGWriter.AddBox
+  name: AddBox
+  nameWithType: SVGWriter.AddBox
+  fullName: g3.SVGWriter.AddBox
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.SVGWriter.AddPolyline*
+  commentId: Overload:g3.SVGWriter.AddPolyline
+  name: AddPolyline
+  nameWithType: SVGWriter.AddPolyline
+  fullName: g3.SVGWriter.AddPolyline
+- uid: g3.PolyLine2d
+  commentId: T:g3.PolyLine2d
+  parent: g3
+  name: PolyLine2d
+  nameWithType: PolyLine2d
+  fullName: g3.PolyLine2d
+- uid: g3.SVGWriter.AddGraph*
+  commentId: Overload:g3.SVGWriter.AddGraph
+  name: AddGraph
+  nameWithType: SVGWriter.AddGraph
+  fullName: g3.SVGWriter.AddGraph
+- uid: g3.DGraph2
+  commentId: T:g3.DGraph2
+  parent: g3
+  name: DGraph2
+  nameWithType: DGraph2
+  fullName: g3.DGraph2
+- uid: g3.SVGWriter.AddCircle*
+  commentId: Overload:g3.SVGWriter.AddCircle
+  name: AddCircle
+  nameWithType: SVGWriter.AddCircle
+  fullName: g3.SVGWriter.AddCircle
+- uid: g3.Circle2d
+  commentId: T:g3.Circle2d
+  parent: g3
+  name: Circle2d
+  nameWithType: Circle2d
+  fullName: g3.Circle2d
+- uid: g3.SVGWriter.AddArc*
+  commentId: Overload:g3.SVGWriter.AddArc
+  name: AddArc
+  nameWithType: SVGWriter.AddArc
+  fullName: g3.SVGWriter.AddArc
+- uid: g3.Arc2d
+  commentId: T:g3.Arc2d
+  parent: g3
+  name: Arc2d
+  nameWithType: Arc2d
+  fullName: g3.Arc2d
+- uid: g3.SVGWriter.AddLine*
+  commentId: Overload:g3.SVGWriter.AddLine
+  name: AddLine
+  nameWithType: SVGWriter.AddLine
+  fullName: g3.SVGWriter.AddLine
+- uid: g3.Segment2d
+  commentId: T:g3.Segment2d
+  parent: g3
+  name: Segment2d
+  nameWithType: Segment2d
+  fullName: g3.Segment2d
+- uid: g3.SVGWriter.AddComplex*
+  commentId: Overload:g3.SVGWriter.AddComplex
+  name: AddComplex
+  nameWithType: SVGWriter.AddComplex
+  fullName: g3.SVGWriter.AddComplex
+- uid: g3.PlanarComplex
+  commentId: T:g3.PlanarComplex
+  parent: g3
+  name: PlanarComplex
+  nameWithType: PlanarComplex
+  fullName: g3.PlanarComplex
+- uid: g3.SVGWriter.Write*
+  commentId: Overload:g3.SVGWriter.Write
+  name: Write
+  nameWithType: SVGWriter.Write
+  fullName: g3.SVGWriter.Write
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.IOWriteResult
+  commentId: T:g3.IOWriteResult
+  parent: g3
+  name: IOWriteResult
+  nameWithType: IOWriteResult
+  fullName: g3.IOWriteResult
+- uid: g3.SVGWriter.QuickWrite*
+  commentId: Overload:g3.SVGWriter.QuickWrite
+  name: QuickWrite
+  nameWithType: SVGWriter.QuickWrite
+  fullName: g3.SVGWriter.QuickWrite
+- uid: System.Collections.Generic.List{g3.GeneralPolygon2d}
+  commentId: T:System.Collections.Generic.List{g3.GeneralPolygon2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<GeneralPolygon2d>
+  nameWithType: List<GeneralPolygon2d>
+  fullName: System.Collections.Generic.List<g3.GeneralPolygon2d>
+  nameWithType.vb: List(Of GeneralPolygon2d)
+  fullName.vb: System.Collections.Generic.List(Of g3.GeneralPolygon2d)
+  name.vb: List(Of GeneralPolygon2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.GeneralPolygon2d
+    name: GeneralPolygon2d
+    nameWithType: GeneralPolygon2d
+    fullName: g3.GeneralPolygon2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.GeneralPolygon2d
+    name: GeneralPolygon2d
+    nameWithType: GeneralPolygon2d
+    fullName: g3.GeneralPolygon2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.SVGWriter.MapPt*
+  commentId: Overload:g3.SVGWriter.MapPt
+  name: MapPt
+  nameWithType: SVGWriter.MapPt
+  fullName: g3.SVGWriter.MapPt
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d

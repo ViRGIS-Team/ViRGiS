@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class KdTree&lt;T&gt;
+   | ViRGIS VR GIS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class KdTree&lt;T&gt;
+   | ViRGIS VR GIS ">
+    <meta name="generator" content="docfx 2.54.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Virgis.KdTree`1">
+  
+  
+  <h1 id="Virgis_KdTree_1" data-uid="Virgis.KdTree`1" class="text-break">Class KdTree&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">KdTree&lt;T&gt;</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
+  <h6><strong>Assembly</strong>: Assembly-CSharp.dll</h6>
+  <h5 id="Virgis_KdTree_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class KdTree&lt;T&gt; : IEnumerable&lt;T&gt;, IEnumerable where T : Component</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__ctor_System_Boolean_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.%23ctor(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L27">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1__ctor_" data-uid="Virgis.KdTree`1.#ctor*"></a>
+  <h4 id="Virgis_KdTree_1__ctor_System_Boolean_" data-uid="Virgis.KdTree`1.#ctor(System.Boolean)">KdTree(Boolean)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">create a tree</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KdTree(bool just2D = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">just2D</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">just use x/z</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__count.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L13">View Source</a>
+  </span>
+  <h4 id="Virgis_KdTree_1__count" data-uid="Virgis.KdTree`1._count">_count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _count</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__just2D.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._just2D%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L14">View Source</a>
+  </span>
+  <h4 id="Virgis_KdTree_1__just2D" data-uid="Virgis.KdTree`1._just2D">_just2D</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool _just2D</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__last.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._last%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L12">View Source</a>
+  </span>
+  <h4 id="Virgis_KdTree_1__last" data-uid="Virgis.KdTree`1._last">_last</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected KdTree&lt;T&gt;.KdNode _last</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.KdTree-1.KdNode.html">KdTree.KdNode</a>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__LastUpdate.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._LastUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L15">View Source</a>
+  </span>
+  <h4 id="Virgis_KdTree_1__LastUpdate" data-uid="Virgis.KdTree`1._LastUpdate">_LastUpdate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float _LastUpdate</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__open.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._open%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L16">View Source</a>
+  </span>
+  <h4 id="Virgis_KdTree_1__open" data-uid="Virgis.KdTree`1._open">_open</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected KdTree&lt;T&gt;.KdNode[] _open</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.KdTree-1.KdNode.html">KdTree.KdNode</a>&lt;&gt;[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__root.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._root%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L11">View Source</a>
+  </span>
+  <h4 id="Virgis_KdTree_1__root" data-uid="Virgis.KdTree`1._root">_root</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected KdTree&lt;T&gt;.KdNode _root</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.KdTree-1.KdNode.html">KdTree.KdNode</a>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_AverageSearchDeep.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.AverageSearchDeep%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L21">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_AverageSearchDeep_" data-uid="Virgis.KdTree`1.AverageSearchDeep*"></a>
+  <h4 id="Virgis_KdTree_1_AverageSearchDeep" data-uid="Virgis.KdTree`1.AverageSearchDeep">AverageSearchDeep</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AverageSearchDeep { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_AverageSearchLength.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.AverageSearchLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L20">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_AverageSearchLength_" data-uid="Virgis.KdTree`1.AverageSearchLength*"></a>
+  <h4 id="Virgis_KdTree_1_AverageSearchLength" data-uid="Virgis.KdTree`1.AverageSearchLength">AverageSearchLength</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float AverageSearchLength { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_Count.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.Count%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L18">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_Count_" data-uid="Virgis.KdTree`1.Count*"></a>
+  <h4 id="Virgis_KdTree_1_Count" data-uid="Virgis.KdTree`1.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_IsReadOnly.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.IsReadOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L19">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_IsReadOnly_" data-uid="Virgis.KdTree`1.IsReadOnly*"></a>
+  <h4 id="Virgis_KdTree_1_IsReadOnly" data-uid="Virgis.KdTree`1.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_Item_System_Int32_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.Item(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L32">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_Item_" data-uid="Virgis.KdTree`1.Item*"></a>
+  <h4 id="Virgis_KdTree_1_Item_System_Int32_" data-uid="Virgis.KdTree`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int key] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__distance_UnityEngine_Vector3_UnityEngine_Vector3_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._distance(UnityEngine.Vector3%2CUnityEngine.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L230">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1__distance_" data-uid="Virgis.KdTree`1._distance*"></a>
+  <h4 id="Virgis_KdTree_1__distance_UnityEngine_Vector3_UnityEngine_Vector3_" data-uid="Virgis.KdTree`1._distance(UnityEngine.Vector3,UnityEngine.Vector3)">_distance(Vector3, Vector3)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float _distance(Vector3 a, Vector3 b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__findClosest_UnityEngine_Vector3_System_Collections_Generic_List__0__.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._findClosest(UnityEngine.Vector3%2CSystem.Collections.Generic.List%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L318">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1__findClosest_" data-uid="Virgis.KdTree`1._findClosest*"></a>
+  <h4 id="Virgis_KdTree_1__findClosest_UnityEngine_Vector3_System_Collections_Generic_List__0__" data-uid="Virgis.KdTree`1._findClosest(UnityEngine.Vector3,System.Collections.Generic.List{`0})">_findClosest(Vector3, List&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected T _findClosest(Vector3 position, List&lt;T&gt; traversed = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
+        <td><span class="parametername">traversed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1__getSplitValue_System_Int32_UnityEngine_Vector3_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601._getSplitValue(System.Int32%2CUnityEngine.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L237">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1__getSplitValue_" data-uid="Virgis.KdTree`1._getSplitValue*"></a>
+  <h4 id="Virgis_KdTree_1__getSplitValue_System_Int32_UnityEngine_Vector3_" data-uid="Virgis.KdTree`1._getSplitValue(System.Int32,UnityEngine.Vector3)">_getSplitValue(Int32, Vector3)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float _getSplitValue(int level, Vector3 position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></td>
+        <td><span class="parametername">position</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_Add__0_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.Add(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L49">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_Add_" data-uid="Virgis.KdTree`1.Add*"></a>
+  <h4 id="Virgis_KdTree_1_Add__0_" data-uid="Virgis.KdTree`1.Add(`0)">Add(T)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">add item</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">item</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_AddAll_System_Collections_Generic_List__0__.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.AddAll(System.Collections.Generic.List%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L58">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_AddAll_" data-uid="Virgis.KdTree`1.AddAll*"></a>
+  <h4 id="Virgis_KdTree_1_AddAll_System_Collections_Generic_List__0__" data-uid="Virgis.KdTree`1.AddAll(System.Collections.Generic.List{`0})">AddAll(List&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">batch add items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddAll(List&lt;T&gt; items)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">items</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_Clear.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.Clear%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L145">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_Clear_" data-uid="Virgis.KdTree`1.Clear*"></a>
+  <h4 id="Virgis_KdTree_1_Clear" data-uid="Virgis.KdTree`1.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">clear tree</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_CountAll_System_Predicate__0__.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.CountAll(System.Predicate%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L133">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_CountAll_" data-uid="Virgis.KdTree`1.CountAll*"></a>
+  <h4 id="Virgis_KdTree_1_CountAll_System_Predicate__0__" data-uid="Virgis.KdTree`1.CountAll(System.Predicate{`0})">CountAll(Predicate&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">count all objects that matches the given predicate</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CountAll(Predicate&lt;T&gt; match)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;T&gt;</td>
+        <td><span class="parametername">match</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">lamda expression</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">matching object count</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_Find_System_Predicate__0__.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.Find(System.Predicate%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L81">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_Find_" data-uid="Virgis.KdTree`1.Find*"></a>
+  <h4 id="Virgis_KdTree_1_Find_System_Predicate__0__" data-uid="Virgis.KdTree`1.Find(System.Predicate{`0})">Find(Predicate&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">find first object that matches the given predicate</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Find(Predicate&lt;T&gt; match)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;T&gt;</td>
+        <td><span class="parametername">match</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">lamda expression</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_FindAll_System_Predicate__0__.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.FindAll(System.Predicate%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L68">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_FindAll_" data-uid="Virgis.KdTree`1.FindAll*"></a>
+  <h4 id="Virgis_KdTree_1_FindAll_System_Predicate__0__" data-uid="Virgis.KdTree`1.FindAll(System.Predicate{`0})">FindAll(Predicate&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">find all objects that matches the given predicate</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KdTree&lt;T&gt; FindAll(Predicate&lt;T&gt; match)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;T&gt;</td>
+        <td><span class="parametername">match</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">lamda expression</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.KdTree-1.html">KdTree</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_FindClose_UnityEngine_Vector3_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.FindClose(UnityEngine.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L311">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_FindClose_" data-uid="Virgis.KdTree`1.FindClose*"></a>
+  <h4 id="Virgis_KdTree_1_FindClose_UnityEngine_Vector3_" data-uid="Virgis.KdTree`1.FindClose(UnityEngine.Vector3)">FindClose(Vector3)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Find close objects to given position</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; FindClose(Vector3 position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></td>
+        <td><span class="parametername">position</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">position</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">close object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_FindClosest_UnityEngine_Vector3_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.FindClosest(UnityEngine.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L301">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_FindClosest_" data-uid="Virgis.KdTree`1.FindClosest*"></a>
+  <h4 id="Virgis_KdTree_1_FindClosest_UnityEngine_Vector3_" data-uid="Virgis.KdTree`1.FindClosest(UnityEngine.Vector3)">FindClosest(Vector3)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Find closest object to given position</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T FindClosest(Vector3 position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a></td>
+        <td><span class="parametername">position</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">position</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">closest object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_GetEnumerator.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.GetEnumerator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L200">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_GetEnumerator_" data-uid="Virgis.KdTree`1.GetEnumerator*"></a>
+  <h4 id="Virgis_KdTree_1_GetEnumerator" data-uid="Virgis.KdTree`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Method to enable foreach-loops</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">Enumberator</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_RemoveAll_System_Predicate__0__.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.RemoveAll(System.Predicate%7B%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L114">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_RemoveAll_" data-uid="Virgis.KdTree`1.RemoveAll*"></a>
+  <h4 id="Virgis_KdTree_1_RemoveAll_System_Predicate__0__" data-uid="Virgis.KdTree`1.RemoveAll(System.Predicate{`0})">RemoveAll(Predicate&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">remove all objects that matches the given predicate</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAll(Predicate&lt;T&gt; match)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.predicate-1">Predicate</a>&lt;T&gt;</td>
+        <td><span class="parametername">match</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">lamda expression</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_RemoveAt_System_Int32_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.RemoveAt(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L96">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_RemoveAt_" data-uid="Virgis.KdTree`1.RemoveAt*"></a>
+  <h4 id="Virgis_KdTree_1_RemoveAt_System_Int32_" data-uid="Virgis.KdTree`1.RemoveAt(System.Int32)">RemoveAt(Int32)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Remove at position i (position in list or loop)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAt(int i)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">i</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_ToList.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.ToList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L214">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_ToList_" data-uid="Virgis.KdTree`1.ToList*"></a>
+  <h4 id="Virgis_KdTree_1_ToList" data-uid="Virgis.KdTree`1.ToList">ToList()</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Convert to list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;T&gt; ToList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">list</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_UpdatePositions.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.UpdatePositions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L172">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_UpdatePositions_" data-uid="Virgis.KdTree`1.UpdatePositions*"></a>
+  <h4 id="Virgis_KdTree_1_UpdatePositions" data-uid="Virgis.KdTree`1.UpdatePositions">UpdatePositions()</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Update positions (if objects moved)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdatePositions()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1_UpdatePositions_System_Single_.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601.UpdatePositions(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L159">View Source</a>
+  </span>
+  <a id="Virgis_KdTree_1_UpdatePositions_" data-uid="Virgis.KdTree`1.UpdatePositions*"></a>
+  <h4 id="Virgis_KdTree_1_UpdatePositions_System_Single_" data-uid="Virgis.KdTree`1.UpdatePositions(System.Single)">UpdatePositions(Single)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Update positions (if objects moved)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdatePositions(float rate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">rate</span></td>
+        <td><p sourcefile="api/Virgis.KdTree-1.yml" sourcestartlinenumber="1" sourceendlinenumber="1">Updates per second</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_KdTree_1.md&amp;value=---%0Auid%3A%20Virgis.KdTree%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Basic Types/KdTree.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ViRGIS VR GIS
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

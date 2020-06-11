@@ -1,0 +1,325 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.CholeskyDecomposition
+  commentId: T:g3.CholeskyDecomposition
+  id: CholeskyDecomposition
+  parent: g3
+  children:
+  - g3.CholeskyDecomposition.#ctor(g3.DenseMatrix)
+  - g3.CholeskyDecomposition.A
+  - g3.CholeskyDecomposition.Compute
+  - g3.CholeskyDecomposition.ComputeParallel
+  - g3.CholeskyDecomposition.L
+  - g3.CholeskyDecomposition.Solve(System.Double[],System.Double[],System.Double[])
+  langs:
+  - csharp
+  - vb
+  name: CholeskyDecomposition
+  nameWithType: CholeskyDecomposition
+  fullName: g3.CholeskyDecomposition
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CholeskyDecomposition
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nComputes Cholesky decomposition/factorization L of matrix A\nA must be symmetric and positive-definite\ncomputed lower-triangular matrix L satisfies L*L^T = A.\nhttps://en.wikipedia.org/wiki/Cholesky_decomposition\n\n\n"
+  example: []
+  syntax:
+    content: public class CholeskyDecomposition
+    content.vb: Public Class CholeskyDecomposition
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.CholeskyDecomposition.A
+  commentId: F:g3.CholeskyDecomposition.A
+  id: A
+  parent: g3.CholeskyDecomposition
+  langs:
+  - csharp
+  - vb
+  name: A
+  nameWithType: CholeskyDecomposition.A
+  fullName: g3.CholeskyDecomposition.A
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: A
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseMatrix A
+    return:
+      type: g3.DenseMatrix
+    content.vb: Public A As DenseMatrix
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CholeskyDecomposition.L
+  commentId: F:g3.CholeskyDecomposition.L
+  id: L
+  parent: g3.CholeskyDecomposition
+  langs:
+  - csharp
+  - vb
+  name: L
+  nameWithType: CholeskyDecomposition.L
+  fullName: g3.CholeskyDecomposition.L
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: L
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseMatrix L
+    return:
+      type: g3.DenseMatrix
+    content.vb: Public L As DenseMatrix
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CholeskyDecomposition.#ctor(g3.DenseMatrix)
+  commentId: M:g3.CholeskyDecomposition.#ctor(g3.DenseMatrix)
+  id: '#ctor(g3.DenseMatrix)'
+  parent: g3.CholeskyDecomposition
+  langs:
+  - csharp
+  - vb
+  name: CholeskyDecomposition(DenseMatrix)
+  nameWithType: CholeskyDecomposition.CholeskyDecomposition(DenseMatrix)
+  fullName: g3.CholeskyDecomposition.CholeskyDecomposition(g3.DenseMatrix)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public CholeskyDecomposition(DenseMatrix m)
+    parameters:
+    - id: m
+      type: g3.DenseMatrix
+    content.vb: Public Sub New(m As DenseMatrix)
+  overload: g3.CholeskyDecomposition.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CholeskyDecomposition.Compute
+  commentId: M:g3.CholeskyDecomposition.Compute
+  id: Compute
+  parent: g3.CholeskyDecomposition
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: CholeskyDecomposition.Compute()
+  fullName: g3.CholeskyDecomposition.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Compute()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Compute As Boolean
+  overload: g3.CholeskyDecomposition.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CholeskyDecomposition.ComputeParallel
+  commentId: M:g3.CholeskyDecomposition.ComputeParallel
+  id: ComputeParallel
+  parent: g3.CholeskyDecomposition
+  langs:
+  - csharp
+  - vb
+  name: ComputeParallel()
+  nameWithType: CholeskyDecomposition.ComputeParallel()
+  fullName: g3.CholeskyDecomposition.ComputeParallel()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeParallel
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 73
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nParallel version of Cholesky Decomposition, is about 2x faster on 4-cpu/8-HT\n"
+  example: []
+  syntax:
+    content: public bool ComputeParallel()
+    return:
+      type: System.Boolean
+    content.vb: Public Function ComputeParallel As Boolean
+  overload: g3.CholeskyDecomposition.ComputeParallel*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CholeskyDecomposition.Solve(System.Double[],System.Double[],System.Double[])
+  commentId: M:g3.CholeskyDecomposition.Solve(System.Double[],System.Double[],System.Double[])
+  id: Solve(System.Double[],System.Double[],System.Double[])
+  parent: g3.CholeskyDecomposition
+  langs:
+  - csharp
+  - vb
+  name: Solve(Double[], Double[], Double[])
+  nameWithType: CholeskyDecomposition.Solve(Double[], Double[], Double[])
+  fullName: g3.CholeskyDecomposition.Solve(System.Double[], System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Solve
+    path: ../Assets/geometry3Sharp/solvers/CholeskyDecomposition.cs
+    startLine: 199
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSolve A*X=B via backsubstitution in cholesky factorization\nRequires temporary vector Y\n"
+  example: []
+  syntax:
+    content: public void Solve(double[] B, double[] X, double[] Y)
+    parameters:
+    - id: B
+      type: System.Double[]
+    - id: X
+      type: System.Double[]
+    - id: Y
+      type: System.Double[]
+    content.vb: Public Sub Solve(B As Double(), X As Double(), Y As Double())
+  overload: g3.CholeskyDecomposition.Solve*
+  nameWithType.vb: CholeskyDecomposition.Solve(Double(), Double(), Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.CholeskyDecomposition.Solve(System.Double(), System.Double(), System.Double())
+  name.vb: Solve(Double(), Double(), Double())
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DenseMatrix
+  commentId: T:g3.DenseMatrix
+  parent: g3
+  name: DenseMatrix
+  nameWithType: DenseMatrix
+  fullName: g3.DenseMatrix
+- uid: g3.CholeskyDecomposition.#ctor*
+  commentId: Overload:g3.CholeskyDecomposition.#ctor
+  name: CholeskyDecomposition
+  nameWithType: CholeskyDecomposition.CholeskyDecomposition
+  fullName: g3.CholeskyDecomposition.CholeskyDecomposition
+- uid: g3.CholeskyDecomposition.Compute*
+  commentId: Overload:g3.CholeskyDecomposition.Compute
+  name: Compute
+  nameWithType: CholeskyDecomposition.Compute
+  fullName: g3.CholeskyDecomposition.Compute
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.CholeskyDecomposition.ComputeParallel*
+  commentId: Overload:g3.CholeskyDecomposition.ComputeParallel
+  name: ComputeParallel
+  nameWithType: CholeskyDecomposition.ComputeParallel
+  fullName: g3.CholeskyDecomposition.ComputeParallel
+- uid: g3.CholeskyDecomposition.Solve*
+  commentId: Overload:g3.CholeskyDecomposition.Solve
+  name: Solve
+  nameWithType: CholeskyDecomposition.Solve
+  fullName: g3.CholeskyDecomposition.Solve
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()

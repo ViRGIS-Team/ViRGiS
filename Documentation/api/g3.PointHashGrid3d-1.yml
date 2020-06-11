@@ -1,0 +1,844 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.PointHashGrid3d`1
+  commentId: T:g3.PointHashGrid3d`1
+  id: PointHashGrid3d`1
+  parent: g3
+  children:
+  - g3.PointHashGrid3d`1.#ctor(System.Double,`0)
+  - g3.PointHashGrid3d`1.FindNearestInRadius(g3.Vector3d,System.Double,System.Func{`0,System.Double},System.Func{`0,System.Boolean})
+  - g3.PointHashGrid3d`1.InsertPoint(`0,g3.Vector3d)
+  - g3.PointHashGrid3d`1.InsertPointUnsafe(`0,g3.Vector3d)
+  - g3.PointHashGrid3d`1.InvalidValue
+  - g3.PointHashGrid3d`1.print_large_buckets
+  - g3.PointHashGrid3d`1.RemovePoint(`0,g3.Vector3d)
+  - g3.PointHashGrid3d`1.RemovePointUnsafe(`0,g3.Vector3d)
+  - g3.PointHashGrid3d`1.UpdatePoint(`0,g3.Vector3d,g3.Vector3d)
+  - g3.PointHashGrid3d`1.UpdatePointUnsafe(`0,g3.Vector3d,g3.Vector3d)
+  langs:
+  - csharp
+  - vb
+  name: PointHashGrid3d<T>
+  nameWithType: PointHashGrid3d<T>
+  fullName: g3.PointHashGrid3d<T>
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PointHashGrid3d
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nHash Grid for 3D points. You provide the &apos;point&apos; type. If you have an indexable\nset of points this can just be int, or can be more complex point data structure\n(but be careful w/ structs...)\n\nDoes not actually store 3D points. So, to remove a point\nyou must also know it&apos;s 3D coordinate, so we can look up the cell coordinates.\nHence, to &apos;update&apos; a point, you need to know both it&apos;s old and new 3D coordinates.\n\nTODO: if a lot of points are in the same spot, this is still a disaster.\nWhat if we had a second level of hashing, where once a list at a level gets too\nbig, we build a sub-hash there?\n\n"
+  example: []
+  syntax:
+    content: public class PointHashGrid3d<T>
+    typeParameters:
+    - id: T
+    content.vb: Public Class PointHashGrid3d(Of T)
+  inheritance:
+  - System.Object
+  nameWithType.vb: PointHashGrid3d(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: g3.PointHashGrid3d(Of T)
+  name.vb: PointHashGrid3d(Of T)
+- uid: g3.PointHashGrid3d`1.#ctor(System.Double,`0)
+  commentId: M:g3.PointHashGrid3d`1.#ctor(System.Double,`0)
+  id: '#ctor(System.Double,`0)'
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: PointHashGrid3d(Double, T)
+  nameWithType: PointHashGrid3d<T>.PointHashGrid3d(Double, T)
+  fullName: g3.PointHashGrid3d<T>.PointHashGrid3d(System.Double, T)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n&quot;invalid&quot; value will be returned by queries if no valid result is found (eg bounded-distance query)\n"
+  example: []
+  syntax:
+    content: public PointHashGrid3d(double cellSize, T invalidValue)
+    parameters:
+    - id: cellSize
+      type: System.Double
+    - id: invalidValue
+      type: '{T}'
+    content.vb: Public Sub New(cellSize As Double, invalidValue As T)
+  overload: g3.PointHashGrid3d`1.#ctor*
+  nameWithType.vb: PointHashGrid3d(Of T).PointHashGrid3d(Double, T)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).PointHashGrid3d(System.Double, T)
+- uid: g3.PointHashGrid3d`1.InvalidValue
+  commentId: P:g3.PointHashGrid3d`1.InvalidValue
+  id: InvalidValue
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: InvalidValue
+  nameWithType: PointHashGrid3d<T>.InvalidValue
+  fullName: g3.PointHashGrid3d<T>.InvalidValue
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InvalidValue
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public T InvalidValue { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property InvalidValue As T
+  overload: g3.PointHashGrid3d`1.InvalidValue*
+  nameWithType.vb: PointHashGrid3d(Of T).InvalidValue
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.PointHashGrid3d(Of T).InvalidValue
+- uid: g3.PointHashGrid3d`1.InsertPoint(`0,g3.Vector3d)
+  commentId: M:g3.PointHashGrid3d`1.InsertPoint(`0,g3.Vector3d)
+  id: InsertPoint(`0,g3.Vector3d)
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: InsertPoint(T, Vector3d)
+  nameWithType: PointHashGrid3d<T>.InsertPoint(T, Vector3d)
+  fullName: g3.PointHashGrid3d<T>.InsertPoint(T, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertPoint
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInsert point at position. This function is thread-safe, uses a SpinLock internally\n"
+  example: []
+  syntax:
+    content: public void InsertPoint(T value, Vector3d pos)
+    parameters:
+    - id: value
+      type: '{T}'
+    - id: pos
+      type: g3.Vector3d
+    content.vb: Public Sub InsertPoint(value As T, pos As Vector3d)
+  overload: g3.PointHashGrid3d`1.InsertPoint*
+  nameWithType.vb: PointHashGrid3d(Of T).InsertPoint(T, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).InsertPoint(T, g3.Vector3d)
+- uid: g3.PointHashGrid3d`1.InsertPointUnsafe(`0,g3.Vector3d)
+  commentId: M:g3.PointHashGrid3d`1.InsertPointUnsafe(`0,g3.Vector3d)
+  id: InsertPointUnsafe(`0,g3.Vector3d)
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: InsertPointUnsafe(T, Vector3d)
+  nameWithType: PointHashGrid3d<T>.InsertPointUnsafe(T, Vector3d)
+  fullName: g3.PointHashGrid3d<T>.InsertPointUnsafe(T, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertPointUnsafe
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInsert point without locking / thread-safety\n"
+  example: []
+  syntax:
+    content: public void InsertPointUnsafe(T value, Vector3d pos)
+    parameters:
+    - id: value
+      type: '{T}'
+    - id: pos
+      type: g3.Vector3d
+    content.vb: Public Sub InsertPointUnsafe(value As T, pos As Vector3d)
+  overload: g3.PointHashGrid3d`1.InsertPointUnsafe*
+  nameWithType.vb: PointHashGrid3d(Of T).InsertPointUnsafe(T, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).InsertPointUnsafe(T, g3.Vector3d)
+- uid: g3.PointHashGrid3d`1.RemovePoint(`0,g3.Vector3d)
+  commentId: M:g3.PointHashGrid3d`1.RemovePoint(`0,g3.Vector3d)
+  id: RemovePoint(`0,g3.Vector3d)
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: RemovePoint(T, Vector3d)
+  nameWithType: PointHashGrid3d<T>.RemovePoint(T, Vector3d)
+  fullName: g3.PointHashGrid3d<T>.RemovePoint(T, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemovePoint
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 67
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInsert point. This function is thread-safe, uses a SpinLock internally\n"
+  example: []
+  syntax:
+    content: public bool RemovePoint(T value, Vector3d pos)
+    parameters:
+    - id: value
+      type: '{T}'
+    - id: pos
+      type: g3.Vector3d
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemovePoint(value As T, pos As Vector3d) As Boolean
+  overload: g3.PointHashGrid3d`1.RemovePoint*
+  nameWithType.vb: PointHashGrid3d(Of T).RemovePoint(T, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).RemovePoint(T, g3.Vector3d)
+- uid: g3.PointHashGrid3d`1.RemovePointUnsafe(`0,g3.Vector3d)
+  commentId: M:g3.PointHashGrid3d`1.RemovePointUnsafe(`0,g3.Vector3d)
+  id: RemovePointUnsafe(`0,g3.Vector3d)
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: RemovePointUnsafe(T, Vector3d)
+  nameWithType: PointHashGrid3d<T>.RemovePointUnsafe(T, Vector3d)
+  fullName: g3.PointHashGrid3d<T>.RemovePointUnsafe(T, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemovePointUnsafe
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 76
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove point without locking / thread-safety\n"
+  example: []
+  syntax:
+    content: public bool RemovePointUnsafe(T value, Vector3d pos)
+    parameters:
+    - id: value
+      type: '{T}'
+    - id: pos
+      type: g3.Vector3d
+    return:
+      type: System.Boolean
+    content.vb: Public Function RemovePointUnsafe(value As T, pos As Vector3d) As Boolean
+  overload: g3.PointHashGrid3d`1.RemovePointUnsafe*
+  nameWithType.vb: PointHashGrid3d(Of T).RemovePointUnsafe(T, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).RemovePointUnsafe(T, g3.Vector3d)
+- uid: g3.PointHashGrid3d`1.UpdatePoint(`0,g3.Vector3d,g3.Vector3d)
+  commentId: M:g3.PointHashGrid3d`1.UpdatePoint(`0,g3.Vector3d,g3.Vector3d)
+  id: UpdatePoint(`0,g3.Vector3d,g3.Vector3d)
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: UpdatePoint(T, Vector3d, Vector3d)
+  nameWithType: PointHashGrid3d<T>.UpdatePoint(T, Vector3d, Vector3d)
+  fullName: g3.PointHashGrid3d<T>.UpdatePoint(T, g3.Vector3d, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdatePoint
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 86
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nMove point from old to new position. This function is thread-safe, uses a SpinLock internally\n"
+  example: []
+  syntax:
+    content: public void UpdatePoint(T value, Vector3d old_pos, Vector3d new_pos)
+    parameters:
+    - id: value
+      type: '{T}'
+    - id: old_pos
+      type: g3.Vector3d
+    - id: new_pos
+      type: g3.Vector3d
+    content.vb: Public Sub UpdatePoint(value As T, old_pos As Vector3d, new_pos As Vector3d)
+  overload: g3.PointHashGrid3d`1.UpdatePoint*
+  nameWithType.vb: PointHashGrid3d(Of T).UpdatePoint(T, Vector3d, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).UpdatePoint(T, g3.Vector3d, g3.Vector3d)
+- uid: g3.PointHashGrid3d`1.UpdatePointUnsafe(`0,g3.Vector3d,g3.Vector3d)
+  commentId: M:g3.PointHashGrid3d`1.UpdatePointUnsafe(`0,g3.Vector3d,g3.Vector3d)
+  id: UpdatePointUnsafe(`0,g3.Vector3d,g3.Vector3d)
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: UpdatePointUnsafe(T, Vector3d, Vector3d)
+  nameWithType: PointHashGrid3d<T>.UpdatePointUnsafe(T, Vector3d, Vector3d)
+  fullName: g3.PointHashGrid3d<T>.UpdatePointUnsafe(T, g3.Vector3d, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdatePointUnsafe
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 102
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nMove point from old to new position without locking / thread-safety\n"
+  example: []
+  syntax:
+    content: public void UpdatePointUnsafe(T value, Vector3d old_pos, Vector3d new_pos)
+    parameters:
+    - id: value
+      type: '{T}'
+    - id: old_pos
+      type: g3.Vector3d
+    - id: new_pos
+      type: g3.Vector3d
+    content.vb: Public Sub UpdatePointUnsafe(value As T, old_pos As Vector3d, new_pos As Vector3d)
+  overload: g3.PointHashGrid3d`1.UpdatePointUnsafe*
+  nameWithType.vb: PointHashGrid3d(Of T).UpdatePointUnsafe(T, Vector3d, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).UpdatePointUnsafe(T, g3.Vector3d, g3.Vector3d)
+- uid: g3.PointHashGrid3d`1.FindNearestInRadius(g3.Vector3d,System.Double,System.Func{`0,System.Double},System.Func{`0,System.Boolean})
+  commentId: M:g3.PointHashGrid3d`1.FindNearestInRadius(g3.Vector3d,System.Double,System.Func{`0,System.Double},System.Func{`0,System.Boolean})
+  id: FindNearestInRadius(g3.Vector3d,System.Double,System.Func{`0,System.Double},System.Func{`0,System.Boolean})
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: FindNearestInRadius(Vector3d, Double, Func<T, Double>, Func<T, Boolean>)
+  nameWithType: PointHashGrid3d<T>.FindNearestInRadius(Vector3d, Double, Func<T, Double>, Func<T, Boolean>)
+  fullName: g3.PointHashGrid3d<T>.FindNearestInRadius(g3.Vector3d, System.Double, System.Func<T, System.Double>, System.Func<T, System.Boolean>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindNearestInRadius
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind nearest point in grid, within radius, without locking / thread-safety\nYou must provided distF which returns distance between query_pt and the point argument\nYou can ignore specific points via ignoreF lambda.\nreturned key is InvalidValue if not found\n"
+  example: []
+  syntax:
+    content: public KeyValuePair<T, double> FindNearestInRadius(Vector3d query_pt, double radius, Func<T, double> distF, Func<T, bool> ignoreF = null)
+    parameters:
+    - id: query_pt
+      type: g3.Vector3d
+    - id: radius
+      type: System.Double
+    - id: distF
+      type: System.Func{{T},System.Double}
+    - id: ignoreF
+      type: System.Func{{T},System.Boolean}
+    return:
+      type: System.Collections.Generic.KeyValuePair{{T},System.Double}
+    content.vb: Public Function FindNearestInRadius(query_pt As Vector3d, radius As Double, distF As Func(Of T, Double), ignoreF As Func(Of T, Boolean) = Nothing) As KeyValuePair(Of T, Double)
+  overload: g3.PointHashGrid3d`1.FindNearestInRadius*
+  nameWithType.vb: PointHashGrid3d(Of T).FindNearestInRadius(Vector3d, Double, Func(Of T, Double), Func(Of T, Boolean))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).FindNearestInRadius(g3.Vector3d, System.Double, System.Func(Of T, System.Double), System.Func(Of T, System.Boolean))
+  name.vb: FindNearestInRadius(Vector3d, Double, Func(Of T, Double), Func(Of T, Boolean))
+- uid: g3.PointHashGrid3d`1.print_large_buckets
+  commentId: M:g3.PointHashGrid3d`1.print_large_buckets
+  id: print_large_buckets
+  parent: g3.PointHashGrid3d`1
+  langs:
+  - csharp
+  - vb
+  name: print_large_buckets()
+  nameWithType: PointHashGrid3d<T>.print_large_buckets()
+  fullName: g3.PointHashGrid3d<T>.print_large_buckets()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: print_large_buckets
+    path: ../Assets/geometry3Sharp/spatial/PointHashGrid3d.cs
+    startLine: 195
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void print_large_buckets()
+    content.vb: Public Sub print_large_buckets
+  overload: g3.PointHashGrid3d`1.print_large_buckets*
+  nameWithType.vb: PointHashGrid3d(Of T).print_large_buckets()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PointHashGrid3d(Of T).print_large_buckets()
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.PointHashGrid3d`1.#ctor*
+  commentId: Overload:g3.PointHashGrid3d`1.#ctor
+  name: PointHashGrid3d
+  nameWithType: PointHashGrid3d<T>.PointHashGrid3d
+  fullName: g3.PointHashGrid3d<T>.PointHashGrid3d
+  nameWithType.vb: PointHashGrid3d(Of T).PointHashGrid3d
+  fullName.vb: g3.PointHashGrid3d(Of T).PointHashGrid3d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: g3.PointHashGrid3d`1.InvalidValue*
+  commentId: Overload:g3.PointHashGrid3d`1.InvalidValue
+  name: InvalidValue
+  nameWithType: PointHashGrid3d<T>.InvalidValue
+  fullName: g3.PointHashGrid3d<T>.InvalidValue
+  nameWithType.vb: PointHashGrid3d(Of T).InvalidValue
+  fullName.vb: g3.PointHashGrid3d(Of T).InvalidValue
+- uid: g3.PointHashGrid3d`1.InsertPoint*
+  commentId: Overload:g3.PointHashGrid3d`1.InsertPoint
+  name: InsertPoint
+  nameWithType: PointHashGrid3d<T>.InsertPoint
+  fullName: g3.PointHashGrid3d<T>.InsertPoint
+  nameWithType.vb: PointHashGrid3d(Of T).InsertPoint
+  fullName.vb: g3.PointHashGrid3d(Of T).InsertPoint
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.PointHashGrid3d`1.InsertPointUnsafe*
+  commentId: Overload:g3.PointHashGrid3d`1.InsertPointUnsafe
+  name: InsertPointUnsafe
+  nameWithType: PointHashGrid3d<T>.InsertPointUnsafe
+  fullName: g3.PointHashGrid3d<T>.InsertPointUnsafe
+  nameWithType.vb: PointHashGrid3d(Of T).InsertPointUnsafe
+  fullName.vb: g3.PointHashGrid3d(Of T).InsertPointUnsafe
+- uid: g3.PointHashGrid3d`1.RemovePoint*
+  commentId: Overload:g3.PointHashGrid3d`1.RemovePoint
+  name: RemovePoint
+  nameWithType: PointHashGrid3d<T>.RemovePoint
+  fullName: g3.PointHashGrid3d<T>.RemovePoint
+  nameWithType.vb: PointHashGrid3d(Of T).RemovePoint
+  fullName.vb: g3.PointHashGrid3d(Of T).RemovePoint
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.PointHashGrid3d`1.RemovePointUnsafe*
+  commentId: Overload:g3.PointHashGrid3d`1.RemovePointUnsafe
+  name: RemovePointUnsafe
+  nameWithType: PointHashGrid3d<T>.RemovePointUnsafe
+  fullName: g3.PointHashGrid3d<T>.RemovePointUnsafe
+  nameWithType.vb: PointHashGrid3d(Of T).RemovePointUnsafe
+  fullName.vb: g3.PointHashGrid3d(Of T).RemovePointUnsafe
+- uid: g3.PointHashGrid3d`1.UpdatePoint*
+  commentId: Overload:g3.PointHashGrid3d`1.UpdatePoint
+  name: UpdatePoint
+  nameWithType: PointHashGrid3d<T>.UpdatePoint
+  fullName: g3.PointHashGrid3d<T>.UpdatePoint
+  nameWithType.vb: PointHashGrid3d(Of T).UpdatePoint
+  fullName.vb: g3.PointHashGrid3d(Of T).UpdatePoint
+- uid: g3.PointHashGrid3d`1.UpdatePointUnsafe*
+  commentId: Overload:g3.PointHashGrid3d`1.UpdatePointUnsafe
+  name: UpdatePointUnsafe
+  nameWithType: PointHashGrid3d<T>.UpdatePointUnsafe
+  fullName: g3.PointHashGrid3d<T>.UpdatePointUnsafe
+  nameWithType.vb: PointHashGrid3d(Of T).UpdatePointUnsafe
+  fullName.vb: g3.PointHashGrid3d(Of T).UpdatePointUnsafe
+- uid: g3.PointHashGrid3d`1.FindNearestInRadius*
+  commentId: Overload:g3.PointHashGrid3d`1.FindNearestInRadius
+  name: FindNearestInRadius
+  nameWithType: PointHashGrid3d<T>.FindNearestInRadius
+  fullName: g3.PointHashGrid3d<T>.FindNearestInRadius
+  nameWithType.vb: PointHashGrid3d(Of T).FindNearestInRadius
+  fullName.vb: g3.PointHashGrid3d(Of T).FindNearestInRadius
+- uid: System.Func{{T},System.Double}
+  commentId: T:System.Func{`0,System.Double}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Double>
+  nameWithType: Func<T, Double>
+  fullName: System.Func<T, System.Double>
+  nameWithType.vb: Func(Of T, Double)
+  fullName.vb: System.Func(Of T, System.Double)
+  name.vb: Func(Of T, Double)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{{T},System.Boolean}
+  commentId: T:System.Func{``0,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Boolean>
+  nameWithType: Func<T, Boolean>
+  fullName: System.Func<T, System.Boolean>
+  nameWithType.vb: Func(Of T, Boolean)
+  fullName.vb: System.Func(Of T, System.Boolean)
+  name.vb: Func(Of T, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.KeyValuePair{{T},System.Double}
+  commentId: T:System.Collections.Generic.KeyValuePair{`0,System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.KeyValuePair`2
+  name: KeyValuePair<T, Double>
+  nameWithType: KeyValuePair<T, Double>
+  fullName: System.Collections.Generic.KeyValuePair<T, System.Double>
+  nameWithType.vb: KeyValuePair(Of T, Double)
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of T, System.Double)
+  name.vb: KeyValuePair(Of T, Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    nameWithType: KeyValuePair
+    fullName: System.Collections.Generic.KeyValuePair
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    nameWithType: KeyValuePair
+    fullName: System.Collections.Generic.KeyValuePair
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.KeyValuePair`2
+  commentId: T:System.Collections.Generic.KeyValuePair`2
+  isExternal: true
+  name: KeyValuePair<TKey, TValue>
+  nameWithType: KeyValuePair<TKey, TValue>
+  fullName: System.Collections.Generic.KeyValuePair<TKey, TValue>
+  nameWithType.vb: KeyValuePair(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.KeyValuePair(Of TKey, TValue)
+  name.vb: KeyValuePair(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    nameWithType: KeyValuePair
+    fullName: System.Collections.Generic.KeyValuePair
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    nameWithType: KeyValuePair
+    fullName: System.Collections.Generic.KeyValuePair
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.PointHashGrid3d`1.print_large_buckets*
+  commentId: Overload:g3.PointHashGrid3d`1.print_large_buckets
+  name: print_large_buckets
+  nameWithType: PointHashGrid3d<T>.print_large_buckets
+  fullName: g3.PointHashGrid3d<T>.print_large_buckets
+  nameWithType.vb: PointHashGrid3d(Of T).print_large_buckets
+  fullName.vb: g3.PointHashGrid3d(Of T).print_large_buckets

@@ -1,0 +1,1445 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Query2d
+  commentId: T:g3.Query2d
+  id: Query2d
+  parent: g3
+  children:
+  - g3.Query2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  - g3.Query2d.Det3(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - g3.Query2d.Dot(System.Double,System.Double,System.Double,System.Double)
+  - g3.Query2d.GetNumVertices
+  - g3.Query2d.GetVertices
+  - g3.Query2d.mVertices
+  - g3.Query2d.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  - g3.Query2d.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.Query2d.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  - g3.Query2d.ToLine(System.Int32,System.Int32,System.Int32)
+  - g3.Query2d.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  - g3.Query2d.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: Query2d
+  nameWithType: Query2d
+  fullName: g3.Query2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Query2d
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class Query2d : QueryBase, Query2'
+    content.vb: >-
+      Public Class Query2d
+          Inherits QueryBase
+          Implements Query2
+  inheritance:
+  - System.Object
+  - g3.QueryBase
+  derivedClasses:
+  - g3.Query2Int64
+  implements:
+  - g3.Query2
+  inheritedMembers:
+  - g3.QueryBase.Sort(System.Int32@,System.Int32@)
+  - g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@)
+  - g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Query2d.mVertices
+  commentId: F:g3.Query2d.mVertices
+  id: mVertices
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: mVertices
+  nameWithType: Query2d.mVertices
+  fullName: g3.Query2d.mVertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mVertices
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected IList<Vector2d> mVertices
+    return:
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    content.vb: Protected mVertices As IList(Of Vector2d)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.Query2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  commentId: M:g3.Query2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  id: '#ctor(System.Collections.Generic.IList{g3.Vector2d})'
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: Query2d(IList<Vector2d>)
+  nameWithType: Query2d.Query2d(IList<Vector2d>)
+  fullName: g3.Query2d.Query2d(System.Collections.Generic.IList<g3.Vector2d>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Query2d(IList<Vector2d> Vertices)
+    parameters:
+    - id: Vertices
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    content.vb: Public Sub New(Vertices As IList(Of Vector2d))
+  overload: g3.Query2d.#ctor*
+  nameWithType.vb: Query2d.Query2d(IList(Of Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Query2d.Query2d(System.Collections.Generic.IList(Of g3.Vector2d))
+  name.vb: Query2d(IList(Of Vector2d))
+- uid: g3.Query2d.GetNumVertices
+  commentId: M:g3.Query2d.GetNumVertices
+  id: GetNumVertices
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: GetNumVertices()
+  nameWithType: Query2d.GetNumVertices()
+  fullName: g3.Query2d.GetNumVertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNumVertices
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetNumVertices()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetNumVertices As Integer
+  overload: g3.Query2d.GetNumVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Query2d.GetVertices
+  commentId: M:g3.Query2d.GetVertices
+  id: GetVertices
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: GetVertices()
+  nameWithType: Query2d.GetVertices()
+  fullName: g3.Query2d.GetVertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertices
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IList<Vector2d> GetVertices()
+    return:
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    content.vb: Public Function GetVertices As IList(Of Vector2d)
+  overload: g3.Query2d.GetVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Query2d.ToLine(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2d.ToLine(System.Int32,System.Int32,System.Int32)
+  id: ToLine(System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: ToLine(Int32, Int32, Int32)
+  nameWithType: Query2d.ToLine(Int32, Int32, Int32)
+  fullName: g3.Query2d.ToLine(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToLine
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 60
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n+1, on right of line\n-1, on left of line\n0, on the line\n"
+  example: []
+  syntax:
+    content: public virtual int ToLine(int i, int v0, int v1)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Overridable Function ToLine(i As Integer, v0 As Integer, v1 As Integer) As Integer
+  overload: g3.Query2d.ToLine*
+  implements:
+  - g3.Query2.ToLine(System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Query2d.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  commentId: M:g3.Query2d.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  id: ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: ToLine(ref Vector2d, Int32, Int32)
+  nameWithType: Query2d.ToLine(ref Vector2d, Int32, Int32)
+  fullName: g3.Query2d.ToLine(ref g3.Vector2d, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToLine
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n+1, on right of line\n-1, on left of line\n0, on the line\n"
+  example: []
+  syntax:
+    content: public virtual int ToLine(ref Vector2d test, int v0, int v1)
+    parameters:
+    - id: test
+      type: g3.Vector2d
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Overridable Function ToLine(ByRef test As Vector2d, v0 As Integer, v1 As Integer) As Integer
+  overload: g3.Query2d.ToLine*
+  implements:
+  - g3.Query2.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  nameWithType.vb: Query2d.ToLine(ByRef Vector2d, Int32, Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.Query2d.ToLine(ByRef g3.Vector2d, System.Int32, System.Int32)
+  name.vb: ToLine(ByRef Vector2d, Int32, Int32)
+- uid: g3.Query2d.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2d.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: ToTriangle(Int32, Int32, Int32, Int32)
+  nameWithType: Query2d.ToTriangle(Int32, Int32, Int32, Int32)
+  fullName: g3.Query2d.ToTriangle(System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToTriangle
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 99
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n+1, outside triangle\n-1, inside triangle\n0, on triangle\n"
+  example: []
+  syntax:
+    content: public virtual int ToTriangle(int i, int v0, int v1, int v2)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Overridable Function ToTriangle(i As Integer, v0 As Integer, v1 As Integer, v2 As Integer) As Integer
+  overload: g3.Query2d.ToTriangle*
+  implements:
+  - g3.Query2.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Query2d.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2d.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  id: ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: ToTriangle(ref Vector2d, Int32, Int32, Int32)
+  nameWithType: Query2d.ToTriangle(ref Vector2d, Int32, Int32, Int32)
+  fullName: g3.Query2d.ToTriangle(ref g3.Vector2d, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToTriangle
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 110
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n+1, outside triangle\n-1, inside triangle\n0, on triangle\n"
+  example: []
+  syntax:
+    content: public virtual int ToTriangle(ref Vector2d test, int v0, int v1, int v2)
+    parameters:
+    - id: test
+      type: g3.Vector2d
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Overridable Function ToTriangle(ByRef test As Vector2d, v0 As Integer, v1 As Integer, v2 As Integer) As Integer
+  overload: g3.Query2d.ToTriangle*
+  implements:
+  - g3.Query2.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  nameWithType.vb: Query2d.ToTriangle(ByRef Vector2d, Int32, Int32, Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.Query2d.ToTriangle(ByRef g3.Vector2d, System.Int32, System.Int32, System.Int32)
+  name.vb: ToTriangle(ByRef Vector2d, Int32, Int32, Int32)
+- uid: g3.Query2d.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2d.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: ToCircumcircle(Int32, Int32, Int32, Int32)
+  nameWithType: Query2d.ToCircumcircle(Int32, Int32, Int32, Int32)
+  fullName: g3.Query2d.ToCircumcircle(System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToCircumcircle
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 137
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n+1, outside circumcircle of triangle\n-1, inside circumcircle of triangle\n0, on circumcircle of triangle\n"
+  example: []
+  syntax:
+    content: public virtual int ToCircumcircle(int i, int v0, int v1, int v2)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Overridable Function ToCircumcircle(i As Integer, v0 As Integer, v1 As Integer, v2 As Integer) As Integer
+  overload: g3.Query2d.ToCircumcircle*
+  implements:
+  - g3.Query2.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.Query2d.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2d.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  id: ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: ToCircumcircle(ref Vector2d, Int32, Int32, Int32)
+  nameWithType: Query2d.ToCircumcircle(ref Vector2d, Int32, Int32, Int32)
+  fullName: g3.Query2d.ToCircumcircle(ref g3.Vector2d, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToCircumcircle
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 149
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n+1, outside circumcircle of triangle\n-1, inside circumcircle of triangle\n0, on circumcircle of triangle\n"
+  example: []
+  syntax:
+    content: public virtual int ToCircumcircle(ref Vector2d test, int v0, int v1, int v2)
+    parameters:
+    - id: test
+      type: g3.Vector2d
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Overridable Function ToCircumcircle(ByRef test As Vector2d, v0 As Integer, v1 As Integer, v2 As Integer) As Integer
+  overload: g3.Query2d.ToCircumcircle*
+  implements:
+  - g3.Query2.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  nameWithType.vb: Query2d.ToCircumcircle(ByRef Vector2d, Int32, Int32, Int32)
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.Query2d.ToCircumcircle(ByRef g3.Vector2d, System.Int32, System.Int32, System.Int32)
+  name.vb: ToCircumcircle(ByRef Vector2d, Int32, Int32, Int32)
+- uid: g3.Query2d.Dot(System.Double,System.Double,System.Double,System.Double)
+  commentId: M:g3.Query2d.Dot(System.Double,System.Double,System.Double,System.Double)
+  id: Dot(System.Double,System.Double,System.Double,System.Double)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: Dot(Double, Double, Double, Double)
+  nameWithType: Query2d.Dot(Double, Double, Double, Double)
+  fullName: g3.Query2d.Dot(System.Double, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dot
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 182
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Dot(double x0, double y0, double x1, double y1)
+    parameters:
+    - id: x0
+      type: System.Double
+    - id: y0
+      type: System.Double
+    - id: x1
+      type: System.Double
+    - id: y1
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function Dot(x0 As Double, y0 As Double, x1 As Double, y1 As Double) As Double
+  overload: g3.Query2d.Dot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Query2d.Det3(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:g3.Query2d.Det3(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: Det3(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  parent: g3.Query2d
+  langs:
+  - csharp
+  - vb
+  name: Det3(Double, Double, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: Query2d.Det3(Double, Double, Double, Double, Double, Double, Double, Double, Double)
+  fullName: g3.Query2d.Det3(System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Query2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Det3
+    path: ../Assets/geometry3Sharp/math/Query2.cs
+    startLine: 194
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Det3(double x0, double y0, double z0, double x1, double y1, double z1, double x2, double y2, double z2)
+    parameters:
+    - id: x0
+      type: System.Double
+    - id: y0
+      type: System.Double
+    - id: z0
+      type: System.Double
+    - id: x1
+      type: System.Double
+    - id: y1
+      type: System.Double
+    - id: z1
+      type: System.Double
+    - id: x2
+      type: System.Double
+    - id: y2
+      type: System.Double
+    - id: z2
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function Det3(x0 As Double, y0 As Double, z0 As Double, x1 As Double, y1 As Double, z1 As Double, x2 As Double, y2 As Double, z2 As Double) As Double
+  overload: g3.Query2d.Det3*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.QueryBase
+  commentId: T:g3.QueryBase
+  parent: g3
+  name: QueryBase
+  nameWithType: QueryBase
+  fullName: g3.QueryBase
+- uid: g3.Query2
+  commentId: T:g3.Query2
+  parent: g3
+  name: Query2
+  nameWithType: Query2
+  fullName: g3.Query2
+- uid: g3.QueryBase.Sort(System.Int32@,System.Int32@)
+  commentId: M:g3.QueryBase.Sort(System.Int32@,System.Int32@)
+  parent: g3.QueryBase
+  isExternal: true
+  name: Sort(Int32, Int32)
+  nameWithType: QueryBase.Sort(Int32, Int32)
+  fullName: g3.QueryBase.Sort(System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.QueryBase.Sort(System.Int32@,System.Int32@)
+    name: Sort
+    nameWithType: QueryBase.Sort
+    fullName: g3.QueryBase.Sort
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.QueryBase.Sort(System.Int32@,System.Int32@)
+    name: Sort
+    nameWithType: QueryBase.Sort
+    fullName: g3.QueryBase.Sort
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@)
+  commentId: M:g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@)
+  parent: g3.QueryBase
+  isExternal: true
+  name: Sort(Int32, Int32, Int32)
+  nameWithType: QueryBase.Sort(Int32, Int32, Int32)
+  fullName: g3.QueryBase.Sort(System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@)
+    name: Sort
+    nameWithType: QueryBase.Sort
+    fullName: g3.QueryBase.Sort
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@)
+    name: Sort
+    nameWithType: QueryBase.Sort
+    fullName: g3.QueryBase.Sort
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  commentId: M:g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+  parent: g3.QueryBase
+  isExternal: true
+  name: Sort(Int32, Int32, Int32, Int32)
+  nameWithType: QueryBase.Sort(Int32, Int32, Int32, Int32)
+  fullName: g3.QueryBase.Sort(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+    name: Sort
+    nameWithType: QueryBase.Sort
+    fullName: g3.QueryBase.Sort
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.QueryBase.Sort(System.Int32@,System.Int32@,System.Int32@,System.Int32@)
+    name: Sort
+    nameWithType: QueryBase.Sort
+    fullName: g3.QueryBase.Sort
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IList{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IList{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Vector2d>
+  nameWithType: IList<Vector2d>
+  fullName: System.Collections.Generic.IList<g3.Vector2d>
+  nameWithType.vb: IList(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Vector2d)
+  name.vb: IList(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.Query2d.#ctor*
+  commentId: Overload:g3.Query2d.#ctor
+  name: Query2d
+  nameWithType: Query2d.Query2d
+  fullName: g3.Query2d.Query2d
+- uid: g3.Query2d.GetNumVertices*
+  commentId: Overload:g3.Query2d.GetNumVertices
+  name: GetNumVertices
+  nameWithType: Query2d.GetNumVertices
+  fullName: g3.Query2d.GetNumVertices
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Query2d.GetVertices*
+  commentId: Overload:g3.Query2d.GetVertices
+  name: GetVertices
+  nameWithType: Query2d.GetVertices
+  fullName: g3.Query2d.GetVertices
+- uid: g3.Query2d.ToLine*
+  commentId: Overload:g3.Query2d.ToLine
+  name: ToLine
+  nameWithType: Query2d.ToLine
+  fullName: g3.Query2d.ToLine
+- uid: g3.Query2.ToLine(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2.ToLine(System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2
+  isExternal: true
+  name: ToLine(Int32, Int32, Int32)
+  nameWithType: Query2.ToLine(Int32, Int32, Int32)
+  fullName: g3.Query2.ToLine(System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.Query2.ToLine(System.Int32,System.Int32,System.Int32)
+    name: ToLine
+    nameWithType: Query2.ToLine
+    fullName: g3.Query2.ToLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Query2.ToLine(System.Int32,System.Int32,System.Int32)
+    name: ToLine
+    nameWithType: Query2.ToLine
+    fullName: g3.Query2.ToLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Query2.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  commentId: M:g3.Query2.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+  parent: g3.Query2
+  isExternal: true
+  name: ToLine(Vector2d, Int32, Int32)
+  nameWithType: Query2.ToLine(Vector2d, Int32, Int32)
+  fullName: g3.Query2.ToLine(g3.Vector2d, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.Query2.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+    name: ToLine
+    nameWithType: Query2.ToLine
+    fullName: g3.Query2.ToLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Query2.ToLine(g3.Vector2d@,System.Int32,System.Int32)
+    name: ToLine
+    nameWithType: Query2.ToLine
+    fullName: g3.Query2.ToLine
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.Query2d.ToTriangle*
+  commentId: Overload:g3.Query2d.ToTriangle
+  name: ToTriangle
+  nameWithType: Query2d.ToTriangle
+  fullName: g3.Query2d.ToTriangle
+- uid: g3.Query2.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2
+  isExternal: true
+  name: ToTriangle(Int32, Int32, Int32, Int32)
+  nameWithType: Query2.ToTriangle(Int32, Int32, Int32, Int32)
+  fullName: g3.Query2.ToTriangle(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.Query2.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ToTriangle
+    nameWithType: Query2.ToTriangle
+    fullName: g3.Query2.ToTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Query2.ToTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ToTriangle
+    nameWithType: Query2.ToTriangle
+    fullName: g3.Query2.ToTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Query2.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2
+  isExternal: true
+  name: ToTriangle(Vector2d, Int32, Int32, Int32)
+  nameWithType: Query2.ToTriangle(Vector2d, Int32, Int32, Int32)
+  fullName: g3.Query2.ToTriangle(g3.Vector2d, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.Query2.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+    name: ToTriangle
+    nameWithType: Query2.ToTriangle
+    fullName: g3.Query2.ToTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Query2.ToTriangle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+    name: ToTriangle
+    nameWithType: Query2.ToTriangle
+    fullName: g3.Query2.ToTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Query2d.ToCircumcircle*
+  commentId: Overload:g3.Query2d.ToCircumcircle
+  name: ToCircumcircle
+  nameWithType: Query2d.ToCircumcircle
+  fullName: g3.Query2d.ToCircumcircle
+- uid: g3.Query2.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2
+  isExternal: true
+  name: ToCircumcircle(Int32, Int32, Int32, Int32)
+  nameWithType: Query2.ToCircumcircle(Int32, Int32, Int32, Int32)
+  fullName: g3.Query2.ToCircumcircle(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.Query2.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ToCircumcircle
+    nameWithType: Query2.ToCircumcircle
+    fullName: g3.Query2.ToCircumcircle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Query2.ToCircumcircle(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: ToCircumcircle
+    nameWithType: Query2.ToCircumcircle
+    fullName: g3.Query2.ToCircumcircle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Query2.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Query2.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+  parent: g3.Query2
+  isExternal: true
+  name: ToCircumcircle(Vector2d, Int32, Int32, Int32)
+  nameWithType: Query2.ToCircumcircle(Vector2d, Int32, Int32, Int32)
+  fullName: g3.Query2.ToCircumcircle(g3.Vector2d, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.Query2.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+    name: ToCircumcircle
+    nameWithType: Query2.ToCircumcircle
+    fullName: g3.Query2.ToCircumcircle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.Query2.ToCircumcircle(g3.Vector2d@,System.Int32,System.Int32,System.Int32)
+    name: ToCircumcircle
+    nameWithType: Query2.ToCircumcircle
+    fullName: g3.Query2.ToCircumcircle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Query2d.Dot*
+  commentId: Overload:g3.Query2d.Dot
+  name: Dot
+  nameWithType: Query2d.Dot
+  fullName: g3.Query2d.Dot
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Query2d.Det3*
+  commentId: Overload:g3.Query2d.Det3
+  name: Det3
+  nameWithType: Query2d.Det3
+  fullName: g3.Query2d.Det3

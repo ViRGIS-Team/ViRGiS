@@ -1,0 +1,2893 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DGraph
+  commentId: T:g3.DGraph
+  id: DGraph
+  parent: g3
+  children:
+  - g3.DGraph.#ctor
+  - g3.DGraph.add_edge(System.Int32,System.Int32,System.Int32)
+  - g3.DGraph.AllocateEdgeGroup
+  - g3.DGraph.append_new_split_vertex(System.Int32,System.Int32)
+  - g3.DGraph.append_vertex_internal
+  - g3.DGraph.AppendEdge(g3.Index2i,System.Int32)
+  - g3.DGraph.AppendEdge(System.Int32,System.Int32,System.Int32)
+  - g3.DGraph.CheckValidity(g3.DGraph.FailMode)
+  - g3.DGraph.CollapseEdge(System.Int32,System.Int32,g3.DGraph.EdgeCollapseInfo@)
+  - g3.DGraph.debug_check_is_edge(System.Int32)
+  - g3.DGraph.debug_check_is_vertex(System.Int32)
+  - g3.DGraph.DuplicateEdgeID
+  - g3.DGraph.edge_has_v(System.Int32,System.Int32)
+  - g3.DGraph.edge_other_v(System.Int32,System.Int32)
+  - g3.DGraph.EdgeCount
+  - g3.DGraph.EdgeIndices
+  - g3.DGraph.edges
+  - g3.DGraph.Edges
+  - g3.DGraph.edges_refcount
+  - g3.DGraph.FindEdge(System.Int32,System.Int32)
+  - g3.DGraph.GetEdge(System.Int32)
+  - g3.DGraph.GetEdgeGroup(System.Int32)
+  - g3.DGraph.GetEdgeV(System.Int32)
+  - g3.DGraph.GetMaxVtxEdgeCount
+  - g3.DGraph.GetVtxEdgeCount(System.Int32)
+  - g3.DGraph.GetVtxEdges(System.Int32)
+  - g3.DGraph.InvalidEdge3
+  - g3.DGraph.InvalidEdgeV
+  - g3.DGraph.InvalidID
+  - g3.DGraph.IsBoundaryVertex(System.Int32)
+  - g3.DGraph.IsCompact
+  - g3.DGraph.IsCompactV
+  - g3.DGraph.IsEdge(System.Int32)
+  - g3.DGraph.IsJunctionVertex(System.Int32)
+  - g3.DGraph.IsRegularVertex(System.Int32)
+  - g3.DGraph.IsVertex(System.Int32)
+  - g3.DGraph.max_group_id
+  - g3.DGraph.MaxEdgeID
+  - g3.DGraph.MaxGroupID
+  - g3.DGraph.MaxVertexID
+  - g3.DGraph.RemoveEdge(System.Int32,System.Boolean)
+  - g3.DGraph.RemoveVertex(System.Int32,System.Boolean)
+  - g3.DGraph.replace_edge_vertex(System.Int32,System.Int32,System.Int32)
+  - g3.DGraph.SetEdgeGroup(System.Int32,System.Int32)
+  - g3.DGraph.shape_timestamp
+  - g3.DGraph.ShapeTimestamp
+  - g3.DGraph.SplitEdge(System.Int32,g3.DGraph.EdgeSplitInfo@)
+  - g3.DGraph.SplitEdge(System.Int32,System.Int32,g3.DGraph.EdgeSplitInfo@)
+  - g3.DGraph.subclass_validity_checks(System.Action{System.Boolean})
+  - g3.DGraph.timestamp
+  - g3.DGraph.Timestamp
+  - g3.DGraph.updateTimeStamp(System.Boolean)
+  - g3.DGraph.vertex_edges
+  - g3.DGraph.VertexCount
+  - g3.DGraph.VertexIndices
+  - g3.DGraph.vertices_refcount
+  - g3.DGraph.VtxEdgesItr(System.Int32)
+  - g3.DGraph.VtxVerticesItr(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: DGraph
+  nameWithType: DGraph
+  fullName: g3.DGraph
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DGraph
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nBase class for Arbitrary-Topology Graphs. Similar structure to topology parts of DMesh3.\nEach vertex can be connected to an arbitrary number of edges.\nEach edge can have an integer GroupID.\nSee DGraph2 and DGraph3 for 3d implementations.\nUse DGraphN if you would like a topology-only graph.\nYou cannot instantiate DGraph directly.\n"
+  example: []
+  syntax:
+    content: public abstract class DGraph
+    content.vb: Public MustInherit Class DGraph
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - g3.DGraph2
+  - g3.DGraph3
+  - g3.DGraphN
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: g3.DGraph.InvalidID
+  commentId: F:g3.DGraph.InvalidID
+  id: InvalidID
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: InvalidID
+  nameWithType: DGraph.InvalidID
+  fullName: g3.DGraph.InvalidID
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InvalidID
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public const int InvalidID = -1
+    return:
+      type: System.Int32
+    content.vb: Public Const InvalidID As Integer = -1
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: g3.DGraph.DuplicateEdgeID
+  commentId: F:g3.DGraph.DuplicateEdgeID
+  id: DuplicateEdgeID
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: DuplicateEdgeID
+  nameWithType: DGraph.DuplicateEdgeID
+  fullName: g3.DGraph.DuplicateEdgeID
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DuplicateEdgeID
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public const int DuplicateEdgeID = -2
+    return:
+      type: System.Int32
+    content.vb: Public Const DuplicateEdgeID As Integer = -2
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: g3.DGraph.InvalidEdgeV
+  commentId: F:g3.DGraph.InvalidEdgeV
+  id: InvalidEdgeV
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: InvalidEdgeV
+  nameWithType: DGraph.InvalidEdgeV
+  fullName: g3.DGraph.InvalidEdgeV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InvalidEdgeV
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Index2i InvalidEdgeV
+    return:
+      type: g3.Index2i
+    content.vb: Public Shared ReadOnly InvalidEdgeV As Index2i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.DGraph.InvalidEdge3
+  commentId: F:g3.DGraph.InvalidEdge3
+  id: InvalidEdge3
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: InvalidEdge3
+  nameWithType: DGraph.InvalidEdge3
+  fullName: g3.DGraph.InvalidEdge3
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InvalidEdge3
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Index3i InvalidEdge3
+    return:
+      type: g3.Index3i
+    content.vb: Public Shared ReadOnly InvalidEdge3 As Index3i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.DGraph.vertices_refcount
+  commentId: F:g3.DGraph.vertices_refcount
+  id: vertices_refcount
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: vertices_refcount
+  nameWithType: DGraph.vertices_refcount
+  fullName: g3.DGraph.vertices_refcount
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertices_refcount
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected RefCountVector vertices_refcount
+    return:
+      type: g3.RefCountVector
+    content.vb: Protected vertices_refcount As RefCountVector
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.vertex_edges
+  commentId: F:g3.DGraph.vertex_edges
+  id: vertex_edges
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: vertex_edges
+  nameWithType: DGraph.vertex_edges
+  fullName: g3.DGraph.vertex_edges
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertex_edges
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected DVector<List<int>> vertex_edges
+    return:
+      type: g3.DVector{System.Collections.Generic.List{System.Int32}}
+    content.vb: Protected vertex_edges As DVector(Of List(Of Integer))
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.edges_refcount
+  commentId: F:g3.DGraph.edges_refcount
+  id: edges_refcount
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: edges_refcount
+  nameWithType: DGraph.edges_refcount
+  fullName: g3.DGraph.edges_refcount
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: edges_refcount
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected RefCountVector edges_refcount
+    return:
+      type: g3.RefCountVector
+    content.vb: Protected edges_refcount As RefCountVector
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.edges
+  commentId: F:g3.DGraph.edges
+  id: edges
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: edges
+  nameWithType: DGraph.edges
+  fullName: g3.DGraph.edges
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: edges
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected DVector<int> edges
+    return:
+      type: g3.DVector{System.Int32}
+    content.vb: Protected edges As DVector(Of Integer)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.timestamp
+  commentId: F:g3.DGraph.timestamp
+  id: timestamp
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: timestamp
+  nameWithType: DGraph.timestamp
+  fullName: g3.DGraph.timestamp
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: timestamp
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int timestamp
+    return:
+      type: System.Int32
+    content.vb: Protected timestamp As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.shape_timestamp
+  commentId: F:g3.DGraph.shape_timestamp
+  id: shape_timestamp
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: shape_timestamp
+  nameWithType: DGraph.shape_timestamp
+  fullName: g3.DGraph.shape_timestamp
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: shape_timestamp
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int shape_timestamp
+    return:
+      type: System.Int32
+    content.vb: Protected shape_timestamp As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.max_group_id
+  commentId: F:g3.DGraph.max_group_id
+  id: max_group_id
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: max_group_id
+  nameWithType: DGraph.max_group_id
+  fullName: g3.DGraph.max_group_id
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: max_group_id
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int max_group_id
+    return:
+      type: System.Int32
+    content.vb: Protected max_group_id As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.#ctor
+  commentId: M:g3.DGraph.#ctor
+  id: '#ctor'
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: DGraph()
+  nameWithType: DGraph.DGraph()
+  fullName: g3.DGraph.DGraph()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DGraph()
+    content.vb: Public Sub New
+  overload: g3.DGraph.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.updateTimeStamp(System.Boolean)
+  commentId: M:g3.DGraph.updateTimeStamp(System.Boolean)
+  id: updateTimeStamp(System.Boolean)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: updateTimeStamp(Boolean)
+  nameWithType: DGraph.updateTimeStamp(Boolean)
+  fullName: g3.DGraph.updateTimeStamp(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: updateTimeStamp
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected void updateTimeStamp(bool bShapeChange)
+    parameters:
+    - id: bShapeChange
+      type: System.Boolean
+    content.vb: Protected Sub updateTimeStamp(bShapeChange As Boolean)
+  overload: g3.DGraph.updateTimeStamp*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.Timestamp
+  commentId: P:g3.DGraph.Timestamp
+  id: Timestamp
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: DGraph.Timestamp
+  fullName: g3.DGraph.Timestamp
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Timestamp
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Timestamp { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Timestamp As Integer
+  overload: g3.DGraph.Timestamp*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.ShapeTimestamp
+  commentId: P:g3.DGraph.ShapeTimestamp
+  id: ShapeTimestamp
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: ShapeTimestamp
+  nameWithType: DGraph.ShapeTimestamp
+  fullName: g3.DGraph.ShapeTimestamp
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ShapeTimestamp
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int ShapeTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ShapeTimestamp As Integer
+  overload: g3.DGraph.ShapeTimestamp*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.VertexCount
+  commentId: P:g3.DGraph.VertexCount
+  id: VertexCount
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: VertexCount
+  nameWithType: DGraph.VertexCount
+  fullName: g3.DGraph.VertexCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexCount
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int VertexCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VertexCount As Integer
+  overload: g3.DGraph.VertexCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.EdgeCount
+  commentId: P:g3.DGraph.EdgeCount
+  id: EdgeCount
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: EdgeCount
+  nameWithType: DGraph.EdgeCount
+  fullName: g3.DGraph.EdgeCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeCount
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 68
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int EdgeCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property EdgeCount As Integer
+  overload: g3.DGraph.EdgeCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.MaxVertexID
+  commentId: P:g3.DGraph.MaxVertexID
+  id: MaxVertexID
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: MaxVertexID
+  nameWithType: DGraph.MaxVertexID
+  fullName: g3.DGraph.MaxVertexID
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxVertexID
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 74
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MaxVertexID { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxVertexID As Integer
+  overload: g3.DGraph.MaxVertexID*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.MaxEdgeID
+  commentId: P:g3.DGraph.MaxEdgeID
+  id: MaxEdgeID
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: MaxEdgeID
+  nameWithType: DGraph.MaxEdgeID
+  fullName: g3.DGraph.MaxEdgeID
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxEdgeID
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 77
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MaxEdgeID { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxEdgeID As Integer
+  overload: g3.DGraph.MaxEdgeID*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.MaxGroupID
+  commentId: P:g3.DGraph.MaxGroupID
+  id: MaxGroupID
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: MaxGroupID
+  nameWithType: DGraph.MaxGroupID
+  fullName: g3.DGraph.MaxGroupID
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxGroupID
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 80
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int MaxGroupID { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxGroupID As Integer
+  overload: g3.DGraph.MaxGroupID*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.IsVertex(System.Int32)
+  commentId: M:g3.DGraph.IsVertex(System.Int32)
+  id: IsVertex(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsVertex(Int32)
+  nameWithType: DGraph.IsVertex(Int32)
+  fullName: g3.DGraph.IsVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsVertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 85
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsVertex(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsVertex(vID As Integer) As Boolean
+  overload: g3.DGraph.IsVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.IsEdge(System.Int32)
+  commentId: M:g3.DGraph.IsEdge(System.Int32)
+  id: IsEdge(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsEdge(Int32)
+  nameWithType: DGraph.IsEdge(Int32)
+  fullName: g3.DGraph.IsEdge(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsEdge(int eID)
+    parameters:
+    - id: eID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsEdge(eID As Integer) As Boolean
+  overload: g3.DGraph.IsEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.GetVtxEdges(System.Int32)
+  commentId: M:g3.DGraph.GetVtxEdges(System.Int32)
+  id: GetVtxEdges(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: GetVtxEdges(Int32)
+  nameWithType: DGraph.GetVtxEdges(Int32)
+  fullName: g3.DGraph.GetVtxEdges(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVtxEdges
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 99
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ReadOnlyCollection<int> GetVtxEdges(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Collections.ObjectModel.ReadOnlyCollection{System.Int32}
+    content.vb: Public Function GetVtxEdges(vID As Integer) As ReadOnlyCollection(Of Integer)
+  overload: g3.DGraph.GetVtxEdges*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.GetVtxEdgeCount(System.Int32)
+  commentId: M:g3.DGraph.GetVtxEdgeCount(System.Int32)
+  id: GetVtxEdgeCount(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: GetVtxEdgeCount(Int32)
+  nameWithType: DGraph.GetVtxEdgeCount(Int32)
+  fullName: g3.DGraph.GetVtxEdgeCount(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVtxEdgeCount
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 105
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetVtxEdgeCount(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function GetVtxEdgeCount(vID As Integer) As Integer
+  overload: g3.DGraph.GetVtxEdgeCount*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.GetMaxVtxEdgeCount
+  commentId: M:g3.DGraph.GetMaxVtxEdgeCount
+  id: GetMaxVtxEdgeCount
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: GetMaxVtxEdgeCount()
+  nameWithType: DGraph.GetMaxVtxEdgeCount()
+  fullName: g3.DGraph.GetMaxVtxEdgeCount()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetMaxVtxEdgeCount
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 112
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetMaxVtxEdgeCount()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetMaxVtxEdgeCount As Integer
+  overload: g3.DGraph.GetMaxVtxEdgeCount*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.GetEdgeGroup(System.Int32)
+  commentId: M:g3.DGraph.GetEdgeGroup(System.Int32)
+  id: GetEdgeGroup(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: GetEdgeGroup(Int32)
+  nameWithType: DGraph.GetEdgeGroup(Int32)
+  fullName: g3.DGraph.GetEdgeGroup(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEdgeGroup
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 124
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetEdgeGroup(int eid)
+    parameters:
+    - id: eid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function GetEdgeGroup(eid As Integer) As Integer
+  overload: g3.DGraph.GetEdgeGroup*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.SetEdgeGroup(System.Int32,System.Int32)
+  commentId: M:g3.DGraph.SetEdgeGroup(System.Int32,System.Int32)
+  id: SetEdgeGroup(System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: SetEdgeGroup(Int32, Int32)
+  nameWithType: DGraph.SetEdgeGroup(Int32, Int32)
+  fullName: g3.DGraph.SetEdgeGroup(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetEdgeGroup
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 129
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetEdgeGroup(int eid, int group_id)
+    parameters:
+    - id: eid
+      type: System.Int32
+    - id: group_id
+      type: System.Int32
+    content.vb: Public Sub SetEdgeGroup(eid As Integer, group_id As Integer)
+  overload: g3.DGraph.SetEdgeGroup*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.AllocateEdgeGroup
+  commentId: M:g3.DGraph.AllocateEdgeGroup
+  id: AllocateEdgeGroup
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: AllocateEdgeGroup()
+  nameWithType: DGraph.AllocateEdgeGroup()
+  fullName: g3.DGraph.AllocateEdgeGroup()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllocateEdgeGroup
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 139
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AllocateEdgeGroup()
+    return:
+      type: System.Int32
+    content.vb: Public Function AllocateEdgeGroup As Integer
+  overload: g3.DGraph.AllocateEdgeGroup*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.GetEdgeV(System.Int32)
+  commentId: M:g3.DGraph.GetEdgeV(System.Int32)
+  id: GetEdgeV(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: GetEdgeV(Int32)
+  nameWithType: DGraph.GetEdgeV(Int32)
+  fullName: g3.DGraph.GetEdgeV(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEdgeV
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 146
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index2i GetEdgeV(int eID)
+    parameters:
+    - id: eID
+      type: System.Int32
+    return:
+      type: g3.Index2i
+    content.vb: Public Function GetEdgeV(eID As Integer) As Index2i
+  overload: g3.DGraph.GetEdgeV*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.GetEdge(System.Int32)
+  commentId: M:g3.DGraph.GetEdge(System.Int32)
+  id: GetEdge(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: GetEdge(Int32)
+  nameWithType: DGraph.GetEdge(Int32)
+  fullName: g3.DGraph.GetEdge(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 153
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Index3i GetEdge(int eID)
+    parameters:
+    - id: eID
+      type: System.Int32
+    return:
+      type: g3.Index3i
+    content.vb: Public Function GetEdge(eID As Integer) As Index3i
+  overload: g3.DGraph.GetEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.append_vertex_internal
+  commentId: M:g3.DGraph.append_vertex_internal
+  id: append_vertex_internal
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: append_vertex_internal()
+  nameWithType: DGraph.append_vertex_internal()
+  fullName: g3.DGraph.append_vertex_internal()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: append_vertex_internal
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 163
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int append_vertex_internal()
+    return:
+      type: System.Int32
+    content.vb: Protected Function append_vertex_internal As Integer
+  overload: g3.DGraph.append_vertex_internal*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.AppendEdge(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DGraph.AppendEdge(System.Int32,System.Int32,System.Int32)
+  id: AppendEdge(System.Int32,System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: AppendEdge(Int32, Int32, Int32)
+  nameWithType: DGraph.AppendEdge(Int32, Int32, Int32)
+  fullName: g3.DGraph.AppendEdge(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 173
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendEdge(int v0, int v1, int gid = -1)
+    parameters:
+    - id: v0
+      type: System.Int32
+    - id: v1
+      type: System.Int32
+    - id: gid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendEdge(v0 As Integer, v1 As Integer, gid As Integer = -1) As Integer
+  overload: g3.DGraph.AppendEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.AppendEdge(g3.Index2i,System.Int32)
+  commentId: M:g3.DGraph.AppendEdge(g3.Index2i,System.Int32)
+  id: AppendEdge(g3.Index2i,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: AppendEdge(Index2i, Int32)
+  nameWithType: DGraph.AppendEdge(Index2i, Int32)
+  fullName: g3.DGraph.AppendEdge(g3.Index2i, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 177
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendEdge(Index2i ev, int gid = -1)
+    parameters:
+    - id: ev
+      type: g3.Index2i
+    - id: gid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendEdge(ev As Index2i, gid As Integer = -1) As Integer
+  overload: g3.DGraph.AppendEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.add_edge(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DGraph.add_edge(System.Int32,System.Int32,System.Int32)
+  id: add_edge(System.Int32,System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: add_edge(Int32, Int32, Int32)
+  nameWithType: DGraph.add_edge(Int32, Int32, Int32)
+  fullName: g3.DGraph.add_edge(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: add_edge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 203
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int add_edge(int a, int b, int gid)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    - id: gid
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Protected Function add_edge(a As Integer, b As Integer, gid As Integer) As Integer
+  overload: g3.DGraph.add_edge*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.VertexIndices
+  commentId: M:g3.DGraph.VertexIndices
+  id: VertexIndices
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: VertexIndices()
+  nameWithType: DGraph.VertexIndices()
+  fullName: g3.DGraph.VertexIndices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexIndices
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 224
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> VertexIndices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function VertexIndices As IEnumerable(Of Integer)
+  overload: g3.DGraph.VertexIndices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.EdgeIndices
+  commentId: M:g3.DGraph.EdgeIndices
+  id: EdgeIndices
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: EdgeIndices()
+  nameWithType: DGraph.EdgeIndices()
+  fullName: g3.DGraph.EdgeIndices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeIndices
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 229
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> EdgeIndices()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function EdgeIndices As IEnumerable(Of Integer)
+  overload: g3.DGraph.EdgeIndices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.Edges
+  commentId: M:g3.DGraph.Edges
+  id: Edges
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: Edges()
+  nameWithType: DGraph.Edges()
+  fullName: g3.DGraph.Edges()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Edges
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 239
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Index3i> Edges()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Index3i}
+    content.vb: Public Function Edges As IEnumerable(Of Index3i)
+  overload: g3.DGraph.Edges*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.VtxVerticesItr(System.Int32)
+  commentId: M:g3.DGraph.VtxVerticesItr(System.Int32)
+  id: VtxVerticesItr(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: VtxVerticesItr(Int32)
+  nameWithType: DGraph.VtxVerticesItr(Int32)
+  fullName: g3.DGraph.VtxVerticesItr(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VtxVerticesItr
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 248
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> VtxVerticesItr(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function VtxVerticesItr(vID As Integer) As IEnumerable(Of Integer)
+  overload: g3.DGraph.VtxVerticesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.VtxEdgesItr(System.Int32)
+  commentId: M:g3.DGraph.VtxEdgesItr(System.Int32)
+  id: VtxEdgesItr(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: VtxEdgesItr(Int32)
+  nameWithType: DGraph.VtxEdgesItr(Int32)
+  fullName: g3.DGraph.VtxEdgesItr(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VtxEdgesItr
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 259
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> VtxEdgesItr(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Function VtxEdgesItr(vID As Integer) As IEnumerable(Of Integer)
+  overload: g3.DGraph.VtxEdgesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.FindEdge(System.Int32,System.Int32)
+  commentId: M:g3.DGraph.FindEdge(System.Int32,System.Int32)
+  id: FindEdge(System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: FindEdge(Int32, Int32)
+  nameWithType: DGraph.FindEdge(Int32, Int32)
+  fullName: g3.DGraph.FindEdge(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 270
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int FindEdge(int vA, int vB)
+    parameters:
+    - id: vA
+      type: System.Int32
+    - id: vB
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function FindEdge(vA As Integer, vB As Integer) As Integer
+  overload: g3.DGraph.FindEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.RemoveEdge(System.Int32,System.Boolean)
+  commentId: M:g3.DGraph.RemoveEdge(System.Int32,System.Boolean)
+  id: RemoveEdge(System.Int32,System.Boolean)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: RemoveEdge(Int32, Boolean)
+  nameWithType: DGraph.RemoveEdge(Int32, Boolean)
+  fullName: g3.DGraph.RemoveEdge(System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 290
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshResult RemoveEdge(int eID, bool bRemoveIsolatedVertices)
+    parameters:
+    - id: eID
+      type: System.Int32
+    - id: bRemoveIsolatedVertices
+      type: System.Boolean
+    return:
+      type: g3.MeshResult
+    content.vb: Public Function RemoveEdge(eID As Integer, bRemoveIsolatedVertices As Boolean) As MeshResult
+  overload: g3.DGraph.RemoveEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.RemoveVertex(System.Int32,System.Boolean)
+  commentId: M:g3.DGraph.RemoveVertex(System.Int32,System.Boolean)
+  id: RemoveVertex(System.Int32,System.Boolean)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: RemoveVertex(Int32, Boolean)
+  nameWithType: DGraph.RemoveVertex(Int32, Boolean)
+  fullName: g3.DGraph.RemoveVertex(System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveVertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 323
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshResult RemoveVertex(int vid, bool bRemoveIsolatedVertices)
+    parameters:
+    - id: vid
+      type: System.Int32
+    - id: bRemoveIsolatedVertices
+      type: System.Boolean
+    return:
+      type: g3.MeshResult
+    content.vb: Public Function RemoveVertex(vid As Integer, bRemoveIsolatedVertices As Boolean) As MeshResult
+  overload: g3.DGraph.RemoveVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.SplitEdge(System.Int32,System.Int32,g3.DGraph.EdgeSplitInfo@)
+  commentId: M:g3.DGraph.SplitEdge(System.Int32,System.Int32,g3.DGraph.EdgeSplitInfo@)
+  id: SplitEdge(System.Int32,System.Int32,g3.DGraph.EdgeSplitInfo@)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: SplitEdge(Int32, Int32, out DGraph.EdgeSplitInfo)
+  nameWithType: DGraph.SplitEdge(Int32, Int32, out DGraph.EdgeSplitInfo)
+  fullName: g3.DGraph.SplitEdge(System.Int32, System.Int32, out g3.DGraph.EdgeSplitInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SplitEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 343
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshResult SplitEdge(int vA, int vB, out DGraph.EdgeSplitInfo split)
+    parameters:
+    - id: vA
+      type: System.Int32
+    - id: vB
+      type: System.Int32
+    - id: split
+      type: g3.DGraph.EdgeSplitInfo
+    return:
+      type: g3.MeshResult
+    content.vb: Public Function SplitEdge(vA As Integer, vB As Integer, ByRef split As DGraph.EdgeSplitInfo) As MeshResult
+  overload: g3.DGraph.SplitEdge*
+  nameWithType.vb: DGraph.SplitEdge(Int32, Int32, ByRef DGraph.EdgeSplitInfo)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DGraph.SplitEdge(System.Int32, System.Int32, ByRef g3.DGraph.EdgeSplitInfo)
+  name.vb: SplitEdge(Int32, Int32, ByRef DGraph.EdgeSplitInfo)
+- uid: g3.DGraph.SplitEdge(System.Int32,g3.DGraph.EdgeSplitInfo@)
+  commentId: M:g3.DGraph.SplitEdge(System.Int32,g3.DGraph.EdgeSplitInfo@)
+  id: SplitEdge(System.Int32,g3.DGraph.EdgeSplitInfo@)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: SplitEdge(Int32, out DGraph.EdgeSplitInfo)
+  nameWithType: DGraph.SplitEdge(Int32, out DGraph.EdgeSplitInfo)
+  fullName: g3.DGraph.SplitEdge(System.Int32, out g3.DGraph.EdgeSplitInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SplitEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 352
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshResult SplitEdge(int eab, out DGraph.EdgeSplitInfo split)
+    parameters:
+    - id: eab
+      type: System.Int32
+    - id: split
+      type: g3.DGraph.EdgeSplitInfo
+    return:
+      type: g3.MeshResult
+    content.vb: Public Function SplitEdge(eab As Integer, ByRef split As DGraph.EdgeSplitInfo) As MeshResult
+  overload: g3.DGraph.SplitEdge*
+  nameWithType.vb: DGraph.SplitEdge(Int32, ByRef DGraph.EdgeSplitInfo)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DGraph.SplitEdge(System.Int32, ByRef g3.DGraph.EdgeSplitInfo)
+  name.vb: SplitEdge(Int32, ByRef DGraph.EdgeSplitInfo)
+- uid: g3.DGraph.append_new_split_vertex(System.Int32,System.Int32)
+  commentId: M:g3.DGraph.append_new_split_vertex(System.Int32,System.Int32)
+  id: append_new_split_vertex(System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: append_new_split_vertex(Int32, Int32)
+  nameWithType: DGraph.append_new_split_vertex(Int32, Int32)
+  fullName: g3.DGraph.append_new_split_vertex(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: append_new_split_vertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 384
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual int append_new_split_vertex(int a, int b)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Protected Overridable Function append_new_split_vertex(a As Integer, b As Integer) As Integer
+  overload: g3.DGraph.append_new_split_vertex*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.DGraph.CollapseEdge(System.Int32,System.Int32,g3.DGraph.EdgeCollapseInfo@)
+  commentId: M:g3.DGraph.CollapseEdge(System.Int32,System.Int32,g3.DGraph.EdgeCollapseInfo@)
+  id: CollapseEdge(System.Int32,System.Int32,g3.DGraph.EdgeCollapseInfo@)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: CollapseEdge(Int32, Int32, out DGraph.EdgeCollapseInfo)
+  nameWithType: DGraph.CollapseEdge(Int32, Int32, out DGraph.EdgeCollapseInfo)
+  fullName: g3.DGraph.CollapseEdge(System.Int32, System.Int32, out g3.DGraph.EdgeCollapseInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CollapseEdge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 400
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshResult CollapseEdge(int vKeep, int vRemove, out DGraph.EdgeCollapseInfo collapse)
+    parameters:
+    - id: vKeep
+      type: System.Int32
+    - id: vRemove
+      type: System.Int32
+    - id: collapse
+      type: g3.DGraph.EdgeCollapseInfo
+    return:
+      type: g3.MeshResult
+    content.vb: Public Function CollapseEdge(vKeep As Integer, vRemove As Integer, ByRef collapse As DGraph.EdgeCollapseInfo) As MeshResult
+  overload: g3.DGraph.CollapseEdge*
+  nameWithType.vb: DGraph.CollapseEdge(Int32, Int32, ByRef DGraph.EdgeCollapseInfo)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DGraph.CollapseEdge(System.Int32, System.Int32, ByRef g3.DGraph.EdgeCollapseInfo)
+  name.vb: CollapseEdge(Int32, Int32, ByRef DGraph.EdgeCollapseInfo)
+- uid: g3.DGraph.edge_has_v(System.Int32,System.Int32)
+  commentId: M:g3.DGraph.edge_has_v(System.Int32,System.Int32)
+  id: edge_has_v(System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: edge_has_v(Int32, Int32)
+  nameWithType: DGraph.edge_has_v(Int32, Int32)
+  fullName: g3.DGraph.edge_has_v(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: edge_has_v
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 474
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool edge_has_v(int eid, int vid)
+    parameters:
+    - id: eid
+      type: System.Int32
+    - id: vid
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function edge_has_v(eid As Integer, vid As Integer) As Boolean
+  overload: g3.DGraph.edge_has_v*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.edge_other_v(System.Int32,System.Int32)
+  commentId: M:g3.DGraph.edge_other_v(System.Int32,System.Int32)
+  id: edge_other_v(System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: edge_other_v(Int32, Int32)
+  nameWithType: DGraph.edge_other_v(Int32, Int32)
+  fullName: g3.DGraph.edge_other_v(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: edge_other_v
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 479
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int edge_other_v(int eID, int vID)
+    parameters:
+    - id: eID
+      type: System.Int32
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Protected Function edge_other_v(eID As Integer, vID As Integer) As Integer
+  overload: g3.DGraph.edge_other_v*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.replace_edge_vertex(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DGraph.replace_edge_vertex(System.Int32,System.Int32,System.Int32)
+  id: replace_edge_vertex(System.Int32,System.Int32,System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: replace_edge_vertex(Int32, Int32, Int32)
+  nameWithType: DGraph.replace_edge_vertex(Int32, Int32, Int32)
+  fullName: g3.DGraph.replace_edge_vertex(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: replace_edge_vertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 485
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int replace_edge_vertex(int eID, int vOld, int vNew)
+    parameters:
+    - id: eID
+      type: System.Int32
+    - id: vOld
+      type: System.Int32
+    - id: vNew
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Protected Function replace_edge_vertex(eID As Integer, vOld As Integer, vNew As Integer) As Integer
+  overload: g3.DGraph.replace_edge_vertex*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.DGraph.IsCompact
+  commentId: P:g3.DGraph.IsCompact
+  id: IsCompact
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsCompact
+  nameWithType: DGraph.IsCompact
+  fullName: g3.DGraph.IsCompact
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsCompact
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 508
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsCompact { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCompact As Boolean
+  overload: g3.DGraph.IsCompact*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.IsCompactV
+  commentId: P:g3.DGraph.IsCompactV
+  id: IsCompactV
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsCompactV
+  nameWithType: DGraph.IsCompactV
+  fullName: g3.DGraph.IsCompactV
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsCompactV
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 511
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsCompactV { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCompactV As Boolean
+  overload: g3.DGraph.IsCompactV*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DGraph.IsBoundaryVertex(System.Int32)
+  commentId: M:g3.DGraph.IsBoundaryVertex(System.Int32)
+  id: IsBoundaryVertex(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsBoundaryVertex(Int32)
+  nameWithType: DGraph.IsBoundaryVertex(Int32)
+  fullName: g3.DGraph.IsBoundaryVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBoundaryVertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 517
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsBoundaryVertex(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsBoundaryVertex(vID As Integer) As Boolean
+  overload: g3.DGraph.IsBoundaryVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.IsJunctionVertex(System.Int32)
+  commentId: M:g3.DGraph.IsJunctionVertex(System.Int32)
+  id: IsJunctionVertex(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsJunctionVertex(Int32)
+  nameWithType: DGraph.IsJunctionVertex(Int32)
+  fullName: g3.DGraph.IsJunctionVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsJunctionVertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 521
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsJunctionVertex(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsJunctionVertex(vID As Integer) As Boolean
+  overload: g3.DGraph.IsJunctionVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.IsRegularVertex(System.Int32)
+  commentId: M:g3.DGraph.IsRegularVertex(System.Int32)
+  id: IsRegularVertex(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: IsRegularVertex(Int32)
+  nameWithType: DGraph.IsRegularVertex(Int32)
+  fullName: g3.DGraph.IsRegularVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsRegularVertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 525
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsRegularVertex(int vID)
+    parameters:
+    - id: vID
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsRegularVertex(vID As Integer) As Boolean
+  overload: g3.DGraph.IsRegularVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.CheckValidity(g3.DGraph.FailMode)
+  commentId: M:g3.DGraph.CheckValidity(g3.DGraph.FailMode)
+  id: CheckValidity(g3.DGraph.FailMode)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: CheckValidity(DGraph.FailMode)
+  nameWithType: DGraph.CheckValidity(DGraph.FailMode)
+  fullName: g3.DGraph.CheckValidity(g3.DGraph.FailMode)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CheckValidity
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 539
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual bool CheckValidity(DGraph.FailMode eFailMode = DGraph.FailMode.Throw)
+    parameters:
+    - id: eFailMode
+      type: g3.DGraph.FailMode
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Function CheckValidity(eFailMode As DGraph.FailMode = DGraph.FailMode.Throw) As Boolean
+  overload: g3.DGraph.CheckValidity*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.DGraph.subclass_validity_checks(System.Action{System.Boolean})
+  commentId: M:g3.DGraph.subclass_validity_checks(System.Action{System.Boolean})
+  id: subclass_validity_checks(System.Action{System.Boolean})
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: subclass_validity_checks(Action<Boolean>)
+  nameWithType: DGraph.subclass_validity_checks(Action<Boolean>)
+  fullName: g3.DGraph.subclass_validity_checks(System.Action<System.Boolean>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: subclass_validity_checks
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 610
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected virtual void subclass_validity_checks(Action<bool> CheckOrFailF)
+    parameters:
+    - id: CheckOrFailF
+      type: System.Action{System.Boolean}
+    content.vb: Protected Overridable Sub subclass_validity_checks(CheckOrFailF As Action(Of Boolean))
+  overload: g3.DGraph.subclass_validity_checks*
+  nameWithType.vb: DGraph.subclass_validity_checks(Action(Of Boolean))
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+  fullName.vb: g3.DGraph.subclass_validity_checks(System.Action(Of System.Boolean))
+  name.vb: subclass_validity_checks(Action(Of Boolean))
+- uid: g3.DGraph.debug_check_is_vertex(System.Int32)
+  commentId: M:g3.DGraph.debug_check_is_vertex(System.Int32)
+  id: debug_check_is_vertex(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: debug_check_is_vertex(Int32)
+  nameWithType: DGraph.debug_check_is_vertex(Int32)
+  fullName: g3.DGraph.debug_check_is_vertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: debug_check_is_vertex
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 615
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      [Conditional("DEBUG")]
+
+      public void debug_check_is_vertex(int v)
+    parameters:
+    - id: v
+      type: System.Int32
+    content.vb: >-
+      <Conditional("DEBUG")>
+
+      Public Sub debug_check_is_vertex(v As Integer)
+  overload: g3.DGraph.debug_check_is_vertex*
+  attributes:
+  - type: System.Diagnostics.ConditionalAttribute
+    ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DEBUG
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph.debug_check_is_edge(System.Int32)
+  commentId: M:g3.DGraph.debug_check_is_edge(System.Int32)
+  id: debug_check_is_edge(System.Int32)
+  parent: g3.DGraph
+  langs:
+  - csharp
+  - vb
+  name: debug_check_is_edge(Int32)
+  nameWithType: DGraph.debug_check_is_edge(Int32)
+  fullName: g3.DGraph.debug_check_is_edge(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: debug_check_is_edge
+    path: ../Assets/geometry3Sharp/curve/DGraph.cs
+    startLine: 620
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      [Conditional("DEBUG")]
+
+      public void debug_check_is_edge(int e)
+    parameters:
+    - id: e
+      type: System.Int32
+    content.vb: >-
+      <Conditional("DEBUG")>
+
+      Public Sub debug_check_is_edge(e As Integer)
+  overload: g3.DGraph.debug_check_is_edge*
+  attributes:
+  - type: System.Diagnostics.ConditionalAttribute
+    ctor: System.Diagnostics.ConditionalAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DEBUG
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Index2i
+  commentId: T:g3.Index2i
+  parent: g3
+  name: Index2i
+  nameWithType: Index2i
+  fullName: g3.Index2i
+- uid: g3.Index3i
+  commentId: T:g3.Index3i
+  parent: g3
+  name: Index3i
+  nameWithType: Index3i
+  fullName: g3.Index3i
+- uid: g3.RefCountVector
+  commentId: T:g3.RefCountVector
+  parent: g3
+  name: RefCountVector
+  nameWithType: RefCountVector
+  fullName: g3.RefCountVector
+- uid: g3.DVector{System.Collections.Generic.List{System.Int32}}
+  commentId: T:g3.DVector{System.Collections.Generic.List{System.Int32}}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<List<Int32>>
+  nameWithType: DVector<List<Int32>>
+  fullName: g3.DVector<System.Collections.Generic.List<System.Int32>>
+  nameWithType.vb: DVector(Of List(Of Int32))
+  fullName.vb: g3.DVector(Of System.Collections.Generic.List(Of System.Int32))
+  name.vb: DVector(Of List(Of Int32))
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector`1
+  commentId: T:g3.DVector`1
+  parent: g3
+  name: DVector<T>
+  nameWithType: DVector<T>
+  fullName: g3.DVector<T>
+  nameWithType.vb: DVector(Of T)
+  fullName.vb: g3.DVector(Of T)
+  name.vb: DVector(Of T)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector{System.Int32}
+  commentId: T:g3.DVector{System.Int32}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Int32>
+  nameWithType: DVector<Int32>
+  fullName: g3.DVector<System.Int32>
+  nameWithType.vb: DVector(Of Int32)
+  fullName.vb: g3.DVector(Of System.Int32)
+  name.vb: DVector(Of Int32)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DGraph.#ctor*
+  commentId: Overload:g3.DGraph.#ctor
+  name: DGraph
+  nameWithType: DGraph.DGraph
+  fullName: g3.DGraph.DGraph
+- uid: g3.DGraph.updateTimeStamp*
+  commentId: Overload:g3.DGraph.updateTimeStamp
+  name: updateTimeStamp
+  nameWithType: DGraph.updateTimeStamp
+  fullName: g3.DGraph.updateTimeStamp
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.DGraph.Timestamp*
+  commentId: Overload:g3.DGraph.Timestamp
+  name: Timestamp
+  nameWithType: DGraph.Timestamp
+  fullName: g3.DGraph.Timestamp
+- uid: g3.DGraph.ShapeTimestamp*
+  commentId: Overload:g3.DGraph.ShapeTimestamp
+  name: ShapeTimestamp
+  nameWithType: DGraph.ShapeTimestamp
+  fullName: g3.DGraph.ShapeTimestamp
+- uid: g3.DGraph.VertexCount*
+  commentId: Overload:g3.DGraph.VertexCount
+  name: VertexCount
+  nameWithType: DGraph.VertexCount
+  fullName: g3.DGraph.VertexCount
+- uid: g3.DGraph.EdgeCount*
+  commentId: Overload:g3.DGraph.EdgeCount
+  name: EdgeCount
+  nameWithType: DGraph.EdgeCount
+  fullName: g3.DGraph.EdgeCount
+- uid: g3.DGraph.MaxVertexID*
+  commentId: Overload:g3.DGraph.MaxVertexID
+  name: MaxVertexID
+  nameWithType: DGraph.MaxVertexID
+  fullName: g3.DGraph.MaxVertexID
+- uid: g3.DGraph.MaxEdgeID*
+  commentId: Overload:g3.DGraph.MaxEdgeID
+  name: MaxEdgeID
+  nameWithType: DGraph.MaxEdgeID
+  fullName: g3.DGraph.MaxEdgeID
+- uid: g3.DGraph.MaxGroupID*
+  commentId: Overload:g3.DGraph.MaxGroupID
+  name: MaxGroupID
+  nameWithType: DGraph.MaxGroupID
+  fullName: g3.DGraph.MaxGroupID
+- uid: g3.DGraph.IsVertex*
+  commentId: Overload:g3.DGraph.IsVertex
+  name: IsVertex
+  nameWithType: DGraph.IsVertex
+  fullName: g3.DGraph.IsVertex
+- uid: g3.DGraph.IsEdge*
+  commentId: Overload:g3.DGraph.IsEdge
+  name: IsEdge
+  nameWithType: DGraph.IsEdge
+  fullName: g3.DGraph.IsEdge
+- uid: g3.DGraph.GetVtxEdges*
+  commentId: Overload:g3.DGraph.GetVtxEdges
+  name: GetVtxEdges
+  nameWithType: DGraph.GetVtxEdges
+  fullName: g3.DGraph.GetVtxEdges
+- uid: System.Collections.ObjectModel.ReadOnlyCollection{System.Int32}
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection{System.Int32}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ReadOnlyCollection`1
+  name: ReadOnlyCollection<Int32>
+  nameWithType: ReadOnlyCollection<Int32>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<System.Int32>
+  nameWithType.vb: ReadOnlyCollection(Of Int32)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of System.Int32)
+  name.vb: ReadOnlyCollection(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+- uid: g3.DGraph.GetVtxEdgeCount*
+  commentId: Overload:g3.DGraph.GetVtxEdgeCount
+  name: GetVtxEdgeCount
+  nameWithType: DGraph.GetVtxEdgeCount
+  fullName: g3.DGraph.GetVtxEdgeCount
+- uid: g3.DGraph.GetMaxVtxEdgeCount*
+  commentId: Overload:g3.DGraph.GetMaxVtxEdgeCount
+  name: GetMaxVtxEdgeCount
+  nameWithType: DGraph.GetMaxVtxEdgeCount
+  fullName: g3.DGraph.GetMaxVtxEdgeCount
+- uid: g3.DGraph.GetEdgeGroup*
+  commentId: Overload:g3.DGraph.GetEdgeGroup
+  name: GetEdgeGroup
+  nameWithType: DGraph.GetEdgeGroup
+  fullName: g3.DGraph.GetEdgeGroup
+- uid: g3.DGraph.SetEdgeGroup*
+  commentId: Overload:g3.DGraph.SetEdgeGroup
+  name: SetEdgeGroup
+  nameWithType: DGraph.SetEdgeGroup
+  fullName: g3.DGraph.SetEdgeGroup
+- uid: g3.DGraph.AllocateEdgeGroup*
+  commentId: Overload:g3.DGraph.AllocateEdgeGroup
+  name: AllocateEdgeGroup
+  nameWithType: DGraph.AllocateEdgeGroup
+  fullName: g3.DGraph.AllocateEdgeGroup
+- uid: g3.DGraph.GetEdgeV*
+  commentId: Overload:g3.DGraph.GetEdgeV
+  name: GetEdgeV
+  nameWithType: DGraph.GetEdgeV
+  fullName: g3.DGraph.GetEdgeV
+- uid: g3.DGraph.GetEdge*
+  commentId: Overload:g3.DGraph.GetEdge
+  name: GetEdge
+  nameWithType: DGraph.GetEdge
+  fullName: g3.DGraph.GetEdge
+- uid: g3.DGraph.append_vertex_internal*
+  commentId: Overload:g3.DGraph.append_vertex_internal
+  name: append_vertex_internal
+  nameWithType: DGraph.append_vertex_internal
+  fullName: g3.DGraph.append_vertex_internal
+- uid: g3.DGraph.AppendEdge*
+  commentId: Overload:g3.DGraph.AppendEdge
+  name: AppendEdge
+  nameWithType: DGraph.AppendEdge
+  fullName: g3.DGraph.AppendEdge
+- uid: g3.DGraph.add_edge*
+  commentId: Overload:g3.DGraph.add_edge
+  name: add_edge
+  nameWithType: DGraph.add_edge
+  fullName: g3.DGraph.add_edge
+- uid: g3.DGraph.VertexIndices*
+  commentId: Overload:g3.DGraph.VertexIndices
+  name: VertexIndices
+  nameWithType: DGraph.VertexIndices
+  fullName: g3.DGraph.VertexIndices
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.DGraph.EdgeIndices*
+  commentId: Overload:g3.DGraph.EdgeIndices
+  name: EdgeIndices
+  nameWithType: DGraph.EdgeIndices
+  fullName: g3.DGraph.EdgeIndices
+- uid: g3.DGraph.Edges*
+  commentId: Overload:g3.DGraph.Edges
+  name: Edges
+  nameWithType: DGraph.Edges
+  fullName: g3.DGraph.Edges
+- uid: System.Collections.Generic.IEnumerable{g3.Index3i}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Index3i}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Index3i>
+  nameWithType: IEnumerable<Index3i>
+  fullName: System.Collections.Generic.IEnumerable<g3.Index3i>
+  nameWithType.vb: IEnumerable(Of Index3i)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Index3i)
+  name.vb: IEnumerable(Of Index3i)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DGraph.VtxVerticesItr*
+  commentId: Overload:g3.DGraph.VtxVerticesItr
+  name: VtxVerticesItr
+  nameWithType: DGraph.VtxVerticesItr
+  fullName: g3.DGraph.VtxVerticesItr
+- uid: g3.DGraph.VtxEdgesItr*
+  commentId: Overload:g3.DGraph.VtxEdgesItr
+  name: VtxEdgesItr
+  nameWithType: DGraph.VtxEdgesItr
+  fullName: g3.DGraph.VtxEdgesItr
+- uid: g3.DGraph.FindEdge*
+  commentId: Overload:g3.DGraph.FindEdge
+  name: FindEdge
+  nameWithType: DGraph.FindEdge
+  fullName: g3.DGraph.FindEdge
+- uid: g3.DGraph.RemoveEdge*
+  commentId: Overload:g3.DGraph.RemoveEdge
+  name: RemoveEdge
+  nameWithType: DGraph.RemoveEdge
+  fullName: g3.DGraph.RemoveEdge
+- uid: g3.MeshResult
+  commentId: T:g3.MeshResult
+  parent: g3
+  name: MeshResult
+  nameWithType: MeshResult
+  fullName: g3.MeshResult
+- uid: g3.DGraph.RemoveVertex*
+  commentId: Overload:g3.DGraph.RemoveVertex
+  name: RemoveVertex
+  nameWithType: DGraph.RemoveVertex
+  fullName: g3.DGraph.RemoveVertex
+- uid: g3.DGraph.SplitEdge*
+  commentId: Overload:g3.DGraph.SplitEdge
+  name: SplitEdge
+  nameWithType: DGraph.SplitEdge
+  fullName: g3.DGraph.SplitEdge
+- uid: g3.DGraph.EdgeSplitInfo
+  commentId: T:g3.DGraph.EdgeSplitInfo
+  parent: g3
+  name: DGraph.EdgeSplitInfo
+  nameWithType: DGraph.EdgeSplitInfo
+  fullName: g3.DGraph.EdgeSplitInfo
+- uid: g3.DGraph.append_new_split_vertex*
+  commentId: Overload:g3.DGraph.append_new_split_vertex
+  name: append_new_split_vertex
+  nameWithType: DGraph.append_new_split_vertex
+  fullName: g3.DGraph.append_new_split_vertex
+- uid: g3.DGraph.CollapseEdge*
+  commentId: Overload:g3.DGraph.CollapseEdge
+  name: CollapseEdge
+  nameWithType: DGraph.CollapseEdge
+  fullName: g3.DGraph.CollapseEdge
+- uid: g3.DGraph.EdgeCollapseInfo
+  commentId: T:g3.DGraph.EdgeCollapseInfo
+  parent: g3
+  name: DGraph.EdgeCollapseInfo
+  nameWithType: DGraph.EdgeCollapseInfo
+  fullName: g3.DGraph.EdgeCollapseInfo
+- uid: g3.DGraph.edge_has_v*
+  commentId: Overload:g3.DGraph.edge_has_v
+  name: edge_has_v
+  nameWithType: DGraph.edge_has_v
+  fullName: g3.DGraph.edge_has_v
+- uid: g3.DGraph.edge_other_v*
+  commentId: Overload:g3.DGraph.edge_other_v
+  name: edge_other_v
+  nameWithType: DGraph.edge_other_v
+  fullName: g3.DGraph.edge_other_v
+- uid: g3.DGraph.replace_edge_vertex*
+  commentId: Overload:g3.DGraph.replace_edge_vertex
+  name: replace_edge_vertex
+  nameWithType: DGraph.replace_edge_vertex
+  fullName: g3.DGraph.replace_edge_vertex
+- uid: g3.DGraph.IsCompact*
+  commentId: Overload:g3.DGraph.IsCompact
+  name: IsCompact
+  nameWithType: DGraph.IsCompact
+  fullName: g3.DGraph.IsCompact
+- uid: g3.DGraph.IsCompactV*
+  commentId: Overload:g3.DGraph.IsCompactV
+  name: IsCompactV
+  nameWithType: DGraph.IsCompactV
+  fullName: g3.DGraph.IsCompactV
+- uid: g3.DGraph.IsBoundaryVertex*
+  commentId: Overload:g3.DGraph.IsBoundaryVertex
+  name: IsBoundaryVertex
+  nameWithType: DGraph.IsBoundaryVertex
+  fullName: g3.DGraph.IsBoundaryVertex
+- uid: g3.DGraph.IsJunctionVertex*
+  commentId: Overload:g3.DGraph.IsJunctionVertex
+  name: IsJunctionVertex
+  nameWithType: DGraph.IsJunctionVertex
+  fullName: g3.DGraph.IsJunctionVertex
+- uid: g3.DGraph.IsRegularVertex*
+  commentId: Overload:g3.DGraph.IsRegularVertex
+  name: IsRegularVertex
+  nameWithType: DGraph.IsRegularVertex
+  fullName: g3.DGraph.IsRegularVertex
+- uid: g3.DGraph.CheckValidity*
+  commentId: Overload:g3.DGraph.CheckValidity
+  name: CheckValidity
+  nameWithType: DGraph.CheckValidity
+  fullName: g3.DGraph.CheckValidity
+- uid: g3.DGraph.FailMode
+  commentId: T:g3.DGraph.FailMode
+  parent: g3
+  name: DGraph.FailMode
+  nameWithType: DGraph.FailMode
+  fullName: g3.DGraph.FailMode
+- uid: g3.DGraph.subclass_validity_checks*
+  commentId: Overload:g3.DGraph.subclass_validity_checks
+  name: subclass_validity_checks
+  nameWithType: DGraph.subclass_validity_checks
+  fullName: g3.DGraph.subclass_validity_checks
+- uid: System.Action{System.Boolean}
+  commentId: T:System.Action{System.Boolean}
+  parent: System
+  definition: System.Action`1
+  name: Action<Boolean>
+  nameWithType: Action<Boolean>
+  fullName: System.Action<System.Boolean>
+  nameWithType.vb: Action(Of Boolean)
+  fullName.vb: System.Action(Of System.Boolean)
+  name.vb: Action(Of Boolean)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DGraph.debug_check_is_vertex*
+  commentId: Overload:g3.DGraph.debug_check_is_vertex
+  name: debug_check_is_vertex
+  nameWithType: DGraph.debug_check_is_vertex
+  fullName: g3.DGraph.debug_check_is_vertex
+- uid: g3.DGraph.debug_check_is_edge*
+  commentId: Overload:g3.DGraph.debug_check_is_edge
+  name: debug_check_is_edge
+  nameWithType: DGraph.debug_check_is_edge
+  fullName: g3.DGraph.debug_check_is_edge

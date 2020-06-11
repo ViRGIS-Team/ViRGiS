@@ -1,0 +1,520 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshInsertPolygon
+  commentId: T:g3.MeshInsertPolygon
+  id: MeshInsertPolygon
+  parent: g3
+  children:
+  - g3.MeshInsertPolygon.HoleInserts
+  - g3.MeshInsertPolygon.Insert
+  - g3.MeshInsertPolygon.InsertedPolygonEdges
+  - g3.MeshInsertPolygon.InteriorTriangles
+  - g3.MeshInsertPolygon.Mesh
+  - g3.MeshInsertPolygon.OuterInsert
+  - g3.MeshInsertPolygon.Polygon
+  - g3.MeshInsertPolygon.SimplifyInsertion
+  langs:
+  - csharp
+  - vb
+  name: MeshInsertPolygon
+  nameWithType: MeshInsertPolygon
+  fullName: g3.MeshInsertPolygon
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshInsertPolygon
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInsert Polygon into Mesh. Assumption is that Mesh has 3D coordinates (u,v,0).\nThis is basically a helper/wrapper around MeshInsertUVPolyCurve.\nInserted edge set is avaliable as .InsertedPolygonEdges, and\ntriangles inside polygon as .InteriorTriangles\n"
+  example: []
+  syntax:
+    content: public class MeshInsertPolygon
+    content.vb: Public Class MeshInsertPolygon
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshInsertPolygon.Mesh
+  commentId: F:g3.MeshInsertPolygon.Mesh
+  id: Mesh
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshInsertPolygon.Mesh
+  fullName: g3.MeshInsertPolygon.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.Polygon
+  commentId: F:g3.MeshInsertPolygon.Polygon
+  id: Polygon
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: Polygon
+  nameWithType: MeshInsertPolygon.Polygon
+  fullName: g3.MeshInsertPolygon.Polygon
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Polygon
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public GeneralPolygon2d Polygon
+    return:
+      type: g3.GeneralPolygon2d
+    content.vb: Public Polygon As GeneralPolygon2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.SimplifyInsertion
+  commentId: F:g3.MeshInsertPolygon.SimplifyInsertion
+  id: SimplifyInsertion
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: SimplifyInsertion
+  nameWithType: MeshInsertPolygon.SimplifyInsertion
+  fullName: g3.MeshInsertPolygon.SimplifyInsertion
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SimplifyInsertion
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool SimplifyInsertion
+    return:
+      type: System.Boolean
+    content.vb: Public SimplifyInsertion As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.OuterInsert
+  commentId: F:g3.MeshInsertPolygon.OuterInsert
+  id: OuterInsert
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: OuterInsert
+  nameWithType: MeshInsertPolygon.OuterInsert
+  fullName: g3.MeshInsertPolygon.OuterInsert
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OuterInsert
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshInsertUVPolyCurve OuterInsert
+    return:
+      type: g3.MeshInsertUVPolyCurve
+    content.vb: Public OuterInsert As MeshInsertUVPolyCurve
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.HoleInserts
+  commentId: F:g3.MeshInsertPolygon.HoleInserts
+  id: HoleInserts
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: HoleInserts
+  nameWithType: MeshInsertPolygon.HoleInserts
+  fullName: g3.MeshInsertPolygon.HoleInserts
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HoleInserts
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<MeshInsertUVPolyCurve> HoleInserts
+    return:
+      type: System.Collections.Generic.List{g3.MeshInsertUVPolyCurve}
+    content.vb: Public HoleInserts As List(Of MeshInsertUVPolyCurve)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.InsertedPolygonEdges
+  commentId: F:g3.MeshInsertPolygon.InsertedPolygonEdges
+  id: InsertedPolygonEdges
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: InsertedPolygonEdges
+  nameWithType: MeshInsertPolygon.InsertedPolygonEdges
+  fullName: g3.MeshInsertPolygon.InsertedPolygonEdges
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertedPolygonEdges
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public HashSet<int> InsertedPolygonEdges
+    return:
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public InsertedPolygonEdges As HashSet(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.InteriorTriangles
+  commentId: F:g3.MeshInsertPolygon.InteriorTriangles
+  id: InteriorTriangles
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: InteriorTriangles
+  nameWithType: MeshInsertPolygon.InteriorTriangles
+  fullName: g3.MeshInsertPolygon.InteriorTriangles
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InteriorTriangles
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshFaceSelection InteriorTriangles
+    return:
+      type: g3.MeshFaceSelection
+    content.vb: Public InteriorTriangles As MeshFaceSelection
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshInsertPolygon.Insert
+  commentId: M:g3.MeshInsertPolygon.Insert
+  id: Insert
+  parent: g3.MeshInsertPolygon
+  langs:
+  - csharp
+  - vb
+  name: Insert()
+  nameWithType: MeshInsertPolygon.Insert()
+  fullName: g3.MeshInsertPolygon.Insert()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Insert
+    path: ../Assets/geometry3Sharp/mesh_ops/MeshInsertPolygon.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Insert()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Insert As Boolean
+  overload: g3.MeshInsertPolygon.Insert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.GeneralPolygon2d
+  commentId: T:g3.GeneralPolygon2d
+  parent: g3
+  name: GeneralPolygon2d
+  nameWithType: GeneralPolygon2d
+  fullName: g3.GeneralPolygon2d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshInsertUVPolyCurve
+  commentId: T:g3.MeshInsertUVPolyCurve
+  parent: g3
+  name: MeshInsertUVPolyCurve
+  nameWithType: MeshInsertUVPolyCurve
+  fullName: g3.MeshInsertUVPolyCurve
+- uid: System.Collections.Generic.List{g3.MeshInsertUVPolyCurve}
+  commentId: T:System.Collections.Generic.List{g3.MeshInsertUVPolyCurve}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<MeshInsertUVPolyCurve>
+  nameWithType: List<MeshInsertUVPolyCurve>
+  fullName: System.Collections.Generic.List<g3.MeshInsertUVPolyCurve>
+  nameWithType.vb: List(Of MeshInsertUVPolyCurve)
+  fullName.vb: System.Collections.Generic.List(Of g3.MeshInsertUVPolyCurve)
+  name.vb: List(Of MeshInsertUVPolyCurve)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.MeshInsertUVPolyCurve
+    name: MeshInsertUVPolyCurve
+    nameWithType: MeshInsertUVPolyCurve
+    fullName: g3.MeshInsertUVPolyCurve
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.MeshInsertUVPolyCurve
+    name: MeshInsertUVPolyCurve
+    nameWithType: MeshInsertUVPolyCurve
+    fullName: g3.MeshInsertUVPolyCurve
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Int32>
+  nameWithType: HashSet<Int32>
+  fullName: System.Collections.Generic.HashSet<System.Int32>
+  nameWithType.vb: HashSet(Of Int32)
+  fullName.vb: System.Collections.Generic.HashSet(Of System.Int32)
+  name.vb: HashSet(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshFaceSelection
+  commentId: T:g3.MeshFaceSelection
+  parent: g3
+  name: MeshFaceSelection
+  nameWithType: MeshFaceSelection
+  fullName: g3.MeshFaceSelection
+- uid: g3.MeshInsertPolygon.Insert*
+  commentId: Overload:g3.MeshInsertPolygon.Insert
+  name: Insert
+  nameWithType: MeshInsertPolygon.Insert
+  fullName: g3.MeshInsertPolygon.Insert

@@ -1,0 +1,796 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.SerializableVector3
+  commentId: T:Project.SerializableVector3
+  id: SerializableVector3
+  parent: Project
+  children:
+  - Project.SerializableVector3.#ctor
+  - Project.SerializableVector3.#ctor(System.Single,System.Single,System.Single)
+  - Project.SerializableVector3.magnitude
+  - Project.SerializableVector3.op_Implicit(Project.SerializableVector3)~UnityEngine.Vector3
+  - Project.SerializableVector3.op_Implicit(UnityEngine.Vector3)~Project.SerializableVector3
+  - Project.SerializableVector3.ToArray
+  - Project.SerializableVector3.ToString
+  - Project.SerializableVector3.Update(System.Collections.Generic.IList{System.Single})
+  - Project.SerializableVector3.x
+  - Project.SerializableVector3.y
+  - Project.SerializableVector3.z
+  langs:
+  - csharp
+  - vb
+  name: SerializableVector3
+  nameWithType: SerializableVector3
+  fullName: Project.SerializableVector3
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SerializableVector3
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 15
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nSince unity doesn&apos;t flag the Vector3 as serializable, we\nneed to create our own version. This one will automatically convert\nbetween Vector3 and SerializableVector3\n"
+  example: []
+  syntax:
+    content: >-
+      [Serializable]
+
+      public class SerializableVector3 : Serializable
+    content.vb: >-
+      <Serializable>
+
+      Public Class SerializableVector3
+          Inherits Serializable
+  inheritance:
+  - System.Object
+  - Project.Serializable
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.SerializableVector3.x
+  commentId: F:Project.SerializableVector3.x
+  id: x
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: x
+  nameWithType: SerializableVector3.x
+  fullName: Project.SerializableVector3.x
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: x
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 21
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nx component\n"
+  example: []
+  syntax:
+    content: public float x
+    return:
+      type: System.Single
+    content.vb: Public x As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableVector3.y
+  commentId: F:Project.SerializableVector3.y
+  id: y
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: y
+  nameWithType: SerializableVector3.y
+  fullName: Project.SerializableVector3.y
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: y
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 26
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\ny component\n"
+  example: []
+  syntax:
+    content: public float y
+    return:
+      type: System.Single
+    content.vb: Public y As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableVector3.z
+  commentId: F:Project.SerializableVector3.z
+  id: z
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: z
+  nameWithType: SerializableVector3.z
+  fullName: Project.SerializableVector3.z
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: z
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 31
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nz component\n"
+  example: []
+  syntax:
+    content: public float z
+    return:
+      type: System.Single
+    content.vb: Public z As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableVector3.#ctor(System.Single,System.Single,System.Single)
+  commentId: M:Project.SerializableVector3.#ctor(System.Single,System.Single,System.Single)
+  id: '#ctor(System.Single,System.Single,System.Single)'
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: SerializableVector3(Single, Single, Single)
+  nameWithType: SerializableVector3.SerializableVector3(Single, Single, Single)
+  fullName: Project.SerializableVector3.SerializableVector3(System.Single, System.Single, System.Single)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 39
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nConstructor\n"
+  example: []
+  syntax:
+    content: public SerializableVector3(float rX, float rY, float rZ)
+    parameters:
+    - id: rX
+      type: System.Single
+      description: ''
+    - id: rY
+      type: System.Single
+      description: ''
+    - id: rZ
+      type: System.Single
+      description: ''
+    content.vb: Public Sub New(rX As Single, rY As Single, rZ As Single)
+  overload: Project.SerializableVector3.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableVector3.#ctor
+  commentId: M:Project.SerializableVector3.#ctor
+  id: '#ctor'
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: SerializableVector3()
+  nameWithType: SerializableVector3.SerializableVector3()
+  fullName: Project.SerializableVector3.SerializableVector3()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 46
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public SerializableVector3()
+    content.vb: Public Sub New
+  overload: Project.SerializableVector3.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.SerializableVector3.Update(System.Collections.Generic.IList{System.Single})
+  commentId: M:Project.SerializableVector3.Update(System.Collections.Generic.IList{System.Single})
+  id: Update(System.Collections.Generic.IList{System.Single})
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: Update(IList<Single>)
+  nameWithType: SerializableVector3.Update(IList<Single>)
+  fullName: Project.SerializableVector3.Update(System.Collections.Generic.IList<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Update
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 48
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public override void Update(IList<float> r)
+    parameters:
+    - id: r
+      type: System.Collections.Generic.IList{System.Single}
+    content.vb: Public Overrides Sub Update(r As IList(Of Single))
+  overridden: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  overload: Project.SerializableVector3.Update*
+  nameWithType.vb: SerializableVector3.Update(IList(Of Single))
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+  fullName.vb: Project.SerializableVector3.Update(System.Collections.Generic.IList(Of System.Single))
+  name.vb: Update(IList(Of Single))
+- uid: Project.SerializableVector3.ToString
+  commentId: M:Project.SerializableVector3.ToString
+  id: ToString
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SerializableVector3.ToString()
+  fullName: Project.SerializableVector3.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToString
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 59
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nReturns a string representation of the object\n"
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
+  overload: Project.SerializableVector3.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Project.SerializableVector3.ToArray
+  commentId: M:Project.SerializableVector3.ToArray
+  id: ToArray
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: SerializableVector3.ToArray()
+  fullName: Project.SerializableVector3.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToArray
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 64
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public override float[] ToArray()
+    return:
+      type: System.Single[]
+    content.vb: Public Overrides Function ToArray As Single()
+  overridden: Project.Serializable.ToArray
+  overload: Project.SerializableVector3.ToArray*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: Project.SerializableVector3.magnitude
+  commentId: P:Project.SerializableVector3.magnitude
+  id: magnitude
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: magnitude
+  nameWithType: SerializableVector3.magnitude
+  fullName: Project.SerializableVector3.magnitude
+  type: Property
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: magnitude
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 69
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public float magnitude { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property magnitude As Single
+  overload: Project.SerializableVector3.magnitude*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Project.SerializableVector3.op_Implicit(Project.SerializableVector3)~UnityEngine.Vector3
+  commentId: M:Project.SerializableVector3.op_Implicit(Project.SerializableVector3)~UnityEngine.Vector3
+  id: op_Implicit(Project.SerializableVector3)~UnityEngine.Vector3
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: Implicit(SerializableVector3 to Vector3)
+  nameWithType: SerializableVector3.Implicit(SerializableVector3 to Vector3)
+  fullName: Project.SerializableVector3.Implicit(Project.SerializableVector3 to UnityEngine.Vector3)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 83
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nAutomatic conversion from SerializableVector3 to Vector3\n"
+  example: []
+  syntax:
+    content: public static implicit operator Vector3(SerializableVector3 rValue)
+    parameters:
+    - id: rValue
+      type: Project.SerializableVector3
+      description: ''
+    return:
+      type: UnityEngine.Vector3
+      description: ''
+    content.vb: Public Shared Widening Operator CType(rValue As SerializableVector3) As Vector3
+  overload: Project.SerializableVector3.op_Implicit*
+  nameWithType.vb: SerializableVector3.Widening(SerializableVector3 to Vector3)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Project.SerializableVector3.Widening(Project.SerializableVector3 to UnityEngine.Vector3)
+  name.vb: Widening(SerializableVector3 to Vector3)
+- uid: Project.SerializableVector3.op_Implicit(UnityEngine.Vector3)~Project.SerializableVector3
+  commentId: M:Project.SerializableVector3.op_Implicit(UnityEngine.Vector3)~Project.SerializableVector3
+  id: op_Implicit(UnityEngine.Vector3)~Project.SerializableVector3
+  parent: Project.SerializableVector3
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Vector3 to SerializableVector3)
+  nameWithType: SerializableVector3.Implicit(Vector3 to SerializableVector3)
+  fullName: Project.SerializableVector3.Implicit(UnityEngine.Vector3 to Project.SerializableVector3)
+  type: Operator
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 93
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  summary: "\nAutomatic conversion from Vector3 to SerializableVector3\n"
+  example: []
+  syntax:
+    content: public static implicit operator SerializableVector3(Vector3 rValue)
+    parameters:
+    - id: rValue
+      type: UnityEngine.Vector3
+      description: ''
+    return:
+      type: Project.SerializableVector3
+      description: ''
+    content.vb: Public Shared Widening Operator CType(rValue As Vector3) As SerializableVector3
+  overload: Project.SerializableVector3.op_Implicit*
+  nameWithType.vb: SerializableVector3.Widening(Vector3 to SerializableVector3)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Project.SerializableVector3.Widening(UnityEngine.Vector3 to Project.SerializableVector3)
+  name.vb: Widening(Vector3 to SerializableVector3)
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.Serializable
+  commentId: T:Project.Serializable
+  parent: Project
+  name: Serializable
+  nameWithType: Serializable
+  fullName: Project.Serializable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: Project.SerializableVector3.#ctor*
+  commentId: Overload:Project.SerializableVector3.#ctor
+  name: SerializableVector3
+  nameWithType: SerializableVector3.SerializableVector3
+  fullName: Project.SerializableVector3.SerializableVector3
+- uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  commentId: M:Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  parent: Project.Serializable
+  isExternal: true
+  name: Update(IList<Single>)
+  nameWithType: Serializable.Update(IList<Single>)
+  fullName: Project.Serializable.Update(System.Collections.Generic.IList<System.Single>)
+  nameWithType.vb: Serializable.Update(IList(Of Single))
+  fullName.vb: Project.Serializable.Update(System.Collections.Generic.IList(Of System.Single))
+  name.vb: Update(IList(Of Single))
+  spec.csharp:
+  - uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+    name: Update
+    nameWithType: Serializable.Update
+    fullName: Project.Serializable.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+    name: Update
+    nameWithType: Serializable.Update
+    fullName: Project.Serializable.Update
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.SerializableVector3.Update*
+  commentId: Overload:Project.SerializableVector3.Update
+  name: Update
+  nameWithType: SerializableVector3.Update
+  fullName: Project.SerializableVector3.Update
+- uid: System.Collections.Generic.IList{System.Single}
+  commentId: T:System.Collections.Generic.IList{System.Single}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Single>
+  nameWithType: IList<Single>
+  fullName: System.Collections.Generic.IList<System.Single>
+  nameWithType.vb: IList(Of Single)
+  fullName.vb: System.Collections.Generic.IList(Of System.Single)
+  name.vb: IList(Of Single)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.SerializableVector3.ToString*
+  commentId: Overload:Project.SerializableVector3.ToString
+  name: ToString
+  nameWithType: SerializableVector3.ToString
+  fullName: Project.SerializableVector3.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Project.Serializable.ToArray
+  commentId: M:Project.Serializable.ToArray
+  parent: Project.Serializable
+  name: ToArray()
+  nameWithType: Serializable.ToArray()
+  fullName: Project.Serializable.ToArray()
+  spec.csharp:
+  - uid: Project.Serializable.ToArray
+    name: ToArray
+    nameWithType: Serializable.ToArray
+    fullName: Project.Serializable.ToArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.Serializable.ToArray
+    name: ToArray
+    nameWithType: Serializable.ToArray
+    fullName: Project.Serializable.ToArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Project.SerializableVector3.ToArray*
+  commentId: Overload:Project.SerializableVector3.ToArray
+  name: ToArray
+  nameWithType: SerializableVector3.ToArray
+  fullName: Project.SerializableVector3.ToArray
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: Project.SerializableVector3.magnitude*
+  commentId: Overload:Project.SerializableVector3.magnitude
+  name: magnitude
+  nameWithType: SerializableVector3.magnitude
+  fullName: Project.SerializableVector3.magnitude
+- uid: Project.SerializableVector3.op_Implicit*
+  commentId: Overload:Project.SerializableVector3.op_Implicit
+  name: Implicit
+  nameWithType: SerializableVector3.Implicit
+  fullName: Project.SerializableVector3.Implicit
+  nameWithType.vb: SerializableVector3.Widening
+  fullName.vb: Project.SerializableVector3.Widening
+  name.vb: Widening
+- uid: Project.SerializableVector3
+  commentId: T:Project.SerializableVector3
+  parent: Project
+  name: SerializableVector3
+  nameWithType: SerializableVector3
+  fullName: Project.SerializableVector3
+- uid: UnityEngine.Vector3
+  commentId: T:UnityEngine.Vector3
+  parent: UnityEngine
+  isExternal: true
+  name: Vector3
+  nameWithType: Vector3
+  fullName: UnityEngine.Vector3
+- uid: UnityEngine
+  commentId: N:UnityEngine
+  isExternal: true
+  name: UnityEngine
+  nameWithType: UnityEngine
+  fullName: UnityEngine

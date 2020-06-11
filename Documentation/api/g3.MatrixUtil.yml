@@ -1,0 +1,511 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MatrixUtil
+  commentId: T:g3.MatrixUtil
+  id: MatrixUtil
+  parent: g3
+  children:
+  - g3.MatrixUtil.Determinant3x3(System.Double[])
+  - g3.MatrixUtil.MakeDiagonal3x3(System.Double,System.Double,System.Double)
+  - g3.MatrixUtil.MakeIdentity3x3(System.Double,System.Double,System.Double)
+  - g3.MatrixUtil.Multiply3x3(System.Double[],g3.Vector3d)
+  - g3.MatrixUtil.Multiply3x3(System.Double[],System.Double[],System.Double[])
+  - g3.MatrixUtil.SetDiagonal3x3(System.Double[],System.Double,System.Double,System.Double)
+  - g3.MatrixUtil.SetIdentity3x3(System.Double[],System.Double,System.Double,System.Double)
+  - g3.MatrixUtil.Transpose3x3(System.Double[])
+  - g3.MatrixUtil.Transpose3x3(System.Double[],System.Double[])
+  langs:
+  - csharp
+  - vb
+  name: MatrixUtil
+  nameWithType: MatrixUtil
+  fullName: g3.MatrixUtil
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MatrixUtil
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class MatrixUtil
+    content.vb: Public Module MatrixUtil
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.MatrixUtil.MakeIdentity3x3(System.Double,System.Double,System.Double)
+  commentId: M:g3.MatrixUtil.MakeIdentity3x3(System.Double,System.Double,System.Double)
+  id: MakeIdentity3x3(System.Double,System.Double,System.Double)
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: MakeIdentity3x3(Double, Double, Double)
+  nameWithType: MatrixUtil.MakeIdentity3x3(Double, Double, Double)
+  fullName: g3.MatrixUtil.MakeIdentity3x3(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeIdentity3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double[] MakeIdentity3x3(double a, double b, double c)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: System.Double
+    - id: c
+      type: System.Double
+    return:
+      type: System.Double[]
+    content.vb: Public Shared Function MakeIdentity3x3(a As Double, b As Double, c As Double) As Double()
+  overload: g3.MatrixUtil.MakeIdentity3x3*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MatrixUtil.SetIdentity3x3(System.Double[],System.Double,System.Double,System.Double)
+  commentId: M:g3.MatrixUtil.SetIdentity3x3(System.Double[],System.Double,System.Double,System.Double)
+  id: SetIdentity3x3(System.Double[],System.Double,System.Double,System.Double)
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: SetIdentity3x3(Double[], Double, Double, Double)
+  nameWithType: MatrixUtil.SetIdentity3x3(Double[], Double, Double, Double)
+  fullName: g3.MatrixUtil.SetIdentity3x3(System.Double[], System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetIdentity3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetIdentity3x3(double[] M, double a, double b, double c)
+    parameters:
+    - id: M
+      type: System.Double[]
+    - id: a
+      type: System.Double
+    - id: b
+      type: System.Double
+    - id: c
+      type: System.Double
+    content.vb: Public Shared Sub SetIdentity3x3(M As Double(), a As Double, b As Double, c As Double)
+  overload: g3.MatrixUtil.SetIdentity3x3*
+  nameWithType.vb: MatrixUtil.SetIdentity3x3(Double(), Double, Double, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.SetIdentity3x3(System.Double(), System.Double, System.Double, System.Double)
+  name.vb: SetIdentity3x3(Double(), Double, Double, Double)
+- uid: g3.MatrixUtil.MakeDiagonal3x3(System.Double,System.Double,System.Double)
+  commentId: M:g3.MatrixUtil.MakeDiagonal3x3(System.Double,System.Double,System.Double)
+  id: MakeDiagonal3x3(System.Double,System.Double,System.Double)
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: MakeDiagonal3x3(Double, Double, Double)
+  nameWithType: MatrixUtil.MakeDiagonal3x3(Double, Double, Double)
+  fullName: g3.MatrixUtil.MakeDiagonal3x3(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeDiagonal3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double[] MakeDiagonal3x3(double a, double b, double c)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: System.Double
+    - id: c
+      type: System.Double
+    return:
+      type: System.Double[]
+    content.vb: Public Shared Function MakeDiagonal3x3(a As Double, b As Double, c As Double) As Double()
+  overload: g3.MatrixUtil.MakeDiagonal3x3*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MatrixUtil.SetDiagonal3x3(System.Double[],System.Double,System.Double,System.Double)
+  commentId: M:g3.MatrixUtil.SetDiagonal3x3(System.Double[],System.Double,System.Double,System.Double)
+  id: SetDiagonal3x3(System.Double[],System.Double,System.Double,System.Double)
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: SetDiagonal3x3(Double[], Double, Double, Double)
+  nameWithType: MatrixUtil.SetDiagonal3x3(Double[], Double, Double, Double)
+  fullName: g3.MatrixUtil.SetDiagonal3x3(System.Double[], System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetDiagonal3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void SetDiagonal3x3(double[] M, double a, double b, double c)
+    parameters:
+    - id: M
+      type: System.Double[]
+    - id: a
+      type: System.Double
+    - id: b
+      type: System.Double
+    - id: c
+      type: System.Double
+    content.vb: Public Shared Sub SetDiagonal3x3(M As Double(), a As Double, b As Double, c As Double)
+  overload: g3.MatrixUtil.SetDiagonal3x3*
+  nameWithType.vb: MatrixUtil.SetDiagonal3x3(Double(), Double, Double, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.SetDiagonal3x3(System.Double(), System.Double, System.Double, System.Double)
+  name.vb: SetDiagonal3x3(Double(), Double, Double, Double)
+- uid: g3.MatrixUtil.Determinant3x3(System.Double[])
+  commentId: M:g3.MatrixUtil.Determinant3x3(System.Double[])
+  id: Determinant3x3(System.Double[])
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: Determinant3x3(Double[])
+  nameWithType: MatrixUtil.Determinant3x3(Double[])
+  fullName: g3.MatrixUtil.Determinant3x3(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Determinant3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double Determinant3x3(double[] M)
+    parameters:
+    - id: M
+      type: System.Double[]
+    return:
+      type: System.Double
+    content.vb: Public Shared Function Determinant3x3(M As Double()) As Double
+  overload: g3.MatrixUtil.Determinant3x3*
+  nameWithType.vb: MatrixUtil.Determinant3x3(Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.Determinant3x3(System.Double())
+  name.vb: Determinant3x3(Double())
+- uid: g3.MatrixUtil.Transpose3x3(System.Double[])
+  commentId: M:g3.MatrixUtil.Transpose3x3(System.Double[])
+  id: Transpose3x3(System.Double[])
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: Transpose3x3(Double[])
+  nameWithType: MatrixUtil.Transpose3x3(Double[])
+  fullName: g3.MatrixUtil.Transpose3x3(System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transpose3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Transpose3x3(double[] M)
+    parameters:
+    - id: M
+      type: System.Double[]
+    content.vb: Public Shared Sub Transpose3x3(M As Double())
+  overload: g3.MatrixUtil.Transpose3x3*
+  nameWithType.vb: MatrixUtil.Transpose3x3(Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.Transpose3x3(System.Double())
+  name.vb: Transpose3x3(Double())
+- uid: g3.MatrixUtil.Transpose3x3(System.Double[],System.Double[])
+  commentId: M:g3.MatrixUtil.Transpose3x3(System.Double[],System.Double[])
+  id: Transpose3x3(System.Double[],System.Double[])
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: Transpose3x3(Double[], Double[])
+  nameWithType: MatrixUtil.Transpose3x3(Double[], Double[])
+  fullName: g3.MatrixUtil.Transpose3x3(System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transpose3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Transpose3x3(double[] M, double[] MTranspose)
+    parameters:
+    - id: M
+      type: System.Double[]
+    - id: MTranspose
+      type: System.Double[]
+    content.vb: Public Shared Sub Transpose3x3(M As Double(), MTranspose As Double())
+  overload: g3.MatrixUtil.Transpose3x3*
+  nameWithType.vb: MatrixUtil.Transpose3x3(Double(), Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.Transpose3x3(System.Double(), System.Double())
+  name.vb: Transpose3x3(Double(), Double())
+- uid: g3.MatrixUtil.Multiply3x3(System.Double[],System.Double[],System.Double[])
+  commentId: M:g3.MatrixUtil.Multiply3x3(System.Double[],System.Double[],System.Double[])
+  id: Multiply3x3(System.Double[],System.Double[],System.Double[])
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: Multiply3x3(Double[], Double[], Double[])
+  nameWithType: MatrixUtil.Multiply3x3(Double[], Double[], Double[])
+  fullName: g3.MatrixUtil.Multiply3x3(System.Double[], System.Double[], System.Double[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Multiply3x3(double[] A, double[] B, double[] C)
+    parameters:
+    - id: A
+      type: System.Double[]
+    - id: B
+      type: System.Double[]
+    - id: C
+      type: System.Double[]
+    content.vb: Public Shared Sub Multiply3x3(A As Double(), B As Double(), C As Double())
+  overload: g3.MatrixUtil.Multiply3x3*
+  nameWithType.vb: MatrixUtil.Multiply3x3(Double(), Double(), Double())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.Multiply3x3(System.Double(), System.Double(), System.Double())
+  name.vb: Multiply3x3(Double(), Double(), Double())
+- uid: g3.MatrixUtil.Multiply3x3(System.Double[],g3.Vector3d)
+  commentId: M:g3.MatrixUtil.Multiply3x3(System.Double[],g3.Vector3d)
+  id: Multiply3x3(System.Double[],g3.Vector3d)
+  parent: g3.MatrixUtil
+  langs:
+  - csharp
+  - vb
+  name: Multiply3x3(Double[], Vector3d)
+  nameWithType: MatrixUtil.Multiply3x3(Double[], Vector3d)
+  fullName: g3.MatrixUtil.Multiply3x3(System.Double[], g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/MatrixUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Multiply3x3
+    path: ../Assets/geometry3Sharp/math/MatrixUtil.cs
+    startLine: 73
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d Multiply3x3(double[] M, Vector3d vec)
+    parameters:
+    - id: M
+      type: System.Double[]
+    - id: vec
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function Multiply3x3(M As Double(), vec As Vector3d) As Vector3d
+  overload: g3.MatrixUtil.Multiply3x3*
+  nameWithType.vb: MatrixUtil.Multiply3x3(Double(), Vector3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MatrixUtil.Multiply3x3(System.Double(), g3.Vector3d)
+  name.vb: Multiply3x3(Double(), Vector3d)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MatrixUtil.MakeIdentity3x3*
+  commentId: Overload:g3.MatrixUtil.MakeIdentity3x3
+  name: MakeIdentity3x3
+  nameWithType: MatrixUtil.MakeIdentity3x3
+  fullName: g3.MatrixUtil.MakeIdentity3x3
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.MatrixUtil.SetIdentity3x3*
+  commentId: Overload:g3.MatrixUtil.SetIdentity3x3
+  name: SetIdentity3x3
+  nameWithType: MatrixUtil.SetIdentity3x3
+  fullName: g3.MatrixUtil.SetIdentity3x3
+- uid: g3.MatrixUtil.MakeDiagonal3x3*
+  commentId: Overload:g3.MatrixUtil.MakeDiagonal3x3
+  name: MakeDiagonal3x3
+  nameWithType: MatrixUtil.MakeDiagonal3x3
+  fullName: g3.MatrixUtil.MakeDiagonal3x3
+- uid: g3.MatrixUtil.SetDiagonal3x3*
+  commentId: Overload:g3.MatrixUtil.SetDiagonal3x3
+  name: SetDiagonal3x3
+  nameWithType: MatrixUtil.SetDiagonal3x3
+  fullName: g3.MatrixUtil.SetDiagonal3x3
+- uid: g3.MatrixUtil.Determinant3x3*
+  commentId: Overload:g3.MatrixUtil.Determinant3x3
+  name: Determinant3x3
+  nameWithType: MatrixUtil.Determinant3x3
+  fullName: g3.MatrixUtil.Determinant3x3
+- uid: g3.MatrixUtil.Transpose3x3*
+  commentId: Overload:g3.MatrixUtil.Transpose3x3
+  name: Transpose3x3
+  nameWithType: MatrixUtil.Transpose3x3
+  fullName: g3.MatrixUtil.Transpose3x3
+- uid: g3.MatrixUtil.Multiply3x3*
+  commentId: Overload:g3.MatrixUtil.Multiply3x3
+  name: Multiply3x3
+  nameWithType: MatrixUtil.Multiply3x3
+  fullName: g3.MatrixUtil.Multiply3x3
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d

@@ -1,0 +1,441 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DCurve3BoxTree
+  commentId: T:g3.DCurve3BoxTree
+  id: DCurve3BoxTree
+  parent: g3
+  children:
+  - g3.DCurve3BoxTree.#ctor(g3.DCurve3)
+  - g3.DCurve3BoxTree.Curve
+  - g3.DCurve3BoxTree.Distance(g3.Vector3d)
+  - g3.DCurve3BoxTree.DistanceSquared(g3.Vector3d)
+  - g3.DCurve3BoxTree.FindClosestRayIntersction(g3.Ray3d,System.Double,System.Int32@,System.Double@)
+  - g3.DCurve3BoxTree.NearestPoint(g3.Vector3d)
+  - g3.DCurve3BoxTree.SquaredDistance(g3.Ray3d,System.Int32@,System.Double@,System.Double@,System.Double)
+  - g3.DCurve3BoxTree.SquaredDistance(g3.Vector3d,System.Int32@,System.Double@,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: DCurve3BoxTree
+  nameWithType: DCurve3BoxTree
+  fullName: g3.DCurve3BoxTree
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DCurve3BoxTree
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ntree of Oriented Boxes (OBB) for a DCurve3. \nConstruction is sequential, ie pairs of segments are merged into boxes, then pairs of boxes, and so on\n\n[TODO] is this the best strategy? is there maybe some kind of sorting/sweepline algo?\n[TODO] would it make more sense to have more than just 2 segments at lowest level?\n\n"
+  example: []
+  syntax:
+    content: public class DCurve3BoxTree
+    content.vb: Public Class DCurve3BoxTree
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DCurve3BoxTree.Curve
+  commentId: F:g3.DCurve3BoxTree.Curve
+  id: Curve
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: Curve
+  nameWithType: DCurve3BoxTree.Curve
+  fullName: g3.DCurve3BoxTree.Curve
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Curve
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DCurve3 Curve
+    return:
+      type: g3.DCurve3
+    content.vb: Public Curve As DCurve3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurve3BoxTree.#ctor(g3.DCurve3)
+  commentId: M:g3.DCurve3BoxTree.#ctor(g3.DCurve3)
+  id: '#ctor(g3.DCurve3)'
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: DCurve3BoxTree(DCurve3)
+  nameWithType: DCurve3BoxTree.DCurve3BoxTree(DCurve3)
+  fullName: g3.DCurve3BoxTree.DCurve3BoxTree(g3.DCurve3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DCurve3BoxTree(DCurve3 curve)
+    parameters:
+    - id: curve
+      type: g3.DCurve3
+    content.vb: Public Sub New(curve As DCurve3)
+  overload: g3.DCurve3BoxTree.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurve3BoxTree.DistanceSquared(g3.Vector3d)
+  commentId: M:g3.DCurve3BoxTree.DistanceSquared(g3.Vector3d)
+  id: DistanceSquared(g3.Vector3d)
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector3d)
+  nameWithType: DCurve3BoxTree.DistanceSquared(Vector3d)
+  fullName: g3.DCurve3BoxTree.DistanceSquared(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(pt As Vector3d) As Double
+  overload: g3.DCurve3BoxTree.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurve3BoxTree.Distance(g3.Vector3d)
+  commentId: M:g3.DCurve3BoxTree.Distance(g3.Vector3d)
+  id: Distance(g3.Vector3d)
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector3d)
+  nameWithType: DCurve3BoxTree.Distance(Vector3d)
+  fullName: g3.DCurve3BoxTree.Distance(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Distance
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Distance(Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function Distance(pt As Vector3d) As Double
+  overload: g3.DCurve3BoxTree.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurve3BoxTree.NearestPoint(g3.Vector3d)
+  commentId: M:g3.DCurve3BoxTree.NearestPoint(g3.Vector3d)
+  id: NearestPoint(g3.Vector3d)
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: NearestPoint(Vector3d)
+  nameWithType: DCurve3BoxTree.NearestPoint(Vector3d)
+  fullName: g3.DCurve3BoxTree.NearestPoint(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NearestPoint
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d NearestPoint(Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function NearestPoint(pt As Vector3d) As Vector3d
+  overload: g3.DCurve3BoxTree.NearestPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DCurve3BoxTree.SquaredDistance(g3.Vector3d,System.Int32@,System.Double@,System.Double)
+  commentId: M:g3.DCurve3BoxTree.SquaredDistance(g3.Vector3d,System.Int32@,System.Double@,System.Double)
+  id: SquaredDistance(g3.Vector3d,System.Int32@,System.Double@,System.Double)
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: SquaredDistance(Vector3d, out Int32, out Double, Double)
+  nameWithType: DCurve3BoxTree.SquaredDistance(Vector3d, out Int32, out Double, Double)
+  fullName: g3.DCurve3BoxTree.SquaredDistance(g3.Vector3d, out System.Int32, out System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SquaredDistance
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SquaredDistance(Vector3d pt, out int iNearSeg, out double fNearSegT, double max_dist = 1.7976931348623157E+308)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    - id: iNearSeg
+      type: System.Int32
+    - id: fNearSegT
+      type: System.Double
+    - id: max_dist
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function SquaredDistance(pt As Vector3d, ByRef iNearSeg As Integer, ByRef fNearSegT As Double, max_dist As Double = 1.7976931348623157E+308) As Double
+  overload: g3.DCurve3BoxTree.SquaredDistance*
+  nameWithType.vb: DCurve3BoxTree.SquaredDistance(Vector3d, ByRef Int32, ByRef Double, Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DCurve3BoxTree.SquaredDistance(g3.Vector3d, ByRef System.Int32, ByRef System.Double, System.Double)
+  name.vb: SquaredDistance(Vector3d, ByRef Int32, ByRef Double, Double)
+- uid: g3.DCurve3BoxTree.SquaredDistance(g3.Ray3d,System.Int32@,System.Double@,System.Double@,System.Double)
+  commentId: M:g3.DCurve3BoxTree.SquaredDistance(g3.Ray3d,System.Int32@,System.Double@,System.Double@,System.Double)
+  id: SquaredDistance(g3.Ray3d,System.Int32@,System.Double@,System.Double@,System.Double)
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: SquaredDistance(Ray3d, out Int32, out Double, out Double, Double)
+  nameWithType: DCurve3BoxTree.SquaredDistance(Ray3d, out Int32, out Double, out Double, Double)
+  fullName: g3.DCurve3BoxTree.SquaredDistance(g3.Ray3d, out System.Int32, out System.Double, out System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SquaredDistance
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 118
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind min-distance between ray and curve. Pass max_dist if you only care about a certain distance\nTODO: not 100% sure this is working properly... ?\n"
+  example: []
+  syntax:
+    content: public double SquaredDistance(Ray3d ray, out int iNearSeg, out double fNearSegT, out double fRayT, double max_dist = 1.7976931348623157E+308)
+    parameters:
+    - id: ray
+      type: g3.Ray3d
+    - id: iNearSeg
+      type: System.Int32
+    - id: fNearSegT
+      type: System.Double
+    - id: fRayT
+      type: System.Double
+    - id: max_dist
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function SquaredDistance(ray As Ray3d, ByRef iNearSeg As Integer, ByRef fNearSegT As Double, ByRef fRayT As Double, max_dist As Double = 1.7976931348623157E+308) As Double
+  overload: g3.DCurve3BoxTree.SquaredDistance*
+  nameWithType.vb: DCurve3BoxTree.SquaredDistance(Ray3d, ByRef Int32, ByRef Double, ByRef Double, Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DCurve3BoxTree.SquaredDistance(g3.Ray3d, ByRef System.Int32, ByRef System.Double, ByRef System.Double, System.Double)
+  name.vb: SquaredDistance(Ray3d, ByRef Int32, ByRef Double, ByRef Double, Double)
+- uid: g3.DCurve3BoxTree.FindClosestRayIntersction(g3.Ray3d,System.Double,System.Int32@,System.Double@)
+  commentId: M:g3.DCurve3BoxTree.FindClosestRayIntersction(g3.Ray3d,System.Double,System.Int32@,System.Double@)
+  id: FindClosestRayIntersction(g3.Ray3d,System.Double,System.Int32@,System.Double@)
+  parent: g3.DCurve3BoxTree
+  langs:
+  - csharp
+  - vb
+  name: FindClosestRayIntersction(Ray3d, Double, out Int32, out Double)
+  nameWithType: DCurve3BoxTree.FindClosestRayIntersction(Ray3d, Double, out Int32, out Double)
+  fullName: g3.DCurve3BoxTree.FindClosestRayIntersction(g3.Ray3d, System.Double, out System.Int32, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindClosestRayIntersction
+    path: ../Assets/geometry3Sharp/spatial/DCurveBoxTree.cs
+    startLine: 193
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind min-distance between ray and curve. Pass max_dist if you only care about a certain distance\nTODO: not 100% sure this is working properly... ?\n"
+  example: []
+  syntax:
+    content: public bool FindClosestRayIntersction(Ray3d ray, double radius, out int hitSegment, out double fRayT)
+    parameters:
+    - id: ray
+      type: g3.Ray3d
+    - id: radius
+      type: System.Double
+    - id: hitSegment
+      type: System.Int32
+    - id: fRayT
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function FindClosestRayIntersction(ray As Ray3d, radius As Double, ByRef hitSegment As Integer, ByRef fRayT As Double) As Boolean
+  overload: g3.DCurve3BoxTree.FindClosestRayIntersction*
+  nameWithType.vb: DCurve3BoxTree.FindClosestRayIntersction(Ray3d, Double, ByRef Int32, ByRef Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DCurve3BoxTree.FindClosestRayIntersction(g3.Ray3d, System.Double, ByRef System.Int32, ByRef System.Double)
+  name.vb: FindClosestRayIntersction(Ray3d, Double, ByRef Int32, ByRef Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DCurve3
+  commentId: T:g3.DCurve3
+  parent: g3
+  name: DCurve3
+  nameWithType: DCurve3
+  fullName: g3.DCurve3
+- uid: g3.DCurve3BoxTree.#ctor*
+  commentId: Overload:g3.DCurve3BoxTree.#ctor
+  name: DCurve3BoxTree
+  nameWithType: DCurve3BoxTree.DCurve3BoxTree
+  fullName: g3.DCurve3BoxTree.DCurve3BoxTree
+- uid: g3.DCurve3BoxTree.DistanceSquared*
+  commentId: Overload:g3.DCurve3BoxTree.DistanceSquared
+  name: DistanceSquared
+  nameWithType: DCurve3BoxTree.DistanceSquared
+  fullName: g3.DCurve3BoxTree.DistanceSquared
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.DCurve3BoxTree.Distance*
+  commentId: Overload:g3.DCurve3BoxTree.Distance
+  name: Distance
+  nameWithType: DCurve3BoxTree.Distance
+  fullName: g3.DCurve3BoxTree.Distance
+- uid: g3.DCurve3BoxTree.NearestPoint*
+  commentId: Overload:g3.DCurve3BoxTree.NearestPoint
+  name: NearestPoint
+  nameWithType: DCurve3BoxTree.NearestPoint
+  fullName: g3.DCurve3BoxTree.NearestPoint
+- uid: g3.DCurve3BoxTree.SquaredDistance*
+  commentId: Overload:g3.DCurve3BoxTree.SquaredDistance
+  name: SquaredDistance
+  nameWithType: DCurve3BoxTree.SquaredDistance
+  fullName: g3.DCurve3BoxTree.SquaredDistance
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Ray3d
+  commentId: T:g3.Ray3d
+  parent: g3
+  name: Ray3d
+  nameWithType: Ray3d
+  fullName: g3.Ray3d
+- uid: g3.DCurve3BoxTree.FindClosestRayIntersction*
+  commentId: Overload:g3.DCurve3BoxTree.FindClosestRayIntersction
+  name: FindClosestRayIntersction
+  nameWithType: DCurve3BoxTree.FindClosestRayIntersction
+  fullName: g3.DCurve3BoxTree.FindClosestRayIntersction
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

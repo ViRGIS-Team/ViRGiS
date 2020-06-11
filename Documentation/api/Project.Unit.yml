@@ -1,0 +1,336 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.Unit
+  commentId: T:Project.Unit
+  id: Unit
+  parent: Project
+  children:
+  - Project.Unit.Color
+  - Project.Unit.Label
+  - Project.Unit.Shape
+  - Project.Unit.Transform
+  langs:
+  - csharp
+  - vb
+  name: Unit
+  nameWithType: Unit
+  fullName: Project.Unit
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Unit
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 225
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: 'public class Unit : TestableObject'
+    content.vb: >-
+      Public Class Unit
+          Inherits TestableObject
+  inheritance:
+  - System.Object
+  - Project.TestableObject
+  inheritedMembers:
+  - Project.TestableObject.ContainsKey(System.String)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.Unit.Color
+  commentId: F:Project.Unit.Color
+  id: Color
+  parent: Project.Unit
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: Unit.Color
+  fullName: Project.Unit.Color
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Color
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 229
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "color", Required = Required.Always)]
+
+      [JsonConverter(typeof(VectorConverter<SerializableColor>))]
+
+      public SerializableColor Color
+    return:
+      type: Project.SerializableColor
+    content.vb: >-
+      <JsonProperty(PropertyName:="color", Required:=Required.Always)>
+
+      <JsonConverter(GetType(VectorConverter(Of SerializableColor)))>
+
+      Public Color As SerializableColor
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: color
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Project.VectorConverter{Project.SerializableColor}
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.Unit.Shape
+  commentId: F:Project.Unit.Shape
+  id: Shape
+  parent: Project.Unit
+  langs:
+  - csharp
+  - vb
+  name: Shape
+  nameWithType: Unit.Shape
+  fullName: Project.Unit.Shape
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Shape
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 232
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "shape", Required = Required.Always)]
+
+      [JsonConverter(typeof(StringEnumConverter))]
+
+      public Shapes Shape
+    return:
+      type: Project.Shapes
+    content.vb: >-
+      <JsonProperty(PropertyName:="shape", Required:=Required.Always)>
+
+      <JsonConverter(GetType(StringEnumConverter))>
+
+      Public Shape As Shapes
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: shape
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.Unit.Transform
+  commentId: F:Project.Unit.Transform
+  id: Transform
+  parent: Project.Unit
+  langs:
+  - csharp
+  - vb
+  name: Transform
+  nameWithType: Unit.Transform
+  fullName: Project.Unit.Transform
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 234
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "transform", Required = Required.Always)]
+
+      public JsonTransform Transform
+    return:
+      type: Project.JsonTransform
+    content.vb: >-
+      <JsonProperty(PropertyName:="transform", Required:=Required.Always)>
+
+      Public Transform As JsonTransform
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: transform
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.Unit.Label
+  commentId: F:Project.Unit.Label
+  id: Label
+  parent: Project.Unit
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: Unit.Label
+  fullName: Project.Unit.Label
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Label
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 236
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "label")]
+
+      public string Label
+    return:
+      type: System.String
+    content.vb: >-
+      <JsonProperty(PropertyName:="label")>
+
+      Public Label As String
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: label
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.TestableObject
+  commentId: T:Project.TestableObject
+  parent: Project
+  name: TestableObject
+  nameWithType: TestableObject
+  fullName: Project.TestableObject
+- uid: Project.TestableObject.ContainsKey(System.String)
+  commentId: M:Project.TestableObject.ContainsKey(System.String)
+  parent: Project.TestableObject
+  isExternal: true
+  name: ContainsKey(String)
+  nameWithType: TestableObject.ContainsKey(String)
+  fullName: Project.TestableObject.ContainsKey(System.String)
+  spec.csharp:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Project.SerializableColor
+  commentId: T:Project.SerializableColor
+  parent: Project
+  name: SerializableColor
+  nameWithType: SerializableColor
+  fullName: Project.SerializableColor
+- uid: Project.Shapes
+  commentId: T:Project.Shapes
+  parent: Project
+  name: Shapes
+  nameWithType: Shapes
+  fullName: Project.Shapes
+- uid: Project.JsonTransform
+  commentId: T:Project.JsonTransform
+  parent: Project
+  name: JsonTransform
+  nameWithType: JsonTransform
+  fullName: Project.JsonTransform
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
