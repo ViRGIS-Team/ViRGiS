@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PointCloudLayer
+   | ViRGIS VR GIS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PointCloudLayer
+   | ViRGIS VR GIS ">
+    <meta name="generator" content="docfx 2.54.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Virgis.PointCloudLayer">
+  
+  
+  <h1 id="Virgis_PointCloudLayer" data-uid="Virgis.PointCloudLayer" class="text-break">Class PointCloudLayer
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">UnityEngine.Object</span></div>
+    <div class="level2"><span class="xref">UnityEngine.Component</span></div>
+    <div class="level3"><span class="xref">UnityEngine.Behaviour</span></div>
+    <div class="level4"><span class="xref">UnityEngine.MonoBehaviour</span></div>
+    <div class="level5"><a class="xref" href="Virgis.VirgisLayer-2.html">VirgisLayer</a>&lt;<a class="xref" href="Project.GeographyCollection.html">GeographyCollection</a>, <a class="xref" href="Virgis.ParticleData.html">ParticleData</a>&gt;</div>
+    <div class="level6"><span class="xref">PointCloudLayer</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a></div>
+    <div><a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_layer">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.layer</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_features">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.features</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_changed">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__id">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._id</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__visible">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._visible</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__editable">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._editable</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Init__0_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Init(GeographyCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__init__0_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._init(GeographyCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_AddFeature_UnityEngine_Vector3___">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.AddFeature(Vector3[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__addFeature_UnityEngine_Vector3___">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._addFeature(Vector3[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Draw">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Draw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__draw">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._draw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_CheckPoint">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.CheckPoint()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__checkpoint">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._checkpoint()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Save">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Save()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__save">VirgisLayer&lt;GeographyCollection, ParticleData&gt;._save()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Translate_Virgis_MoveArgs_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Translate(MoveArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_MoveAxis_Virgis_MoveArgs_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.MoveAxis(MoveArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_MoveTo_Virgis_MoveArgs_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.MoveTo(MoveArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_VertexMove_Virgis_MoveArgs_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.VertexMove(MoveArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_StartEditSession">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.StartEditSession()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_ExitEditSession_System_Boolean_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.ExitEditSession(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Selected_Virgis_SelectionTypes_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Selected(SelectionTypes)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_UnSelected_Virgis_SelectionTypes_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.UnSelected(SelectionTypes)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetClosest_UnityEngine_Vector3_System_Guid___">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.GetClosest(Vector3, Guid[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetFeature_System_Guid_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.GetFeature(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetId">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.GetId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetMetadata">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.GetMetadata()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetFeatureShape">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.GetFeatureShape()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_SetVisible_System_Boolean_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.SetVisible(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_IsVisible">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.IsVisible()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_SetEditable_System_Boolean_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.SetEditable(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_IsEditable">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.IsEditable()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Equals_System_Object_">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetHashCode">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Equals_Virgis_VirgisLayer__0__1__">VirgisLayer&lt;GeographyCollection, ParticleData&gt;.Equals(VirgisLayer&lt;GeographyCollection, ParticleData&gt;)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
+  <h6><strong>Assembly</strong>: Assembly-CSharp.dll</h6>
+  <h5 id="Virgis_PointCloudLayer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PointCloudLayer : VirgisLayer&lt;GeographyCollection, ParticleData&gt;, IVirgisLayer, IVirgisEntity</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_handle.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.handle%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L17">View Source</a>
+  </span>
+  <h4 id="Virgis_PointCloudLayer_handle" data-uid="Virgis.PointCloudLayer.handle">handle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject handle</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_HandleMaterial.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.HandleMaterial%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L20">View Source</a>
+  </span>
+  <h4 id="Virgis_PointCloudLayer_HandleMaterial" data-uid="Virgis.PointCloudLayer.HandleMaterial">HandleMaterial</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material HandleMaterial</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Material</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_material.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.material%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L16">View Source</a>
+  </span>
+  <h4 id="Virgis_PointCloudLayer_material" data-uid="Virgis.PointCloudLayer.material">material</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Material material</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Material</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_meshes.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.meshes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L19">View Source</a>
+  </span>
+  <h4 id="Virgis_PointCloudLayer_meshes" data-uid="Virgis.PointCloudLayer.meshes">meshes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GameObject&gt; meshes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">UnityEngine.GameObject</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_pointCloud.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.pointCloud%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L18">View Source</a>
+  </span>
+  <h4 id="Virgis_PointCloudLayer_pointCloud" data-uid="Virgis.PointCloudLayer.pointCloud">pointCloud</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject pointCloud</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer__addFeature_UnityEngine_Vector3___.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer._addFeature(UnityEngine.Vector3%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L42">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer__addFeature_" data-uid="Virgis.PointCloudLayer._addFeature*"></a>
+  <h4 id="Virgis_PointCloudLayer__addFeature_UnityEngine_Vector3___" data-uid="Virgis.PointCloudLayer._addFeature(UnityEngine.Vector3[])">_addFeature(Vector3[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override VirgisFeature _addFeature(Vector3[] geometry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.Vector3</span>[]</td>
+        <td><span class="parametername">geometry</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;._addFeature(UnityEngine.Vector3[])</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer__checkpoint.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer._checkpoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L110">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer__checkpoint_" data-uid="Virgis.PointCloudLayer._checkpoint*"></a>
+  <h4 id="Virgis_PointCloudLayer__checkpoint" data-uid="Virgis.PointCloudLayer._checkpoint">_checkpoint()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void _checkpoint()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;._checkpoint()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer__draw.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer._draw%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L47">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer__draw_" data-uid="Virgis.PointCloudLayer._draw*"></a>
+  <h4 id="Virgis_PointCloudLayer__draw" data-uid="Virgis.PointCloudLayer._draw">_draw()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void _draw()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;._draw()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer__init_Project_GeographyCollection_.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer._init(Project.GeographyCollection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L28">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer__init_" data-uid="Virgis.PointCloudLayer._init*"></a>
+  <h4 id="Virgis_PointCloudLayer__init_Project_GeographyCollection_" data-uid="Virgis.PointCloudLayer._init(Project.GeographyCollection)">_init(GeographyCollection)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task _init(GeographyCollection layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Project.GeographyCollection.html">GeographyCollection</a></td>
+        <td><span class="parametername">layer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;._init(Project.GeographyCollection)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer__save.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer._save%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L112">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer__save_" data-uid="Virgis.PointCloudLayer._save*"></a>
+  <h4 id="Virgis_PointCloudLayer__save" data-uid="Virgis.PointCloudLayer._save">_save()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void _save()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;._save()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_GetFeatureShape.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.GetFeatureShape%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L120">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer_GetFeatureShape_" data-uid="Virgis.PointCloudLayer.GetFeatureShape*"></a>
+  <h4 id="Virgis_PointCloudLayer_GetFeatureShape" data-uid="Virgis.PointCloudLayer.GetFeatureShape">GetFeatureShape()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GameObject GetFeatureShape()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;.GetFeatureShape()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_MoveAxis_Virgis_MoveArgs_.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.MoveAxis(Virgis.MoveArgs)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L84">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer_MoveAxis_" data-uid="Virgis.PointCloudLayer.MoveAxis*"></a>
+  <h4 id="Virgis_PointCloudLayer_MoveAxis_Virgis_MoveArgs_" data-uid="Virgis.PointCloudLayer.MoveAxis(Virgis.MoveArgs)">MoveAxis(MoveArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MoveAxis(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;.MoveAxis(Virgis.MoveArgs)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer_Translate_Virgis_MoveArgs_.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer.Translate(Virgis.MoveArgs)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L75">View Source</a>
+  </span>
+  <a id="Virgis_PointCloudLayer_Translate_" data-uid="Virgis.PointCloudLayer.Translate*"></a>
+  <h4 id="Virgis_PointCloudLayer_Translate_Virgis_MoveArgs_" data-uid="Virgis.PointCloudLayer.Translate(Virgis.MoveArgs)">Translate(MoveArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Translate(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.VirgisLayer&lt;Project.GeographyCollection, Virgis.ParticleData&gt;.Translate(Virgis.MoveArgs)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a>
+  </div>
+  <div>
+      <a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=Virgis_PointCloudLayer.md&amp;value=---%0Auid%3A%20Virgis.PointCloudLayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/Scripts/Layers/PointCloudLayer.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ViRGIS VR GIS
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

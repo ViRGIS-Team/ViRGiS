@@ -6,7 +6,7 @@ items:
   parent: Virgis
   children:
   - Virgis.EditSession.#ctor
-  - Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.ILayer})
+  - Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.IVirgisLayer})
   - Virgis.EditSession.AddEndEditSessionListener(UnityEngine.Events.UnityAction{System.Boolean})
   - Virgis.EditSession.AddStartEditSessionListener(UnityEngine.Events.UnityAction)
   - Virgis.EditSession.editableLayer
@@ -25,7 +25,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: EditSession
     path: ../Assets/Scripts/EditSession.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: .ctor
     path: ../Assets/Scripts/EditSession.cs
@@ -88,7 +88,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: editableLayer
     path: ../Assets/Scripts/EditSession.cs
@@ -97,11 +97,11 @@ items:
   - Assembly-CSharp
   namespace: Virgis
   syntax:
-    content: public ILayer editableLayer { get; set; }
+    content: public IVirgisLayer editableLayer { get; set; }
     parameters: []
     return:
-      type: Virgis.ILayer
-    content.vb: Public Property editableLayer As ILayer
+      type: Virgis.IVirgisLayer
+    content.vb: Public Property editableLayer As IVirgisLayer
   overload: Virgis.EditSession.editableLayer*
   modifiers.csharp:
   - public
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: IsActive
     path: ../Assets/Scripts/EditSession.cs
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Start
     path: ../Assets/Scripts/EditSession.cs
@@ -185,7 +185,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: StopAndSave
     path: ../Assets/Scripts/EditSession.cs
@@ -215,7 +215,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: StopAndDiscard
     path: ../Assets/Scripts/EditSession.cs
@@ -245,7 +245,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: AddStartEditSessionListener
     path: ../Assets/Scripts/EditSession.cs
@@ -278,7 +278,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: AddEndEditSessionListener
     path: ../Assets/Scripts/EditSession.cs
@@ -300,21 +300,21 @@ items:
   - Public
   fullName.vb: Virgis.EditSession.AddEndEditSessionListener(UnityEngine.Events.UnityAction(Of System.Boolean))
   name.vb: AddEndEditSessionListener(UnityAction(Of Boolean))
-- uid: Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.ILayer})
-  commentId: M:Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.ILayer})
-  id: AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.ILayer})
+- uid: Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.IVirgisLayer})
+  commentId: M:Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.IVirgisLayer})
+  id: AddEditableLayerChangedListener(UnityEngine.Events.UnityAction{Virgis.IVirgisLayer})
   parent: Virgis.EditSession
   langs:
   - csharp
   - vb
-  name: AddEditableLayerChangedListener(UnityAction<ILayer>)
-  nameWithType: EditSession.AddEditableLayerChangedListener(UnityAction<ILayer>)
-  fullName: Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction<Virgis.ILayer>)
+  name: AddEditableLayerChangedListener(UnityAction<IVirgisLayer>)
+  nameWithType: EditSession.AddEditableLayerChangedListener(UnityAction<IVirgisLayer>)
+  fullName: Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction<Virgis.IVirgisLayer>)
   type: Method
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: AddEditableLayerChangedListener
     path: ../Assets/Scripts/EditSession.cs
@@ -323,19 +323,19 @@ items:
   - Assembly-CSharp
   namespace: Virgis
   syntax:
-    content: public void AddEditableLayerChangedListener(UnityAction<ILayer> action)
+    content: public void AddEditableLayerChangedListener(UnityAction<IVirgisLayer> action)
     parameters:
     - id: action
-      type: UnityEngine.Events.UnityAction{Virgis.ILayer}
-    content.vb: Public Sub AddEditableLayerChangedListener(action As UnityAction(Of ILayer))
+      type: UnityEngine.Events.UnityAction{Virgis.IVirgisLayer}
+    content.vb: Public Sub AddEditableLayerChangedListener(action As UnityAction(Of IVirgisLayer))
   overload: Virgis.EditSession.AddEditableLayerChangedListener*
-  nameWithType.vb: EditSession.AddEditableLayerChangedListener(UnityAction(Of ILayer))
+  nameWithType.vb: EditSession.AddEditableLayerChangedListener(UnityAction(Of IVirgisLayer))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction(Of Virgis.ILayer))
-  name.vb: AddEditableLayerChangedListener(UnityAction(Of ILayer))
+  fullName.vb: Virgis.EditSession.AddEditableLayerChangedListener(UnityEngine.Events.UnityAction(Of Virgis.IVirgisLayer))
+  name.vb: AddEditableLayerChangedListener(UnityAction(Of IVirgisLayer))
 - uid: Virgis.EditSession.mode
   commentId: P:Virgis.EditSession.mode
   id: mode
@@ -350,7 +350,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/EditSession.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: mode
     path: ../Assets/Scripts/EditSession.cs
@@ -400,12 +400,12 @@ references:
   name: editableLayer
   nameWithType: EditSession.editableLayer
   fullName: Virgis.EditSession.editableLayer
-- uid: Virgis.ILayer
-  commentId: T:Virgis.ILayer
+- uid: Virgis.IVirgisLayer
+  commentId: T:Virgis.IVirgisLayer
   parent: Virgis
-  name: ILayer
-  nameWithType: ILayer
-  fullName: Virgis.ILayer
+  name: IVirgisLayer
+  nameWithType: IVirgisLayer
+  fullName: Virgis.IVirgisLayer
 - uid: Virgis.EditSession.IsActive*
   commentId: Overload:Virgis.EditSession.IsActive
   name: IsActive
@@ -544,16 +544,16 @@ references:
   name: AddEditableLayerChangedListener
   nameWithType: EditSession.AddEditableLayerChangedListener
   fullName: Virgis.EditSession.AddEditableLayerChangedListener
-- uid: UnityEngine.Events.UnityAction{Virgis.ILayer}
-  commentId: T:UnityEngine.Events.UnityAction{Virgis.ILayer}
+- uid: UnityEngine.Events.UnityAction{Virgis.IVirgisLayer}
+  commentId: T:UnityEngine.Events.UnityAction{Virgis.IVirgisLayer}
   parent: UnityEngine.Events
   definition: UnityEngine.Events.UnityAction`1
-  name: UnityAction<ILayer>
-  nameWithType: UnityAction<ILayer>
-  fullName: UnityEngine.Events.UnityAction<Virgis.ILayer>
-  nameWithType.vb: UnityAction(Of ILayer)
-  fullName.vb: UnityEngine.Events.UnityAction(Of Virgis.ILayer)
-  name.vb: UnityAction(Of ILayer)
+  name: UnityAction<IVirgisLayer>
+  nameWithType: UnityAction<IVirgisLayer>
+  fullName: UnityEngine.Events.UnityAction<Virgis.IVirgisLayer>
+  nameWithType.vb: UnityAction(Of IVirgisLayer)
+  fullName.vb: UnityEngine.Events.UnityAction(Of Virgis.IVirgisLayer)
+  name.vb: UnityAction(Of IVirgisLayer)
   spec.csharp:
   - uid: UnityEngine.Events.UnityAction`1
     name: UnityAction
@@ -563,10 +563,10 @@ references:
   - name: <
     nameWithType: <
     fullName: <
-  - uid: Virgis.ILayer
-    name: ILayer
-    nameWithType: ILayer
-    fullName: Virgis.ILayer
+  - uid: Virgis.IVirgisLayer
+    name: IVirgisLayer
+    nameWithType: IVirgisLayer
+    fullName: Virgis.IVirgisLayer
   - name: '>'
     nameWithType: '>'
     fullName: '>'
@@ -579,10 +579,10 @@ references:
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
-  - uid: Virgis.ILayer
-    name: ILayer
-    nameWithType: ILayer
-    fullName: Virgis.ILayer
+  - uid: Virgis.IVirgisLayer
+    name: IVirgisLayer
+    nameWithType: IVirgisLayer
+    fullName: Virgis.IVirgisLayer
   - name: )
     nameWithType: )
     fullName: )

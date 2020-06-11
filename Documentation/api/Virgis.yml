@@ -23,12 +23,11 @@ items:
   - Virgis.FeatureObject
   - Virgis.FlyingCam
   - Virgis.GeoJsonReader
-  - Virgis.ILayer
-  - Virgis.IVirgisComponent
   - Virgis.IVirgisEntity
+  - Virgis.IVirgisFeature
+  - Virgis.IVirgisLayer
   - Virgis.KdTree`1
   - Virgis.KdTree`1.KdNode
-  - Virgis.Layer`2
   - Virgis.LayerPanelEditSelectedEvent
   - Virgis.LayersUI
   - Virgis.LayerUIPanel
@@ -48,9 +47,11 @@ items:
   - Virgis.PositionExtensionMethods
   - Virgis.SelectionTypes
   - Virgis.SimpleMeshExtensions
+  - Virgis.UnityLayers
   - Virgis.Vector3ExtebnsionMethods
   - Virgis.VertexLookup
-  - Virgis.VirgisComponent
+  - Virgis.VirgisFeature
+  - Virgis.VirgisLayer`2
   - Virgis.VirgisVectorExtensions
   - Virgis.ZoomEvent
   langs:
@@ -173,60 +174,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.ILayer
-  commentId: T:Virgis.ILayer
-  parent: Virgis
-  name: ILayer
-  nameWithType: ILayer
-  fullName: Virgis.ILayer
-- uid: Virgis.Layer`2
-  commentId: T:Virgis.Layer`2
-  name: Layer<T, S>
-  nameWithType: Layer<T, S>
-  fullName: Virgis.Layer<T, S>
-  nameWithType.vb: Layer(Of T, S)
-  fullName.vb: Virgis.Layer(Of T, S)
-  name.vb: Layer(Of T, S)
-  spec.csharp:
-  - uid: Virgis.Layer`2
-    name: Layer
-    nameWithType: Layer
-    fullName: Virgis.Layer
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - name: S
-    nameWithType: S
-    fullName: S
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: Virgis.Layer`2
-    name: Layer
-    nameWithType: Layer
-    fullName: Virgis.Layer
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: ', '
-    nameWithType: ', '
-    fullName: ', '
-  - name: S
-    nameWithType: S
-    fullName: S
-  - name: )
-    nameWithType: )
-    fullName: )
 - uid: Virgis.MeshData
   commentId: T:Virgis.MeshData
   name: MeshData
@@ -243,18 +190,73 @@ references:
   name: IVirgisEntity
   nameWithType: IVirgisEntity
   fullName: Virgis.IVirgisEntity
-- uid: Virgis.IVirgisComponent
-  commentId: T:Virgis.IVirgisComponent
+- uid: Virgis.IVirgisFeature
+  commentId: T:Virgis.IVirgisFeature
   parent: Virgis
-  name: IVirgisComponent
-  nameWithType: IVirgisComponent
-  fullName: Virgis.IVirgisComponent
-- uid: Virgis.VirgisComponent
-  commentId: T:Virgis.VirgisComponent
+  name: IVirgisFeature
+  nameWithType: IVirgisFeature
+  fullName: Virgis.IVirgisFeature
+- uid: Virgis.VirgisFeature
+  commentId: T:Virgis.VirgisFeature
   parent: Virgis
-  name: VirgisComponent
-  nameWithType: VirgisComponent
-  fullName: Virgis.VirgisComponent
+  name: VirgisFeature
+  nameWithType: VirgisFeature
+  fullName: Virgis.VirgisFeature
+- uid: Virgis.IVirgisLayer
+  commentId: T:Virgis.IVirgisLayer
+  parent: Virgis
+  name: IVirgisLayer
+  nameWithType: IVirgisLayer
+  fullName: Virgis.IVirgisLayer
+- uid: Virgis.VirgisLayer`2
+  commentId: T:Virgis.VirgisLayer`2
+  parent: Virgis
+  name: VirgisLayer<T, S>
+  nameWithType: VirgisLayer<T, S>
+  fullName: Virgis.VirgisLayer<T, S>
+  nameWithType.vb: VirgisLayer(Of T, S)
+  fullName.vb: Virgis.VirgisLayer(Of T, S)
+  name.vb: VirgisLayer(Of T, S)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Virgis.MoveArgs
   commentId: T:Virgis.MoveArgs
   parent: Virgis
@@ -267,6 +269,11 @@ references:
   name: SelectionTypes
   nameWithType: SelectionTypes
   fullName: Virgis.SelectionTypes
+- uid: Virgis.UnityLayers
+  commentId: T:Virgis.UnityLayers
+  name: UnityLayers
+  nameWithType: UnityLayers
+  fullName: Virgis.UnityLayers
 - uid: Virgis.Vector3ExtebnsionMethods
   commentId: T:Virgis.Vector3ExtebnsionMethods
   name: Vector3ExtebnsionMethods

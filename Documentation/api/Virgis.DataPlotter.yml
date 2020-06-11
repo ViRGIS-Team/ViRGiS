@@ -27,7 +27,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: DataPlotter
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -36,52 +36,58 @@ items:
   - Assembly-CSharp
   namespace: Virgis
   syntax:
-    content: 'public class DataPlotter : Layer<RecordSet, CSVData>, ILayer'
+    content: 'public class DataPlotter : VirgisLayer<RecordSet, CSVData>, IVirgisLayer, IVirgisEntity'
     content.vb: >-
       Public Class DataPlotter
-          Inherits Layer(Of RecordSet, CSVData)
-          Implements ILayer
+          Inherits VirgisLayer(Of RecordSet, CSVData)
+          Implements IVirgisLayer, IVirgisEntity
   inheritance:
   - System.Object
   - UnityEngine.Object
   - UnityEngine.Component
   - UnityEngine.Behaviour
   - UnityEngine.MonoBehaviour
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
   implements:
-  - Virgis.ILayer
+  - Virgis.IVirgisLayer
+  - Virgis.IVirgisEntity
   inheritedMembers:
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.layer
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.features
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.changed
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._id
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._visible
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._editable
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Init(Project.RecordSet)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.AddFeature(UnityEngine.Vector3[])
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Draw
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._draw
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.CheckPoint
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._checkpoint
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Save
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}._save
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.StartEditSession
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.ExitEditSession(System.Boolean)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Selected(Virgis.SelectionTypes)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.UnSelected(Virgis.SelectionTypes)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetClosest(UnityEngine.Vector3,System.Guid[])
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeature(System.Guid)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetId
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetMetadata
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.SetVisible(System.Boolean)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.IsVisible
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.SetEditable(System.Boolean)
-  - Virgis.Layer{Project.RecordSet,Virgis.CSVData}.IsEditable
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.layer
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.features
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.changed
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._id
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._visible
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._editable
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Init(Project.RecordSet)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.AddFeature(UnityEngine.Vector3[])
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Draw
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._draw
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.CheckPoint
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._checkpoint
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Save
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._save
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveTo(Virgis.MoveArgs)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.VertexMove(Virgis.MoveArgs)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.StartEditSession
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.ExitEditSession(System.Boolean)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Selected(Virgis.SelectionTypes)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.UnSelected(Virgis.SelectionTypes)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeature(System.Guid)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetId
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetMetadata
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.SetVisible(System.Boolean)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.IsVisible
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.SetEditable(System.Boolean)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.IsEditable
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Equals(System.Object)
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetHashCode
+  - Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Equals(Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData})
   modifiers.csharp:
   - public
   - class
@@ -102,7 +108,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: SpherePrefab
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -133,7 +139,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: CubePrefab
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -164,7 +170,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: CylinderPrefab
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -195,7 +201,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: LabelPrefab
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -226,7 +232,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: _init
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -242,7 +248,7 @@ items:
     return:
       type: System.Threading.Tasks.Task
     content.vb: Protected Overrides Function _init(layer As RecordSet) As Task
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
   overload: Virgis.DataPlotter._init*
   modifiers.csharp:
   - protected
@@ -264,7 +270,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: _checkpoint
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -275,7 +281,7 @@ items:
   syntax:
     content: protected override void _checkpoint()
     content.vb: Protected Overrides Sub _checkpoint
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._checkpoint
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._checkpoint
   overload: Virgis.DataPlotter._checkpoint*
   modifiers.csharp:
   - protected
@@ -297,7 +303,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: _draw
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -308,7 +314,7 @@ items:
   syntax:
     content: protected override void _draw()
     content.vb: Protected Overrides Sub _draw
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._draw
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._draw
   overload: Virgis.DataPlotter._draw*
   modifiers.csharp:
   - protected
@@ -330,7 +336,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: _addFeature
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -339,14 +345,14 @@ items:
   - Assembly-CSharp
   namespace: Virgis
   syntax:
-    content: protected override VirgisComponent _addFeature(Vector3[] geometry)
+    content: protected override VirgisFeature _addFeature(Vector3[] geometry)
     parameters:
     - id: geometry
       type: UnityEngine.Vector3[]
     return:
-      type: Virgis.VirgisComponent
-    content.vb: Protected Overrides Function _addFeature(geometry As Vector3()) As VirgisComponent
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
+      type: Virgis.VirgisFeature
+    content.vb: Protected Overrides Function _addFeature(geometry As Vector3()) As VirgisFeature
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
   overload: Virgis.DataPlotter._addFeature*
   nameWithType.vb: DataPlotter._addFeature(Vector3())
   modifiers.csharp:
@@ -371,7 +377,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: _save
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -382,7 +388,7 @@ items:
   syntax:
     content: protected override void _save()
     content.vb: Protected Overrides Sub _save
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._save
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._save
   overload: Virgis.DataPlotter._save*
   modifiers.csharp:
   - protected
@@ -404,7 +410,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: MoveAxis
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -418,7 +424,7 @@ items:
     - id: args
       type: Virgis.MoveArgs
     content.vb: Public Overrides Sub MoveAxis(args As MoveArgs)
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
   overload: Virgis.DataPlotter.MoveAxis*
   modifiers.csharp:
   - public
@@ -440,7 +446,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Translate
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -454,7 +460,7 @@ items:
     - id: args
       type: Virgis.MoveArgs
     content.vb: Public Overrides Sub Translate(args As MoveArgs)
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
   overload: Virgis.DataPlotter.Translate*
   modifiers.csharp:
   - public
@@ -476,7 +482,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Adapters/DataPlotter.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: GetFeatureShape
     path: ../Assets/Scripts/Adapters/DataPlotter.cs
@@ -489,7 +495,7 @@ items:
     return:
       type: UnityEngine.GameObject
     content.vb: Public Overrides Function GetFeatureShape As GameObject
-  overridden: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
+  overridden: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
   overload: Virgis.DataPlotter.GetFeatureShape*
   modifiers.csharp:
   - public
@@ -538,21 +544,21 @@ references:
   name: MonoBehaviour
   nameWithType: MonoBehaviour
   fullName: UnityEngine.MonoBehaviour
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  commentId: T:Virgis.Layer{Project.RecordSet,Virgis.CSVData}
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  commentId: T:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
   parent: Virgis
-  definition: Virgis.Layer`2
-  name: Layer<RecordSet, CSVData>
-  nameWithType: Layer<RecordSet, CSVData>
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>
-  nameWithType.vb: Layer(Of RecordSet, CSVData)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)
-  name.vb: Layer(Of RecordSet, CSVData)
+  definition: Virgis.VirgisLayer`2
+  name: VirgisLayer<RecordSet, CSVData>
+  nameWithType: VirgisLayer<RecordSet, CSVData>
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)
+  name.vb: VirgisLayer(Of RecordSet, CSVData)
   spec.csharp:
-  - uid: Virgis.Layer`2
-    name: Layer
-    nameWithType: Layer
-    fullName: Virgis.Layer
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
   - name: <
     nameWithType: <
     fullName: <
@@ -571,10 +577,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Virgis.Layer`2
-    name: Layer
-    nameWithType: Layer
-    fullName: Virgis.Layer
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
@@ -592,80 +598,86 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.ILayer
-  commentId: T:Virgis.ILayer
+- uid: Virgis.IVirgisLayer
+  commentId: T:Virgis.IVirgisLayer
   parent: Virgis
-  name: ILayer
-  nameWithType: ILayer
-  fullName: Virgis.ILayer
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.layer
-  commentId: F:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.layer
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.layer
+  name: IVirgisLayer
+  nameWithType: IVirgisLayer
+  fullName: Virgis.IVirgisLayer
+- uid: Virgis.IVirgisEntity
+  commentId: T:Virgis.IVirgisEntity
+  parent: Virgis
+  name: IVirgisEntity
+  nameWithType: IVirgisEntity
+  fullName: Virgis.IVirgisEntity
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.layer
+  commentId: F:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.layer
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.layer
   name: layer
-  nameWithType: Layer<RecordSet, CSVData>.layer
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.layer
-  nameWithType.vb: Layer(Of RecordSet, CSVData).layer
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).layer
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.features
-  commentId: F:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.features
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.features
+  nameWithType: VirgisLayer<RecordSet, CSVData>.layer
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.layer
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).layer
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).layer
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.features
+  commentId: F:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.features
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.features
   name: features
-  nameWithType: Layer<RecordSet, CSVData>.features
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.features
-  nameWithType.vb: Layer(Of RecordSet, CSVData).features
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).features
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.changed
-  commentId: F:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.changed
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.changed
+  nameWithType: VirgisLayer<RecordSet, CSVData>.features
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.features
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).features
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).features
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.changed
+  commentId: F:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.changed
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.changed
   name: changed
-  nameWithType: Layer<RecordSet, CSVData>.changed
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.changed
-  nameWithType.vb: Layer(Of RecordSet, CSVData).changed
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).changed
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._id
-  commentId: F:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._id
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._id
+  nameWithType: VirgisLayer<RecordSet, CSVData>.changed
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.changed
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).changed
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).changed
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._id
+  commentId: F:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._id
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._id
   name: _id
-  nameWithType: Layer<RecordSet, CSVData>._id
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._id
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._id
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._id
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._visible
-  commentId: F:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._visible
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._visible
+  nameWithType: VirgisLayer<RecordSet, CSVData>._id
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._id
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._id
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._id
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._visible
+  commentId: F:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._visible
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._visible
   name: _visible
-  nameWithType: Layer<RecordSet, CSVData>._visible
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._visible
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._visible
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._visible
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._editable
-  commentId: F:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._editable
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._editable
+  nameWithType: VirgisLayer<RecordSet, CSVData>._visible
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._visible
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._visible
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._visible
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._editable
+  commentId: F:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._editable
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._editable
   name: _editable
-  nameWithType: Layer<RecordSet, CSVData>._editable
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._editable
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._editable
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._editable
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Init(Project.RecordSet)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Init(Project.RecordSet)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.Init(`0)
+  nameWithType: VirgisLayer<RecordSet, CSVData>._editable
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._editable
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._editable
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._editable
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Init(Project.RecordSet)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Init(Project.RecordSet)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Init(`0)
   name: Init(RecordSet)
-  nameWithType: Layer<RecordSet, CSVData>.Init(RecordSet)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Init(Project.RecordSet)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).Init(RecordSet)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Init(Project.RecordSet)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Init(RecordSet)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Init(Project.RecordSet)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Init(RecordSet)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Init(Project.RecordSet)
   spec.csharp:
-  - uid: Virgis.Layer`2.Init(`0)
+  - uid: Virgis.VirgisLayer`2.Init(`0)
     name: Init
-    nameWithType: Layer<RecordSet, CSVData>.Init
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Init
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Init
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Init
   - name: (
     nameWithType: (
     fullName: (
@@ -677,10 +689,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Init(`0)
+  - uid: Virgis.VirgisLayer`2.Init(`0)
     name: Init
-    nameWithType: Layer(Of RecordSet, CSVData).Init
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Init
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Init
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Init
   - name: (
     nameWithType: (
     fullName: (
@@ -691,20 +703,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._init(`0)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._init(Project.RecordSet)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._init(`0)
   name: _init(RecordSet)
-  nameWithType: Layer<RecordSet, CSVData>._init(RecordSet)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._init(Project.RecordSet)
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._init(RecordSet)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._init(Project.RecordSet)
+  nameWithType: VirgisLayer<RecordSet, CSVData>._init(RecordSet)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._init(Project.RecordSet)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._init(RecordSet)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._init(Project.RecordSet)
   spec.csharp:
-  - uid: Virgis.Layer`2._init(`0)
+  - uid: Virgis.VirgisLayer`2._init(`0)
     name: _init
-    nameWithType: Layer<RecordSet, CSVData>._init
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._init
+    nameWithType: VirgisLayer<RecordSet, CSVData>._init
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._init
   - name: (
     nameWithType: (
     fullName: (
@@ -716,10 +728,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._init(`0)
+  - uid: Virgis.VirgisLayer`2._init(`0)
     name: _init
-    nameWithType: Layer(Of RecordSet, CSVData)._init
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._init
+    nameWithType: VirgisLayer(Of RecordSet, CSVData)._init
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._init
   - name: (
     nameWithType: (
     fullName: (
@@ -730,21 +742,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.AddFeature(UnityEngine.Vector3[])
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.AddFeature(UnityEngine.Vector3[])
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.AddFeature(UnityEngine.Vector3[])
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
   name: AddFeature(Vector3[])
-  nameWithType: Layer<RecordSet, CSVData>.AddFeature(Vector3[])
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.AddFeature(UnityEngine.Vector3[])
-  nameWithType.vb: Layer(Of RecordSet, CSVData).AddFeature(Vector3())
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).AddFeature(UnityEngine.Vector3())
+  nameWithType: VirgisLayer<RecordSet, CSVData>.AddFeature(Vector3[])
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.AddFeature(UnityEngine.Vector3[])
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).AddFeature(Vector3())
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).AddFeature(UnityEngine.Vector3())
   name.vb: AddFeature(Vector3())
   spec.csharp:
-  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
     name: AddFeature
-    nameWithType: Layer<RecordSet, CSVData>.AddFeature
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.AddFeature
+    nameWithType: VirgisLayer<RecordSet, CSVData>.AddFeature
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.AddFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -760,10 +772,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
     name: AddFeature
-    nameWithType: Layer(Of RecordSet, CSVData).AddFeature
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).AddFeature
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).AddFeature
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).AddFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -778,21 +790,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._addFeature(UnityEngine.Vector3[])
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
   name: _addFeature(Vector3[])
-  nameWithType: Layer<RecordSet, CSVData>._addFeature(Vector3[])
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._addFeature(UnityEngine.Vector3[])
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._addFeature(Vector3())
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._addFeature(UnityEngine.Vector3())
+  nameWithType: VirgisLayer<RecordSet, CSVData>._addFeature(Vector3[])
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._addFeature(UnityEngine.Vector3[])
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._addFeature(Vector3())
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._addFeature(UnityEngine.Vector3())
   name.vb: _addFeature(Vector3())
   spec.csharp:
-  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
     name: _addFeature
-    nameWithType: Layer<RecordSet, CSVData>._addFeature
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._addFeature
+    nameWithType: VirgisLayer<RecordSet, CSVData>._addFeature
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._addFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -808,10 +820,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
     name: _addFeature
-    nameWithType: Layer(Of RecordSet, CSVData)._addFeature
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._addFeature
+    nameWithType: VirgisLayer(Of RecordSet, CSVData)._addFeature
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._addFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -826,20 +838,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Draw
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Draw
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.Draw
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Draw
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Draw
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Draw
   name: Draw()
-  nameWithType: Layer<RecordSet, CSVData>.Draw()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Draw()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).Draw()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Draw()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Draw()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Draw()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Draw()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Draw()
   spec.csharp:
-  - uid: Virgis.Layer`2.Draw
+  - uid: Virgis.VirgisLayer`2.Draw
     name: Draw
-    nameWithType: Layer<RecordSet, CSVData>.Draw
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Draw
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Draw
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Draw
   - name: (
     nameWithType: (
     fullName: (
@@ -847,30 +859,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Draw
+  - uid: Virgis.VirgisLayer`2.Draw
     name: Draw
-    nameWithType: Layer(Of RecordSet, CSVData).Draw
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Draw
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Draw
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Draw
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._draw
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._draw
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._draw
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._draw
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._draw
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._draw
   name: _draw()
-  nameWithType: Layer<RecordSet, CSVData>._draw()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._draw()
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._draw()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._draw()
+  nameWithType: VirgisLayer<RecordSet, CSVData>._draw()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._draw()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._draw()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._draw()
   spec.csharp:
-  - uid: Virgis.Layer`2._draw
+  - uid: Virgis.VirgisLayer`2._draw
     name: _draw
-    nameWithType: Layer<RecordSet, CSVData>._draw
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._draw
+    nameWithType: VirgisLayer<RecordSet, CSVData>._draw
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._draw
   - name: (
     nameWithType: (
     fullName: (
@@ -878,30 +890,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._draw
+  - uid: Virgis.VirgisLayer`2._draw
     name: _draw
-    nameWithType: Layer(Of RecordSet, CSVData)._draw
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._draw
+    nameWithType: VirgisLayer(Of RecordSet, CSVData)._draw
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._draw
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.CheckPoint
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.CheckPoint
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.CheckPoint
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.CheckPoint
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.CheckPoint
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.CheckPoint
   name: CheckPoint()
-  nameWithType: Layer<RecordSet, CSVData>.CheckPoint()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.CheckPoint()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).CheckPoint()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).CheckPoint()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.CheckPoint()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.CheckPoint()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).CheckPoint()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).CheckPoint()
   spec.csharp:
-  - uid: Virgis.Layer`2.CheckPoint
+  - uid: Virgis.VirgisLayer`2.CheckPoint
     name: CheckPoint
-    nameWithType: Layer<RecordSet, CSVData>.CheckPoint
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.CheckPoint
+    nameWithType: VirgisLayer<RecordSet, CSVData>.CheckPoint
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.CheckPoint
   - name: (
     nameWithType: (
     fullName: (
@@ -909,30 +921,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.CheckPoint
+  - uid: Virgis.VirgisLayer`2.CheckPoint
     name: CheckPoint
-    nameWithType: Layer(Of RecordSet, CSVData).CheckPoint
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).CheckPoint
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).CheckPoint
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).CheckPoint
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._checkpoint
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._checkpoint
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._checkpoint
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._checkpoint
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._checkpoint
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._checkpoint
   name: _checkpoint()
-  nameWithType: Layer<RecordSet, CSVData>._checkpoint()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._checkpoint()
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._checkpoint()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._checkpoint()
+  nameWithType: VirgisLayer<RecordSet, CSVData>._checkpoint()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._checkpoint()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._checkpoint()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._checkpoint()
   spec.csharp:
-  - uid: Virgis.Layer`2._checkpoint
+  - uid: Virgis.VirgisLayer`2._checkpoint
     name: _checkpoint
-    nameWithType: Layer<RecordSet, CSVData>._checkpoint
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._checkpoint
+    nameWithType: VirgisLayer<RecordSet, CSVData>._checkpoint
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._checkpoint
   - name: (
     nameWithType: (
     fullName: (
@@ -940,30 +952,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._checkpoint
+  - uid: Virgis.VirgisLayer`2._checkpoint
     name: _checkpoint
-    nameWithType: Layer(Of RecordSet, CSVData)._checkpoint
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._checkpoint
+    nameWithType: VirgisLayer(Of RecordSet, CSVData)._checkpoint
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._checkpoint
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Save
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Save
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.Save
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Save
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Save
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Save
   name: Save()
-  nameWithType: Layer<RecordSet, CSVData>.Save()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Save()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).Save()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Save()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Save()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Save()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Save()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Save()
   spec.csharp:
-  - uid: Virgis.Layer`2.Save
+  - uid: Virgis.VirgisLayer`2.Save
     name: Save
-    nameWithType: Layer<RecordSet, CSVData>.Save
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Save
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Save
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Save
   - name: (
     nameWithType: (
     fullName: (
@@ -971,30 +983,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Save
+  - uid: Virgis.VirgisLayer`2.Save
     name: Save
-    nameWithType: Layer(Of RecordSet, CSVData).Save
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Save
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Save
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Save
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}._save
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}._save
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2._save
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._save
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}._save
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2._save
   name: _save()
-  nameWithType: Layer<RecordSet, CSVData>._save()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._save()
-  nameWithType.vb: Layer(Of RecordSet, CSVData)._save()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._save()
+  nameWithType: VirgisLayer<RecordSet, CSVData>._save()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._save()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData)._save()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._save()
   spec.csharp:
-  - uid: Virgis.Layer`2._save
+  - uid: Virgis.VirgisLayer`2._save
     name: _save
-    nameWithType: Layer<RecordSet, CSVData>._save
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>._save
+    nameWithType: VirgisLayer<RecordSet, CSVData>._save
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>._save
   - name: (
     nameWithType: (
     fullName: (
@@ -1002,30 +1014,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._save
+  - uid: Virgis.VirgisLayer`2._save
     name: _save
-    nameWithType: Layer(Of RecordSet, CSVData)._save
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData)._save
+    nameWithType: VirgisLayer(Of RecordSet, CSVData)._save
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData)._save
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Translate(Virgis.MoveArgs)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
   name: Translate(MoveArgs)
-  nameWithType: Layer<RecordSet, CSVData>.Translate(MoveArgs)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Translate(Virgis.MoveArgs)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).Translate(MoveArgs)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Translate(Virgis.MoveArgs)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Translate(MoveArgs)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Translate(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Translate(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Translate(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
     name: Translate
-    nameWithType: Layer<RecordSet, CSVData>.Translate
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Translate
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Translate
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Translate
   - name: (
     nameWithType: (
     fullName: (
@@ -1037,10 +1049,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
     name: Translate
-    nameWithType: Layer(Of RecordSet, CSVData).Translate
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Translate
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Translate
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Translate
   - name: (
     nameWithType: (
     fullName: (
@@ -1051,20 +1063,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveAxis(Virgis.MoveArgs)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
   name: MoveAxis(MoveArgs)
-  nameWithType: Layer<RecordSet, CSVData>.MoveAxis(MoveArgs)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.MoveAxis(Virgis.MoveArgs)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).MoveAxis(MoveArgs)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).MoveAxis(Virgis.MoveArgs)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.MoveAxis(MoveArgs)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.MoveAxis(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).MoveAxis(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).MoveAxis(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
     name: MoveAxis
-    nameWithType: Layer<RecordSet, CSVData>.MoveAxis
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.MoveAxis
+    nameWithType: VirgisLayer<RecordSet, CSVData>.MoveAxis
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.MoveAxis
   - name: (
     nameWithType: (
     fullName: (
@@ -1076,10 +1088,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
     name: MoveAxis
-    nameWithType: Layer(Of RecordSet, CSVData).MoveAxis
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).MoveAxis
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).MoveAxis
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).MoveAxis
   - name: (
     nameWithType: (
     fullName: (
@@ -1090,20 +1102,98 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.StartEditSession
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.StartEditSession
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.StartEditSession
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.MoveTo(Virgis.MoveArgs)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+  name: MoveTo(MoveArgs)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.MoveTo(MoveArgs)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.MoveTo(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).MoveTo(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).MoveTo(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisLayer<RecordSet, CSVData>.MoveTo
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).MoveTo
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.VertexMove(Virgis.MoveArgs)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+  name: VertexMove(MoveArgs)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.VertexMove(MoveArgs)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.VertexMove(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).VertexMove(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).VertexMove(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisLayer<RecordSet, CSVData>.VertexMove
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).VertexMove
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.StartEditSession
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.StartEditSession
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.StartEditSession
   name: StartEditSession()
-  nameWithType: Layer<RecordSet, CSVData>.StartEditSession()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.StartEditSession()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).StartEditSession()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).StartEditSession()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.StartEditSession()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.StartEditSession()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).StartEditSession()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).StartEditSession()
   spec.csharp:
-  - uid: Virgis.Layer`2.StartEditSession
+  - uid: Virgis.VirgisLayer`2.StartEditSession
     name: StartEditSession
-    nameWithType: Layer<RecordSet, CSVData>.StartEditSession
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.StartEditSession
+    nameWithType: VirgisLayer<RecordSet, CSVData>.StartEditSession
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.StartEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -1111,30 +1201,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.StartEditSession
+  - uid: Virgis.VirgisLayer`2.StartEditSession
     name: StartEditSession
-    nameWithType: Layer(Of RecordSet, CSVData).StartEditSession
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).StartEditSession
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).StartEditSession
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).StartEditSession
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.ExitEditSession(System.Boolean)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.ExitEditSession(System.Boolean)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.ExitEditSession(System.Boolean)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.ExitEditSession(System.Boolean)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
   name: ExitEditSession(Boolean)
-  nameWithType: Layer<RecordSet, CSVData>.ExitEditSession(Boolean)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.ExitEditSession(System.Boolean)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).ExitEditSession(Boolean)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).ExitEditSession(System.Boolean)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.ExitEditSession(Boolean)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.ExitEditSession(System.Boolean)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).ExitEditSession(Boolean)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).ExitEditSession(System.Boolean)
   spec.csharp:
-  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
     name: ExitEditSession
-    nameWithType: Layer<RecordSet, CSVData>.ExitEditSession
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.ExitEditSession
+    nameWithType: VirgisLayer<RecordSet, CSVData>.ExitEditSession
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.ExitEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -1147,10 +1237,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
     name: ExitEditSession
-    nameWithType: Layer(Of RecordSet, CSVData).ExitEditSession
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).ExitEditSession
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).ExitEditSession
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).ExitEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -1162,20 +1252,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Selected(Virgis.SelectionTypes)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.Selected(Virgis.SelectionTypes)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Selected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
   name: Selected(SelectionTypes)
-  nameWithType: Layer<RecordSet, CSVData>.Selected(SelectionTypes)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Selected(Virgis.SelectionTypes)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).Selected(SelectionTypes)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Selected(Virgis.SelectionTypes)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Selected(SelectionTypes)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Selected(Virgis.SelectionTypes)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Selected(SelectionTypes)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Selected(Virgis.SelectionTypes)
   spec.csharp:
-  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
     name: Selected
-    nameWithType: Layer<RecordSet, CSVData>.Selected
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.Selected
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Selected
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Selected
   - name: (
     nameWithType: (
     fullName: (
@@ -1187,10 +1277,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
     name: Selected
-    nameWithType: Layer(Of RecordSet, CSVData).Selected
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).Selected
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Selected
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Selected
   - name: (
     nameWithType: (
     fullName: (
@@ -1201,20 +1291,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.UnSelected(Virgis.SelectionTypes)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.UnSelected(Virgis.SelectionTypes)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.UnSelected(Virgis.SelectionTypes)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
   name: UnSelected(SelectionTypes)
-  nameWithType: Layer<RecordSet, CSVData>.UnSelected(SelectionTypes)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.UnSelected(Virgis.SelectionTypes)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).UnSelected(SelectionTypes)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).UnSelected(Virgis.SelectionTypes)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.UnSelected(SelectionTypes)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.UnSelected(Virgis.SelectionTypes)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).UnSelected(SelectionTypes)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).UnSelected(Virgis.SelectionTypes)
   spec.csharp:
-  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
     name: UnSelected
-    nameWithType: Layer<RecordSet, CSVData>.UnSelected
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.UnSelected
+    nameWithType: VirgisLayer<RecordSet, CSVData>.UnSelected
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.UnSelected
   - name: (
     nameWithType: (
     fullName: (
@@ -1226,10 +1316,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
     name: UnSelected
-    nameWithType: Layer(Of RecordSet, CSVData).UnSelected
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).UnSelected
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).UnSelected
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).UnSelected
   - name: (
     nameWithType: (
     fullName: (
@@ -1240,21 +1330,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetClosest(UnityEngine.Vector3,System.Guid[])
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetClosest(UnityEngine.Vector3,System.Guid[])
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetClosest(UnityEngine.Vector3,System.Guid[])
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
   name: GetClosest(Vector3, Guid[])
-  nameWithType: Layer<RecordSet, CSVData>.GetClosest(Vector3, Guid[])
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetClosest(UnityEngine.Vector3, System.Guid[])
-  nameWithType.vb: Layer(Of RecordSet, CSVData).GetClosest(Vector3, Guid())
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetClosest(UnityEngine.Vector3, System.Guid())
+  nameWithType: VirgisLayer<RecordSet, CSVData>.GetClosest(Vector3, Guid[])
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetClosest(UnityEngine.Vector3, System.Guid[])
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetClosest(UnityEngine.Vector3, System.Guid())
   name.vb: GetClosest(Vector3, Guid())
   spec.csharp:
-  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - uid: Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
     name: GetClosest
-    nameWithType: Layer<RecordSet, CSVData>.GetClosest
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetClosest
+    nameWithType: VirgisLayer<RecordSet, CSVData>.GetClosest
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetClosest
   - name: (
     nameWithType: (
     fullName: (
@@ -1278,10 +1368,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - uid: Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
     name: GetClosest
-    nameWithType: Layer(Of RecordSet, CSVData).GetClosest
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetClosest
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).GetClosest
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetClosest
   - name: (
     nameWithType: (
     fullName: (
@@ -1304,20 +1394,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeature(System.Guid)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeature(System.Guid)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.GetFeature(System.Guid)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeature(System.Guid)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeature(System.Guid)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.GetFeature(System.Guid)
   name: GetFeature(Guid)
-  nameWithType: Layer<RecordSet, CSVData>.GetFeature(Guid)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetFeature(System.Guid)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).GetFeature(Guid)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetFeature(System.Guid)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.GetFeature(Guid)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetFeature(System.Guid)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).GetFeature(Guid)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetFeature(System.Guid)
   spec.csharp:
-  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+  - uid: Virgis.VirgisLayer`2.GetFeature(System.Guid)
     name: GetFeature
-    nameWithType: Layer<RecordSet, CSVData>.GetFeature
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetFeature
+    nameWithType: VirgisLayer<RecordSet, CSVData>.GetFeature
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -1330,10 +1420,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+  - uid: Virgis.VirgisLayer`2.GetFeature(System.Guid)
     name: GetFeature
-    nameWithType: Layer(Of RecordSet, CSVData).GetFeature
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetFeature
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).GetFeature
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -1345,20 +1435,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetId
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetId
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.GetId
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetId
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetId
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.GetId
   name: GetId()
-  nameWithType: Layer<RecordSet, CSVData>.GetId()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetId()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).GetId()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetId()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.GetId()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetId()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).GetId()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetId()
   spec.csharp:
-  - uid: Virgis.Layer`2.GetId
+  - uid: Virgis.VirgisLayer`2.GetId
     name: GetId
-    nameWithType: Layer<RecordSet, CSVData>.GetId
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetId
+    nameWithType: VirgisLayer<RecordSet, CSVData>.GetId
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetId
   - name: (
     nameWithType: (
     fullName: (
@@ -1366,30 +1456,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetId
+  - uid: Virgis.VirgisLayer`2.GetId
     name: GetId
-    nameWithType: Layer(Of RecordSet, CSVData).GetId
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetId
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).GetId
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetId
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetMetadata
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetMetadata
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.GetMetadata
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetMetadata
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetMetadata
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.GetMetadata
   name: GetMetadata()
-  nameWithType: Layer<RecordSet, CSVData>.GetMetadata()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetMetadata()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).GetMetadata()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetMetadata()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.GetMetadata()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetMetadata()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).GetMetadata()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetMetadata()
   spec.csharp:
-  - uid: Virgis.Layer`2.GetMetadata
+  - uid: Virgis.VirgisLayer`2.GetMetadata
     name: GetMetadata
-    nameWithType: Layer<RecordSet, CSVData>.GetMetadata
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetMetadata
+    nameWithType: VirgisLayer<RecordSet, CSVData>.GetMetadata
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetMetadata
   - name: (
     nameWithType: (
     fullName: (
@@ -1397,30 +1487,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetMetadata
+  - uid: Virgis.VirgisLayer`2.GetMetadata
     name: GetMetadata
-    nameWithType: Layer(Of RecordSet, CSVData).GetMetadata
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetMetadata
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).GetMetadata
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetMetadata
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.GetFeatureShape
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetFeatureShape
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.GetFeatureShape
   name: GetFeatureShape()
-  nameWithType: Layer<RecordSet, CSVData>.GetFeatureShape()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetFeatureShape()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).GetFeatureShape()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetFeatureShape()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.GetFeatureShape()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetFeatureShape()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).GetFeatureShape()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetFeatureShape()
   spec.csharp:
-  - uid: Virgis.Layer`2.GetFeatureShape
+  - uid: Virgis.VirgisLayer`2.GetFeatureShape
     name: GetFeatureShape
-    nameWithType: Layer<RecordSet, CSVData>.GetFeatureShape
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.GetFeatureShape
+    nameWithType: VirgisLayer<RecordSet, CSVData>.GetFeatureShape
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetFeatureShape
   - name: (
     nameWithType: (
     fullName: (
@@ -1428,30 +1518,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetFeatureShape
+  - uid: Virgis.VirgisLayer`2.GetFeatureShape
     name: GetFeatureShape
-    nameWithType: Layer(Of RecordSet, CSVData).GetFeatureShape
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).GetFeatureShape
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).GetFeatureShape
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetFeatureShape
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.SetVisible(System.Boolean)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.SetVisible(System.Boolean)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.SetVisible(System.Boolean)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.SetVisible(System.Boolean)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.SetVisible(System.Boolean)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.SetVisible(System.Boolean)
   name: SetVisible(Boolean)
-  nameWithType: Layer<RecordSet, CSVData>.SetVisible(Boolean)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.SetVisible(System.Boolean)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).SetVisible(Boolean)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).SetVisible(System.Boolean)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.SetVisible(Boolean)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.SetVisible(System.Boolean)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).SetVisible(Boolean)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).SetVisible(System.Boolean)
   spec.csharp:
-  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetVisible(System.Boolean)
     name: SetVisible
-    nameWithType: Layer<RecordSet, CSVData>.SetVisible
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.SetVisible
+    nameWithType: VirgisLayer<RecordSet, CSVData>.SetVisible
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.SetVisible
   - name: (
     nameWithType: (
     fullName: (
@@ -1464,10 +1554,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetVisible(System.Boolean)
     name: SetVisible
-    nameWithType: Layer(Of RecordSet, CSVData).SetVisible
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).SetVisible
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).SetVisible
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).SetVisible
   - name: (
     nameWithType: (
     fullName: (
@@ -1479,20 +1569,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.IsVisible
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.IsVisible
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.IsVisible
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.IsVisible
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.IsVisible
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.IsVisible
   name: IsVisible()
-  nameWithType: Layer<RecordSet, CSVData>.IsVisible()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.IsVisible()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).IsVisible()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).IsVisible()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.IsVisible()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.IsVisible()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).IsVisible()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).IsVisible()
   spec.csharp:
-  - uid: Virgis.Layer`2.IsVisible
+  - uid: Virgis.VirgisLayer`2.IsVisible
     name: IsVisible
-    nameWithType: Layer<RecordSet, CSVData>.IsVisible
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.IsVisible
+    nameWithType: VirgisLayer<RecordSet, CSVData>.IsVisible
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.IsVisible
   - name: (
     nameWithType: (
     fullName: (
@@ -1500,30 +1590,30 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.IsVisible
+  - uid: Virgis.VirgisLayer`2.IsVisible
     name: IsVisible
-    nameWithType: Layer(Of RecordSet, CSVData).IsVisible
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).IsVisible
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).IsVisible
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).IsVisible
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.SetEditable(System.Boolean)
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.SetEditable(System.Boolean)
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.SetEditable(System.Boolean)
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.SetEditable(System.Boolean)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.SetEditable(System.Boolean)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.SetEditable(System.Boolean)
   name: SetEditable(Boolean)
-  nameWithType: Layer<RecordSet, CSVData>.SetEditable(Boolean)
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.SetEditable(System.Boolean)
-  nameWithType.vb: Layer(Of RecordSet, CSVData).SetEditable(Boolean)
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).SetEditable(System.Boolean)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.SetEditable(Boolean)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.SetEditable(System.Boolean)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).SetEditable(Boolean)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).SetEditable(System.Boolean)
   spec.csharp:
-  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetEditable(System.Boolean)
     name: SetEditable
-    nameWithType: Layer<RecordSet, CSVData>.SetEditable
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.SetEditable
+    nameWithType: VirgisLayer<RecordSet, CSVData>.SetEditable
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.SetEditable
   - name: (
     nameWithType: (
     fullName: (
@@ -1536,10 +1626,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetEditable(System.Boolean)
     name: SetEditable
-    nameWithType: Layer(Of RecordSet, CSVData).SetEditable
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).SetEditable
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).SetEditable
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).SetEditable
   - name: (
     nameWithType: (
     fullName: (
@@ -1551,20 +1641,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer{Project.RecordSet,Virgis.CSVData}.IsEditable
-  commentId: M:Virgis.Layer{Project.RecordSet,Virgis.CSVData}.IsEditable
-  parent: Virgis.Layer{Project.RecordSet,Virgis.CSVData}
-  definition: Virgis.Layer`2.IsEditable
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.IsEditable
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.IsEditable
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.IsEditable
   name: IsEditable()
-  nameWithType: Layer<RecordSet, CSVData>.IsEditable()
-  fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.IsEditable()
-  nameWithType.vb: Layer(Of RecordSet, CSVData).IsEditable()
-  fullName.vb: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).IsEditable()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.IsEditable()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.IsEditable()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).IsEditable()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).IsEditable()
   spec.csharp:
-  - uid: Virgis.Layer`2.IsEditable
+  - uid: Virgis.VirgisLayer`2.IsEditable
     name: IsEditable
-    nameWithType: Layer<RecordSet, CSVData>.IsEditable
-    fullName: Virgis.Layer<Project.RecordSet, Virgis.CSVData>.IsEditable
+    nameWithType: VirgisLayer<RecordSet, CSVData>.IsEditable
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.IsEditable
   - name: (
     nameWithType: (
     fullName: (
@@ -1572,13 +1662,159 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.IsEditable
+  - uid: Virgis.VirgisLayer`2.IsEditable
     name: IsEditable
-    nameWithType: Layer(Of RecordSet, CSVData).IsEditable
-    fullName: Virgis.Layer(Of Project.RecordSet, Virgis.CSVData).IsEditable
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).IsEditable
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).IsEditable
   - name: (
     nameWithType: (
     fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Equals(System.Object)
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Equals(System.Object)
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Equals(System.Object)
+  name: Equals(Object)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Equals(Object)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Equals(System.Object)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Equals(Object)
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Equals(System.Object)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.Equals(System.Object)
+    name: Equals
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Equals
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.Equals(System.Object)
+    name: Equals
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Equals
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetHashCode
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.GetHashCode
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.GetHashCode
+  name: GetHashCode()
+  nameWithType: VirgisLayer<RecordSet, CSVData>.GetHashCode()
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetHashCode()
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).GetHashCode()
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetHashCode()
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.GetHashCode
+    name: GetHashCode
+    nameWithType: VirgisLayer<RecordSet, CSVData>.GetHashCode
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.GetHashCode
+    name: GetHashCode
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).GetHashCode
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Equals(Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData})
+  commentId: M:Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}.Equals(Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData})
+  parent: Virgis.VirgisLayer{Project.RecordSet,Virgis.CSVData}
+  definition: Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+  name: Equals(VirgisLayer<RecordSet, CSVData>)
+  nameWithType: VirgisLayer<RecordSet, CSVData>.Equals(VirgisLayer<RecordSet, CSVData>)
+  fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Equals(Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>)
+  nameWithType.vb: VirgisLayer(Of RecordSet, CSVData).Equals(VirgisLayer(Of RecordSet, CSVData))
+  fullName.vb: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Equals(Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData))
+  name.vb: Equals(VirgisLayer(Of RecordSet, CSVData))
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+    name: Equals
+    nameWithType: VirgisLayer<RecordSet, CSVData>.Equals
+    fullName: Virgis.VirgisLayer<Project.RecordSet, Virgis.CSVData>.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Project.RecordSet
+    name: RecordSet
+    nameWithType: RecordSet
+    fullName: Project.RecordSet
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Virgis.CSVData
+    name: CSVData
+    nameWithType: CSVData
+    fullName: Virgis.CSVData
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+    name: Equals
+    nameWithType: VirgisLayer(Of RecordSet, CSVData).Equals
+    fullName: Virgis.VirgisLayer(Of Project.RecordSet, Virgis.CSVData).Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Project.RecordSet
+    name: RecordSet
+    nameWithType: RecordSet
+    fullName: Project.RecordSet
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: Virgis.CSVData
+    name: CSVData
+    nameWithType: CSVData
+    fullName: Virgis.CSVData
+  - name: )
+    nameWithType: )
+    fullName: )
   - name: )
     nameWithType: )
     fullName: )
@@ -1594,19 +1830,20 @@ references:
   name: UnityEngine
   nameWithType: UnityEngine
   fullName: UnityEngine
-- uid: Virgis.Layer`2
-  commentId: T:Virgis.Layer`2
-  name: Layer<T, S>
-  nameWithType: Layer<T, S>
-  fullName: Virgis.Layer<T, S>
-  nameWithType.vb: Layer(Of T, S)
-  fullName.vb: Virgis.Layer(Of T, S)
-  name.vb: Layer(Of T, S)
+- uid: Virgis.VirgisLayer`2
+  commentId: T:Virgis.VirgisLayer`2
+  parent: Virgis
+  name: VirgisLayer<T, S>
+  nameWithType: VirgisLayer<T, S>
+  fullName: Virgis.VirgisLayer<T, S>
+  nameWithType.vb: VirgisLayer(Of T, S)
+  fullName.vb: Virgis.VirgisLayer(Of T, S)
+  name.vb: VirgisLayer(Of T, S)
   spec.csharp:
-  - uid: Virgis.Layer`2
-    name: Layer
-    nameWithType: Layer
-    fullName: Virgis.Layer
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
   - name: <
     nameWithType: <
     fullName: <
@@ -1623,10 +1860,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: Virgis.Layer`2
-    name: Layer
-    nameWithType: Layer
-    fullName: Virgis.Layer
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
   - name: '(Of '
     nameWithType: '(Of '
     fullName: '(Of '
@@ -1642,60 +1879,60 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.layer
-  commentId: F:Virgis.Layer`2.layer
+- uid: Virgis.VirgisLayer`2.layer
+  commentId: F:Virgis.VirgisLayer`2.layer
   name: layer
-  nameWithType: Layer<T, S>.layer
-  fullName: Virgis.Layer<T, S>.layer
-  nameWithType.vb: Layer(Of T, S).layer
-  fullName.vb: Virgis.Layer(Of T, S).layer
-- uid: Virgis.Layer`2.features
-  commentId: F:Virgis.Layer`2.features
+  nameWithType: VirgisLayer<T, S>.layer
+  fullName: Virgis.VirgisLayer<T, S>.layer
+  nameWithType.vb: VirgisLayer(Of T, S).layer
+  fullName.vb: Virgis.VirgisLayer(Of T, S).layer
+- uid: Virgis.VirgisLayer`2.features
+  commentId: F:Virgis.VirgisLayer`2.features
   name: features
-  nameWithType: Layer<T, S>.features
-  fullName: Virgis.Layer<T, S>.features
-  nameWithType.vb: Layer(Of T, S).features
-  fullName.vb: Virgis.Layer(Of T, S).features
-- uid: Virgis.Layer`2.changed
-  commentId: F:Virgis.Layer`2.changed
+  nameWithType: VirgisLayer<T, S>.features
+  fullName: Virgis.VirgisLayer<T, S>.features
+  nameWithType.vb: VirgisLayer(Of T, S).features
+  fullName.vb: Virgis.VirgisLayer(Of T, S).features
+- uid: Virgis.VirgisLayer`2.changed
+  commentId: F:Virgis.VirgisLayer`2.changed
   name: changed
-  nameWithType: Layer<T, S>.changed
-  fullName: Virgis.Layer<T, S>.changed
-  nameWithType.vb: Layer(Of T, S).changed
-  fullName.vb: Virgis.Layer(Of T, S).changed
-- uid: Virgis.Layer`2._id
-  commentId: F:Virgis.Layer`2._id
+  nameWithType: VirgisLayer<T, S>.changed
+  fullName: Virgis.VirgisLayer<T, S>.changed
+  nameWithType.vb: VirgisLayer(Of T, S).changed
+  fullName.vb: Virgis.VirgisLayer(Of T, S).changed
+- uid: Virgis.VirgisLayer`2._id
+  commentId: F:Virgis.VirgisLayer`2._id
   name: _id
-  nameWithType: Layer<T, S>._id
-  fullName: Virgis.Layer<T, S>._id
-  nameWithType.vb: Layer(Of T, S)._id
-  fullName.vb: Virgis.Layer(Of T, S)._id
-- uid: Virgis.Layer`2._visible
-  commentId: F:Virgis.Layer`2._visible
+  nameWithType: VirgisLayer<T, S>._id
+  fullName: Virgis.VirgisLayer<T, S>._id
+  nameWithType.vb: VirgisLayer(Of T, S)._id
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._id
+- uid: Virgis.VirgisLayer`2._visible
+  commentId: F:Virgis.VirgisLayer`2._visible
   name: _visible
-  nameWithType: Layer<T, S>._visible
-  fullName: Virgis.Layer<T, S>._visible
-  nameWithType.vb: Layer(Of T, S)._visible
-  fullName.vb: Virgis.Layer(Of T, S)._visible
-- uid: Virgis.Layer`2._editable
-  commentId: F:Virgis.Layer`2._editable
+  nameWithType: VirgisLayer<T, S>._visible
+  fullName: Virgis.VirgisLayer<T, S>._visible
+  nameWithType.vb: VirgisLayer(Of T, S)._visible
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._visible
+- uid: Virgis.VirgisLayer`2._editable
+  commentId: F:Virgis.VirgisLayer`2._editable
   name: _editable
-  nameWithType: Layer<T, S>._editable
-  fullName: Virgis.Layer<T, S>._editable
-  nameWithType.vb: Layer(Of T, S)._editable
-  fullName.vb: Virgis.Layer(Of T, S)._editable
-- uid: Virgis.Layer`2.Init(`0)
-  commentId: M:Virgis.Layer`2.Init(`0)
+  nameWithType: VirgisLayer<T, S>._editable
+  fullName: Virgis.VirgisLayer<T, S>._editable
+  nameWithType.vb: VirgisLayer(Of T, S)._editable
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._editable
+- uid: Virgis.VirgisLayer`2.Init(`0)
+  commentId: M:Virgis.VirgisLayer`2.Init(`0)
   name: Init(T)
-  nameWithType: Layer<T, S>.Init(T)
-  fullName: Virgis.Layer<T, S>.Init(T)
-  nameWithType.vb: Layer(Of T, S).Init(T)
-  fullName.vb: Virgis.Layer(Of T, S).Init(T)
+  nameWithType: VirgisLayer<T, S>.Init(T)
+  fullName: Virgis.VirgisLayer<T, S>.Init(T)
+  nameWithType.vb: VirgisLayer(Of T, S).Init(T)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Init(T)
   spec.csharp:
-  - uid: Virgis.Layer`2.Init(`0)
+  - uid: Virgis.VirgisLayer`2.Init(`0)
     name: Init
-    nameWithType: Layer<T, S>.Init
-    fullName: Virgis.Layer<T, S>.Init
+    nameWithType: VirgisLayer<T, S>.Init
+    fullName: Virgis.VirgisLayer<T, S>.Init
   - name: (
     nameWithType: (
     fullName: (
@@ -1706,10 +1943,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Init(`0)
+  - uid: Virgis.VirgisLayer`2.Init(`0)
     name: Init
-    nameWithType: Layer(Of T, S).Init
-    fullName: Virgis.Layer(Of T, S).Init
+    nameWithType: VirgisLayer(Of T, S).Init
+    fullName: Virgis.VirgisLayer(Of T, S).Init
   - name: (
     nameWithType: (
     fullName: (
@@ -1719,18 +1956,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2._init(`0)
-  commentId: M:Virgis.Layer`2._init(`0)
+- uid: Virgis.VirgisLayer`2._init(`0)
+  commentId: M:Virgis.VirgisLayer`2._init(`0)
   name: _init(T)
-  nameWithType: Layer<T, S>._init(T)
-  fullName: Virgis.Layer<T, S>._init(T)
-  nameWithType.vb: Layer(Of T, S)._init(T)
-  fullName.vb: Virgis.Layer(Of T, S)._init(T)
+  nameWithType: VirgisLayer<T, S>._init(T)
+  fullName: Virgis.VirgisLayer<T, S>._init(T)
+  nameWithType.vb: VirgisLayer(Of T, S)._init(T)
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._init(T)
   spec.csharp:
-  - uid: Virgis.Layer`2._init(`0)
+  - uid: Virgis.VirgisLayer`2._init(`0)
     name: _init
-    nameWithType: Layer<T, S>._init
-    fullName: Virgis.Layer<T, S>._init
+    nameWithType: VirgisLayer<T, S>._init
+    fullName: Virgis.VirgisLayer<T, S>._init
   - name: (
     nameWithType: (
     fullName: (
@@ -1741,10 +1978,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._init(`0)
+  - uid: Virgis.VirgisLayer`2._init(`0)
     name: _init
-    nameWithType: Layer(Of T, S)._init
-    fullName: Virgis.Layer(Of T, S)._init
+    nameWithType: VirgisLayer(Of T, S)._init
+    fullName: Virgis.VirgisLayer(Of T, S)._init
   - name: (
     nameWithType: (
     fullName: (
@@ -1754,20 +1991,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
-  commentId: M:Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+- uid: Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
   isExternal: true
   name: AddFeature(Vector3[])
-  nameWithType: Layer<T, S>.AddFeature(Vector3[])
-  fullName: Virgis.Layer<T, S>.AddFeature(UnityEngine.Vector3[])
-  nameWithType.vb: Layer(Of T, S).AddFeature(Vector3())
-  fullName.vb: Virgis.Layer(Of T, S).AddFeature(UnityEngine.Vector3())
+  nameWithType: VirgisLayer<T, S>.AddFeature(Vector3[])
+  fullName: Virgis.VirgisLayer<T, S>.AddFeature(UnityEngine.Vector3[])
+  nameWithType.vb: VirgisLayer(Of T, S).AddFeature(Vector3())
+  fullName.vb: Virgis.VirgisLayer(Of T, S).AddFeature(UnityEngine.Vector3())
   name.vb: AddFeature(Vector3())
   spec.csharp:
-  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
     name: AddFeature
-    nameWithType: Layer<T, S>.AddFeature
-    fullName: Virgis.Layer<T, S>.AddFeature
+    nameWithType: VirgisLayer<T, S>.AddFeature
+    fullName: Virgis.VirgisLayer<T, S>.AddFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -1783,10 +2020,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.AddFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2.AddFeature(UnityEngine.Vector3[])
     name: AddFeature
-    nameWithType: Layer(Of T, S).AddFeature
-    fullName: Virgis.Layer(Of T, S).AddFeature
+    nameWithType: VirgisLayer(Of T, S).AddFeature
+    fullName: Virgis.VirgisLayer(Of T, S).AddFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -1801,20 +2038,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
-  commentId: M:Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+- uid: Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
+  commentId: M:Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
   isExternal: true
   name: _addFeature(Vector3[])
-  nameWithType: Layer<T, S>._addFeature(Vector3[])
-  fullName: Virgis.Layer<T, S>._addFeature(UnityEngine.Vector3[])
-  nameWithType.vb: Layer(Of T, S)._addFeature(Vector3())
-  fullName.vb: Virgis.Layer(Of T, S)._addFeature(UnityEngine.Vector3())
+  nameWithType: VirgisLayer<T, S>._addFeature(Vector3[])
+  fullName: Virgis.VirgisLayer<T, S>._addFeature(UnityEngine.Vector3[])
+  nameWithType.vb: VirgisLayer(Of T, S)._addFeature(Vector3())
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._addFeature(UnityEngine.Vector3())
   name.vb: _addFeature(Vector3())
   spec.csharp:
-  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
     name: _addFeature
-    nameWithType: Layer<T, S>._addFeature
-    fullName: Virgis.Layer<T, S>._addFeature
+    nameWithType: VirgisLayer<T, S>._addFeature
+    fullName: Virgis.VirgisLayer<T, S>._addFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -1830,10 +2067,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._addFeature(UnityEngine.Vector3[])
+  - uid: Virgis.VirgisLayer`2._addFeature(UnityEngine.Vector3[])
     name: _addFeature
-    nameWithType: Layer(Of T, S)._addFeature
-    fullName: Virgis.Layer(Of T, S)._addFeature
+    nameWithType: VirgisLayer(Of T, S)._addFeature
+    fullName: Virgis.VirgisLayer(Of T, S)._addFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -1848,18 +2085,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.Draw
-  commentId: M:Virgis.Layer`2.Draw
+- uid: Virgis.VirgisLayer`2.Draw
+  commentId: M:Virgis.VirgisLayer`2.Draw
   name: Draw()
-  nameWithType: Layer<T, S>.Draw()
-  fullName: Virgis.Layer<T, S>.Draw()
-  nameWithType.vb: Layer(Of T, S).Draw()
-  fullName.vb: Virgis.Layer(Of T, S).Draw()
+  nameWithType: VirgisLayer<T, S>.Draw()
+  fullName: Virgis.VirgisLayer<T, S>.Draw()
+  nameWithType.vb: VirgisLayer(Of T, S).Draw()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Draw()
   spec.csharp:
-  - uid: Virgis.Layer`2.Draw
+  - uid: Virgis.VirgisLayer`2.Draw
     name: Draw
-    nameWithType: Layer<T, S>.Draw
-    fullName: Virgis.Layer<T, S>.Draw
+    nameWithType: VirgisLayer<T, S>.Draw
+    fullName: Virgis.VirgisLayer<T, S>.Draw
   - name: (
     nameWithType: (
     fullName: (
@@ -1867,28 +2104,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Draw
+  - uid: Virgis.VirgisLayer`2.Draw
     name: Draw
-    nameWithType: Layer(Of T, S).Draw
-    fullName: Virgis.Layer(Of T, S).Draw
+    nameWithType: VirgisLayer(Of T, S).Draw
+    fullName: Virgis.VirgisLayer(Of T, S).Draw
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2._draw
-  commentId: M:Virgis.Layer`2._draw
+- uid: Virgis.VirgisLayer`2._draw
+  commentId: M:Virgis.VirgisLayer`2._draw
   name: _draw()
-  nameWithType: Layer<T, S>._draw()
-  fullName: Virgis.Layer<T, S>._draw()
-  nameWithType.vb: Layer(Of T, S)._draw()
-  fullName.vb: Virgis.Layer(Of T, S)._draw()
+  nameWithType: VirgisLayer<T, S>._draw()
+  fullName: Virgis.VirgisLayer<T, S>._draw()
+  nameWithType.vb: VirgisLayer(Of T, S)._draw()
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._draw()
   spec.csharp:
-  - uid: Virgis.Layer`2._draw
+  - uid: Virgis.VirgisLayer`2._draw
     name: _draw
-    nameWithType: Layer<T, S>._draw
-    fullName: Virgis.Layer<T, S>._draw
+    nameWithType: VirgisLayer<T, S>._draw
+    fullName: Virgis.VirgisLayer<T, S>._draw
   - name: (
     nameWithType: (
     fullName: (
@@ -1896,28 +2133,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._draw
+  - uid: Virgis.VirgisLayer`2._draw
     name: _draw
-    nameWithType: Layer(Of T, S)._draw
-    fullName: Virgis.Layer(Of T, S)._draw
+    nameWithType: VirgisLayer(Of T, S)._draw
+    fullName: Virgis.VirgisLayer(Of T, S)._draw
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.CheckPoint
-  commentId: M:Virgis.Layer`2.CheckPoint
+- uid: Virgis.VirgisLayer`2.CheckPoint
+  commentId: M:Virgis.VirgisLayer`2.CheckPoint
   name: CheckPoint()
-  nameWithType: Layer<T, S>.CheckPoint()
-  fullName: Virgis.Layer<T, S>.CheckPoint()
-  nameWithType.vb: Layer(Of T, S).CheckPoint()
-  fullName.vb: Virgis.Layer(Of T, S).CheckPoint()
+  nameWithType: VirgisLayer<T, S>.CheckPoint()
+  fullName: Virgis.VirgisLayer<T, S>.CheckPoint()
+  nameWithType.vb: VirgisLayer(Of T, S).CheckPoint()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).CheckPoint()
   spec.csharp:
-  - uid: Virgis.Layer`2.CheckPoint
+  - uid: Virgis.VirgisLayer`2.CheckPoint
     name: CheckPoint
-    nameWithType: Layer<T, S>.CheckPoint
-    fullName: Virgis.Layer<T, S>.CheckPoint
+    nameWithType: VirgisLayer<T, S>.CheckPoint
+    fullName: Virgis.VirgisLayer<T, S>.CheckPoint
   - name: (
     nameWithType: (
     fullName: (
@@ -1925,28 +2162,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.CheckPoint
+  - uid: Virgis.VirgisLayer`2.CheckPoint
     name: CheckPoint
-    nameWithType: Layer(Of T, S).CheckPoint
-    fullName: Virgis.Layer(Of T, S).CheckPoint
+    nameWithType: VirgisLayer(Of T, S).CheckPoint
+    fullName: Virgis.VirgisLayer(Of T, S).CheckPoint
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2._checkpoint
-  commentId: M:Virgis.Layer`2._checkpoint
+- uid: Virgis.VirgisLayer`2._checkpoint
+  commentId: M:Virgis.VirgisLayer`2._checkpoint
   name: _checkpoint()
-  nameWithType: Layer<T, S>._checkpoint()
-  fullName: Virgis.Layer<T, S>._checkpoint()
-  nameWithType.vb: Layer(Of T, S)._checkpoint()
-  fullName.vb: Virgis.Layer(Of T, S)._checkpoint()
+  nameWithType: VirgisLayer<T, S>._checkpoint()
+  fullName: Virgis.VirgisLayer<T, S>._checkpoint()
+  nameWithType.vb: VirgisLayer(Of T, S)._checkpoint()
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._checkpoint()
   spec.csharp:
-  - uid: Virgis.Layer`2._checkpoint
+  - uid: Virgis.VirgisLayer`2._checkpoint
     name: _checkpoint
-    nameWithType: Layer<T, S>._checkpoint
-    fullName: Virgis.Layer<T, S>._checkpoint
+    nameWithType: VirgisLayer<T, S>._checkpoint
+    fullName: Virgis.VirgisLayer<T, S>._checkpoint
   - name: (
     nameWithType: (
     fullName: (
@@ -1954,28 +2191,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._checkpoint
+  - uid: Virgis.VirgisLayer`2._checkpoint
     name: _checkpoint
-    nameWithType: Layer(Of T, S)._checkpoint
-    fullName: Virgis.Layer(Of T, S)._checkpoint
+    nameWithType: VirgisLayer(Of T, S)._checkpoint
+    fullName: Virgis.VirgisLayer(Of T, S)._checkpoint
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.Save
-  commentId: M:Virgis.Layer`2.Save
+- uid: Virgis.VirgisLayer`2.Save
+  commentId: M:Virgis.VirgisLayer`2.Save
   name: Save()
-  nameWithType: Layer<T, S>.Save()
-  fullName: Virgis.Layer<T, S>.Save()
-  nameWithType.vb: Layer(Of T, S).Save()
-  fullName.vb: Virgis.Layer(Of T, S).Save()
+  nameWithType: VirgisLayer<T, S>.Save()
+  fullName: Virgis.VirgisLayer<T, S>.Save()
+  nameWithType.vb: VirgisLayer(Of T, S).Save()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Save()
   spec.csharp:
-  - uid: Virgis.Layer`2.Save
+  - uid: Virgis.VirgisLayer`2.Save
     name: Save
-    nameWithType: Layer<T, S>.Save
-    fullName: Virgis.Layer<T, S>.Save
+    nameWithType: VirgisLayer<T, S>.Save
+    fullName: Virgis.VirgisLayer<T, S>.Save
   - name: (
     nameWithType: (
     fullName: (
@@ -1983,28 +2220,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Save
+  - uid: Virgis.VirgisLayer`2.Save
     name: Save
-    nameWithType: Layer(Of T, S).Save
-    fullName: Virgis.Layer(Of T, S).Save
+    nameWithType: VirgisLayer(Of T, S).Save
+    fullName: Virgis.VirgisLayer(Of T, S).Save
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2._save
-  commentId: M:Virgis.Layer`2._save
+- uid: Virgis.VirgisLayer`2._save
+  commentId: M:Virgis.VirgisLayer`2._save
   name: _save()
-  nameWithType: Layer<T, S>._save()
-  fullName: Virgis.Layer<T, S>._save()
-  nameWithType.vb: Layer(Of T, S)._save()
-  fullName.vb: Virgis.Layer(Of T, S)._save()
+  nameWithType: VirgisLayer<T, S>._save()
+  fullName: Virgis.VirgisLayer<T, S>._save()
+  nameWithType.vb: VirgisLayer(Of T, S)._save()
+  fullName.vb: Virgis.VirgisLayer(Of T, S)._save()
   spec.csharp:
-  - uid: Virgis.Layer`2._save
+  - uid: Virgis.VirgisLayer`2._save
     name: _save
-    nameWithType: Layer<T, S>._save
-    fullName: Virgis.Layer<T, S>._save
+    nameWithType: VirgisLayer<T, S>._save
+    fullName: Virgis.VirgisLayer<T, S>._save
   - name: (
     nameWithType: (
     fullName: (
@@ -2012,28 +2249,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2._save
+  - uid: Virgis.VirgisLayer`2._save
     name: _save
-    nameWithType: Layer(Of T, S)._save
-    fullName: Virgis.Layer(Of T, S)._save
+    nameWithType: VirgisLayer(Of T, S)._save
+    fullName: Virgis.VirgisLayer(Of T, S)._save
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
-  commentId: M:Virgis.Layer`2.Translate(Virgis.MoveArgs)
+- uid: Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
   name: Translate(MoveArgs)
-  nameWithType: Layer<T, S>.Translate(MoveArgs)
-  fullName: Virgis.Layer<T, S>.Translate(Virgis.MoveArgs)
-  nameWithType.vb: Layer(Of T, S).Translate(MoveArgs)
-  fullName.vb: Virgis.Layer(Of T, S).Translate(Virgis.MoveArgs)
+  nameWithType: VirgisLayer<T, S>.Translate(MoveArgs)
+  fullName: Virgis.VirgisLayer<T, S>.Translate(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of T, S).Translate(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Translate(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
     name: Translate
-    nameWithType: Layer<T, S>.Translate
-    fullName: Virgis.Layer<T, S>.Translate
+    nameWithType: VirgisLayer<T, S>.Translate
+    fullName: Virgis.VirgisLayer<T, S>.Translate
   - name: (
     nameWithType: (
     fullName: (
@@ -2045,10 +2282,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Translate(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.Translate(Virgis.MoveArgs)
     name: Translate
-    nameWithType: Layer(Of T, S).Translate
-    fullName: Virgis.Layer(Of T, S).Translate
+    nameWithType: VirgisLayer(Of T, S).Translate
+    fullName: Virgis.VirgisLayer(Of T, S).Translate
   - name: (
     nameWithType: (
     fullName: (
@@ -2059,18 +2296,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
-  commentId: M:Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+- uid: Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
   name: MoveAxis(MoveArgs)
-  nameWithType: Layer<T, S>.MoveAxis(MoveArgs)
-  fullName: Virgis.Layer<T, S>.MoveAxis(Virgis.MoveArgs)
-  nameWithType.vb: Layer(Of T, S).MoveAxis(MoveArgs)
-  fullName.vb: Virgis.Layer(Of T, S).MoveAxis(Virgis.MoveArgs)
+  nameWithType: VirgisLayer<T, S>.MoveAxis(MoveArgs)
+  fullName: Virgis.VirgisLayer<T, S>.MoveAxis(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of T, S).MoveAxis(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).MoveAxis(Virgis.MoveArgs)
   spec.csharp:
-  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
     name: MoveAxis
-    nameWithType: Layer<T, S>.MoveAxis
-    fullName: Virgis.Layer<T, S>.MoveAxis
+    nameWithType: VirgisLayer<T, S>.MoveAxis
+    fullName: Virgis.VirgisLayer<T, S>.MoveAxis
   - name: (
     nameWithType: (
     fullName: (
@@ -2082,10 +2319,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.MoveAxis(Virgis.MoveArgs)
+  - uid: Virgis.VirgisLayer`2.MoveAxis(Virgis.MoveArgs)
     name: MoveAxis
-    nameWithType: Layer(Of T, S).MoveAxis
-    fullName: Virgis.Layer(Of T, S).MoveAxis
+    nameWithType: VirgisLayer(Of T, S).MoveAxis
+    fullName: Virgis.VirgisLayer(Of T, S).MoveAxis
   - name: (
     nameWithType: (
     fullName: (
@@ -2096,18 +2333,92 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.StartEditSession
-  commentId: M:Virgis.Layer`2.StartEditSession
+- uid: Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+  name: MoveTo(MoveArgs)
+  nameWithType: VirgisLayer<T, S>.MoveTo(MoveArgs)
+  fullName: Virgis.VirgisLayer<T, S>.MoveTo(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of T, S).MoveTo(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).MoveTo(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisLayer<T, S>.MoveTo
+    fullName: Virgis.VirgisLayer<T, S>.MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.MoveTo(Virgis.MoveArgs)
+    name: MoveTo
+    nameWithType: VirgisLayer(Of T, S).MoveTo
+    fullName: Virgis.VirgisLayer(Of T, S).MoveTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+  commentId: M:Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+  name: VertexMove(MoveArgs)
+  nameWithType: VirgisLayer<T, S>.VertexMove(MoveArgs)
+  fullName: Virgis.VirgisLayer<T, S>.VertexMove(Virgis.MoveArgs)
+  nameWithType.vb: VirgisLayer(Of T, S).VertexMove(MoveArgs)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).VertexMove(Virgis.MoveArgs)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisLayer<T, S>.VertexMove
+    fullName: Virgis.VirgisLayer<T, S>.VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.VertexMove(Virgis.MoveArgs)
+    name: VertexMove
+    nameWithType: VirgisLayer(Of T, S).VertexMove
+    fullName: Virgis.VirgisLayer(Of T, S).VertexMove
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.MoveArgs
+    name: MoveArgs
+    nameWithType: MoveArgs
+    fullName: Virgis.MoveArgs
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer`2.StartEditSession
+  commentId: M:Virgis.VirgisLayer`2.StartEditSession
   name: StartEditSession()
-  nameWithType: Layer<T, S>.StartEditSession()
-  fullName: Virgis.Layer<T, S>.StartEditSession()
-  nameWithType.vb: Layer(Of T, S).StartEditSession()
-  fullName.vb: Virgis.Layer(Of T, S).StartEditSession()
+  nameWithType: VirgisLayer<T, S>.StartEditSession()
+  fullName: Virgis.VirgisLayer<T, S>.StartEditSession()
+  nameWithType.vb: VirgisLayer(Of T, S).StartEditSession()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).StartEditSession()
   spec.csharp:
-  - uid: Virgis.Layer`2.StartEditSession
+  - uid: Virgis.VirgisLayer`2.StartEditSession
     name: StartEditSession
-    nameWithType: Layer<T, S>.StartEditSession
-    fullName: Virgis.Layer<T, S>.StartEditSession
+    nameWithType: VirgisLayer<T, S>.StartEditSession
+    fullName: Virgis.VirgisLayer<T, S>.StartEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -2115,29 +2426,29 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.StartEditSession
+  - uid: Virgis.VirgisLayer`2.StartEditSession
     name: StartEditSession
-    nameWithType: Layer(Of T, S).StartEditSession
-    fullName: Virgis.Layer(Of T, S).StartEditSession
+    nameWithType: VirgisLayer(Of T, S).StartEditSession
+    fullName: Virgis.VirgisLayer(Of T, S).StartEditSession
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
-  commentId: M:Virgis.Layer`2.ExitEditSession(System.Boolean)
+- uid: Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
+  commentId: M:Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
   isExternal: true
   name: ExitEditSession(Boolean)
-  nameWithType: Layer<T, S>.ExitEditSession(Boolean)
-  fullName: Virgis.Layer<T, S>.ExitEditSession(System.Boolean)
-  nameWithType.vb: Layer(Of T, S).ExitEditSession(Boolean)
-  fullName.vb: Virgis.Layer(Of T, S).ExitEditSession(System.Boolean)
+  nameWithType: VirgisLayer<T, S>.ExitEditSession(Boolean)
+  fullName: Virgis.VirgisLayer<T, S>.ExitEditSession(System.Boolean)
+  nameWithType.vb: VirgisLayer(Of T, S).ExitEditSession(Boolean)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).ExitEditSession(System.Boolean)
   spec.csharp:
-  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
     name: ExitEditSession
-    nameWithType: Layer<T, S>.ExitEditSession
-    fullName: Virgis.Layer<T, S>.ExitEditSession
+    nameWithType: VirgisLayer<T, S>.ExitEditSession
+    fullName: Virgis.VirgisLayer<T, S>.ExitEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -2150,10 +2461,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.ExitEditSession(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.ExitEditSession(System.Boolean)
     name: ExitEditSession
-    nameWithType: Layer(Of T, S).ExitEditSession
-    fullName: Virgis.Layer(Of T, S).ExitEditSession
+    nameWithType: VirgisLayer(Of T, S).ExitEditSession
+    fullName: Virgis.VirgisLayer(Of T, S).ExitEditSession
   - name: (
     nameWithType: (
     fullName: (
@@ -2165,18 +2476,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
-  commentId: M:Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+- uid: Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
   name: Selected(SelectionTypes)
-  nameWithType: Layer<T, S>.Selected(SelectionTypes)
-  fullName: Virgis.Layer<T, S>.Selected(Virgis.SelectionTypes)
-  nameWithType.vb: Layer(Of T, S).Selected(SelectionTypes)
-  fullName.vb: Virgis.Layer(Of T, S).Selected(Virgis.SelectionTypes)
+  nameWithType: VirgisLayer<T, S>.Selected(SelectionTypes)
+  fullName: Virgis.VirgisLayer<T, S>.Selected(Virgis.SelectionTypes)
+  nameWithType.vb: VirgisLayer(Of T, S).Selected(SelectionTypes)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Selected(Virgis.SelectionTypes)
   spec.csharp:
-  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
     name: Selected
-    nameWithType: Layer<T, S>.Selected
-    fullName: Virgis.Layer<T, S>.Selected
+    nameWithType: VirgisLayer<T, S>.Selected
+    fullName: Virgis.VirgisLayer<T, S>.Selected
   - name: (
     nameWithType: (
     fullName: (
@@ -2188,10 +2499,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.Selected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.Selected(Virgis.SelectionTypes)
     name: Selected
-    nameWithType: Layer(Of T, S).Selected
-    fullName: Virgis.Layer(Of T, S).Selected
+    nameWithType: VirgisLayer(Of T, S).Selected
+    fullName: Virgis.VirgisLayer(Of T, S).Selected
   - name: (
     nameWithType: (
     fullName: (
@@ -2202,18 +2513,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
-  commentId: M:Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+- uid: Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
+  commentId: M:Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
   name: UnSelected(SelectionTypes)
-  nameWithType: Layer<T, S>.UnSelected(SelectionTypes)
-  fullName: Virgis.Layer<T, S>.UnSelected(Virgis.SelectionTypes)
-  nameWithType.vb: Layer(Of T, S).UnSelected(SelectionTypes)
-  fullName.vb: Virgis.Layer(Of T, S).UnSelected(Virgis.SelectionTypes)
+  nameWithType: VirgisLayer<T, S>.UnSelected(SelectionTypes)
+  fullName: Virgis.VirgisLayer<T, S>.UnSelected(Virgis.SelectionTypes)
+  nameWithType.vb: VirgisLayer(Of T, S).UnSelected(SelectionTypes)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).UnSelected(Virgis.SelectionTypes)
   spec.csharp:
-  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
     name: UnSelected
-    nameWithType: Layer<T, S>.UnSelected
-    fullName: Virgis.Layer<T, S>.UnSelected
+    nameWithType: VirgisLayer<T, S>.UnSelected
+    fullName: Virgis.VirgisLayer<T, S>.UnSelected
   - name: (
     nameWithType: (
     fullName: (
@@ -2225,10 +2536,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.UnSelected(Virgis.SelectionTypes)
+  - uid: Virgis.VirgisLayer`2.UnSelected(Virgis.SelectionTypes)
     name: UnSelected
-    nameWithType: Layer(Of T, S).UnSelected
-    fullName: Virgis.Layer(Of T, S).UnSelected
+    nameWithType: VirgisLayer(Of T, S).UnSelected
+    fullName: Virgis.VirgisLayer(Of T, S).UnSelected
   - name: (
     nameWithType: (
     fullName: (
@@ -2239,20 +2550,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
-  commentId: M:Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+- uid: Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  commentId: M:Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
   isExternal: true
   name: GetClosest(Vector3, Guid[])
-  nameWithType: Layer<T, S>.GetClosest(Vector3, Guid[])
-  fullName: Virgis.Layer<T, S>.GetClosest(UnityEngine.Vector3, System.Guid[])
-  nameWithType.vb: Layer(Of T, S).GetClosest(Vector3, Guid())
-  fullName.vb: Virgis.Layer(Of T, S).GetClosest(UnityEngine.Vector3, System.Guid())
+  nameWithType: VirgisLayer<T, S>.GetClosest(Vector3, Guid[])
+  fullName: Virgis.VirgisLayer<T, S>.GetClosest(UnityEngine.Vector3, System.Guid[])
+  nameWithType.vb: VirgisLayer(Of T, S).GetClosest(Vector3, Guid())
+  fullName.vb: Virgis.VirgisLayer(Of T, S).GetClosest(UnityEngine.Vector3, System.Guid())
   name.vb: GetClosest(Vector3, Guid())
   spec.csharp:
-  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - uid: Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
     name: GetClosest
-    nameWithType: Layer<T, S>.GetClosest
-    fullName: Virgis.Layer<T, S>.GetClosest
+    nameWithType: VirgisLayer<T, S>.GetClosest
+    fullName: Virgis.VirgisLayer<T, S>.GetClosest
   - name: (
     nameWithType: (
     fullName: (
@@ -2276,10 +2587,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
+  - uid: Virgis.VirgisLayer`2.GetClosest(UnityEngine.Vector3,System.Guid[])
     name: GetClosest
-    nameWithType: Layer(Of T, S).GetClosest
-    fullName: Virgis.Layer(Of T, S).GetClosest
+    nameWithType: VirgisLayer(Of T, S).GetClosest
+    fullName: Virgis.VirgisLayer(Of T, S).GetClosest
   - name: (
     nameWithType: (
     fullName: (
@@ -2302,19 +2613,19 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.GetFeature(System.Guid)
-  commentId: M:Virgis.Layer`2.GetFeature(System.Guid)
+- uid: Virgis.VirgisLayer`2.GetFeature(System.Guid)
+  commentId: M:Virgis.VirgisLayer`2.GetFeature(System.Guid)
   isExternal: true
   name: GetFeature(Guid)
-  nameWithType: Layer<T, S>.GetFeature(Guid)
-  fullName: Virgis.Layer<T, S>.GetFeature(System.Guid)
-  nameWithType.vb: Layer(Of T, S).GetFeature(Guid)
-  fullName.vb: Virgis.Layer(Of T, S).GetFeature(System.Guid)
+  nameWithType: VirgisLayer<T, S>.GetFeature(Guid)
+  fullName: Virgis.VirgisLayer<T, S>.GetFeature(System.Guid)
+  nameWithType.vb: VirgisLayer(Of T, S).GetFeature(Guid)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).GetFeature(System.Guid)
   spec.csharp:
-  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+  - uid: Virgis.VirgisLayer`2.GetFeature(System.Guid)
     name: GetFeature
-    nameWithType: Layer<T, S>.GetFeature
-    fullName: Virgis.Layer<T, S>.GetFeature
+    nameWithType: VirgisLayer<T, S>.GetFeature
+    fullName: Virgis.VirgisLayer<T, S>.GetFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -2327,10 +2638,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetFeature(System.Guid)
+  - uid: Virgis.VirgisLayer`2.GetFeature(System.Guid)
     name: GetFeature
-    nameWithType: Layer(Of T, S).GetFeature
-    fullName: Virgis.Layer(Of T, S).GetFeature
+    nameWithType: VirgisLayer(Of T, S).GetFeature
+    fullName: Virgis.VirgisLayer(Of T, S).GetFeature
   - name: (
     nameWithType: (
     fullName: (
@@ -2342,18 +2653,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.GetId
-  commentId: M:Virgis.Layer`2.GetId
+- uid: Virgis.VirgisLayer`2.GetId
+  commentId: M:Virgis.VirgisLayer`2.GetId
   name: GetId()
-  nameWithType: Layer<T, S>.GetId()
-  fullName: Virgis.Layer<T, S>.GetId()
-  nameWithType.vb: Layer(Of T, S).GetId()
-  fullName.vb: Virgis.Layer(Of T, S).GetId()
+  nameWithType: VirgisLayer<T, S>.GetId()
+  fullName: Virgis.VirgisLayer<T, S>.GetId()
+  nameWithType.vb: VirgisLayer(Of T, S).GetId()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).GetId()
   spec.csharp:
-  - uid: Virgis.Layer`2.GetId
+  - uid: Virgis.VirgisLayer`2.GetId
     name: GetId
-    nameWithType: Layer<T, S>.GetId
-    fullName: Virgis.Layer<T, S>.GetId
+    nameWithType: VirgisLayer<T, S>.GetId
+    fullName: Virgis.VirgisLayer<T, S>.GetId
   - name: (
     nameWithType: (
     fullName: (
@@ -2361,28 +2672,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetId
+  - uid: Virgis.VirgisLayer`2.GetId
     name: GetId
-    nameWithType: Layer(Of T, S).GetId
-    fullName: Virgis.Layer(Of T, S).GetId
+    nameWithType: VirgisLayer(Of T, S).GetId
+    fullName: Virgis.VirgisLayer(Of T, S).GetId
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.GetMetadata
-  commentId: M:Virgis.Layer`2.GetMetadata
+- uid: Virgis.VirgisLayer`2.GetMetadata
+  commentId: M:Virgis.VirgisLayer`2.GetMetadata
   name: GetMetadata()
-  nameWithType: Layer<T, S>.GetMetadata()
-  fullName: Virgis.Layer<T, S>.GetMetadata()
-  nameWithType.vb: Layer(Of T, S).GetMetadata()
-  fullName.vb: Virgis.Layer(Of T, S).GetMetadata()
+  nameWithType: VirgisLayer<T, S>.GetMetadata()
+  fullName: Virgis.VirgisLayer<T, S>.GetMetadata()
+  nameWithType.vb: VirgisLayer(Of T, S).GetMetadata()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).GetMetadata()
   spec.csharp:
-  - uid: Virgis.Layer`2.GetMetadata
+  - uid: Virgis.VirgisLayer`2.GetMetadata
     name: GetMetadata
-    nameWithType: Layer<T, S>.GetMetadata
-    fullName: Virgis.Layer<T, S>.GetMetadata
+    nameWithType: VirgisLayer<T, S>.GetMetadata
+    fullName: Virgis.VirgisLayer<T, S>.GetMetadata
   - name: (
     nameWithType: (
     fullName: (
@@ -2390,28 +2701,28 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetMetadata
+  - uid: Virgis.VirgisLayer`2.GetMetadata
     name: GetMetadata
-    nameWithType: Layer(Of T, S).GetMetadata
-    fullName: Virgis.Layer(Of T, S).GetMetadata
+    nameWithType: VirgisLayer(Of T, S).GetMetadata
+    fullName: Virgis.VirgisLayer(Of T, S).GetMetadata
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.GetFeatureShape
-  commentId: M:Virgis.Layer`2.GetFeatureShape
+- uid: Virgis.VirgisLayer`2.GetFeatureShape
+  commentId: M:Virgis.VirgisLayer`2.GetFeatureShape
   name: GetFeatureShape()
-  nameWithType: Layer<T, S>.GetFeatureShape()
-  fullName: Virgis.Layer<T, S>.GetFeatureShape()
-  nameWithType.vb: Layer(Of T, S).GetFeatureShape()
-  fullName.vb: Virgis.Layer(Of T, S).GetFeatureShape()
+  nameWithType: VirgisLayer<T, S>.GetFeatureShape()
+  fullName: Virgis.VirgisLayer<T, S>.GetFeatureShape()
+  nameWithType.vb: VirgisLayer(Of T, S).GetFeatureShape()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).GetFeatureShape()
   spec.csharp:
-  - uid: Virgis.Layer`2.GetFeatureShape
+  - uid: Virgis.VirgisLayer`2.GetFeatureShape
     name: GetFeatureShape
-    nameWithType: Layer<T, S>.GetFeatureShape
-    fullName: Virgis.Layer<T, S>.GetFeatureShape
+    nameWithType: VirgisLayer<T, S>.GetFeatureShape
+    fullName: Virgis.VirgisLayer<T, S>.GetFeatureShape
   - name: (
     nameWithType: (
     fullName: (
@@ -2419,29 +2730,29 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.GetFeatureShape
+  - uid: Virgis.VirgisLayer`2.GetFeatureShape
     name: GetFeatureShape
-    nameWithType: Layer(Of T, S).GetFeatureShape
-    fullName: Virgis.Layer(Of T, S).GetFeatureShape
+    nameWithType: VirgisLayer(Of T, S).GetFeatureShape
+    fullName: Virgis.VirgisLayer(Of T, S).GetFeatureShape
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.SetVisible(System.Boolean)
-  commentId: M:Virgis.Layer`2.SetVisible(System.Boolean)
+- uid: Virgis.VirgisLayer`2.SetVisible(System.Boolean)
+  commentId: M:Virgis.VirgisLayer`2.SetVisible(System.Boolean)
   isExternal: true
   name: SetVisible(Boolean)
-  nameWithType: Layer<T, S>.SetVisible(Boolean)
-  fullName: Virgis.Layer<T, S>.SetVisible(System.Boolean)
-  nameWithType.vb: Layer(Of T, S).SetVisible(Boolean)
-  fullName.vb: Virgis.Layer(Of T, S).SetVisible(System.Boolean)
+  nameWithType: VirgisLayer<T, S>.SetVisible(Boolean)
+  fullName: Virgis.VirgisLayer<T, S>.SetVisible(System.Boolean)
+  nameWithType.vb: VirgisLayer(Of T, S).SetVisible(Boolean)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).SetVisible(System.Boolean)
   spec.csharp:
-  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetVisible(System.Boolean)
     name: SetVisible
-    nameWithType: Layer<T, S>.SetVisible
-    fullName: Virgis.Layer<T, S>.SetVisible
+    nameWithType: VirgisLayer<T, S>.SetVisible
+    fullName: Virgis.VirgisLayer<T, S>.SetVisible
   - name: (
     nameWithType: (
     fullName: (
@@ -2454,10 +2765,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.SetVisible(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetVisible(System.Boolean)
     name: SetVisible
-    nameWithType: Layer(Of T, S).SetVisible
-    fullName: Virgis.Layer(Of T, S).SetVisible
+    nameWithType: VirgisLayer(Of T, S).SetVisible
+    fullName: Virgis.VirgisLayer(Of T, S).SetVisible
   - name: (
     nameWithType: (
     fullName: (
@@ -2469,18 +2780,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.IsVisible
-  commentId: M:Virgis.Layer`2.IsVisible
+- uid: Virgis.VirgisLayer`2.IsVisible
+  commentId: M:Virgis.VirgisLayer`2.IsVisible
   name: IsVisible()
-  nameWithType: Layer<T, S>.IsVisible()
-  fullName: Virgis.Layer<T, S>.IsVisible()
-  nameWithType.vb: Layer(Of T, S).IsVisible()
-  fullName.vb: Virgis.Layer(Of T, S).IsVisible()
+  nameWithType: VirgisLayer<T, S>.IsVisible()
+  fullName: Virgis.VirgisLayer<T, S>.IsVisible()
+  nameWithType.vb: VirgisLayer(Of T, S).IsVisible()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).IsVisible()
   spec.csharp:
-  - uid: Virgis.Layer`2.IsVisible
+  - uid: Virgis.VirgisLayer`2.IsVisible
     name: IsVisible
-    nameWithType: Layer<T, S>.IsVisible
-    fullName: Virgis.Layer<T, S>.IsVisible
+    nameWithType: VirgisLayer<T, S>.IsVisible
+    fullName: Virgis.VirgisLayer<T, S>.IsVisible
   - name: (
     nameWithType: (
     fullName: (
@@ -2488,29 +2799,29 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.IsVisible
+  - uid: Virgis.VirgisLayer`2.IsVisible
     name: IsVisible
-    nameWithType: Layer(Of T, S).IsVisible
-    fullName: Virgis.Layer(Of T, S).IsVisible
+    nameWithType: VirgisLayer(Of T, S).IsVisible
+    fullName: Virgis.VirgisLayer(Of T, S).IsVisible
   - name: (
     nameWithType: (
     fullName: (
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.SetEditable(System.Boolean)
-  commentId: M:Virgis.Layer`2.SetEditable(System.Boolean)
+- uid: Virgis.VirgisLayer`2.SetEditable(System.Boolean)
+  commentId: M:Virgis.VirgisLayer`2.SetEditable(System.Boolean)
   isExternal: true
   name: SetEditable(Boolean)
-  nameWithType: Layer<T, S>.SetEditable(Boolean)
-  fullName: Virgis.Layer<T, S>.SetEditable(System.Boolean)
-  nameWithType.vb: Layer(Of T, S).SetEditable(Boolean)
-  fullName.vb: Virgis.Layer(Of T, S).SetEditable(System.Boolean)
+  nameWithType: VirgisLayer<T, S>.SetEditable(Boolean)
+  fullName: Virgis.VirgisLayer<T, S>.SetEditable(System.Boolean)
+  nameWithType.vb: VirgisLayer(Of T, S).SetEditable(Boolean)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).SetEditable(System.Boolean)
   spec.csharp:
-  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetEditable(System.Boolean)
     name: SetEditable
-    nameWithType: Layer<T, S>.SetEditable
-    fullName: Virgis.Layer<T, S>.SetEditable
+    nameWithType: VirgisLayer<T, S>.SetEditable
+    fullName: Virgis.VirgisLayer<T, S>.SetEditable
   - name: (
     nameWithType: (
     fullName: (
@@ -2523,10 +2834,10 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.SetEditable(System.Boolean)
+  - uid: Virgis.VirgisLayer`2.SetEditable(System.Boolean)
     name: SetEditable
-    nameWithType: Layer(Of T, S).SetEditable
-    fullName: Virgis.Layer(Of T, S).SetEditable
+    nameWithType: VirgisLayer(Of T, S).SetEditable
+    fullName: Virgis.VirgisLayer(Of T, S).SetEditable
   - name: (
     nameWithType: (
     fullName: (
@@ -2538,18 +2849,18 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: Virgis.Layer`2.IsEditable
-  commentId: M:Virgis.Layer`2.IsEditable
+- uid: Virgis.VirgisLayer`2.IsEditable
+  commentId: M:Virgis.VirgisLayer`2.IsEditable
   name: IsEditable()
-  nameWithType: Layer<T, S>.IsEditable()
-  fullName: Virgis.Layer<T, S>.IsEditable()
-  nameWithType.vb: Layer(Of T, S).IsEditable()
-  fullName.vb: Virgis.Layer(Of T, S).IsEditable()
+  nameWithType: VirgisLayer<T, S>.IsEditable()
+  fullName: Virgis.VirgisLayer<T, S>.IsEditable()
+  nameWithType.vb: VirgisLayer(Of T, S).IsEditable()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).IsEditable()
   spec.csharp:
-  - uid: Virgis.Layer`2.IsEditable
+  - uid: Virgis.VirgisLayer`2.IsEditable
     name: IsEditable
-    nameWithType: Layer<T, S>.IsEditable
-    fullName: Virgis.Layer<T, S>.IsEditable
+    nameWithType: VirgisLayer<T, S>.IsEditable
+    fullName: Virgis.VirgisLayer<T, S>.IsEditable
   - name: (
     nameWithType: (
     fullName: (
@@ -2557,13 +2868,150 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: Virgis.Layer`2.IsEditable
+  - uid: Virgis.VirgisLayer`2.IsEditable
     name: IsEditable
-    nameWithType: Layer(Of T, S).IsEditable
-    fullName: Virgis.Layer(Of T, S).IsEditable
+    nameWithType: VirgisLayer(Of T, S).IsEditable
+    fullName: Virgis.VirgisLayer(Of T, S).IsEditable
   - name: (
     nameWithType: (
     fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer`2.Equals(System.Object)
+  commentId: M:Virgis.VirgisLayer`2.Equals(System.Object)
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: VirgisLayer<T, S>.Equals(Object)
+  fullName: Virgis.VirgisLayer<T, S>.Equals(System.Object)
+  nameWithType.vb: VirgisLayer(Of T, S).Equals(Object)
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Equals(System.Object)
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.Equals(System.Object)
+    name: Equals
+    nameWithType: VirgisLayer<T, S>.Equals
+    fullName: Virgis.VirgisLayer<T, S>.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.Equals(System.Object)
+    name: Equals
+    nameWithType: VirgisLayer(Of T, S).Equals
+    fullName: Virgis.VirgisLayer(Of T, S).Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer`2.GetHashCode
+  commentId: M:Virgis.VirgisLayer`2.GetHashCode
+  name: GetHashCode()
+  nameWithType: VirgisLayer<T, S>.GetHashCode()
+  fullName: Virgis.VirgisLayer<T, S>.GetHashCode()
+  nameWithType.vb: VirgisLayer(Of T, S).GetHashCode()
+  fullName.vb: Virgis.VirgisLayer(Of T, S).GetHashCode()
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.GetHashCode
+    name: GetHashCode
+    nameWithType: VirgisLayer<T, S>.GetHashCode
+    fullName: Virgis.VirgisLayer<T, S>.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.GetHashCode
+    name: GetHashCode
+    nameWithType: VirgisLayer(Of T, S).GetHashCode
+    fullName: Virgis.VirgisLayer(Of T, S).GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+  commentId: M:Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+  name: Equals(VirgisLayer<T, S>)
+  nameWithType: VirgisLayer<T, S>.Equals(VirgisLayer<T, S>)
+  fullName: Virgis.VirgisLayer<T, S>.Equals(Virgis.VirgisLayer<T, S>)
+  nameWithType.vb: VirgisLayer(Of T, S).Equals(VirgisLayer(Of T, S))
+  fullName.vb: Virgis.VirgisLayer(Of T, S).Equals(Virgis.VirgisLayer(Of T, S))
+  name.vb: Equals(VirgisLayer(Of T, S))
+  spec.csharp:
+  - uid: Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+    name: Equals
+    nameWithType: VirgisLayer<T, S>.Equals
+    fullName: Virgis.VirgisLayer<T, S>.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.VirgisLayer`2.Equals(Virgis.VirgisLayer{`0,`1})
+    name: Equals
+    nameWithType: VirgisLayer(Of T, S).Equals
+    fullName: Virgis.VirgisLayer(Of T, S).Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Virgis.VirgisLayer`2
+    name: VirgisLayer
+    nameWithType: VirgisLayer
+    fullName: Virgis.VirgisLayer
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: S
+    nameWithType: S
+    fullName: S
+  - name: )
+    nameWithType: )
+    fullName: )
   - name: )
     nameWithType: )
     fullName: )
@@ -2644,12 +3092,12 @@ references:
   - name: ()
     nameWithType: ()
     fullName: ()
-- uid: Virgis.VirgisComponent
-  commentId: T:Virgis.VirgisComponent
+- uid: Virgis.VirgisFeature
+  commentId: T:Virgis.VirgisFeature
   parent: Virgis
-  name: VirgisComponent
-  nameWithType: VirgisComponent
-  fullName: Virgis.VirgisComponent
+  name: VirgisFeature
+  nameWithType: VirgisFeature
+  fullName: Virgis.VirgisFeature
 - uid: Virgis.DataPlotter._save*
   commentId: Overload:Virgis.DataPlotter._save
   name: _save

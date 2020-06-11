@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: RecordSet
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -64,7 +64,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Id
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -112,7 +112,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: DisplayName
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -157,7 +157,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Type
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -205,7 +205,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: DataType
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -257,7 +257,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Source
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -302,7 +302,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Features
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -347,7 +347,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Position
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -392,7 +392,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Transform
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -437,7 +437,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Basic Types/Project.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: Properties
     path: ../Assets/Scripts/Basic Types/Project.cs
@@ -449,13 +449,13 @@ items:
     content: >-
       [JsonProperty(PropertyName = "properties")]
 
-      public IDictionary Properties
+      public Dictionary<string, object> Properties
     return:
-      type: System.Collections.IDictionary
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
     content.vb: >-
       <JsonProperty(PropertyName:="properties")>
 
-      Public Properties As IDictionary
+      Public Properties As Dictionary(Of String, Object)
   attributes:
   - type: Newtonsoft.Json.JsonPropertyAttribute
     ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
@@ -573,16 +573,120 @@ references:
   name: JsonTransform
   nameWithType: JsonTransform
   fullName: Project.JsonTransform
-- uid: System.Collections.IDictionary
-  commentId: T:System.Collections.IDictionary
-  parent: System.Collections
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, Object>
+  nameWithType: Dictionary<String, Object>
+  fullName: System.Collections.Generic.Dictionary<System.String, System.Object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, System.Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
   isExternal: true
-  name: IDictionary
-  nameWithType: IDictionary
-  fullName: System.Collections.IDictionary
-- uid: System.Collections
-  commentId: N:System.Collections
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
   isExternal: true
-  name: System.Collections
-  nameWithType: System.Collections
-  fullName: System.Collections
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

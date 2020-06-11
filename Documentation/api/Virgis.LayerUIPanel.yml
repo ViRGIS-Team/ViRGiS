@@ -19,7 +19,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Layers/LayerUIPanel.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: LayerUIPanel
     path: ../Assets/Scripts/Layers/LayerUIPanel.cs
@@ -58,7 +58,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Layers/LayerUIPanel.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: editLayerToggle
     path: ../Assets/Scripts/Layers/LayerUIPanel.cs
@@ -89,7 +89,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Layers/LayerUIPanel.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: viewLayerToggle
     path: ../Assets/Scripts/Layers/LayerUIPanel.cs
@@ -120,7 +120,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Layers/LayerUIPanel.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: layer
     path: ../Assets/Scripts/Layers/LayerUIPanel.cs
@@ -129,11 +129,11 @@ items:
   - Assembly-CSharp
   namespace: Virgis
   syntax:
-    content: public ILayer layer { get; set; }
+    content: public IVirgisLayer layer { get; set; }
     parameters: []
     return:
-      type: Virgis.ILayer
-    content.vb: Public Property layer As ILayer
+      type: Virgis.IVirgisLayer
+    content.vb: Public Property layer As IVirgisLayer
   overload: Virgis.LayerUIPanel.layer*
   modifiers.csharp:
   - public
@@ -155,7 +155,7 @@ items:
   source:
     remote:
       path: Assets/Scripts/Layers/LayerUIPanel.cs
-      branch: doc
+      branch: gh-pages
       repo: https://github.com/runette/ViRGIS.git
     id: AddEditSelectedListener
     path: ../Assets/Scripts/Layers/LayerUIPanel.cs
@@ -248,12 +248,12 @@ references:
   name: layer
   nameWithType: LayerUIPanel.layer
   fullName: Virgis.LayerUIPanel.layer
-- uid: Virgis.ILayer
-  commentId: T:Virgis.ILayer
+- uid: Virgis.IVirgisLayer
+  commentId: T:Virgis.IVirgisLayer
   parent: Virgis
-  name: ILayer
-  nameWithType: ILayer
-  fullName: Virgis.ILayer
+  name: IVirgisLayer
+  nameWithType: IVirgisLayer
+  fullName: Virgis.IVirgisLayer
 - uid: Virgis.LayerUIPanel.AddEditSelectedListener*
   commentId: Overload:Virgis.LayerUIPanel.AddEditSelectedListener
   name: AddEditSelectedListener
