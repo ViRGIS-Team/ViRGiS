@@ -8,8 +8,7 @@ using GeoJSON.Net.Feature;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Converters;
-
-
+using System.ComponentModel;
 
 namespace Project
 {
@@ -63,7 +62,10 @@ namespace Project
         [JsonProperty(PropertyName = "transform")]
         public JsonTransform Transform;
         [JsonProperty(PropertyName = "properties")]
-        public Dictionary<string,object> Properties;
+        public Dictionary<string, object> Properties;
+        [JsonProperty(PropertyName = "visible", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue(true)]
+        public bool Visible;
     }
 
     public class JsonTransform : TestableObject

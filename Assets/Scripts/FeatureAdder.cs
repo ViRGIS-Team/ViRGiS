@@ -1,15 +1,11 @@
-﻿using GeoJSON.Net.Feature;
-using Project;
-using SQLite4Unity3d;
+﻿using Project;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Virgis
-{
-    public class FeatureAdder : MonoBehaviour
-    {
+namespace Virgis {
+    public class FeatureAdder : MonoBehaviour {
         public GameObject blueCubePrefab;
         public GameObject defaultMarkerShape;
 
@@ -27,9 +23,7 @@ namespace Virgis
         private List<Datapoint> _lastVertex = new List<Datapoint>();
 
         // Start is called before the first frame update
-        void Start()
-        {
-            Debug.Log("ShapeAdder starts");
+        void Start() {
             _appState = AppState.instance;
             _markerShapeMap = new Dictionary<Guid, GameObject>();
             _markerShape = defaultMarkerShape;
@@ -40,92 +34,62 @@ namespace Virgis
             _newFeature = null;
         }
 
-        void Update()
-        {
-            if (_appState.editSession.IsActive() && (_newFeature != null))
-            {
+        void Update() {
+            if (_appState.editSession.IsActive() && (_newFeature != null)) {
                 MoveArgs args = new MoveArgs();
                 args.pos = _markerShape.transform.position;
                 _lastVertex.ForEach(dp => dp.MoveTo(args));
             }
         }
 
-        public void LeftTriggerPressed(bool activate)
-        {
+        public void LeftTriggerPressed(bool activate) {
             //Debug.Log($"LeftTriggerPressed: activate = {activate}");
-            if (_waitingForSecondPress)
-            {
+            if (_waitingForSecondPress) {
                 StopCoroutine(_timer);
                 _waitingForSecondPress = false;
                 OnTriggerDoublePress();
-            }
-            else
-            {
+            } else {
                 _timer = WaitForSecondTriggerPress(_markerShape.transform.position);
                 StartCoroutine(_timer);
                 _waitingForSecondPress = true;
             }
         }
 
-        public void LeftTriggerReleased(bool activate)
-        {
+        public void LeftTriggerReleased(bool activate) {
             //Debug.Log($"LeftTriggerReleased: activate = {activate}");
         }
 
-        public void LeftGripPressed(bool activate)
-        {
-            Debug.Log($"LeftGripPressed: activate = {activate}");
-        }
-
-        public void LeftGripReleased(bool activate)
-        {
-            Debug.Log($"LeftGripPressed: activate = {activate}");
-        }
-
-        private void OnStartEditSession()
-        {
-            Debug.Log("ShapeAdder OnStartEditSession");
+        private void OnStartEditSession() {
             IVirgisLayer editableLayer = _appState.editSession.editableLayer;
             _markerShape = SelectMarkerShape(editableLayer);
             _markerShape.SetActive(true);
         }
 
-        private void OnEditableLayerChanged(IVirgisLayer newEditableLayer)
-        {
-            Debug.Log("ShapeAdder OnEditableLayerChanged");
+        private void OnEditableLayerChanged(IVirgisLayer newEditableLayer) {
             _markerShape.SetActive(false);
             _markerShape = SelectMarkerShape(newEditableLayer);
             _markerShape.SetActive(true);
         }
 
-        private void OnEndEditSession(bool saved)
-        {
-            Debug.Log("ShapeAdder OnEndEditSession");
+        private void OnEndEditSession(bool saved) {
             _markerShape.SetActive(false);
         }
 
-        private void OnTriggerSinglePress(Vector3 posWhenSinglePress)
-        {
-            Debug.Log("ShapeAdder OnTriggerSinglePress");
-            if (_appState.editSession.IsActive())
-            {
+        private void OnTriggerSinglePress(Vector3 posWhenSinglePress) {
+            if (_appState.editSession.IsActive()) {
                 IVirgisLayer editableLayer = _appState.editSession.editableLayer;
                 RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
                 Datapoint[] vertexes;
-                switch (dataType)
-                {
+                switch (dataType) {
                     case RecordSetDataType.Point:
                         VirgisFeature point = editableLayer.AddFeature(new Vector3[1] { posWhenSinglePress });
                         point.UnSelected(SelectionTypes.SELECT);
                         break;
                     case RecordSetDataType.Line:
                         //Debug.Log($"ShapeAdder add Vertex");
-                        if (_newFeature != null)
-                        {
+                        if (_newFeature != null) {
                             _newFeature.AddVertex(posWhenSinglePress);
-                        }
-                        else
-                        {
+                        } else {
                             _newFeature = editableLayer.AddFeature(new Vector3[2] { posWhenSinglePress, posWhenSinglePress + Vector3.one * Single.Epsilon });
                             // get the last vertex
                             vertexes = (_newFeature as Dataline).GetVertexes();
@@ -135,24 +99,17 @@ namespace Virgis
                         }
                         break;
                     case RecordSetDataType.Polygon:
-                        if (_newFeature != null)
-                        {
-                            if (_lastVertex.Count == 1)
-                            {
+                        if (_newFeature != null) {
+                            if (_lastVertex.Count == 1) {
                                 _newFeature.transform.GetComponentInChildren<Dataline>().AddVertex(posWhenSinglePress);
                                 (_newFeature as Datapolygon).ResetCenter();
-                            }
-                            else
-                            {
+                            } else {
                                 _lastVertex[0].UnSelected(SelectionTypes.SELECT);
                                 _lastVertex.RemoveAt(0);
                                 (_newFeature as Datapolygon).ResetCenter();
                             }
 
-                        }
-                        else
-                        {
-                            Debug.Log("ShapeAdder Add Polygon Feature");
+                        } else {
                             _newFeature = editableLayer.AddFeature(new Vector3[4] { posWhenSinglePress, posWhenSinglePress + Vector3.right * Single.Epsilon, posWhenSinglePress + Vector3.up * Single.Epsilon, posWhenSinglePress });
                             vertexes = (_newFeature as Datapolygon).GetVertexes();
                             _firstVertex = vertexes[0];
@@ -164,25 +121,19 @@ namespace Virgis
             }
         }
 
-        private void OnTriggerDoublePress()
-        {
-            Debug.Log("ShapeAdder OnTriggerDoublePress");
-            if (_appState.editSession.IsActive())
-            {
+        private void OnTriggerDoublePress() {
+            if (_appState.editSession.IsActive()) {
                 IVirgisLayer editableLayer = _appState.editSession.editableLayer;
                 RecordSetDataType dataType = editableLayer.GetMetadata().DataType;
-                switch (dataType)
-                {
+                switch (dataType) {
                     case RecordSetDataType.Line:
-                        if (_newFeature != null)
-                        {
+                        if (_newFeature != null) {
                             VirgisFeature temp = _lastVertex[0];
                             _lastVertex.Clear();
                             temp.UnSelected(SelectionTypes.SELECT);
                             // if edit mode is snap to anchor and start and end vertexes are at the same position
                             if (_appState.editSession.mode == EditSession.EditMode.SnapAnchor &&
-                                _firstVertex.transform.position == temp.transform.position)
-                            {
+                                _firstVertex.transform.position == temp.transform.position) {
                                 (_newFeature as Dataline).MakeLinearRing();
                             }
                             // complete adding line feature
@@ -190,8 +141,7 @@ namespace Virgis
                         }
                         break;
                     case RecordSetDataType.Polygon:
-                        if (_newFeature != null)
-                        {
+                        if (_newFeature != null) {
                             // complete adding polygon feature
                             _newFeature = null;
                             VirgisFeature temp = _lastVertex[0];
@@ -203,21 +153,14 @@ namespace Virgis
             }
         }
 
-        private GameObject SelectMarkerShape(IVirgisLayer layer)
-        {
-            if (_markerShapeMap.ContainsKey(layer.GetId()))
-            {
+        private GameObject SelectMarkerShape(IVirgisLayer layer) {
+            if (_markerShapeMap.ContainsKey(layer.GetId())) {
                 return _markerShapeMap[layer.GetId()];
-            }
-            else
-            {
+            } else {
                 GameObject featureShape = layer.GetFeatureShape();
-                if (featureShape == null)
-                {
+                if (featureShape == null) {
                     return defaultMarkerShape;
-                }
-                else
-                {
+                } else {
                     featureShape.transform.parent = transform;
                     featureShape.transform.position = defaultMarkerShape.transform.position;
                     featureShape.transform.rotation = defaultMarkerShape.transform.rotation;
@@ -228,13 +171,10 @@ namespace Virgis
             }
         }
 
-        private IEnumerator WaitForSecondTriggerPress(Vector3 posWhenSinglePress)
-        {
-            //Debug.Log("ShapeAdder WaitForSecondPress starts");
+        private IEnumerator WaitForSecondTriggerPress(Vector3 posWhenSinglePress) {
             float eventTime = Time.unscaledTime + 0.5f;
             while (Time.unscaledTime < eventTime)
                 yield return null;
-            //Debug.Log("ShapeAdder WaitForSecondPress ends");
             _waitingForSecondPress = false;
             OnTriggerSinglePress(posWhenSinglePress);
         }

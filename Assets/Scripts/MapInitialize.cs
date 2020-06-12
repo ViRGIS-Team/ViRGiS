@@ -3,9 +3,9 @@ using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
 using Mapbox.Utils;
 using Project;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using System.Collections.Generic;
 
 
 namespace Virgis
@@ -112,9 +112,9 @@ namespace Virgis
                         temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                         break;
                 }
-                Debug.Log("Loaded : " + thisLayer.ToString() + " : " + thisLayer.Id);
                 temp.transform.parent = transform;
                 appState.addLayer(temp);
+                temp.gameObject.SetActive(thisLayer.Visible);
             }
             appState.Init();
             return this;
@@ -148,25 +148,18 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-
-
-        public override void ExitEditSession(bool saved)
-        {
-            if (saved)
-            {
-                Save();
-            }
-            else
-            {
+        public override void ExitEditSession(bool saved) {
+            if (!saved) {
                 Draw();
             }
+            Save();
         }
 
         protected override void _checkpoint()
         {
         }
 
-        public new void Save()
+        public new async void Save()
         {
             foreach (IVirgisLayer com in appState.layers)
             {
@@ -177,7 +170,7 @@ namespace Virgis
             appState.project.Scale = appState.GetScale();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
             geoJsonReader.SetProject(appState.project);
-            geoJsonReader.Save();
+            await geoJsonReader.Save();
         }
 
         protected override void _save()
@@ -217,6 +210,10 @@ namespace Virgis
         public override GameObject GetFeatureShape()
         {
             return null;
+        }
+
+        private void OnApplicationQuit() {
+            Save();
         }
 
     }

@@ -77,8 +77,8 @@ namespace Virgis
                 panelScript.layer = layer;
                 // listens to panel's edit selected event
                 panelScript.AddEditSelectedListener(OnLayerPanelEditSelected);
-                if (layer.IsEditable())
-                    panelScript.editLayerToggle.isOn = true;
+                if (layer.IsEditable()) panelScript.editLayerToggle.isOn = true;
+                panelScript.viewLayerToggle.isOn = layer.IsVisible();
                 // when the Layers Menu screen is first displayed,
                 // edit session could already be active
                 if (_appState.editSession.IsActive())
