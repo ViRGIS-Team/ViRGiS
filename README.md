@@ -41,6 +41,6 @@ See Distribution and ChangeLog
 
 # License
 
-ViRGIS is copyright [Runette Software Ltd](https://runette.co.uk) and it licensed under an MIT license (see [license](https://www.virgis.org/LICENSE))
+ViRGIS is copyright [Runette Software Ltd](https://runette.co.uk) and it licensed under an MIT license (see [license](/LICENSE))
 
 # Contributing
