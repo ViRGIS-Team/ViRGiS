@@ -7,8 +7,6 @@ items:
   children:
   - Virgis.FeatureAdder.blueCubePrefab
   - Virgis.FeatureAdder.defaultMarkerShape
-  - Virgis.FeatureAdder.LeftGripPressed(System.Boolean)
-  - Virgis.FeatureAdder.LeftGripReleased(System.Boolean)
   - Virgis.FeatureAdder.LeftTriggerPressed(System.Boolean)
   - Virgis.FeatureAdder.LeftTriggerReleased(System.Boolean)
   langs:
@@ -25,7 +23,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: FeatureAdder
     path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 10
+    startLine: 7
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -64,7 +62,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: blueCubePrefab
     path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 12
+    startLine: 8
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -95,7 +93,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: defaultMarkerShape
     path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 13
+    startLine: 9
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -126,7 +124,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: LeftTriggerPressed
     path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 52
+    startLine: 44
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -159,7 +157,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: LeftTriggerReleased
     path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 69
+    startLine: 57
   assemblies:
   - Assembly-CSharp
   namespace: Virgis
@@ -170,72 +168,6 @@ items:
       type: System.Boolean
     content.vb: Public Sub LeftTriggerReleased(activate As Boolean)
   overload: Virgis.FeatureAdder.LeftTriggerReleased*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: Virgis.FeatureAdder.LeftGripPressed(System.Boolean)
-  commentId: M:Virgis.FeatureAdder.LeftGripPressed(System.Boolean)
-  id: LeftGripPressed(System.Boolean)
-  parent: Virgis.FeatureAdder
-  langs:
-  - csharp
-  - vb
-  name: LeftGripPressed(Boolean)
-  nameWithType: FeatureAdder.LeftGripPressed(Boolean)
-  fullName: Virgis.FeatureAdder.LeftGripPressed(System.Boolean)
-  type: Method
-  source:
-    remote:
-      path: Assets/Scripts/FeatureAdder.cs
-      branch: gh-pages
-      repo: https://github.com/runette/ViRGIS.git
-    id: LeftGripPressed
-    path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 74
-  assemblies:
-  - Assembly-CSharp
-  namespace: Virgis
-  syntax:
-    content: public void LeftGripPressed(bool activate)
-    parameters:
-    - id: activate
-      type: System.Boolean
-    content.vb: Public Sub LeftGripPressed(activate As Boolean)
-  overload: Virgis.FeatureAdder.LeftGripPressed*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-- uid: Virgis.FeatureAdder.LeftGripReleased(System.Boolean)
-  commentId: M:Virgis.FeatureAdder.LeftGripReleased(System.Boolean)
-  id: LeftGripReleased(System.Boolean)
-  parent: Virgis.FeatureAdder
-  langs:
-  - csharp
-  - vb
-  name: LeftGripReleased(Boolean)
-  nameWithType: FeatureAdder.LeftGripReleased(Boolean)
-  fullName: Virgis.FeatureAdder.LeftGripReleased(System.Boolean)
-  type: Method
-  source:
-    remote:
-      path: Assets/Scripts/FeatureAdder.cs
-      branch: gh-pages
-      repo: https://github.com/runette/ViRGIS.git
-    id: LeftGripReleased
-    path: ../Assets/Scripts/FeatureAdder.cs
-    startLine: 79
-  assemblies:
-  - Assembly-CSharp
-  namespace: Virgis
-  syntax:
-    content: public void LeftGripReleased(bool activate)
-    parameters:
-    - id: activate
-      type: System.Boolean
-    content.vb: Public Sub LeftGripReleased(activate As Boolean)
-  overload: Virgis.FeatureAdder.LeftGripReleased*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -317,13 +249,3 @@ references:
   name: LeftTriggerReleased
   nameWithType: FeatureAdder.LeftTriggerReleased
   fullName: Virgis.FeatureAdder.LeftTriggerReleased
-- uid: Virgis.FeatureAdder.LeftGripPressed*
-  commentId: Overload:Virgis.FeatureAdder.LeftGripPressed
-  name: LeftGripPressed
-  nameWithType: FeatureAdder.LeftGripPressed
-  fullName: Virgis.FeatureAdder.LeftGripPressed
-- uid: Virgis.FeatureAdder.LeftGripReleased*
-  commentId: Overload:Virgis.FeatureAdder.LeftGripReleased
-  name: LeftGripReleased
-  nameWithType: FeatureAdder.LeftGripReleased
-  fullName: Virgis.FeatureAdder.LeftGripReleased

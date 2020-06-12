@@ -102,14 +102,14 @@
 <li>A RecordSet is the complete representation of a layer, and</li>
 <li>A Project is a complete representation of a model.</li>
 </ul>
-<p>Unit, RecordSet and Project are defined in the Scripting Reference.</p>
+<p><a href="../api/Project.Unit.html">Unit</a>, <a href="../api/Project.RecordSet.html">RecordSet</a> and <a href="../api/Project.GisProject.html">Project</a> are defined in the Scripting Reference.</p>
 <h2 id="current-implementation">Current Implementation</h2>
 <p>The Logical Entity Model is implemented by two files and two types of GameObject, as follows</p>
 <p><img src="../images/physical_entity_1.png" alt="image"></p>
 <p>Where the source is a reference to one GeoJSON file</p>
 <p><img src="../images/physical_entity_2.png" alt="image"></p>
-<p>All Feature types implement the IVirgisFeature interface and extend VirgisFeature. There can be as many Feature types as there are types of geometry.</p>
-<p>All Layer types implement the IVirgisLayer interface and extend VirgisLayer. There can be as many Layer types as required.</p>
+<p>All Feature types implement the <a href="../api/Virgis.IVirgisFeature.html">IVirgisFeature</a> interface and extend <a href="../api/Virgis.VirgisFeature.html">VirgisFeature</a>. There can be as many Feature types as there are types of geometry.</p>
+<p>All Layer types implement the <a href="../api/Virgis.IVirgisLayer.html">IVirgisLayer</a> interface and extend <a href="../api/Virgis.VirgisLayer-2.html">VirgisLayer</a>. There can be as many Layer types as required.</p>
 <p>The Map GameObject is an instance of a Layer that happens to contain other layers.</p>
 </article>
           </div>

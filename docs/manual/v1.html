@@ -201,11 +201,11 @@
 <p>This relatively simple model preserves the entity structure into the event structure without needing any further configuration. The basic idea can be shown by the <code>Selected</code> event that is triggered on a component by the UI. This event is propagated up so that the Feature and Layer that this component is part of know that the event has occurred. If the feature is a line and is in <code>blockEdit</code> mode it will broadcast the <code>Selected</code> event to all of the components of the line.</p>
 <p>There are following prototypes in the entity model:</p>
 <ol>
-<li><strong>IVirgisEntity</strong>. Covers all entities in the Virgis Entity Model</li>
-<li><strong>IVirgisFeature</strong>. Covers all visible features and parts of Features (like lines)</li>
-<li><strong>IVirgisLayer</strong>. Covers all GIS Layers in the model. Note that a GIS Layer in not the same thing as a Unity Layer. GIS layers are collections of like data. Unity Layers are used by Unity to categorise GameObjects. There is no connection between these concepts.</li>
+<li><strong><a href="../api/Virgis.IVirgisEntity.html">IVirgisEntity</a></strong>. Covers all entities in the Virgis Entity Model</li>
+<li><strong><a href="../api/Virgis.IVirgisFeature.html">IVirgisFeature</a></strong>. Covers all visible features and parts of Features (like lines)</li>
+<li><strong><a href="../api/Virgis.IVirgisLayer.html">IVirgisLayer</a></strong>. Covers all GIS Layers in the model. Note that a GIS Layer in not the same thing as a Unity Layer. GIS layers are collections of like data. Unity Layers are used by Unity to categorise GameObjects. There is no connection between these concepts.</li>
 </ol>
-<p>There is also an event system called AppState that is used to communicate changes in the application state. This is explained further in the Scripting Reference</p>
+<p>There is also an event system called <a href="../api/Virgis.AppState.html">AppState</a> that is used to communicate changes in the application state. This is explained further in the Scripting Reference</p>
 <h2 id="user-interface">​User Interface</h2>
 <p>The Overall VR Interface architecture is described in <a href="https://medium.com/runic-software/making-a-business-oriented-vr-interface-a42e37f3bbe4">this article</a></p>
 <h3 id="guidelines">​Guidelines</h3>
@@ -214,21 +214,27 @@
 <li>The User is NOT the centre of the space. The data is the centre of the space. This is different from many mapping applications on the web and in games - where the space reveals itself almost infinitely as the User moves. This is GIS and in GIS - the data has bounds (called the &quot;extent&quot; of the data). We will use that paradigm. We move around in that extent.</li>
 <li>We have two eyes and two hands. Therefore - the User Avatar has two cameras and two representations of hands. These are provide by the XR Rig (currently OVR XR Rig). The Game Space is set up with a putative scale of 1m in real-world to one Unity unit. But there is also internal scaling (ie. zoom factors) in the map that changes this. The space can be zoomed in-game.</li>
 <li>Real users are going to demand the ability to look from multiple viewpoints without the effort of moving e.g &quot;in close&quot; to change things &quot;wide outside&quot; view to get the overview - or alternate angles to understand parallax effects. </li>
-<li>The hands are used to control things. I can see three things they need to do :<ol>
+<li>The hands are used to control things.<ol>
 <li>Select and manipulate,</li>
-<li>Move the character,</li>
-<li>Choose &quot;stuff&quot;.</li>
+<li>Move the character in the model,</li>
+<li>Move and scale the model,</li>
+<li>Change the state of the model and of the avatar.</li>
 </ol>
 </li>
-<li>The user needs the ability to control the lighting.</li>
 </ol>
 <h3 id="design-decisions">​Design Decisions</h3>
 <ol>
-<li><strong>Guideline 1</strong> indicates that the avatars should be First Person view.</li>
-<li><strong>Guideline 4</strong> suggests that an approach is to have a main avatar and one or more drones to get alternate views?</li>
-<li>**Guideline 5a **Tt assumes that we need some sort of &quot;selecting&quot; widget. Something like a target on the Right hand and use the buttons on the right to select and manipulate. The joystick on the left could be used to zoom and rotate the space. </li>
-<li><strong>Guideline 5b and c</strong> suggest that the left hand should have some sort of &quot;menu UI&quot; that allows you to make menu selections and the right joystick could be used to &quot;Jetpack&quot; move the avatar in the space - although actual real-world movement by the user in the available physical space would also move the avatar and together with zoom and rotation of the world that might be enough.</li>
+<li>From <strong>Guideline 1</strong> all avatars are only First Person view.</li>
+<li>From <strong>Guideline 4</strong> suggests that an approach will be to have a main avatar and one or more drones to get alternate views.</li>
+<li>From <strong>Guideline 5</strong>:<ol>
+<li>We use a ray pointer interactor oon the left hand to allow the selection and manipulation of data entities,</li>
+<li>We use the controls on the right hand to move and control the avatatr and manipulate entities,</li>
+<li>We use the controls on the left hand to zoom and rotate the model, and</li>
+<li>There is an interactive menu attached to the left hand to allow the application state to be changed.</li>
 </ol>
+</li>
+</ol>
+<p>Movement of the avatar is by using a 3D &quot;jet-pack&quot; analog.</p>
 <h2 id="edit-session">​Edit Session</h2>
 <p>This concept is common in GIS software. The basic concept is that changes to geospatial data are complicated and have many interdependencies - which means that a simple “undo” function can get you into more problems than solutions! Therefore, the usual concept is, effectively, to create a simple type of “checkpoint” at the start of an Edit Session and to always be able to get back to the “checkpoint”. The “checkpoint” is always what is currently saved in the data file.</p>
 <!-- Footnotes themselves at the bottom. -->

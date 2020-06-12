@@ -105,56 +105,48 @@
 <p>This space can be zoomed - that really represents a change in the level of details (LoD) but also changes the base relationship between VR Space units and Real World Space units (which is a nominal 1m per unit but changes as the zoom level change to try to avoid impossibly large numbers in the VR Space).</p>
 <p>Real-world Points, Lines and Polygons etc are projected into this VR Space using standard projection techniques.</p>
 <h2 id="basics---moving-from-2d-to-3d">​Basics - moving from 2D to 3D</h2>
-<ol>
-<li><strong>Coordinate systems don’t change.</strong> We continue to use the same Coordinate Reference Systems and datums. With all of the same tools needed and problems associated.</li>
-<li><p><strong>Altitudes are not Always Altitudes</strong>. Z, or more traditionally Altitude, has always been used in GIS but has not been a core coordinate and as such the handling is less well defined. Z can be:</p>
+<h3 id="coordinate-systems-dont-change">Coordinate systems don’t change.</h3>
+<p>We continue to use the same Coordinate Reference Systems and datums. With all of the same tools needed and problems associated.</p>
+<h3 id="altitudes-are-not-always-altitudes">Altitudes are not Always Altitudes</h3>
+<p>Z, or more traditionally Altitude, has always been used in GIS but has not been a core coordinate and as such the handling is less well defined. Z can be:</p>
 <ol>
 <li>Relative to the Ellipsoid,</li>
 <li>Relative to the Geoid,</li>
 <li>Relative to local ground level or a dedicated local datum,</li>
 <li><p>Relative to a regional datum such as MSL.</p>
 <p>In 2D GIS, in most cases Z is just a DEM (i.e. an attribute), so this did not matter and since Z is a data attribute and not actually a coordinate, if the data is wrong or missing it does not change the geometry. This is not true in true 3D space. </p>
-<p>In the VR World, all Z values from the Real-World Space are projected into Y values in the VR Space coordinate system relative to the ellipsoid (ToDO - confirm this).</p>
+<p>In the VR World, all Z values from the Real-World Space are projected into Y values in the VR Space coordinate system relative to the ellipsoid.</p>
 </li>
 </ol>
-</li>
-<li><strong>Points are Points.</strong> A point (with Z value) is a simple 3D entity. No difference there.</li>
-</ol>
+<h3 id="points-are-points">Points are Points</h3>
+<p>A point (with Z value) is a simple 3D entity. No difference there.</p>
 <p>2D points - i.e. LatLngs - have to be dealt with since they are valid data points in the GIS formats used. The current assumption will be to place these points on the ellipsoid. The preferred approach is to deal with these points in the data acquisition phase and in the GIS - basically to give all points valid Z values before they get to the VR Space. </p>
 <p>There are some additional types of symbology. Using the experience quoted by QGIS 3D, a good starting point is:</p>
 <ul>
 <li>Basic shape and colour. The basic shapes in Unity are sphere (actually ellipsoid since it can be scaled in each dimension), cube (actually right cuboid since it can be scaled in each dimension) &amp; right elliptical cylinder and the colours are defined by a standard RGBA color space. So - we shall start with that.</li>
 <li>Using 3D models (i.e. meshes) as 3D icons. This capability is practically OOTB with Unity, but providing the library of Icons and semantics to define them in the Project.json will take some time.</li>
 <li>Billboards. I.e. 2D sprites that always face the viewer. Creating Text based Billboards is simple in Unity and will be used in ViRGIS V1 for labelling. Adding texture should not be complicated but has the same problem of library and semantics as b).</li>
-<li><strong>Lines remain Lines</strong>. A line is a set of points or vertices and, provided all vertices have a Z value, is a simple 3D entity although it should be noted for completeness that the length of the line measured in 3D may not be the same as the length of the line measured in 2D.</li>
 </ul>
+<h3 id="lines-remain-lines">Lines remain Lines</h3>
+<p>A line is a set of points or vertices and, provided all vertices have a Z value, is a simple 3D entity although it should be noted for completeness that the length of the line measured in 3D may not be the same as the length of the line measured in 2D.</p>
 <p>The symbology questions are primarily:</p>
 <ul>
 <li>“Simple” or “Buffered” - i.e. whether the width is defined in VR-World units or in Real-World Units and projected to VR-World units. </li>
-<li><p>Shape. In the VR-World (more so than the 3D GIS World) every entity needs solid structure for the brain to process it correctly. Lines with zero breadth don’t work. Therefore, all lines will be represented by cuboids or right elliptical cylinders. </p>
-<p>  As a note, the line segment is created by elongating the mesh along the z-axis in VR Space. That means the characteristics of the line symbology (i.e. cross section) are set by the X and Y values of the scale vector in VR Space. To keep consistency, the scaling is still written as a 3D transform in z-up format. This means that in the project.json file, the x and z values set the width and breadth of the line. The y value should always be 1, since the y-value is created when drawing the line.</p>
-</li>
+<li>Shape. In the VR-World (more so than the 3D GIS World) every entity needs solid structure for the brain to process it correctly. Lines with zero breadth don’t work. Therefore, all lines will be represented by cuboids or right elliptical cylinders. </li>
 </ul>
-<pre><code>It should also be noted that the transform is applied in the local reference frame. This means that the (Real-World) y axis is aligned along the line segment and the other axes aligned accordingly. This actually means that the (Real-world) y axis could actually end up pointing in any direction in Real-World global space, including down.
-</code></pre><ol>
-<li><p><strong>Polygons are difficult</strong>. As discussed in Tet-Khuan et al and elsewhere, Polygons are not actually 3D shapes and a number of assumptions have to be made:</p>
-<ol>
-<li><p>The assumption in 2D GIS is that a polygon is planar and orthogonal to the view (i.e. that all vertices have the same Z value). It is possible create this polygon in the VR Space either :</p>
-<ol>
+<p>As a note, the line segment is created by elongating the mesh along the z-axis in VR Space. That means the characteristics of the line symbology (i.e. cross section) are set by the X and Y values of the scale vector in VR Space. To keep consistency, the scaling is still written as a 3D transform in z-up format. This means that in the project.json file, the x and z values set the width and breadth of the line. The y value should always be 1, since the y-value is created when drawing the line.</p>
+<p>It should also be noted that the transform is applied in the local reference frame. This means that the (Real-World) y axis is aligned along the line segment and the other axes aligned accordingly. This actually means that the (Real-world) y axis could actually end up pointing in any direction in Real-World global space, including down.</p>
+<h3 id="polygons-are-difficult">Polygons are difficult</h3>
+<p>As discussed in Tet-Khuan et al and elsewhere, Polygons are not actually 3D shapes and a number of assumptions have to be made:</p>
+<p>The assumption in 2D GIS is that a polygon is planar and orthogonal to the view (i.e. that all vertices have the same Z value). It is possible create this polygon in the VR Space either :</p>
+<ul>
 <li>As a 2D Mesh, or</li>
-<li><p>As a prism whose cross section is the polygon.</p>
+<li>As a prism whose cross section is the polygon.</li>
+</ul>
 <p>For ViRGIS, we have not used either of these methods. We have assumed that solid bodies, such as might be represented by approach ii) will come into the App as either a group of polygons or as a mesh. These two statements are functional the same as described below but have different meanings in term of the formats used. A group of polygons might be represented by a GeoJSON file while a mesh is more likely to be presented as a .OBJ file etc.</p>
-</li>
-</ol>
-</li>
-<li><p>It is possible to construct a polygon with 3D points. This is sometimes called a polygonZ and is assumed to be planar. Due to projection, the shape of this polygon might not the same as the shape seen in 2D GIS.</p>
-</li>
-<li><p>If it is not planar, it is a polyhedral.</p>
+<p>It is possible to construct a polygon with 3D points. This is sometimes called a polygonZ and is assumed to be planar. Due to projection, the shape of this polygon might not the same as the shape seen in 2D GIS.</p>
+<p>If it is not planar, it is a polyhedral.</p>
 <p>For features presenting as polygons, we have chosen the following method</p>
-</li>
-</ol>
-</li>
-</ol>
 <ul>
 <li>A Polygon is represented by a linear ring as defined in GeoJSON, </li>
 <li>There are no constraints on the Z values of the vertices and no assumptions that the Polygon is planar,</li>
@@ -167,17 +159,15 @@
 <p>This means that all polygons become internally just a special case of a mesh.  </p>
 <p>For symbology, the mesh needs to be constructed from a material that is covered with a texture. This texture can be computed, e.g. flat or cross-checked, where the color and possible other parameters have to be configured, or it can be a link to an image in .PNG or .JPEG format.</p>
 <p>One characteristic of a polygon over a mesh is the linear ring - which can take symbology as well. This allows the edges in a polygon mesh to be high-lighted. This is not simply possible in a standard Unity mesh.</p>
-<ol>
-<li><strong>Meshes are New</strong>. In the VR World, meshes become a very important feature type. Meshes are 2.xD surfaces made up of small planar polygons joined at the edges with a large number of vertices.</li>
-</ol>
+<h3 id="meshes-are-new">Meshes are New</h3>
+<p>In the VR World, meshes become a very important feature type. Meshes are 2.xD surfaces made up of small planar polygons joined at the edges with a large number of vertices.</p>
 <p>[ToDO - more research on the use of mesh in GIS] </p>
 <p>In Unity, meshes can have triangular or quad faces, but for performance and greater consistency with the GIS TIN formats, we will only be using triangulated meshes. </p>
 <p>ViRGIS V1 will include arbitrary meshes as georeferenced objects in the model and allow the position, scale and rotation of the mesh to be manipulated.</p>
 <p>ViRGIS v1 assumes that, for meshes coming from “non-polygon” formats (e.g..OBJ), all data about the material, texture and colour of the mesh is included in the mesh data and no additional symbology is provided.</p>
 <p>Each mesh definition file (which may contain one or more individual meshes) is created in the model as its own <code>RecordSet</code> object or GIS layer.</p>
-<ol>
-<li><strong>Point Clouds are New</strong>. A point cloud is a large set of 3D points each of which has attributes (e.g. colour) and together make up some structure. The key point here is the size of the dataset. </li>
-</ol>
+<h3 id="point-clouds-are-new">Point Clouds are New</h3>
+<p>A point cloud is a large set of 3D points each of which has attributes (e.g. colour) and together make up some structure. The key point here is the size of the dataset. </p>
 <p>Point Clouds are important for LiDAR analysis and for Photogrammetry.</p>
 <p>ViRGIS V1 loads Point Cloud data into a Unity Particle system to provide a performant way of presenting very large numbers of points in the VR World.</p>
 </article>

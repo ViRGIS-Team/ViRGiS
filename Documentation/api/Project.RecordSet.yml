@@ -14,6 +14,7 @@ items:
   - Project.RecordSet.Source
   - Project.RecordSet.Transform
   - Project.RecordSet.Type
+  - Project.RecordSet.Visible
   langs:
   - csharp
   - vb
@@ -28,7 +29,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: RecordSet
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 45
+    startLine: 44
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -68,7 +69,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Id
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 48
+    startLine: 47
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -116,7 +117,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: DisplayName
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 50
+    startLine: 49
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -161,7 +162,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Type
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 52
+    startLine: 51
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -209,7 +210,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: DataType
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 55
+    startLine: 54
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -261,7 +262,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Source
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 57
+    startLine: 56
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -306,7 +307,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Features
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 59
+    startLine: 58
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -351,7 +352,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Position
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 61
+    startLine: 60
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -396,7 +397,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Transform
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 63
+    startLine: 62
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -441,7 +442,7 @@ items:
       repo: https://github.com/runette/ViRGIS.git
     id: Properties
     path: ../Assets/Scripts/Basic Types/Project.cs
-    startLine: 65
+    startLine: 64
   assemblies:
   - Assembly-CSharp
   namespace: Project
@@ -464,6 +465,54 @@ items:
     - name: PropertyName
       type: System.String
       value: properties
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.RecordSet.Visible
+  commentId: F:Project.RecordSet.Visible
+  id: Visible
+  parent: Project.RecordSet
+  langs:
+  - csharp
+  - vb
+  name: Visible
+  nameWithType: RecordSet.Visible
+  fullName: Project.RecordSet.Visible
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Visible
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 67
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "visible", DefaultValueHandling = DefaultValueHandling.Ignore | DefaultValueHandling.Populate | DefaultValueHandling.IgnoreAndPopulate)]
+
+      public bool Visible
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <JsonProperty(PropertyName:="visible", DefaultValueHandling:=DefaultValueHandling.Ignore Or DefaultValueHandling.Populate Or DefaultValueHandling.IgnoreAndPopulate)>
+
+      Public Visible As Boolean
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: visible
+    - name: DefaultValueHandling
+      type: Newtonsoft.Json.DefaultValueHandling
+      value: 3
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -690,3 +739,10 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

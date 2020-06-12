@@ -34,7 +34,7 @@ Where:
 *   A RecordSet is the complete representation of a layer, and
 *   A Project is a complete representation of a model.
 
-Unit, RecordSet and Project are defined in the Scripting Reference.
+[Unit](../api/Project.Unit.html), [RecordSet](../api/Project.RecordSet.html) and [Project](../api/Project.GisProject.html) are defined in the Scripting Reference.
 
 
 ## Current Implementation
@@ -50,9 +50,9 @@ Where the source is a reference to one GeoJSON file
 ![image](../images/physical_entity_2.png )
 
 
-All Feature types implement the IVirgisFeature interface and extend VirgisFeature. There can be as many Feature types as there are types of geometry.
+All Feature types implement the [IVirgisFeature](../api/Virgis.IVirgisFeature.html) interface and extend [VirgisFeature](../api/Virgis.VirgisFeature.html). There can be as many Feature types as there are types of geometry.
 
-All Layer types implement the IVirgisLayer interface and extend VirgisLayer. There can be as many Layer types as required.
+All Layer types implement the [IVirgisLayer](../api/Virgis.IVirgisLayer.html) interface and extend [VirgisLayer](../api/Virgis.VirgisLayer-2.html). There can be as many Layer types as required.
 
 The Map GameObject is an instance of a Layer that happens to contain other layers.
 
