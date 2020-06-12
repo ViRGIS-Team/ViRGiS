@@ -9,6 +9,7 @@
 - [Documentation](#documentation)
 - [Getting ViRGIS](#getting-virgis)
 - [Contributing](#contributing)
+- [License](#license)
 
 
 
@@ -37,5 +38,9 @@ Go to [Documentation](https://www.virgis.org/docs/manual/geospatial.html)
 
 See Distribution and ChangeLog
 
+
+# License
+
+ViRGIS is copyright [Runette Software Ltd](https://runette.co.uk) and it licensed under aN MIT license (see [license](/LICENCE)
 
 # Contributing
