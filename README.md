@@ -30,7 +30,7 @@ Many of these features are currently available in various packages and initiativ
 
 # Documentation
 
-Go to [Documentation](https://www.virgis.org/docs/manual/geospatial.html)
+Go to [Documentation](docs/manual/geospatial.html)
 
 
 
