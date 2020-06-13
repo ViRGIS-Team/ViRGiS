@@ -246,7 +246,9 @@ namespace Virgis {
         }
 
 
-        public abstract GameObject GetFeatureShape();
+        public virtual GameObject GetFeatureShape() {
+            return null;
+        }
 
         public void SetVisible(bool visible) {
             if (layer.Visible != visible) {
