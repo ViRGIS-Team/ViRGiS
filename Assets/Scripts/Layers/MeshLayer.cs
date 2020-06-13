@@ -68,7 +68,7 @@ namespace Virgis
         protected override void _draw()
         {
             transform.position = layer.Position.Coordinates.Vector3();
-            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
+            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = layer.Properties.Units;
             meshes = new List<GameObject>();
 
@@ -78,17 +78,18 @@ namespace Virgis
                 MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
                 MeshRenderer renderer = meshGameObject.AddComponent<MeshRenderer>();
                 renderer.material = material;
-                meshGameObject.transform.parent = gameObject.transform;
+                meshGameObject.transform.localScale = AppState.instance.map.transform.localScale;
+                meshGameObject.transform.parent = transform;
                 meshGameObject.transform.localPosition = Vector3.zero;
                 mf.mesh = simpleMesh.ToMesh();
                 meshes.Add(meshGameObject);
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
-            GameObject centreHandle = Instantiate(handle, gameObject.transform.position, Quaternion.identity);
-            centreHandle.transform.parent = transform;
-            centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
+            GameObject centreHandle = Instantiate(handle, transform.position, Quaternion.identity);
+            centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3) symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
+            centreHandle.transform.parent = transform;
 
         }
 
@@ -137,12 +138,6 @@ namespace Virgis
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
         }
-
-        public override GameObject GetFeatureShape()
-        {
-            return handle;
-        }
-
     }
 }
 
