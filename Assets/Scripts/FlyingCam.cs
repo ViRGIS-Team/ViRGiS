@@ -5,12 +5,14 @@ using UnityEngine.InputSystem;
 using Zinnia.Cast;
 using Zinnia.Pointer;
 
-namespace Virgis {
+namespace Virgis
+{
 
     /// <summary>
     /// Main Script for controlling the UI behaviour and the movement of the Camera
     /// </summary>
-    public class FlyingCam : MonoBehaviour {
+    public class FlyingCam : MonoBehaviour
+    {
 
         public GameObject trackingSpace; // reference to the active tracking space
         [Header("Constants - Desktop")]                                 //unity controls and constants input - keyboard
@@ -51,7 +53,8 @@ namespace Virgis {
         private Camera self;
 
 
-        private void Start() {
+        private void Start()
+        {
             appState = AppState.instance;
             appState.trackingSpace = trackingSpace;
             _thisRigidbody = GetComponent<Rigidbody>();
@@ -60,29 +63,36 @@ namespace Virgis {
 
         }
 
-        private void Update() {
+        private void Update()
+        {
             OVRInput.Update();
-            if (lhGripState && rhGripState && editSelected) {
+            if (lhGripState && rhGripState && editSelected)
+            {
                 Vector3 rh = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
                 Vector3 lh = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LHand);
                 Vector3 newAxis = rh - lh;
-                if (AxisEdit) {
+                if (AxisEdit)
+                {
                     Vector3 AxisDelta = newAxis - axis;
-                    if (AxisDelta.magnitude > AxisSensitivity) {
+                    if (AxisDelta.magnitude > AxisSensitivity)
+                    {
                         MoveArgs args = new MoveArgs();
                         args.rotate = Quaternion.FromToRotation(axis, newAxis);
                         args.scale = newAxis.magnitude / axis.magnitude;
                         MoveAxis(args);
                         axis = newAxis;
                     }
-                } else {
+                }
+                else
+                {
                     AxisEdit = true;
                     axis = newAxis;
                 }
             }
         }
 
-        private void FixedUpdate() {
+        private void FixedUpdate()
+        {
             OVRInput.FixedUpdate();
         }
 
@@ -93,7 +103,8 @@ namespace Virgis {
         //
         // link this to an a 2D axis control for in plane movement
         //
-        public void HandleMove(InputAction.CallbackContext context) {
+        public void HandleMove(InputAction.CallbackContext context)
+        {
             Vector3 force = Quaternion.Euler(90, 0, 0) * (context.ReadValue<Vector2>().normalized * DesktopAcceleration);
             MoveCamera(force);
         }
@@ -101,7 +112,8 @@ namespace Virgis {
         // 
         // link this to a 1D axis control for vertical movement
         //
-        public void HandleVertical(InputAction.CallbackContext context) {
+        public void HandleVertical(InputAction.CallbackContext context)
+        {
             Vector3 force = context.ReadValue<Vector2>().normalized * DesktopAcceleration;
             MoveCamera(force);
         }
@@ -110,7 +122,8 @@ namespace Virgis {
         //
         // Link this to a 2D axis control to control pan and zoom
         //
-        public void HandlePanZoom(InputAction.CallbackContext context) {
+        public void HandlePanZoom(InputAction.CallbackContext context)
+        {
             Vector2 pz_input = context.ReadValue<Vector2>().normalized;
             //transform.LookAt(Vector3.zero);
             float pan = pz_input.x;
@@ -122,9 +135,11 @@ namespace Virgis {
         //
         // Link this to the mouse delta control
         //
-        public void HandleMouseRotation(InputAction.CallbackContext context) {
+        public void HandleMouseRotation(InputAction.CallbackContext context)
+        {
             Vector2 input = context.ReadValue<Vector2>();
-            if (!editSelected) {
+            if (!editSelected)
+            {
                 //mouse input
                 var rotationHorizontal = XAxisSensitivity * input.x;
                 var rotationVertical = YAxisSensitivity * input.y;
@@ -139,11 +154,14 @@ namespace Virgis {
                 _rotationX = Mathf.Clamp(_rotationX, -MaxXAngle, MaxXAngle);
 
                 transform.localEulerAngles = new Vector3(-_rotationX, rotationY, 0);
-            } else {
+            }
+            else
+            {
                 Ray ray = self.ScreenPointToRay(Mouse.current.position.ReadValue());
                 Vector3 to = ray.GetPoint(selectedDistance);
 
-                if (currentPointerHit != null) {
+                if (currentPointerHit != null)
+                {
                     moveTo(to);
                     from = to;
                 }
@@ -154,9 +172,11 @@ namespace Virgis {
         // use this for processing any key inputs
         // 
 
-        public void HandleKeyInput(InputAction.CallbackContext context) {
+        public void HandleKeyInput(InputAction.CallbackContext context)
+        {
             InputAction action = context.action;
-            switch (action.name) {
+            switch (action.name)
+            {
                 case "StartEdit":
                     appState.StartEditSession();
                     break;
@@ -176,10 +196,12 @@ namespace Virgis {
         // Link this to the mouse click control
         //
 
-        public void HandleMouseClick(InputAction.CallbackContext context) {
+        public void HandleMouseClick(InputAction.CallbackContext context)
+        {
             InputAction action = context.action;
             SelectionTypes button = SelectionTypes.SELECT;
-            switch (action.name) {
+            switch (action.name)
+            {
                 case "Select":
                     button = SelectionTypes.SELECT;
                     break;
@@ -187,31 +209,39 @@ namespace Virgis {
                     button = SelectionTypes.SELECTALL;
                     break;
             }
-            if (action.phase == InputActionPhase.Canceled && appState.InEditSession()) {
+            if (action.phase == InputActionPhase.Canceled && appState.InEditSession())
+            {
                 UnClickHandler(button);
-            } else if (action.phase == InputActionPhase.Started && !editSelected && appState.InEditSession()) {
+            }
+            else if (action.phase == InputActionPhase.Started && !editSelected && appState.InEditSession())
+            {
                 ClickHandler(button);
             }
         }
 
-        private void ClickHandler(SelectionTypes button) {
+        private void ClickHandler(SelectionTypes button)
+        {
             RaycastHit hitInfo = new RaycastHit();
             Vector3 mousePos = Input.mousePosition;
             Ray ray = self.ScreenPointToRay(mousePos);
             //Debug.DrawRay(ray.origin, ray.direction * 100f, Color.yellow, 1000f);
             bool hit = Physics.Raycast(ray, out hitInfo);
-            if (hit) {
+            if (hit)
+            {
                 currentPointerHit = hitInfo.transform;
                 select(button);
                 selectedDistance = hitInfo.distance;
                 from = hitInfo.point;
-            } else {
+            }
+            else
+            {
                 editSelected = false;
             }
         }
 
 
-        private void UnClickHandler(SelectionTypes button) {
+        private void UnClickHandler(SelectionTypes button)
+        {
             unSelect(button);
         }
 
@@ -225,8 +255,10 @@ namespace Virgis {
         //
         // Link this to a 2D control for in plane movement
         //
-        public void Move(Vector2 axis) {
-            if (axis != Vector2.zero) {
+        public void Move(Vector2 axis)
+        {
+            if (axis != Vector2.zero)
+            {
                 Vector3 force = Quaternion.AngleAxis(90.0f, Vector3.right) * axis * VrAcceleration;
                 MoveCamera(force);
             }
@@ -235,14 +267,18 @@ namespace Virgis {
         //
         // Link this to a 2d axis control for pan and zoom and move away
         //
-        public void PanZoom(Vector2 axis) {
+        public void PanZoom(Vector2 axis)
+        {
             Vector2 pz_input = axis;
-            if (!editSelected) {
+            if (!editSelected)
+            {
                 float pan = pz_input.x * PanSensitvity;
                 Pan(pan);
                 float zoom = pz_input.y * ZoomSensitivity;
                 Zoom(zoom);
-            } else {
+            }
+            else
+            {
                 selectedDistance += pz_input.y * AppState.instance.map.transform.TransformVector(Vector3.one * SlideMod).magnitude;
             }
         }
@@ -253,22 +289,28 @@ namespace Virgis {
         //
         // e.g VRTK Pointer Entering event
         //
-        public void PointerHit(ObjectPointer.EventData data) {
-            if (!editSelected) {
+        public void PointerHit(ObjectPointer.EventData data)
+        {
+            if (!editSelected)
+            {
                 RaycastHit hitInfo = data.CurrentPointsCastData.HitData.Value;
                 currentPointerHit = hitInfo.transform;
                 selectedDistance = hitInfo.distance;
                 from = hitInfo.point;
-                if (rhTriggerState) {
+                if (rhTriggerState)
+                {
                     select(SelectionTypes.SELECT);
                 }
-                if (rhGripState) {
+                if (rhGripState)
+                {
                     select(SelectionTypes.SELECTALL);
                 }
-                if (addVertexState) {
+                if (addVertexState)
+                {
                     AddVertex(hitInfo.point);
                 }
-                if (delVertexState) {
+                if (delVertexState)
+                {
                     RemoveVertex();
                 }
             }
@@ -280,7 +322,8 @@ namespace Virgis {
         //
         // e.g VRTK Pointer Exiting event
         //
-        public void PointerUnhit(ObjectPointer.EventData data) {
+        public void PointerUnhit(ObjectPointer.EventData data)
+        {
             currentPointerHit = null;
         }
 
@@ -289,30 +332,36 @@ namespace Virgis {
         //
         // you can have as many as you like, you just have to clone this call and change button value
         //
-        public void triggerPressed(bool thisEvent) {
+        public void triggerPressed(bool thisEvent)
+        {
             rhTriggerState = true;
             select(SelectionTypes.SELECT);
         }
 
-        public void gripPressed(bool thisEvent) {
+        public void gripPressed(bool thisEvent)
+        {
             rhGripState = true;
             select(SelectionTypes.SELECTALL);
         }
 
-        public void lhTriggerPressed(bool thisEvent) {
+        public void lhTriggerPressed(bool thisEvent)
+        {
             lhTriggerState = true;
         }
 
-        public void lhGripPressed(bool thisEvent) {
+        public void lhGripPressed(bool thisEvent)
+        {
             lhGripState = true;
         }
 
-        public void addVertexPressed(bool thisEvent) {
+        public void addVertexPressed(bool thisEvent)
+        {
             addVertexState = true;
             AddVertex(from);
         }
 
-        public void delVertexPressed(bool thisEvent) {
+        public void delVertexPressed(bool thisEvent)
+        {
             delVertexState = true;
             RemoveVertex();
         }
@@ -320,33 +369,39 @@ namespace Virgis {
         //
         // call this when any event type ends
         //
-        public void triggerReleased(bool thisEvent) {
+        public void triggerReleased(bool thisEvent)
+        {
             rhTriggerState = false;
             unSelect(SelectionTypes.SELECT);
 
         }
 
-        public void gripReleased(bool thisEvent) {
+        public void gripReleased(bool thisEvent)
+        {
             rhGripState = false;
             AxisEdit = false;
             unSelect(SelectionTypes.SELECTALL);
 
         }
 
-        public void lhTriggerReleased(bool thisEvent) {
+        public void lhTriggerReleased(bool thisEvent)
+        {
             lhTriggerState = false;
         }
 
-        public void lhGripRelaesed(bool thisEvent) {
+        public void lhGripRelaesed(bool thisEvent)
+        {
             lhGripState = false;
             AxisEdit = false;
         }
 
-        public void addVertexReleased(bool thisEvent) {
+        public void addVertexReleased(bool thisEvent)
+        {
             addVertexState = false;
         }
 
-        public void delVertexReleased(bool thisEvent) {
+        public void delVertexReleased(bool thisEvent)
+        {
             delVertexState = false;
         }
 
@@ -355,8 +410,10 @@ namespace Virgis {
         //
         // link to the StraightCaster Changed event
         //
-        public void receiveRay(PointsCast.EventData data) {
-            if (editSelected || currentPointerHit != null) {
+        public void receiveRay(PointsCast.EventData data)
+        {
+            if (editSelected || currentPointerHit != null)
+            {
                 Vector3 dir = data.Points[1] - data.Points[0];
                 Vector3 to = data.Points[0] + dir.normalized * selectedDistance;
                 if (editSelected)
@@ -368,14 +425,18 @@ namespace Virgis {
         //
         // loink to boolean evcents to increase and decrease scale
         //
-        public void ScaleUp(bool thisEvent) {
-            if (thisEvent) {
+        public void ScaleUp(bool thisEvent)
+        {
+            if (thisEvent)
+            {
                 Scale(ZoomSensitivity);
             }
         }
 
-        public void ScaleDown(bool thisEvent) {
-            if (thisEvent) {
+        public void ScaleDown(bool thisEvent)
+        {
+            if (thisEvent)
+            {
                 Scale(-ZoomSensitivity);
             }
         }
@@ -385,74 +446,94 @@ namespace Virgis {
         //
         // Internal methods common to both UIs
         //
-        private void Pan(float pan) {
+        private void Pan(float pan)
+        {
             if (pan != 0)
                 transform.RotateAround(Vector3.zero, Vector3.down, pan);
         }
 
-        private void Zoom(float zoom) {
-            if (zoom != 0) {
+        private void Zoom(float zoom)
+        {
+            if (zoom != 0)
+            {
                 AppState.instance.ZoomChange(AppState.instance.GetScale() * (1 - zoom));
             }
         }
 
-        private void Scale(float scale) {
+        private void Scale(float scale)
+        {
             Vector3 here = AppState.instance.map.transform.InverseTransformPoint(transform.position);
             AppState.instance.ZoomChange(AppState.instance.GetScale() * (1 - scale));
             transform.position = AppState.instance.map.transform.TransformPoint(here);
         }
 
-        private void moveTo(Vector3 to) {
-            if (!AxisEdit) {
+        private void moveTo(Vector3 to)
+        {
+            if (!AxisEdit)
+            {
                 MoveArgs args = new MoveArgs();
                 args.translate = to - from;
                 currentSelected?.SendMessage("MoveTo", args, SendMessageOptions.DontRequireReceiver);
             }
         }
 
-        private void select(SelectionTypes button) {
-            if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable()) {
+        private void select(SelectionTypes button)
+        {
+            if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable())
+            {
                 editSelected = true;
                 currentSelected = currentPointerHit;
                 currentSelected.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
             }
         }
 
-        private void unSelect(SelectionTypes button) {
+        private void unSelect(SelectionTypes button)
+        {
             editSelected = false;
             currentSelected?.SendMessage("UnSelected", button, SendMessageOptions.DontRequireReceiver);
             currentSelected = null;
         }
 
-        private void MoveAxis(MoveArgs args) {
-            if (AxisEdit) {
+        private void MoveAxis(MoveArgs args)
+        {
+            if (AxisEdit)
+            {
                 currentSelected?.SendMessage("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
             }
         }
 
-        private bool LayerIsEditable() {
-            ILayer layer;
-            if (currentSelected != null) {
-                layer = currentSelected.GetComponentInParent<ILayer>();
-            } else {
-                layer = currentPointerHit?.GetComponentInParent<ILayer>();
+        private bool LayerIsEditable()
+        {
+            IVirgisLayer layer;
+            if (currentSelected != null)
+            {
+                layer = currentSelected.GetComponentInParent<IVirgisLayer>();
+            }
+            else
+            {
+                layer = currentPointerHit?.GetComponentInParent<IVirgisLayer>();
             }
             return layer?.IsEditable() ?? false;
         }
 
-        private void MoveCamera(Vector3 force) {
+        private void MoveCamera(Vector3 force)
+        {
             _thisRigidbody.AddForce(appState.trackingSpace.transform.rotation * force, ForceMode.Force);
         }
 
-        private void AddVertex(Vector3 pos) {
-            if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable()) {
+        private void AddVertex(Vector3 pos)
+        {
+            if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable())
+            {
                 currentPointerHit.SendMessage("AddVertex", pos, SendMessageOptions.DontRequireReceiver);
                 addVertexState = false;
             }
         }
 
-        private void RemoveVertex() {
-            if (appState.InEditSession() && currentSelected != null && LayerIsEditable()) {
+        private void RemoveVertex()
+        {
+            if (appState.InEditSession() && currentSelected != null && LayerIsEditable())
+            {
                 currentSelected.SendMessage("Delete", SendMessageOptions.DontRequireReceiver);
                 currentSelected = null;
                 currentPointerHit = null;

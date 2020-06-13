@@ -1,0 +1,442 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DGraph2Resampler
+  commentId: T:g3.DGraph2Resampler
+  id: DGraph2Resampler
+  parent: g3
+  children:
+  - g3.DGraph2Resampler.#ctor(g3.DGraph2)
+  - g3.DGraph2Resampler.CollapseDegenerateEdges(System.Double)
+  - g3.DGraph2Resampler.CollapseFlatVertices(System.Double)
+  - g3.DGraph2Resampler.CollapseToMinEdgeLength(System.Double)
+  - g3.DGraph2Resampler.FixedEdgeFilterF
+  - g3.DGraph2Resampler.Graph
+  - g3.DGraph2Resampler.SplitToMaxEdgeLength(System.Double)
+  langs:
+  - csharp
+  - vb
+  name: DGraph2Resampler
+  nameWithType: DGraph2Resampler
+  fullName: g3.DGraph2Resampler
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DGraph2Resampler
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n&quot;Remesher&quot; for DGraph2 \n"
+  example: []
+  syntax:
+    content: public class DGraph2Resampler
+    content.vb: Public Class DGraph2Resampler
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DGraph2Resampler.Graph
+  commentId: F:g3.DGraph2Resampler.Graph
+  id: Graph
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: Graph
+  nameWithType: DGraph2Resampler.Graph
+  fullName: g3.DGraph2Resampler.Graph
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Graph
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DGraph2 Graph
+    return:
+      type: g3.DGraph2
+    content.vb: Public Graph As DGraph2
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph2Resampler.FixedEdgeFilterF
+  commentId: F:g3.DGraph2Resampler.FixedEdgeFilterF
+  id: FixedEdgeFilterF
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: FixedEdgeFilterF
+  nameWithType: DGraph2Resampler.FixedEdgeFilterF
+  fullName: g3.DGraph2Resampler.FixedEdgeFilterF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixedEdgeFilterF
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<int, bool> FixedEdgeFilterF
+    return:
+      type: System.Func{System.Int32,System.Boolean}
+    content.vb: Public FixedEdgeFilterF As Func(Of Integer, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph2Resampler.#ctor(g3.DGraph2)
+  commentId: M:g3.DGraph2Resampler.#ctor(g3.DGraph2)
+  id: '#ctor(g3.DGraph2)'
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: DGraph2Resampler(DGraph2)
+  nameWithType: DGraph2Resampler.DGraph2Resampler(DGraph2)
+  fullName: g3.DGraph2Resampler.DGraph2Resampler(g3.DGraph2)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DGraph2Resampler(DGraph2 graph)
+    parameters:
+    - id: graph
+      type: g3.DGraph2
+    content.vb: Public Sub New(graph As DGraph2)
+  overload: g3.DGraph2Resampler.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph2Resampler.SplitToMaxEdgeLength(System.Double)
+  commentId: M:g3.DGraph2Resampler.SplitToMaxEdgeLength(System.Double)
+  id: SplitToMaxEdgeLength(System.Double)
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: SplitToMaxEdgeLength(Double)
+  nameWithType: DGraph2Resampler.SplitToMaxEdgeLength(Double)
+  fullName: g3.DGraph2Resampler.SplitToMaxEdgeLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SplitToMaxEdgeLength
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SplitToMaxEdgeLength(double fMaxLen)
+    parameters:
+    - id: fMaxLen
+      type: System.Double
+    content.vb: Public Sub SplitToMaxEdgeLength(fMaxLen As Double)
+  overload: g3.DGraph2Resampler.SplitToMaxEdgeLength*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph2Resampler.CollapseFlatVertices(System.Double)
+  commentId: M:g3.DGraph2Resampler.CollapseFlatVertices(System.Double)
+  id: CollapseFlatVertices(System.Double)
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: CollapseFlatVertices(Double)
+  nameWithType: DGraph2Resampler.CollapseFlatVertices(Double)
+  fullName: g3.DGraph2Resampler.CollapseFlatVertices(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CollapseFlatVertices
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 67
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove vertices that are colinear w/ their two neighbours, within angle tolerance\n"
+  example: []
+  syntax:
+    content: public void CollapseFlatVertices(double fMaxDeviationDeg = 5)
+    parameters:
+    - id: fMaxDeviationDeg
+      type: System.Double
+    content.vb: Public Sub CollapseFlatVertices(fMaxDeviationDeg As Double = 5)
+  overload: g3.DGraph2Resampler.CollapseFlatVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph2Resampler.CollapseDegenerateEdges(System.Double)
+  commentId: M:g3.DGraph2Resampler.CollapseDegenerateEdges(System.Double)
+  id: CollapseDegenerateEdges(System.Double)
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: CollapseDegenerateEdges(Double)
+  nameWithType: DGraph2Resampler.CollapseDegenerateEdges(Double)
+  fullName: g3.DGraph2Resampler.CollapseDegenerateEdges(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CollapseDegenerateEdges
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 120
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void CollapseDegenerateEdges(double fDegenLenThresh = 1.1920928955078125E-07)
+    parameters:
+    - id: fDegenLenThresh
+      type: System.Double
+    content.vb: Public Sub CollapseDegenerateEdges(fDegenLenThresh As Double = 1.1920928955078125E-07)
+  overload: g3.DGraph2Resampler.CollapseDegenerateEdges*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DGraph2Resampler.CollapseToMinEdgeLength(System.Double)
+  commentId: M:g3.DGraph2Resampler.CollapseToMinEdgeLength(System.Double)
+  id: CollapseToMinEdgeLength(System.Double)
+  parent: g3.DGraph2Resampler
+  langs:
+  - csharp
+  - vb
+  name: CollapseToMinEdgeLength(Double)
+  nameWithType: DGraph2Resampler.CollapseToMinEdgeLength(Double)
+  fullName: g3.DGraph2Resampler.CollapseToMinEdgeLength(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CollapseToMinEdgeLength
+    path: ../Assets/geometry3Sharp/curve/DGraph2Resampler.cs
+    startLine: 158
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void CollapseToMinEdgeLength(double fMinLen)
+    parameters:
+    - id: fMinLen
+      type: System.Double
+    content.vb: Public Sub CollapseToMinEdgeLength(fMinLen As Double)
+  overload: g3.DGraph2Resampler.CollapseToMinEdgeLength*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DGraph2
+  commentId: T:g3.DGraph2
+  parent: g3
+  name: DGraph2
+  nameWithType: DGraph2
+  fullName: g3.DGraph2
+- uid: System.Func{System.Int32,System.Boolean}
+  commentId: T:System.Func{System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Boolean>
+  nameWithType: Func<Int32, Boolean>
+  fullName: System.Func<System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of Int32, Boolean)
+  fullName.vb: System.Func(Of System.Int32, System.Boolean)
+  name.vb: Func(Of Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DGraph2Resampler.#ctor*
+  commentId: Overload:g3.DGraph2Resampler.#ctor
+  name: DGraph2Resampler
+  nameWithType: DGraph2Resampler.DGraph2Resampler
+  fullName: g3.DGraph2Resampler.DGraph2Resampler
+- uid: g3.DGraph2Resampler.SplitToMaxEdgeLength*
+  commentId: Overload:g3.DGraph2Resampler.SplitToMaxEdgeLength
+  name: SplitToMaxEdgeLength
+  nameWithType: DGraph2Resampler.SplitToMaxEdgeLength
+  fullName: g3.DGraph2Resampler.SplitToMaxEdgeLength
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.DGraph2Resampler.CollapseFlatVertices*
+  commentId: Overload:g3.DGraph2Resampler.CollapseFlatVertices
+  name: CollapseFlatVertices
+  nameWithType: DGraph2Resampler.CollapseFlatVertices
+  fullName: g3.DGraph2Resampler.CollapseFlatVertices
+- uid: g3.DGraph2Resampler.CollapseDegenerateEdges*
+  commentId: Overload:g3.DGraph2Resampler.CollapseDegenerateEdges
+  name: CollapseDegenerateEdges
+  nameWithType: DGraph2Resampler.CollapseDegenerateEdges
+  fullName: g3.DGraph2Resampler.CollapseDegenerateEdges
+- uid: g3.DGraph2Resampler.CollapseToMinEdgeLength*
+  commentId: Overload:g3.DGraph2Resampler.CollapseToMinEdgeLength
+  name: CollapseToMinEdgeLength
+  nameWithType: DGraph2Resampler.CollapseToMinEdgeLength
+  fullName: g3.DGraph2Resampler.CollapseToMinEdgeLength

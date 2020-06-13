@@ -1,0 +1,605 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Hexagon2d
+  commentId: T:g3.Hexagon2d
+  id: Hexagon2d
+  parent: g3
+  children:
+  - g3.Hexagon2d.#ctor(g3.Vector2d,System.Double,g3.Hexagon2d.TopModes)
+  - g3.Hexagon2d.Bounds
+  - g3.Hexagon2d.Center
+  - g3.Hexagon2d.Clone
+  - g3.Hexagon2d.Corner(System.Int32)
+  - g3.Hexagon2d.Height
+  - g3.Hexagon2d.HorzSpacing
+  - g3.Hexagon2d.InnerRadius
+  - g3.Hexagon2d.IsClosed
+  - g3.Hexagon2d.Radius
+  - g3.Hexagon2d.TopMode
+  - g3.Hexagon2d.VertSpacing
+  - g3.Hexagon2d.Width
+  langs:
+  - csharp
+  - vb
+  name: Hexagon2d
+  nameWithType: Hexagon2d
+  fullName: g3.Hexagon2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Hexagon2d
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 4
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class Hexagon2d
+    content.vb: Public Class Hexagon2d
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Hexagon2d.Center
+  commentId: F:g3.Hexagon2d.Center
+  id: Center
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Hexagon2d.Center
+  fullName: g3.Hexagon2d.Center
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Center
+    return:
+      type: g3.Vector2d
+    content.vb: Public Center As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.Radius
+  commentId: F:g3.Hexagon2d.Radius
+  id: Radius
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: Hexagon2d.Radius
+  fullName: g3.Hexagon2d.Radius
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Radius
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Radius
+    return:
+      type: System.Double
+    content.vb: Public Radius As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.TopMode
+  commentId: F:g3.Hexagon2d.TopMode
+  id: TopMode
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: TopMode
+  nameWithType: Hexagon2d.TopMode
+  fullName: g3.Hexagon2d.TopMode
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TopMode
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Hexagon2d.TopModes TopMode
+    return:
+      type: g3.Hexagon2d.TopModes
+    content.vb: Public TopMode As Hexagon2d.TopModes
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.#ctor(g3.Vector2d,System.Double,g3.Hexagon2d.TopModes)
+  commentId: M:g3.Hexagon2d.#ctor(g3.Vector2d,System.Double,g3.Hexagon2d.TopModes)
+  id: '#ctor(g3.Vector2d,System.Double,g3.Hexagon2d.TopModes)'
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Hexagon2d(Vector2d, Double, Hexagon2d.TopModes)
+  nameWithType: Hexagon2d.Hexagon2d(Vector2d, Double, Hexagon2d.TopModes)
+  fullName: g3.Hexagon2d.Hexagon2d(g3.Vector2d, System.Double, g3.Hexagon2d.TopModes)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Hexagon2d(Vector2d center, double radius, Hexagon2d.TopModes mode = Hexagon2d.TopModes.Flat)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: radius
+      type: System.Double
+    - id: mode
+      type: g3.Hexagon2d.TopModes
+    content.vb: Public Sub New(center As Vector2d, radius As Double, mode As Hexagon2d.TopModes = Hexagon2d.TopModes.Flat)
+  overload: g3.Hexagon2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.IsClosed
+  commentId: P:g3.Hexagon2d.IsClosed
+  id: IsClosed
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: IsClosed
+  nameWithType: Hexagon2d.IsClosed
+  fullName: g3.Hexagon2d.IsClosed
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsClosed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsClosed As Boolean
+  overload: g3.Hexagon2d.IsClosed*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Hexagon2d.Clone
+  commentId: M:g3.Hexagon2d.Clone
+  id: Clone
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: Hexagon2d.Clone()
+  fullName: g3.Hexagon2d.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Hexagon2d Clone()
+    return:
+      type: g3.Hexagon2d
+    content.vb: Public Function Clone As Hexagon2d
+  overload: g3.Hexagon2d.Clone*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.InnerRadius
+  commentId: P:g3.Hexagon2d.InnerRadius
+  id: InnerRadius
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: InnerRadius
+  nameWithType: Hexagon2d.InnerRadius
+  fullName: g3.Hexagon2d.InnerRadius
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InnerRadius
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double InnerRadius { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property InnerRadius As Double
+  overload: g3.Hexagon2d.InnerRadius*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.Corner(System.Int32)
+  commentId: M:g3.Hexagon2d.Corner(System.Int32)
+  id: Corner(System.Int32)
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Corner(Int32)
+  nameWithType: Hexagon2d.Corner(Int32)
+  fullName: g3.Hexagon2d.Corner(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Corner
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Corner(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function Corner(i As Integer) As Vector2d
+  overload: g3.Hexagon2d.Corner*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Hexagon2d.Width
+  commentId: P:g3.Hexagon2d.Width
+  id: Width
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: Hexagon2d.Width
+  fullName: g3.Hexagon2d.Width
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Width
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Width { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Width As Double
+  overload: g3.Hexagon2d.Width*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Hexagon2d.Height
+  commentId: P:g3.Hexagon2d.Height
+  id: Height
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Height
+  nameWithType: Hexagon2d.Height
+  fullName: g3.Hexagon2d.Height
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Height
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Height { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Height As Double
+  overload: g3.Hexagon2d.Height*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Hexagon2d.VertSpacing
+  commentId: P:g3.Hexagon2d.VertSpacing
+  id: VertSpacing
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: VertSpacing
+  nameWithType: Hexagon2d.VertSpacing
+  fullName: g3.Hexagon2d.VertSpacing
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertSpacing
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double VertSpacing { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property VertSpacing As Double
+  overload: g3.Hexagon2d.VertSpacing*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Hexagon2d.HorzSpacing
+  commentId: P:g3.Hexagon2d.HorzSpacing
+  id: HorzSpacing
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: HorzSpacing
+  nameWithType: Hexagon2d.HorzSpacing
+  fullName: g3.Hexagon2d.HorzSpacing
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HorzSpacing
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 69
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double HorzSpacing { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property HorzSpacing As Double
+  overload: g3.Hexagon2d.HorzSpacing*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Hexagon2d.Bounds
+  commentId: P:g3.Hexagon2d.Bounds
+  id: Bounds
+  parent: g3.Hexagon2d
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: Hexagon2d.Bounds
+  fullName: g3.Hexagon2d.Bounds
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/Hexagon2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/Hexagon2.cs
+    startLine: 113
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d Bounds { get; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public ReadOnly Property Bounds As AxisAlignedBox2d
+  overload: g3.Hexagon2d.Bounds*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Hexagon2d.TopModes
+  commentId: T:g3.Hexagon2d.TopModes
+  parent: g3
+  name: Hexagon2d.TopModes
+  nameWithType: Hexagon2d.TopModes
+  fullName: g3.Hexagon2d.TopModes
+- uid: g3.Hexagon2d.#ctor*
+  commentId: Overload:g3.Hexagon2d.#ctor
+  name: Hexagon2d
+  nameWithType: Hexagon2d.Hexagon2d
+  fullName: g3.Hexagon2d.Hexagon2d
+- uid: g3.Hexagon2d.IsClosed*
+  commentId: Overload:g3.Hexagon2d.IsClosed
+  name: IsClosed
+  nameWithType: Hexagon2d.IsClosed
+  fullName: g3.Hexagon2d.IsClosed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Hexagon2d.Clone*
+  commentId: Overload:g3.Hexagon2d.Clone
+  name: Clone
+  nameWithType: Hexagon2d.Clone
+  fullName: g3.Hexagon2d.Clone
+- uid: g3.Hexagon2d
+  commentId: T:g3.Hexagon2d
+  parent: g3
+  name: Hexagon2d
+  nameWithType: Hexagon2d
+  fullName: g3.Hexagon2d
+- uid: g3.Hexagon2d.InnerRadius*
+  commentId: Overload:g3.Hexagon2d.InnerRadius
+  name: InnerRadius
+  nameWithType: Hexagon2d.InnerRadius
+  fullName: g3.Hexagon2d.InnerRadius
+- uid: g3.Hexagon2d.Corner*
+  commentId: Overload:g3.Hexagon2d.Corner
+  name: Corner
+  nameWithType: Hexagon2d.Corner
+  fullName: g3.Hexagon2d.Corner
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.Hexagon2d.Width*
+  commentId: Overload:g3.Hexagon2d.Width
+  name: Width
+  nameWithType: Hexagon2d.Width
+  fullName: g3.Hexagon2d.Width
+- uid: g3.Hexagon2d.Height*
+  commentId: Overload:g3.Hexagon2d.Height
+  name: Height
+  nameWithType: Hexagon2d.Height
+  fullName: g3.Hexagon2d.Height
+- uid: g3.Hexagon2d.VertSpacing*
+  commentId: Overload:g3.Hexagon2d.VertSpacing
+  name: VertSpacing
+  nameWithType: Hexagon2d.VertSpacing
+  fullName: g3.Hexagon2d.VertSpacing
+- uid: g3.Hexagon2d.HorzSpacing*
+  commentId: Overload:g3.Hexagon2d.HorzSpacing
+  name: HorzSpacing
+  nameWithType: Hexagon2d.HorzSpacing
+  fullName: g3.Hexagon2d.HorzSpacing
+- uid: g3.Hexagon2d.Bounds*
+  commentId: Overload:g3.Hexagon2d.Bounds
+  name: Bounds
+  nameWithType: Hexagon2d.Bounds
+  fullName: g3.Hexagon2d.Bounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d

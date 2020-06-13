@@ -1,0 +1,1407 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshMeasurements
+  commentId: T:g3.MeshMeasurements
+  id: MeshMeasurements
+  parent: g3
+  children:
+  - g3.MeshMeasurements.AreaT(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.MeshMeasurements.Bounds(g3.DMesh3,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.Bounds(g3.IMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.BoundsInFrame(g3.DMesh3,g3.Frame3f,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.BoundsT(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.BoundsV(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.Centroid(g3.DMesh3,System.Boolean)
+  - g3.MeshMeasurements.Centroid(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  - g3.MeshMeasurements.Centroid``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  - g3.MeshMeasurements.ExtentsOnAxis(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.ExtentsOnAxis(g3.IMesh,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.ExtremeVertices(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshMeasurements.Genus(g3.DMesh3)
+  - g3.MeshMeasurements.MassProperties(g3.DMesh3,System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  - g3.MeshMeasurements.MassProperties(System.Collections.Generic.IEnumerable{g3.Index3i},System.Func{System.Int32,g3.Vector3d},System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  - g3.MeshMeasurements.VertexOneRingArea(g3.DMesh3,System.Int32,System.Boolean)
+  - g3.MeshMeasurements.VolumeArea(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,g3.Vector3d})
+  langs:
+  - csharp
+  - vb
+  name: MeshMeasurements
+  nameWithType: MeshMeasurements
+  fullName: g3.MeshMeasurements
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshMeasurements
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class MeshMeasurements
+    content.vb: Public Module MeshMeasurements
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.MeshMeasurements.MassProperties(System.Collections.Generic.IEnumerable{g3.Index3i},System.Func{System.Int32,g3.Vector3d},System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  commentId: M:g3.MeshMeasurements.MassProperties(System.Collections.Generic.IEnumerable{g3.Index3i},System.Func{System.Int32,g3.Vector3d},System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  id: MassProperties(System.Collections.Generic.IEnumerable{g3.Index3i},System.Func{System.Int32,g3.Vector3d},System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: MassProperties(IEnumerable<Index3i>, Func<Int32, Vector3d>, out Double, out Vector3d, out Double[,], Boolean)
+  nameWithType: MeshMeasurements.MassProperties(IEnumerable<Index3i>, Func<Int32, Vector3d>, out Double, out Vector3d, out Double[,], Boolean)
+  fullName: g3.MeshMeasurements.MassProperties(System.Collections.Generic.IEnumerable<g3.Index3i>, System.Func<System.Int32, g3.Vector3d>, out System.Double, out g3.Vector3d, out System.Double[,], System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MassProperties
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void MassProperties(IEnumerable<Index3i> triangle_indices, Func<int, Vector3d> getVertexF, out double mass, out Vector3d center, out double[, ] inertia3x3, bool bodyCoords = false)
+    parameters:
+    - id: triangle_indices
+      type: System.Collections.Generic.IEnumerable{g3.Index3i}
+    - id: getVertexF
+      type: System.Func{System.Int32,g3.Vector3d}
+    - id: mass
+      type: System.Double
+    - id: center
+      type: g3.Vector3d
+    - id: inertia3x3
+      type: System.Double[,]
+    - id: bodyCoords
+      type: System.Boolean
+    content.vb: Public Shared Sub MassProperties(triangle_indices As IEnumerable(Of Index3i), getVertexF As Func(Of Integer, Vector3d), ByRef mass As Double, ByRef center As Vector3d, ByRef inertia3x3 As Double(,), bodyCoords As Boolean = False)
+  overload: g3.MeshMeasurements.MassProperties*
+  nameWithType.vb: MeshMeasurements.MassProperties(IEnumerable(Of Index3i), Func(Of Int32, Vector3d), ByRef Double, ByRef Vector3d, ByRef Double(,), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.MassProperties(System.Collections.Generic.IEnumerable(Of g3.Index3i), System.Func(Of System.Int32, g3.Vector3d), ByRef System.Double, ByRef g3.Vector3d, ByRef System.Double(,), System.Boolean)
+  name.vb: MassProperties(IEnumerable(Of Index3i), Func(Of Int32, Vector3d), ByRef Double, ByRef Vector3d, ByRef Double(,), Boolean)
+- uid: g3.MeshMeasurements.MassProperties(g3.DMesh3,System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  commentId: M:g3.MeshMeasurements.MassProperties(g3.DMesh3,System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  id: MassProperties(g3.DMesh3,System.Double@,g3.Vector3d@,System.Double[0:,0:]@,System.Boolean)
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: MassProperties(DMesh3, out Double, out Vector3d, out Double[,], Boolean)
+  nameWithType: MeshMeasurements.MassProperties(DMesh3, out Double, out Vector3d, out Double[,], Boolean)
+  fullName: g3.MeshMeasurements.MassProperties(g3.DMesh3, out System.Double, out g3.Vector3d, out System.Double[,], System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MassProperties
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 138
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void MassProperties(DMesh3 mesh, out double mass, out Vector3d center, out double[, ] inertia3x3, bool bodyCoords = false)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: mass
+      type: System.Double
+    - id: center
+      type: g3.Vector3d
+    - id: inertia3x3
+      type: System.Double[,]
+    - id: bodyCoords
+      type: System.Boolean
+    content.vb: Public Shared Sub MassProperties(mesh As DMesh3, ByRef mass As Double, ByRef center As Vector3d, ByRef inertia3x3 As Double(,), bodyCoords As Boolean = False)
+  overload: g3.MeshMeasurements.MassProperties*
+  nameWithType.vb: MeshMeasurements.MassProperties(DMesh3, ByRef Double, ByRef Vector3d, ByRef Double(,), Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.MassProperties(g3.DMesh3, ByRef System.Double, ByRef g3.Vector3d, ByRef System.Double(,), System.Boolean)
+  name.vb: MassProperties(DMesh3, ByRef Double, ByRef Vector3d, ByRef Double(,), Boolean)
+- uid: g3.MeshMeasurements.VolumeArea(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.VolumeArea(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,g3.Vector3d})
+  id: VolumeArea(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: VolumeArea(DMesh3, IEnumerable<Int32>, Func<Int32, Vector3d>)
+  nameWithType: MeshMeasurements.VolumeArea(DMesh3, IEnumerable<Int32>, Func<Int32, Vector3d>)
+  fullName: g3.MeshMeasurements.VolumeArea(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>, System.Func<System.Int32, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VolumeArea
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 156
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCompute volume and surface area of triangles of mesh.\nReturn value is (volume,area)\nNote that if triangles don&apos;t define closed region, volume is probably nonsense...\n"
+  example: []
+  syntax:
+    content: public static Vector2d VolumeArea(DMesh3 mesh, IEnumerable<int> triangles, Func<int, Vector3d> getVertexF)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: getVertexF
+      type: System.Func{System.Int32,g3.Vector3d}
+    return:
+      type: g3.Vector2d
+    content.vb: Public Shared Function VolumeArea(mesh As DMesh3, triangles As IEnumerable(Of Integer), getVertexF As Func(Of Integer, Vector3d)) As Vector2d
+  overload: g3.MeshMeasurements.VolumeArea*
+  nameWithType.vb: MeshMeasurements.VolumeArea(DMesh3, IEnumerable(Of Int32), Func(Of Int32, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.VolumeArea(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32), System.Func(Of System.Int32, g3.Vector3d))
+  name.vb: VolumeArea(DMesh3, IEnumerable(Of Int32), Func(Of Int32, Vector3d))
+- uid: g3.MeshMeasurements.VertexOneRingArea(g3.DMesh3,System.Int32,System.Boolean)
+  commentId: M:g3.MeshMeasurements.VertexOneRingArea(g3.DMesh3,System.Int32,System.Boolean)
+  id: VertexOneRingArea(g3.DMesh3,System.Int32,System.Boolean)
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: VertexOneRingArea(DMesh3, Int32, Boolean)
+  nameWithType: MeshMeasurements.VertexOneRingArea(DMesh3, Int32, Boolean)
+  fullName: g3.MeshMeasurements.VertexOneRingArea(g3.DMesh3, System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexOneRingArea
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 189
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCompute area of one-ring of mesh vertex by summing triangle areas.\nIf bDisjoint = true, we multiple each triangle area by 1/3\n"
+  example: []
+  syntax:
+    content: public static double VertexOneRingArea(DMesh3 mesh, int vid, bool bDisjoint = true)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: vid
+      type: System.Int32
+    - id: bDisjoint
+      type: System.Boolean
+    return:
+      type: System.Double
+    content.vb: Public Shared Function VertexOneRingArea(mesh As DMesh3, vid As Integer, bDisjoint As Boolean = True) As Double
+  overload: g3.MeshMeasurements.VertexOneRingArea*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshMeasurements.Centroid(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.Centroid(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  id: Centroid(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: Centroid(IEnumerable<Vector3d>)
+  nameWithType: MeshMeasurements.Centroid(IEnumerable<Vector3d>)
+  fullName: g3.MeshMeasurements.Centroid(System.Collections.Generic.IEnumerable<g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Centroid
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 200
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d Centroid(IEnumerable<Vector3d> vertices)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{g3.Vector3d}
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function Centroid(vertices As IEnumerable(Of Vector3d)) As Vector3d
+  overload: g3.MeshMeasurements.Centroid*
+  nameWithType.vb: MeshMeasurements.Centroid(IEnumerable(Of Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.Centroid(System.Collections.Generic.IEnumerable(Of g3.Vector3d))
+  name.vb: Centroid(IEnumerable(Of Vector3d))
+- uid: g3.MeshMeasurements.Centroid``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.Centroid``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  id: Centroid``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: Centroid<T>(IEnumerable<T>, Func<T, Vector3d>)
+  nameWithType: MeshMeasurements.Centroid<T>(IEnumerable<T>, Func<T, Vector3d>)
+  fullName: g3.MeshMeasurements.Centroid<T>(System.Collections.Generic.IEnumerable<T>, System.Func<T, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Centroid
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 211
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d Centroid<T>(IEnumerable<T> values, Func<T, Vector3d> PositionF)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{T}}
+    - id: PositionF
+      type: System.Func{{T},g3.Vector3d}
+    typeParameters:
+    - id: T
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function Centroid(Of T)(values As IEnumerable(Of T), PositionF As Func(Of T, Vector3d)) As Vector3d
+  overload: g3.MeshMeasurements.Centroid*
+  nameWithType.vb: MeshMeasurements.Centroid(Of T)(IEnumerable(Of T), Func(Of T, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.Centroid(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Func(Of T, g3.Vector3d))
+  name.vb: Centroid(Of T)(IEnumerable(Of T), Func(Of T, Vector3d))
+- uid: g3.MeshMeasurements.Centroid(g3.DMesh3,System.Boolean)
+  commentId: M:g3.MeshMeasurements.Centroid(g3.DMesh3,System.Boolean)
+  id: Centroid(g3.DMesh3,System.Boolean)
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: Centroid(DMesh3, Boolean)
+  nameWithType: MeshMeasurements.Centroid(DMesh3, Boolean)
+  fullName: g3.MeshMeasurements.Centroid(g3.DMesh3, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Centroid
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 223
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d Centroid(DMesh3 mesh, bool bOnlyTriVertices = true)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: bOnlyTriVertices
+      type: System.Boolean
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function Centroid(mesh As DMesh3, bOnlyTriVertices As Boolean = True) As Vector3d
+  overload: g3.MeshMeasurements.Centroid*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshMeasurements.Bounds(g3.DMesh3,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.Bounds(g3.DMesh3,System.Func{g3.Vector3d,g3.Vector3d})
+  id: Bounds(g3.DMesh3,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: Bounds(DMesh3, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.Bounds(DMesh3, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.Bounds(g3.DMesh3, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 241
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(DMesh3 mesh, Func<Vector3d, Vector3d> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(mesh As DMesh3, TransformF As Func(Of Vector3d, Vector3d)) As AxisAlignedBox3d
+  overload: g3.MeshMeasurements.Bounds*
+  nameWithType.vb: MeshMeasurements.Bounds(DMesh3, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.Bounds(g3.DMesh3, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: Bounds(DMesh3, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.Bounds(g3.IMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.Bounds(g3.IMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  id: Bounds(g3.IMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IMesh, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.Bounds(IMesh, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.Bounds(g3.IMesh, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 255
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(IMesh mesh, Func<Vector3d, Vector3d> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.IMesh
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(mesh As IMesh, TransformF As Func(Of Vector3d, Vector3d)) As AxisAlignedBox3d
+  overload: g3.MeshMeasurements.Bounds*
+  nameWithType.vb: MeshMeasurements.Bounds(IMesh, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.Bounds(g3.IMesh, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: Bounds(IMesh, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.BoundsV(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.BoundsV(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  id: BoundsV(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: BoundsV(IMesh, IEnumerable<Int32>, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.BoundsV(IMesh, IEnumerable<Int32>, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.BoundsV(g3.IMesh, System.Collections.Generic.IEnumerable<System.Int32>, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsV
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 271
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d BoundsV(IMesh mesh, IEnumerable<int> vertexIndices, Func<Vector3d, Vector3d> TransformF = null)
+    parameters:
+    - id: mesh
+      type: g3.IMesh
+    - id: vertexIndices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function BoundsV(mesh As IMesh, vertexIndices As IEnumerable(Of Integer), TransformF As Func(Of Vector3d, Vector3d) = Nothing) As AxisAlignedBox3d
+  overload: g3.MeshMeasurements.BoundsV*
+  nameWithType.vb: MeshMeasurements.BoundsV(IMesh, IEnumerable(Of Int32), Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.BoundsV(g3.IMesh, System.Collections.Generic.IEnumerable(Of System.Int32), System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: BoundsV(IMesh, IEnumerable(Of Int32), Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.BoundsT(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.BoundsT(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  id: BoundsT(g3.IMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: BoundsT(IMesh, IEnumerable<Int32>, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.BoundsT(IMesh, IEnumerable<Int32>, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.BoundsT(g3.IMesh, System.Collections.Generic.IEnumerable<System.Int32>, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsT
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 286
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d BoundsT(IMesh mesh, IEnumerable<int> triangleIndices, Func<Vector3d, Vector3d> TransformF = null)
+    parameters:
+    - id: mesh
+      type: g3.IMesh
+    - id: triangleIndices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function BoundsT(mesh As IMesh, triangleIndices As IEnumerable(Of Integer), TransformF As Func(Of Vector3d, Vector3d) = Nothing) As AxisAlignedBox3d
+  overload: g3.MeshMeasurements.BoundsT*
+  nameWithType.vb: MeshMeasurements.BoundsT(IMesh, IEnumerable(Of Int32), Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.BoundsT(g3.IMesh, System.Collections.Generic.IEnumerable(Of System.Int32), System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: BoundsT(IMesh, IEnumerable(Of Int32), Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.AreaT(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.MeshMeasurements.AreaT(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  id: AreaT(g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: AreaT(DMesh3, IEnumerable<Int32>)
+  nameWithType: MeshMeasurements.AreaT(DMesh3, IEnumerable<Int32>)
+  fullName: g3.MeshMeasurements.AreaT(g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AreaT
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 309
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double AreaT(DMesh3 mesh, IEnumerable<int> triangleIndices)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: triangleIndices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    return:
+      type: System.Double
+    content.vb: Public Shared Function AreaT(mesh As DMesh3, triangleIndices As IEnumerable(Of Integer)) As Double
+  overload: g3.MeshMeasurements.AreaT*
+  nameWithType.vb: MeshMeasurements.AreaT(DMesh3, IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.AreaT(g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: AreaT(DMesh3, IEnumerable(Of Int32))
+- uid: g3.MeshMeasurements.BoundsInFrame(g3.DMesh3,g3.Frame3f,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.BoundsInFrame(g3.DMesh3,g3.Frame3f,System.Func{g3.Vector3d,g3.Vector3d})
+  id: BoundsInFrame(g3.DMesh3,g3.Frame3f,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: BoundsInFrame(DMesh3, Frame3f, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.BoundsInFrame(DMesh3, Frame3f, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.BoundsInFrame(g3.DMesh3, g3.Frame3f, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsInFrame
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 321
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ncalculate extents of mesh along axes of frame, with optional transform\n"
+  example: []
+  syntax:
+    content: public static AxisAlignedBox3d BoundsInFrame(DMesh3 mesh, Frame3f frame, Func<Vector3d, Vector3d> TransformF = null)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: frame
+      type: g3.Frame3f
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function BoundsInFrame(mesh As DMesh3, frame As Frame3f, TransformF As Func(Of Vector3d, Vector3d) = Nothing) As AxisAlignedBox3d
+  overload: g3.MeshMeasurements.BoundsInFrame*
+  nameWithType.vb: MeshMeasurements.BoundsInFrame(DMesh3, Frame3f, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.BoundsInFrame(g3.DMesh3, g3.Frame3f, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: BoundsInFrame(DMesh3, Frame3f, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.ExtentsOnAxis(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.ExtentsOnAxis(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  id: ExtentsOnAxis(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: ExtentsOnAxis(DMesh3, Vector3d, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.ExtentsOnAxis(DMesh3, Vector3d, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.ExtentsOnAxis(g3.DMesh3, g3.Vector3d, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ExtentsOnAxis
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 343
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCalculate extents of mesh along an axis, with optional transform\n"
+  example: []
+  syntax:
+    content: public static Interval1d ExtentsOnAxis(DMesh3 mesh, Vector3d axis, Func<Vector3d, Vector3d> TransformF = null)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: axis
+      type: g3.Vector3d
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.Interval1d
+    content.vb: Public Shared Function ExtentsOnAxis(mesh As DMesh3, axis As Vector3d, TransformF As Func(Of Vector3d, Vector3d) = Nothing) As Interval1d
+  overload: g3.MeshMeasurements.ExtentsOnAxis*
+  nameWithType.vb: MeshMeasurements.ExtentsOnAxis(DMesh3, Vector3d, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.ExtentsOnAxis(g3.DMesh3, g3.Vector3d, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: ExtentsOnAxis(DMesh3, Vector3d, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.ExtentsOnAxis(g3.IMesh,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.ExtentsOnAxis(g3.IMesh,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  id: ExtentsOnAxis(g3.IMesh,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: ExtentsOnAxis(IMesh, Vector3d, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.ExtentsOnAxis(IMesh, Vector3d, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.ExtentsOnAxis(g3.IMesh, g3.Vector3d, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ExtentsOnAxis
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 362
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCalculate extents of mesh along an axis, with optional transform\n"
+  example: []
+  syntax:
+    content: public static Interval1d ExtentsOnAxis(IMesh mesh, Vector3d axis, Func<Vector3d, Vector3d> TransformF = null)
+    parameters:
+    - id: mesh
+      type: g3.IMesh
+    - id: axis
+      type: g3.Vector3d
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.Interval1d
+    content.vb: Public Shared Function ExtentsOnAxis(mesh As IMesh, axis As Vector3d, TransformF As Func(Of Vector3d, Vector3d) = Nothing) As Interval1d
+  overload: g3.MeshMeasurements.ExtentsOnAxis*
+  nameWithType.vb: MeshMeasurements.ExtentsOnAxis(IMesh, Vector3d, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.ExtentsOnAxis(g3.IMesh, g3.Vector3d, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: ExtentsOnAxis(IMesh, Vector3d, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.ExtremeVertices(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshMeasurements.ExtremeVertices(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  id: ExtremeVertices(g3.DMesh3,g3.Vector3d,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: ExtremeVertices(DMesh3, Vector3d, Func<Vector3d, Vector3d>)
+  nameWithType: MeshMeasurements.ExtremeVertices(DMesh3, Vector3d, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshMeasurements.ExtremeVertices(g3.DMesh3, g3.Vector3d, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ExtremeVertices
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 384
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCalculate the two most extreme vertices along an axis, with optional transform\n"
+  example: []
+  syntax:
+    content: public static Interval1i ExtremeVertices(DMesh3 mesh, Vector3d axis, Func<Vector3d, Vector3d> TransformF = null)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: axis
+      type: g3.Vector3d
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.Interval1i
+    content.vb: Public Shared Function ExtremeVertices(mesh As DMesh3, axis As Vector3d, TransformF As Func(Of Vector3d, Vector3d) = Nothing) As Interval1i
+  overload: g3.MeshMeasurements.ExtremeVertices*
+  nameWithType.vb: MeshMeasurements.ExtremeVertices(DMesh3, Vector3d, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshMeasurements.ExtremeVertices(g3.DMesh3, g3.Vector3d, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: ExtremeVertices(DMesh3, Vector3d, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshMeasurements.Genus(g3.DMesh3)
+  commentId: M:g3.MeshMeasurements.Genus(g3.DMesh3)
+  id: Genus(g3.DMesh3)
+  parent: g3.MeshMeasurements
+  langs:
+  - csharp
+  - vb
+  name: Genus(DMesh3)
+  nameWithType: MeshMeasurements.Genus(DMesh3)
+  fullName: g3.MeshMeasurements.Genus(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Genus
+    path: ../Assets/geometry3Sharp/mesh/MeshMeasurements.cs
+    startLine: 426
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static MeshMeasurements.GenusResult Genus(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    return:
+      type: g3.MeshMeasurements.GenusResult
+    content.vb: Public Shared Function Genus(mesh As DMesh3) As MeshMeasurements.GenusResult
+  overload: g3.MeshMeasurements.Genus*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MeshMeasurements.MassProperties*
+  commentId: Overload:g3.MeshMeasurements.MassProperties
+  name: MassProperties
+  nameWithType: MeshMeasurements.MassProperties
+  fullName: g3.MeshMeasurements.MassProperties
+- uid: System.Collections.Generic.IEnumerable{g3.Index3i}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Index3i}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Index3i>
+  nameWithType: IEnumerable<Index3i>
+  fullName: System.Collections.Generic.IEnumerable<g3.Index3i>
+  nameWithType.vb: IEnumerable(Of Index3i)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Index3i)
+  name.vb: IEnumerable(Of Index3i)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Index3i
+    name: Index3i
+    nameWithType: Index3i
+    fullName: g3.Index3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Int32,g3.Vector3d}
+  commentId: T:System.Func{System.Int32,g3.Vector3d}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Vector3d>
+  nameWithType: Func<Int32, Vector3d>
+  fullName: System.Func<System.Int32, g3.Vector3d>
+  nameWithType.vb: Func(Of Int32, Vector3d)
+  fullName.vb: System.Func(Of System.Int32, g3.Vector3d)
+  name.vb: Func(Of Int32, Vector3d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Double[,]
+  isExternal: true
+  name: Double[,]
+  nameWithType: Double[,]
+  fullName: System.Double[,]
+  nameWithType.vb: Double(,)
+  fullName.vb: System.Double(,)
+  name.vb: Double(,)
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[,]'
+    nameWithType: '[,]'
+    fullName: '[,]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: (,)
+    nameWithType: (,)
+    fullName: (,)
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshMeasurements.VolumeArea*
+  commentId: Overload:g3.MeshMeasurements.VolumeArea
+  name: VolumeArea
+  nameWithType: MeshMeasurements.VolumeArea
+  fullName: g3.MeshMeasurements.VolumeArea
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.MeshMeasurements.VertexOneRingArea*
+  commentId: Overload:g3.MeshMeasurements.VertexOneRingArea
+  name: VertexOneRingArea
+  nameWithType: MeshMeasurements.VertexOneRingArea
+  fullName: g3.MeshMeasurements.VertexOneRingArea
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshMeasurements.Centroid*
+  commentId: Overload:g3.MeshMeasurements.Centroid
+  name: Centroid
+  nameWithType: MeshMeasurements.Centroid
+  fullName: g3.MeshMeasurements.Centroid
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3d>
+  nameWithType: IEnumerable<Vector3d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3d>
+  nameWithType.vb: IEnumerable(Of Vector3d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3d)
+  name.vb: IEnumerable(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{{T},g3.Vector3d}
+  commentId: T:System.Func{``0,g3.Vector3d}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Vector3d>
+  nameWithType: Func<T, Vector3d>
+  fullName: System.Func<T, g3.Vector3d>
+  nameWithType.vb: Func(Of T, Vector3d)
+  fullName.vb: System.Func(Of T, g3.Vector3d)
+  name.vb: Func(Of T, Vector3d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshMeasurements.Bounds*
+  commentId: Overload:g3.MeshMeasurements.Bounds
+  name: Bounds
+  nameWithType: MeshMeasurements.Bounds
+  fullName: g3.MeshMeasurements.Bounds
+- uid: System.Func{g3.Vector3d,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,g3.Vector3d}
+  parent: System
+  definition: System.Func`2
+  name: Func<Vector3d, Vector3d>
+  nameWithType: Func<Vector3d, Vector3d>
+  fullName: System.Func<g3.Vector3d, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Vector3d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: g3.IMesh
+  commentId: T:g3.IMesh
+  parent: g3
+  name: IMesh
+  nameWithType: IMesh
+  fullName: g3.IMesh
+- uid: g3.MeshMeasurements.BoundsV*
+  commentId: Overload:g3.MeshMeasurements.BoundsV
+  name: BoundsV
+  nameWithType: MeshMeasurements.BoundsV
+  fullName: g3.MeshMeasurements.BoundsV
+- uid: g3.MeshMeasurements.BoundsT*
+  commentId: Overload:g3.MeshMeasurements.BoundsT
+  name: BoundsT
+  nameWithType: MeshMeasurements.BoundsT
+  fullName: g3.MeshMeasurements.BoundsT
+- uid: g3.MeshMeasurements.AreaT*
+  commentId: Overload:g3.MeshMeasurements.AreaT
+  name: AreaT
+  nameWithType: MeshMeasurements.AreaT
+  fullName: g3.MeshMeasurements.AreaT
+- uid: g3.MeshMeasurements.BoundsInFrame*
+  commentId: Overload:g3.MeshMeasurements.BoundsInFrame
+  name: BoundsInFrame
+  nameWithType: MeshMeasurements.BoundsInFrame
+  fullName: g3.MeshMeasurements.BoundsInFrame
+- uid: g3.Frame3f
+  commentId: T:g3.Frame3f
+  parent: g3
+  name: Frame3f
+  nameWithType: Frame3f
+  fullName: g3.Frame3f
+- uid: g3.MeshMeasurements.ExtentsOnAxis*
+  commentId: Overload:g3.MeshMeasurements.ExtentsOnAxis
+  name: ExtentsOnAxis
+  nameWithType: MeshMeasurements.ExtentsOnAxis
+  fullName: g3.MeshMeasurements.ExtentsOnAxis
+- uid: g3.Interval1d
+  commentId: T:g3.Interval1d
+  parent: g3
+  name: Interval1d
+  nameWithType: Interval1d
+  fullName: g3.Interval1d
+- uid: g3.MeshMeasurements.ExtremeVertices*
+  commentId: Overload:g3.MeshMeasurements.ExtremeVertices
+  name: ExtremeVertices
+  nameWithType: MeshMeasurements.ExtremeVertices
+  fullName: g3.MeshMeasurements.ExtremeVertices
+- uid: g3.Interval1i
+  commentId: T:g3.Interval1i
+  parent: g3
+  name: Interval1i
+  nameWithType: Interval1i
+  fullName: g3.Interval1i
+- uid: g3.MeshMeasurements.Genus*
+  commentId: Overload:g3.MeshMeasurements.Genus
+  name: Genus
+  nameWithType: MeshMeasurements.Genus
+  fullName: g3.MeshMeasurements.Genus
+- uid: g3.MeshMeasurements.GenusResult
+  commentId: T:g3.MeshMeasurements.GenusResult
+  parent: g3
+  name: MeshMeasurements.GenusResult
+  nameWithType: MeshMeasurements.GenusResult
+  fullName: g3.MeshMeasurements.GenusResult

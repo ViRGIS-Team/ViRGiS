@@ -17,7 +17,7 @@ namespace Virgis {
     /// 
     /// This event carries the new editable layer.
     [System.Serializable]
-    public class EditableLayerChangedEvent : UnityEvent<ILayer> {
+    public class EditableLayerChangedEvent : UnityEvent<IVirgisLayer> {
     }
 
     public class EditSession {
@@ -26,7 +26,7 @@ namespace Virgis {
         }
 
         private bool _active;
-        private ILayer _editableLayer;
+        private IVirgisLayer _editableLayer;
         private UnityEvent _startEditSessionEvent;
         private EndEditSessionEvent _endEditSessionEvent;
         private EditableLayerChangedEvent _editableLayerChangedEvent;
@@ -40,7 +40,7 @@ namespace Virgis {
             _editMode = EditMode.None;
         }
 
-        public ILayer editableLayer {
+        public IVirgisLayer editableLayer {
             get => _editableLayer;
             set {
                 value?.SetEditable(true);
@@ -83,7 +83,7 @@ namespace Virgis {
             _endEditSessionEvent.AddListener(action);
         }
 
-        public void AddEditableLayerChangedListener(UnityAction<ILayer> action) {
+        public void AddEditableLayerChangedListener(UnityAction<IVirgisLayer> action) {
             _editableLayerChangedEvent.AddListener(action);
         }
 

@@ -1,0 +1,654 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DPolyLine2f
+  commentId: T:g3.DPolyLine2f
+  id: DPolyLine2f
+  parent: g3
+  children:
+  - g3.DPolyLine2f.#ctor
+  - g3.DPolyLine2f.#ctor(g3.DPolyLine2f)
+  - g3.DPolyLine2f.AddEdge(System.Int32,System.Int32)
+  - g3.DPolyLine2f.AddVertex(System.Single,System.Single)
+  - g3.DPolyLine2f.Clear
+  - g3.DPolyLine2f.EdgeCount
+  - g3.DPolyLine2f.Edges
+  - g3.DPolyLine2f.GetVertex(System.Int32)
+  - g3.DPolyLine2f.OrderVertices
+  - g3.DPolyLine2f.VertexCount
+  - g3.DPolyLine2f.Vertices
+  langs:
+  - csharp
+  - vb
+  name: DPolyLine2f
+  nameWithType: DPolyLine2f
+  fullName: g3.DPolyLine2f
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DPolyLine2f
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSummary description for PolyLine.\n"
+  example: []
+  syntax:
+    content: public class DPolyLine2f
+    content.vb: Public Class DPolyLine2f
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DPolyLine2f.#ctor
+  commentId: M:g3.DPolyLine2f.#ctor
+  id: '#ctor'
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: DPolyLine2f()
+  nameWithType: DPolyLine2f.DPolyLine2f()
+  fullName: g3.DPolyLine2f.DPolyLine2f()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DPolyLine2f()
+    content.vb: Public Sub New
+  overload: g3.DPolyLine2f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DPolyLine2f.#ctor(g3.DPolyLine2f)
+  commentId: M:g3.DPolyLine2f.#ctor(g3.DPolyLine2f)
+  id: '#ctor(g3.DPolyLine2f)'
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: DPolyLine2f(DPolyLine2f)
+  nameWithType: DPolyLine2f.DPolyLine2f(DPolyLine2f)
+  fullName: g3.DPolyLine2f.DPolyLine2f(g3.DPolyLine2f)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DPolyLine2f(DPolyLine2f copy)
+    parameters:
+    - id: copy
+      type: g3.DPolyLine2f
+    content.vb: Public Sub New(copy As DPolyLine2f)
+  overload: g3.DPolyLine2f.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DPolyLine2f.Edges
+  commentId: P:g3.DPolyLine2f.Edges
+  id: Edges
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: Edges
+  nameWithType: DPolyLine2f.Edges
+  fullName: g3.DPolyLine2f.Edges
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Edges
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<DPolyLine2f.Edge> Edges { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{g3.DPolyLine2f.Edge}
+    content.vb: Public ReadOnly Property Edges As List(Of DPolyLine2f.Edge)
+  overload: g3.DPolyLine2f.Edges*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DPolyLine2f.Vertices
+  commentId: P:g3.DPolyLine2f.Vertices
+  id: Vertices
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: Vertices
+  nameWithType: DPolyLine2f.Vertices
+  fullName: g3.DPolyLine2f.Vertices
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 43
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<DPolyLine2f.Vertex> Vertices { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{g3.DPolyLine2f.Vertex}
+    content.vb: Public ReadOnly Property Vertices As List(Of DPolyLine2f.Vertex)
+  overload: g3.DPolyLine2f.Vertices*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DPolyLine2f.VertexCount
+  commentId: P:g3.DPolyLine2f.VertexCount
+  id: VertexCount
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: VertexCount
+  nameWithType: DPolyLine2f.VertexCount
+  fullName: g3.DPolyLine2f.VertexCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexCount
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int VertexCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VertexCount As Integer
+  overload: g3.DPolyLine2f.VertexCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DPolyLine2f.EdgeCount
+  commentId: P:g3.DPolyLine2f.EdgeCount
+  id: EdgeCount
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: EdgeCount
+  nameWithType: DPolyLine2f.EdgeCount
+  fullName: g3.DPolyLine2f.EdgeCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeCount
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int EdgeCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property EdgeCount As Integer
+  overload: g3.DPolyLine2f.EdgeCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DPolyLine2f.Clear
+  commentId: M:g3.DPolyLine2f.Clear
+  id: Clear
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: DPolyLine2f.Clear()
+  fullName: g3.DPolyLine2f.Clear()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clear
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear
+  overload: g3.DPolyLine2f.Clear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DPolyLine2f.GetVertex(System.Int32)
+  commentId: M:g3.DPolyLine2f.GetVertex(System.Int32)
+  id: GetVertex(System.Int32)
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: GetVertex(Int32)
+  nameWithType: DPolyLine2f.GetVertex(Int32)
+  fullName: g3.DPolyLine2f.GetVertex(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetVertex
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DPolyLine2f.Vertex GetVertex(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.DPolyLine2f.Vertex
+    content.vb: Public Function GetVertex(i As Integer) As DPolyLine2f.Vertex
+  overload: g3.DPolyLine2f.GetVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DPolyLine2f.AddVertex(System.Single,System.Single)
+  commentId: M:g3.DPolyLine2f.AddVertex(System.Single,System.Single)
+  id: AddVertex(System.Single,System.Single)
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: AddVertex(Single, Single)
+  nameWithType: DPolyLine2f.AddVertex(Single, Single)
+  fullName: g3.DPolyLine2f.AddVertex(System.Single, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddVertex
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 66
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AddVertex(float fX, float fY)
+    parameters:
+    - id: fX
+      type: System.Single
+    - id: fY
+      type: System.Single
+    return:
+      type: System.Int32
+    content.vb: Public Function AddVertex(fX As Single, fY As Single) As Integer
+  overload: g3.DPolyLine2f.AddVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DPolyLine2f.AddEdge(System.Int32,System.Int32)
+  commentId: M:g3.DPolyLine2f.AddEdge(System.Int32,System.Int32)
+  id: AddEdge(System.Int32,System.Int32)
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: AddEdge(Int32, Int32)
+  nameWithType: DPolyLine2f.AddEdge(Int32, Int32)
+  fullName: g3.DPolyLine2f.AddEdge(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddEdge
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AddEdge(int v1, int v2)
+    parameters:
+    - id: v1
+      type: System.Int32
+    - id: v2
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AddEdge(v1 As Integer, v2 As Integer) As Integer
+  overload: g3.DPolyLine2f.AddEdge*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DPolyLine2f.OrderVertices
+  commentId: M:g3.DPolyLine2f.OrderVertices
+  id: OrderVertices
+  parent: g3.DPolyLine2f
+  langs:
+  - csharp
+  - vb
+  name: OrderVertices()
+  nameWithType: DPolyLine2f.OrderVertices()
+  fullName: g3.DPolyLine2f.OrderVertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2f.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OrderVertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine2f.cs
+    startLine: 131
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool OrderVertices()
+    return:
+      type: System.Boolean
+    content.vb: Public Function OrderVertices As Boolean
+  overload: g3.DPolyLine2f.OrderVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DPolyLine2f.#ctor*
+  commentId: Overload:g3.DPolyLine2f.#ctor
+  name: DPolyLine2f
+  nameWithType: DPolyLine2f.DPolyLine2f
+  fullName: g3.DPolyLine2f.DPolyLine2f
+- uid: g3.DPolyLine2f
+  commentId: T:g3.DPolyLine2f
+  parent: g3
+  name: DPolyLine2f
+  nameWithType: DPolyLine2f
+  fullName: g3.DPolyLine2f
+- uid: g3.DPolyLine2f.Edges*
+  commentId: Overload:g3.DPolyLine2f.Edges
+  name: Edges
+  nameWithType: DPolyLine2f.Edges
+  fullName: g3.DPolyLine2f.Edges
+- uid: System.Collections.Generic.List{g3.DPolyLine2f.Edge}
+  commentId: T:System.Collections.Generic.List{g3.DPolyLine2f.Edge}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<DPolyLine2f.Edge>
+  nameWithType: List<DPolyLine2f.Edge>
+  fullName: System.Collections.Generic.List<g3.DPolyLine2f.Edge>
+  nameWithType.vb: List(Of DPolyLine2f.Edge)
+  fullName.vb: System.Collections.Generic.List(Of g3.DPolyLine2f.Edge)
+  name.vb: List(Of DPolyLine2f.Edge)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DPolyLine2f.Edge
+    name: DPolyLine2f.Edge
+    nameWithType: DPolyLine2f.Edge
+    fullName: g3.DPolyLine2f.Edge
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DPolyLine2f.Edge
+    name: DPolyLine2f.Edge
+    nameWithType: DPolyLine2f.Edge
+    fullName: g3.DPolyLine2f.Edge
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.DPolyLine2f.Vertices*
+  commentId: Overload:g3.DPolyLine2f.Vertices
+  name: Vertices
+  nameWithType: DPolyLine2f.Vertices
+  fullName: g3.DPolyLine2f.Vertices
+- uid: System.Collections.Generic.List{g3.DPolyLine2f.Vertex}
+  commentId: T:System.Collections.Generic.List{g3.DPolyLine2f.Vertex}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<DPolyLine2f.Vertex>
+  nameWithType: List<DPolyLine2f.Vertex>
+  fullName: System.Collections.Generic.List<g3.DPolyLine2f.Vertex>
+  nameWithType.vb: List(Of DPolyLine2f.Vertex)
+  fullName.vb: System.Collections.Generic.List(Of g3.DPolyLine2f.Vertex)
+  name.vb: List(Of DPolyLine2f.Vertex)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DPolyLine2f.Vertex
+    name: DPolyLine2f.Vertex
+    nameWithType: DPolyLine2f.Vertex
+    fullName: g3.DPolyLine2f.Vertex
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DPolyLine2f.Vertex
+    name: DPolyLine2f.Vertex
+    nameWithType: DPolyLine2f.Vertex
+    fullName: g3.DPolyLine2f.Vertex
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DPolyLine2f.VertexCount*
+  commentId: Overload:g3.DPolyLine2f.VertexCount
+  name: VertexCount
+  nameWithType: DPolyLine2f.VertexCount
+  fullName: g3.DPolyLine2f.VertexCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.DPolyLine2f.EdgeCount*
+  commentId: Overload:g3.DPolyLine2f.EdgeCount
+  name: EdgeCount
+  nameWithType: DPolyLine2f.EdgeCount
+  fullName: g3.DPolyLine2f.EdgeCount
+- uid: g3.DPolyLine2f.Clear*
+  commentId: Overload:g3.DPolyLine2f.Clear
+  name: Clear
+  nameWithType: DPolyLine2f.Clear
+  fullName: g3.DPolyLine2f.Clear
+- uid: g3.DPolyLine2f.GetVertex*
+  commentId: Overload:g3.DPolyLine2f.GetVertex
+  name: GetVertex
+  nameWithType: DPolyLine2f.GetVertex
+  fullName: g3.DPolyLine2f.GetVertex
+- uid: g3.DPolyLine2f.Vertex
+  commentId: T:g3.DPolyLine2f.Vertex
+  parent: g3
+  name: DPolyLine2f.Vertex
+  nameWithType: DPolyLine2f.Vertex
+  fullName: g3.DPolyLine2f.Vertex
+- uid: g3.DPolyLine2f.AddVertex*
+  commentId: Overload:g3.DPolyLine2f.AddVertex
+  name: AddVertex
+  nameWithType: DPolyLine2f.AddVertex
+  fullName: g3.DPolyLine2f.AddVertex
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.DPolyLine2f.AddEdge*
+  commentId: Overload:g3.DPolyLine2f.AddEdge
+  name: AddEdge
+  nameWithType: DPolyLine2f.AddEdge
+  fullName: g3.DPolyLine2f.AddEdge
+- uid: g3.DPolyLine2f.OrderVertices*
+  commentId: Overload:g3.DPolyLine2f.OrderVertices
+  name: OrderVertices
+  nameWithType: DPolyLine2f.OrderVertices
+  fullName: g3.DPolyLine2f.OrderVertices
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

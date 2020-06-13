@@ -3,9 +3,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using GeoJSON.Net.Geometry;
-using System;
-using System.Runtime.InteropServices;
 using g3;
 
 namespace Virgis
@@ -15,7 +12,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon ViRGIS component
     /// </summary>
-    public class Datapolygon : VirgisComponent
+    public class Datapolygon : VirgisFeature
     {
 
         private bool BlockMove = false; // Is this component in a block move state
@@ -155,12 +152,12 @@ namespace Virgis
             mesh.RecalculateNormals();
         }
 
-        public override VirgisComponent AddVertex(Vector3 position) {
+        public override VirgisFeature AddVertex(Vector3 position) {
             _redraw();
             return base.AddVertex(position);
         }
 
-        public override void RemoveVertex(VirgisComponent vertex) {
+        public override void RemoveVertex(VirgisFeature vertex) {
             if (BlockMove) {
                 gameObject.Destroy();
             } else {
@@ -291,16 +288,6 @@ namespace Virgis
 
             }
             return uvs;
-        }
-
-        public override Vector3 GetClosest(Vector3 coords)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override T GetGeometry<T>()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

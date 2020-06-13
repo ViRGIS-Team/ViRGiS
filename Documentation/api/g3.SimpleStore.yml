@@ -1,0 +1,705 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.SimpleStore
+  commentId: T:g3.SimpleStore
+  id: SimpleStore
+  parent: g3
+  children:
+  - g3.SimpleStore.#ctor
+  - g3.SimpleStore.#ctor(System.Object[])
+  - g3.SimpleStore.Add(System.Object[])
+  - g3.SimpleStore.IntLists
+  - g3.SimpleStore.Meshes
+  - g3.SimpleStore.Points
+  - g3.SimpleStore.Restore(System.String)
+  - g3.SimpleStore.Store(System.String,g3.SimpleStore)
+  - g3.SimpleStore.Store(System.String,System.Object[])
+  - g3.SimpleStore.Strings
+  langs:
+  - csharp
+  - vb
+  name: SimpleStore
+  nameWithType: SimpleStore
+  fullName: g3.SimpleStore
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SimpleStore
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 575
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nUtility class that is intended to support things like writing and reading\ntest cases, etc. You can write out a test case in a single line, eg\nSimpleStore.Store(path, new object[] { TestMesh, VertexList, PlaneNormal, ... })\nThe object list will be binned into the relevant sublists automatically.\nThen you can load this data via:\nSimpleStore s = SimpleStore.Restore(path)\n"
+  example: []
+  syntax:
+    content: public class SimpleStore
+    content.vb: Public Class SimpleStore
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.SimpleStore.Meshes
+  commentId: F:g3.SimpleStore.Meshes
+  id: Meshes
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Meshes
+  nameWithType: SimpleStore.Meshes
+  fullName: g3.SimpleStore.Meshes
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Meshes
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 578
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<DMesh3> Meshes
+    return:
+      type: System.Collections.Generic.List{g3.DMesh3}
+    content.vb: Public Meshes As List(Of DMesh3)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleStore.Points
+  commentId: F:g3.SimpleStore.Points
+  id: Points
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: SimpleStore.Points
+  fullName: g3.SimpleStore.Points
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Points
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 579
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<Vector3d> Points
+    return:
+      type: System.Collections.Generic.List{g3.Vector3d}
+    content.vb: Public Points As List(Of Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleStore.Strings
+  commentId: F:g3.SimpleStore.Strings
+  id: Strings
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Strings
+  nameWithType: SimpleStore.Strings
+  fullName: g3.SimpleStore.Strings
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Strings
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 580
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<string> Strings
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Strings As List(Of String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleStore.IntLists
+  commentId: F:g3.SimpleStore.IntLists
+  id: IntLists
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: IntLists
+  nameWithType: SimpleStore.IntLists
+  fullName: g3.SimpleStore.IntLists
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntLists
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 581
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<List<int>> IntLists
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}}
+    content.vb: Public IntLists As List(Of List(Of Integer))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleStore.#ctor
+  commentId: M:g3.SimpleStore.#ctor
+  id: '#ctor'
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: SimpleStore()
+  nameWithType: SimpleStore.SimpleStore()
+  fullName: g3.SimpleStore.SimpleStore()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 583
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SimpleStore()
+    content.vb: Public Sub New
+  overload: g3.SimpleStore.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SimpleStore.#ctor(System.Object[])
+  commentId: M:g3.SimpleStore.#ctor(System.Object[])
+  id: '#ctor(System.Object[])'
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: SimpleStore(Object[])
+  nameWithType: SimpleStore.SimpleStore(Object[])
+  fullName: g3.SimpleStore.SimpleStore(System.Object[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 587
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SimpleStore(object[] objs)
+    parameters:
+    - id: objs
+      type: System.Object[]
+    content.vb: Public Sub New(objs As Object())
+  overload: g3.SimpleStore.#ctor*
+  nameWithType.vb: SimpleStore.SimpleStore(Object())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SimpleStore.SimpleStore(System.Object())
+  name.vb: SimpleStore(Object())
+- uid: g3.SimpleStore.Add(System.Object[])
+  commentId: M:g3.SimpleStore.Add(System.Object[])
+  id: Add(System.Object[])
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Add(Object[])
+  nameWithType: SimpleStore.Add(Object[])
+  fullName: g3.SimpleStore.Add(System.Object[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 592
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Add(object[] objs)
+    parameters:
+    - id: objs
+      type: System.Object[]
+    content.vb: Public Sub Add(objs As Object())
+  overload: g3.SimpleStore.Add*
+  nameWithType.vb: SimpleStore.Add(Object())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SimpleStore.Add(System.Object())
+  name.vb: Add(Object())
+- uid: g3.SimpleStore.Store(System.String,System.Object[])
+  commentId: M:g3.SimpleStore.Store(System.String,System.Object[])
+  id: Store(System.String,System.Object[])
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Store(String, Object[])
+  nameWithType: SimpleStore.Store(String, Object[])
+  fullName: g3.SimpleStore.Store(System.String, System.Object[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Store
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 611
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Store(string sPath, object[] objs)
+    parameters:
+    - id: sPath
+      type: System.String
+    - id: objs
+      type: System.Object[]
+    content.vb: Public Shared Sub Store(sPath As String, objs As Object())
+  overload: g3.SimpleStore.Store*
+  nameWithType.vb: SimpleStore.Store(String, Object())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.SimpleStore.Store(System.String, System.Object())
+  name.vb: Store(String, Object())
+- uid: g3.SimpleStore.Store(System.String,g3.SimpleStore)
+  commentId: M:g3.SimpleStore.Store(System.String,g3.SimpleStore)
+  id: Store(System.String,g3.SimpleStore)
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Store(String, SimpleStore)
+  nameWithType: SimpleStore.Store(String, SimpleStore)
+  fullName: g3.SimpleStore.Store(System.String, g3.SimpleStore)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Store
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 617
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Store(string sPath, SimpleStore s)
+    parameters:
+    - id: sPath
+      type: System.String
+    - id: s
+      type: g3.SimpleStore
+    content.vb: Public Shared Sub Store(sPath As String, s As SimpleStore)
+  overload: g3.SimpleStore.Store*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.SimpleStore.Restore(System.String)
+  commentId: M:g3.SimpleStore.Restore(System.String)
+  id: Restore(System.String)
+  parent: g3.SimpleStore
+  langs:
+  - csharp
+  - vb
+  name: Restore(String)
+  nameWithType: SimpleStore.Restore(String)
+  fullName: g3.SimpleStore.Restore(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/io/gSerialization.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Restore
+    path: ../Assets/geometry3Sharp/io/gSerialization.cs
+    startLine: 639
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static SimpleStore Restore(string sPath)
+    parameters:
+    - id: sPath
+      type: System.String
+    return:
+      type: g3.SimpleStore
+    content.vb: Public Shared Function Restore(sPath As String) As SimpleStore
+  overload: g3.SimpleStore.Restore*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{g3.DMesh3}
+  commentId: T:System.Collections.Generic.List{g3.DMesh3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<DMesh3>
+  nameWithType: List<DMesh3>
+  fullName: System.Collections.Generic.List<g3.DMesh3>
+  nameWithType.vb: List(Of DMesh3)
+  fullName.vb: System.Collections.Generic.List(Of g3.DMesh3)
+  name.vb: List(Of DMesh3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.List{g3.Vector3d}
+  commentId: T:System.Collections.Generic.List{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Vector3d>
+  nameWithType: List<Vector3d>
+  fullName: System.Collections.Generic.List<g3.Vector3d>
+  nameWithType.vb: List(Of Vector3d)
+  fullName.vb: System.Collections.Generic.List(Of g3.Vector3d)
+  name.vb: List(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.List{System.Int32}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<List<Int32>>
+  nameWithType: List<List<Int32>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.List<System.Int32>>
+  nameWithType.vb: List(Of List(Of Int32))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.List(Of System.Int32))
+  name.vb: List(Of List(Of Int32))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SimpleStore.#ctor*
+  commentId: Overload:g3.SimpleStore.#ctor
+  name: SimpleStore
+  nameWithType: SimpleStore.SimpleStore
+  fullName: g3.SimpleStore.SimpleStore
+- uid: System.Object[]
+  isExternal: true
+  name: Object[]
+  nameWithType: Object[]
+  fullName: System.Object[]
+  nameWithType.vb: Object()
+  fullName.vb: System.Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.SimpleStore.Add*
+  commentId: Overload:g3.SimpleStore.Add
+  name: Add
+  nameWithType: SimpleStore.Add
+  fullName: g3.SimpleStore.Add
+- uid: g3.SimpleStore.Store*
+  commentId: Overload:g3.SimpleStore.Store
+  name: Store
+  nameWithType: SimpleStore.Store
+  fullName: g3.SimpleStore.Store
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.SimpleStore
+  commentId: T:g3.SimpleStore
+  parent: g3
+  name: SimpleStore
+  nameWithType: SimpleStore
+  fullName: g3.SimpleStore
+- uid: g3.SimpleStore.Restore*
+  commentId: Overload:g3.SimpleStore.Restore
+  name: Restore
+  nameWithType: SimpleStore.Restore
+  fullName: g3.SimpleStore.Restore

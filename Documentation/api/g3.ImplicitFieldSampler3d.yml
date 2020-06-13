@@ -1,0 +1,502 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.ImplicitFieldSampler3d
+  commentId: T:g3.ImplicitFieldSampler3d
+  id: ImplicitFieldSampler3d
+  parent: g3
+  children:
+  - g3.ImplicitFieldSampler3d.#ctor(g3.AxisAlignedBox3d,System.Double)
+  - g3.ImplicitFieldSampler3d.BackgroundValue
+  - g3.ImplicitFieldSampler3d.CellSize
+  - g3.ImplicitFieldSampler3d.Clear(System.Single)
+  - g3.ImplicitFieldSampler3d.CombineMode
+  - g3.ImplicitFieldSampler3d.Grid
+  - g3.ImplicitFieldSampler3d.GridBounds
+  - g3.ImplicitFieldSampler3d.GridOrigin
+  - g3.ImplicitFieldSampler3d.Indexer
+  - g3.ImplicitFieldSampler3d.Sample(g3.BoundedImplicitFunction3d,System.Double)
+  - g3.ImplicitFieldSampler3d.ToImplicit
+  langs:
+  - csharp
+  - vb
+  name: ImplicitFieldSampler3d
+  nameWithType: ImplicitFieldSampler3d
+  fullName: g3.ImplicitFieldSampler3d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ImplicitFieldSampler3d
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSample implicit fields into a dense grid\n"
+  example: []
+  syntax:
+    content: public class ImplicitFieldSampler3d
+    content.vb: Public Class ImplicitFieldSampler3d
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.ImplicitFieldSampler3d.Grid
+  commentId: F:g3.ImplicitFieldSampler3d.Grid
+  id: Grid
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: Grid
+  nameWithType: ImplicitFieldSampler3d.Grid
+  fullName: g3.ImplicitFieldSampler3d.Grid
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Grid
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGrid3f Grid
+    return:
+      type: g3.DenseGrid3f
+    content.vb: Public Grid As DenseGrid3f
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.CellSize
+  commentId: F:g3.ImplicitFieldSampler3d.CellSize
+  id: CellSize
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: CellSize
+  nameWithType: ImplicitFieldSampler3d.CellSize
+  fullName: g3.ImplicitFieldSampler3d.CellSize
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CellSize
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double CellSize
+    return:
+      type: System.Double
+    content.vb: Public CellSize As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.GridOrigin
+  commentId: F:g3.ImplicitFieldSampler3d.GridOrigin
+  id: GridOrigin
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: GridOrigin
+  nameWithType: ImplicitFieldSampler3d.GridOrigin
+  fullName: g3.ImplicitFieldSampler3d.GridOrigin
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GridOrigin
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d GridOrigin
+    return:
+      type: g3.Vector3d
+    content.vb: Public GridOrigin As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.Indexer
+  commentId: F:g3.ImplicitFieldSampler3d.Indexer
+  id: Indexer
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: Indexer
+  nameWithType: ImplicitFieldSampler3d.Indexer
+  fullName: g3.ImplicitFieldSampler3d.Indexer
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Indexer
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ShiftGridIndexer3 Indexer
+    return:
+      type: g3.ShiftGridIndexer3
+    content.vb: Public Indexer As ShiftGridIndexer3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.GridBounds
+  commentId: F:g3.ImplicitFieldSampler3d.GridBounds
+  id: GridBounds
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: GridBounds
+  nameWithType: ImplicitFieldSampler3d.GridBounds
+  fullName: g3.ImplicitFieldSampler3d.GridBounds
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GridBounds
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox3i GridBounds
+    return:
+      type: g3.AxisAlignedBox3i
+    content.vb: Public GridBounds As AxisAlignedBox3i
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.BackgroundValue
+  commentId: F:g3.ImplicitFieldSampler3d.BackgroundValue
+  id: BackgroundValue
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: BackgroundValue
+  nameWithType: ImplicitFieldSampler3d.BackgroundValue
+  fullName: g3.ImplicitFieldSampler3d.BackgroundValue
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BackgroundValue
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public float BackgroundValue
+    return:
+      type: System.Single
+    content.vb: Public BackgroundValue As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.CombineMode
+  commentId: F:g3.ImplicitFieldSampler3d.CombineMode
+  id: CombineMode
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: CombineMode
+  nameWithType: ImplicitFieldSampler3d.CombineMode
+  fullName: g3.ImplicitFieldSampler3d.CombineMode
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CombineMode
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ImplicitFieldSampler3d.CombineModes CombineMode
+    return:
+      type: g3.ImplicitFieldSampler3d.CombineModes
+    content.vb: Public CombineMode As ImplicitFieldSampler3d.CombineModes
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.#ctor(g3.AxisAlignedBox3d,System.Double)
+  commentId: M:g3.ImplicitFieldSampler3d.#ctor(g3.AxisAlignedBox3d,System.Double)
+  id: '#ctor(g3.AxisAlignedBox3d,System.Double)'
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: ImplicitFieldSampler3d(AxisAlignedBox3d, Double)
+  nameWithType: ImplicitFieldSampler3d.ImplicitFieldSampler3d(AxisAlignedBox3d, Double)
+  fullName: g3.ImplicitFieldSampler3d.ImplicitFieldSampler3d(g3.AxisAlignedBox3d, System.Double)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ImplicitFieldSampler3d(AxisAlignedBox3d fieldBounds, double cellSize)
+    parameters:
+    - id: fieldBounds
+      type: g3.AxisAlignedBox3d
+    - id: cellSize
+      type: System.Double
+    content.vb: Public Sub New(fieldBounds As AxisAlignedBox3d, cellSize As Double)
+  overload: g3.ImplicitFieldSampler3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.ToImplicit
+  commentId: M:g3.ImplicitFieldSampler3d.ToImplicit
+  id: ToImplicit
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: ToImplicit()
+  nameWithType: ImplicitFieldSampler3d.ToImplicit()
+  fullName: g3.ImplicitFieldSampler3d.ToImplicit()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToImplicit
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DenseGridTrilinearImplicit ToImplicit()
+    return:
+      type: g3.DenseGridTrilinearImplicit
+    content.vb: Public Function ToImplicit As DenseGridTrilinearImplicit
+  overload: g3.ImplicitFieldSampler3d.ToImplicit*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.Clear(System.Single)
+  commentId: M:g3.ImplicitFieldSampler3d.Clear(System.Single)
+  id: Clear(System.Single)
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: Clear(Single)
+  nameWithType: ImplicitFieldSampler3d.Clear(Single)
+  fullName: g3.ImplicitFieldSampler3d.Clear(System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clear
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Clear(float f)
+    parameters:
+    - id: f
+      type: System.Single
+    content.vb: Public Sub Clear(f As Single)
+  overload: g3.ImplicitFieldSampler3d.Clear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ImplicitFieldSampler3d.Sample(g3.BoundedImplicitFunction3d,System.Double)
+  commentId: M:g3.ImplicitFieldSampler3d.Sample(g3.BoundedImplicitFunction3d,System.Double)
+  id: Sample(g3.BoundedImplicitFunction3d,System.Double)
+  parent: g3.ImplicitFieldSampler3d
+  langs:
+  - csharp
+  - vb
+  name: Sample(BoundedImplicitFunction3d, Double)
+  nameWithType: ImplicitFieldSampler3d.Sample(BoundedImplicitFunction3d, Double)
+  fullName: g3.ImplicitFieldSampler3d.Sample(g3.BoundedImplicitFunction3d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Sample
+    path: ../Assets/geometry3Sharp/implicit/ImplicitFieldSampler3d.cs
+    startLine: 61
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Sample(BoundedImplicitFunction3d f, double expandRadius = 0)
+    parameters:
+    - id: f
+      type: g3.BoundedImplicitFunction3d
+    - id: expandRadius
+      type: System.Double
+    content.vb: Public Sub Sample(f As BoundedImplicitFunction3d, expandRadius As Double = 0)
+  overload: g3.ImplicitFieldSampler3d.Sample*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DenseGrid3f
+  commentId: T:g3.DenseGrid3f
+  parent: g3
+  name: DenseGrid3f
+  nameWithType: DenseGrid3f
+  fullName: g3.DenseGrid3f
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.ShiftGridIndexer3
+  commentId: T:g3.ShiftGridIndexer3
+  parent: g3
+  name: ShiftGridIndexer3
+  nameWithType: ShiftGridIndexer3
+  fullName: g3.ShiftGridIndexer3
+- uid: g3.AxisAlignedBox3i
+  commentId: T:g3.AxisAlignedBox3i
+  parent: g3
+  name: AxisAlignedBox3i
+  nameWithType: AxisAlignedBox3i
+  fullName: g3.AxisAlignedBox3i
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.ImplicitFieldSampler3d.CombineModes
+  commentId: T:g3.ImplicitFieldSampler3d.CombineModes
+  parent: g3
+  name: ImplicitFieldSampler3d.CombineModes
+  nameWithType: ImplicitFieldSampler3d.CombineModes
+  fullName: g3.ImplicitFieldSampler3d.CombineModes
+- uid: g3.ImplicitFieldSampler3d.#ctor*
+  commentId: Overload:g3.ImplicitFieldSampler3d.#ctor
+  name: ImplicitFieldSampler3d
+  nameWithType: ImplicitFieldSampler3d.ImplicitFieldSampler3d
+  fullName: g3.ImplicitFieldSampler3d.ImplicitFieldSampler3d
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: g3.ImplicitFieldSampler3d.ToImplicit*
+  commentId: Overload:g3.ImplicitFieldSampler3d.ToImplicit
+  name: ToImplicit
+  nameWithType: ImplicitFieldSampler3d.ToImplicit
+  fullName: g3.ImplicitFieldSampler3d.ToImplicit
+- uid: g3.DenseGridTrilinearImplicit
+  commentId: T:g3.DenseGridTrilinearImplicit
+  parent: g3
+  name: DenseGridTrilinearImplicit
+  nameWithType: DenseGridTrilinearImplicit
+  fullName: g3.DenseGridTrilinearImplicit
+- uid: g3.ImplicitFieldSampler3d.Clear*
+  commentId: Overload:g3.ImplicitFieldSampler3d.Clear
+  name: Clear
+  nameWithType: ImplicitFieldSampler3d.Clear
+  fullName: g3.ImplicitFieldSampler3d.Clear
+- uid: g3.ImplicitFieldSampler3d.Sample*
+  commentId: Overload:g3.ImplicitFieldSampler3d.Sample
+  name: Sample
+  nameWithType: ImplicitFieldSampler3d.Sample
+  fullName: g3.ImplicitFieldSampler3d.Sample
+- uid: g3.BoundedImplicitFunction3d
+  commentId: T:g3.BoundedImplicitFunction3d
+  parent: g3
+  name: BoundedImplicitFunction3d
+  nameWithType: BoundedImplicitFunction3d
+  fullName: g3.BoundedImplicitFunction3d

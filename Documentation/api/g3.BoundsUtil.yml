@@ -1,0 +1,1516 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.BoundsUtil
+  commentId: T:g3.BoundsUtil
+  id: BoundsUtil
+  parent: g3
+  children:
+  - g3.BoundsUtil.Bounds(g3.AxisAlignedBox3d@,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.BoundsUtil.Bounds(g3.IPointSet)
+  - g3.BoundsUtil.Bounds(g3.Triangle3d@)
+  - g3.BoundsUtil.Bounds(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  - g3.BoundsUtil.Bounds(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@)
+  - g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.DMesh3})
+  - g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector2f})
+  - g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  - g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.TransformSequence)
+  - g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3f})
+  - g3.BoundsUtil.Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  - g3.BoundsUtil.Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3f})
+  - g3.BoundsUtil.BoundsInFrame(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.Frame3f)
+  - g3.BoundsUtil.TrianglesContained(g3.DMesh3,System.Func{g3.Vector3d,System.Int32,System.Boolean},System.Action{System.Int32},System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: BoundsUtil
+  nameWithType: BoundsUtil
+  fullName: g3.BoundsUtil
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsUtil
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 6
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class BoundsUtil
+    content.vb: Public Module BoundsUtil
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.DMesh3})
+  commentId: M:g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.DMesh3})
+  id: Bounds(System.Collections.Generic.IEnumerable{g3.DMesh3})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IEnumerable<DMesh3>)
+  nameWithType: BoundsUtil.Bounds(IEnumerable<DMesh3>)
+  fullName: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable<g3.DMesh3>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(IEnumerable<DMesh3> meshes)
+    parameters:
+    - id: meshes
+      type: System.Collections.Generic.IEnumerable{g3.DMesh3}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(meshes As IEnumerable(Of DMesh3)) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(IEnumerable(Of DMesh3))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable(Of g3.DMesh3))
+  name.vb: Bounds(IEnumerable(Of DMesh3))
+- uid: g3.BoundsUtil.Bounds(g3.IPointSet)
+  commentId: M:g3.BoundsUtil.Bounds(g3.IPointSet)
+  id: Bounds(g3.IPointSet)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IPointSet)
+  nameWithType: BoundsUtil.Bounds(IPointSet)
+  fullName: g3.BoundsUtil.Bounds(g3.IPointSet)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(IPointSet source)
+    parameters:
+    - id: source
+      type: g3.IPointSet
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(source As IPointSet) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.BoundsUtil.Bounds(g3.Triangle3d@)
+  commentId: M:g3.BoundsUtil.Bounds(g3.Triangle3d@)
+  id: Bounds(g3.Triangle3d@)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(ref Triangle3d)
+  nameWithType: BoundsUtil.Bounds(ref Triangle3d)
+  fullName: g3.BoundsUtil.Bounds(ref g3.Triangle3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(ref Triangle3d tri)
+    parameters:
+    - id: tri
+      type: g3.Triangle3d
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(ByRef tri As Triangle3d) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(ByRef Triangle3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(ByRef g3.Triangle3d)
+  name.vb: Bounds(ByRef Triangle3d)
+- uid: g3.BoundsUtil.Bounds(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@)
+  commentId: M:g3.BoundsUtil.Bounds(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@)
+  id: Bounds(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(ref Vector3d, ref Vector3d, ref Vector3d)
+  nameWithType: BoundsUtil.Bounds(ref Vector3d, ref Vector3d, ref Vector3d)
+  fullName: g3.BoundsUtil.Bounds(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(ref Vector3d v0, ref Vector3d v1, ref Vector3d v2)
+    parameters:
+    - id: v0
+      type: g3.Vector3d
+    - id: v1
+      type: g3.Vector3d
+    - id: v2
+      type: g3.Vector3d
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(ByRef v0 As Vector3d, ByRef v1 As Vector3d, ByRef v2 As Vector3d) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d)
+  name.vb: Bounds(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d)
+- uid: g3.BoundsUtil.Bounds(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.BoundsUtil.Bounds(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  id: Bounds(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(ref Vector2d, ref Vector2d, ref Vector2d)
+  nameWithType: BoundsUtil.Bounds(ref Vector2d, ref Vector2d, ref Vector2d)
+  fullName: g3.BoundsUtil.Bounds(ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox2d Bounds(ref Vector2d v0, ref Vector2d v1, ref Vector2d v2)
+    parameters:
+    - id: v0
+      type: g3.Vector2d
+    - id: v1
+      type: g3.Vector2d
+    - id: v2
+      type: g3.Vector2d
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Shared Function Bounds(ByRef v0 As Vector2d, ByRef v1 As Vector2d, ByRef v2 As Vector2d) As AxisAlignedBox2d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: Bounds(ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+- uid: g3.BoundsUtil.Bounds(g3.AxisAlignedBox3d@,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.BoundsUtil.Bounds(g3.AxisAlignedBox3d@,System.Func{g3.Vector3d,g3.Vector3d})
+  id: Bounds(g3.AxisAlignedBox3d@,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(ref AxisAlignedBox3d, Func<Vector3d, Vector3d>)
+  nameWithType: BoundsUtil.Bounds(ref AxisAlignedBox3d, Func<Vector3d, Vector3d>)
+  fullName: g3.BoundsUtil.Bounds(ref g3.AxisAlignedBox3d, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(ref AxisAlignedBox3d boxIn, Func<Vector3d, Vector3d> TransformF)
+    parameters:
+    - id: boxIn
+      type: g3.AxisAlignedBox3d
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(ByRef boxIn As AxisAlignedBox3d, TransformF As Func(Of Vector3d, Vector3d)) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(ByRef AxisAlignedBox3d, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(ByRef g3.AxisAlignedBox3d, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: Bounds(ByRef AxisAlignedBox3d, Func(Of Vector3d, Vector3d))
+- uid: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  commentId: M:g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  id: Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IEnumerable<Vector3d>)
+  nameWithType: BoundsUtil.Bounds(IEnumerable<Vector3d>)
+  fullName: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable<g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(IEnumerable<Vector3d> positions)
+    parameters:
+    - id: positions
+      type: System.Collections.Generic.IEnumerable{g3.Vector3d}
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(positions As IEnumerable(Of Vector3d)) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(IEnumerable(Of Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable(Of g3.Vector3d))
+  name.vb: Bounds(IEnumerable(Of Vector3d))
+- uid: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3f})
+  commentId: M:g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3f})
+  id: Bounds(System.Collections.Generic.IEnumerable{g3.Vector3f})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IEnumerable<Vector3f>)
+  nameWithType: BoundsUtil.Bounds(IEnumerable<Vector3f>)
+  fullName: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable<g3.Vector3f>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 66
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3f Bounds(IEnumerable<Vector3f> positions)
+    parameters:
+    - id: positions
+      type: System.Collections.Generic.IEnumerable{g3.Vector3f}
+    return:
+      type: g3.AxisAlignedBox3f
+    content.vb: Public Shared Function Bounds(positions As IEnumerable(Of Vector3f)) As AxisAlignedBox3f
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(IEnumerable(Of Vector3f))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable(Of g3.Vector3f))
+  name.vb: Bounds(IEnumerable(Of Vector3f))
+- uid: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: Bounds(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IEnumerable<Vector2d>)
+  nameWithType: BoundsUtil.Bounds(IEnumerable<Vector2d>)
+  fullName: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 75
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox2d Bounds(IEnumerable<Vector2d> positions)
+    parameters:
+    - id: positions
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Shared Function Bounds(positions As IEnumerable(Of Vector2d)) As AxisAlignedBox2d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: Bounds(IEnumerable(Of Vector2d))
+- uid: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector2f})
+  commentId: M:g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector2f})
+  id: Bounds(System.Collections.Generic.IEnumerable{g3.Vector2f})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IEnumerable<Vector2f>)
+  nameWithType: BoundsUtil.Bounds(IEnumerable<Vector2f>)
+  fullName: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable<g3.Vector2f>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 82
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox2f Bounds(IEnumerable<Vector2f> positions)
+    parameters:
+    - id: positions
+      type: System.Collections.Generic.IEnumerable{g3.Vector2f}
+    return:
+      type: g3.AxisAlignedBox2f
+    content.vb: Public Shared Function Bounds(positions As IEnumerable(Of Vector2f)) As AxisAlignedBox2f
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(IEnumerable(Of Vector2f))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable(Of g3.Vector2f))
+  name.vb: Bounds(IEnumerable(Of Vector2f))
+- uid: g3.BoundsUtil.Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  commentId: M:g3.BoundsUtil.Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  id: Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3d})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds<T>(IEnumerable<T>, Func<T, Vector3d>)
+  nameWithType: BoundsUtil.Bounds<T>(IEnumerable<T>, Func<T, Vector3d>)
+  fullName: g3.BoundsUtil.Bounds<T>(System.Collections.Generic.IEnumerable<T>, System.Func<T, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3d Bounds<T>(IEnumerable<T> values, Func<T, Vector3d> PositionF)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{T}}
+    - id: PositionF
+      type: System.Func{{T},g3.Vector3d}
+    typeParameters:
+    - id: T
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(Of T)(values As IEnumerable(Of T), PositionF As Func(Of T, Vector3d)) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(Of T)(IEnumerable(Of T), Func(Of T, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Func(Of T, g3.Vector3d))
+  name.vb: Bounds(Of T)(IEnumerable(Of T), Func(Of T, Vector3d))
+- uid: g3.BoundsUtil.Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3f})
+  commentId: M:g3.BoundsUtil.Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3f})
+  id: Bounds``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,g3.Vector3f})
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds<T>(IEnumerable<T>, Func<T, Vector3f>)
+  nameWithType: BoundsUtil.Bounds<T>(IEnumerable<T>, Func<T, Vector3f>)
+  fullName: g3.BoundsUtil.Bounds<T>(System.Collections.Generic.IEnumerable<T>, System.Func<T, g3.Vector3f>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 98
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static AxisAlignedBox3f Bounds<T>(IEnumerable<T> values, Func<T, Vector3f> PositionF)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{{T}}
+    - id: PositionF
+      type: System.Func{{T},g3.Vector3f}
+    typeParameters:
+    - id: T
+    return:
+      type: g3.AxisAlignedBox3f
+    content.vb: Public Shared Function Bounds(Of T)(values As IEnumerable(Of T), PositionF As Func(Of T, Vector3f)) As AxisAlignedBox3f
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(Of T)(IEnumerable(Of T), Func(Of T, Vector3f))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(Of T)(System.Collections.Generic.IEnumerable(Of T), System.Func(Of T, g3.Vector3f))
+  name.vb: Bounds(Of T)(IEnumerable(Of T), Func(Of T, Vector3f))
+- uid: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.TransformSequence)
+  commentId: M:g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.TransformSequence)
+  id: Bounds(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.TransformSequence)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: Bounds(IEnumerable<Vector3d>, TransformSequence)
+  nameWithType: BoundsUtil.Bounds(IEnumerable<Vector3d>, TransformSequence)
+  fullName: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable<g3.Vector3d>, g3.TransformSequence)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 110
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ncompute axis-aligned bounds of set of points after transforming \n"
+  example: []
+  syntax:
+    content: public static AxisAlignedBox3d Bounds(IEnumerable<Vector3d> values, TransformSequence xform)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{g3.Vector3d}
+    - id: xform
+      type: g3.TransformSequence
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function Bounds(values As IEnumerable(Of Vector3d), xform As TransformSequence) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.Bounds*
+  nameWithType.vb: BoundsUtil.Bounds(IEnumerable(Of Vector3d), TransformSequence)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.Bounds(System.Collections.Generic.IEnumerable(Of g3.Vector3d), g3.TransformSequence)
+  name.vb: Bounds(IEnumerable(Of Vector3d), TransformSequence)
+- uid: g3.BoundsUtil.BoundsInFrame(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.Frame3f)
+  commentId: M:g3.BoundsUtil.BoundsInFrame(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.Frame3f)
+  id: BoundsInFrame(System.Collections.Generic.IEnumerable{g3.Vector3d},g3.Frame3f)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: BoundsInFrame(IEnumerable<Vector3d>, Frame3f)
+  nameWithType: BoundsUtil.BoundsInFrame(IEnumerable<Vector3d>, Frame3f)
+  fullName: g3.BoundsUtil.BoundsInFrame(System.Collections.Generic.IEnumerable<g3.Vector3d>, g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsInFrame
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 122
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ncompute axis-aligned bounds of set of points after transforming into frame f\n"
+  example: []
+  syntax:
+    content: public static AxisAlignedBox3d BoundsInFrame(IEnumerable<Vector3d> values, Frame3f f)
+    parameters:
+    - id: values
+      type: System.Collections.Generic.IEnumerable{g3.Vector3d}
+    - id: f
+      type: g3.Frame3f
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Shared Function BoundsInFrame(values As IEnumerable(Of Vector3d), f As Frame3f) As AxisAlignedBox3d
+  overload: g3.BoundsUtil.BoundsInFrame*
+  nameWithType.vb: BoundsUtil.BoundsInFrame(IEnumerable(Of Vector3d), Frame3f)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.BoundsInFrame(System.Collections.Generic.IEnumerable(Of g3.Vector3d), g3.Frame3f)
+  name.vb: BoundsInFrame(IEnumerable(Of Vector3d), Frame3f)
+- uid: g3.BoundsUtil.TrianglesContained(g3.DMesh3,System.Func{g3.Vector3d,System.Int32,System.Boolean},System.Action{System.Int32},System.Int32)
+  commentId: M:g3.BoundsUtil.TrianglesContained(g3.DMesh3,System.Func{g3.Vector3d,System.Int32,System.Boolean},System.Action{System.Int32},System.Int32)
+  id: TrianglesContained(g3.DMesh3,System.Func{g3.Vector3d,System.Int32,System.Boolean},System.Action{System.Int32},System.Int32)
+  parent: g3.BoundsUtil
+  langs:
+  - csharp
+  - vb
+  name: TrianglesContained(DMesh3, Func<Vector3d, Int32, Boolean>, Action<Int32>, Int32)
+  nameWithType: BoundsUtil.TrianglesContained(DMesh3, Func<Vector3d, Int32, Boolean>, Action<Int32>, Int32)
+  fullName: g3.BoundsUtil.TrianglesContained(g3.DMesh3, System.Func<g3.Vector3d, System.Int32, System.Boolean>, System.Action<System.Int32>, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/BoundsUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TrianglesContained
+    path: ../Assets/geometry3Sharp/math/BoundsUtil.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void TrianglesContained(DMesh3 mesh, Func<Vector3d, int, bool> ContainF, Action<int> AddF, int nMode = 0)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: ContainF
+      type: System.Func{g3.Vector3d,System.Int32,System.Boolean}
+    - id: AddF
+      type: System.Action{System.Int32}
+    - id: nMode
+      type: System.Int32
+    content.vb: Public Shared Sub TrianglesContained(mesh As DMesh3, ContainF As Func(Of Vector3d, Integer, Boolean), AddF As Action(Of Integer), nMode As Integer = 0)
+  overload: g3.BoundsUtil.TrianglesContained*
+  nameWithType.vb: BoundsUtil.TrianglesContained(DMesh3, Func(Of Vector3d, Int32, Boolean), Action(Of Int32), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.BoundsUtil.TrianglesContained(g3.DMesh3, System.Func(Of g3.Vector3d, System.Int32, System.Boolean), System.Action(Of System.Int32), System.Int32)
+  name.vb: TrianglesContained(DMesh3, Func(Of Vector3d, Int32, Boolean), Action(Of Int32), Int32)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.BoundsUtil.Bounds*
+  commentId: Overload:g3.BoundsUtil.Bounds
+  name: Bounds
+  nameWithType: BoundsUtil.Bounds
+  fullName: g3.BoundsUtil.Bounds
+- uid: System.Collections.Generic.IEnumerable{g3.DMesh3}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.DMesh3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<DMesh3>
+  nameWithType: IEnumerable<DMesh3>
+  fullName: System.Collections.Generic.IEnumerable<g3.DMesh3>
+  nameWithType.vb: IEnumerable(Of DMesh3)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.DMesh3)
+  name.vb: IEnumerable(Of DMesh3)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.IPointSet
+  commentId: T:g3.IPointSet
+  parent: g3
+  name: IPointSet
+  nameWithType: IPointSet
+  fullName: g3.IPointSet
+- uid: g3.Triangle3d
+  commentId: T:g3.Triangle3d
+  parent: g3
+  name: Triangle3d
+  nameWithType: Triangle3d
+  fullName: g3.Triangle3d
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: System.Func{g3.Vector3d,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,g3.Vector3d}
+  parent: System
+  definition: System.Func`2
+  name: Func<Vector3d, Vector3d>
+  nameWithType: Func<Vector3d, Vector3d>
+  fullName: System.Func<g3.Vector3d, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Vector3d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3d>
+  nameWithType: IEnumerable<Vector3d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3d>
+  nameWithType.vb: IEnumerable(Of Vector3d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3d)
+  name.vb: IEnumerable(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3f}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3f}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3f>
+  nameWithType: IEnumerable<Vector3f>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3f>
+  nameWithType.vb: IEnumerable(Of Vector3f)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3f)
+  name.vb: IEnumerable(Of Vector3f)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.AxisAlignedBox3f
+  commentId: T:g3.AxisAlignedBox3f
+  parent: g3
+  name: AxisAlignedBox3f
+  nameWithType: AxisAlignedBox3f
+  fullName: g3.AxisAlignedBox3f
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2d>
+  nameWithType: IEnumerable<Vector2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2d>
+  nameWithType.vb: IEnumerable(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2d)
+  name.vb: IEnumerable(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2f}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2f}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2f>
+  nameWithType: IEnumerable<Vector2f>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2f>
+  nameWithType.vb: IEnumerable(Of Vector2f)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2f)
+  name.vb: IEnumerable(Of Vector2f)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.AxisAlignedBox2f
+  commentId: T:g3.AxisAlignedBox2f
+  parent: g3
+  name: AxisAlignedBox2f
+  nameWithType: AxisAlignedBox2f
+  fullName: g3.AxisAlignedBox2f
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{{T},g3.Vector3d}
+  commentId: T:System.Func{``0,g3.Vector3d}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Vector3d>
+  nameWithType: Func<T, Vector3d>
+  fullName: System.Func<T, g3.Vector3d>
+  nameWithType.vb: Func(Of T, Vector3d)
+  fullName.vb: System.Func(Of T, g3.Vector3d)
+  name.vb: Func(Of T, Vector3d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{{T},g3.Vector3f}
+  commentId: T:System.Func{``0,g3.Vector3f}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Vector3f>
+  nameWithType: Func<T, Vector3f>
+  fullName: System.Func<T, g3.Vector3f>
+  nameWithType.vb: Func(Of T, Vector3f)
+  fullName.vb: System.Func(Of T, g3.Vector3f)
+  name.vb: Func(Of T, Vector3f)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.TransformSequence
+  commentId: T:g3.TransformSequence
+  parent: g3
+  name: TransformSequence
+  nameWithType: TransformSequence
+  fullName: g3.TransformSequence
+- uid: g3.BoundsUtil.BoundsInFrame*
+  commentId: Overload:g3.BoundsUtil.BoundsInFrame
+  name: BoundsInFrame
+  nameWithType: BoundsUtil.BoundsInFrame
+  fullName: g3.BoundsUtil.BoundsInFrame
+- uid: g3.Frame3f
+  commentId: T:g3.Frame3f
+  parent: g3
+  name: Frame3f
+  nameWithType: Frame3f
+  fullName: g3.Frame3f
+- uid: g3.BoundsUtil.TrianglesContained*
+  commentId: Overload:g3.BoundsUtil.TrianglesContained
+  name: TrianglesContained
+  nameWithType: BoundsUtil.TrianglesContained
+  fullName: g3.BoundsUtil.TrianglesContained
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: System.Func{g3.Vector3d,System.Int32,System.Boolean}
+  commentId: T:System.Func{g3.Vector3d,System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`3
+  name: Func<Vector3d, Int32, Boolean>
+  nameWithType: Func<Vector3d, Int32, Boolean>
+  fullName: System.Func<g3.Vector3d, System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of Vector3d, Int32, Boolean)
+  fullName.vb: System.Func(Of g3.Vector3d, System.Int32, System.Boolean)
+  name.vb: Func(Of Vector3d, Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action{System.Int32}
+  commentId: T:System.Action{System.Int32}
+  parent: System
+  definition: System.Action`1
+  name: Action<Int32>
+  nameWithType: Action<Int32>
+  fullName: System.Action<System.Int32>
+  nameWithType.vb: Action(Of Int32)
+  fullName.vb: System.Action(Of System.Int32)
+  name.vb: Action(Of Int32)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

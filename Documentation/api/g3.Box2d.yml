@@ -1,0 +1,1258 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Box2d
+  commentId: T:g3.Box2d
+  id: Box2d
+  parent: g3
+  children:
+  - g3.Box2d.#ctor(g3.AxisAlignedBox2d)
+  - g3.Box2d.#ctor(g3.Segment2d)
+  - g3.Box2d.#ctor(g3.Vector2d)
+  - g3.Box2d.#ctor(g3.Vector2d,g3.Vector2d)
+  - g3.Box2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)
+  - g3.Box2d.Area
+  - g3.Box2d.Axis(System.Int32)
+  - g3.Box2d.AxisX
+  - g3.Box2d.AxisY
+  - g3.Box2d.Center
+  - g3.Box2d.ClosestPoint(g3.Vector2d)
+  - g3.Box2d.ComputeVertices
+  - g3.Box2d.ComputeVertices(g3.Vector2d[])
+  - g3.Box2d.ComputeVertices(g3.Vector2dTuple4@)
+  - g3.Box2d.Contain(g3.Box2d)
+  - g3.Box2d.Contain(g3.Vector2d)
+  - g3.Box2d.Contains(g3.Vector2d)
+  - g3.Box2d.Diagonal
+  - g3.Box2d.DistanceSquared(g3.Vector2d)
+  - g3.Box2d.Empty
+  - g3.Box2d.Expand(System.Double)
+  - g3.Box2d.Extent
+  - g3.Box2d.MaxExtent
+  - g3.Box2d.Merge(g3.Box2d@,g3.Box2d@)
+  - g3.Box2d.MinExtent
+  - g3.Box2d.op_Explicit(g3.Box2d)~g3.Box2f
+  - g3.Box2d.op_Implicit(g3.Box2f)~g3.Box2d
+  - g3.Box2d.RotateAxes(g3.Matrix2d)
+  - g3.Box2d.Translate(g3.Vector2d)
+  langs:
+  - csharp
+  - vb
+  name: Box2d
+  nameWithType: Box2d
+  fullName: g3.Box2d
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Box2d
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public struct Box2d
+    content.vb: Public Structure Box2d
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.Box2d.Center
+  commentId: F:g3.Box2d.Center
+  id: Center
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Box2d.Center
+  fullName: g3.Box2d.Center
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Center
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Center
+    return:
+      type: g3.Vector2d
+    content.vb: Public Center As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.AxisX
+  commentId: F:g3.Box2d.AxisX
+  id: AxisX
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: AxisX
+  nameWithType: Box2d.AxisX
+  fullName: g3.Box2d.AxisX
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisX
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d AxisX
+    return:
+      type: g3.Vector2d
+    content.vb: Public AxisX As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.AxisY
+  commentId: F:g3.Box2d.AxisY
+  id: AxisY
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: AxisY
+  nameWithType: Box2d.AxisY
+  fullName: g3.Box2d.AxisY
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisY
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d AxisY
+    return:
+      type: g3.Vector2d
+    content.vb: Public AxisY As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Extent
+  commentId: F:g3.Box2d.Extent
+  id: Extent
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Extent
+  nameWithType: Box2d.Extent
+  fullName: g3.Box2d.Extent
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Extent
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Extent
+    return:
+      type: g3.Vector2d
+    content.vb: Public Extent As Vector2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.#ctor(g3.Vector2d)
+  commentId: M:g3.Box2d.#ctor(g3.Vector2d)
+  id: '#ctor(g3.Vector2d)'
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Box2d(Vector2d)
+  nameWithType: Box2d.Box2d(Vector2d)
+  fullName: g3.Box2d.Box2d(g3.Vector2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box2d(Vector2d center)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    content.vb: Public Sub New(center As Vector2d)
+  overload: g3.Box2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.Box2d.#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)
+  id: '#ctor(g3.Vector2d,g3.Vector2d,g3.Vector2d,g3.Vector2d)'
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Box2d(Vector2d, Vector2d, Vector2d, Vector2d)
+  nameWithType: Box2d.Box2d(Vector2d, Vector2d, Vector2d, Vector2d)
+  fullName: g3.Box2d.Box2d(g3.Vector2d, g3.Vector2d, g3.Vector2d, g3.Vector2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box2d(Vector2d center, Vector2d x, Vector2d y, Vector2d extent)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: x
+      type: g3.Vector2d
+    - id: y
+      type: g3.Vector2d
+    - id: extent
+      type: g3.Vector2d
+    content.vb: Public Sub New(center As Vector2d, x As Vector2d, y As Vector2d, extent As Vector2d)
+  overload: g3.Box2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.#ctor(g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.Box2d.#ctor(g3.Vector2d,g3.Vector2d)
+  id: '#ctor(g3.Vector2d,g3.Vector2d)'
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Box2d(Vector2d, Vector2d)
+  nameWithType: Box2d.Box2d(Vector2d, Vector2d)
+  fullName: g3.Box2d.Box2d(g3.Vector2d, g3.Vector2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box2d(Vector2d center, Vector2d extent)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: extent
+      type: g3.Vector2d
+    content.vb: Public Sub New(center As Vector2d, extent As Vector2d)
+  overload: g3.Box2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.#ctor(g3.AxisAlignedBox2d)
+  commentId: M:g3.Box2d.#ctor(g3.AxisAlignedBox2d)
+  id: '#ctor(g3.AxisAlignedBox2d)'
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Box2d(AxisAlignedBox2d)
+  nameWithType: Box2d.Box2d(AxisAlignedBox2d)
+  fullName: g3.Box2d.Box2d(g3.AxisAlignedBox2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box2d(AxisAlignedBox2d aaBox)
+    parameters:
+    - id: aaBox
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Sub New(aaBox As AxisAlignedBox2d)
+  overload: g3.Box2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.#ctor(g3.Segment2d)
+  commentId: M:g3.Box2d.#ctor(g3.Segment2d)
+  id: '#ctor(g3.Segment2d)'
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Box2d(Segment2d)
+  nameWithType: Box2d.Box2d(Segment2d)
+  fullName: g3.Box2d.Box2d(g3.Segment2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Box2d(Segment2d seg)
+    parameters:
+    - id: seg
+      type: g3.Segment2d
+    content.vb: Public Sub New(seg As Segment2d)
+  overload: g3.Box2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Empty
+  commentId: F:g3.Box2d.Empty
+  id: Empty
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: Box2d.Empty
+  fullName: g3.Box2d.Empty
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Empty
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Box2d Empty
+    return:
+      type: g3.Box2d
+    content.vb: Public Shared ReadOnly Empty As Box2d
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Box2d.Axis(System.Int32)
+  commentId: M:g3.Box2d.Axis(System.Int32)
+  id: Axis(System.Int32)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Axis(Int32)
+  nameWithType: Box2d.Axis(Int32)
+  fullName: g3.Box2d.Axis(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Axis
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Axis(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function Axis(i As Integer) As Vector2d
+  overload: g3.Box2d.Axis*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.ComputeVertices
+  commentId: M:g3.Box2d.ComputeVertices
+  id: ComputeVertices
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: ComputeVertices()
+  nameWithType: Box2d.ComputeVertices()
+  fullName: g3.Box2d.ComputeVertices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeVertices
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d[] ComputeVertices()
+    return:
+      type: g3.Vector2d[]
+    content.vb: Public Function ComputeVertices As Vector2d()
+  overload: g3.Box2d.ComputeVertices*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.ComputeVertices(g3.Vector2d[])
+  commentId: M:g3.Box2d.ComputeVertices(g3.Vector2d[])
+  id: ComputeVertices(g3.Vector2d[])
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: ComputeVertices(Vector2d[])
+  nameWithType: Box2d.ComputeVertices(Vector2d[])
+  fullName: g3.Box2d.ComputeVertices(g3.Vector2d[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeVertices
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ComputeVertices(Vector2d[] vertex)
+    parameters:
+    - id: vertex
+      type: g3.Vector2d[]
+    content.vb: Public Sub ComputeVertices(vertex As Vector2d())
+  overload: g3.Box2d.ComputeVertices*
+  nameWithType.vb: Box2d.ComputeVertices(Vector2d())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Box2d.ComputeVertices(g3.Vector2d())
+  name.vb: ComputeVertices(Vector2d())
+- uid: g3.Box2d.ComputeVertices(g3.Vector2dTuple4@)
+  commentId: M:g3.Box2d.ComputeVertices(g3.Vector2dTuple4@)
+  id: ComputeVertices(g3.Vector2dTuple4@)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: ComputeVertices(ref Vector2dTuple4)
+  nameWithType: Box2d.ComputeVertices(ref Vector2dTuple4)
+  fullName: g3.Box2d.ComputeVertices(ref g3.Vector2dTuple4)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ComputeVertices
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 70
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ComputeVertices(ref Vector2dTuple4 vertex)
+    parameters:
+    - id: vertex
+      type: g3.Vector2dTuple4
+    content.vb: Public Sub ComputeVertices(ByRef vertex As Vector2dTuple4)
+  overload: g3.Box2d.ComputeVertices*
+  nameWithType.vb: Box2d.ComputeVertices(ByRef Vector2dTuple4)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Box2d.ComputeVertices(ByRef g3.Vector2dTuple4)
+  name.vb: ComputeVertices(ByRef Vector2dTuple4)
+- uid: g3.Box2d.MaxExtent
+  commentId: P:g3.Box2d.MaxExtent
+  id: MaxExtent
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: MaxExtent
+  nameWithType: Box2d.MaxExtent
+  fullName: g3.Box2d.MaxExtent
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaxExtent
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 81
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double MaxExtent { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property MaxExtent As Double
+  overload: g3.Box2d.MaxExtent*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box2d.MinExtent
+  commentId: P:g3.Box2d.MinExtent
+  id: MinExtent
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: MinExtent
+  nameWithType: Box2d.MinExtent
+  fullName: g3.Box2d.MinExtent
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinExtent
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double MinExtent { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property MinExtent As Double
+  overload: g3.Box2d.MinExtent*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box2d.Diagonal
+  commentId: P:g3.Box2d.Diagonal
+  id: Diagonal
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Diagonal
+  nameWithType: Box2d.Diagonal
+  fullName: g3.Box2d.Diagonal
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Diagonal
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 87
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Diagonal { get; }
+    parameters: []
+    return:
+      type: g3.Vector2d
+    content.vb: Public ReadOnly Property Diagonal As Vector2d
+  overload: g3.Box2d.Diagonal*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box2d.Area
+  commentId: P:g3.Box2d.Area
+  id: Area
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Area
+  nameWithType: Box2d.Area
+  fullName: g3.Box2d.Area
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Area
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Area { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Area As Double
+  overload: g3.Box2d.Area*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Box2d.Contain(g3.Vector2d)
+  commentId: M:g3.Box2d.Contain(g3.Vector2d)
+  id: Contain(g3.Vector2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Contain(Vector2d)
+  nameWithType: Box2d.Contain(Vector2d)
+  fullName: g3.Box2d.Contain(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contain
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Contain(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    content.vb: Public Sub Contain(v As Vector2d)
+  overload: g3.Box2d.Contain*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Contain(g3.Box2d)
+  commentId: M:g3.Box2d.Contain(g3.Box2d)
+  id: Contain(g3.Box2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Contain(Box2d)
+  nameWithType: Box2d.Contain(Box2d)
+  fullName: g3.Box2d.Contain(g3.Box2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contain
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 113
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Contain(Box2d o)
+    parameters:
+    - id: o
+      type: g3.Box2d
+    content.vb: Public Sub Contain(o As Box2d)
+  overload: g3.Box2d.Contain*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Contains(g3.Vector2d)
+  commentId: M:g3.Box2d.Contains(g3.Vector2d)
+  id: Contains(g3.Vector2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Contains(Vector2d)
+  nameWithType: Box2d.Contains(Vector2d)
+  fullName: g3.Box2d.Contains(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 119
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Contains(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(v As Vector2d) As Boolean
+  overload: g3.Box2d.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Expand(System.Double)
+  commentId: M:g3.Box2d.Expand(System.Double)
+  id: Expand(System.Double)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Expand(Double)
+  nameWithType: Box2d.Expand(Double)
+  fullName: g3.Box2d.Expand(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Expand
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 125
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Expand(double f)
+    parameters:
+    - id: f
+      type: System.Double
+    content.vb: Public Sub Expand(f As Double)
+  overload: g3.Box2d.Expand*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Translate(g3.Vector2d)
+  commentId: M:g3.Box2d.Translate(g3.Vector2d)
+  id: Translate(g3.Vector2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Translate(Vector2d)
+  nameWithType: Box2d.Translate(Vector2d)
+  fullName: g3.Box2d.Translate(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 129
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Translate(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    content.vb: Public Sub Translate(v As Vector2d)
+  overload: g3.Box2d.Translate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.RotateAxes(g3.Matrix2d)
+  commentId: M:g3.Box2d.RotateAxes(g3.Matrix2d)
+  id: RotateAxes(g3.Matrix2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: RotateAxes(Matrix2d)
+  nameWithType: Box2d.RotateAxes(Matrix2d)
+  fullName: g3.Box2d.RotateAxes(g3.Matrix2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RotateAxes
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 133
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void RotateAxes(Matrix2d m)
+    parameters:
+    - id: m
+      type: g3.Matrix2d
+    content.vb: Public Sub RotateAxes(m As Matrix2d)
+  overload: g3.Box2d.RotateAxes*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.DistanceSquared(g3.Vector2d)
+  commentId: M:g3.Box2d.DistanceSquared(g3.Vector2d)
+  id: DistanceSquared(g3.Vector2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2d)
+  nameWithType: Box2d.DistanceSquared(Vector2d)
+  fullName: g3.Box2d.DistanceSquared(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 147
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nReturns distance to box, or 0 if point is inside box.\nPorted from WildMagic5 Wm5DistPoint2Box2.cpp\n"
+  example: []
+  syntax:
+    content: public double DistanceSquared(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(v As Vector2d) As Double
+  overload: g3.Box2d.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.ClosestPoint(g3.Vector2d)
+  commentId: M:g3.Box2d.ClosestPoint(g3.Vector2d)
+  id: ClosestPoint(g3.Vector2d)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: ClosestPoint(Vector2d)
+  nameWithType: Box2d.ClosestPoint(Vector2d)
+  fullName: g3.Box2d.ClosestPoint(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ClosestPoint
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 176
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d ClosestPoint(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function ClosestPoint(v As Vector2d) As Vector2d
+  overload: g3.Box2d.ClosestPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Box2d.Merge(g3.Box2d@,g3.Box2d@)
+  commentId: M:g3.Box2d.Merge(g3.Box2d@,g3.Box2d@)
+  id: Merge(g3.Box2d@,g3.Box2d@)
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Merge(ref Box2d, ref Box2d)
+  nameWithType: Box2d.Merge(ref Box2d, ref Box2d)
+  fullName: g3.Box2d.Merge(ref g3.Box2d, ref g3.Box2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Merge
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 205
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Box2d Merge(ref Box2d box0, ref Box2d box1)
+    parameters:
+    - id: box0
+      type: g3.Box2d
+    - id: box1
+      type: g3.Box2d
+    return:
+      type: g3.Box2d
+    content.vb: Public Shared Function Merge(ByRef box0 As Box2d, ByRef box1 As Box2d) As Box2d
+  overload: g3.Box2d.Merge*
+  nameWithType.vb: Box2d.Merge(ByRef Box2d, ByRef Box2d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Box2d.Merge(ByRef g3.Box2d, ByRef g3.Box2d)
+  name.vb: Merge(ByRef Box2d, ByRef Box2d)
+- uid: g3.Box2d.op_Implicit(g3.Box2f)~g3.Box2d
+  commentId: M:g3.Box2d.op_Implicit(g3.Box2f)~g3.Box2d
+  id: op_Implicit(g3.Box2f)~g3.Box2d
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Box2f to Box2d)
+  nameWithType: Box2d.Implicit(Box2f to Box2d)
+  fullName: g3.Box2d.Implicit(g3.Box2f to g3.Box2d)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 291
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static implicit operator Box2d(Box2f v)
+    parameters:
+    - id: v
+      type: g3.Box2f
+    return:
+      type: g3.Box2d
+    content.vb: Public Shared Widening Operator CType(v As Box2f) As Box2d
+  overload: g3.Box2d.op_Implicit*
+  nameWithType.vb: Box2d.Widening(Box2f to Box2d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Box2d.Widening(g3.Box2f to g3.Box2d)
+  name.vb: Widening(Box2f to Box2d)
+- uid: g3.Box2d.op_Explicit(g3.Box2d)~g3.Box2f
+  commentId: M:g3.Box2d.op_Explicit(g3.Box2d)~g3.Box2f
+  id: op_Explicit(g3.Box2d)~g3.Box2f
+  parent: g3.Box2d
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Box2d to Box2f)
+  nameWithType: Box2d.Explicit(Box2d to Box2f)
+  fullName: g3.Box2d.Explicit(g3.Box2d to g3.Box2f)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Box2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Box2.cs
+    startLine: 295
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Box2f(Box2d v)
+    parameters:
+    - id: v
+      type: g3.Box2d
+    return:
+      type: g3.Box2f
+    content.vb: Public Shared Narrowing Operator CType(v As Box2d) As Box2f
+  overload: g3.Box2d.op_Explicit*
+  nameWithType.vb: Box2d.Narrowing(Box2d to Box2f)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Box2d.Narrowing(g3.Box2d to g3.Box2f)
+  name.vb: Narrowing(Box2d to Box2f)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.Box2d.#ctor*
+  commentId: Overload:g3.Box2d.#ctor
+  name: Box2d
+  nameWithType: Box2d.Box2d
+  fullName: g3.Box2d.Box2d
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.Segment2d
+  commentId: T:g3.Segment2d
+  parent: g3
+  name: Segment2d
+  nameWithType: Segment2d
+  fullName: g3.Segment2d
+- uid: g3.Box2d
+  commentId: T:g3.Box2d
+  parent: g3
+  name: Box2d
+  nameWithType: Box2d
+  fullName: g3.Box2d
+- uid: g3.Box2d.Axis*
+  commentId: Overload:g3.Box2d.Axis
+  name: Axis
+  nameWithType: Box2d.Axis
+  fullName: g3.Box2d.Axis
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Box2d.ComputeVertices*
+  commentId: Overload:g3.Box2d.ComputeVertices
+  name: ComputeVertices
+  nameWithType: Box2d.ComputeVertices
+  fullName: g3.Box2d.ComputeVertices
+- uid: g3.Vector2d[]
+  isExternal: true
+  name: Vector2d[]
+  nameWithType: Vector2d[]
+  fullName: g3.Vector2d[]
+  nameWithType.vb: Vector2d()
+  fullName.vb: g3.Vector2d()
+  name.vb: Vector2d()
+  spec.csharp:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Vector2dTuple4
+  commentId: T:g3.Vector2dTuple4
+  parent: g3
+  name: Vector2dTuple4
+  nameWithType: Vector2dTuple4
+  fullName: g3.Vector2dTuple4
+- uid: g3.Box2d.MaxExtent*
+  commentId: Overload:g3.Box2d.MaxExtent
+  name: MaxExtent
+  nameWithType: Box2d.MaxExtent
+  fullName: g3.Box2d.MaxExtent
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Box2d.MinExtent*
+  commentId: Overload:g3.Box2d.MinExtent
+  name: MinExtent
+  nameWithType: Box2d.MinExtent
+  fullName: g3.Box2d.MinExtent
+- uid: g3.Box2d.Diagonal*
+  commentId: Overload:g3.Box2d.Diagonal
+  name: Diagonal
+  nameWithType: Box2d.Diagonal
+  fullName: g3.Box2d.Diagonal
+- uid: g3.Box2d.Area*
+  commentId: Overload:g3.Box2d.Area
+  name: Area
+  nameWithType: Box2d.Area
+  fullName: g3.Box2d.Area
+- uid: g3.Box2d.Contain*
+  commentId: Overload:g3.Box2d.Contain
+  name: Contain
+  nameWithType: Box2d.Contain
+  fullName: g3.Box2d.Contain
+- uid: g3.Box2d.Contains*
+  commentId: Overload:g3.Box2d.Contains
+  name: Contains
+  nameWithType: Box2d.Contains
+  fullName: g3.Box2d.Contains
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Box2d.Expand*
+  commentId: Overload:g3.Box2d.Expand
+  name: Expand
+  nameWithType: Box2d.Expand
+  fullName: g3.Box2d.Expand
+- uid: g3.Box2d.Translate*
+  commentId: Overload:g3.Box2d.Translate
+  name: Translate
+  nameWithType: Box2d.Translate
+  fullName: g3.Box2d.Translate
+- uid: g3.Box2d.RotateAxes*
+  commentId: Overload:g3.Box2d.RotateAxes
+  name: RotateAxes
+  nameWithType: Box2d.RotateAxes
+  fullName: g3.Box2d.RotateAxes
+- uid: g3.Matrix2d
+  commentId: T:g3.Matrix2d
+  parent: g3
+  name: Matrix2d
+  nameWithType: Matrix2d
+  fullName: g3.Matrix2d
+- uid: g3.Box2d.DistanceSquared*
+  commentId: Overload:g3.Box2d.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Box2d.DistanceSquared
+  fullName: g3.Box2d.DistanceSquared
+- uid: g3.Box2d.ClosestPoint*
+  commentId: Overload:g3.Box2d.ClosestPoint
+  name: ClosestPoint
+  nameWithType: Box2d.ClosestPoint
+  fullName: g3.Box2d.ClosestPoint
+- uid: g3.Box2d.Merge*
+  commentId: Overload:g3.Box2d.Merge
+  name: Merge
+  nameWithType: Box2d.Merge
+  fullName: g3.Box2d.Merge
+- uid: g3.Box2d.op_Implicit*
+  commentId: Overload:g3.Box2d.op_Implicit
+  name: Implicit
+  nameWithType: Box2d.Implicit
+  fullName: g3.Box2d.Implicit
+  nameWithType.vb: Box2d.Widening
+  fullName.vb: g3.Box2d.Widening
+  name.vb: Widening
+- uid: g3.Box2f
+  commentId: T:g3.Box2f
+  parent: g3
+  name: Box2f
+  nameWithType: Box2f
+  fullName: g3.Box2f
+- uid: g3.Box2d.op_Explicit*
+  commentId: Overload:g3.Box2d.op_Explicit
+  name: Explicit
+  nameWithType: Box2d.Explicit
+  fullName: g3.Box2d.Explicit
+  nameWithType.vb: Box2d.Narrowing
+  fullName.vb: g3.Box2d.Narrowing
+  name.vb: Narrowing

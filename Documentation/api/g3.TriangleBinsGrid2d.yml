@@ -1,0 +1,793 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.TriangleBinsGrid2d
+  commentId: T:g3.TriangleBinsGrid2d
+  id: TriangleBinsGrid2d
+  parent: g3
+  children:
+  - g3.TriangleBinsGrid2d.#ctor(g3.AxisAlignedBox2d,System.Int32)
+  - g3.TriangleBinsGrid2d.Bounds
+  - g3.TriangleBinsGrid2d.FindContainingTriangle(g3.Vector2d,System.Func{System.Int32,g3.Vector2d,System.Boolean},System.Func{System.Int32,System.Boolean})
+  - g3.TriangleBinsGrid2d.FindTrianglesInRange(g3.AxisAlignedBox2d,System.Collections.Generic.HashSet{System.Int32})
+  - g3.TriangleBinsGrid2d.InsertTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  - g3.TriangleBinsGrid2d.InsertTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  - g3.TriangleBinsGrid2d.RemoveTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  - g3.TriangleBinsGrid2d.RemoveTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  langs:
+  - csharp
+  - vb
+  name: TriangleBinsGrid2d
+  nameWithType: TriangleBinsGrid2d
+  fullName: g3.TriangleBinsGrid2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TriangleBinsGrid2d
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nThis class is a spatial data structure for 2D triangles. It is intended\nfor point-containment and box-overlap queries. It does not store the\ntriangles, only indices, so you must pass in the triangle vertices to add/remove\nfunctions, similar to PointHashGrid2d.\n\nHowever, unlike the hash classes, this one is based on a grid of &quot;bins&quot; which \nhas a fixed size, so you must provide a bounding box on construction. \nEach triangle is inserted into every bin that it overlaps. \n\n[TODO] currently each triangle is inserted into every bin that it&apos;s *bounding box*\noverlaps. Need conservative rasterization to improve this. Can implement by\ntesting each bin bbox for intersection w/ triangle\n"
+  example: []
+  syntax:
+    content: public class TriangleBinsGrid2d
+    content.vb: Public Class TriangleBinsGrid2d
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.TriangleBinsGrid2d.#ctor(g3.AxisAlignedBox2d,System.Int32)
+  commentId: M:g3.TriangleBinsGrid2d.#ctor(g3.AxisAlignedBox2d,System.Int32)
+  id: '#ctor(g3.AxisAlignedBox2d,System.Int32)'
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: TriangleBinsGrid2d(AxisAlignedBox2d, Int32)
+  nameWithType: TriangleBinsGrid2d.TriangleBinsGrid2d(AxisAlignedBox2d, Int32)
+  fullName: g3.TriangleBinsGrid2d.TriangleBinsGrid2d(g3.AxisAlignedBox2d, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n&quot;invalid&quot; value will be returned by queries if no valid result is found (eg bounded-distance query)\n"
+  example: []
+  syntax:
+    content: public TriangleBinsGrid2d(AxisAlignedBox2d bounds, int numCells)
+    parameters:
+    - id: bounds
+      type: g3.AxisAlignedBox2d
+    - id: numCells
+      type: System.Int32
+    content.vb: Public Sub New(bounds As AxisAlignedBox2d, numCells As Integer)
+  overload: g3.TriangleBinsGrid2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.TriangleBinsGrid2d.Bounds
+  commentId: P:g3.TriangleBinsGrid2d.Bounds
+  id: Bounds
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: TriangleBinsGrid2d.Bounds
+  fullName: g3.TriangleBinsGrid2d.Bounds
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d Bounds { get; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public ReadOnly Property Bounds As AxisAlignedBox2d
+  overload: g3.TriangleBinsGrid2d.Bounds*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.TriangleBinsGrid2d.InsertTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.TriangleBinsGrid2d.InsertTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  id: InsertTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: InsertTriangle(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  nameWithType: TriangleBinsGrid2d.InsertTriangle(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  fullName: g3.TriangleBinsGrid2d.InsertTriangle(System.Int32, ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertTriangle
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInsert triangle. This function is thread-safe, uses a SpinLock internally\n"
+  example: []
+  syntax:
+    content: public void InsertTriangle(int triangle_id, ref Vector2d a, ref Vector2d b, ref Vector2d c)
+    parameters:
+    - id: triangle_id
+      type: System.Int32
+    - id: a
+      type: g3.Vector2d
+    - id: b
+      type: g3.Vector2d
+    - id: c
+      type: g3.Vector2d
+    content.vb: Public Sub InsertTriangle(triangle_id As Integer, ByRef a As Vector2d, ByRef b As Vector2d, ByRef c As Vector2d)
+  overload: g3.TriangleBinsGrid2d.InsertTriangle*
+  nameWithType.vb: TriangleBinsGrid2d.InsertTriangle(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.TriangleBinsGrid2d.InsertTriangle(System.Int32, ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: InsertTriangle(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+- uid: g3.TriangleBinsGrid2d.InsertTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.TriangleBinsGrid2d.InsertTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  id: InsertTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: InsertTriangleUnsafe(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  nameWithType: TriangleBinsGrid2d.InsertTriangleUnsafe(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  fullName: g3.TriangleBinsGrid2d.InsertTriangleUnsafe(System.Int32, ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InsertTriangleUnsafe
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 66
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInsert triangle without locking / thread-safety\n"
+  example: []
+  syntax:
+    content: public void InsertTriangleUnsafe(int triangle_id, ref Vector2d a, ref Vector2d b, ref Vector2d c)
+    parameters:
+    - id: triangle_id
+      type: System.Int32
+    - id: a
+      type: g3.Vector2d
+    - id: b
+      type: g3.Vector2d
+    - id: c
+      type: g3.Vector2d
+    content.vb: Public Sub InsertTriangleUnsafe(triangle_id As Integer, ByRef a As Vector2d, ByRef b As Vector2d, ByRef c As Vector2d)
+  overload: g3.TriangleBinsGrid2d.InsertTriangleUnsafe*
+  nameWithType.vb: TriangleBinsGrid2d.InsertTriangleUnsafe(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.TriangleBinsGrid2d.InsertTriangleUnsafe(System.Int32, ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: InsertTriangleUnsafe(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+- uid: g3.TriangleBinsGrid2d.RemoveTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.TriangleBinsGrid2d.RemoveTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  id: RemoveTriangle(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangle(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  nameWithType: TriangleBinsGrid2d.RemoveTriangle(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  fullName: g3.TriangleBinsGrid2d.RemoveTriangle(System.Int32, ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangle
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 75
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove triangle. This function is thread-safe, uses a SpinLock internally\n"
+  example: []
+  syntax:
+    content: public void RemoveTriangle(int triangle_id, ref Vector2d a, ref Vector2d b, ref Vector2d c)
+    parameters:
+    - id: triangle_id
+      type: System.Int32
+    - id: a
+      type: g3.Vector2d
+    - id: b
+      type: g3.Vector2d
+    - id: c
+      type: g3.Vector2d
+    content.vb: Public Sub RemoveTriangle(triangle_id As Integer, ByRef a As Vector2d, ByRef b As Vector2d, ByRef c As Vector2d)
+  overload: g3.TriangleBinsGrid2d.RemoveTriangle*
+  nameWithType.vb: TriangleBinsGrid2d.RemoveTriangle(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.TriangleBinsGrid2d.RemoveTriangle(System.Int32, ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: RemoveTriangle(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+- uid: g3.TriangleBinsGrid2d.RemoveTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  commentId: M:g3.TriangleBinsGrid2d.RemoveTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  id: RemoveTriangleUnsafe(System.Int32,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@)
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: RemoveTriangleUnsafe(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  nameWithType: TriangleBinsGrid2d.RemoveTriangleUnsafe(Int32, ref Vector2d, ref Vector2d, ref Vector2d)
+  fullName: g3.TriangleBinsGrid2d.RemoveTriangleUnsafe(System.Int32, ref g3.Vector2d, ref g3.Vector2d, ref g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemoveTriangleUnsafe
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove triangle without locking / thread-safety\n"
+  example: []
+  syntax:
+    content: public void RemoveTriangleUnsafe(int triangle_id, ref Vector2d a, ref Vector2d b, ref Vector2d c)
+    parameters:
+    - id: triangle_id
+      type: System.Int32
+    - id: a
+      type: g3.Vector2d
+    - id: b
+      type: g3.Vector2d
+    - id: c
+      type: g3.Vector2d
+    content.vb: Public Sub RemoveTriangleUnsafe(triangle_id As Integer, ByRef a As Vector2d, ByRef b As Vector2d, ByRef c As Vector2d)
+  overload: g3.TriangleBinsGrid2d.RemoveTriangleUnsafe*
+  nameWithType.vb: TriangleBinsGrid2d.RemoveTriangleUnsafe(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.TriangleBinsGrid2d.RemoveTriangleUnsafe(System.Int32, ByRef g3.Vector2d, ByRef g3.Vector2d, ByRef g3.Vector2d)
+  name.vb: RemoveTriangleUnsafe(Int32, ByRef Vector2d, ByRef Vector2d, ByRef Vector2d)
+- uid: g3.TriangleBinsGrid2d.FindContainingTriangle(g3.Vector2d,System.Func{System.Int32,g3.Vector2d,System.Boolean},System.Func{System.Int32,System.Boolean})
+  commentId: M:g3.TriangleBinsGrid2d.FindContainingTriangle(g3.Vector2d,System.Func{System.Int32,g3.Vector2d,System.Boolean},System.Func{System.Int32,System.Boolean})
+  id: FindContainingTriangle(g3.Vector2d,System.Func{System.Int32,g3.Vector2d,System.Boolean},System.Func{System.Int32,System.Boolean})
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: FindContainingTriangle(Vector2d, Func<Int32, Vector2d, Boolean>, Func<Int32, Boolean>)
+  nameWithType: TriangleBinsGrid2d.FindContainingTriangle(Vector2d, Func<Int32, Vector2d, Boolean>, Func<Int32, Boolean>)
+  fullName: g3.TriangleBinsGrid2d.FindContainingTriangle(g3.Vector2d, System.Func<System.Int32, g3.Vector2d, System.Boolean>, System.Func<System.Int32, System.Boolean>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindContainingTriangle
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind triangle that contains point. Not thread-safe.\nYou provide containsF(), which does the containment check.\nIf you provide ignoreF(), then tri is skipped if ignoreF(tid) == true\n"
+  example: []
+  syntax:
+    content: public int FindContainingTriangle(Vector2d query_pt, Func<int, Vector2d, bool> containsF, Func<int, bool> ignoreF = null)
+    parameters:
+    - id: query_pt
+      type: g3.Vector2d
+    - id: containsF
+      type: System.Func{System.Int32,g3.Vector2d,System.Boolean}
+    - id: ignoreF
+      type: System.Func{System.Int32,System.Boolean}
+    return:
+      type: System.Int32
+    content.vb: Public Function FindContainingTriangle(query_pt As Vector2d, containsF As Func(Of Integer, Vector2d, Boolean), ignoreF As Func(Of Integer, Boolean) = Nothing) As Integer
+  overload: g3.TriangleBinsGrid2d.FindContainingTriangle*
+  nameWithType.vb: TriangleBinsGrid2d.FindContainingTriangle(Vector2d, Func(Of Int32, Vector2d, Boolean), Func(Of Int32, Boolean))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.TriangleBinsGrid2d.FindContainingTriangle(g3.Vector2d, System.Func(Of System.Int32, g3.Vector2d, System.Boolean), System.Func(Of System.Int32, System.Boolean))
+  name.vb: FindContainingTriangle(Vector2d, Func(Of Int32, Vector2d, Boolean), Func(Of Int32, Boolean))
+- uid: g3.TriangleBinsGrid2d.FindTrianglesInRange(g3.AxisAlignedBox2d,System.Collections.Generic.HashSet{System.Int32})
+  commentId: M:g3.TriangleBinsGrid2d.FindTrianglesInRange(g3.AxisAlignedBox2d,System.Collections.Generic.HashSet{System.Int32})
+  id: FindTrianglesInRange(g3.AxisAlignedBox2d,System.Collections.Generic.HashSet{System.Int32})
+  parent: g3.TriangleBinsGrid2d
+  langs:
+  - csharp
+  - vb
+  name: FindTrianglesInRange(AxisAlignedBox2d, HashSet<Int32>)
+  nameWithType: TriangleBinsGrid2d.FindTrianglesInRange(AxisAlignedBox2d, HashSet<Int32>)
+  fullName: g3.TriangleBinsGrid2d.FindTrianglesInRange(g3.AxisAlignedBox2d, System.Collections.Generic.HashSet<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindTrianglesInRange
+    path: ../Assets/geometry3Sharp/spatial/TriangleBinsGrid2d.cs
+    startLine: 122
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nfind all triangles that overlap range\n"
+  example: []
+  syntax:
+    content: public void FindTrianglesInRange(AxisAlignedBox2d range, HashSet<int> triangles)
+    parameters:
+    - id: range
+      type: g3.AxisAlignedBox2d
+    - id: triangles
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Sub FindTrianglesInRange(range As AxisAlignedBox2d, triangles As HashSet(Of Integer))
+  overload: g3.TriangleBinsGrid2d.FindTrianglesInRange*
+  nameWithType.vb: TriangleBinsGrid2d.FindTrianglesInRange(AxisAlignedBox2d, HashSet(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.TriangleBinsGrid2d.FindTrianglesInRange(g3.AxisAlignedBox2d, System.Collections.Generic.HashSet(Of System.Int32))
+  name.vb: FindTrianglesInRange(AxisAlignedBox2d, HashSet(Of Int32))
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.TriangleBinsGrid2d.#ctor*
+  commentId: Overload:g3.TriangleBinsGrid2d.#ctor
+  name: TriangleBinsGrid2d
+  nameWithType: TriangleBinsGrid2d.TriangleBinsGrid2d
+  fullName: g3.TriangleBinsGrid2d.TriangleBinsGrid2d
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.TriangleBinsGrid2d.Bounds*
+  commentId: Overload:g3.TriangleBinsGrid2d.Bounds
+  name: Bounds
+  nameWithType: TriangleBinsGrid2d.Bounds
+  fullName: g3.TriangleBinsGrid2d.Bounds
+- uid: g3.TriangleBinsGrid2d.InsertTriangle*
+  commentId: Overload:g3.TriangleBinsGrid2d.InsertTriangle
+  name: InsertTriangle
+  nameWithType: TriangleBinsGrid2d.InsertTriangle
+  fullName: g3.TriangleBinsGrid2d.InsertTriangle
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.TriangleBinsGrid2d.InsertTriangleUnsafe*
+  commentId: Overload:g3.TriangleBinsGrid2d.InsertTriangleUnsafe
+  name: InsertTriangleUnsafe
+  nameWithType: TriangleBinsGrid2d.InsertTriangleUnsafe
+  fullName: g3.TriangleBinsGrid2d.InsertTriangleUnsafe
+- uid: g3.TriangleBinsGrid2d.RemoveTriangle*
+  commentId: Overload:g3.TriangleBinsGrid2d.RemoveTriangle
+  name: RemoveTriangle
+  nameWithType: TriangleBinsGrid2d.RemoveTriangle
+  fullName: g3.TriangleBinsGrid2d.RemoveTriangle
+- uid: g3.TriangleBinsGrid2d.RemoveTriangleUnsafe*
+  commentId: Overload:g3.TriangleBinsGrid2d.RemoveTriangleUnsafe
+  name: RemoveTriangleUnsafe
+  nameWithType: TriangleBinsGrid2d.RemoveTriangleUnsafe
+  fullName: g3.TriangleBinsGrid2d.RemoveTriangleUnsafe
+- uid: g3.TriangleBinsGrid2d.FindContainingTriangle*
+  commentId: Overload:g3.TriangleBinsGrid2d.FindContainingTriangle
+  name: FindContainingTriangle
+  nameWithType: TriangleBinsGrid2d.FindContainingTriangle
+  fullName: g3.TriangleBinsGrid2d.FindContainingTriangle
+- uid: System.Func{System.Int32,g3.Vector2d,System.Boolean}
+  commentId: T:System.Func{System.Int32,g3.Vector2d,System.Boolean}
+  parent: System
+  definition: System.Func`3
+  name: Func<Int32, Vector2d, Boolean>
+  nameWithType: Func<Int32, Vector2d, Boolean>
+  fullName: System.Func<System.Int32, g3.Vector2d, System.Boolean>
+  nameWithType.vb: Func(Of Int32, Vector2d, Boolean)
+  fullName.vb: System.Func(Of System.Int32, g3.Vector2d, System.Boolean)
+  name.vb: Func(Of Int32, Vector2d, Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Int32,System.Boolean}
+  commentId: T:System.Func{System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Boolean>
+  nameWithType: Func<Int32, Boolean>
+  fullName: System.Func<System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of Int32, Boolean)
+  fullName.vb: System.Func(Of System.Int32, System.Boolean)
+  name.vb: Func(Of Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.TriangleBinsGrid2d.FindTrianglesInRange*
+  commentId: Overload:g3.TriangleBinsGrid2d.FindTrianglesInRange
+  name: FindTrianglesInRange
+  nameWithType: TriangleBinsGrid2d.FindTrianglesInRange
+  fullName: g3.TriangleBinsGrid2d.FindTrianglesInRange
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Int32>
+  nameWithType: HashSet<Int32>
+  fullName: System.Collections.Generic.HashSet<System.Int32>
+  nameWithType.vb: HashSet(Of Int32)
+  fullName.vb: System.Collections.Generic.HashSet(Of System.Int32)
+  name.vb: HashSet(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic

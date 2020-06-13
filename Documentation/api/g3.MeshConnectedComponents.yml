@@ -1,0 +1,1228 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshConnectedComponents
+  commentId: T:g3.MeshConnectedComponents
+  id: MeshConnectedComponents
+  parent: g3
+  children:
+  - g3.MeshConnectedComponents.#ctor(g3.DMesh3)
+  - g3.MeshConnectedComponents.Components
+  - g3.MeshConnectedComponents.Count
+  - g3.MeshConnectedComponents.FilterF
+  - g3.MeshConnectedComponents.FilterSet
+  - g3.MeshConnectedComponents.FindConnectedT
+  - g3.MeshConnectedComponents.FindConnectedT(g3.DMesh3,System.Int32)
+  - g3.MeshConnectedComponents.GetEnumerator
+  - g3.MeshConnectedComponents.Item(System.Int32)
+  - g3.MeshConnectedComponents.LargestByCount
+  - g3.MeshConnectedComponents.LargestT(g3.DMesh3)
+  - g3.MeshConnectedComponents.Mesh
+  - g3.MeshConnectedComponents.SeedFilterF
+  - g3.MeshConnectedComponents.Separate(g3.DMesh3)
+  - g3.MeshConnectedComponents.SortByCount(System.Boolean)
+  - g3.MeshConnectedComponents.SortByValue(System.Func{g3.MeshConnectedComponents.Component,System.Double},System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: MeshConnectedComponents
+  nameWithType: MeshConnectedComponents
+  fullName: g3.MeshConnectedComponents
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshConnectedComponents
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 6
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class MeshConnectedComponents : IEnumerable<MeshConnectedComponents.Component>, IEnumerable'
+    content.vb: >-
+      Public Class MeshConnectedComponents
+          Implements IEnumerable(Of MeshConnectedComponents.Component), IEnumerable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshConnectedComponents.Mesh
+  commentId: F:g3.MeshConnectedComponents.Mesh
+  id: Mesh
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshConnectedComponents.Mesh
+  fullName: g3.MeshConnectedComponents.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.FilterSet
+  commentId: F:g3.MeshConnectedComponents.FilterSet
+  id: FilterSet
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: FilterSet
+  nameWithType: MeshConnectedComponents.FilterSet
+  fullName: g3.MeshConnectedComponents.FilterSet
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FilterSet
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<int> FilterSet
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public FilterSet As IEnumerable(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.FilterF
+  commentId: F:g3.MeshConnectedComponents.FilterF
+  id: FilterF
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: FilterF
+  nameWithType: MeshConnectedComponents.FilterF
+  fullName: g3.MeshConnectedComponents.FilterF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FilterF
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<int, bool> FilterF
+    return:
+      type: System.Func{System.Int32,System.Boolean}
+    content.vb: Public FilterF As Func(Of Integer, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.SeedFilterF
+  commentId: F:g3.MeshConnectedComponents.SeedFilterF
+  id: SeedFilterF
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: SeedFilterF
+  nameWithType: MeshConnectedComponents.SeedFilterF
+  fullName: g3.MeshConnectedComponents.SeedFilterF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SeedFilterF
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<int, bool> SeedFilterF
+    return:
+      type: System.Func{System.Int32,System.Boolean}
+    content.vb: Public SeedFilterF As Func(Of Integer, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.Components
+  commentId: F:g3.MeshConnectedComponents.Components
+  id: Components
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: Components
+  nameWithType: MeshConnectedComponents.Components
+  fullName: g3.MeshConnectedComponents.Components
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Components
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<MeshConnectedComponents.Component> Components
+    return:
+      type: System.Collections.Generic.List{g3.MeshConnectedComponents.Component}
+    content.vb: Public Components As List(Of MeshConnectedComponents.Component)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.#ctor(g3.DMesh3)
+  commentId: M:g3.MeshConnectedComponents.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: MeshConnectedComponents(DMesh3)
+  nameWithType: MeshConnectedComponents.MeshConnectedComponents(DMesh3)
+  fullName: g3.MeshConnectedComponents.MeshConnectedComponents(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshConnectedComponents(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub New(mesh As DMesh3)
+  overload: g3.MeshConnectedComponents.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.Count
+  commentId: P:g3.MeshConnectedComponents.Count
+  id: Count
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: MeshConnectedComponents.Count
+  fullName: g3.MeshConnectedComponents.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: g3.MeshConnectedComponents.Count*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshConnectedComponents.Item(System.Int32)
+  commentId: P:g3.MeshConnectedComponents.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: MeshConnectedComponents.Item[Int32]
+  fullName: g3.MeshConnectedComponents.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshConnectedComponents.Component this[int index] { get; }
+    parameters:
+    - id: index
+      type: System.Int32
+    return:
+      type: g3.MeshConnectedComponents.Component
+    content.vb: Public ReadOnly Property Item(index As Integer) As MeshConnectedComponents.Component
+  overload: g3.MeshConnectedComponents.Item*
+  nameWithType.vb: MeshConnectedComponents.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.MeshConnectedComponents.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.MeshConnectedComponents.GetEnumerator
+  commentId: M:g3.MeshConnectedComponents.GetEnumerator
+  id: GetEnumerator
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: MeshConnectedComponents.GetEnumerator()
+  fullName: g3.MeshConnectedComponents.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<MeshConnectedComponents.Component> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{g3.MeshConnectedComponents.Component}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of MeshConnectedComponents.Component)
+  overload: g3.MeshConnectedComponents.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.LargestByCount
+  commentId: P:g3.MeshConnectedComponents.LargestByCount
+  id: LargestByCount
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: LargestByCount
+  nameWithType: MeshConnectedComponents.LargestByCount
+  fullName: g3.MeshConnectedComponents.LargestByCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LargestByCount
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int LargestByCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property LargestByCount As Integer
+  overload: g3.MeshConnectedComponents.LargestByCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshConnectedComponents.SortByCount(System.Boolean)
+  commentId: M:g3.MeshConnectedComponents.SortByCount(System.Boolean)
+  id: SortByCount(System.Boolean)
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: SortByCount(Boolean)
+  nameWithType: MeshConnectedComponents.SortByCount(Boolean)
+  fullName: g3.MeshConnectedComponents.SortByCount(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SortByCount
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 69
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SortByCount(bool bIncreasing = true)
+    parameters:
+    - id: bIncreasing
+      type: System.Boolean
+    content.vb: Public Sub SortByCount(bIncreasing As Boolean = True)
+  overload: g3.MeshConnectedComponents.SortByCount*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.SortByValue(System.Func{g3.MeshConnectedComponents.Component,System.Double},System.Boolean)
+  commentId: M:g3.MeshConnectedComponents.SortByValue(System.Func{g3.MeshConnectedComponents.Component,System.Double},System.Boolean)
+  id: SortByValue(System.Func{g3.MeshConnectedComponents.Component,System.Double},System.Boolean)
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: SortByValue(Func<MeshConnectedComponents.Component, Double>, Boolean)
+  nameWithType: MeshConnectedComponents.SortByValue(Func<MeshConnectedComponents.Component, Double>, Boolean)
+  fullName: g3.MeshConnectedComponents.SortByValue(System.Func<g3.MeshConnectedComponents.Component, System.Double>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SortByValue
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 82
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nEvaluate valueF for each component and sort by that\n"
+  example: []
+  syntax:
+    content: public void SortByValue(Func<MeshConnectedComponents.Component, double> valueF, bool bIncreasing = true)
+    parameters:
+    - id: valueF
+      type: System.Func{g3.MeshConnectedComponents.Component,System.Double}
+    - id: bIncreasing
+      type: System.Boolean
+    content.vb: Public Sub SortByValue(valueF As Func(Of MeshConnectedComponents.Component, Double), bIncreasing As Boolean = True)
+  overload: g3.MeshConnectedComponents.SortByValue*
+  nameWithType.vb: MeshConnectedComponents.SortByValue(Func(Of MeshConnectedComponents.Component, Double), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshConnectedComponents.SortByValue(System.Func(Of g3.MeshConnectedComponents.Component, System.Double), System.Boolean)
+  name.vb: SortByValue(Func(Of MeshConnectedComponents.Component, Double), Boolean)
+- uid: g3.MeshConnectedComponents.FindConnectedT
+  commentId: M:g3.MeshConnectedComponents.FindConnectedT
+  id: FindConnectedT
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: FindConnectedT()
+  nameWithType: MeshConnectedComponents.FindConnectedT()
+  fullName: g3.MeshConnectedComponents.FindConnectedT()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindConnectedT
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 96
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void FindConnectedT()
+    content.vb: Public Sub FindConnectedT
+  overload: g3.MeshConnectedComponents.FindConnectedT*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshConnectedComponents.Separate(g3.DMesh3)
+  commentId: M:g3.MeshConnectedComponents.Separate(g3.DMesh3)
+  id: Separate(g3.DMesh3)
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: Separate(DMesh3)
+  nameWithType: MeshConnectedComponents.Separate(DMesh3)
+  fullName: g3.MeshConnectedComponents.Separate(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Separate
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 196
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSeparate input mesh into disconnected shells.\nResulting array is sorted by decreasing triangle count.\n"
+  example: []
+  syntax:
+    content: public static DMesh3[] Separate(DMesh3 meshIn)
+    parameters:
+    - id: meshIn
+      type: g3.DMesh3
+    return:
+      type: g3.DMesh3[]
+    content.vb: Public Shared Function Separate(meshIn As DMesh3) As DMesh3()
+  overload: g3.MeshConnectedComponents.Separate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConnectedComponents.LargestT(g3.DMesh3)
+  commentId: M:g3.MeshConnectedComponents.LargestT(g3.DMesh3)
+  id: LargestT(g3.DMesh3)
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: LargestT(DMesh3)
+  nameWithType: MeshConnectedComponents.LargestT(DMesh3)
+  fullName: g3.MeshConnectedComponents.LargestT(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LargestT
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 217
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nextract largest shell of meshIn\n"
+  example: []
+  syntax:
+    content: public static DMesh3 LargestT(DMesh3 meshIn)
+    parameters:
+    - id: meshIn
+      type: g3.DMesh3
+    return:
+      type: g3.DMesh3
+    content.vb: Public Shared Function LargestT(meshIn As DMesh3) As DMesh3
+  overload: g3.MeshConnectedComponents.LargestT*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConnectedComponents.FindConnectedT(g3.DMesh3,System.Int32)
+  commentId: M:g3.MeshConnectedComponents.FindConnectedT(g3.DMesh3,System.Int32)
+  id: FindConnectedT(g3.DMesh3,System.Int32)
+  parent: g3.MeshConnectedComponents
+  langs:
+  - csharp
+  - vb
+  name: FindConnectedT(DMesh3, Int32)
+  nameWithType: MeshConnectedComponents.FindConnectedT(DMesh3, Int32)
+  fullName: g3.MeshConnectedComponents.FindConnectedT(g3.DMesh3, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindConnectedT
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshConnectedComponents.cs
+    startLine: 232
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nUtility function that finds set of triangles connected to tSeed. Does not use MeshConnectedComponents class.\n"
+  example: []
+  syntax:
+    content: public static HashSet<int> FindConnectedT(DMesh3 mesh, int tSeed)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: tSeed
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.HashSet{System.Int32}
+    content.vb: Public Shared Function FindConnectedT(mesh As DMesh3, tSeed As Integer) As HashSet(Of Integer)
+  overload: g3.MeshConnectedComponents.FindConnectedT*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Func{System.Int32,System.Boolean}
+  commentId: T:System.Func{System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Boolean>
+  nameWithType: Func<Int32, Boolean>
+  fullName: System.Func<System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of Int32, Boolean)
+  fullName.vb: System.Func(Of System.Int32, System.Boolean)
+  name.vb: Func(Of Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{g3.MeshConnectedComponents.Component}
+  commentId: T:System.Collections.Generic.List{g3.MeshConnectedComponents.Component}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<MeshConnectedComponents.Component>
+  nameWithType: List<MeshConnectedComponents.Component>
+  fullName: System.Collections.Generic.List<g3.MeshConnectedComponents.Component>
+  nameWithType.vb: List(Of MeshConnectedComponents.Component)
+  fullName.vb: System.Collections.Generic.List(Of g3.MeshConnectedComponents.Component)
+  name.vb: List(Of MeshConnectedComponents.Component)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.MeshConnectedComponents.Component
+    name: MeshConnectedComponents.Component
+    nameWithType: MeshConnectedComponents.Component
+    fullName: g3.MeshConnectedComponents.Component
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.MeshConnectedComponents.Component
+    name: MeshConnectedComponents.Component
+    nameWithType: MeshConnectedComponents.Component
+    fullName: g3.MeshConnectedComponents.Component
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshConnectedComponents.#ctor*
+  commentId: Overload:g3.MeshConnectedComponents.#ctor
+  name: MeshConnectedComponents
+  nameWithType: MeshConnectedComponents.MeshConnectedComponents
+  fullName: g3.MeshConnectedComponents.MeshConnectedComponents
+- uid: g3.MeshConnectedComponents.Count*
+  commentId: Overload:g3.MeshConnectedComponents.Count
+  name: Count
+  nameWithType: MeshConnectedComponents.Count
+  fullName: g3.MeshConnectedComponents.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshConnectedComponents.Item*
+  commentId: Overload:g3.MeshConnectedComponents.Item
+  name: Item
+  nameWithType: MeshConnectedComponents.Item
+  fullName: g3.MeshConnectedComponents.Item
+- uid: g3.MeshConnectedComponents.Component
+  commentId: T:g3.MeshConnectedComponents.Component
+  parent: g3
+  name: MeshConnectedComponents.Component
+  nameWithType: MeshConnectedComponents.Component
+  fullName: g3.MeshConnectedComponents.Component
+- uid: g3.MeshConnectedComponents.GetEnumerator*
+  commentId: Overload:g3.MeshConnectedComponents.GetEnumerator
+  name: GetEnumerator
+  nameWithType: MeshConnectedComponents.GetEnumerator
+  fullName: g3.MeshConnectedComponents.GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{g3.MeshConnectedComponents.Component}
+  commentId: T:System.Collections.Generic.IEnumerator{g3.MeshConnectedComponents.Component}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<MeshConnectedComponents.Component>
+  nameWithType: IEnumerator<MeshConnectedComponents.Component>
+  fullName: System.Collections.Generic.IEnumerator<g3.MeshConnectedComponents.Component>
+  nameWithType.vb: IEnumerator(Of MeshConnectedComponents.Component)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of g3.MeshConnectedComponents.Component)
+  name.vb: IEnumerator(Of MeshConnectedComponents.Component)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.MeshConnectedComponents.Component
+    name: MeshConnectedComponents.Component
+    nameWithType: MeshConnectedComponents.Component
+    fullName: g3.MeshConnectedComponents.Component
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.MeshConnectedComponents.Component
+    name: MeshConnectedComponents.Component
+    nameWithType: MeshConnectedComponents.Component
+    fullName: g3.MeshConnectedComponents.Component
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshConnectedComponents.LargestByCount*
+  commentId: Overload:g3.MeshConnectedComponents.LargestByCount
+  name: LargestByCount
+  nameWithType: MeshConnectedComponents.LargestByCount
+  fullName: g3.MeshConnectedComponents.LargestByCount
+- uid: g3.MeshConnectedComponents.SortByCount*
+  commentId: Overload:g3.MeshConnectedComponents.SortByCount
+  name: SortByCount
+  nameWithType: MeshConnectedComponents.SortByCount
+  fullName: g3.MeshConnectedComponents.SortByCount
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshConnectedComponents.SortByValue*
+  commentId: Overload:g3.MeshConnectedComponents.SortByValue
+  name: SortByValue
+  nameWithType: MeshConnectedComponents.SortByValue
+  fullName: g3.MeshConnectedComponents.SortByValue
+- uid: System.Func{g3.MeshConnectedComponents.Component,System.Double}
+  commentId: T:System.Func{g3.MeshConnectedComponents.Component,System.Double}
+  parent: System
+  definition: System.Func`2
+  name: Func<MeshConnectedComponents.Component, Double>
+  nameWithType: Func<MeshConnectedComponents.Component, Double>
+  fullName: System.Func<g3.MeshConnectedComponents.Component, System.Double>
+  nameWithType.vb: Func(Of MeshConnectedComponents.Component, Double)
+  fullName.vb: System.Func(Of g3.MeshConnectedComponents.Component, System.Double)
+  name.vb: Func(Of MeshConnectedComponents.Component, Double)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.MeshConnectedComponents.Component
+    name: MeshConnectedComponents.Component
+    nameWithType: MeshConnectedComponents.Component
+    fullName: g3.MeshConnectedComponents.Component
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.MeshConnectedComponents.Component
+    name: MeshConnectedComponents.Component
+    nameWithType: MeshConnectedComponents.Component
+    fullName: g3.MeshConnectedComponents.Component
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshConnectedComponents.FindConnectedT*
+  commentId: Overload:g3.MeshConnectedComponents.FindConnectedT
+  name: FindConnectedT
+  nameWithType: MeshConnectedComponents.FindConnectedT
+  fullName: g3.MeshConnectedComponents.FindConnectedT
+- uid: g3.MeshConnectedComponents.Separate*
+  commentId: Overload:g3.MeshConnectedComponents.Separate
+  name: Separate
+  nameWithType: MeshConnectedComponents.Separate
+  fullName: g3.MeshConnectedComponents.Separate
+- uid: g3.DMesh3[]
+  isExternal: true
+  name: DMesh3[]
+  nameWithType: DMesh3[]
+  fullName: g3.DMesh3[]
+  nameWithType.vb: DMesh3()
+  fullName.vb: g3.DMesh3()
+  name.vb: DMesh3()
+  spec.csharp:
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.MeshConnectedComponents.LargestT*
+  commentId: Overload:g3.MeshConnectedComponents.LargestT
+  name: LargestT
+  nameWithType: MeshConnectedComponents.LargestT
+  fullName: g3.MeshConnectedComponents.LargestT
+- uid: System.Collections.Generic.HashSet{System.Int32}
+  commentId: T:System.Collections.Generic.HashSet{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.HashSet`1
+  name: HashSet<Int32>
+  nameWithType: HashSet<Int32>
+  fullName: System.Collections.Generic.HashSet<System.Int32>
+  nameWithType.vb: HashSet(Of Int32)
+  fullName.vb: System.Collections.Generic.HashSet(Of System.Int32)
+  name.vb: HashSet(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.HashSet`1
+  commentId: T:System.Collections.Generic.HashSet`1
+  isExternal: true
+  name: HashSet<T>
+  nameWithType: HashSet<T>
+  fullName: System.Collections.Generic.HashSet<T>
+  nameWithType.vb: HashSet(Of T)
+  fullName.vb: System.Collections.Generic.HashSet(Of T)
+  name.vb: HashSet(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.HashSet`1
+    name: HashSet
+    nameWithType: HashSet
+    fullName: System.Collections.Generic.HashSet
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

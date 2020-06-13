@@ -1,0 +1,460 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.CachingMeshSDFImplicit
+  commentId: T:g3.CachingMeshSDFImplicit
+  id: CachingMeshSDFImplicit
+  parent: g3
+  children:
+  - g3.CachingMeshSDFImplicit.#ctor(g3.CachingMeshSDF)
+  - g3.CachingMeshSDFImplicit.Bounds
+  - g3.CachingMeshSDFImplicit.CellSize
+  - g3.CachingMeshSDFImplicit.Gradient(g3.Vector3d@)
+  - g3.CachingMeshSDFImplicit.GridOrigin
+  - g3.CachingMeshSDFImplicit.Outside
+  - g3.CachingMeshSDFImplicit.SDF
+  - g3.CachingMeshSDFImplicit.Value(g3.Vector3d@)
+  langs:
+  - csharp
+  - vb
+  name: CachingMeshSDFImplicit
+  nameWithType: CachingMeshSDFImplicit
+  fullName: g3.CachingMeshSDFImplicit
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CachingMeshSDFImplicit
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 416
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTri-linear interpolant for a 3D dense grid. Supports grid translation\nvia GridOrigin, but does not support scaling or rotation. If you need those,\nyou can wrap this in something that does the xform.\n"
+  example: []
+  syntax:
+    content: 'public class CachingMeshSDFImplicit : BoundedImplicitFunction3d, ImplicitFunction3d'
+    content.vb: >-
+      Public Class CachingMeshSDFImplicit
+          Implements BoundedImplicitFunction3d, ImplicitFunction3d
+  inheritance:
+  - System.Object
+  implements:
+  - g3.BoundedImplicitFunction3d
+  - g3.ImplicitFunction3d
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.CachingMeshSDFImplicit.SDF
+  commentId: F:g3.CachingMeshSDFImplicit.SDF
+  id: SDF
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: SDF
+  nameWithType: CachingMeshSDFImplicit.SDF
+  fullName: g3.CachingMeshSDFImplicit.SDF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SDF
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 418
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public CachingMeshSDF SDF
+    return:
+      type: g3.CachingMeshSDF
+    content.vb: Public SDF As CachingMeshSDF
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDFImplicit.CellSize
+  commentId: F:g3.CachingMeshSDFImplicit.CellSize
+  id: CellSize
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: CellSize
+  nameWithType: CachingMeshSDFImplicit.CellSize
+  fullName: g3.CachingMeshSDFImplicit.CellSize
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CellSize
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 419
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double CellSize
+    return:
+      type: System.Double
+    content.vb: Public CellSize As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDFImplicit.GridOrigin
+  commentId: F:g3.CachingMeshSDFImplicit.GridOrigin
+  id: GridOrigin
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: GridOrigin
+  nameWithType: CachingMeshSDFImplicit.GridOrigin
+  fullName: g3.CachingMeshSDFImplicit.GridOrigin
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GridOrigin
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 420
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d GridOrigin
+    return:
+      type: g3.Vector3d
+    content.vb: Public GridOrigin As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDFImplicit.Outside
+  commentId: F:g3.CachingMeshSDFImplicit.Outside
+  id: Outside
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: Outside
+  nameWithType: CachingMeshSDFImplicit.Outside
+  fullName: g3.CachingMeshSDFImplicit.Outside
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Outside
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 425
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Outside
+    return:
+      type: System.Double
+    content.vb: Public Outside As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDFImplicit.#ctor(g3.CachingMeshSDF)
+  commentId: M:g3.CachingMeshSDFImplicit.#ctor(g3.CachingMeshSDF)
+  id: '#ctor(g3.CachingMeshSDF)'
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: CachingMeshSDFImplicit(CachingMeshSDF)
+  nameWithType: CachingMeshSDFImplicit.CachingMeshSDFImplicit(CachingMeshSDF)
+  fullName: g3.CachingMeshSDFImplicit.CachingMeshSDFImplicit(g3.CachingMeshSDF)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 427
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public CachingMeshSDFImplicit(CachingMeshSDF sdf)
+    parameters:
+    - id: sdf
+      type: g3.CachingMeshSDF
+    content.vb: Public Sub New(sdf As CachingMeshSDF)
+  overload: g3.CachingMeshSDFImplicit.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDFImplicit.Bounds
+  commentId: M:g3.CachingMeshSDFImplicit.Bounds
+  id: Bounds
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: Bounds()
+  nameWithType: CachingMeshSDFImplicit.Bounds()
+  fullName: g3.CachingMeshSDFImplicit.Bounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 434
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox3d Bounds()
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Function Bounds As AxisAlignedBox3d
+  overload: g3.CachingMeshSDFImplicit.Bounds*
+  implements:
+  - g3.BoundedImplicitFunction3d.Bounds
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.CachingMeshSDFImplicit.Value(g3.Vector3d@)
+  commentId: M:g3.CachingMeshSDFImplicit.Value(g3.Vector3d@)
+  id: Value(g3.Vector3d@)
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: Value(ref Vector3d)
+  nameWithType: CachingMeshSDFImplicit.Value(ref Vector3d)
+  fullName: g3.CachingMeshSDFImplicit.Value(ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Value
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 444
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Value(ref Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Public Function Value(ByRef pt As Vector3d) As Double
+  overload: g3.CachingMeshSDFImplicit.Value*
+  implements:
+  - g3.ImplicitFunction3d.Value(g3.Vector3d@)
+  nameWithType.vb: CachingMeshSDFImplicit.Value(ByRef Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.CachingMeshSDFImplicit.Value(ByRef g3.Vector3d)
+  name.vb: Value(ByRef Vector3d)
+- uid: g3.CachingMeshSDFImplicit.Gradient(g3.Vector3d@)
+  commentId: M:g3.CachingMeshSDFImplicit.Gradient(g3.Vector3d@)
+  id: Gradient(g3.Vector3d@)
+  parent: g3.CachingMeshSDFImplicit
+  langs:
+  - csharp
+  - vb
+  name: Gradient(ref Vector3d)
+  nameWithType: CachingMeshSDFImplicit.Gradient(ref Vector3d)
+  fullName: g3.CachingMeshSDFImplicit.Gradient(ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Gradient
+    path: ../Assets/geometry3Sharp/implicit/CachingMeshSDF.cs
+    startLine: 516
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Gradient(ref Vector3d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function Gradient(ByRef pt As Vector3d) As Vector3d
+  overload: g3.CachingMeshSDFImplicit.Gradient*
+  nameWithType.vb: CachingMeshSDFImplicit.Gradient(ByRef Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.CachingMeshSDFImplicit.Gradient(ByRef g3.Vector3d)
+  name.vb: Gradient(ByRef Vector3d)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.BoundedImplicitFunction3d
+  commentId: T:g3.BoundedImplicitFunction3d
+  parent: g3
+  name: BoundedImplicitFunction3d
+  nameWithType: BoundedImplicitFunction3d
+  fullName: g3.BoundedImplicitFunction3d
+- uid: g3.ImplicitFunction3d
+  commentId: T:g3.ImplicitFunction3d
+  parent: g3
+  name: ImplicitFunction3d
+  nameWithType: ImplicitFunction3d
+  fullName: g3.ImplicitFunction3d
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.CachingMeshSDF
+  commentId: T:g3.CachingMeshSDF
+  parent: g3
+  name: CachingMeshSDF
+  nameWithType: CachingMeshSDF
+  fullName: g3.CachingMeshSDF
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.CachingMeshSDFImplicit.#ctor*
+  commentId: Overload:g3.CachingMeshSDFImplicit.#ctor
+  name: CachingMeshSDFImplicit
+  nameWithType: CachingMeshSDFImplicit.CachingMeshSDFImplicit
+  fullName: g3.CachingMeshSDFImplicit.CachingMeshSDFImplicit
+- uid: g3.CachingMeshSDFImplicit.Bounds*
+  commentId: Overload:g3.CachingMeshSDFImplicit.Bounds
+  name: Bounds
+  nameWithType: CachingMeshSDFImplicit.Bounds
+  fullName: g3.CachingMeshSDFImplicit.Bounds
+- uid: g3.BoundedImplicitFunction3d.Bounds
+  commentId: M:g3.BoundedImplicitFunction3d.Bounds
+  parent: g3.BoundedImplicitFunction3d
+  name: Bounds()
+  nameWithType: BoundedImplicitFunction3d.Bounds()
+  fullName: g3.BoundedImplicitFunction3d.Bounds()
+  spec.csharp:
+  - uid: g3.BoundedImplicitFunction3d.Bounds
+    name: Bounds
+    nameWithType: BoundedImplicitFunction3d.Bounds
+    fullName: g3.BoundedImplicitFunction3d.Bounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.BoundedImplicitFunction3d.Bounds
+    name: Bounds
+    nameWithType: BoundedImplicitFunction3d.Bounds
+    fullName: g3.BoundedImplicitFunction3d.Bounds
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: g3.CachingMeshSDFImplicit.Value*
+  commentId: Overload:g3.CachingMeshSDFImplicit.Value
+  name: Value
+  nameWithType: CachingMeshSDFImplicit.Value
+  fullName: g3.CachingMeshSDFImplicit.Value
+- uid: g3.ImplicitFunction3d.Value(g3.Vector3d@)
+  commentId: M:g3.ImplicitFunction3d.Value(g3.Vector3d@)
+  parent: g3.ImplicitFunction3d
+  name: Value(Vector3d)
+  nameWithType: ImplicitFunction3d.Value(Vector3d)
+  fullName: g3.ImplicitFunction3d.Value(g3.Vector3d)
+  spec.csharp:
+  - uid: g3.ImplicitFunction3d.Value(g3.Vector3d@)
+    name: Value
+    nameWithType: ImplicitFunction3d.Value
+    fullName: g3.ImplicitFunction3d.Value
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.ImplicitFunction3d.Value(g3.Vector3d@)
+    name: Value
+    nameWithType: ImplicitFunction3d.Value
+    fullName: g3.ImplicitFunction3d.Value
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CachingMeshSDFImplicit.Gradient*
+  commentId: Overload:g3.CachingMeshSDFImplicit.Gradient
+  name: Gradient
+  nameWithType: CachingMeshSDFImplicit.Gradient
+  fullName: g3.CachingMeshSDFImplicit.Gradient

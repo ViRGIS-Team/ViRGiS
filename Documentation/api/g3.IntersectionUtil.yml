@@ -1,0 +1,447 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IntersectionUtil
+  commentId: T:g3.IntersectionUtil
+  id: IntersectionUtil
+  parent: g3
+  children:
+  - g3.IntersectionUtil.Intersects(g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d)
+  - g3.IntersectionUtil.LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  - g3.IntersectionUtil.LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  - g3.IntersectionUtil.LineSphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  - g3.IntersectionUtil.RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  - g3.IntersectionUtil.RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  - g3.IntersectionUtil.RaySphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: IntersectionUtil
+  nameWithType: IntersectionUtil
+  fullName: g3.IntersectionUtil
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntersectionUtil
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class IntersectionUtil
+    content.vb: Public Module IntersectionUtil
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.IntersectionUtil.Intersects(g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d)
+  commentId: M:g3.IntersectionUtil.Intersects(g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d)
+  id: Intersects(g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d,g3.Vector3d)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: Intersects(Vector3d, Vector3d, Vector3d, Vector3d, Vector3d)
+  nameWithType: IntersectionUtil.Intersects(Vector3d, Vector3d, Vector3d, Vector3d, Vector3d)
+  fullName: g3.IntersectionUtil.Intersects(g3.Vector3d, g3.Vector3d, g3.Vector3d, g3.Vector3d, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Intersects
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool Intersects(Vector3d rayOrigin, Vector3d rayDirection, Vector3d V0, Vector3d V1, Vector3d V2)
+    parameters:
+    - id: rayOrigin
+      type: g3.Vector3d
+    - id: rayDirection
+      type: g3.Vector3d
+    - id: V0
+      type: g3.Vector3d
+    - id: V1
+      type: g3.Vector3d
+    - id: V2
+      type: g3.Vector3d
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Intersects(rayOrigin As Vector3d, rayDirection As Vector3d, V0 As Vector3d, V1 As Vector3d, V2 As Vector3d) As Boolean
+  overload: g3.IntersectionUtil.Intersects*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.IntersectionUtil.LineSphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  commentId: M:g3.IntersectionUtil.LineSphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  id: LineSphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: LineSphereTest(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  nameWithType: IntersectionUtil.LineSphereTest(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  fullName: g3.IntersectionUtil.LineSphereTest(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineSphereTest
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTest if line intersects sphere\n"
+  example: []
+  syntax:
+    content: public static bool LineSphereTest(ref Vector3d lineOrigin, ref Vector3d lineDirection, ref Vector3d sphereCenter, double sphereRadius)
+    parameters:
+    - id: lineOrigin
+      type: g3.Vector3d
+    - id: lineDirection
+      type: g3.Vector3d
+    - id: sphereCenter
+      type: g3.Vector3d
+    - id: sphereRadius
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function LineSphereTest(ByRef lineOrigin As Vector3d, ByRef lineDirection As Vector3d, ByRef sphereCenter As Vector3d, sphereRadius As Double) As Boolean
+  overload: g3.IntersectionUtil.LineSphereTest*
+  nameWithType.vb: IntersectionUtil.LineSphereTest(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntersectionUtil.LineSphereTest(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double)
+  name.vb: LineSphereTest(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+- uid: g3.IntersectionUtil.LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  commentId: M:g3.IntersectionUtil.LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  id: LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: LineSphere(ref Vector3d, ref Vector3d, ref Vector3d, Double, ref LinearIntersection)
+  nameWithType: IntersectionUtil.LineSphere(ref Vector3d, ref Vector3d, ref Vector3d, Double, ref LinearIntersection)
+  fullName: g3.IntersectionUtil.LineSphere(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double, ref g3.LinearIntersection)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineSphere
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nIntersect ray with sphere and return intersection info (# hits, ray parameters)\n"
+  example: []
+  syntax:
+    content: public static bool LineSphere(ref Vector3d lineOrigin, ref Vector3d lineDirection, ref Vector3d sphereCenter, double sphereRadius, ref LinearIntersection result)
+    parameters:
+    - id: lineOrigin
+      type: g3.Vector3d
+    - id: lineDirection
+      type: g3.Vector3d
+    - id: sphereCenter
+      type: g3.Vector3d
+    - id: sphereRadius
+      type: System.Double
+    - id: result
+      type: g3.LinearIntersection
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function LineSphere(ByRef lineOrigin As Vector3d, ByRef lineDirection As Vector3d, ByRef sphereCenter As Vector3d, sphereRadius As Double, ByRef result As LinearIntersection) As Boolean
+  overload: g3.IntersectionUtil.LineSphere*
+  nameWithType.vb: IntersectionUtil.LineSphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double, ByRef LinearIntersection)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntersectionUtil.LineSphere(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double, ByRef g3.LinearIntersection)
+  name.vb: LineSphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double, ByRef LinearIntersection)
+- uid: g3.IntersectionUtil.LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  commentId: M:g3.IntersectionUtil.LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  id: LineSphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: LineSphere(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  nameWithType: IntersectionUtil.LineSphere(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  fullName: g3.IntersectionUtil.LineSphere(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineSphere
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 146
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static LinearIntersection LineSphere(ref Vector3d lineOrigin, ref Vector3d lineDirection, ref Vector3d sphereCenter, double sphereRadius)
+    parameters:
+    - id: lineOrigin
+      type: g3.Vector3d
+    - id: lineDirection
+      type: g3.Vector3d
+    - id: sphereCenter
+      type: g3.Vector3d
+    - id: sphereRadius
+      type: System.Double
+    return:
+      type: g3.LinearIntersection
+    content.vb: Public Shared Function LineSphere(ByRef lineOrigin As Vector3d, ByRef lineDirection As Vector3d, ByRef sphereCenter As Vector3d, sphereRadius As Double) As LinearIntersection
+  overload: g3.IntersectionUtil.LineSphere*
+  nameWithType.vb: IntersectionUtil.LineSphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntersectionUtil.LineSphere(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double)
+  name.vb: LineSphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+- uid: g3.IntersectionUtil.RaySphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  commentId: M:g3.IntersectionUtil.RaySphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  id: RaySphereTest(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: RaySphereTest(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  nameWithType: IntersectionUtil.RaySphereTest(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  fullName: g3.IntersectionUtil.RaySphereTest(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RaySphereTest
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 158
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nTest if ray intersects sphere\n"
+  example: []
+  syntax:
+    content: public static bool RaySphereTest(ref Vector3d rayOrigin, ref Vector3d rayDirection, ref Vector3d sphereCenter, double sphereRadius)
+    parameters:
+    - id: rayOrigin
+      type: g3.Vector3d
+    - id: rayDirection
+      type: g3.Vector3d
+    - id: sphereCenter
+      type: g3.Vector3d
+    - id: sphereRadius
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RaySphereTest(ByRef rayOrigin As Vector3d, ByRef rayDirection As Vector3d, ByRef sphereCenter As Vector3d, sphereRadius As Double) As Boolean
+  overload: g3.IntersectionUtil.RaySphereTest*
+  nameWithType.vb: IntersectionUtil.RaySphereTest(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntersectionUtil.RaySphereTest(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double)
+  name.vb: RaySphereTest(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+- uid: g3.IntersectionUtil.RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  commentId: M:g3.IntersectionUtil.RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  id: RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,g3.LinearIntersection@)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: RaySphere(ref Vector3d, ref Vector3d, ref Vector3d, Double, ref LinearIntersection)
+  nameWithType: IntersectionUtil.RaySphere(ref Vector3d, ref Vector3d, ref Vector3d, Double, ref LinearIntersection)
+  fullName: g3.IntersectionUtil.RaySphere(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double, ref g3.LinearIntersection)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RaySphere
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 186
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nIntersect ray with sphere and return intersection info (# hits, ray parameters)\n"
+  example: []
+  syntax:
+    content: public static bool RaySphere(ref Vector3d rayOrigin, ref Vector3d rayDirection, ref Vector3d sphereCenter, double sphereRadius, ref LinearIntersection result)
+    parameters:
+    - id: rayOrigin
+      type: g3.Vector3d
+    - id: rayDirection
+      type: g3.Vector3d
+    - id: sphereCenter
+      type: g3.Vector3d
+    - id: sphereRadius
+      type: System.Double
+    - id: result
+      type: g3.LinearIntersection
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function RaySphere(ByRef rayOrigin As Vector3d, ByRef rayDirection As Vector3d, ByRef sphereCenter As Vector3d, sphereRadius As Double, ByRef result As LinearIntersection) As Boolean
+  overload: g3.IntersectionUtil.RaySphere*
+  nameWithType.vb: IntersectionUtil.RaySphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double, ByRef LinearIntersection)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntersectionUtil.RaySphere(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double, ByRef g3.LinearIntersection)
+  name.vb: RaySphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double, ByRef LinearIntersection)
+- uid: g3.IntersectionUtil.RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  commentId: M:g3.IntersectionUtil.RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  id: RaySphere(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double)
+  parent: g3.IntersectionUtil
+  langs:
+  - csharp
+  - vb
+  name: RaySphere(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  nameWithType: IntersectionUtil.RaySphere(ref Vector3d, ref Vector3d, ref Vector3d, Double)
+  fullName: g3.IntersectionUtil.RaySphere(ref g3.Vector3d, ref g3.Vector3d, ref g3.Vector3d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/IntersectionUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RaySphere
+    path: ../Assets/geometry3Sharp/queries/IntersectionUtil.cs
+    startLine: 206
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static LinearIntersection RaySphere(ref Vector3d rayOrigin, ref Vector3d rayDirection, ref Vector3d sphereCenter, double sphereRadius)
+    parameters:
+    - id: rayOrigin
+      type: g3.Vector3d
+    - id: rayDirection
+      type: g3.Vector3d
+    - id: sphereCenter
+      type: g3.Vector3d
+    - id: sphereRadius
+      type: System.Double
+    return:
+      type: g3.LinearIntersection
+    content.vb: Public Shared Function RaySphere(ByRef rayOrigin As Vector3d, ByRef rayDirection As Vector3d, ByRef sphereCenter As Vector3d, sphereRadius As Double) As LinearIntersection
+  overload: g3.IntersectionUtil.RaySphere*
+  nameWithType.vb: IntersectionUtil.RaySphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntersectionUtil.RaySphere(ByRef g3.Vector3d, ByRef g3.Vector3d, ByRef g3.Vector3d, System.Double)
+  name.vb: RaySphere(ByRef Vector3d, ByRef Vector3d, ByRef Vector3d, Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IntersectionUtil.Intersects*
+  commentId: Overload:g3.IntersectionUtil.Intersects
+  name: Intersects
+  nameWithType: IntersectionUtil.Intersects
+  fullName: g3.IntersectionUtil.Intersects
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.IntersectionUtil.LineSphereTest*
+  commentId: Overload:g3.IntersectionUtil.LineSphereTest
+  name: LineSphereTest
+  nameWithType: IntersectionUtil.LineSphereTest
+  fullName: g3.IntersectionUtil.LineSphereTest
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.IntersectionUtil.LineSphere*
+  commentId: Overload:g3.IntersectionUtil.LineSphere
+  name: LineSphere
+  nameWithType: IntersectionUtil.LineSphere
+  fullName: g3.IntersectionUtil.LineSphere
+- uid: g3.LinearIntersection
+  commentId: T:g3.LinearIntersection
+  parent: g3
+  name: LinearIntersection
+  nameWithType: LinearIntersection
+  fullName: g3.LinearIntersection
+- uid: g3.IntersectionUtil.RaySphereTest*
+  commentId: Overload:g3.IntersectionUtil.RaySphereTest
+  name: RaySphereTest
+  nameWithType: IntersectionUtil.RaySphereTest
+  fullName: g3.IntersectionUtil.RaySphereTest
+- uid: g3.IntersectionUtil.RaySphere*
+  commentId: Overload:g3.IntersectionUtil.RaySphere
+  name: RaySphere
+  nameWithType: IntersectionUtil.RaySphere
+  fullName: g3.IntersectionUtil.RaySphere

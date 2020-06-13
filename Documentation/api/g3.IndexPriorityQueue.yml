@@ -1,0 +1,818 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IndexPriorityQueue
+  commentId: T:g3.IndexPriorityQueue
+  id: IndexPriorityQueue
+  parent: g3
+  children:
+  - g3.IndexPriorityQueue.#ctor(System.Int32)
+  - g3.IndexPriorityQueue.Clear(System.Boolean)
+  - g3.IndexPriorityQueue.Contains(System.Int32)
+  - g3.IndexPriorityQueue.Count
+  - g3.IndexPriorityQueue.DebugPrint
+  - g3.IndexPriorityQueue.Dequeue
+  - g3.IndexPriorityQueue.EnableDebugChecks
+  - g3.IndexPriorityQueue.Enqueue(System.Int32,System.Single)
+  - g3.IndexPriorityQueue.First
+  - g3.IndexPriorityQueue.FirstPriority
+  - g3.IndexPriorityQueue.GetEnumerator
+  - g3.IndexPriorityQueue.GetPriority(System.Int32)
+  - g3.IndexPriorityQueue.Insert(System.Int32,System.Single)
+  - g3.IndexPriorityQueue.IsValidQueue
+  - g3.IndexPriorityQueue.Remove(System.Int32)
+  - g3.IndexPriorityQueue.Update(System.Int32,System.Single)
+  langs:
+  - csharp
+  - vb
+  name: IndexPriorityQueue
+  nameWithType: IndexPriorityQueue
+  fullName: g3.IndexPriorityQueue
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IndexPriorityQueue
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nThis is a min-heap priority queue class that does not use an object for each queue node.\nInteger IDs must be provided by the user to identify unique nodes.\nInternally an array is used to keep track of the mapping from ids to internal indices,\nso the max ID must also be provided.\n\nSee DijkstraGraphDistance for example usage.\n\nconceptually based on https://github.com/BlueRaja/High-Speed-Priority-Queue-for-C-Sharp\n"
+  example: []
+  syntax:
+    content: 'public class IndexPriorityQueue : IEnumerable<int>, IEnumerable'
+    content.vb: >-
+      Public Class IndexPriorityQueue
+          Implements IEnumerable(Of Integer), IEnumerable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.IndexPriorityQueue.EnableDebugChecks
+  commentId: F:g3.IndexPriorityQueue.EnableDebugChecks
+  id: EnableDebugChecks
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: EnableDebugChecks
+  nameWithType: IndexPriorityQueue.EnableDebugChecks
+  fullName: g3.IndexPriorityQueue.EnableDebugChecks
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EnableDebugChecks
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool EnableDebugChecks
+    return:
+      type: System.Boolean
+    content.vb: Public EnableDebugChecks As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.#ctor(System.Int32)
+  commentId: M:g3.IndexPriorityQueue.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: IndexPriorityQueue(Int32)
+  nameWithType: IndexPriorityQueue.IndexPriorityQueue(Int32)
+  fullName: g3.IndexPriorityQueue.IndexPriorityQueue(System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 43
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmaxIndex parameter is required because internally a fixed-size array is used to track mapping\nfrom IDs to internal node indices. If this seems problematic because you won&apos;t be inserting the\nfull index space, consider a DynamicPriorityQueue instead.\n"
+  example: []
+  syntax:
+    content: public IndexPriorityQueue(int maxID)
+    parameters:
+    - id: maxID
+      type: System.Int32
+    content.vb: Public Sub New(maxID As Integer)
+  overload: g3.IndexPriorityQueue.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.Count
+  commentId: P:g3.IndexPriorityQueue.Count
+  id: Count
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: IndexPriorityQueue.Count
+  fullName: g3.IndexPriorityQueue.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: g3.IndexPriorityQueue.Count*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.IndexPriorityQueue.Clear(System.Boolean)
+  commentId: M:g3.IndexPriorityQueue.Clear(System.Boolean)
+  id: Clear(System.Boolean)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Clear(Boolean)
+  nameWithType: IndexPriorityQueue.Clear(Boolean)
+  fullName: g3.IndexPriorityQueue.Clear(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clear
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nreset the queue to empty state. \nif bFreeMemory is false, we don&apos;t discard internal data structures, so there will be less allocation next time\n(this does not make a huge difference...)\n"
+  example: []
+  syntax:
+    content: public void Clear(bool bFreeMemory = true)
+    parameters:
+    - id: bFreeMemory
+      type: System.Boolean
+    content.vb: Public Sub Clear(bFreeMemory As Boolean = True)
+  overload: g3.IndexPriorityQueue.Clear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.First
+  commentId: P:g3.IndexPriorityQueue.First
+  id: First
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: IndexPriorityQueue.First
+  fullName: g3.IndexPriorityQueue.First
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: First
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 75
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nid of node at head of queue\n"
+  example: []
+  syntax:
+    content: public int First { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property First As Integer
+  overload: g3.IndexPriorityQueue.First*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.IndexPriorityQueue.FirstPriority
+  commentId: P:g3.IndexPriorityQueue.FirstPriority
+  id: FirstPriority
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: FirstPriority
+  nameWithType: IndexPriorityQueue.FirstPriority
+  fullName: g3.IndexPriorityQueue.FirstPriority
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FirstPriority
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 82
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nPriority of node at head of queue\n"
+  example: []
+  syntax:
+    content: public float FirstPriority { get; }
+    parameters: []
+    return:
+      type: System.Single
+    content.vb: Public ReadOnly Property FirstPriority As Single
+  overload: g3.IndexPriorityQueue.FirstPriority*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.IndexPriorityQueue.Contains(System.Int32)
+  commentId: M:g3.IndexPriorityQueue.Contains(System.Int32)
+  id: Contains(System.Int32)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Contains(Int32)
+  nameWithType: IndexPriorityQueue.Contains(Int32)
+  fullName: g3.IndexPriorityQueue.Contains(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Contains
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 89
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nconstant-time check to see if id is already in queue\n"
+  example: []
+  syntax:
+    content: public bool Contains(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(id As Integer) As Boolean
+  overload: g3.IndexPriorityQueue.Contains*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.Insert(System.Int32,System.Single)
+  commentId: M:g3.IndexPriorityQueue.Insert(System.Int32,System.Single)
+  id: Insert(System.Int32,System.Single)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Insert(Int32, Single)
+  nameWithType: IndexPriorityQueue.Insert(Int32, Single)
+  fullName: g3.IndexPriorityQueue.Insert(System.Int32, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Insert
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 101
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nAdd id to list w/ given priority\nBehavior is undefined if you call w/ same id twice\n"
+  example: []
+  syntax:
+    content: public void Insert(int id, float priority)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: priority
+      type: System.Single
+    content.vb: Public Sub Insert(id As Integer, priority As Single)
+  overload: g3.IndexPriorityQueue.Insert*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.Enqueue(System.Int32,System.Single)
+  commentId: M:g3.IndexPriorityQueue.Enqueue(System.Int32,System.Single)
+  id: Enqueue(System.Int32,System.Single)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Enqueue(Int32, Single)
+  nameWithType: IndexPriorityQueue.Enqueue(Int32, Single)
+  fullName: g3.IndexPriorityQueue.Enqueue(System.Int32, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Enqueue
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 115
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Enqueue(int id, float priority)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: priority
+      type: System.Single
+    content.vb: Public Sub Enqueue(id As Integer, priority As Single)
+  overload: g3.IndexPriorityQueue.Enqueue*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.Dequeue
+  commentId: M:g3.IndexPriorityQueue.Dequeue
+  id: Dequeue
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Dequeue()
+  nameWithType: IndexPriorityQueue.Dequeue()
+  fullName: g3.IndexPriorityQueue.Dequeue()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dequeue
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 122
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nremove node at head of queue, update queue, and return id for that node\n"
+  example: []
+  syntax:
+    content: public int Dequeue()
+    return:
+      type: System.Int32
+    content.vb: Public Function Dequeue As Integer
+  overload: g3.IndexPriorityQueue.Dequeue*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.Remove(System.Int32)
+  commentId: M:g3.IndexPriorityQueue.Remove(System.Int32)
+  id: Remove(System.Int32)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Remove(Int32)
+  nameWithType: IndexPriorityQueue.Remove(Int32)
+  fullName: g3.IndexPriorityQueue.Remove(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Remove
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 136
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nremove this node from queue. Undefined behavior if called w/ same id twice!\nBehavior is undefined if you call w/ id that is not in queue\n"
+  example: []
+  syntax:
+    content: public void Remove(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    content.vb: Public Sub Remove(id As Integer)
+  overload: g3.IndexPriorityQueue.Remove*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.Update(System.Int32,System.Single)
+  commentId: M:g3.IndexPriorityQueue.Update(System.Int32,System.Single)
+  id: Update(System.Int32,System.Single)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: Update(Int32, Single)
+  nameWithType: IndexPriorityQueue.Update(Int32, Single)
+  fullName: g3.IndexPriorityQueue.Update(System.Int32, System.Single)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Update
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 150
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nupdate priority at node id, and then move it to correct position in queue\nBehavior is undefined if you call w/ id that is not in queue\n"
+  example: []
+  syntax:
+    content: public void Update(int id, float priority)
+    parameters:
+    - id: id
+      type: System.Int32
+    - id: priority
+      type: System.Single
+    content.vb: Public Sub Update(id As Integer, priority As Single)
+  overload: g3.IndexPriorityQueue.Update*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.GetPriority(System.Int32)
+  commentId: M:g3.IndexPriorityQueue.GetPriority(System.Int32)
+  id: GetPriority(System.Int32)
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: GetPriority(Int32)
+  nameWithType: IndexPriorityQueue.GetPriority(Int32)
+  fullName: g3.IndexPriorityQueue.GetPriority(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetPriority
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 168
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nQuery the priority at node id, assuming it exists in queue\n"
+  example: []
+  syntax:
+    content: public float GetPriority(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    return:
+      type: System.Single
+    content.vb: Public Function GetPriority(id As Integer) As Single
+  overload: g3.IndexPriorityQueue.GetPriority*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.GetEnumerator
+  commentId: M:g3.IndexPriorityQueue.GetEnumerator
+  id: GetEnumerator
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: IndexPriorityQueue.GetEnumerator()
+  fullName: g3.IndexPriorityQueue.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 178
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<int> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{System.Int32}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of Integer)
+  overload: g3.IndexPriorityQueue.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.IsValidQueue
+  commentId: M:g3.IndexPriorityQueue.IsValidQueue
+  id: IsValidQueue
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: IsValidQueue()
+  nameWithType: IndexPriorityQueue.IsValidQueue()
+  fullName: g3.IndexPriorityQueue.IsValidQueue()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsValidQueue
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 350
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCheck if queue has been corrupted\n"
+  example: []
+  syntax:
+    content: public bool IsValidQueue()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsValidQueue As Boolean
+  overload: g3.IndexPriorityQueue.IsValidQueue*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IndexPriorityQueue.DebugPrint
+  commentId: M:g3.IndexPriorityQueue.DebugPrint
+  id: DebugPrint
+  parent: g3.IndexPriorityQueue
+  langs:
+  - csharp
+  - vb
+  name: DebugPrint()
+  nameWithType: IndexPriorityQueue.DebugPrint()
+  fullName: g3.IndexPriorityQueue.DebugPrint()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DebugPrint
+    path: ../Assets/geometry3Sharp/core/IndexPriorityQueue.cs
+    startLine: 365
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void DebugPrint()
+    content.vb: Public Sub DebugPrint
+  overload: g3.IndexPriorityQueue.DebugPrint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.IndexPriorityQueue.#ctor*
+  commentId: Overload:g3.IndexPriorityQueue.#ctor
+  name: IndexPriorityQueue
+  nameWithType: IndexPriorityQueue.IndexPriorityQueue
+  fullName: g3.IndexPriorityQueue.IndexPriorityQueue
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IndexPriorityQueue.Count*
+  commentId: Overload:g3.IndexPriorityQueue.Count
+  name: Count
+  nameWithType: IndexPriorityQueue.Count
+  fullName: g3.IndexPriorityQueue.Count
+- uid: g3.IndexPriorityQueue.Clear*
+  commentId: Overload:g3.IndexPriorityQueue.Clear
+  name: Clear
+  nameWithType: IndexPriorityQueue.Clear
+  fullName: g3.IndexPriorityQueue.Clear
+- uid: g3.IndexPriorityQueue.First*
+  commentId: Overload:g3.IndexPriorityQueue.First
+  name: First
+  nameWithType: IndexPriorityQueue.First
+  fullName: g3.IndexPriorityQueue.First
+- uid: g3.IndexPriorityQueue.FirstPriority*
+  commentId: Overload:g3.IndexPriorityQueue.FirstPriority
+  name: FirstPriority
+  nameWithType: IndexPriorityQueue.FirstPriority
+  fullName: g3.IndexPriorityQueue.FirstPriority
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single
+- uid: g3.IndexPriorityQueue.Contains*
+  commentId: Overload:g3.IndexPriorityQueue.Contains
+  name: Contains
+  nameWithType: IndexPriorityQueue.Contains
+  fullName: g3.IndexPriorityQueue.Contains
+- uid: g3.IndexPriorityQueue.Insert*
+  commentId: Overload:g3.IndexPriorityQueue.Insert
+  name: Insert
+  nameWithType: IndexPriorityQueue.Insert
+  fullName: g3.IndexPriorityQueue.Insert
+- uid: g3.IndexPriorityQueue.Enqueue*
+  commentId: Overload:g3.IndexPriorityQueue.Enqueue
+  name: Enqueue
+  nameWithType: IndexPriorityQueue.Enqueue
+  fullName: g3.IndexPriorityQueue.Enqueue
+- uid: g3.IndexPriorityQueue.Dequeue*
+  commentId: Overload:g3.IndexPriorityQueue.Dequeue
+  name: Dequeue
+  nameWithType: IndexPriorityQueue.Dequeue
+  fullName: g3.IndexPriorityQueue.Dequeue
+- uid: g3.IndexPriorityQueue.Remove*
+  commentId: Overload:g3.IndexPriorityQueue.Remove
+  name: Remove
+  nameWithType: IndexPriorityQueue.Remove
+  fullName: g3.IndexPriorityQueue.Remove
+- uid: g3.IndexPriorityQueue.Update*
+  commentId: Overload:g3.IndexPriorityQueue.Update
+  name: Update
+  nameWithType: IndexPriorityQueue.Update
+  fullName: g3.IndexPriorityQueue.Update
+- uid: g3.IndexPriorityQueue.GetPriority*
+  commentId: Overload:g3.IndexPriorityQueue.GetPriority
+  name: GetPriority
+  nameWithType: IndexPriorityQueue.GetPriority
+  fullName: g3.IndexPriorityQueue.GetPriority
+- uid: g3.IndexPriorityQueue.GetEnumerator*
+  commentId: Overload:g3.IndexPriorityQueue.GetEnumerator
+  name: GetEnumerator
+  nameWithType: IndexPriorityQueue.GetEnumerator
+  fullName: g3.IndexPriorityQueue.GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerator{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<Int32>
+  nameWithType: IEnumerator<Int32>
+  fullName: System.Collections.Generic.IEnumerator<System.Int32>
+  nameWithType.vb: IEnumerator(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of System.Int32)
+  name.vb: IEnumerator(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.IndexPriorityQueue.IsValidQueue*
+  commentId: Overload:g3.IndexPriorityQueue.IsValidQueue
+  name: IsValidQueue
+  nameWithType: IndexPriorityQueue.IsValidQueue
+  fullName: g3.IndexPriorityQueue.IsValidQueue
+- uid: g3.IndexPriorityQueue.DebugPrint*
+  commentId: Overload:g3.IndexPriorityQueue.DebugPrint
+  name: DebugPrint
+  nameWithType: IndexPriorityQueue.DebugPrint
+  fullName: g3.IndexPriorityQueue.DebugPrint

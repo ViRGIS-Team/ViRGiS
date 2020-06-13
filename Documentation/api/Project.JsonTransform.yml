@@ -1,0 +1,291 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.JsonTransform
+  commentId: T:Project.JsonTransform
+  id: JsonTransform
+  parent: Project
+  children:
+  - Project.JsonTransform.Position
+  - Project.JsonTransform.Rotate
+  - Project.JsonTransform.Scale
+  langs:
+  - csharp
+  - vb
+  name: JsonTransform
+  nameWithType: JsonTransform
+  fullName: Project.JsonTransform
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: JsonTransform
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 70
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: 'public class JsonTransform : TestableObject'
+    content.vb: >-
+      Public Class JsonTransform
+          Inherits TestableObject
+  inheritance:
+  - System.Object
+  - Project.TestableObject
+  inheritedMembers:
+  - Project.TestableObject.ContainsKey(System.String)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Project.JsonTransform.Position
+  commentId: F:Project.JsonTransform.Position
+  id: Position
+  parent: Project.JsonTransform
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: JsonTransform.Position
+  fullName: Project.JsonTransform.Position
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Position
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 74
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "translate", Required = Required.Always)]
+
+      [JsonConverter(typeof(VectorConverter<SerializableVector3>))]
+
+      public SerializableVector3 Position
+    return:
+      type: Project.SerializableVector3
+    content.vb: >-
+      <JsonProperty(PropertyName:="translate", Required:=Required.Always)>
+
+      <JsonConverter(GetType(VectorConverter(Of SerializableVector3)))>
+
+      Public Position As SerializableVector3
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: translate
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Project.VectorConverter{Project.SerializableVector3}
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.JsonTransform.Rotate
+  commentId: F:Project.JsonTransform.Rotate
+  id: Rotate
+  parent: Project.JsonTransform
+  langs:
+  - csharp
+  - vb
+  name: Rotate
+  nameWithType: JsonTransform.Rotate
+  fullName: Project.JsonTransform.Rotate
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 77
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "rotate", Required = Required.Always)]
+
+      [JsonConverter(typeof(VectorConverter<SerializableQuaternion>))]
+
+      public SerializableQuaternion Rotate
+    return:
+      type: Project.SerializableQuaternion
+    content.vb: >-
+      <JsonProperty(PropertyName:="rotate", Required:=Required.Always)>
+
+      <JsonConverter(GetType(VectorConverter(Of SerializableQuaternion)))>
+
+      Public Rotate As SerializableQuaternion
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: rotate
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Project.VectorConverter{Project.SerializableQuaternion}
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Project.JsonTransform.Scale
+  commentId: F:Project.JsonTransform.Scale
+  id: Scale
+  parent: Project.JsonTransform
+  langs:
+  - csharp
+  - vb
+  name: Scale
+  nameWithType: JsonTransform.Scale
+  fullName: Project.JsonTransform.Scale
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Project.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/Scripts/Basic Types/Project.cs
+    startLine: 80
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "scale", Required = Required.Always)]
+
+      [JsonConverter(typeof(VectorConverter<SerializableVector3>))]
+
+      public SerializableVector3 Scale
+    return:
+      type: Project.SerializableVector3
+    content.vb: >-
+      <JsonProperty(PropertyName:="scale", Required:=Required.Always)>
+
+      <JsonConverter(GetType(VectorConverter(Of SerializableVector3)))>
+
+      Public Scale As SerializableVector3
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: scale
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: Project.VectorConverter{Project.SerializableVector3}
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Project.TestableObject
+  commentId: T:Project.TestableObject
+  parent: Project
+  name: TestableObject
+  nameWithType: TestableObject
+  fullName: Project.TestableObject
+- uid: Project.TestableObject.ContainsKey(System.String)
+  commentId: M:Project.TestableObject.ContainsKey(System.String)
+  parent: Project.TestableObject
+  isExternal: true
+  name: ContainsKey(String)
+  nameWithType: TestableObject.ContainsKey(String)
+  fullName: Project.TestableObject.ContainsKey(System.String)
+  spec.csharp:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Project.TestableObject.ContainsKey(System.String)
+    name: ContainsKey
+    nameWithType: TestableObject.ContainsKey
+    fullName: Project.TestableObject.ContainsKey
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Project.SerializableVector3
+  commentId: T:Project.SerializableVector3
+  parent: Project
+  name: SerializableVector3
+  nameWithType: SerializableVector3
+  fullName: Project.SerializableVector3
+- uid: Project.SerializableQuaternion
+  commentId: T:Project.SerializableQuaternion
+  parent: Project
+  name: SerializableQuaternion
+  nameWithType: SerializableQuaternion
+  fullName: Project.SerializableQuaternion

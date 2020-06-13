@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DataPlotter
+   | ViRGIS VR GIS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DataPlotter
+   | ViRGIS VR GIS ">
+    <meta name="generator" content="docfx 2.54.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Virgis.DataPlotter">
+  
+  
+  <h1 id="Virgis_DataPlotter" data-uid="Virgis.DataPlotter" class="text-break">Class DataPlotter
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="https://docs.unity3d.com/ScriptReference/Object.html">Object</a></div>
+    <div class="level2"><a class="xref" href="https://docs.unity3d.com/ScriptReference/Component.html">Component</a></div>
+    <div class="level3"><a class="xref" href="https://docs.unity3d.com/ScriptReference/Behaviour.html">Behaviour</a></div>
+    <div class="level4"><a class="xref" href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.html">MonoBehaviour</a></div>
+    <div class="level5"><a class="xref" href="Virgis.Layer-2.html">Layer</a>&lt;<a class="xref" href="Project.RecordSet.html">RecordSet</a>, <a class="xref" href="Virgis.CSVData.html">CSVData</a>&gt;</div>
+    <div class="level6"><span class="xref">DataPlotter</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Virgis.ILayer.html">ILayer</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_layer">Layer&lt;RecordSet, CSVData&gt;.layer</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_features">Layer&lt;RecordSet, CSVData&gt;.features</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_changed">Layer&lt;RecordSet, CSVData&gt;.changed</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__id">Layer&lt;RecordSet, CSVData&gt;._id</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__visible">Layer&lt;RecordSet, CSVData&gt;._visible</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__editable">Layer&lt;RecordSet, CSVData&gt;._editable</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_Init__0_">Layer&lt;RecordSet, CSVData&gt;.Init(RecordSet)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__init__0_">Layer&lt;RecordSet, CSVData&gt;._init(RecordSet)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_AddFeature_UnityEngine_Vector3___">Layer&lt;RecordSet, CSVData&gt;.AddFeature(Vector3[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__addFeature_UnityEngine_Vector3___">Layer&lt;RecordSet, CSVData&gt;._addFeature(Vector3[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_Draw">Layer&lt;RecordSet, CSVData&gt;.Draw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__draw">Layer&lt;RecordSet, CSVData&gt;._draw()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_CheckPoint">Layer&lt;RecordSet, CSVData&gt;.CheckPoint()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__checkpoint">Layer&lt;RecordSet, CSVData&gt;._checkpoint()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_Save">Layer&lt;RecordSet, CSVData&gt;.Save()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2__save">Layer&lt;RecordSet, CSVData&gt;._save()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_Translate_Virgis_MoveArgs_">Layer&lt;RecordSet, CSVData&gt;.Translate(MoveArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_MoveAxis_Virgis_MoveArgs_">Layer&lt;RecordSet, CSVData&gt;.MoveAxis(MoveArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_StartEditSession">Layer&lt;RecordSet, CSVData&gt;.StartEditSession()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_ExitEditSession_System_Boolean_">Layer&lt;RecordSet, CSVData&gt;.ExitEditSession(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_Selected_Virgis_SelectionTypes_">Layer&lt;RecordSet, CSVData&gt;.Selected(SelectionTypes)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_UnSelected_Virgis_SelectionTypes_">Layer&lt;RecordSet, CSVData&gt;.UnSelected(SelectionTypes)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_GetClosest_UnityEngine_Vector3_System_Guid___">Layer&lt;RecordSet, CSVData&gt;.GetClosest(Vector3, Guid[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_GetFeature_System_Guid_">Layer&lt;RecordSet, CSVData&gt;.GetFeature(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_GetId">Layer&lt;RecordSet, CSVData&gt;.GetId()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_GetMetadata">Layer&lt;RecordSet, CSVData&gt;.GetMetadata()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_GetFeatureShape">Layer&lt;RecordSet, CSVData&gt;.GetFeatureShape()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_SetVisible_System_Boolean_">Layer&lt;RecordSet, CSVData&gt;.SetVisible(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_IsVisible">Layer&lt;RecordSet, CSVData&gt;.IsVisible()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_SetEditable_System_Boolean_">Layer&lt;RecordSet, CSVData&gt;.SetEditable(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.Layer-2.html#Virgis_Layer_2_IsEditable">Layer&lt;RecordSet, CSVData&gt;.IsEditable()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
+  <h6><strong>Assembly</strong>: Assembly-CSharp.dll</h6>
+  <h5 id="Virgis_DataPlotter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DataPlotter : Layer&lt;RecordSet, CSVData&gt;, ILayer</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_CubePrefab.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.CubePrefab%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L17">View Source</a>
+  </span>
+  <h4 id="Virgis_DataPlotter_CubePrefab" data-uid="Virgis.DataPlotter.CubePrefab">CubePrefab</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject CubePrefab</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_CylinderPrefab.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.CylinderPrefab%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L18">View Source</a>
+  </span>
+  <h4 id="Virgis_DataPlotter_CylinderPrefab" data-uid="Virgis.DataPlotter.CylinderPrefab">CylinderPrefab</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject CylinderPrefab</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_LabelPrefab.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.LabelPrefab%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L19">View Source</a>
+  </span>
+  <h4 id="Virgis_DataPlotter_LabelPrefab" data-uid="Virgis.DataPlotter.LabelPrefab">LabelPrefab</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject LabelPrefab</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_SpherePrefab.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.SpherePrefab%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L16">View Source</a>
+  </span>
+  <h4 id="Virgis_DataPlotter_SpherePrefab" data-uid="Virgis.DataPlotter.SpherePrefab">SpherePrefab</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject SpherePrefab</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter__addFeature_UnityEngine_Vector3___.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter._addFeature(UnityEngine.Vector3%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L101">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter__addFeature_" data-uid="Virgis.DataPlotter._addFeature*"></a>
+  <h4 id="Virgis_DataPlotter__addFeature_UnityEngine_Vector3___" data-uid="Virgis.DataPlotter._addFeature(UnityEngine.Vector3[])">_addFeature(Vector3[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override VirgisComponent _addFeature(Vector3[] geometry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">geometry</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisComponent.html">VirgisComponent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;._addFeature(UnityEngine.Vector3[])</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter__checkpoint.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter._checkpoint%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L34">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter__checkpoint_" data-uid="Virgis.DataPlotter._checkpoint*"></a>
+  <h4 id="Virgis_DataPlotter__checkpoint" data-uid="Virgis.DataPlotter._checkpoint">_checkpoint()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void _checkpoint()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;._checkpoint()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter__draw.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter._draw%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L38">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter__draw_" data-uid="Virgis.DataPlotter._draw*"></a>
+  <h4 id="Virgis_DataPlotter__draw" data-uid="Virgis.DataPlotter._draw">_draw()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void _draw()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;._draw()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter__init_Project_RecordSet_.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter._init(Project.RecordSet)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L27">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter__init_" data-uid="Virgis.DataPlotter._init*"></a>
+  <h4 id="Virgis_DataPlotter__init_Project_RecordSet_" data-uid="Virgis.DataPlotter._init(Project.RecordSet)">_init(RecordSet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task _init(RecordSet layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Project.RecordSet.html">RecordSet</a></td>
+        <td><span class="parametername">layer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;._init(Project.RecordSet)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter__save.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter._save%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L105">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter__save_" data-uid="Virgis.DataPlotter._save*"></a>
+  <h4 id="Virgis_DataPlotter__save" data-uid="Virgis.DataPlotter._save">_save()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void _save()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;._save()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_GetFeatureShape.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.GetFeatureShape%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L117">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter_GetFeatureShape_" data-uid="Virgis.DataPlotter.GetFeatureShape*"></a>
+  <h4 id="Virgis_DataPlotter_GetFeatureShape" data-uid="Virgis.DataPlotter.GetFeatureShape">GetFeatureShape()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GameObject GetFeatureShape()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.unity3d.com/ScriptReference/GameObject.html">GameObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;.GetFeatureShape()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_MoveAxis_Virgis_MoveArgs_.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.MoveAxis(Virgis.MoveArgs)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L109">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter_MoveAxis_" data-uid="Virgis.DataPlotter.MoveAxis*"></a>
+  <h4 id="Virgis_DataPlotter_MoveAxis_Virgis_MoveArgs_" data-uid="Virgis.DataPlotter.MoveAxis(Virgis.MoveArgs)">MoveAxis(MoveArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void MoveAxis(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;.MoveAxis(Virgis.MoveArgs)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter_Translate_Virgis_MoveArgs_.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter.Translate(Virgis.MoveArgs)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L113">View Source</a>
+  </span>
+  <a id="Virgis_DataPlotter_Translate_" data-uid="Virgis.DataPlotter.Translate*"></a>
+  <h4 id="Virgis_DataPlotter_Translate_Virgis_MoveArgs_" data-uid="Virgis.DataPlotter.Translate(Virgis.MoveArgs)">Translate(MoveArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Translate(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Virgis.Layer&lt;Project.RecordSet, Virgis.CSVData&gt;.Translate(Virgis.MoveArgs)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Virgis.ILayer.html">ILayer</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/new/doc/apiSpec/new?filename=Virgis_DataPlotter.md&amp;value=---%0Auid%3A%20Virgis.DataPlotter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/blob/doc/Assets/Scripts/Adapters/DataPlotter.cs/#L13" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ViRGIS VR GIS
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

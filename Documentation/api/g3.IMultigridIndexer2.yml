@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IMultigridIndexer2
+  commentId: T:g3.IMultigridIndexer2
+  id: IMultigridIndexer2
+  parent: g3
+  children:
+  - g3.IMultigridIndexer2.FromBlock(g3.Vector2i)
+  - g3.IMultigridIndexer2.ToBlock(g3.Vector2i)
+  - g3.IMultigridIndexer2.ToBlockIndex(g3.Vector2i)
+  - g3.IMultigridIndexer2.ToBlockLocal(g3.Vector2i)
+  langs:
+  - csharp
+  - vb
+  name: IMultigridIndexer2
+  nameWithType: IMultigridIndexer2
+  fullName: g3.IMultigridIndexer2
+  type: Interface
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IMultigridIndexer2
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing2.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ninterface that maps between integer grid coords and &apos;blocks&apos; of those\ncoordinates, ie for multigrid-like structures\n"
+  example: []
+  syntax:
+    content: public interface IMultigridIndexer2
+    content.vb: Public Interface IMultigridIndexer2
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: g3.IMultigridIndexer2.ToBlock(g3.Vector2i)
+  commentId: M:g3.IMultigridIndexer2.ToBlock(g3.Vector2i)
+  id: ToBlock(g3.Vector2i)
+  parent: g3.IMultigridIndexer2
+  langs:
+  - csharp
+  - vb
+  name: ToBlock(Vector2i)
+  nameWithType: IMultigridIndexer2.ToBlock(Vector2i)
+  fullName: g3.IMultigridIndexer2.ToBlock(g3.Vector2i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBlock
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing2.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmaps from denser outer-grid indices to pairs of (block_index, local_index_in_block)\nthis should just be the combined result of [ ToBlockIndex() , ToBlockLocal() ]\n"
+  example: []
+  syntax:
+    content: GridLevelIndex2 ToBlock(Vector2i outer_index)
+    parameters:
+    - id: outer_index
+      type: g3.Vector2i
+    return:
+      type: g3.GridLevelIndex2
+    content.vb: Function ToBlock(outer_index As Vector2i) As GridLevelIndex2
+  overload: g3.IMultigridIndexer2.ToBlock*
+- uid: g3.IMultigridIndexer2.ToBlockIndex(g3.Vector2i)
+  commentId: M:g3.IMultigridIndexer2.ToBlockIndex(g3.Vector2i)
+  id: ToBlockIndex(g3.Vector2i)
+  parent: g3.IMultigridIndexer2
+  langs:
+  - csharp
+  - vb
+  name: ToBlockIndex(Vector2i)
+  nameWithType: IMultigridIndexer2.ToBlockIndex(Vector2i)
+  fullName: g3.IMultigridIndexer2.ToBlockIndex(g3.Vector2i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBlockIndex
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing2.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmap from outer-grid indices to block index (ie divide)\n"
+  example: []
+  syntax:
+    content: Vector2i ToBlockIndex(Vector2i outer_index)
+    parameters:
+    - id: outer_index
+      type: g3.Vector2i
+    return:
+      type: g3.Vector2i
+    content.vb: Function ToBlockIndex(outer_index As Vector2i) As Vector2i
+  overload: g3.IMultigridIndexer2.ToBlockIndex*
+- uid: g3.IMultigridIndexer2.ToBlockLocal(g3.Vector2i)
+  commentId: M:g3.IMultigridIndexer2.ToBlockLocal(g3.Vector2i)
+  id: ToBlockLocal(g3.Vector2i)
+  parent: g3.IMultigridIndexer2
+  langs:
+  - csharp
+  - vb
+  name: ToBlockLocal(Vector2i)
+  nameWithType: IMultigridIndexer2.ToBlockLocal(Vector2i)
+  fullName: g3.IMultigridIndexer2.ToBlockLocal(g3.Vector2i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToBlockLocal
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing2.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmap from outer-grid indices to block-local index (ie modulo)\n"
+  example: []
+  syntax:
+    content: Vector2i ToBlockLocal(Vector2i outer_index)
+    parameters:
+    - id: outer_index
+      type: g3.Vector2i
+    return:
+      type: g3.Vector2i
+    content.vb: Function ToBlockLocal(outer_index As Vector2i) As Vector2i
+  overload: g3.IMultigridIndexer2.ToBlockLocal*
+- uid: g3.IMultigridIndexer2.FromBlock(g3.Vector2i)
+  commentId: M:g3.IMultigridIndexer2.FromBlock(g3.Vector2i)
+  id: FromBlock(g3.Vector2i)
+  parent: g3.IMultigridIndexer2
+  langs:
+  - csharp
+  - vb
+  name: FromBlock(Vector2i)
+  nameWithType: IMultigridIndexer2.FromBlock(Vector2i)
+  fullName: g3.IMultigridIndexer2.FromBlock(g3.Vector2i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/GridIndexing2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromBlock
+    path: ../Assets/geometry3Sharp/spatial/GridIndexing2.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nMap from block index to outer grid index at min-corner of the block.\n(add block-local coord to get specific outer-grid index)\n"
+  example: []
+  syntax:
+    content: Vector2i FromBlock(Vector2i block_idx)
+    parameters:
+    - id: block_idx
+      type: g3.Vector2i
+    return:
+      type: g3.Vector2i
+    content.vb: Function FromBlock(block_idx As Vector2i) As Vector2i
+  overload: g3.IMultigridIndexer2.FromBlock*
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IMultigridIndexer2.ToBlock*
+  commentId: Overload:g3.IMultigridIndexer2.ToBlock
+  name: ToBlock
+  nameWithType: IMultigridIndexer2.ToBlock
+  fullName: g3.IMultigridIndexer2.ToBlock
+- uid: g3.Vector2i
+  commentId: T:g3.Vector2i
+  parent: g3
+  name: Vector2i
+  nameWithType: Vector2i
+  fullName: g3.Vector2i
+- uid: g3.GridLevelIndex2
+  commentId: T:g3.GridLevelIndex2
+  parent: g3
+  name: GridLevelIndex2
+  nameWithType: GridLevelIndex2
+  fullName: g3.GridLevelIndex2
+- uid: g3.IMultigridIndexer2.ToBlockIndex*
+  commentId: Overload:g3.IMultigridIndexer2.ToBlockIndex
+  name: ToBlockIndex
+  nameWithType: IMultigridIndexer2.ToBlockIndex
+  fullName: g3.IMultigridIndexer2.ToBlockIndex
+- uid: g3.IMultigridIndexer2.ToBlockLocal*
+  commentId: Overload:g3.IMultigridIndexer2.ToBlockLocal
+  name: ToBlockLocal
+  nameWithType: IMultigridIndexer2.ToBlockLocal
+  fullName: g3.IMultigridIndexer2.ToBlockLocal
+- uid: g3.IMultigridIndexer2.FromBlock*
+  commentId: Overload:g3.IMultigridIndexer2.FromBlock
+  name: FromBlock
+  nameWithType: IMultigridIndexer2.FromBlock
+  fullName: g3.IMultigridIndexer2.FromBlock

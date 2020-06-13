@@ -1,0 +1,633 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IntrTriangle2Triangle2
+  commentId: T:g3.IntrTriangle2Triangle2
+  id: IntrTriangle2Triangle2
+  parent: g3
+  children:
+  - g3.IntrTriangle2Triangle2.#ctor(g3.Triangle2d,g3.Triangle2d)
+  - g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(g3.Vector2d,System.Double,System.Int32@,g3.Vector2d[]@)
+  - g3.IntrTriangle2Triangle2.Compute
+  - g3.IntrTriangle2Triangle2.Find
+  - g3.IntrTriangle2Triangle2.IsSimpleIntersection
+  - g3.IntrTriangle2Triangle2.Points
+  - g3.IntrTriangle2Triangle2.Quantity
+  - g3.IntrTriangle2Triangle2.Result
+  - g3.IntrTriangle2Triangle2.Test
+  - g3.IntrTriangle2Triangle2.Triangle0
+  - g3.IntrTriangle2Triangle2.Triangle1
+  - g3.IntrTriangle2Triangle2.Type
+  - g3.IntrTriangle2Triangle2.WhichSide(g3.Triangle2d,g3.Vector2d,g3.Vector2d)
+  langs:
+  - csharp
+  - vb
+  name: IntrTriangle2Triangle2
+  nameWithType: IntrTriangle2Triangle2
+  fullName: g3.IntrTriangle2Triangle2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntrTriangle2Triangle2
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 6
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class IntrTriangle2Triangle2
+    content.vb: Public Class IntrTriangle2Triangle2
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.IntrTriangle2Triangle2.Triangle0
+  commentId: P:g3.IntrTriangle2Triangle2.Triangle0
+  id: Triangle0
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Triangle0
+  nameWithType: IntrTriangle2Triangle2.Triangle0
+  fullName: g3.IntrTriangle2Triangle2.Triangle0
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Triangle0
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Triangle2d Triangle0 { get; set; }
+    parameters: []
+    return:
+      type: g3.Triangle2d
+    content.vb: Public Property Triangle0 As Triangle2d
+  overload: g3.IntrTriangle2Triangle2.Triangle0*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Triangle1
+  commentId: P:g3.IntrTriangle2Triangle2.Triangle1
+  id: Triangle1
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Triangle1
+  nameWithType: IntrTriangle2Triangle2.Triangle1
+  fullName: g3.IntrTriangle2Triangle2.Triangle1
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Triangle1
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Triangle2d Triangle1 { get; set; }
+    parameters: []
+    return:
+      type: g3.Triangle2d
+    content.vb: Public Property Triangle1 As Triangle2d
+  overload: g3.IntrTriangle2Triangle2.Triangle1*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Quantity
+  commentId: F:g3.IntrTriangle2Triangle2.Quantity
+  id: Quantity
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Quantity
+  nameWithType: IntrTriangle2Triangle2.Quantity
+  fullName: g3.IntrTriangle2Triangle2.Quantity
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Quantity
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Quantity
+    return:
+      type: System.Int32
+    content.vb: Public Quantity As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Result
+  commentId: F:g3.IntrTriangle2Triangle2.Result
+  id: Result
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: IntrTriangle2Triangle2.Result
+  fullName: g3.IntrTriangle2Triangle2.Result
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Result
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntersectionResult Result
+    return:
+      type: g3.IntersectionResult
+    content.vb: Public Result As IntersectionResult
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Type
+  commentId: F:g3.IntrTriangle2Triangle2.Type
+  id: Type
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IntrTriangle2Triangle2.Type
+  fullName: g3.IntrTriangle2Triangle2.Type
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntersectionType Type
+    return:
+      type: g3.IntersectionType
+    content.vb: Public Type As IntersectionType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.IsSimpleIntersection
+  commentId: P:g3.IntrTriangle2Triangle2.IsSimpleIntersection
+  id: IsSimpleIntersection
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: IsSimpleIntersection
+  nameWithType: IntrTriangle2Triangle2.IsSimpleIntersection
+  fullName: g3.IntrTriangle2Triangle2.IsSimpleIntersection
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsSimpleIntersection
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 27
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsSimpleIntersection { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSimpleIntersection As Boolean
+  overload: g3.IntrTriangle2Triangle2.IsSimpleIntersection*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.IntrTriangle2Triangle2.Points
+  commentId: F:g3.IntrTriangle2Triangle2.Points
+  id: Points
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Points
+  nameWithType: IntrTriangle2Triangle2.Points
+  fullName: g3.IntrTriangle2Triangle2.Points
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Points
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d[] Points
+    return:
+      type: g3.Vector2d[]
+    content.vb: Public Points As Vector2d()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.#ctor(g3.Triangle2d,g3.Triangle2d)
+  commentId: M:g3.IntrTriangle2Triangle2.#ctor(g3.Triangle2d,g3.Triangle2d)
+  id: '#ctor(g3.Triangle2d,g3.Triangle2d)'
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: IntrTriangle2Triangle2(Triangle2d, Triangle2d)
+  nameWithType: IntrTriangle2Triangle2.IntrTriangle2Triangle2(Triangle2d, Triangle2d)
+  fullName: g3.IntrTriangle2Triangle2.IntrTriangle2Triangle2(g3.Triangle2d, g3.Triangle2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntrTriangle2Triangle2(Triangle2d t0, Triangle2d t1)
+    parameters:
+    - id: t0
+      type: g3.Triangle2d
+    - id: t1
+      type: g3.Triangle2d
+    content.vb: Public Sub New(t0 As Triangle2d, t1 As Triangle2d)
+  overload: g3.IntrTriangle2Triangle2.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Test
+  commentId: M:g3.IntrTriangle2Triangle2.Test
+  id: Test
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Test()
+  nameWithType: IntrTriangle2Triangle2.Test()
+  fullName: g3.IntrTriangle2Triangle2.Test()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Test
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 43
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Test()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Test As Boolean
+  overload: g3.IntrTriangle2Triangle2.Test*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Compute
+  commentId: M:g3.IntrTriangle2Triangle2.Compute
+  id: Compute
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: IntrTriangle2Triangle2.Compute()
+  fullName: g3.IntrTriangle2Triangle2.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 79
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntrTriangle2Triangle2 Compute()
+    return:
+      type: g3.IntrTriangle2Triangle2
+    content.vb: Public Function Compute As IntrTriangle2Triangle2
+  overload: g3.IntrTriangle2Triangle2.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.Find
+  commentId: M:g3.IntrTriangle2Triangle2.Find
+  id: Find
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: Find()
+  nameWithType: IntrTriangle2Triangle2.Find()
+  fullName: g3.IntrTriangle2Triangle2.Find()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Find
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 86
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Find()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Find As Boolean
+  overload: g3.IntrTriangle2Triangle2.Find*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrTriangle2Triangle2.WhichSide(g3.Triangle2d,g3.Vector2d,g3.Vector2d)
+  commentId: M:g3.IntrTriangle2Triangle2.WhichSide(g3.Triangle2d,g3.Vector2d,g3.Vector2d)
+  id: WhichSide(g3.Triangle2d,g3.Vector2d,g3.Vector2d)
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: WhichSide(Triangle2d, Vector2d, Vector2d)
+  nameWithType: IntrTriangle2Triangle2.WhichSide(Triangle2d, Vector2d, Vector2d)
+  fullName: g3.IntrTriangle2Triangle2.WhichSide(g3.Triangle2d, g3.Vector2d, g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WhichSide
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 127
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static int WhichSide(Triangle2d V, Vector2d P, Vector2d D)
+    parameters:
+    - id: V
+      type: g3.Triangle2d
+    - id: P
+      type: g3.Vector2d
+    - id: D
+      type: g3.Vector2d
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function WhichSide(V As Triangle2d, P As Vector2d, D As Vector2d) As Integer
+  overload: g3.IntrTriangle2Triangle2.WhichSide*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(g3.Vector2d,System.Double,System.Int32@,g3.Vector2d[]@)
+  commentId: M:g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(g3.Vector2d,System.Double,System.Int32@,g3.Vector2d[]@)
+  id: ClipConvexPolygonAgainstLine(g3.Vector2d,System.Double,System.Int32@,g3.Vector2d[]@)
+  parent: g3.IntrTriangle2Triangle2
+  langs:
+  - csharp
+  - vb
+  name: ClipConvexPolygonAgainstLine(Vector2d, Double, ref Int32, ref Vector2d[])
+  nameWithType: IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(Vector2d, Double, ref Int32, ref Vector2d[])
+  fullName: g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(g3.Vector2d, System.Double, ref System.Int32, ref g3.Vector2d[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ClipConvexPolygonAgainstLine
+    path: ../Assets/geometry3Sharp/intersection/IntrTriangle2Triangle2.cs
+    startLine: 163
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ClipConvexPolygonAgainstLine(Vector2d N, double c, ref int quantity, ref Vector2d[] V)
+    parameters:
+    - id: N
+      type: g3.Vector2d
+    - id: c
+      type: System.Double
+    - id: quantity
+      type: System.Int32
+    - id: V
+      type: g3.Vector2d[]
+    content.vb: Public Shared Sub ClipConvexPolygonAgainstLine(N As Vector2d, c As Double, ByRef quantity As Integer, ByRef V As Vector2d())
+  overload: g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine*
+  nameWithType.vb: IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(Vector2d, Double, ByRef Int32, ByRef Vector2d())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine(g3.Vector2d, System.Double, ByRef System.Int32, ByRef g3.Vector2d())
+  name.vb: ClipConvexPolygonAgainstLine(Vector2d, Double, ByRef Int32, ByRef Vector2d())
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IntrTriangle2Triangle2.Triangle0*
+  commentId: Overload:g3.IntrTriangle2Triangle2.Triangle0
+  name: Triangle0
+  nameWithType: IntrTriangle2Triangle2.Triangle0
+  fullName: g3.IntrTriangle2Triangle2.Triangle0
+- uid: g3.Triangle2d
+  commentId: T:g3.Triangle2d
+  parent: g3
+  name: Triangle2d
+  nameWithType: Triangle2d
+  fullName: g3.Triangle2d
+- uid: g3.IntrTriangle2Triangle2.Triangle1*
+  commentId: Overload:g3.IntrTriangle2Triangle2.Triangle1
+  name: Triangle1
+  nameWithType: IntrTriangle2Triangle2.Triangle1
+  fullName: g3.IntrTriangle2Triangle2.Triangle1
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IntersectionResult
+  commentId: T:g3.IntersectionResult
+  parent: g3
+  name: IntersectionResult
+  nameWithType: IntersectionResult
+  fullName: g3.IntersectionResult
+- uid: g3.IntersectionType
+  commentId: T:g3.IntersectionType
+  parent: g3
+  name: IntersectionType
+  nameWithType: IntersectionType
+  fullName: g3.IntersectionType
+- uid: g3.IntrTriangle2Triangle2.IsSimpleIntersection*
+  commentId: Overload:g3.IntrTriangle2Triangle2.IsSimpleIntersection
+  name: IsSimpleIntersection
+  nameWithType: IntrTriangle2Triangle2.IsSimpleIntersection
+  fullName: g3.IntrTriangle2Triangle2.IsSimpleIntersection
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Vector2d[]
+  isExternal: true
+  name: Vector2d[]
+  nameWithType: Vector2d[]
+  fullName: g3.Vector2d[]
+  nameWithType.vb: Vector2d()
+  fullName.vb: g3.Vector2d()
+  name.vb: Vector2d()
+  spec.csharp:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.IntrTriangle2Triangle2.#ctor*
+  commentId: Overload:g3.IntrTriangle2Triangle2.#ctor
+  name: IntrTriangle2Triangle2
+  nameWithType: IntrTriangle2Triangle2.IntrTriangle2Triangle2
+  fullName: g3.IntrTriangle2Triangle2.IntrTriangle2Triangle2
+- uid: g3.IntrTriangle2Triangle2.Test*
+  commentId: Overload:g3.IntrTriangle2Triangle2.Test
+  name: Test
+  nameWithType: IntrTriangle2Triangle2.Test
+  fullName: g3.IntrTriangle2Triangle2.Test
+- uid: g3.IntrTriangle2Triangle2.Compute*
+  commentId: Overload:g3.IntrTriangle2Triangle2.Compute
+  name: Compute
+  nameWithType: IntrTriangle2Triangle2.Compute
+  fullName: g3.IntrTriangle2Triangle2.Compute
+- uid: g3.IntrTriangle2Triangle2
+  commentId: T:g3.IntrTriangle2Triangle2
+  parent: g3
+  name: IntrTriangle2Triangle2
+  nameWithType: IntrTriangle2Triangle2
+  fullName: g3.IntrTriangle2Triangle2
+- uid: g3.IntrTriangle2Triangle2.Find*
+  commentId: Overload:g3.IntrTriangle2Triangle2.Find
+  name: Find
+  nameWithType: IntrTriangle2Triangle2.Find
+  fullName: g3.IntrTriangle2Triangle2.Find
+- uid: g3.IntrTriangle2Triangle2.WhichSide*
+  commentId: Overload:g3.IntrTriangle2Triangle2.WhichSide
+  name: WhichSide
+  nameWithType: IntrTriangle2Triangle2.WhichSide
+  fullName: g3.IntrTriangle2Triangle2.WhichSide
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine*
+  commentId: Overload:g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine
+  name: ClipConvexPolygonAgainstLine
+  nameWithType: IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine
+  fullName: g3.IntrTriangle2Triangle2.ClipConvexPolygonAgainstLine
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double

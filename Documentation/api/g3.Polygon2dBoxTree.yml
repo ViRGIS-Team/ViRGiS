@@ -1,0 +1,327 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Polygon2dBoxTree
+  commentId: T:g3.Polygon2dBoxTree
+  id: Polygon2dBoxTree
+  parent: g3
+  children:
+  - g3.Polygon2dBoxTree.#ctor(g3.Polygon2d)
+  - g3.Polygon2dBoxTree.Distance(g3.Vector2d)
+  - g3.Polygon2dBoxTree.DistanceSquared(g3.Vector2d)
+  - g3.Polygon2dBoxTree.NearestPoint(g3.Vector2d)
+  - g3.Polygon2dBoxTree.Polygon
+  - g3.Polygon2dBoxTree.SquaredDistance(g3.Vector2d,System.Int32@,System.Double@,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: Polygon2dBoxTree
+  nameWithType: Polygon2dBoxTree
+  fullName: g3.Polygon2dBoxTree
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Polygon2dBoxTree
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ntree of Oriented Boxes (OBB) for a Polygon2d. \nConstruction is sequential, ie pairs of segments are merged into boxes, then pairs of boxes, and so on\n\n[TODO] is this the best strategy? is there maybe some kind of sorting/sweepline algo?\n[TODO] would it make more sense to have more than just 2 segments at lowest level?\n\n"
+  example: []
+  syntax:
+    content: public class Polygon2dBoxTree
+    content.vb: Public Class Polygon2dBoxTree
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Polygon2dBoxTree.Polygon
+  commentId: F:g3.Polygon2dBoxTree.Polygon
+  id: Polygon
+  parent: g3.Polygon2dBoxTree
+  langs:
+  - csharp
+  - vb
+  name: Polygon
+  nameWithType: Polygon2dBoxTree.Polygon
+  fullName: g3.Polygon2dBoxTree.Polygon
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Polygon
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 85
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2d Polygon
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Polygon As Polygon2d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2dBoxTree.#ctor(g3.Polygon2d)
+  commentId: M:g3.Polygon2dBoxTree.#ctor(g3.Polygon2d)
+  id: '#ctor(g3.Polygon2d)'
+  parent: g3.Polygon2dBoxTree
+  langs:
+  - csharp
+  - vb
+  name: Polygon2dBoxTree(Polygon2d)
+  nameWithType: Polygon2dBoxTree.Polygon2dBoxTree(Polygon2d)
+  fullName: g3.Polygon2dBoxTree.Polygon2dBoxTree(g3.Polygon2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Polygon2dBoxTree(Polygon2d poly)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    content.vb: Public Sub New(poly As Polygon2d)
+  overload: g3.Polygon2dBoxTree.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2dBoxTree.DistanceSquared(g3.Vector2d)
+  commentId: M:g3.Polygon2dBoxTree.DistanceSquared(g3.Vector2d)
+  id: DistanceSquared(g3.Vector2d)
+  parent: g3.Polygon2dBoxTree
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2d)
+  nameWithType: Polygon2dBoxTree.DistanceSquared(Vector2d)
+  fullName: g3.Polygon2dBoxTree.DistanceSquared(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 98
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector2d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(pt As Vector2d) As Double
+  overload: g3.Polygon2dBoxTree.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2dBoxTree.Distance(g3.Vector2d)
+  commentId: M:g3.Polygon2dBoxTree.Distance(g3.Vector2d)
+  id: Distance(g3.Vector2d)
+  parent: g3.Polygon2dBoxTree
+  langs:
+  - csharp
+  - vb
+  name: Distance(Vector2d)
+  nameWithType: Polygon2dBoxTree.Distance(Vector2d)
+  fullName: g3.Polygon2dBoxTree.Distance(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Distance
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Distance(Vector2d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function Distance(pt As Vector2d) As Double
+  overload: g3.Polygon2dBoxTree.Distance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2dBoxTree.NearestPoint(g3.Vector2d)
+  commentId: M:g3.Polygon2dBoxTree.NearestPoint(g3.Vector2d)
+  id: NearestPoint(g3.Vector2d)
+  parent: g3.Polygon2dBoxTree
+  langs:
+  - csharp
+  - vb
+  name: NearestPoint(Vector2d)
+  nameWithType: Polygon2dBoxTree.NearestPoint(Vector2d)
+  fullName: g3.Polygon2dBoxTree.NearestPoint(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NearestPoint
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 109
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d NearestPoint(Vector2d pt)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function NearestPoint(pt As Vector2d) As Vector2d
+  overload: g3.Polygon2dBoxTree.NearestPoint*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Polygon2dBoxTree.SquaredDistance(g3.Vector2d,System.Int32@,System.Double@,System.Double)
+  commentId: M:g3.Polygon2dBoxTree.SquaredDistance(g3.Vector2d,System.Int32@,System.Double@,System.Double)
+  id: SquaredDistance(g3.Vector2d,System.Int32@,System.Double@,System.Double)
+  parent: g3.Polygon2dBoxTree
+  langs:
+  - csharp
+  - vb
+  name: SquaredDistance(Vector2d, out Int32, out Double, Double)
+  nameWithType: Polygon2dBoxTree.SquaredDistance(Vector2d, out Int32, out Double, Double)
+  fullName: g3.Polygon2dBoxTree.SquaredDistance(g3.Vector2d, out System.Int32, out System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SquaredDistance
+    path: ../Assets/geometry3Sharp/spatial/Polygon2dBoxTree.cs
+    startLine: 118
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SquaredDistance(Vector2d pt, out int iNearSeg, out double fNearSegT, double max_dist = 1.7976931348623157E+308)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    - id: iNearSeg
+      type: System.Int32
+    - id: fNearSegT
+      type: System.Double
+    - id: max_dist
+      type: System.Double
+    return:
+      type: System.Double
+    content.vb: Public Function SquaredDistance(pt As Vector2d, ByRef iNearSeg As Integer, ByRef fNearSegT As Double, max_dist As Double = 1.7976931348623157E+308) As Double
+  overload: g3.Polygon2dBoxTree.SquaredDistance*
+  nameWithType.vb: Polygon2dBoxTree.SquaredDistance(Vector2d, ByRef Int32, ByRef Double, Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Polygon2dBoxTree.SquaredDistance(g3.Vector2d, ByRef System.Int32, ByRef System.Double, System.Double)
+  name.vb: SquaredDistance(Vector2d, ByRef Int32, ByRef Double, Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: g3.Polygon2dBoxTree.#ctor*
+  commentId: Overload:g3.Polygon2dBoxTree.#ctor
+  name: Polygon2dBoxTree
+  nameWithType: Polygon2dBoxTree.Polygon2dBoxTree
+  fullName: g3.Polygon2dBoxTree.Polygon2dBoxTree
+- uid: g3.Polygon2dBoxTree.DistanceSquared*
+  commentId: Overload:g3.Polygon2dBoxTree.DistanceSquared
+  name: DistanceSquared
+  nameWithType: Polygon2dBoxTree.DistanceSquared
+  fullName: g3.Polygon2dBoxTree.DistanceSquared
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Polygon2dBoxTree.Distance*
+  commentId: Overload:g3.Polygon2dBoxTree.Distance
+  name: Distance
+  nameWithType: Polygon2dBoxTree.Distance
+  fullName: g3.Polygon2dBoxTree.Distance
+- uid: g3.Polygon2dBoxTree.NearestPoint*
+  commentId: Overload:g3.Polygon2dBoxTree.NearestPoint
+  name: NearestPoint
+  nameWithType: Polygon2dBoxTree.NearestPoint
+  fullName: g3.Polygon2dBoxTree.NearestPoint
+- uid: g3.Polygon2dBoxTree.SquaredDistance*
+  commentId: Overload:g3.Polygon2dBoxTree.SquaredDistance
+  name: SquaredDistance
+  nameWithType: Polygon2dBoxTree.SquaredDistance
+  fullName: g3.Polygon2dBoxTree.SquaredDistance
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

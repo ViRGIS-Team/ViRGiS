@@ -1,0 +1,1376 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshEdgeSelection
+  commentId: T:g3.MeshEdgeSelection
+  id: MeshEdgeSelection
+  parent: g3
+  children:
+  - g3.MeshEdgeSelection.#ctor(g3.DMesh3)
+  - g3.MeshEdgeSelection.#ctor(g3.DMesh3,g3.MeshFaceSelection,System.Int32)
+  - g3.MeshEdgeSelection.#ctor(g3.DMesh3,g3.MeshVertexSelection,System.Int32)
+  - g3.MeshEdgeSelection.#ctor(g3.MeshEdgeSelection)
+  - g3.MeshEdgeSelection.Bitmap
+  - g3.MeshEdgeSelection.Count
+  - g3.MeshEdgeSelection.Deselect(System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.MeshEdgeSelection.Deselect(System.Int32)
+  - g3.MeshEdgeSelection.Deselect(System.Int32[])
+  - g3.MeshEdgeSelection.DeselectAll
+  - g3.MeshEdgeSelection.GetEnumerator
+  - g3.MeshEdgeSelection.IsSelected(System.Int32)
+  - g3.MeshEdgeSelection.Mesh
+  - g3.MeshEdgeSelection.Select(System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.MeshEdgeSelection.Select(System.Collections.Generic.List{System.Int32})
+  - g3.MeshEdgeSelection.Select(System.Func{System.Int32,System.Boolean})
+  - g3.MeshEdgeSelection.Select(System.Int32)
+  - g3.MeshEdgeSelection.Select(System.Int32[])
+  - g3.MeshEdgeSelection.SelectBoundaryTriEdges(g3.MeshFaceSelection)
+  - g3.MeshEdgeSelection.SelectTriangleEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.MeshEdgeSelection.SelectVertexEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.MeshEdgeSelection.SelectVertexEdges(System.Int32[])
+  - g3.MeshEdgeSelection.ToArray
+  langs:
+  - csharp
+  - vb
+  name: MeshEdgeSelection
+  nameWithType: MeshEdgeSelection
+  fullName: g3.MeshEdgeSelection
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshEdgeSelection
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class MeshEdgeSelection : IEnumerable<int>, IEnumerable'
+    content.vb: >-
+      Public Class MeshEdgeSelection
+          Implements IEnumerable(Of Integer), IEnumerable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshEdgeSelection.Mesh
+  commentId: F:g3.MeshEdgeSelection.Mesh
+  id: Mesh
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshEdgeSelection.Mesh
+  fullName: g3.MeshEdgeSelection.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.#ctor(g3.DMesh3)
+  commentId: M:g3.MeshEdgeSelection.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: MeshEdgeSelection(DMesh3)
+  nameWithType: MeshEdgeSelection.MeshEdgeSelection(DMesh3)
+  fullName: g3.MeshEdgeSelection.MeshEdgeSelection(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshEdgeSelection(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub New(mesh As DMesh3)
+  overload: g3.MeshEdgeSelection.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.#ctor(g3.MeshEdgeSelection)
+  commentId: M:g3.MeshEdgeSelection.#ctor(g3.MeshEdgeSelection)
+  id: '#ctor(g3.MeshEdgeSelection)'
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: MeshEdgeSelection(MeshEdgeSelection)
+  nameWithType: MeshEdgeSelection.MeshEdgeSelection(MeshEdgeSelection)
+  fullName: g3.MeshEdgeSelection.MeshEdgeSelection(g3.MeshEdgeSelection)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshEdgeSelection(MeshEdgeSelection copy)
+    parameters:
+    - id: copy
+      type: g3.MeshEdgeSelection
+    content.vb: Public Sub New(copy As MeshEdgeSelection)
+  overload: g3.MeshEdgeSelection.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.Bitmap
+  commentId: P:g3.MeshEdgeSelection.Bitmap
+  id: Bitmap
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Bitmap
+  nameWithType: MeshEdgeSelection.Bitmap
+  fullName: g3.MeshEdgeSelection.Bitmap
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bitmap
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 31
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected BitArray Bitmap { get; }
+    parameters: []
+    return:
+      type: System.Collections.BitArray
+    content.vb: Protected ReadOnly Property Bitmap As BitArray
+  overload: g3.MeshEdgeSelection.Bitmap*
+  modifiers.csharp:
+  - protected
+  - get
+  modifiers.vb:
+  - Protected
+  - ReadOnly
+- uid: g3.MeshEdgeSelection.#ctor(g3.DMesh3,g3.MeshVertexSelection,System.Int32)
+  commentId: M:g3.MeshEdgeSelection.#ctor(g3.DMesh3,g3.MeshVertexSelection,System.Int32)
+  id: '#ctor(g3.DMesh3,g3.MeshVertexSelection,System.Int32)'
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: MeshEdgeSelection(DMesh3, MeshVertexSelection, Int32)
+  nameWithType: MeshEdgeSelection.MeshEdgeSelection(DMesh3, MeshVertexSelection, Int32)
+  fullName: g3.MeshEdgeSelection.MeshEdgeSelection(g3.DMesh3, g3.MeshVertexSelection, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshEdgeSelection(DMesh3 mesh, MeshVertexSelection convertV, int minCount = 2)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: convertV
+      type: g3.MeshVertexSelection
+    - id: minCount
+      type: System.Int32
+    content.vb: Public Sub New(mesh As DMesh3, convertV As MeshVertexSelection, minCount As Integer = 2)
+  overload: g3.MeshEdgeSelection.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.#ctor(g3.DMesh3,g3.MeshFaceSelection,System.Int32)
+  commentId: M:g3.MeshEdgeSelection.#ctor(g3.DMesh3,g3.MeshFaceSelection,System.Int32)
+  id: '#ctor(g3.DMesh3,g3.MeshFaceSelection,System.Int32)'
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: MeshEdgeSelection(DMesh3, MeshFaceSelection, Int32)
+  nameWithType: MeshEdgeSelection.MeshEdgeSelection(DMesh3, MeshFaceSelection, Int32)
+  fullName: g3.MeshEdgeSelection.MeshEdgeSelection(g3.DMesh3, g3.MeshFaceSelection, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshEdgeSelection(DMesh3 mesh, MeshFaceSelection convertT, int minCount = 1)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: convertT
+      type: g3.MeshFaceSelection
+    - id: minCount
+      type: System.Int32
+    content.vb: Public Sub New(mesh As DMesh3, convertT As MeshFaceSelection, minCount As Integer = 1)
+  overload: g3.MeshEdgeSelection.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.GetEnumerator
+  commentId: M:g3.MeshEdgeSelection.GetEnumerator
+  id: GetEnumerator
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: MeshEdgeSelection.GetEnumerator()
+  fullName: g3.MeshEdgeSelection.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 77
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<int> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{System.Int32}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of Integer)
+  overload: g3.MeshEdgeSelection.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.Count
+  commentId: P:g3.MeshEdgeSelection.Count
+  id: Count
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: MeshEdgeSelection.Count
+  fullName: g3.MeshEdgeSelection.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: g3.MeshEdgeSelection.Count*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshEdgeSelection.IsSelected(System.Int32)
+  commentId: M:g3.MeshEdgeSelection.IsSelected(System.Int32)
+  id: IsSelected(System.Int32)
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: IsSelected(Int32)
+  nameWithType: MeshEdgeSelection.IsSelected(Int32)
+  fullName: g3.MeshEdgeSelection.IsSelected(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsSelected
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 102
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsSelected(int eid)
+    parameters:
+    - id: eid
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsSelected(eid As Integer) As Boolean
+  overload: g3.MeshEdgeSelection.IsSelected*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.Select(System.Int32)
+  commentId: M:g3.MeshEdgeSelection.Select(System.Int32)
+  id: Select(System.Int32)
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Select(Int32)
+  nameWithType: MeshEdgeSelection.Select(Int32)
+  fullName: g3.MeshEdgeSelection.Select(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Select
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 108
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Select(int eid)
+    parameters:
+    - id: eid
+      type: System.Int32
+    content.vb: Public Sub Select(eid As Integer)
+  overload: g3.MeshEdgeSelection.Select*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.Select(System.Int32[])
+  commentId: M:g3.MeshEdgeSelection.Select(System.Int32[])
+  id: Select(System.Int32[])
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Select(Int32[])
+  nameWithType: MeshEdgeSelection.Select(Int32[])
+  fullName: g3.MeshEdgeSelection.Select(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Select
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Select(int[] edges)
+    parameters:
+    - id: edges
+      type: System.Int32[]
+    content.vb: Public Sub Select(edges As Integer())
+  overload: g3.MeshEdgeSelection.Select*
+  nameWithType.vb: MeshEdgeSelection.Select(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.Select(System.Int32())
+  name.vb: Select(Int32())
+- uid: g3.MeshEdgeSelection.Select(System.Collections.Generic.List{System.Int32})
+  commentId: M:g3.MeshEdgeSelection.Select(System.Collections.Generic.List{System.Int32})
+  id: Select(System.Collections.Generic.List{System.Int32})
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Select(List<Int32>)
+  nameWithType: MeshEdgeSelection.Select(List<Int32>)
+  fullName: g3.MeshEdgeSelection.Select(System.Collections.Generic.List<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Select
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Select(List<int> edges)
+    parameters:
+    - id: edges
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public Sub Select(edges As List(Of Integer))
+  overload: g3.MeshEdgeSelection.Select*
+  nameWithType.vb: MeshEdgeSelection.Select(List(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.Select(System.Collections.Generic.List(Of System.Int32))
+  name.vb: Select(List(Of Int32))
+- uid: g3.MeshEdgeSelection.Select(System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.MeshEdgeSelection.Select(System.Collections.Generic.IEnumerable{System.Int32})
+  id: Select(System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Select(IEnumerable<Int32>)
+  nameWithType: MeshEdgeSelection.Select(IEnumerable<Int32>)
+  fullName: g3.MeshEdgeSelection.Select(System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Select
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 128
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Select(IEnumerable<int> edges)
+    parameters:
+    - id: edges
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Sub Select(edges As IEnumerable(Of Integer))
+  overload: g3.MeshEdgeSelection.Select*
+  nameWithType.vb: MeshEdgeSelection.Select(IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.Select(System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: Select(IEnumerable(Of Int32))
+- uid: g3.MeshEdgeSelection.Select(System.Func{System.Int32,System.Boolean})
+  commentId: M:g3.MeshEdgeSelection.Select(System.Func{System.Int32,System.Boolean})
+  id: Select(System.Func{System.Int32,System.Boolean})
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Select(Func<Int32, Boolean>)
+  nameWithType: MeshEdgeSelection.Select(Func<Int32, Boolean>)
+  fullName: g3.MeshEdgeSelection.Select(System.Func<System.Int32, System.Boolean>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Select
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Select(Func<int, bool> selectF)
+    parameters:
+    - id: selectF
+      type: System.Func{System.Int32,System.Boolean}
+    content.vb: Public Sub Select(selectF As Func(Of Integer, Boolean))
+  overload: g3.MeshEdgeSelection.Select*
+  nameWithType.vb: MeshEdgeSelection.Select(Func(Of Int32, Boolean))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.Select(System.Func(Of System.Int32, System.Boolean))
+  name.vb: Select(Func(Of Int32, Boolean))
+- uid: g3.MeshEdgeSelection.SelectVertexEdges(System.Int32[])
+  commentId: M:g3.MeshEdgeSelection.SelectVertexEdges(System.Int32[])
+  id: SelectVertexEdges(System.Int32[])
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: SelectVertexEdges(Int32[])
+  nameWithType: MeshEdgeSelection.SelectVertexEdges(Int32[])
+  fullName: g3.MeshEdgeSelection.SelectVertexEdges(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SelectVertexEdges
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 146
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SelectVertexEdges(int[] vertices)
+    parameters:
+    - id: vertices
+      type: System.Int32[]
+    content.vb: Public Sub SelectVertexEdges(vertices As Integer())
+  overload: g3.MeshEdgeSelection.SelectVertexEdges*
+  nameWithType.vb: MeshEdgeSelection.SelectVertexEdges(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.SelectVertexEdges(System.Int32())
+  name.vb: SelectVertexEdges(Int32())
+- uid: g3.MeshEdgeSelection.SelectVertexEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.MeshEdgeSelection.SelectVertexEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  id: SelectVertexEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: SelectVertexEdges(IEnumerable<Int32>)
+  nameWithType: MeshEdgeSelection.SelectVertexEdges(IEnumerable<Int32>)
+  fullName: g3.MeshEdgeSelection.SelectVertexEdges(System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SelectVertexEdges
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 154
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SelectVertexEdges(IEnumerable<int> vertices)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Sub SelectVertexEdges(vertices As IEnumerable(Of Integer))
+  overload: g3.MeshEdgeSelection.SelectVertexEdges*
+  nameWithType.vb: MeshEdgeSelection.SelectVertexEdges(IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.SelectVertexEdges(System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: SelectVertexEdges(IEnumerable(Of Int32))
+- uid: g3.MeshEdgeSelection.SelectTriangleEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.MeshEdgeSelection.SelectTriangleEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  id: SelectTriangleEdges(System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: SelectTriangleEdges(IEnumerable<Int32>)
+  nameWithType: MeshEdgeSelection.SelectTriangleEdges(IEnumerable<Int32>)
+  fullName: g3.MeshEdgeSelection.SelectTriangleEdges(System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SelectTriangleEdges
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 162
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SelectTriangleEdges(IEnumerable<int> triangles)
+    parameters:
+    - id: triangles
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Sub SelectTriangleEdges(triangles As IEnumerable(Of Integer))
+  overload: g3.MeshEdgeSelection.SelectTriangleEdges*
+  nameWithType.vb: MeshEdgeSelection.SelectTriangleEdges(IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.SelectTriangleEdges(System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: SelectTriangleEdges(IEnumerable(Of Int32))
+- uid: g3.MeshEdgeSelection.SelectBoundaryTriEdges(g3.MeshFaceSelection)
+  commentId: M:g3.MeshEdgeSelection.SelectBoundaryTriEdges(g3.MeshFaceSelection)
+  id: SelectBoundaryTriEdges(g3.MeshFaceSelection)
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: SelectBoundaryTriEdges(MeshFaceSelection)
+  nameWithType: MeshEdgeSelection.SelectBoundaryTriEdges(MeshFaceSelection)
+  fullName: g3.MeshEdgeSelection.SelectBoundaryTriEdges(g3.MeshFaceSelection)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SelectBoundaryTriEdges
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 171
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SelectBoundaryTriEdges(MeshFaceSelection triangles)
+    parameters:
+    - id: triangles
+      type: g3.MeshFaceSelection
+    content.vb: Public Sub SelectBoundaryTriEdges(triangles As MeshFaceSelection)
+  overload: g3.MeshEdgeSelection.SelectBoundaryTriEdges*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.Deselect(System.Int32)
+  commentId: M:g3.MeshEdgeSelection.Deselect(System.Int32)
+  id: Deselect(System.Int32)
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Deselect(Int32)
+  nameWithType: MeshEdgeSelection.Deselect(Int32)
+  fullName: g3.MeshEdgeSelection.Deselect(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Deselect
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 185
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Deselect(int tid)
+    parameters:
+    - id: tid
+      type: System.Int32
+    content.vb: Public Sub Deselect(tid As Integer)
+  overload: g3.MeshEdgeSelection.Deselect*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.Deselect(System.Int32[])
+  commentId: M:g3.MeshEdgeSelection.Deselect(System.Int32[])
+  id: Deselect(System.Int32[])
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Deselect(Int32[])
+  nameWithType: MeshEdgeSelection.Deselect(Int32[])
+  fullName: g3.MeshEdgeSelection.Deselect(System.Int32[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Deselect
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 188
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Deselect(int[] edges)
+    parameters:
+    - id: edges
+      type: System.Int32[]
+    content.vb: Public Sub Deselect(edges As Integer())
+  overload: g3.MeshEdgeSelection.Deselect*
+  nameWithType.vb: MeshEdgeSelection.Deselect(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.Deselect(System.Int32())
+  name.vb: Deselect(Int32())
+- uid: g3.MeshEdgeSelection.Deselect(System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.MeshEdgeSelection.Deselect(System.Collections.Generic.IEnumerable{System.Int32})
+  id: Deselect(System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: Deselect(IEnumerable<Int32>)
+  nameWithType: MeshEdgeSelection.Deselect(IEnumerable<Int32>)
+  fullName: g3.MeshEdgeSelection.Deselect(System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Deselect
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 192
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Deselect(IEnumerable<int> edges)
+    parameters:
+    - id: edges
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Sub Deselect(edges As IEnumerable(Of Integer))
+  overload: g3.MeshEdgeSelection.Deselect*
+  nameWithType.vb: MeshEdgeSelection.Deselect(IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.MeshEdgeSelection.Deselect(System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: Deselect(IEnumerable(Of Int32))
+- uid: g3.MeshEdgeSelection.DeselectAll
+  commentId: M:g3.MeshEdgeSelection.DeselectAll
+  id: DeselectAll
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: DeselectAll()
+  nameWithType: MeshEdgeSelection.DeselectAll()
+  fullName: g3.MeshEdgeSelection.DeselectAll()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DeselectAll
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 196
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void DeselectAll()
+    content.vb: Public Sub DeselectAll
+  overload: g3.MeshEdgeSelection.DeselectAll*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshEdgeSelection.ToArray
+  commentId: M:g3.MeshEdgeSelection.ToArray
+  id: ToArray
+  parent: g3.MeshEdgeSelection
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: MeshEdgeSelection.ToArray()
+  fullName: g3.MeshEdgeSelection.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToArray
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshEdgeSelection.cs
+    startLine: 203
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] ToArray()
+    return:
+      type: System.Int32[]
+    content.vb: Public Function ToArray As Integer()
+  overload: g3.MeshEdgeSelection.ToArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshEdgeSelection.#ctor*
+  commentId: Overload:g3.MeshEdgeSelection.#ctor
+  name: MeshEdgeSelection
+  nameWithType: MeshEdgeSelection.MeshEdgeSelection
+  fullName: g3.MeshEdgeSelection.MeshEdgeSelection
+- uid: g3.MeshEdgeSelection
+  commentId: T:g3.MeshEdgeSelection
+  parent: g3
+  name: MeshEdgeSelection
+  nameWithType: MeshEdgeSelection
+  fullName: g3.MeshEdgeSelection
+- uid: g3.MeshEdgeSelection.Bitmap*
+  commentId: Overload:g3.MeshEdgeSelection.Bitmap
+  name: Bitmap
+  nameWithType: MeshEdgeSelection.Bitmap
+  fullName: g3.MeshEdgeSelection.Bitmap
+- uid: System.Collections.BitArray
+  commentId: T:System.Collections.BitArray
+  parent: System.Collections
+  isExternal: true
+  name: BitArray
+  nameWithType: BitArray
+  fullName: System.Collections.BitArray
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+- uid: g3.MeshVertexSelection
+  commentId: T:g3.MeshVertexSelection
+  parent: g3
+  name: MeshVertexSelection
+  nameWithType: MeshVertexSelection
+  fullName: g3.MeshVertexSelection
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshFaceSelection
+  commentId: T:g3.MeshFaceSelection
+  parent: g3
+  name: MeshFaceSelection
+  nameWithType: MeshFaceSelection
+  fullName: g3.MeshFaceSelection
+- uid: g3.MeshEdgeSelection.GetEnumerator*
+  commentId: Overload:g3.MeshEdgeSelection.GetEnumerator
+  name: GetEnumerator
+  nameWithType: MeshEdgeSelection.GetEnumerator
+  fullName: g3.MeshEdgeSelection.GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerator{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<Int32>
+  nameWithType: IEnumerator<Int32>
+  fullName: System.Collections.Generic.IEnumerator<System.Int32>
+  nameWithType.vb: IEnumerator(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of System.Int32)
+  name.vb: IEnumerator(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshEdgeSelection.Count*
+  commentId: Overload:g3.MeshEdgeSelection.Count
+  name: Count
+  nameWithType: MeshEdgeSelection.Count
+  fullName: g3.MeshEdgeSelection.Count
+- uid: g3.MeshEdgeSelection.IsSelected*
+  commentId: Overload:g3.MeshEdgeSelection.IsSelected
+  name: IsSelected
+  nameWithType: MeshEdgeSelection.IsSelected
+  fullName: g3.MeshEdgeSelection.IsSelected
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshEdgeSelection.Select*
+  commentId: Overload:g3.MeshEdgeSelection.Select
+  name: Select
+  nameWithType: MeshEdgeSelection.Select
+  fullName: g3.MeshEdgeSelection.Select
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{System.Int32,System.Boolean}
+  commentId: T:System.Func{System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Boolean>
+  nameWithType: Func<Int32, Boolean>
+  fullName: System.Func<System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of Int32, Boolean)
+  fullName.vb: System.Func(Of System.Int32, System.Boolean)
+  name.vb: Func(Of Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshEdgeSelection.SelectVertexEdges*
+  commentId: Overload:g3.MeshEdgeSelection.SelectVertexEdges
+  name: SelectVertexEdges
+  nameWithType: MeshEdgeSelection.SelectVertexEdges
+  fullName: g3.MeshEdgeSelection.SelectVertexEdges
+- uid: g3.MeshEdgeSelection.SelectTriangleEdges*
+  commentId: Overload:g3.MeshEdgeSelection.SelectTriangleEdges
+  name: SelectTriangleEdges
+  nameWithType: MeshEdgeSelection.SelectTriangleEdges
+  fullName: g3.MeshEdgeSelection.SelectTriangleEdges
+- uid: g3.MeshEdgeSelection.SelectBoundaryTriEdges*
+  commentId: Overload:g3.MeshEdgeSelection.SelectBoundaryTriEdges
+  name: SelectBoundaryTriEdges
+  nameWithType: MeshEdgeSelection.SelectBoundaryTriEdges
+  fullName: g3.MeshEdgeSelection.SelectBoundaryTriEdges
+- uid: g3.MeshEdgeSelection.Deselect*
+  commentId: Overload:g3.MeshEdgeSelection.Deselect
+  name: Deselect
+  nameWithType: MeshEdgeSelection.Deselect
+  fullName: g3.MeshEdgeSelection.Deselect
+- uid: g3.MeshEdgeSelection.DeselectAll*
+  commentId: Overload:g3.MeshEdgeSelection.DeselectAll
+  name: DeselectAll
+  nameWithType: MeshEdgeSelection.DeselectAll
+  fullName: g3.MeshEdgeSelection.DeselectAll
+- uid: g3.MeshEdgeSelection.ToArray*
+  commentId: Overload:g3.MeshEdgeSelection.ToArray
+  name: ToArray
+  nameWithType: MeshEdgeSelection.ToArray
+  fullName: g3.MeshEdgeSelection.ToArray
