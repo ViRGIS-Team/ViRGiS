@@ -61,7 +61,7 @@ namespace Virgis
             vfx.SetTexture("_Positions", cloud.positionMap);
             vfx.SetTexture("_Colors", cloud.colorMap);
             vfx.SetInt("_pointCount", cloud.pointCount);
-            vfx.SetVector3("_size", symbology["point"].Transform.Scale);
+            vfx.SetVector3("_size", AppState.instance.map.transform.TransformVector(symbology["point"].Transform.Scale));
             vfx.Play();
 
             transform.rotation = layer.Transform.Rotate;
