@@ -61,11 +61,12 @@ namespace Virgis
             vfx.SetTexture("_Positions", cloud.positionMap);
             vfx.SetTexture("_Colors", cloud.colorMap);
             vfx.SetInt("_pointCount", cloud.pointCount);
-            vfx.SetVector3("_size", AppState.instance.map.transform.TransformVector(symbology["point"].Transform.Scale));
+            vfx.SetVector3("_size", symbology["point"].Transform.Scale);
             vfx.Play();
 
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
+            vfx.SetVector3("_scale", layer.Transform.Scale);
             GameObject centreHandle = Instantiate(handle,  transform.position , Quaternion.identity);
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
@@ -103,6 +104,8 @@ namespace Virgis
                         T.localScale /= RS;
                     }
                 }
+                VisualEffect vfx = model.GetComponent<VisualEffect>();
+                vfx.SetVector3("_scale", transform.localScale);
             }
             changed = true;
         }
