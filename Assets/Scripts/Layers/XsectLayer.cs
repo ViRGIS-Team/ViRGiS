@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.IO;
 using Project;
 using System;
 using g3;
@@ -122,7 +123,7 @@ namespace Virgis
 
                 tex = null;
                 if (feature.image.ContainsKey("Image") && feature.image["Image"] != null) {
-                    string Url = ImageSource + feature.image["Image"] as string;
+                    string Url = "file:///" + Directory.GetCurrentDirectory() +  ImageSource + feature.image["Image"] as string;
                     tex = await TextureImage.Get(new Uri(Url));
                     if (tex != null) {
                         tex.wrapMode = TextureWrapMode.Clamp;
