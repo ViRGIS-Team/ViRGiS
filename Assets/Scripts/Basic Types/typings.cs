@@ -182,6 +182,7 @@ namespace Virgis
         /// <param name="bClosed">whether the line is closed</param>
         public static void Vector3(this g3.DCurve3 curve, Vector3[] verteces, bool bClosed)
         {
+            curve.ClearVertices();
             curve.Closed = bClosed;
             foreach (Vector3 vertex in verteces)
             {
@@ -214,7 +215,8 @@ namespace Virgis
         /// <returns>g3.Vector3d Centroid</returns>
         public static Vector3d CenterMark(this DCurve3 curve)
         {
-            return curve.GetSegment(curve.NearestSegment(curve.Center())).Center;
+            Vector3d center = curve.Center();
+            return curve.GetSegment(curve.NearestSegment(center)).NearestPoint(center);
         }
 
         /// <summary>

@@ -29,6 +29,7 @@ namespace Virgis
         private GameObject LabelPrefab;
         private Material lineMain;
         private Material lineSelected;
+        private DCurve3 curve = new DCurve3();
 
 
 
@@ -52,6 +53,7 @@ namespace Virgis
                     if (vLookup.Line && vLookup.Line.vEnd == vdata.Vertex)
                         vLookup.Line.MoveEnd(data.pos);
                 }
+                label.position = _labelPosition();
             }
         }
 
@@ -109,10 +111,6 @@ namespace Virgis
             this.lineSelected = lineSelected;
             this.Lr = Lr;
 
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(line, Lr);
-            Vector3 center = (Vector3)curve.CenterMark();
-
             int i = 0;
             foreach (Vector3 vertex in line)
             {
@@ -130,8 +128,7 @@ namespace Virgis
             //Set the label
             if (LabelPrefab != null)
             {
-                GameObject labelObject = Instantiate(LabelPrefab, center, Quaternion.identity, transform);
-                labelObject.transform.Translate(transform.TransformVector(Vector3.up) * symbology["line"].Transform.Scale.magnitude, Space.Self);
+                GameObject labelObject = Instantiate(LabelPrefab, _labelPosition(), Quaternion.identity, transform);
                 label = labelObject.transform;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
@@ -141,6 +138,10 @@ namespace Virgis
             }
         }
 
+        /// <summary>
+        /// Make the Line into a Linear Ring by setting the Lr flag and creating a LineSegment form the last vertex to the first.
+        /// If the last vertex is in the same (exact) position as the first vertex, the last vertex is deleted.
+        /// </summary>
         public void MakeLinearRing() {
             // Make the Line inot a Linear ring
             if (!Lr) {
@@ -243,12 +244,17 @@ namespace Virgis
         }
 
         public override VirgisFeature AddVertex(Vector3 position) {
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(GetVertexPositions(), Lr);
-            LineSegment segment = VertexTable.Find(item => item.Vertex == curve.NearestSegment(position)).Line;
+            int seg = curve.NearestSegment(position);
+            LineSegment segment = VertexTable.Find(item => item.Vertex == seg).Line;
             return AddVertex(segment, position);
         }
 
+        /// <summary>
+        /// Add a vertx to the Line when you know the segment to add the vertex to
+        /// </summary>
+        /// <param name="segment"> Linesegement to add the vertex to </param>
+        /// <param name="position"> Vertex Position in Wordl Space coordinates</param>
+        /// <returns></returns>
         public VirgisFeature AddVertex(LineSegment segment, Vector3 position) {
             int start = segment.vStart;
             int next = segment.vEnd;
@@ -343,6 +349,19 @@ namespace Virgis
                 com.vEnd = 0;
             VertexTable.Find(item => item.Vertex == i).Line = com;
             return com;
+        }
+
+        /// <summary>
+        /// get the center of the line
+        /// 
+        /// <returns></returns>
+        private Vector3 Center() {
+            curve.Vector3(GetVertexPositions(), Lr);
+            return (Vector3) curve.CenterMark();
+        }
+
+        private Vector3 _labelPosition() {
+            return Center() + transform.TransformVector(Vector3.up) * symbology["line"].Transform.Scale.magnitude;
         }
     }
 }
