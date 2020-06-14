@@ -111,11 +111,10 @@ namespace Virgis {
 
 
             //Set the label
-            GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
-            labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
-            labelObject.transform.localPosition = Vector3.up * displacement;
-
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (properties?.ContainsKey(symbology["point"].Label) ?? false)) {
+                GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
+                labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
+                labelObject.transform.localPosition = Vector3.up * displacement;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = (string) properties[symbology["point"].Label];
             }

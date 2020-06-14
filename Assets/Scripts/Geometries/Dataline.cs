@@ -53,7 +53,7 @@ namespace Virgis
                     if (vLookup.Line && vLookup.Line.vEnd == vdata.Vertex)
                         vLookup.Line.MoveEnd(data.pos);
                 }
-                label.position = _labelPosition();
+                if (label) label.position = _labelPosition();
             }
         }
 
