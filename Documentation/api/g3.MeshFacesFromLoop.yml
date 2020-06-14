@@ -1,0 +1,478 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshFacesFromLoop
+  commentId: T:g3.MeshFacesFromLoop
+  id: MeshFacesFromLoop
+  parent: g3
+  children:
+  - g3.MeshFacesFromLoop.#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial)
+  - g3.MeshFacesFromLoop.#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial,System.Int32)
+  - g3.MeshFacesFromLoop.InteriorTriangles
+  - g3.MeshFacesFromLoop.Mesh
+  - g3.MeshFacesFromLoop.PathTriangles
+  - g3.MeshFacesFromLoop.ToArray
+  - g3.MeshFacesFromLoop.ToSelection
+  langs:
+  - csharp
+  - vb
+  name: MeshFacesFromLoop
+  nameWithType: MeshFacesFromLoop
+  fullName: g3.MeshFacesFromLoop
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshFacesFromLoop
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind mesh triangles enclosed by a curve embedded in the mesh\nIf a seed triangle in the enclosed region is not provided, then the\nsmaller of the two largest connected-components is chosen as the &quot;inside&quot;.\n"
+  example: []
+  syntax:
+    content: public class MeshFacesFromLoop
+    content.vb: Public Class MeshFacesFromLoop
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshFacesFromLoop.Mesh
+  commentId: F:g3.MeshFacesFromLoop.Mesh
+  id: Mesh
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshFacesFromLoop.Mesh
+  fullName: g3.MeshFacesFromLoop.Mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Public Mesh As DMesh3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshFacesFromLoop.#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial)
+  commentId: M:g3.MeshFacesFromLoop.#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial)
+  id: '#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial)'
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: MeshFacesFromLoop(DMesh3, DCurve3, ISpatial)
+  nameWithType: MeshFacesFromLoop.MeshFacesFromLoop(DMesh3, DCurve3, ISpatial)
+  fullName: g3.MeshFacesFromLoop.MeshFacesFromLoop(g3.DMesh3, g3.DCurve3, g3.ISpatial)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshFacesFromLoop(DMesh3 Mesh, DCurve3 SpaceCurve, ISpatial Spatial)
+    parameters:
+    - id: Mesh
+      type: g3.DMesh3
+    - id: SpaceCurve
+      type: g3.DCurve3
+    - id: Spatial
+      type: g3.ISpatial
+    content.vb: Public Sub New(Mesh As DMesh3, SpaceCurve As DCurve3, Spatial As ISpatial)
+  overload: g3.MeshFacesFromLoop.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshFacesFromLoop.#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial,System.Int32)
+  commentId: M:g3.MeshFacesFromLoop.#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial,System.Int32)
+  id: '#ctor(g3.DMesh3,g3.DCurve3,g3.ISpatial,System.Int32)'
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: MeshFacesFromLoop(DMesh3, DCurve3, ISpatial, Int32)
+  nameWithType: MeshFacesFromLoop.MeshFacesFromLoop(DMesh3, DCurve3, ISpatial, Int32)
+  fullName: g3.MeshFacesFromLoop.MeshFacesFromLoop(g3.DMesh3, g3.DCurve3, g3.ISpatial, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshFacesFromLoop(DMesh3 Mesh, DCurve3 SpaceCurve, ISpatial Spatial, int tSeed)
+    parameters:
+    - id: Mesh
+      type: g3.DMesh3
+    - id: SpaceCurve
+      type: g3.DCurve3
+    - id: Spatial
+      type: g3.ISpatial
+    - id: tSeed
+      type: System.Int32
+    content.vb: Public Sub New(Mesh As DMesh3, SpaceCurve As DCurve3, Spatial As ISpatial, tSeed As Integer)
+  overload: g3.MeshFacesFromLoop.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshFacesFromLoop.ToArray
+  commentId: M:g3.MeshFacesFromLoop.ToArray
+  id: ToArray
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: MeshFacesFromLoop.ToArray()
+  fullName: g3.MeshFacesFromLoop.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToArray
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 51
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nreturns new array containing selected triangles \n"
+  example: []
+  syntax:
+    content: public int[] ToArray()
+    return:
+      type: System.Int32[]
+    content.vb: Public Function ToArray As Integer()
+  overload: g3.MeshFacesFromLoop.ToArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshFacesFromLoop.ToSelection
+  commentId: M:g3.MeshFacesFromLoop.ToSelection
+  id: ToSelection
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: ToSelection()
+  nameWithType: MeshFacesFromLoop.ToSelection()
+  fullName: g3.MeshFacesFromLoop.ToSelection()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToSelection
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshFaceSelection ToSelection()
+    return:
+      type: g3.MeshFaceSelection
+    content.vb: Public Function ToSelection As MeshFaceSelection
+  overload: g3.MeshFacesFromLoop.ToSelection*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshFacesFromLoop.PathTriangles
+  commentId: P:g3.MeshFacesFromLoop.PathTriangles
+  id: PathTriangles
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: PathTriangles
+  nameWithType: MeshFacesFromLoop.PathTriangles
+  fullName: g3.MeshFacesFromLoop.PathTriangles
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PathTriangles
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 64
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IList<int> PathTriangles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.Int32}
+    content.vb: Public ReadOnly Property PathTriangles As IList(Of Integer)
+  overload: g3.MeshFacesFromLoop.PathTriangles*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshFacesFromLoop.InteriorTriangles
+  commentId: P:g3.MeshFacesFromLoop.InteriorTriangles
+  id: InteriorTriangles
+  parent: g3.MeshFacesFromLoop
+  langs:
+  - csharp
+  - vb
+  name: InteriorTriangles
+  nameWithType: MeshFacesFromLoop.InteriorTriangles
+  fullName: g3.MeshFacesFromLoop.InteriorTriangles
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InteriorTriangles
+    path: ../Assets/geometry3Sharp/mesh_selection/MeshFacesFromLoop.cs
+    startLine: 67
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IList<int> InteriorTriangles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.Int32}
+    content.vb: Public ReadOnly Property InteriorTriangles As IList(Of Integer)
+  overload: g3.MeshFacesFromLoop.InteriorTriangles*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshFacesFromLoop.#ctor*
+  commentId: Overload:g3.MeshFacesFromLoop.#ctor
+  name: MeshFacesFromLoop
+  nameWithType: MeshFacesFromLoop.MeshFacesFromLoop
+  fullName: g3.MeshFacesFromLoop.MeshFacesFromLoop
+- uid: g3.DCurve3
+  commentId: T:g3.DCurve3
+  parent: g3
+  name: DCurve3
+  nameWithType: DCurve3
+  fullName: g3.DCurve3
+- uid: g3.ISpatial
+  commentId: T:g3.ISpatial
+  parent: g3
+  name: ISpatial
+  nameWithType: ISpatial
+  fullName: g3.ISpatial
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshFacesFromLoop.ToArray*
+  commentId: Overload:g3.MeshFacesFromLoop.ToArray
+  name: ToArray
+  nameWithType: MeshFacesFromLoop.ToArray
+  fullName: g3.MeshFacesFromLoop.ToArray
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.MeshFacesFromLoop.ToSelection*
+  commentId: Overload:g3.MeshFacesFromLoop.ToSelection
+  name: ToSelection
+  nameWithType: MeshFacesFromLoop.ToSelection
+  fullName: g3.MeshFacesFromLoop.ToSelection
+- uid: g3.MeshFaceSelection
+  commentId: T:g3.MeshFaceSelection
+  parent: g3
+  name: MeshFaceSelection
+  nameWithType: MeshFaceSelection
+  fullName: g3.MeshFaceSelection
+- uid: g3.MeshFacesFromLoop.PathTriangles*
+  commentId: Overload:g3.MeshFacesFromLoop.PathTriangles
+  name: PathTriangles
+  nameWithType: MeshFacesFromLoop.PathTriangles
+  fullName: g3.MeshFacesFromLoop.PathTriangles
+- uid: System.Collections.Generic.IList{System.Int32}
+  commentId: T:System.Collections.Generic.IList{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Int32>
+  nameWithType: IList<Int32>
+  fullName: System.Collections.Generic.IList<System.Int32>
+  nameWithType.vb: IList(Of Int32)
+  fullName.vb: System.Collections.Generic.IList(Of System.Int32)
+  name.vb: IList(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshFacesFromLoop.InteriorTriangles*
+  commentId: Overload:g3.MeshFacesFromLoop.InteriorTriangles
+  name: InteriorTriangles
+  nameWithType: MeshFacesFromLoop.InteriorTriangles
+  fullName: g3.MeshFacesFromLoop.InteriorTriangles

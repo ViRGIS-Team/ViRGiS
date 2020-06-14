@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IDuplicatable`1
+  commentId: T:g3.IDuplicatable`1
+  id: IDuplicatable`1
+  parent: g3
+  children:
+  - g3.IDuplicatable`1.Duplicate
+  langs:
+  - csharp
+  - vb
+  name: IDuplicatable<T>
+  nameWithType: IDuplicatable<T>
+  fullName: g3.IDuplicatable<T>
+  type: Interface
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Interfaces.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IDuplicatable
+    path: ../Assets/geometry3Sharp/core/g3Interfaces.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nDeep-copy cloning interface. Duplicate() *must* return\na full deep copy of object, including all internal data structures.\n"
+  example: []
+  syntax:
+    content: public interface IDuplicatable<T>
+    typeParameters:
+    - id: T
+    content.vb: Public Interface IDuplicatable(Of T)
+  nameWithType.vb: IDuplicatable(Of T)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+  fullName.vb: g3.IDuplicatable(Of T)
+  name.vb: IDuplicatable(Of T)
+- uid: g3.IDuplicatable`1.Duplicate
+  commentId: M:g3.IDuplicatable`1.Duplicate
+  id: Duplicate
+  parent: g3.IDuplicatable`1
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: IDuplicatable<T>.Duplicate()
+  fullName: g3.IDuplicatable<T>.Duplicate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Interfaces.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Duplicate
+    path: ../Assets/geometry3Sharp/core/g3Interfaces.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: T Duplicate()
+    return:
+      type: '{T}'
+    content.vb: Function Duplicate As T
+  overload: g3.IDuplicatable`1.Duplicate*
+  nameWithType.vb: IDuplicatable(Of T).Duplicate()
+  fullName.vb: g3.IDuplicatable(Of T).Duplicate()
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: g3.IDuplicatable`1.Duplicate*
+  commentId: Overload:g3.IDuplicatable`1.Duplicate
+  name: Duplicate
+  nameWithType: IDuplicatable<T>.Duplicate
+  fullName: g3.IDuplicatable<T>.Duplicate
+  nameWithType.vb: IDuplicatable(Of T).Duplicate
+  fullName.vb: g3.IDuplicatable(Of T).Duplicate
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

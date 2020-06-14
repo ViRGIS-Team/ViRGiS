@@ -1,0 +1,509 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.SegmentSet2d
+  commentId: T:g3.SegmentSet2d
+  id: SegmentSet2d
+  parent: g3
+  children:
+  - g3.SegmentSet2d.#ctor
+  - g3.SegmentSet2d.#ctor(g3.GeneralPolygon2d)
+  - g3.SegmentSet2d.#ctor(System.Collections.Generic.List{g3.GeneralPolygon2d})
+  - g3.SegmentSet2d.FindAllIntersections(g3.Segment2d,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{g3.IntrSegment2Segment2},System.Boolean)
+  - g3.SegmentSet2d.FindAnyIntersection(g3.Segment2d,System.Int32@)
+  langs:
+  - csharp
+  - vb
+  name: SegmentSet2d
+  nameWithType: SegmentSet2d
+  fullName: g3.SegmentSet2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentSet2d
+    path: ../Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+    startLine: 6
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class SegmentSet2d
+    content.vb: Public Class SegmentSet2d
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.SegmentSet2d.#ctor
+  commentId: M:g3.SegmentSet2d.#ctor
+  id: '#ctor'
+  parent: g3.SegmentSet2d
+  langs:
+  - csharp
+  - vb
+  name: SegmentSet2d()
+  nameWithType: SegmentSet2d.SegmentSet2d()
+  fullName: g3.SegmentSet2d.SegmentSet2d()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SegmentSet2d()
+    content.vb: Public Sub New
+  overload: g3.SegmentSet2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SegmentSet2d.#ctor(g3.GeneralPolygon2d)
+  commentId: M:g3.SegmentSet2d.#ctor(g3.GeneralPolygon2d)
+  id: '#ctor(g3.GeneralPolygon2d)'
+  parent: g3.SegmentSet2d
+  langs:
+  - csharp
+  - vb
+  name: SegmentSet2d(GeneralPolygon2d)
+  nameWithType: SegmentSet2d.SegmentSet2d(GeneralPolygon2d)
+  fullName: g3.SegmentSet2d.SegmentSet2d(g3.GeneralPolygon2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SegmentSet2d(GeneralPolygon2d poly)
+    parameters:
+    - id: poly
+      type: g3.GeneralPolygon2d
+    content.vb: Public Sub New(poly As GeneralPolygon2d)
+  overload: g3.SegmentSet2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.SegmentSet2d.#ctor(System.Collections.Generic.List{g3.GeneralPolygon2d})
+  commentId: M:g3.SegmentSet2d.#ctor(System.Collections.Generic.List{g3.GeneralPolygon2d})
+  id: '#ctor(System.Collections.Generic.List{g3.GeneralPolygon2d})'
+  parent: g3.SegmentSet2d
+  langs:
+  - csharp
+  - vb
+  name: SegmentSet2d(List<GeneralPolygon2d>)
+  nameWithType: SegmentSet2d.SegmentSet2d(List<GeneralPolygon2d>)
+  fullName: g3.SegmentSet2d.SegmentSet2d(System.Collections.Generic.List<g3.GeneralPolygon2d>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public SegmentSet2d(List<GeneralPolygon2d> polys)
+    parameters:
+    - id: polys
+      type: System.Collections.Generic.List{g3.GeneralPolygon2d}
+    content.vb: Public Sub New(polys As List(Of GeneralPolygon2d))
+  overload: g3.SegmentSet2d.#ctor*
+  nameWithType.vb: SegmentSet2d.SegmentSet2d(List(Of GeneralPolygon2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SegmentSet2d.SegmentSet2d(System.Collections.Generic.List(Of g3.GeneralPolygon2d))
+  name.vb: SegmentSet2d(List(Of GeneralPolygon2d))
+- uid: g3.SegmentSet2d.FindAnyIntersection(g3.Segment2d,System.Int32@)
+  commentId: M:g3.SegmentSet2d.FindAnyIntersection(g3.Segment2d,System.Int32@)
+  id: FindAnyIntersection(g3.Segment2d,System.Int32@)
+  parent: g3.SegmentSet2d
+  langs:
+  - csharp
+  - vb
+  name: FindAnyIntersection(Segment2d, out Int32)
+  nameWithType: SegmentSet2d.FindAnyIntersection(Segment2d, out Int32)
+  fullName: g3.SegmentSet2d.FindAnyIntersection(g3.Segment2d, out System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindAnyIntersection
+    path: ../Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind any segment in set that intersects input segment. \nReturns intersection test, and index of segment\n"
+  example: []
+  syntax:
+    content: public IntrSegment2Segment2 FindAnyIntersection(Segment2d seg, out int iSegment)
+    parameters:
+    - id: seg
+      type: g3.Segment2d
+    - id: iSegment
+      type: System.Int32
+    return:
+      type: g3.IntrSegment2Segment2
+    content.vb: Public Function FindAnyIntersection(seg As Segment2d, ByRef iSegment As Integer) As IntrSegment2Segment2
+  overload: g3.SegmentSet2d.FindAnyIntersection*
+  nameWithType.vb: SegmentSet2d.FindAnyIntersection(Segment2d, ByRef Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SegmentSet2d.FindAnyIntersection(g3.Segment2d, ByRef System.Int32)
+  name.vb: FindAnyIntersection(Segment2d, ByRef Int32)
+- uid: g3.SegmentSet2d.FindAllIntersections(g3.Segment2d,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{g3.IntrSegment2Segment2},System.Boolean)
+  commentId: M:g3.SegmentSet2d.FindAllIntersections(g3.Segment2d,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{g3.IntrSegment2Segment2},System.Boolean)
+  id: FindAllIntersections(g3.Segment2d,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{g3.IntrSegment2Segment2},System.Boolean)
+  parent: g3.SegmentSet2d
+  langs:
+  - csharp
+  - vb
+  name: FindAllIntersections(Segment2d, List<Double>, List<Int32>, List<IntrSegment2Segment2>, Boolean)
+  nameWithType: SegmentSet2d.FindAllIntersections(Segment2d, List<Double>, List<Int32>, List<IntrSegment2Segment2>, Boolean)
+  fullName: g3.SegmentSet2d.FindAllIntersections(g3.Segment2d, System.Collections.Generic.List<System.Double>, System.Collections.Generic.List<System.Int32>, System.Collections.Generic.List<g3.IntrSegment2Segment2>, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindAllIntersections
+    path: ../Assets/geometry3Sharp/spatial/SegmentSet2d.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void FindAllIntersections(Segment2d seg, List<double> segmentTs, List<int> indices = null, List<IntrSegment2Segment2> tests = null, bool bOnlySimple = true)
+    parameters:
+    - id: seg
+      type: g3.Segment2d
+    - id: segmentTs
+      type: System.Collections.Generic.List{System.Double}
+    - id: indices
+      type: System.Collections.Generic.List{System.Int32}
+    - id: tests
+      type: System.Collections.Generic.List{g3.IntrSegment2Segment2}
+    - id: bOnlySimple
+      type: System.Boolean
+    content.vb: Public Sub FindAllIntersections(seg As Segment2d, segmentTs As List(Of Double), indices As List(Of Integer) = Nothing, tests As List(Of IntrSegment2Segment2) = Nothing, bOnlySimple As Boolean = True)
+  overload: g3.SegmentSet2d.FindAllIntersections*
+  nameWithType.vb: SegmentSet2d.FindAllIntersections(Segment2d, List(Of Double), List(Of Int32), List(Of IntrSegment2Segment2), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.SegmentSet2d.FindAllIntersections(g3.Segment2d, System.Collections.Generic.List(Of System.Double), System.Collections.Generic.List(Of System.Int32), System.Collections.Generic.List(Of g3.IntrSegment2Segment2), System.Boolean)
+  name.vb: FindAllIntersections(Segment2d, List(Of Double), List(Of Int32), List(Of IntrSegment2Segment2), Boolean)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.SegmentSet2d.#ctor*
+  commentId: Overload:g3.SegmentSet2d.#ctor
+  name: SegmentSet2d
+  nameWithType: SegmentSet2d.SegmentSet2d
+  fullName: g3.SegmentSet2d.SegmentSet2d
+- uid: g3.GeneralPolygon2d
+  commentId: T:g3.GeneralPolygon2d
+  parent: g3
+  name: GeneralPolygon2d
+  nameWithType: GeneralPolygon2d
+  fullName: g3.GeneralPolygon2d
+- uid: System.Collections.Generic.List{g3.GeneralPolygon2d}
+  commentId: T:System.Collections.Generic.List{g3.GeneralPolygon2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<GeneralPolygon2d>
+  nameWithType: List<GeneralPolygon2d>
+  fullName: System.Collections.Generic.List<g3.GeneralPolygon2d>
+  nameWithType.vb: List(Of GeneralPolygon2d)
+  fullName.vb: System.Collections.Generic.List(Of g3.GeneralPolygon2d)
+  name.vb: List(Of GeneralPolygon2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.GeneralPolygon2d
+    name: GeneralPolygon2d
+    nameWithType: GeneralPolygon2d
+    fullName: g3.GeneralPolygon2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.GeneralPolygon2d
+    name: GeneralPolygon2d
+    nameWithType: GeneralPolygon2d
+    fullName: g3.GeneralPolygon2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.SegmentSet2d.FindAnyIntersection*
+  commentId: Overload:g3.SegmentSet2d.FindAnyIntersection
+  name: FindAnyIntersection
+  nameWithType: SegmentSet2d.FindAnyIntersection
+  fullName: g3.SegmentSet2d.FindAnyIntersection
+- uid: g3.Segment2d
+  commentId: T:g3.Segment2d
+  parent: g3
+  name: Segment2d
+  nameWithType: Segment2d
+  fullName: g3.Segment2d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IntrSegment2Segment2
+  commentId: T:g3.IntrSegment2Segment2
+  parent: g3
+  name: IntrSegment2Segment2
+  nameWithType: IntrSegment2Segment2
+  fullName: g3.IntrSegment2Segment2
+- uid: g3.SegmentSet2d.FindAllIntersections*
+  commentId: Overload:g3.SegmentSet2d.FindAllIntersections
+  name: FindAllIntersections
+  nameWithType: SegmentSet2d.FindAllIntersections
+  fullName: g3.SegmentSet2d.FindAllIntersections
+- uid: System.Collections.Generic.List{System.Double}
+  commentId: T:System.Collections.Generic.List{System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Double>
+  nameWithType: List<Double>
+  fullName: System.Collections.Generic.List<System.Double>
+  nameWithType.vb: List(Of Double)
+  fullName.vb: System.Collections.Generic.List(Of System.Double)
+  name.vb: List(Of Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{g3.IntrSegment2Segment2}
+  commentId: T:System.Collections.Generic.List{g3.IntrSegment2Segment2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<IntrSegment2Segment2>
+  nameWithType: List<IntrSegment2Segment2>
+  fullName: System.Collections.Generic.List<g3.IntrSegment2Segment2>
+  nameWithType.vb: List(Of IntrSegment2Segment2)
+  fullName.vb: System.Collections.Generic.List(Of g3.IntrSegment2Segment2)
+  name.vb: List(Of IntrSegment2Segment2)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.IntrSegment2Segment2
+    name: IntrSegment2Segment2
+    nameWithType: IntrSegment2Segment2
+    fullName: g3.IntrSegment2Segment2
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.IntrSegment2Segment2
+    name: IntrSegment2Segment2
+    nameWithType: IntrSegment2Segment2
+    fullName: g3.IntrSegment2Segment2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

@@ -1,0 +1,165 @@
+### YamlMime:ManagedReference
+items:
+- uid: Virgis.EditableLayerChangedEvent
+  commentId: T:Virgis.EditableLayerChangedEvent
+  id: EditableLayerChangedEvent
+  parent: Virgis
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: EditableLayerChangedEvent
+  nameWithType: EditableLayerChangedEvent
+  fullName: Virgis.EditableLayerChangedEvent
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/EditSession.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EditableLayerChangedEvent
+    path: ../Assets/Scripts/EditSession.cs
+    startLine: 18
+  assemblies:
+  - Assembly-CSharp
+  namespace: Virgis
+  summary: "\nEditableLayerChangedEvent is triggered during an edit session,\nwhere the editable layer has been changed to another layer.\n"
+  example: []
+  syntax:
+    content: >-
+      [Serializable]
+
+      public class EditableLayerChangedEvent : UnityEvent<IVirgisLayer>, ISerializationCallbackReceiver
+    content.vb: >-
+      <Serializable>
+
+      Public Class EditableLayerChangedEvent
+          Inherits UnityEvent(Of IVirgisLayer)
+          Implements ISerializationCallbackReceiver
+  inheritance:
+  - System.Object
+  - UnityEngine.Events.UnityEventBase
+  - UnityEngine.Events.UnityEvent{Virgis.IVirgisLayer}
+  attributes:
+  - type: System.SerializableAttribute
+    ctor: System.SerializableAttribute.#ctor
+    arguments: []
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: UnityEngine.Events.UnityEventBase
+  commentId: T:UnityEngine.Events.UnityEventBase
+  parent: UnityEngine.Events
+  isExternal: true
+  name: UnityEventBase
+  nameWithType: UnityEventBase
+  fullName: UnityEngine.Events.UnityEventBase
+- uid: UnityEngine.Events.UnityEvent{Virgis.IVirgisLayer}
+  commentId: T:UnityEngine.Events.UnityEvent{Virgis.IVirgisLayer}
+  parent: UnityEngine.Events
+  definition: UnityEngine.Events.UnityEvent`1
+  name: UnityEvent<IVirgisLayer>
+  nameWithType: UnityEvent<IVirgisLayer>
+  fullName: UnityEngine.Events.UnityEvent<Virgis.IVirgisLayer>
+  nameWithType.vb: UnityEvent(Of IVirgisLayer)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of Virgis.IVirgisLayer)
+  name.vb: UnityEvent(Of IVirgisLayer)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Virgis.IVirgisLayer
+    name: IVirgisLayer
+    nameWithType: IVirgisLayer
+    fullName: Virgis.IVirgisLayer
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Virgis.IVirgisLayer
+    name: IVirgisLayer
+    nameWithType: IVirgisLayer
+    fullName: Virgis.IVirgisLayer
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: UnityEngine.Events
+  commentId: N:UnityEngine.Events
+  isExternal: true
+  name: UnityEngine.Events
+  nameWithType: UnityEngine.Events
+  fullName: UnityEngine.Events
+- uid: UnityEngine.Events.UnityEvent`1
+  commentId: T:UnityEngine.Events.UnityEvent`1
+  isExternal: true
+  name: UnityEvent<T0>
+  nameWithType: UnityEvent<T0>
+  fullName: UnityEngine.Events.UnityEvent<T0>
+  nameWithType.vb: UnityEvent(Of T0)
+  fullName.vb: UnityEngine.Events.UnityEvent(Of T0)
+  name.vb: UnityEvent(Of T0)
+  spec.csharp:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T0
+    nameWithType: T0
+    fullName: T0
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: UnityEngine.Events.UnityEvent`1
+    name: UnityEvent
+    nameWithType: UnityEvent
+    fullName: UnityEngine.Events.UnityEvent
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T0
+    nameWithType: T0
+    fullName: T0
+  - name: )
+    nameWithType: )
+    fullName: )

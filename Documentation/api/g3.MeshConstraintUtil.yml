@@ -1,0 +1,962 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshConstraintUtil
+  commentId: T:g3.MeshConstraintUtil
+  id: MeshConstraintUtil
+  parent: g3
+  children:
+  - g3.MeshConstraintUtil.AddTrackedEdges(g3.MeshConstraints,System.Int32[],System.Int32)
+  - g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  - g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  - g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  - g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  - g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.MeshConstraints,g3.DMesh3)
+  - g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.Remesher)
+  - g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  - g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  - g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.MeshConstraints,g3.DMesh3,System.Boolean)
+  - g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.Remesher,System.Boolean)
+  - g3.MeshConstraintUtil.FixEdges(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.MeshConstraintUtil.FixSubmeshBoundaryEdges(g3.MeshConstraints,g3.DSubmesh3)
+  - g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.MeshConstraints,g3.DMesh3)
+  - g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.Remesher)
+  langs:
+  - csharp
+  - vb
+  name: MeshConstraintUtil
+  nameWithType: MeshConstraintUtil
+  fullName: g3.MeshConstraintUtil
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshConstraintUtil
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class MeshConstraintUtil
+    content.vb: Public Module MeshConstraintUtil
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.MeshConstraintUtil.FixEdges(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.MeshConstraintUtil.FixEdges(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  id: FixEdges(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixEdges(MeshConstraints, DMesh3, IEnumerable<Int32>)
+  nameWithType: MeshConstraintUtil.FixEdges(MeshConstraints, DMesh3, IEnumerable<Int32>)
+  fullName: g3.MeshConstraintUtil.FixEdges(g3.MeshConstraints, g3.DMesh3, System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixEdges(MeshConstraints cons, DMesh3 mesh, IEnumerable<int> edges)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    - id: edges
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    content.vb: Public Shared Sub FixEdges(cons As MeshConstraints, mesh As DMesh3, edges As IEnumerable(Of Integer))
+  overload: g3.MeshConstraintUtil.FixEdges*
+  nameWithType.vb: MeshConstraintUtil.FixEdges(MeshConstraints, DMesh3, IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshConstraintUtil.FixEdges(g3.MeshConstraints, g3.DMesh3, System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: FixEdges(MeshConstraints, DMesh3, IEnumerable(Of Int32))
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.MeshConstraints,g3.DMesh3)
+  commentId: M:g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.MeshConstraints,g3.DMesh3)
+  id: FixAllBoundaryEdges(g3.MeshConstraints,g3.DMesh3)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixAllBoundaryEdges(MeshConstraints, DMesh3)
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges(MeshConstraints, DMesh3)
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.MeshConstraints, g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixAllBoundaryEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixAllBoundaryEdges(MeshConstraints cons, DMesh3 mesh)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Shared Sub FixAllBoundaryEdges(cons As MeshConstraints, mesh As DMesh3)
+  overload: g3.MeshConstraintUtil.FixAllBoundaryEdges*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.Remesher)
+  commentId: M:g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.Remesher)
+  id: FixAllBoundaryEdges(g3.Remesher)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixAllBoundaryEdges(Remesher)
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges(Remesher)
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges(g3.Remesher)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixAllBoundaryEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixAllBoundaryEdges(Remesher r)
+    parameters:
+    - id: r
+      type: g3.Remesher
+    content.vb: Public Shared Sub FixAllBoundaryEdges(r As Remesher)
+  overload: g3.MeshConstraintUtil.FixAllBoundaryEdges*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  commentId: M:g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  id: FixAllBoundaryEdges_AllowCollapse(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixAllBoundaryEdges_AllowCollapse(MeshConstraints, DMesh3, Int32)
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse(MeshConstraints, DMesh3, Int32)
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse(g3.MeshConstraints, g3.DMesh3, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixAllBoundaryEdges_AllowCollapse
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 50
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixAllBoundaryEdges_AllowCollapse(MeshConstraints cons, DMesh3 mesh, int setID)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub FixAllBoundaryEdges_AllowCollapse(cons As MeshConstraints, mesh As DMesh3, setID As Integer)
+  overload: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  commentId: M:g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  id: FixAllBoundaryEdges_AllowSplit(g3.MeshConstraints,g3.DMesh3,System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixAllBoundaryEdges_AllowSplit(MeshConstraints, DMesh3, Int32)
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit(MeshConstraints, DMesh3, Int32)
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit(g3.MeshConstraints, g3.DMesh3, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixAllBoundaryEdges_AllowSplit
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 70
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixAllBoundaryEdges_AllowSplit(MeshConstraints cons, DMesh3 mesh, int setID)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub FixAllBoundaryEdges_AllowSplit(cons As MeshConstraints, mesh As DMesh3, setID As Integer)
+  overload: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.FixSubmeshBoundaryEdges(g3.MeshConstraints,g3.DSubmesh3)
+  commentId: M:g3.MeshConstraintUtil.FixSubmeshBoundaryEdges(g3.MeshConstraints,g3.DSubmesh3)
+  id: FixSubmeshBoundaryEdges(g3.MeshConstraints,g3.DSubmesh3)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixSubmeshBoundaryEdges(MeshConstraints, DSubmesh3)
+  nameWithType: MeshConstraintUtil.FixSubmeshBoundaryEdges(MeshConstraints, DSubmesh3)
+  fullName: g3.MeshConstraintUtil.FixSubmeshBoundaryEdges(g3.MeshConstraints, g3.DSubmesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixSubmeshBoundaryEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 90
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixSubmeshBoundaryEdges(MeshConstraints cons, DSubmesh3 sub)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: sub
+      type: g3.DSubmesh3
+    content.vb: Public Shared Sub FixSubmeshBoundaryEdges(cons As MeshConstraints, sub As DSubmesh3)
+  overload: g3.MeshConstraintUtil.FixSubmeshBoundaryEdges*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.MeshConstraints,g3.DMesh3,System.Boolean)
+  commentId: M:g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.MeshConstraints,g3.DMesh3,System.Boolean)
+  id: FixAllGroupBoundaryEdges(g3.MeshConstraints,g3.DMesh3,System.Boolean)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixAllGroupBoundaryEdges(MeshConstraints, DMesh3, Boolean)
+  nameWithType: MeshConstraintUtil.FixAllGroupBoundaryEdges(MeshConstraints, DMesh3, Boolean)
+  fullName: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.MeshConstraints, g3.DMesh3, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixAllGroupBoundaryEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 111
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixAllGroupBoundaryEdges(MeshConstraints cons, DMesh3 mesh, bool bPinVertices)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    - id: bPinVertices
+      type: System.Boolean
+    content.vb: Public Shared Sub FixAllGroupBoundaryEdges(cons As MeshConstraints, mesh As DMesh3, bPinVertices As Boolean)
+  overload: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.Remesher,System.Boolean)
+  commentId: M:g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.Remesher,System.Boolean)
+  id: FixAllGroupBoundaryEdges(g3.Remesher,System.Boolean)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: FixAllGroupBoundaryEdges(Remesher, Boolean)
+  nameWithType: MeshConstraintUtil.FixAllGroupBoundaryEdges(Remesher, Boolean)
+  fullName: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges(g3.Remesher, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FixAllGroupBoundaryEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 126
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FixAllGroupBoundaryEdges(Remesher r, bool bPinVertices)
+    parameters:
+    - id: r
+      type: g3.Remesher
+    - id: bPinVertices
+      type: System.Boolean
+    content.vb: Public Shared Sub FixAllGroupBoundaryEdges(r As Remesher, bPinVertices As Boolean)
+  overload: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  commentId: M:g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  id: ConstrainVtxLoopTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: ConstrainVtxLoopTo(MeshConstraints, DMesh3, IList<Int32>, IProjectionTarget, Int32)
+  nameWithType: MeshConstraintUtil.ConstrainVtxLoopTo(MeshConstraints, DMesh3, IList<Int32>, IProjectionTarget, Int32)
+  fullName: g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.MeshConstraints, g3.DMesh3, System.Collections.Generic.IList<System.Int32>, g3.IProjectionTarget, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConstrainVtxLoopTo
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 137
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ConstrainVtxLoopTo(MeshConstraints cons, DMesh3 mesh, IList<int> loopV, IProjectionTarget target, int setID = -1)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    - id: loopV
+      type: System.Collections.Generic.IList{System.Int32}
+    - id: target
+      type: g3.IProjectionTarget
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub ConstrainVtxLoopTo(cons As MeshConstraints, mesh As DMesh3, loopV As IList(Of Integer), target As IProjectionTarget, setID As Integer = -1)
+  overload: g3.MeshConstraintUtil.ConstrainVtxLoopTo*
+  nameWithType.vb: MeshConstraintUtil.ConstrainVtxLoopTo(MeshConstraints, DMesh3, IList(Of Int32), IProjectionTarget, Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.MeshConstraints, g3.DMesh3, System.Collections.Generic.IList(Of System.Int32), g3.IProjectionTarget, System.Int32)
+  name.vb: ConstrainVtxLoopTo(MeshConstraints, DMesh3, IList(Of Int32), IProjectionTarget, Int32)
+- uid: g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  commentId: M:g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  id: ConstrainVtxLoopTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: ConstrainVtxLoopTo(Remesher, Int32[], IProjectionTarget, Int32)
+  nameWithType: MeshConstraintUtil.ConstrainVtxLoopTo(Remesher, Int32[], IProjectionTarget, Int32)
+  fullName: g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.Remesher, System.Int32[], g3.IProjectionTarget, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConstrainVtxLoopTo
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 157
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ConstrainVtxLoopTo(Remesher r, int[] loopV, IProjectionTarget target, int setID = -1)
+    parameters:
+    - id: r
+      type: g3.Remesher
+    - id: loopV
+      type: System.Int32[]
+    - id: target
+      type: g3.IProjectionTarget
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub ConstrainVtxLoopTo(r As Remesher, loopV As Integer(), target As IProjectionTarget, setID As Integer = -1)
+  overload: g3.MeshConstraintUtil.ConstrainVtxLoopTo*
+  nameWithType.vb: MeshConstraintUtil.ConstrainVtxLoopTo(Remesher, Int32(), IProjectionTarget, Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshConstraintUtil.ConstrainVtxLoopTo(g3.Remesher, System.Int32(), g3.IProjectionTarget, System.Int32)
+  name.vb: ConstrainVtxLoopTo(Remesher, Int32(), IProjectionTarget, Int32)
+- uid: g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  commentId: M:g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  id: ConstrainVtxSpanTo(g3.MeshConstraints,g3.DMesh3,System.Collections.Generic.IList{System.Int32},g3.IProjectionTarget,System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: ConstrainVtxSpanTo(MeshConstraints, DMesh3, IList<Int32>, IProjectionTarget, Int32)
+  nameWithType: MeshConstraintUtil.ConstrainVtxSpanTo(MeshConstraints, DMesh3, IList<Int32>, IProjectionTarget, Int32)
+  fullName: g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.MeshConstraints, g3.DMesh3, System.Collections.Generic.IList<System.Int32>, g3.IProjectionTarget, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConstrainVtxSpanTo
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 170
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ConstrainVtxSpanTo(MeshConstraints cons, DMesh3 mesh, IList<int> spanV, IProjectionTarget target, int setID = -1)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    - id: spanV
+      type: System.Collections.Generic.IList{System.Int32}
+    - id: target
+      type: g3.IProjectionTarget
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub ConstrainVtxSpanTo(cons As MeshConstraints, mesh As DMesh3, spanV As IList(Of Integer), target As IProjectionTarget, setID As Integer = -1)
+  overload: g3.MeshConstraintUtil.ConstrainVtxSpanTo*
+  nameWithType.vb: MeshConstraintUtil.ConstrainVtxSpanTo(MeshConstraints, DMesh3, IList(Of Int32), IProjectionTarget, Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.MeshConstraints, g3.DMesh3, System.Collections.Generic.IList(Of System.Int32), g3.IProjectionTarget, System.Int32)
+  name.vb: ConstrainVtxSpanTo(MeshConstraints, DMesh3, IList(Of Int32), IProjectionTarget, Int32)
+- uid: g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  commentId: M:g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  id: ConstrainVtxSpanTo(g3.Remesher,System.Int32[],g3.IProjectionTarget,System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: ConstrainVtxSpanTo(Remesher, Int32[], IProjectionTarget, Int32)
+  nameWithType: MeshConstraintUtil.ConstrainVtxSpanTo(Remesher, Int32[], IProjectionTarget, Int32)
+  fullName: g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.Remesher, System.Int32[], g3.IProjectionTarget, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConstrainVtxSpanTo
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 192
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ConstrainVtxSpanTo(Remesher r, int[] spanV, IProjectionTarget target, int setID = -1)
+    parameters:
+    - id: r
+      type: g3.Remesher
+    - id: spanV
+      type: System.Int32[]
+    - id: target
+      type: g3.IProjectionTarget
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub ConstrainVtxSpanTo(r As Remesher, spanV As Integer(), target As IProjectionTarget, setID As Integer = -1)
+  overload: g3.MeshConstraintUtil.ConstrainVtxSpanTo*
+  nameWithType.vb: MeshConstraintUtil.ConstrainVtxSpanTo(Remesher, Int32(), IProjectionTarget, Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshConstraintUtil.ConstrainVtxSpanTo(g3.Remesher, System.Int32(), g3.IProjectionTarget, System.Int32)
+  name.vb: ConstrainVtxSpanTo(Remesher, Int32(), IProjectionTarget, Int32)
+- uid: g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.MeshConstraints,g3.DMesh3)
+  commentId: M:g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.MeshConstraints,g3.DMesh3)
+  id: PreserveBoundaryLoops(g3.MeshConstraints,g3.DMesh3)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: PreserveBoundaryLoops(MeshConstraints, DMesh3)
+  nameWithType: MeshConstraintUtil.PreserveBoundaryLoops(MeshConstraints, DMesh3)
+  fullName: g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.MeshConstraints, g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PreserveBoundaryLoops
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 204
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void PreserveBoundaryLoops(MeshConstraints cons, DMesh3 mesh)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Shared Sub PreserveBoundaryLoops(cons As MeshConstraints, mesh As DMesh3)
+  overload: g3.MeshConstraintUtil.PreserveBoundaryLoops*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.Remesher)
+  commentId: M:g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.Remesher)
+  id: PreserveBoundaryLoops(g3.Remesher)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: PreserveBoundaryLoops(Remesher)
+  nameWithType: MeshConstraintUtil.PreserveBoundaryLoops(Remesher)
+  fullName: g3.MeshConstraintUtil.PreserveBoundaryLoops(g3.Remesher)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PreserveBoundaryLoops
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 212
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void PreserveBoundaryLoops(Remesher r)
+    parameters:
+    - id: r
+      type: g3.Remesher
+    content.vb: Public Shared Sub PreserveBoundaryLoops(r As Remesher)
+  overload: g3.MeshConstraintUtil.PreserveBoundaryLoops*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshConstraintUtil.AddTrackedEdges(g3.MeshConstraints,System.Int32[],System.Int32)
+  commentId: M:g3.MeshConstraintUtil.AddTrackedEdges(g3.MeshConstraints,System.Int32[],System.Int32)
+  id: AddTrackedEdges(g3.MeshConstraints,System.Int32[],System.Int32)
+  parent: g3.MeshConstraintUtil
+  langs:
+  - csharp
+  - vb
+  name: AddTrackedEdges(MeshConstraints, Int32[], Int32)
+  nameWithType: MeshConstraintUtil.AddTrackedEdges(MeshConstraints, Int32[], Int32)
+  fullName: g3.MeshConstraintUtil.AddTrackedEdges(g3.MeshConstraints, System.Int32[], System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AddTrackedEdges
+    path: ../Assets/geometry3Sharp/mesh/MeshConstraintUtil.cs
+    startLine: 221
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void AddTrackedEdges(MeshConstraints cons, int[] edges, int setID)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    - id: edges
+      type: System.Int32[]
+    - id: setID
+      type: System.Int32
+    content.vb: Public Shared Sub AddTrackedEdges(cons As MeshConstraints, edges As Integer(), setID As Integer)
+  overload: g3.MeshConstraintUtil.AddTrackedEdges*
+  nameWithType.vb: MeshConstraintUtil.AddTrackedEdges(MeshConstraints, Int32(), Int32)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshConstraintUtil.AddTrackedEdges(g3.MeshConstraints, System.Int32(), System.Int32)
+  name.vb: AddTrackedEdges(MeshConstraints, Int32(), Int32)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MeshConstraintUtil.FixEdges*
+  commentId: Overload:g3.MeshConstraintUtil.FixEdges
+  name: FixEdges
+  nameWithType: MeshConstraintUtil.FixEdges
+  fullName: g3.MeshConstraintUtil.FixEdges
+- uid: g3.MeshConstraints
+  commentId: T:g3.MeshConstraints
+  parent: g3
+  name: MeshConstraints
+  nameWithType: MeshConstraints
+  fullName: g3.MeshConstraints
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges*
+  commentId: Overload:g3.MeshConstraintUtil.FixAllBoundaryEdges
+  name: FixAllBoundaryEdges
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges
+- uid: g3.Remesher
+  commentId: T:g3.Remesher
+  parent: g3
+  name: Remesher
+  nameWithType: Remesher
+  fullName: g3.Remesher
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse*
+  commentId: Overload:g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse
+  name: FixAllBoundaryEdges_AllowCollapse
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowCollapse
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit*
+  commentId: Overload:g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit
+  name: FixAllBoundaryEdges_AllowSplit
+  nameWithType: MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit
+  fullName: g3.MeshConstraintUtil.FixAllBoundaryEdges_AllowSplit
+- uid: g3.MeshConstraintUtil.FixSubmeshBoundaryEdges*
+  commentId: Overload:g3.MeshConstraintUtil.FixSubmeshBoundaryEdges
+  name: FixSubmeshBoundaryEdges
+  nameWithType: MeshConstraintUtil.FixSubmeshBoundaryEdges
+  fullName: g3.MeshConstraintUtil.FixSubmeshBoundaryEdges
+- uid: g3.DSubmesh3
+  commentId: T:g3.DSubmesh3
+  parent: g3
+  name: DSubmesh3
+  nameWithType: DSubmesh3
+  fullName: g3.DSubmesh3
+- uid: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges*
+  commentId: Overload:g3.MeshConstraintUtil.FixAllGroupBoundaryEdges
+  name: FixAllGroupBoundaryEdges
+  nameWithType: MeshConstraintUtil.FixAllGroupBoundaryEdges
+  fullName: g3.MeshConstraintUtil.FixAllGroupBoundaryEdges
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshConstraintUtil.ConstrainVtxLoopTo*
+  commentId: Overload:g3.MeshConstraintUtil.ConstrainVtxLoopTo
+  name: ConstrainVtxLoopTo
+  nameWithType: MeshConstraintUtil.ConstrainVtxLoopTo
+  fullName: g3.MeshConstraintUtil.ConstrainVtxLoopTo
+- uid: System.Collections.Generic.IList{System.Int32}
+  commentId: T:System.Collections.Generic.IList{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Int32>
+  nameWithType: IList<Int32>
+  fullName: System.Collections.Generic.IList<System.Int32>
+  nameWithType.vb: IList(Of Int32)
+  fullName.vb: System.Collections.Generic.IList(Of System.Int32)
+  name.vb: IList(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.IProjectionTarget
+  commentId: T:g3.IProjectionTarget
+  parent: g3
+  name: IProjectionTarget
+  nameWithType: IProjectionTarget
+  fullName: g3.IProjectionTarget
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.MeshConstraintUtil.ConstrainVtxSpanTo*
+  commentId: Overload:g3.MeshConstraintUtil.ConstrainVtxSpanTo
+  name: ConstrainVtxSpanTo
+  nameWithType: MeshConstraintUtil.ConstrainVtxSpanTo
+  fullName: g3.MeshConstraintUtil.ConstrainVtxSpanTo
+- uid: g3.MeshConstraintUtil.PreserveBoundaryLoops*
+  commentId: Overload:g3.MeshConstraintUtil.PreserveBoundaryLoops
+  name: PreserveBoundaryLoops
+  nameWithType: MeshConstraintUtil.PreserveBoundaryLoops
+  fullName: g3.MeshConstraintUtil.PreserveBoundaryLoops
+- uid: g3.MeshConstraintUtil.AddTrackedEdges*
+  commentId: Overload:g3.MeshConstraintUtil.AddTrackedEdges
+  name: AddTrackedEdges
+  nameWithType: MeshConstraintUtil.AddTrackedEdges
+  fullName: g3.MeshConstraintUtil.AddTrackedEdges

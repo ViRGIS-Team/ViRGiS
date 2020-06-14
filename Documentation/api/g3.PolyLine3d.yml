@@ -1,0 +1,1057 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.PolyLine3d
+  commentId: T:g3.PolyLine3d
+  id: PolyLine3d
+  parent: g3
+  children:
+  - g3.PolyLine3d.#ctor
+  - g3.PolyLine3d.#ctor(g3.PolyLine3d)
+  - g3.PolyLine3d.#ctor(g3.Vector3d[])
+  - g3.PolyLine3d.#ctor(g3.VectorArray3d)
+  - g3.PolyLine3d.AppendVertex(g3.Vector3d)
+  - g3.PolyLine3d.End
+  - g3.PolyLine3d.GetBounds
+  - g3.PolyLine3d.GetEnumerator
+  - g3.PolyLine3d.GetTangent(System.Int32)
+  - g3.PolyLine3d.Item(System.Int32)
+  - g3.PolyLine3d.SegmentItr
+  - g3.PolyLine3d.Start
+  - g3.PolyLine3d.Timestamp
+  - g3.PolyLine3d.VertexCount
+  - g3.PolyLine3d.vertices
+  - g3.PolyLine3d.Vertices
+  langs:
+  - csharp
+  - vb
+  name: PolyLine3d
+  nameWithType: PolyLine3d
+  fullName: g3.PolyLine3d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PolyLine3d
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class PolyLine3d : IEnumerable<Vector3d>, IEnumerable'
+    content.vb: >-
+      Public Class PolyLine3d
+          Implements IEnumerable(Of Vector3d), IEnumerable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.PolyLine3d.vertices
+  commentId: F:g3.PolyLine3d.vertices
+  id: vertices
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: vertices
+  nameWithType: PolyLine3d.vertices
+  fullName: g3.PolyLine3d.vertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected List<Vector3d> vertices
+    return:
+      type: System.Collections.Generic.List{g3.Vector3d}
+    content.vb: Protected vertices As List(Of Vector3d)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.PolyLine3d.Timestamp
+  commentId: F:g3.PolyLine3d.Timestamp
+  id: Timestamp
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: PolyLine3d.Timestamp
+  fullName: g3.PolyLine3d.Timestamp
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Timestamp
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Timestamp
+    return:
+      type: System.Int32
+    content.vb: Public Timestamp As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.#ctor
+  commentId: M:g3.PolyLine3d.#ctor
+  id: '#ctor'
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine3d()
+  nameWithType: PolyLine3d.PolyLine3d()
+  fullName: g3.PolyLine3d.PolyLine3d()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine3d()
+    content.vb: Public Sub New
+  overload: g3.PolyLine3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.#ctor(g3.PolyLine3d)
+  commentId: M:g3.PolyLine3d.#ctor(g3.PolyLine3d)
+  id: '#ctor(g3.PolyLine3d)'
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine3d(PolyLine3d)
+  nameWithType: PolyLine3d.PolyLine3d(PolyLine3d)
+  fullName: g3.PolyLine3d.PolyLine3d(g3.PolyLine3d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 17
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine3d(PolyLine3d copy)
+    parameters:
+    - id: copy
+      type: g3.PolyLine3d
+    content.vb: Public Sub New(copy As PolyLine3d)
+  overload: g3.PolyLine3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.#ctor(g3.Vector3d[])
+  commentId: M:g3.PolyLine3d.#ctor(g3.Vector3d[])
+  id: '#ctor(g3.Vector3d[])'
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine3d(Vector3d[])
+  nameWithType: PolyLine3d.PolyLine3d(Vector3d[])
+  fullName: g3.PolyLine3d.PolyLine3d(g3.Vector3d[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine3d(Vector3d[] v)
+    parameters:
+    - id: v
+      type: g3.Vector3d[]
+    content.vb: Public Sub New(v As Vector3d())
+  overload: g3.PolyLine3d.#ctor*
+  nameWithType.vb: PolyLine3d.PolyLine3d(Vector3d())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PolyLine3d.PolyLine3d(g3.Vector3d())
+  name.vb: PolyLine3d(Vector3d())
+- uid: g3.PolyLine3d.#ctor(g3.VectorArray3d)
+  commentId: M:g3.PolyLine3d.#ctor(g3.VectorArray3d)
+  id: '#ctor(g3.VectorArray3d)'
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine3d(VectorArray3d)
+  nameWithType: PolyLine3d.PolyLine3d(VectorArray3d)
+  fullName: g3.PolyLine3d.PolyLine3d(g3.VectorArray3d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine3d(VectorArray3d v)
+    parameters:
+    - id: v
+      type: g3.VectorArray3d
+    content.vb: Public Sub New(v As VectorArray3d)
+  overload: g3.PolyLine3d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.Item(System.Int32)
+  commentId: P:g3.PolyLine3d.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: PolyLine3d.Item[Int32]
+  fullName: g3.PolyLine3d.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d this[int key] { get; set; }
+    parameters:
+    - id: key
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Public Property Item(key As Integer) As Vector3d
+  overload: g3.PolyLine3d.Item*
+  nameWithType.vb: PolyLine3d.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PolyLine3d.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.PolyLine3d.Start
+  commentId: P:g3.PolyLine3d.Start
+  id: Start
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: PolyLine3d.Start
+  fullName: g3.PolyLine3d.Start
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Start
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Start { get; }
+    parameters: []
+    return:
+      type: g3.Vector3d
+    content.vb: Public ReadOnly Property Start As Vector3d
+  overload: g3.PolyLine3d.Start*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine3d.End
+  commentId: P:g3.PolyLine3d.End
+  id: End
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: PolyLine3d.End
+  fullName: g3.PolyLine3d.End
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: End
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 44
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d End { get; }
+    parameters: []
+    return:
+      type: g3.Vector3d
+    content.vb: Public ReadOnly Property End As Vector3d
+  overload: g3.PolyLine3d.End*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine3d.Vertices
+  commentId: P:g3.PolyLine3d.Vertices
+  id: Vertices
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: Vertices
+  nameWithType: PolyLine3d.Vertices
+  fullName: g3.PolyLine3d.Vertices
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ReadOnlyCollection<Vector3d> Vertices { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector3d}
+    content.vb: Public ReadOnly Property Vertices As ReadOnlyCollection(Of Vector3d)
+  overload: g3.PolyLine3d.Vertices*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine3d.VertexCount
+  commentId: P:g3.PolyLine3d.VertexCount
+  id: VertexCount
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: VertexCount
+  nameWithType: PolyLine3d.VertexCount
+  fullName: g3.PolyLine3d.VertexCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexCount
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int VertexCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VertexCount As Integer
+  overload: g3.PolyLine3d.VertexCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine3d.AppendVertex(g3.Vector3d)
+  commentId: M:g3.PolyLine3d.AppendVertex(g3.Vector3d)
+  id: AppendVertex(g3.Vector3d)
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(Vector3d)
+  nameWithType: PolyLine3d.AppendVertex(Vector3d)
+  fullName: g3.PolyLine3d.AppendVertex(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendVertex(Vector3d v)
+    parameters:
+    - id: v
+      type: g3.Vector3d
+    content.vb: Public Sub AppendVertex(v As Vector3d)
+  overload: g3.PolyLine3d.AppendVertex*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.GetTangent(System.Int32)
+  commentId: M:g3.PolyLine3d.GetTangent(System.Int32)
+  id: GetTangent(System.Int32)
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: GetTangent(Int32)
+  nameWithType: PolyLine3d.GetTangent(Int32)
+  fullName: g3.PolyLine3d.GetTangent(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTangent
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d GetTangent(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector3d
+    content.vb: Public Function GetTangent(i As Integer) As Vector3d
+  overload: g3.PolyLine3d.GetTangent*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.GetBounds
+  commentId: M:g3.PolyLine3d.GetBounds
+  id: GetBounds
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: PolyLine3d.GetBounds()
+  fullName: g3.PolyLine3d.GetBounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetBounds
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 76
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox3d GetBounds()
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Function GetBounds As AxisAlignedBox3d
+  overload: g3.PolyLine3d.GetBounds*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.SegmentItr
+  commentId: M:g3.PolyLine3d.SegmentItr
+  id: SegmentItr
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: SegmentItr()
+  nameWithType: PolyLine3d.SegmentItr()
+  fullName: g3.PolyLine3d.SegmentItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentItr
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 86
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Segment3d> SegmentItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Segment3d}
+    content.vb: Public Function SegmentItr As IEnumerable(Of Segment3d)
+  overload: g3.PolyLine3d.SegmentItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine3d.GetEnumerator
+  commentId: M:g3.PolyLine3d.GetEnumerator
+  id: GetEnumerator
+  parent: g3.PolyLine3d
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: PolyLine3d.GetEnumerator()
+  fullName: g3.PolyLine3d.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine3d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/curve/PolyLine3d.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<Vector3d> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{g3.Vector3d}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of Vector3d)
+  overload: g3.PolyLine3d.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{g3.Vector3d}
+  commentId: T:System.Collections.Generic.List{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Vector3d>
+  nameWithType: List<Vector3d>
+  fullName: System.Collections.Generic.List<g3.Vector3d>
+  nameWithType.vb: List(Of Vector3d)
+  fullName.vb: System.Collections.Generic.List(Of g3.Vector3d)
+  name.vb: List(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.PolyLine3d.#ctor*
+  commentId: Overload:g3.PolyLine3d.#ctor
+  name: PolyLine3d
+  nameWithType: PolyLine3d.PolyLine3d
+  fullName: g3.PolyLine3d.PolyLine3d
+- uid: g3.PolyLine3d
+  commentId: T:g3.PolyLine3d
+  parent: g3
+  name: PolyLine3d
+  nameWithType: PolyLine3d
+  fullName: g3.PolyLine3d
+- uid: g3.Vector3d[]
+  isExternal: true
+  name: Vector3d[]
+  nameWithType: Vector3d[]
+  fullName: g3.Vector3d[]
+  nameWithType.vb: Vector3d()
+  fullName.vb: g3.Vector3d()
+  name.vb: Vector3d()
+  spec.csharp:
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.VectorArray3d
+  commentId: T:g3.VectorArray3d
+  parent: g3
+  name: VectorArray3d
+  nameWithType: VectorArray3d
+  fullName: g3.VectorArray3d
+- uid: g3.PolyLine3d.Item*
+  commentId: Overload:g3.PolyLine3d.Item
+  name: Item
+  nameWithType: PolyLine3d.Item
+  fullName: g3.PolyLine3d.Item
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.PolyLine3d.Start*
+  commentId: Overload:g3.PolyLine3d.Start
+  name: Start
+  nameWithType: PolyLine3d.Start
+  fullName: g3.PolyLine3d.Start
+- uid: g3.PolyLine3d.End*
+  commentId: Overload:g3.PolyLine3d.End
+  name: End
+  nameWithType: PolyLine3d.End
+  fullName: g3.PolyLine3d.End
+- uid: g3.PolyLine3d.Vertices*
+  commentId: Overload:g3.PolyLine3d.Vertices
+  name: Vertices
+  nameWithType: PolyLine3d.Vertices
+  fullName: g3.PolyLine3d.Vertices
+- uid: System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector3d}
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector3d}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ReadOnlyCollection`1
+  name: ReadOnlyCollection<Vector3d>
+  nameWithType: ReadOnlyCollection<Vector3d>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<g3.Vector3d>
+  nameWithType.vb: ReadOnlyCollection(Of Vector3d)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of g3.Vector3d)
+  name.vb: ReadOnlyCollection(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+- uid: g3.PolyLine3d.VertexCount*
+  commentId: Overload:g3.PolyLine3d.VertexCount
+  name: VertexCount
+  nameWithType: PolyLine3d.VertexCount
+  fullName: g3.PolyLine3d.VertexCount
+- uid: g3.PolyLine3d.AppendVertex*
+  commentId: Overload:g3.PolyLine3d.AppendVertex
+  name: AppendVertex
+  nameWithType: PolyLine3d.AppendVertex
+  fullName: g3.PolyLine3d.AppendVertex
+- uid: g3.PolyLine3d.GetTangent*
+  commentId: Overload:g3.PolyLine3d.GetTangent
+  name: GetTangent
+  nameWithType: PolyLine3d.GetTangent
+  fullName: g3.PolyLine3d.GetTangent
+- uid: g3.PolyLine3d.GetBounds*
+  commentId: Overload:g3.PolyLine3d.GetBounds
+  name: GetBounds
+  nameWithType: PolyLine3d.GetBounds
+  fullName: g3.PolyLine3d.GetBounds
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: g3.PolyLine3d.SegmentItr*
+  commentId: Overload:g3.PolyLine3d.SegmentItr
+  name: SegmentItr
+  nameWithType: PolyLine3d.SegmentItr
+  fullName: g3.PolyLine3d.SegmentItr
+- uid: System.Collections.Generic.IEnumerable{g3.Segment3d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Segment3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Segment3d>
+  nameWithType: IEnumerable<Segment3d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Segment3d>
+  nameWithType.vb: IEnumerable(Of Segment3d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Segment3d)
+  name.vb: IEnumerable(Of Segment3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Segment3d
+    name: Segment3d
+    nameWithType: Segment3d
+    fullName: g3.Segment3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Segment3d
+    name: Segment3d
+    nameWithType: Segment3d
+    fullName: g3.Segment3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PolyLine3d.GetEnumerator*
+  commentId: Overload:g3.PolyLine3d.GetEnumerator
+  name: GetEnumerator
+  nameWithType: PolyLine3d.GetEnumerator
+  fullName: g3.PolyLine3d.GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{g3.Vector3d}
+  commentId: T:System.Collections.Generic.IEnumerator{g3.Vector3d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<Vector3d>
+  nameWithType: IEnumerator<Vector3d>
+  fullName: System.Collections.Generic.IEnumerator<g3.Vector3d>
+  nameWithType.vb: IEnumerator(Of Vector3d)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of g3.Vector3d)
+  name.vb: IEnumerator(Of Vector3d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

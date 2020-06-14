@@ -1,0 +1,2045 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.PolyLine2d
+  commentId: T:g3.PolyLine2d
+  id: PolyLine2d
+  parent: g3
+  children:
+  - g3.PolyLine2d.#ctor
+  - g3.PolyLine2d.#ctor(g3.Polygon2d,System.Boolean)
+  - g3.PolyLine2d.#ctor(g3.PolyLine2d)
+  - g3.PolyLine2d.#ctor(g3.Vector2d[])
+  - g3.PolyLine2d.#ctor(g3.VectorArray2d)
+  - g3.PolyLine2d.#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.PolyLine2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  - g3.PolyLine2d.AppendVertex(g3.Vector2d)
+  - g3.PolyLine2d.AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.PolyLine2d.ArcLength
+  - g3.PolyLine2d.Bounds
+  - g3.PolyLine2d.DistanceSquared(g3.Vector2d)
+  - g3.PolyLine2d.End
+  - g3.PolyLine2d.GetBounds
+  - g3.PolyLine2d.GetEnumerator
+  - g3.PolyLine2d.GetNormal(System.Int32)
+  - g3.PolyLine2d.GetTangent(System.Int32)
+  - g3.PolyLine2d.Item(System.Int32)
+  - g3.PolyLine2d.Length
+  - g3.PolyLine2d.MakeBoxSpiral(g3.Vector2d,System.Double,System.Double)
+  - g3.PolyLine2d.Reverse
+  - g3.PolyLine2d.Segment(System.Int32)
+  - g3.PolyLine2d.SegmentItr
+  - g3.PolyLine2d.Simplify(System.Double,System.Double,System.Boolean)
+  - g3.PolyLine2d.simplifyDP(System.Double,g3.Vector2d[],System.Int32,System.Int32,System.Boolean[])
+  - g3.PolyLine2d.Start
+  - g3.PolyLine2d.Timestamp
+  - g3.PolyLine2d.Transform(g3.ITransform2)
+  - g3.PolyLine2d.Trim(System.Double)
+  - g3.PolyLine2d.TrimEnd(System.Double)
+  - g3.PolyLine2d.TrimStart(System.Double)
+  - g3.PolyLine2d.VertexCount
+  - g3.PolyLine2d.VertexOffset(System.Double)
+  - g3.PolyLine2d.vertices
+  - g3.PolyLine2d.Vertices
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d
+  nameWithType: PolyLine2d
+  fullName: g3.PolyLine2d
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PolyLine2d
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class PolyLine2d : IEnumerable<Vector2d>, IEnumerable'
+    content.vb: >-
+      Public Class PolyLine2d
+          Implements IEnumerable(Of Vector2d), IEnumerable
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.PolyLine2d.vertices
+  commentId: F:g3.PolyLine2d.vertices
+  id: vertices
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: vertices
+  nameWithType: PolyLine2d.vertices
+  fullName: g3.PolyLine2d.vertices
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected List<Vector2d> vertices
+    return:
+      type: System.Collections.Generic.List{g3.Vector2d}
+    content.vb: Protected vertices As List(Of Vector2d)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.PolyLine2d.Timestamp
+  commentId: F:g3.PolyLine2d.Timestamp
+  id: Timestamp
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: PolyLine2d.Timestamp
+  fullName: g3.PolyLine2d.Timestamp
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Timestamp
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Timestamp
+    return:
+      type: System.Int32
+    content.vb: Public Timestamp As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.#ctor
+  commentId: M:g3.PolyLine2d.#ctor
+  id: '#ctor'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d()
+  nameWithType: PolyLine2d.PolyLine2d()
+  fullName: g3.PolyLine2d.PolyLine2d()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d()
+    content.vb: Public Sub New
+  overload: g3.PolyLine2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.#ctor(g3.PolyLine2d)
+  commentId: M:g3.PolyLine2d.#ctor(g3.PolyLine2d)
+  id: '#ctor(g3.PolyLine2d)'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d(PolyLine2d)
+  nameWithType: PolyLine2d.PolyLine2d(PolyLine2d)
+  fullName: g3.PolyLine2d.PolyLine2d(g3.PolyLine2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d(PolyLine2d copy)
+    parameters:
+    - id: copy
+      type: g3.PolyLine2d
+    content.vb: Public Sub New(copy As PolyLine2d)
+  overload: g3.PolyLine2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.#ctor(g3.Polygon2d,System.Boolean)
+  commentId: M:g3.PolyLine2d.#ctor(g3.Polygon2d,System.Boolean)
+  id: '#ctor(g3.Polygon2d,System.Boolean)'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d(Polygon2d, Boolean)
+  nameWithType: PolyLine2d.PolyLine2d(Polygon2d, Boolean)
+  fullName: g3.PolyLine2d.PolyLine2d(g3.Polygon2d, System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d(Polygon2d copy, bool bDuplicateFirstLast)
+    parameters:
+    - id: copy
+      type: g3.Polygon2d
+    - id: bDuplicateFirstLast
+      type: System.Boolean
+    content.vb: Public Sub New(copy As Polygon2d, bDuplicateFirstLast As Boolean)
+  overload: g3.PolyLine2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  commentId: M:g3.PolyLine2d.#ctor(System.Collections.Generic.IList{g3.Vector2d})
+  id: '#ctor(System.Collections.Generic.IList{g3.Vector2d})'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d(IList<Vector2d>)
+  nameWithType: PolyLine2d.PolyLine2d(IList<Vector2d>)
+  fullName: g3.PolyLine2d.PolyLine2d(System.Collections.Generic.IList<g3.Vector2d>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 30
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d(IList<Vector2d> copy)
+    parameters:
+    - id: copy
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    content.vb: Public Sub New(copy As IList(Of Vector2d))
+  overload: g3.PolyLine2d.#ctor*
+  nameWithType.vb: PolyLine2d.PolyLine2d(IList(Of Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PolyLine2d.PolyLine2d(System.Collections.Generic.IList(Of g3.Vector2d))
+  name.vb: PolyLine2d(IList(Of Vector2d))
+- uid: g3.PolyLine2d.#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.PolyLine2d.#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: '#ctor(System.Collections.Generic.IEnumerable{g3.Vector2d})'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d(IEnumerable<Vector2d>)
+  nameWithType: PolyLine2d.PolyLine2d(IEnumerable<Vector2d>)
+  fullName: g3.PolyLine2d.PolyLine2d(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d(IEnumerable<Vector2d> copy)
+    parameters:
+    - id: copy
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    content.vb: Public Sub New(copy As IEnumerable(Of Vector2d))
+  overload: g3.PolyLine2d.#ctor*
+  nameWithType.vb: PolyLine2d.PolyLine2d(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PolyLine2d.PolyLine2d(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: PolyLine2d(IEnumerable(Of Vector2d))
+- uid: g3.PolyLine2d.#ctor(g3.Vector2d[])
+  commentId: M:g3.PolyLine2d.#ctor(g3.Vector2d[])
+  id: '#ctor(g3.Vector2d[])'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d(Vector2d[])
+  nameWithType: PolyLine2d.PolyLine2d(Vector2d[])
+  fullName: g3.PolyLine2d.PolyLine2d(g3.Vector2d[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d(Vector2d[] v)
+    parameters:
+    - id: v
+      type: g3.Vector2d[]
+    content.vb: Public Sub New(v As Vector2d())
+  overload: g3.PolyLine2d.#ctor*
+  nameWithType.vb: PolyLine2d.PolyLine2d(Vector2d())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PolyLine2d.PolyLine2d(g3.Vector2d())
+  name.vb: PolyLine2d(Vector2d())
+- uid: g3.PolyLine2d.#ctor(g3.VectorArray2d)
+  commentId: M:g3.PolyLine2d.#ctor(g3.VectorArray2d)
+  id: '#ctor(g3.VectorArray2d)'
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: PolyLine2d(VectorArray2d)
+  nameWithType: PolyLine2d.PolyLine2d(VectorArray2d)
+  fullName: g3.PolyLine2d.PolyLine2d(g3.VectorArray2d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d(VectorArray2d v)
+    parameters:
+    - id: v
+      type: g3.VectorArray2d
+    content.vb: Public Sub New(v As VectorArray2d)
+  overload: g3.PolyLine2d.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.Item(System.Int32)
+  commentId: P:g3.PolyLine2d.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: PolyLine2d.Item[Int32]
+  fullName: g3.PolyLine2d.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 54
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d this[int key] { get; set; }
+    parameters:
+    - id: key
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Property Item(key As Integer) As Vector2d
+  overload: g3.PolyLine2d.Item*
+  nameWithType.vb: PolyLine2d.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.PolyLine2d.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.PolyLine2d.Start
+  commentId: P:g3.PolyLine2d.Start
+  id: Start
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: PolyLine2d.Start
+  fullName: g3.PolyLine2d.Start
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Start
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 60
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d Start { get; }
+    parameters: []
+    return:
+      type: g3.Vector2d
+    content.vb: Public ReadOnly Property Start As Vector2d
+  overload: g3.PolyLine2d.Start*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.End
+  commentId: P:g3.PolyLine2d.End
+  id: End
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: PolyLine2d.End
+  fullName: g3.PolyLine2d.End
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: End
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d End { get; }
+    parameters: []
+    return:
+      type: g3.Vector2d
+    content.vb: Public ReadOnly Property End As Vector2d
+  overload: g3.PolyLine2d.End*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.Vertices
+  commentId: P:g3.PolyLine2d.Vertices
+  id: Vertices
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Vertices
+  nameWithType: PolyLine2d.Vertices
+  fullName: g3.PolyLine2d.Vertices
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 68
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ReadOnlyCollection<Vector2d> Vertices { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector2d}
+    content.vb: Public ReadOnly Property Vertices As ReadOnlyCollection(Of Vector2d)
+  overload: g3.PolyLine2d.Vertices*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.VertexCount
+  commentId: P:g3.PolyLine2d.VertexCount
+  id: VertexCount
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: VertexCount
+  nameWithType: PolyLine2d.VertexCount
+  fullName: g3.PolyLine2d.VertexCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexCount
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int VertexCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property VertexCount As Integer
+  overload: g3.PolyLine2d.VertexCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.AppendVertex(g3.Vector2d)
+  commentId: M:g3.PolyLine2d.AppendVertex(g3.Vector2d)
+  id: AppendVertex(g3.Vector2d)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(Vector2d)
+  nameWithType: PolyLine2d.AppendVertex(Vector2d)
+  fullName: g3.PolyLine2d.AppendVertex(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 77
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void AppendVertex(Vector2d v)
+    parameters:
+    - id: v
+      type: g3.Vector2d
+    content.vb: Public Overridable Sub AppendVertex(v As Vector2d)
+  overload: g3.PolyLine2d.AppendVertex*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.PolyLine2d.AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.PolyLine2d.AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: AppendVertices(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: AppendVertices(IEnumerable<Vector2d>)
+  nameWithType: PolyLine2d.AppendVertices(IEnumerable<Vector2d>)
+  fullName: g3.PolyLine2d.AppendVertices(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertices
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void AppendVertices(IEnumerable<Vector2d> v)
+    parameters:
+    - id: v
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    content.vb: Public Overridable Sub AppendVertices(v As IEnumerable(Of Vector2d))
+  overload: g3.PolyLine2d.AppendVertices*
+  nameWithType.vb: PolyLine2d.AppendVertices(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+  fullName.vb: g3.PolyLine2d.AppendVertices(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: AppendVertices(IEnumerable(Of Vector2d))
+- uid: g3.PolyLine2d.Reverse
+  commentId: M:g3.PolyLine2d.Reverse
+  id: Reverse
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Reverse()
+  nameWithType: PolyLine2d.Reverse()
+  fullName: g3.PolyLine2d.Reverse()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 90
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void Reverse()
+    content.vb: Public Overridable Sub Reverse
+  overload: g3.PolyLine2d.Reverse*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.PolyLine2d.GetTangent(System.Int32)
+  commentId: M:g3.PolyLine2d.GetTangent(System.Int32)
+  id: GetTangent(System.Int32)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: GetTangent(Int32)
+  nameWithType: PolyLine2d.GetTangent(Int32)
+  fullName: g3.PolyLine2d.GetTangent(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetTangent
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d GetTangent(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetTangent(i As Integer) As Vector2d
+  overload: g3.PolyLine2d.GetTangent*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.GetNormal(System.Int32)
+  commentId: M:g3.PolyLine2d.GetNormal(System.Int32)
+  id: GetNormal(System.Int32)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: GetNormal(Int32)
+  nameWithType: PolyLine2d.GetNormal(Int32)
+  fullName: g3.PolyLine2d.GetNormal(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNormal
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector2d GetNormal(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: g3.Vector2d
+    content.vb: Public Function GetNormal(i As Integer) As Vector2d
+  overload: g3.PolyLine2d.GetNormal*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.GetBounds
+  commentId: M:g3.PolyLine2d.GetBounds
+  id: GetBounds
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: GetBounds()
+  nameWithType: PolyLine2d.GetBounds()
+  fullName: g3.PolyLine2d.GetBounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetBounds
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 113
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d GetBounds()
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Function GetBounds As AxisAlignedBox2d
+  overload: g3.PolyLine2d.GetBounds*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.Bounds
+  commentId: P:g3.PolyLine2d.Bounds
+  id: Bounds
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Bounds
+  nameWithType: PolyLine2d.Bounds
+  fullName: g3.PolyLine2d.Bounds
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d Bounds { get; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public ReadOnly Property Bounds As AxisAlignedBox2d
+  overload: g3.PolyLine2d.Bounds*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.DistanceSquared(g3.Vector2d)
+  commentId: M:g3.PolyLine2d.DistanceSquared(g3.Vector2d)
+  id: DistanceSquared(g3.Vector2d)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: DistanceSquared(Vector2d)
+  nameWithType: PolyLine2d.DistanceSquared(Vector2d)
+  fullName: g3.PolyLine2d.DistanceSquared(g3.Vector2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceSquared
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 126
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceSquared(Vector2d point)
+    parameters:
+    - id: point
+      type: g3.Vector2d
+    return:
+      type: System.Double
+    content.vb: Public Function DistanceSquared(point As Vector2d) As Double
+  overload: g3.PolyLine2d.DistanceSquared*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.Segment(System.Int32)
+  commentId: M:g3.PolyLine2d.Segment(System.Int32)
+  id: Segment(System.Int32)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Segment(Int32)
+  nameWithType: PolyLine2d.Segment(Int32)
+  fullName: g3.PolyLine2d.Segment(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Segment
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 139
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Segment2d Segment(int iSegment)
+    parameters:
+    - id: iSegment
+      type: System.Int32
+    return:
+      type: g3.Segment2d
+    content.vb: Public Function Segment(iSegment As Integer) As Segment2d
+  overload: g3.PolyLine2d.Segment*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.SegmentItr
+  commentId: M:g3.PolyLine2d.SegmentItr
+  id: SegmentItr
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: SegmentItr()
+  nameWithType: PolyLine2d.SegmentItr()
+  fullName: g3.PolyLine2d.SegmentItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SegmentItr
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 144
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Segment2d> SegmentItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Segment2d}
+    content.vb: Public Function SegmentItr As IEnumerable(Of Segment2d)
+  overload: g3.PolyLine2d.SegmentItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.GetEnumerator
+  commentId: M:g3.PolyLine2d.GetEnumerator
+  id: GetEnumerator
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: PolyLine2d.GetEnumerator()
+  fullName: g3.PolyLine2d.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 149
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<Vector2d> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{g3.Vector2d}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of Vector2d)
+  overload: g3.PolyLine2d.GetEnumerator*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.Length
+  commentId: P:g3.PolyLine2d.Length
+  id: Length
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: PolyLine2d.Length
+  fullName: g3.PolyLine2d.Length
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Length
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 157
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      [Obsolete("This method name is confusing. Will remove in future. Use ArcLength instead")]
+
+      public double Length { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <Obsolete("This method name is confusing. Will remove in future. Use ArcLength instead")>
+
+      Public ReadOnly Property Length As Double
+  overload: g3.PolyLine2d.Length*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method name is confusing. Will remove in future. Use ArcLength instead
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.ArcLength
+  commentId: P:g3.PolyLine2d.ArcLength
+  id: ArcLength
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: ArcLength
+  nameWithType: PolyLine2d.ArcLength
+  fullName: g3.PolyLine2d.ArcLength
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLength
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 159
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ArcLength As Double
+  overload: g3.PolyLine2d.ArcLength*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PolyLine2d.VertexOffset(System.Double)
+  commentId: M:g3.PolyLine2d.VertexOffset(System.Double)
+  id: VertexOffset(System.Double)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: VertexOffset(Double)
+  nameWithType: PolyLine2d.VertexOffset(Double)
+  fullName: g3.PolyLine2d.VertexOffset(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexOffset
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 173
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nOffset each point by dist along vertex normal direction (ie tangent-perp)\n"
+  example: []
+  syntax:
+    content: public void VertexOffset(double dist)
+    parameters:
+    - id: dist
+      type: System.Double
+    content.vb: Public Sub VertexOffset(dist As Double)
+  overload: g3.PolyLine2d.VertexOffset*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.TrimStart(System.Double)
+  commentId: M:g3.PolyLine2d.TrimStart(System.Double)
+  id: TrimStart(System.Double)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: TrimStart(Double)
+  nameWithType: PolyLine2d.TrimStart(Double)
+  fullName: g3.PolyLine2d.TrimStart(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TrimStart
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 186
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmake polyline shorter by dist length, by removing from front\n"
+  example: []
+  syntax:
+    content: public bool TrimStart(double dist)
+    parameters:
+    - id: dist
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function TrimStart(dist As Double) As Boolean
+  overload: g3.PolyLine2d.TrimStart*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.TrimEnd(System.Double)
+  commentId: M:g3.PolyLine2d.TrimEnd(System.Double)
+  id: TrimEnd(System.Double)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: TrimEnd(Double)
+  nameWithType: PolyLine2d.TrimEnd(Double)
+  fullName: g3.PolyLine2d.TrimEnd(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TrimEnd
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 210
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmake polyline shorter by dist length, by removing from end\n"
+  example: []
+  syntax:
+    content: public bool TrimEnd(double dist)
+    parameters:
+    - id: dist
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function TrimEnd(dist As Double) As Boolean
+  overload: g3.PolyLine2d.TrimEnd*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.Trim(System.Double)
+  commentId: M:g3.PolyLine2d.Trim(System.Double)
+  id: Trim(System.Double)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Trim(Double)
+  nameWithType: PolyLine2d.Trim(Double)
+  fullName: g3.PolyLine2d.Trim(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Trim
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 234
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nmake polyline shorter by removing each_end_dist from start and end\n"
+  example: []
+  syntax:
+    content: public bool Trim(double each_end_dist)
+    parameters:
+    - id: each_end_dist
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function Trim(each_end_dist As Double) As Boolean
+  overload: g3.PolyLine2d.Trim*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.simplifyDP(System.Double,g3.Vector2d[],System.Int32,System.Int32,System.Boolean[])
+  commentId: M:g3.PolyLine2d.simplifyDP(System.Double,g3.Vector2d[],System.Int32,System.Int32,System.Boolean[])
+  id: simplifyDP(System.Double,g3.Vector2d[],System.Int32,System.Int32,System.Boolean[])
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: simplifyDP(Double, Vector2d[], Int32, Int32, Boolean[])
+  nameWithType: PolyLine2d.simplifyDP(Double, Vector2d[], Int32, Int32, Boolean[])
+  fullName: g3.PolyLine2d.simplifyDP(System.Double, g3.Vector2d[], System.Int32, System.Int32, System.Boolean[])
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: simplifyDP
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 254
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected static void simplifyDP(double tol, Vector2d[] v, int j, int k, bool[] mk)
+    parameters:
+    - id: tol
+      type: System.Double
+    - id: v
+      type: g3.Vector2d[]
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    - id: mk
+      type: System.Boolean[]
+    content.vb: Protected Shared Sub simplifyDP(tol As Double, v As Vector2d(), j As Integer, k As Integer, mk As Boolean())
+  overload: g3.PolyLine2d.simplifyDP*
+  nameWithType.vb: PolyLine2d.simplifyDP(Double, Vector2d(), Int32, Int32, Boolean())
+  modifiers.csharp:
+  - protected
+  - static
+  modifiers.vb:
+  - Protected
+  - Shared
+  fullName.vb: g3.PolyLine2d.simplifyDP(System.Double, g3.Vector2d(), System.Int32, System.Int32, System.Boolean())
+  name.vb: simplifyDP(Double, Vector2d(), Int32, Int32, Boolean())
+- uid: g3.PolyLine2d.Simplify(System.Double,System.Double,System.Boolean)
+  commentId: M:g3.PolyLine2d.Simplify(System.Double,System.Double,System.Boolean)
+  id: Simplify(System.Double,System.Double,System.Boolean)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Simplify(Double, Double, Boolean)
+  nameWithType: PolyLine2d.Simplify(Double, Double, Boolean)
+  fullName: g3.PolyLine2d.Simplify(System.Double, System.Double, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Simplify
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 288
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public virtual void Simplify(double clusterTol = 0.0001, double lineDeviationTol = 0.01, bool bSimplifyStraightLines = true)
+    parameters:
+    - id: clusterTol
+      type: System.Double
+    - id: lineDeviationTol
+      type: System.Double
+    - id: bSimplifyStraightLines
+      type: System.Boolean
+    content.vb: Public Overridable Sub Simplify(clusterTol As Double = 0.0001, lineDeviationTol As Double = 0.01, bSimplifyStraightLines As Boolean = True)
+  overload: g3.PolyLine2d.Simplify*
+  modifiers.csharp:
+  - public
+  - virtual
+  modifiers.vb:
+  - Public
+  - Overridable
+- uid: g3.PolyLine2d.Transform(g3.ITransform2)
+  commentId: M:g3.PolyLine2d.Transform(g3.ITransform2)
+  id: Transform(g3.ITransform2)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2)
+  nameWithType: PolyLine2d.Transform(ITransform2)
+  fullName: g3.PolyLine2d.Transform(g3.ITransform2)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 333
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PolyLine2d Transform(ITransform2 xform)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    return:
+      type: g3.PolyLine2d
+    content.vb: Public Function Transform(xform As ITransform2) As PolyLine2d
+  overload: g3.PolyLine2d.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PolyLine2d.MakeBoxSpiral(g3.Vector2d,System.Double,System.Double)
+  commentId: M:g3.PolyLine2d.MakeBoxSpiral(g3.Vector2d,System.Double,System.Double)
+  id: MakeBoxSpiral(g3.Vector2d,System.Double,System.Double)
+  parent: g3.PolyLine2d
+  langs:
+  - csharp
+  - vb
+  name: MakeBoxSpiral(Vector2d, Double, Double)
+  nameWithType: PolyLine2d.MakeBoxSpiral(Vector2d, Double, Double)
+  fullName: g3.PolyLine2d.MakeBoxSpiral(g3.Vector2d, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PolyLine2d.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MakeBoxSpiral
+    path: ../Assets/geometry3Sharp/curve/PolyLine2d.cs
+    startLine: 343
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static PolyLine2d MakeBoxSpiral(Vector2d center, double len, double spacing)
+    parameters:
+    - id: center
+      type: g3.Vector2d
+    - id: len
+      type: System.Double
+    - id: spacing
+      type: System.Double
+    return:
+      type: g3.PolyLine2d
+    content.vb: Public Shared Function MakeBoxSpiral(center As Vector2d, len As Double, spacing As Double) As PolyLine2d
+  overload: g3.PolyLine2d.MakeBoxSpiral*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{g3.Vector2d}
+  commentId: T:System.Collections.Generic.List{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Vector2d>
+  nameWithType: List<Vector2d>
+  fullName: System.Collections.Generic.List<g3.Vector2d>
+  nameWithType.vb: List(Of Vector2d)
+  fullName.vb: System.Collections.Generic.List(Of g3.Vector2d)
+  name.vb: List(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.PolyLine2d.#ctor*
+  commentId: Overload:g3.PolyLine2d.#ctor
+  name: PolyLine2d
+  nameWithType: PolyLine2d.PolyLine2d
+  fullName: g3.PolyLine2d.PolyLine2d
+- uid: g3.PolyLine2d
+  commentId: T:g3.PolyLine2d
+  parent: g3
+  name: PolyLine2d
+  nameWithType: PolyLine2d
+  fullName: g3.PolyLine2d
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.IList{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IList{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Vector2d>
+  nameWithType: IList<Vector2d>
+  fullName: System.Collections.Generic.IList<g3.Vector2d>
+  nameWithType.vb: IList(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Vector2d)
+  name.vb: IList(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2d>
+  nameWithType: IEnumerable<Vector2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2d>
+  nameWithType.vb: IEnumerable(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2d)
+  name.vb: IEnumerable(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector2d[]
+  isExternal: true
+  name: Vector2d[]
+  nameWithType: Vector2d[]
+  fullName: g3.Vector2d[]
+  nameWithType.vb: Vector2d()
+  fullName.vb: g3.Vector2d()
+  name.vb: Vector2d()
+  spec.csharp:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.VectorArray2d
+  commentId: T:g3.VectorArray2d
+  parent: g3
+  name: VectorArray2d
+  nameWithType: VectorArray2d
+  fullName: g3.VectorArray2d
+- uid: g3.PolyLine2d.Item*
+  commentId: Overload:g3.PolyLine2d.Item
+  name: Item
+  nameWithType: PolyLine2d.Item
+  fullName: g3.PolyLine2d.Item
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: g3.PolyLine2d.Start*
+  commentId: Overload:g3.PolyLine2d.Start
+  name: Start
+  nameWithType: PolyLine2d.Start
+  fullName: g3.PolyLine2d.Start
+- uid: g3.PolyLine2d.End*
+  commentId: Overload:g3.PolyLine2d.End
+  name: End
+  nameWithType: PolyLine2d.End
+  fullName: g3.PolyLine2d.End
+- uid: g3.PolyLine2d.Vertices*
+  commentId: Overload:g3.PolyLine2d.Vertices
+  name: Vertices
+  nameWithType: PolyLine2d.Vertices
+  fullName: g3.PolyLine2d.Vertices
+- uid: System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector2d}
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection{g3.Vector2d}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ReadOnlyCollection`1
+  name: ReadOnlyCollection<Vector2d>
+  nameWithType: ReadOnlyCollection<Vector2d>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<g3.Vector2d>
+  nameWithType.vb: ReadOnlyCollection(Of Vector2d)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of g3.Vector2d)
+  name.vb: ReadOnlyCollection(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+- uid: g3.PolyLine2d.VertexCount*
+  commentId: Overload:g3.PolyLine2d.VertexCount
+  name: VertexCount
+  nameWithType: PolyLine2d.VertexCount
+  fullName: g3.PolyLine2d.VertexCount
+- uid: g3.PolyLine2d.AppendVertex*
+  commentId: Overload:g3.PolyLine2d.AppendVertex
+  name: AppendVertex
+  nameWithType: PolyLine2d.AppendVertex
+  fullName: g3.PolyLine2d.AppendVertex
+- uid: g3.PolyLine2d.AppendVertices*
+  commentId: Overload:g3.PolyLine2d.AppendVertices
+  name: AppendVertices
+  nameWithType: PolyLine2d.AppendVertices
+  fullName: g3.PolyLine2d.AppendVertices
+- uid: g3.PolyLine2d.Reverse*
+  commentId: Overload:g3.PolyLine2d.Reverse
+  name: Reverse
+  nameWithType: PolyLine2d.Reverse
+  fullName: g3.PolyLine2d.Reverse
+- uid: g3.PolyLine2d.GetTangent*
+  commentId: Overload:g3.PolyLine2d.GetTangent
+  name: GetTangent
+  nameWithType: PolyLine2d.GetTangent
+  fullName: g3.PolyLine2d.GetTangent
+- uid: g3.PolyLine2d.GetNormal*
+  commentId: Overload:g3.PolyLine2d.GetNormal
+  name: GetNormal
+  nameWithType: PolyLine2d.GetNormal
+  fullName: g3.PolyLine2d.GetNormal
+- uid: g3.PolyLine2d.GetBounds*
+  commentId: Overload:g3.PolyLine2d.GetBounds
+  name: GetBounds
+  nameWithType: PolyLine2d.GetBounds
+  fullName: g3.PolyLine2d.GetBounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.PolyLine2d.Bounds*
+  commentId: Overload:g3.PolyLine2d.Bounds
+  name: Bounds
+  nameWithType: PolyLine2d.Bounds
+  fullName: g3.PolyLine2d.Bounds
+- uid: g3.PolyLine2d.DistanceSquared*
+  commentId: Overload:g3.PolyLine2d.DistanceSquared
+  name: DistanceSquared
+  nameWithType: PolyLine2d.DistanceSquared
+  fullName: g3.PolyLine2d.DistanceSquared
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.PolyLine2d.Segment*
+  commentId: Overload:g3.PolyLine2d.Segment
+  name: Segment
+  nameWithType: PolyLine2d.Segment
+  fullName: g3.PolyLine2d.Segment
+- uid: g3.Segment2d
+  commentId: T:g3.Segment2d
+  parent: g3
+  name: Segment2d
+  nameWithType: Segment2d
+  fullName: g3.Segment2d
+- uid: g3.PolyLine2d.SegmentItr*
+  commentId: Overload:g3.PolyLine2d.SegmentItr
+  name: SegmentItr
+  nameWithType: PolyLine2d.SegmentItr
+  fullName: g3.PolyLine2d.SegmentItr
+- uid: System.Collections.Generic.IEnumerable{g3.Segment2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Segment2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Segment2d>
+  nameWithType: IEnumerable<Segment2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Segment2d>
+  nameWithType.vb: IEnumerable(Of Segment2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Segment2d)
+  name.vb: IEnumerable(Of Segment2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Segment2d
+    name: Segment2d
+    nameWithType: Segment2d
+    fullName: g3.Segment2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PolyLine2d.GetEnumerator*
+  commentId: Overload:g3.PolyLine2d.GetEnumerator
+  name: GetEnumerator
+  nameWithType: PolyLine2d.GetEnumerator
+  fullName: g3.PolyLine2d.GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IEnumerator{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<Vector2d>
+  nameWithType: IEnumerator<Vector2d>
+  fullName: System.Collections.Generic.IEnumerator<g3.Vector2d>
+  nameWithType.vb: IEnumerator(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of g3.Vector2d)
+  name.vb: IEnumerator(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PolyLine2d.Length*
+  commentId: Overload:g3.PolyLine2d.Length
+  name: Length
+  nameWithType: PolyLine2d.Length
+  fullName: g3.PolyLine2d.Length
+- uid: g3.PolyLine2d.ArcLength*
+  commentId: Overload:g3.PolyLine2d.ArcLength
+  name: ArcLength
+  nameWithType: PolyLine2d.ArcLength
+  fullName: g3.PolyLine2d.ArcLength
+- uid: g3.PolyLine2d.VertexOffset*
+  commentId: Overload:g3.PolyLine2d.VertexOffset
+  name: VertexOffset
+  nameWithType: PolyLine2d.VertexOffset
+  fullName: g3.PolyLine2d.VertexOffset
+- uid: g3.PolyLine2d.TrimStart*
+  commentId: Overload:g3.PolyLine2d.TrimStart
+  name: TrimStart
+  nameWithType: PolyLine2d.TrimStart
+  fullName: g3.PolyLine2d.TrimStart
+- uid: g3.PolyLine2d.TrimEnd*
+  commentId: Overload:g3.PolyLine2d.TrimEnd
+  name: TrimEnd
+  nameWithType: PolyLine2d.TrimEnd
+  fullName: g3.PolyLine2d.TrimEnd
+- uid: g3.PolyLine2d.Trim*
+  commentId: Overload:g3.PolyLine2d.Trim
+  name: Trim
+  nameWithType: PolyLine2d.Trim
+  fullName: g3.PolyLine2d.Trim
+- uid: g3.PolyLine2d.simplifyDP*
+  commentId: Overload:g3.PolyLine2d.simplifyDP
+  name: simplifyDP
+  nameWithType: PolyLine2d.simplifyDP
+  fullName: g3.PolyLine2d.simplifyDP
+- uid: System.Boolean[]
+  isExternal: true
+  name: Boolean[]
+  nameWithType: Boolean[]
+  fullName: System.Boolean[]
+  nameWithType.vb: Boolean()
+  fullName.vb: System.Boolean()
+  name.vb: Boolean()
+  spec.csharp:
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.PolyLine2d.Simplify*
+  commentId: Overload:g3.PolyLine2d.Simplify
+  name: Simplify
+  nameWithType: PolyLine2d.Simplify
+  fullName: g3.PolyLine2d.Simplify
+- uid: g3.PolyLine2d.Transform*
+  commentId: Overload:g3.PolyLine2d.Transform
+  name: Transform
+  nameWithType: PolyLine2d.Transform
+  fullName: g3.PolyLine2d.Transform
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.PolyLine2d.MakeBoxSpiral*
+  commentId: Overload:g3.PolyLine2d.MakeBoxSpiral
+  name: MakeBoxSpiral
+  nameWithType: PolyLine2d.MakeBoxSpiral
+  fullName: g3.PolyLine2d.MakeBoxSpiral

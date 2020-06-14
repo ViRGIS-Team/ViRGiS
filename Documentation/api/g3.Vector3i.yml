@@ -1,0 +1,1963 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  id: Vector3i
+  parent: g3
+  children:
+  - g3.Vector3i.#ctor(System.Int32)
+  - g3.Vector3i.#ctor(System.Int32,System.Int32,System.Int32)
+  - g3.Vector3i.#ctor(System.Int32[])
+  - g3.Vector3i.Add(g3.Vector3i)
+  - g3.Vector3i.Add(System.Int32)
+  - g3.Vector3i.array
+  - g3.Vector3i.AxisX
+  - g3.Vector3i.AxisY
+  - g3.Vector3i.AxisZ
+  - g3.Vector3i.CompareTo(g3.Vector3i)
+  - g3.Vector3i.Equals(g3.Vector3i)
+  - g3.Vector3i.Equals(System.Object)
+  - g3.Vector3i.GetHashCode
+  - g3.Vector3i.Item(System.Int32)
+  - g3.Vector3i.LengthSquared
+  - g3.Vector3i.One
+  - g3.Vector3i.op_Addition(g3.Vector3i,g3.Vector3i)
+  - g3.Vector3i.op_Addition(g3.Vector3i,System.Int32)
+  - g3.Vector3i.op_Division(g3.Vector3i,g3.Vector3i)
+  - g3.Vector3i.op_Division(g3.Vector3i,System.Int32)
+  - g3.Vector3i.op_Division(System.Int32,g3.Vector3i)
+  - g3.Vector3i.op_Equality(g3.Vector3i,g3.Vector3i)
+  - g3.Vector3i.op_Explicit(g3.Vector3d)~g3.Vector3i
+  - g3.Vector3i.op_Explicit(g3.Vector3f)~g3.Vector3i
+  - g3.Vector3i.op_Explicit(g3.Vector3i)~g3.Vector3d
+  - g3.Vector3i.op_Explicit(g3.Vector3i)~g3.Vector3f
+  - g3.Vector3i.op_Implicit(g3.Index3i)~g3.Vector3i
+  - g3.Vector3i.op_Implicit(g3.Vector3i)~g3.Index3i
+  - g3.Vector3i.op_Inequality(g3.Vector3i,g3.Vector3i)
+  - g3.Vector3i.op_Multiply(g3.Vector3i,g3.Vector3i)
+  - g3.Vector3i.op_Multiply(g3.Vector3i,System.Int32)
+  - g3.Vector3i.op_Multiply(System.Int32,g3.Vector3i)
+  - g3.Vector3i.op_Subtraction(g3.Vector3i,g3.Vector3i)
+  - g3.Vector3i.op_Subtraction(g3.Vector3i,System.Int32)
+  - g3.Vector3i.op_UnaryNegation(g3.Vector3i)
+  - g3.Vector3i.Set(g3.Vector3i)
+  - g3.Vector3i.Set(System.Int32,System.Int32,System.Int32)
+  - g3.Vector3i.Subtract(g3.Vector3i)
+  - g3.Vector3i.ToString
+  - g3.Vector3i.x
+  - g3.Vector3i.y
+  - g3.Vector3i.z
+  - g3.Vector3i.Zero
+  langs:
+  - csharp
+  - vb
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+  type: Struct
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Vector3i
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\n3D integer vector type. This is basically the same as Index3i but\nwith .x.y.z member names. This makes code far more readable in many places.\nUnfortunately I can&apos;t see a way to do this w/o so much duplication...we could\nhave .x/.y/.z accessors but that is much less efficient...\n"
+  example: []
+  syntax:
+    content: 'public struct Vector3i : IComparable<Vector3i>, IEquatable<Vector3i>'
+    content.vb: >-
+      Public Structure Vector3i
+          Implements IComparable(Of Vector3i), IEquatable(Of Vector3i)
+  modifiers.csharp:
+  - public
+  - struct
+  modifiers.vb:
+  - Public
+  - Structure
+- uid: g3.Vector3i.x
+  commentId: F:g3.Vector3i.x
+  id: x
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: x
+  nameWithType: Vector3i.x
+  fullName: g3.Vector3i.x
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: x
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int x
+    return:
+      type: System.Int32
+    content.vb: Public x As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.y
+  commentId: F:g3.Vector3i.y
+  id: y
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: y
+  nameWithType: Vector3i.y
+  fullName: g3.Vector3i.y
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: y
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int y
+    return:
+      type: System.Int32
+    content.vb: Public y As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.z
+  commentId: F:g3.Vector3i.z
+  id: z
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: z
+  nameWithType: Vector3i.z
+  fullName: g3.Vector3i.z
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: z
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int z
+    return:
+      type: System.Int32
+    content.vb: Public z As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.#ctor(System.Int32)
+  commentId: M:g3.Vector3i.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Vector3i(Int32)
+  nameWithType: Vector3i.Vector3i(Int32)
+  fullName: g3.Vector3i.Vector3i(System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i(int f)
+    parameters:
+    - id: f
+      type: System.Int32
+    content.vb: Public Sub New(f As Integer)
+  overload: g3.Vector3i.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.#ctor(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Vector3i.#ctor(System.Int32,System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32,System.Int32)'
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Vector3i(Int32, Int32, Int32)
+  nameWithType: Vector3i.Vector3i(Int32, Int32, Int32)
+  fullName: g3.Vector3i.Vector3i(System.Int32, System.Int32, System.Int32)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 19
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i(int x, int y, int z)
+    parameters:
+    - id: x
+      type: System.Int32
+    - id: y
+      type: System.Int32
+    - id: z
+      type: System.Int32
+    content.vb: Public Sub New(x As Integer, y As Integer, z As Integer)
+  overload: g3.Vector3i.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.#ctor(System.Int32[])
+  commentId: M:g3.Vector3i.#ctor(System.Int32[])
+  id: '#ctor(System.Int32[])'
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Vector3i(Int32[])
+  nameWithType: Vector3i.Vector3i(Int32[])
+  fullName: g3.Vector3i.Vector3i(System.Int32[])
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 20
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i(int[] v2)
+    parameters:
+    - id: v2
+      type: System.Int32[]
+    content.vb: Public Sub New(v2 As Integer())
+  overload: g3.Vector3i.#ctor*
+  nameWithType.vb: Vector3i.Vector3i(Int32())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Vector3i.Vector3i(System.Int32())
+  name.vb: Vector3i(Int32())
+- uid: g3.Vector3i.Zero
+  commentId: F:g3.Vector3i.Zero
+  id: Zero
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Vector3i.Zero
+  fullName: g3.Vector3i.Zero
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Zero
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Vector3i Zero
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared ReadOnly Zero As Vector3i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Vector3i.One
+  commentId: F:g3.Vector3i.One
+  id: One
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: One
+  nameWithType: Vector3i.One
+  fullName: g3.Vector3i.One
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: One
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Vector3i One
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared ReadOnly One As Vector3i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Vector3i.AxisX
+  commentId: F:g3.Vector3i.AxisX
+  id: AxisX
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: AxisX
+  nameWithType: Vector3i.AxisX
+  fullName: g3.Vector3i.AxisX
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisX
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Vector3i AxisX
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared ReadOnly AxisX As Vector3i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Vector3i.AxisY
+  commentId: F:g3.Vector3i.AxisY
+  id: AxisY
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: AxisY
+  nameWithType: Vector3i.AxisY
+  fullName: g3.Vector3i.AxisY
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisY
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Vector3i AxisY
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared ReadOnly AxisY As Vector3i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Vector3i.AxisZ
+  commentId: F:g3.Vector3i.AxisZ
+  id: AxisZ
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: AxisZ
+  nameWithType: Vector3i.AxisZ
+  fullName: g3.Vector3i.AxisZ
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AxisZ
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static readonly Vector3i AxisZ
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared ReadOnly AxisZ As Vector3i
+  modifiers.csharp:
+  - public
+  - static
+  - readonly
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: g3.Vector3i.Item(System.Int32)
+  commentId: P:g3.Vector3i.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: Vector3i.Item[Int32]
+  fullName: g3.Vector3i.Item[System.Int32]
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: this[]
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int this[int key] { get; set; }
+    parameters:
+    - id: key
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Property Item(key As Integer) As Integer
+  overload: g3.Vector3i.Item*
+  nameWithType.vb: Vector3i.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.Vector3i.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: g3.Vector3i.array
+  commentId: P:g3.Vector3i.array
+  id: array
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: array
+  nameWithType: Vector3i.array
+  fullName: g3.Vector3i.array
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: array
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] array { get; }
+    parameters: []
+    return:
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property array As Integer()
+  overload: g3.Vector3i.array*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Vector3i.Set(g3.Vector3i)
+  commentId: M:g3.Vector3i.Set(g3.Vector3i)
+  id: Set(g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Set(Vector3i)
+  nameWithType: Vector3i.Set(Vector3i)
+  fullName: g3.Vector3i.Set(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Set
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Set(Vector3i o)
+    parameters:
+    - id: o
+      type: g3.Vector3i
+    content.vb: Public Sub Set(o As Vector3i)
+  overload: g3.Vector3i.Set*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.Set(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.Vector3i.Set(System.Int32,System.Int32,System.Int32)
+  id: Set(System.Int32,System.Int32,System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Set(Int32, Int32, Int32)
+  nameWithType: Vector3i.Set(Int32, Int32, Int32)
+  fullName: g3.Vector3i.Set(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Set
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 44
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Set(int fX, int fY, int fZ)
+    parameters:
+    - id: fX
+      type: System.Int32
+    - id: fY
+      type: System.Int32
+    - id: fZ
+      type: System.Int32
+    content.vb: Public Sub Set(fX As Integer, fY As Integer, fZ As Integer)
+  overload: g3.Vector3i.Set*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.Add(g3.Vector3i)
+  commentId: M:g3.Vector3i.Add(g3.Vector3i)
+  id: Add(g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Add(Vector3i)
+  nameWithType: Vector3i.Add(Vector3i)
+  fullName: g3.Vector3i.Add(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Add(Vector3i o)
+    parameters:
+    - id: o
+      type: g3.Vector3i
+    content.vb: Public Sub Add(o As Vector3i)
+  overload: g3.Vector3i.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.Subtract(g3.Vector3i)
+  commentId: M:g3.Vector3i.Subtract(g3.Vector3i)
+  id: Subtract(g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Subtract(Vector3i)
+  nameWithType: Vector3i.Subtract(Vector3i)
+  fullName: g3.Vector3i.Subtract(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Subtract
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 52
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Subtract(Vector3i o)
+    parameters:
+    - id: o
+      type: g3.Vector3i
+    content.vb: Public Sub Subtract(o As Vector3i)
+  overload: g3.Vector3i.Subtract*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.Add(System.Int32)
+  commentId: M:g3.Vector3i.Add(System.Int32)
+  id: Add(System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Add(Int32)
+  nameWithType: Vector3i.Add(Int32)
+  fullName: g3.Vector3i.Add(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 56
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Add(int s)
+    parameters:
+    - id: s
+      type: System.Int32
+    content.vb: Public Sub Add(s As Integer)
+  overload: g3.Vector3i.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.LengthSquared
+  commentId: P:g3.Vector3i.LengthSquared
+  id: LengthSquared
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: LengthSquared
+  nameWithType: Vector3i.LengthSquared
+  fullName: g3.Vector3i.LengthSquared
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LengthSquared
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int LengthSquared { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property LengthSquared As Integer
+  overload: g3.Vector3i.LengthSquared*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.Vector3i.op_UnaryNegation(g3.Vector3i)
+  commentId: M:g3.Vector3i.op_UnaryNegation(g3.Vector3i)
+  id: op_UnaryNegation(g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: UnaryNegation(Vector3i)
+  nameWithType: Vector3i.UnaryNegation(Vector3i)
+  fullName: g3.Vector3i.UnaryNegation(g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_UnaryNegation
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator -(Vector3i v)
+    parameters:
+    - id: v
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator -(v As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_UnaryNegation*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Multiply(System.Int32,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Multiply(System.Int32,g3.Vector3i)
+  id: op_Multiply(System.Int32,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Int32, Vector3i)
+  nameWithType: Vector3i.Multiply(Int32, Vector3i)
+  fullName: g3.Vector3i.Multiply(System.Int32, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Multiply
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 67
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator *(int f, Vector3i v)
+    parameters:
+    - id: f
+      type: System.Int32
+    - id: v
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator *(f As Integer, v As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Multiply(g3.Vector3i,System.Int32)
+  commentId: M:g3.Vector3i.op_Multiply(g3.Vector3i,System.Int32)
+  id: op_Multiply(g3.Vector3i,System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3i, Int32)
+  nameWithType: Vector3i.Multiply(Vector3i, Int32)
+  fullName: g3.Vector3i.Multiply(g3.Vector3i, System.Int32)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Multiply
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 71
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator *(Vector3i v, int f)
+    parameters:
+    - id: v
+      type: g3.Vector3i
+    - id: f
+      type: System.Int32
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator *(v As Vector3i, f As Integer) As Vector3i
+  overload: g3.Vector3i.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Division(g3.Vector3i,System.Int32)
+  commentId: M:g3.Vector3i.op_Division(g3.Vector3i,System.Int32)
+  id: op_Division(g3.Vector3i,System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector3i, Int32)
+  nameWithType: Vector3i.Division(Vector3i, Int32)
+  fullName: g3.Vector3i.Division(g3.Vector3i, System.Int32)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Division
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 75
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator /(Vector3i v, int f)
+    parameters:
+    - id: v
+      type: g3.Vector3i
+    - id: f
+      type: System.Int32
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator /(v As Vector3i, f As Integer) As Vector3i
+  overload: g3.Vector3i.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Division(System.Int32,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Division(System.Int32,g3.Vector3i)
+  id: op_Division(System.Int32,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Division(Int32, Vector3i)
+  nameWithType: Vector3i.Division(Int32, Vector3i)
+  fullName: g3.Vector3i.Division(System.Int32, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Division
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 79
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator /(int f, Vector3i v)
+    parameters:
+    - id: f
+      type: System.Int32
+    - id: v
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator /(f As Integer, v As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Multiply(g3.Vector3i,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Multiply(g3.Vector3i,g3.Vector3i)
+  id: op_Multiply(g3.Vector3i,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Multiply(Vector3i, Vector3i)
+  nameWithType: Vector3i.Multiply(Vector3i, Vector3i)
+  fullName: g3.Vector3i.Multiply(g3.Vector3i, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Multiply
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator *(Vector3i a, Vector3i b)
+    parameters:
+    - id: a
+      type: g3.Vector3i
+    - id: b
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator *(a As Vector3i, b As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_Multiply*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Division(g3.Vector3i,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Division(g3.Vector3i,g3.Vector3i)
+  id: op_Division(g3.Vector3i,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Division(Vector3i, Vector3i)
+  nameWithType: Vector3i.Division(Vector3i, Vector3i)
+  fullName: g3.Vector3i.Division(g3.Vector3i, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Division
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 88
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator /(Vector3i a, Vector3i b)
+    parameters:
+    - id: a
+      type: g3.Vector3i
+    - id: b
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator /(a As Vector3i, b As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_Division*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Addition(g3.Vector3i,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Addition(g3.Vector3i,g3.Vector3i)
+  id: op_Addition(g3.Vector3i,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector3i, Vector3i)
+  nameWithType: Vector3i.Addition(Vector3i, Vector3i)
+  fullName: g3.Vector3i.Addition(g3.Vector3i, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Addition
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator +(Vector3i v0, Vector3i v1)
+    parameters:
+    - id: v0
+      type: g3.Vector3i
+    - id: v1
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator +(v0 As Vector3i, v1 As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Addition(g3.Vector3i,System.Int32)
+  commentId: M:g3.Vector3i.op_Addition(g3.Vector3i,System.Int32)
+  id: op_Addition(g3.Vector3i,System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Addition(Vector3i, Int32)
+  nameWithType: Vector3i.Addition(Vector3i, Int32)
+  fullName: g3.Vector3i.Addition(g3.Vector3i, System.Int32)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Addition
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 98
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator +(Vector3i v0, int f)
+    parameters:
+    - id: v0
+      type: g3.Vector3i
+    - id: f
+      type: System.Int32
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator +(v0 As Vector3i, f As Integer) As Vector3i
+  overload: g3.Vector3i.op_Addition*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Subtraction(g3.Vector3i,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Subtraction(g3.Vector3i,g3.Vector3i)
+  id: op_Subtraction(g3.Vector3i,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector3i, Vector3i)
+  nameWithType: Vector3i.Subtraction(Vector3i, Vector3i)
+  fullName: g3.Vector3i.Subtraction(g3.Vector3i, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Subtraction
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator -(Vector3i v0, Vector3i v1)
+    parameters:
+    - id: v0
+      type: g3.Vector3i
+    - id: v1
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator -(v0 As Vector3i, v1 As Vector3i) As Vector3i
+  overload: g3.Vector3i.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Subtraction(g3.Vector3i,System.Int32)
+  commentId: M:g3.Vector3i.op_Subtraction(g3.Vector3i,System.Int32)
+  id: op_Subtraction(g3.Vector3i,System.Int32)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Subtraction(Vector3i, Int32)
+  nameWithType: Vector3i.Subtraction(Vector3i, Int32)
+  fullName: g3.Vector3i.Subtraction(g3.Vector3i, System.Int32)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Subtraction
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 107
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3i operator -(Vector3i v0, int f)
+    parameters:
+    - id: v0
+      type: g3.Vector3i
+    - id: f
+      type: System.Int32
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Operator -(v0 As Vector3i, f As Integer) As Vector3i
+  overload: g3.Vector3i.op_Subtraction*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Equality(g3.Vector3i,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Equality(g3.Vector3i,g3.Vector3i)
+  id: op_Equality(g3.Vector3i,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Equality(Vector3i, Vector3i)
+  nameWithType: Vector3i.Equality(Vector3i, Vector3i)
+  fullName: g3.Vector3i.Equality(g3.Vector3i, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Equality
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 115
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool operator ==(Vector3i a, Vector3i b)
+    parameters:
+    - id: a
+      type: g3.Vector3i
+    - id: b
+      type: g3.Vector3i
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(a As Vector3i, b As Vector3i) As Boolean
+  overload: g3.Vector3i.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.op_Inequality(g3.Vector3i,g3.Vector3i)
+  commentId: M:g3.Vector3i.op_Inequality(g3.Vector3i,g3.Vector3i)
+  id: op_Inequality(g3.Vector3i,g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Inequality(Vector3i, Vector3i)
+  nameWithType: Vector3i.Inequality(Vector3i, Vector3i)
+  fullName: g3.Vector3i.Inequality(g3.Vector3i, g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Inequality
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 119
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static bool operator !=(Vector3i a, Vector3i b)
+    parameters:
+    - id: a
+      type: g3.Vector3i
+    - id: b
+      type: g3.Vector3i
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(a As Vector3i, b As Vector3i) As Boolean
+  overload: g3.Vector3i.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.Vector3i.Equals(System.Object)
+  commentId: M:g3.Vector3i.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: Vector3i.Equals(Object)
+  fullName: g3.Vector3i.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 123
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: g3.Vector3i.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.Vector3i.GetHashCode
+  commentId: M:g3.Vector3i.GetHashCode
+  id: GetHashCode
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Vector3i.GetHashCode()
+  fullName: g3.Vector3i.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 127
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: g3.Vector3i.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.Vector3i.CompareTo(g3.Vector3i)
+  commentId: M:g3.Vector3i.CompareTo(g3.Vector3i)
+  id: CompareTo(g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(Vector3i)
+  nameWithType: Vector3i.CompareTo(Vector3i)
+  fullName: g3.Vector3i.CompareTo(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CompareTo
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 139
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int CompareTo(Vector3i other)
+    parameters:
+    - id: other
+      type: g3.Vector3i
+    return:
+      type: System.Int32
+    content.vb: Public Function CompareTo(other As Vector3i) As Integer
+  overload: g3.Vector3i.CompareTo*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.Equals(g3.Vector3i)
+  commentId: M:g3.Vector3i.Equals(g3.Vector3i)
+  id: Equals(g3.Vector3i)
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Equals(Vector3i)
+  nameWithType: Vector3i.Equals(Vector3i)
+  fullName: g3.Vector3i.Equals(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 149
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Equals(Vector3i other)
+    parameters:
+    - id: other
+      type: g3.Vector3i
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Vector3i) As Boolean
+  overload: g3.Vector3i.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Vector3i.ToString
+  commentId: M:g3.Vector3i.ToString
+  id: ToString
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Vector3i.ToString()
+  fullName: g3.Vector3i.ToString()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToString
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 156
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.ValueType.ToString
+  overload: g3.Vector3i.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: g3.Vector3i.op_Implicit(g3.Index3i)~g3.Vector3i
+  commentId: M:g3.Vector3i.op_Implicit(g3.Index3i)~g3.Vector3i
+  id: op_Implicit(g3.Index3i)~g3.Vector3i
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Index3i to Vector3i)
+  nameWithType: Vector3i.Implicit(Index3i to Vector3i)
+  fullName: g3.Vector3i.Implicit(g3.Index3i to g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 163
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static implicit operator Vector3i(Index3i v)
+    parameters:
+    - id: v
+      type: g3.Index3i
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Widening Operator CType(v As Index3i) As Vector3i
+  overload: g3.Vector3i.op_Implicit*
+  nameWithType.vb: Vector3i.Widening(Index3i to Vector3i)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Vector3i.Widening(g3.Index3i to g3.Vector3i)
+  name.vb: Widening(Index3i to Vector3i)
+- uid: g3.Vector3i.op_Implicit(g3.Vector3i)~g3.Index3i
+  commentId: M:g3.Vector3i.op_Implicit(g3.Vector3i)~g3.Index3i
+  id: op_Implicit(g3.Vector3i)~g3.Index3i
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Implicit(Vector3i to Index3i)
+  nameWithType: Vector3i.Implicit(Vector3i to Index3i)
+  fullName: g3.Vector3i.Implicit(g3.Vector3i to g3.Index3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Implicit
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 166
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static implicit operator Index3i(Vector3i v)
+    parameters:
+    - id: v
+      type: g3.Vector3i
+    return:
+      type: g3.Index3i
+    content.vb: Public Shared Widening Operator CType(v As Vector3i) As Index3i
+  overload: g3.Vector3i.op_Implicit*
+  nameWithType.vb: Vector3i.Widening(Vector3i to Index3i)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Vector3i.Widening(g3.Vector3i to g3.Index3i)
+  name.vb: Widening(Vector3i to Index3i)
+- uid: g3.Vector3i.op_Explicit(g3.Vector3f)~g3.Vector3i
+  commentId: M:g3.Vector3i.op_Explicit(g3.Vector3f)~g3.Vector3i
+  id: op_Explicit(g3.Vector3f)~g3.Vector3i
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Vector3f to Vector3i)
+  nameWithType: Vector3i.Explicit(Vector3f to Vector3i)
+  fullName: g3.Vector3i.Explicit(g3.Vector3f to g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 171
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Vector3i(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Narrowing Operator CType(v As Vector3f) As Vector3i
+  overload: g3.Vector3i.op_Explicit*
+  nameWithType.vb: Vector3i.Narrowing(Vector3f to Vector3i)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Vector3i.Narrowing(g3.Vector3f to g3.Vector3i)
+  name.vb: Narrowing(Vector3f to Vector3i)
+- uid: g3.Vector3i.op_Explicit(g3.Vector3i)~g3.Vector3f
+  commentId: M:g3.Vector3i.op_Explicit(g3.Vector3i)~g3.Vector3f
+  id: op_Explicit(g3.Vector3i)~g3.Vector3f
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Vector3i to Vector3f)
+  nameWithType: Vector3i.Explicit(Vector3i to Vector3f)
+  fullName: g3.Vector3i.Explicit(g3.Vector3i to g3.Vector3f)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 174
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Vector3f(Vector3i v)
+    parameters:
+    - id: v
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3f
+    content.vb: Public Shared Narrowing Operator CType(v As Vector3i) As Vector3f
+  overload: g3.Vector3i.op_Explicit*
+  nameWithType.vb: Vector3i.Narrowing(Vector3i to Vector3f)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Vector3i.Narrowing(g3.Vector3i to g3.Vector3f)
+  name.vb: Narrowing(Vector3i to Vector3f)
+- uid: g3.Vector3i.op_Explicit(g3.Vector3d)~g3.Vector3i
+  commentId: M:g3.Vector3i.op_Explicit(g3.Vector3d)~g3.Vector3i
+  id: op_Explicit(g3.Vector3d)~g3.Vector3i
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Vector3d to Vector3i)
+  nameWithType: Vector3i.Explicit(Vector3d to Vector3i)
+  fullName: g3.Vector3i.Explicit(g3.Vector3d to g3.Vector3i)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 177
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Vector3i(Vector3d v)
+    parameters:
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3i
+    content.vb: Public Shared Narrowing Operator CType(v As Vector3d) As Vector3i
+  overload: g3.Vector3i.op_Explicit*
+  nameWithType.vb: Vector3i.Narrowing(Vector3d to Vector3i)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Vector3i.Narrowing(g3.Vector3d to g3.Vector3i)
+  name.vb: Narrowing(Vector3d to Vector3i)
+- uid: g3.Vector3i.op_Explicit(g3.Vector3i)~g3.Vector3d
+  commentId: M:g3.Vector3i.op_Explicit(g3.Vector3i)~g3.Vector3d
+  id: op_Explicit(g3.Vector3i)~g3.Vector3d
+  parent: g3.Vector3i
+  langs:
+  - csharp
+  - vb
+  name: Explicit(Vector3i to Vector3d)
+  nameWithType: Vector3i.Explicit(Vector3i to Vector3d)
+  fullName: g3.Vector3i.Explicit(g3.Vector3i to g3.Vector3d)
+  type: Operator
+  source:
+    remote:
+      path: Assets/geometry3Sharp/math/Vector3i.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Explicit
+    path: ../Assets/geometry3Sharp/math/Vector3i.cs
+    startLine: 180
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static explicit operator Vector3d(Vector3i v)
+    parameters:
+    - id: v
+      type: g3.Vector3i
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Narrowing Operator CType(v As Vector3i) As Vector3d
+  overload: g3.Vector3i.op_Explicit*
+  nameWithType.vb: Vector3i.Narrowing(Vector3i to Vector3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.Vector3i.Narrowing(g3.Vector3i to g3.Vector3d)
+  name.vb: Narrowing(Vector3i to Vector3d)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.Vector3i.#ctor*
+  commentId: Overload:g3.Vector3i.#ctor
+  name: Vector3i
+  nameWithType: Vector3i.Vector3i
+  fullName: g3.Vector3i.Vector3i
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  parent: g3
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+- uid: g3.Vector3i.Item*
+  commentId: Overload:g3.Vector3i.Item
+  name: Item
+  nameWithType: Vector3i.Item
+  fullName: g3.Vector3i.Item
+- uid: g3.Vector3i.array*
+  commentId: Overload:g3.Vector3i.array
+  name: array
+  nameWithType: Vector3i.array
+  fullName: g3.Vector3i.array
+- uid: g3.Vector3i.Set*
+  commentId: Overload:g3.Vector3i.Set
+  name: Set
+  nameWithType: Vector3i.Set
+  fullName: g3.Vector3i.Set
+- uid: g3.Vector3i.Add*
+  commentId: Overload:g3.Vector3i.Add
+  name: Add
+  nameWithType: Vector3i.Add
+  fullName: g3.Vector3i.Add
+- uid: g3.Vector3i.Subtract*
+  commentId: Overload:g3.Vector3i.Subtract
+  name: Subtract
+  nameWithType: Vector3i.Subtract
+  fullName: g3.Vector3i.Subtract
+- uid: g3.Vector3i.LengthSquared*
+  commentId: Overload:g3.Vector3i.LengthSquared
+  name: LengthSquared
+  nameWithType: Vector3i.LengthSquared
+  fullName: g3.Vector3i.LengthSquared
+- uid: g3.Vector3i.op_UnaryNegation*
+  commentId: Overload:g3.Vector3i.op_UnaryNegation
+  name: UnaryNegation
+  nameWithType: Vector3i.UnaryNegation
+  fullName: g3.Vector3i.UnaryNegation
+- uid: g3.Vector3i.op_Multiply*
+  commentId: Overload:g3.Vector3i.op_Multiply
+  name: Multiply
+  nameWithType: Vector3i.Multiply
+  fullName: g3.Vector3i.Multiply
+- uid: g3.Vector3i.op_Division*
+  commentId: Overload:g3.Vector3i.op_Division
+  name: Division
+  nameWithType: Vector3i.Division
+  fullName: g3.Vector3i.Division
+- uid: g3.Vector3i.op_Addition*
+  commentId: Overload:g3.Vector3i.op_Addition
+  name: Addition
+  nameWithType: Vector3i.Addition
+  fullName: g3.Vector3i.Addition
+- uid: g3.Vector3i.op_Subtraction*
+  commentId: Overload:g3.Vector3i.op_Subtraction
+  name: Subtraction
+  nameWithType: Vector3i.Subtraction
+  fullName: g3.Vector3i.Subtraction
+- uid: g3.Vector3i.op_Equality*
+  commentId: Overload:g3.Vector3i.op_Equality
+  name: Equality
+  nameWithType: Vector3i.Equality
+  fullName: g3.Vector3i.Equality
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.Vector3i.op_Inequality*
+  commentId: Overload:g3.Vector3i.op_Inequality
+  name: Inequality
+  nameWithType: Vector3i.Inequality
+  fullName: g3.Vector3i.Inequality
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: ValueType.Equals(Object)
+  fullName: System.ValueType.Equals(System.Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    nameWithType: ValueType.Equals
+    fullName: System.ValueType.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3i.Equals*
+  commentId: Overload:g3.Vector3i.Equals
+  name: Equals
+  nameWithType: Vector3i.Equals
+  fullName: g3.Vector3i.Equals
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    nameWithType: ValueType.GetHashCode
+    fullName: System.ValueType.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3i.GetHashCode*
+  commentId: Overload:g3.Vector3i.GetHashCode
+  name: GetHashCode
+  nameWithType: Vector3i.GetHashCode
+  fullName: g3.Vector3i.GetHashCode
+- uid: g3.Vector3i.CompareTo*
+  commentId: Overload:g3.Vector3i.CompareTo
+  name: CompareTo
+  nameWithType: Vector3i.CompareTo
+  fullName: g3.Vector3i.CompareTo
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    nameWithType: ValueType.ToString
+    fullName: System.ValueType.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Vector3i.ToString*
+  commentId: Overload:g3.Vector3i.ToString
+  name: ToString
+  nameWithType: Vector3i.ToString
+  fullName: g3.Vector3i.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.Vector3i.op_Implicit*
+  commentId: Overload:g3.Vector3i.op_Implicit
+  name: Implicit
+  nameWithType: Vector3i.Implicit
+  fullName: g3.Vector3i.Implicit
+  nameWithType.vb: Vector3i.Widening
+  fullName.vb: g3.Vector3i.Widening
+  name.vb: Widening
+- uid: g3.Index3i
+  commentId: T:g3.Index3i
+  parent: g3
+  name: Index3i
+  nameWithType: Index3i
+  fullName: g3.Index3i
+- uid: g3.Vector3i.op_Explicit*
+  commentId: Overload:g3.Vector3i.op_Explicit
+  name: Explicit
+  nameWithType: Vector3i.Explicit
+  fullName: g3.Vector3i.Explicit
+  nameWithType.vb: Vector3i.Narrowing
+  fullName.vb: g3.Vector3i.Narrowing
+  name.vb: Narrowing
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d

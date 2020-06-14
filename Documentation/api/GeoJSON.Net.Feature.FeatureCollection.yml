@@ -1,0 +1,888 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.Feature.FeatureCollection
+  commentId: T:GeoJSON.Net.Feature.FeatureCollection
+  id: FeatureCollection
+  parent: GeoJSON.Net.Feature
+  children:
+  - GeoJSON.Net.Feature.FeatureCollection.#ctor
+  - GeoJSON.Net.Feature.FeatureCollection.#ctor(System.Collections.Generic.List{GeoJSON.Net.Feature.Feature})
+  - GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection)
+  - GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  - GeoJSON.Net.Feature.FeatureCollection.Equals(System.Object)
+  - GeoJSON.Net.Feature.FeatureCollection.Features
+  - GeoJSON.Net.Feature.FeatureCollection.GetHashCode
+  - GeoJSON.Net.Feature.FeatureCollection.GetHashCode(GeoJSON.Net.Feature.FeatureCollection)
+  - GeoJSON.Net.Feature.FeatureCollection.op_Equality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  - GeoJSON.Net.Feature.FeatureCollection.op_Inequality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  - GeoJSON.Net.Feature.FeatureCollection.Type
+  langs:
+  - csharp
+  - vb
+  name: FeatureCollection
+  nameWithType: FeatureCollection
+  fullName: GeoJSON.Net.Feature.FeatureCollection
+  type: Class
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FeatureCollection
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 12
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nDefines the FeatureCollection type.\n"
+  example: []
+  syntax:
+    content: 'public class FeatureCollection : GeoJSONObject, IGeoJSONObject, IEqualityComparer<GeoJSONObject>, IEquatable<GeoJSONObject>, IEqualityComparer<FeatureCollection>, IEquatable<FeatureCollection>'
+    content.vb: >-
+      Public Class FeatureCollection
+          Inherits GeoJSONObject
+          Implements IGeoJSONObject, IEqualityComparer(Of GeoJSONObject), IEquatable(Of GeoJSONObject), IEqualityComparer(Of FeatureCollection), IEquatable(Of FeatureCollection)
+  inheritance:
+  - System.Object
+  - GeoJSON.Net.GeoJSONObject
+  implements:
+  - GeoJSON.Net.IGeoJSONObject
+  inheritedMembers:
+  - GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  - GeoJSON.Net.GeoJSONObject.CRS
+  - GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  - GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  - GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: GeoJSON.Net.Feature.FeatureCollection.#ctor
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.#ctor
+  id: '#ctor'
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: FeatureCollection()
+  nameWithType: FeatureCollection.FeatureCollection()
+  fullName: GeoJSON.Net.Feature.FeatureCollection.FeatureCollection()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nInitializes a new instance of the <xref href=\"GeoJSON.Net.Feature.FeatureCollection\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public FeatureCollection()
+    content.vb: Public Sub New
+  overload: GeoJSON.Net.Feature.FeatureCollection.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Feature.FeatureCollection.#ctor(System.Collections.Generic.List{GeoJSON.Net.Feature.Feature})
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.#ctor(System.Collections.Generic.List{GeoJSON.Net.Feature.Feature})
+  id: '#ctor(System.Collections.Generic.List{GeoJSON.Net.Feature.Feature})'
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: FeatureCollection(List<Feature>)
+  nameWithType: FeatureCollection.FeatureCollection(List<Feature>)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.FeatureCollection(System.Collections.Generic.List<GeoJSON.Net.Feature.Feature>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 25
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nInitializes a new instance of the <xref href=\"GeoJSON.Net.Feature.FeatureCollection\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public FeatureCollection(List<Feature> features)
+    parameters:
+    - id: features
+      type: System.Collections.Generic.List{GeoJSON.Net.Feature.Feature}
+      description: The features.
+    content.vb: Public Sub New(features As List(Of Feature))
+  overload: GeoJSON.Net.Feature.FeatureCollection.#ctor*
+  nameWithType.vb: FeatureCollection.FeatureCollection(List(Of Feature))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: GeoJSON.Net.Feature.FeatureCollection.FeatureCollection(System.Collections.Generic.List(Of GeoJSON.Net.Feature.Feature))
+  name.vb: FeatureCollection(List(Of Feature))
+- uid: GeoJSON.Net.Feature.FeatureCollection.Type
+  commentId: P:GeoJSON.Net.Feature.FeatureCollection.Type
+  id: Type
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: FeatureCollection.Type
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Type
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 35
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  syntax:
+    content: public override GeoJSONObjectType Type { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.GeoJSONObjectType
+    content.vb: Public Overrides ReadOnly Property Type As GeoJSONObjectType
+  overridden: GeoJSON.Net.GeoJSONObject.Type
+  overload: GeoJSON.Net.Feature.FeatureCollection.Type*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: GeoJSON.Net.Feature.FeatureCollection.Features
+  commentId: P:GeoJSON.Net.Feature.FeatureCollection.Features
+  id: Features
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Features
+  nameWithType: FeatureCollection.Features
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Features
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Features
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 41
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nGets the features.\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty(PropertyName = "features", Required = Required.Always)]
+
+      public List<Feature> Features { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{GeoJSON.Net.Feature.Feature}
+      description: The features.
+    content.vb: >-
+      <JsonProperty(PropertyName:="features", Required:=Required.Always)>
+
+      Public ReadOnly Property Features As List(Of Feature)
+  overload: GeoJSON.Net.Feature.FeatureCollection.Features*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PropertyName
+      type: System.String
+      value: features
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: GeoJSON.Net.Feature.FeatureCollection.Equals(System.Object)
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: FeatureCollection.Equals(Object)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 49
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nDetermines whether the specified object is equal to the current object\n"
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  overload: GeoJSON.Net.Feature.FeatureCollection.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection)
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection)
+  id: Equals(GeoJSON.Net.Feature.FeatureCollection)
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Equals(FeatureCollection)
+  nameWithType: FeatureCollection.Equals(FeatureCollection)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 57
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nDetermines whether the specified object is equal to the current object\n"
+  example: []
+  syntax:
+    content: public bool Equals(FeatureCollection other)
+    parameters:
+    - id: other
+      type: GeoJSON.Net.Feature.FeatureCollection
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As FeatureCollection) As Boolean
+  overload: GeoJSON.Net.Feature.FeatureCollection.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  id: Equals(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Equals(FeatureCollection, FeatureCollection)
+  nameWithType: FeatureCollection.Equals(FeatureCollection, FeatureCollection)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Equals(GeoJSON.Net.Feature.FeatureCollection, GeoJSON.Net.Feature.FeatureCollection)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 65
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nDetermines whether the specified object instances are considered equal\n"
+  example: []
+  syntax:
+    content: public bool Equals(FeatureCollection left, FeatureCollection right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Feature.FeatureCollection
+    - id: right
+      type: GeoJSON.Net.Feature.FeatureCollection
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(left As FeatureCollection, right As FeatureCollection) As Boolean
+  overload: GeoJSON.Net.Feature.FeatureCollection.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Feature.FeatureCollection.op_Equality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.op_Equality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  id: op_Equality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Equality(FeatureCollection, FeatureCollection)
+  nameWithType: FeatureCollection.Equality(FeatureCollection, FeatureCollection)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Equality(GeoJSON.Net.Feature.FeatureCollection, GeoJSON.Net.Feature.FeatureCollection)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Equality
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 77
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nDetermines whether the specified object instances are considered equal\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(FeatureCollection left, FeatureCollection right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Feature.FeatureCollection
+    - id: right
+      type: GeoJSON.Net.Feature.FeatureCollection
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As FeatureCollection, right As FeatureCollection) As Boolean
+  overload: GeoJSON.Net.Feature.FeatureCollection.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: GeoJSON.Net.Feature.FeatureCollection.op_Inequality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.op_Inequality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  id: op_Inequality(GeoJSON.Net.Feature.FeatureCollection,GeoJSON.Net.Feature.FeatureCollection)
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: Inequality(FeatureCollection, FeatureCollection)
+  nameWithType: FeatureCollection.Inequality(FeatureCollection, FeatureCollection)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Inequality(GeoJSON.Net.Feature.FeatureCollection, GeoJSON.Net.Feature.FeatureCollection)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Inequality
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 93
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nDetermines whether the specified object instances are not considered equal\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(FeatureCollection left, FeatureCollection right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Feature.FeatureCollection
+    - id: right
+      type: GeoJSON.Net.Feature.FeatureCollection
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As FeatureCollection, right As FeatureCollection) As Boolean
+  overload: GeoJSON.Net.Feature.FeatureCollection.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: GeoJSON.Net.Feature.FeatureCollection.GetHashCode
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.GetHashCode
+  id: GetHashCode
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: FeatureCollection.GetHashCode()
+  fullName: GeoJSON.Net.Feature.FeatureCollection.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 101
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nReturns the hash code for this instance\n"
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: GeoJSON.Net.GeoJSONObject.GetHashCode
+  overload: GeoJSON.Net.Feature.FeatureCollection.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: GeoJSON.Net.Feature.FeatureCollection.GetHashCode(GeoJSON.Net.Feature.FeatureCollection)
+  commentId: M:GeoJSON.Net.Feature.FeatureCollection.GetHashCode(GeoJSON.Net.Feature.FeatureCollection)
+  id: GetHashCode(GeoJSON.Net.Feature.FeatureCollection)
+  parent: GeoJSON.Net.Feature.FeatureCollection
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode(FeatureCollection)
+  nameWithType: FeatureCollection.GetHashCode(FeatureCollection)
+  fullName: GeoJSON.Net.Feature.FeatureCollection.GetHashCode(GeoJSON.Net.Feature.FeatureCollection)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/Feature/FeatureCollection.cs
+    startLine: 114
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Feature
+  summary: "\nReturns the hash code for the specified object\n"
+  example: []
+  syntax:
+    content: public int GetHashCode(FeatureCollection other)
+    parameters:
+    - id: other
+      type: GeoJSON.Net.Feature.FeatureCollection
+    return:
+      type: System.Int32
+    content.vb: Public Function GetHashCode(other As FeatureCollection) As Integer
+  overload: GeoJSON.Net.Feature.FeatureCollection.GetHashCode*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: GeoJSON.Net.Feature
+  commentId: N:GeoJSON.Net.Feature
+  name: GeoJSON.Net.Feature
+  nameWithType: GeoJSON.Net.Feature
+  fullName: GeoJSON.Net.Feature
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: GeoJSON.Net.GeoJSONObject
+  commentId: T:GeoJSON.Net.GeoJSONObject
+  parent: GeoJSON.Net
+  name: GeoJSONObject
+  nameWithType: GeoJSONObject
+  fullName: GeoJSON.Net.GeoJSONObject
+- uid: GeoJSON.Net.IGeoJSONObject
+  commentId: T:GeoJSON.Net.IGeoJSONObject
+  parent: GeoJSON.Net
+  name: IGeoJSONObject
+  nameWithType: IGeoJSONObject
+  fullName: GeoJSON.Net.IGeoJSONObject
+- uid: GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  commentId: P:GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  parent: GeoJSON.Net.GeoJSONObject
+  name: BoundingBoxes
+  nameWithType: GeoJSONObject.BoundingBoxes
+  fullName: GeoJSON.Net.GeoJSONObject.BoundingBoxes
+- uid: GeoJSON.Net.GeoJSONObject.CRS
+  commentId: P:GeoJSON.Net.GeoJSONObject.CRS
+  parent: GeoJSON.Net.GeoJSONObject
+  name: CRS
+  nameWithType: GeoJSONObject.CRS
+  fullName: GeoJSON.Net.GeoJSONObject.CRS
+- uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Equals(GeoJSONObject)
+  nameWithType: GeoJSONObject.Equals(GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Equals(GeoJSONObject, GeoJSONObject)
+  nameWithType: GeoJSONObject.Equals(GeoJSONObject, GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject, GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: GetHashCode(GeoJSONObject)
+  nameWithType: GeoJSONObject.GetHashCode(GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeoJSON.Net
+  commentId: N:GeoJSON.Net
+  name: GeoJSON.Net
+  nameWithType: GeoJSON.Net
+  fullName: GeoJSON.Net
+- uid: GeoJSON.Net.Feature.FeatureCollection
+  commentId: T:GeoJSON.Net.Feature.FeatureCollection
+  parent: GeoJSON.Net.Feature
+  name: FeatureCollection
+  nameWithType: FeatureCollection
+  fullName: GeoJSON.Net.Feature.FeatureCollection
+- uid: GeoJSON.Net.Feature.FeatureCollection.#ctor*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.#ctor
+  name: FeatureCollection
+  nameWithType: FeatureCollection.FeatureCollection
+  fullName: GeoJSON.Net.Feature.FeatureCollection.FeatureCollection
+- uid: System.Collections.Generic.List{GeoJSON.Net.Feature.Feature}
+  commentId: T:System.Collections.Generic.List{GeoJSON.Net.Feature.Feature}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Feature>
+  nameWithType: List<Feature>
+  fullName: System.Collections.Generic.List<GeoJSON.Net.Feature.Feature>
+  nameWithType.vb: List(Of Feature)
+  fullName.vb: System.Collections.Generic.List(Of GeoJSON.Net.Feature.Feature)
+  name.vb: List(Of Feature)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: GeoJSON.Net.Feature.Feature
+    name: Feature
+    nameWithType: Feature
+    fullName: GeoJSON.Net.Feature.Feature
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: GeoJSON.Net.Feature.Feature
+    name: Feature
+    nameWithType: Feature
+    fullName: GeoJSON.Net.Feature.Feature
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: GeoJSON.Net.GeoJSONObject.Type
+  commentId: P:GeoJSON.Net.GeoJSONObject.Type
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Type
+  nameWithType: GeoJSONObject.Type
+  fullName: GeoJSON.Net.GeoJSONObject.Type
+- uid: GeoJSON.Net.Feature.FeatureCollection.Type*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.Type
+  name: Type
+  nameWithType: FeatureCollection.Type
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Type
+- uid: GeoJSON.Net.GeoJSONObjectType
+  commentId: T:GeoJSON.Net.GeoJSONObjectType
+  parent: GeoJSON.Net
+  name: GeoJSONObjectType
+  nameWithType: GeoJSONObjectType
+  fullName: GeoJSON.Net.GeoJSONObjectType
+- uid: GeoJSON.Net.Feature.FeatureCollection.Features*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.Features
+  name: Features
+  nameWithType: FeatureCollection.Features
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Features
+- uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  parent: GeoJSON.Net.GeoJSONObject
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: GeoJSONObject.Equals(Object)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Feature.FeatureCollection.Equals*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.Equals
+  name: Equals
+  nameWithType: FeatureCollection.Equals
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: GeoJSON.Net.Feature.FeatureCollection.op_Equality*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.op_Equality
+  name: Equality
+  nameWithType: FeatureCollection.Equality
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Equality
+- uid: GeoJSON.Net.Feature.FeatureCollection.op_Inequality*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.op_Inequality
+  name: Inequality
+  nameWithType: FeatureCollection.Inequality
+  fullName: GeoJSON.Net.Feature.FeatureCollection.Inequality
+- uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+  commentId: M:GeoJSON.Net.GeoJSONObject.GetHashCode
+  parent: GeoJSON.Net.GeoJSONObject
+  name: GetHashCode()
+  nameWithType: GeoJSONObject.GetHashCode()
+  fullName: GeoJSON.Net.GeoJSONObject.GetHashCode()
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Feature.FeatureCollection.GetHashCode*
+  commentId: Overload:GeoJSON.Net.Feature.FeatureCollection.GetHashCode
+  name: GetHashCode
+  nameWithType: FeatureCollection.GetHashCode
+  fullName: GeoJSON.Net.Feature.FeatureCollection.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

@@ -1,0 +1,299 @@
+### YamlMime:ManagedReference
+items:
+- uid: Project.Serializable
+  commentId: T:Project.Serializable
+  id: Serializable
+  parent: Project
+  children:
+  - Project.Serializable.magnitude
+  - Project.Serializable.ToArray
+  - Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  langs:
+  - csharp
+  - vb
+  name: Serializable
+  nameWithType: Serializable
+  fullName: Project.Serializable
+  type: Class
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Serializable
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 233
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public abstract class Serializable
+    content.vb: Public MustInherit Class Serializable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Project.SerializableColor
+  - Project.SerializableQuaternion
+  - Project.SerializableVector3
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  commentId: M:Project.Serializable.Update(System.Collections.Generic.IList{System.Single})
+  id: Update(System.Collections.Generic.IList{System.Single})
+  parent: Project.Serializable
+  langs:
+  - csharp
+  - vb
+  name: Update(IList<Single>)
+  nameWithType: Serializable.Update(IList<Single>)
+  fullName: Project.Serializable.Update(System.Collections.Generic.IList<System.Single>)
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Update
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 235
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public abstract void Update(IList<float> v)
+    parameters:
+    - id: v
+      type: System.Collections.Generic.IList{System.Single}
+    content.vb: Public MustOverride Sub Update(v As IList(Of Single))
+  overload: Project.Serializable.Update*
+  nameWithType.vb: Serializable.Update(IList(Of Single))
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+  fullName.vb: Project.Serializable.Update(System.Collections.Generic.IList(Of System.Single))
+  name.vb: Update(IList(Of Single))
+- uid: Project.Serializable.ToArray
+  commentId: M:Project.Serializable.ToArray
+  id: ToArray
+  parent: Project.Serializable
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: Serializable.ToArray()
+  fullName: Project.Serializable.ToArray()
+  type: Method
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToArray
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 236
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public abstract float[] ToArray()
+    return:
+      type: System.Single[]
+    content.vb: Public MustOverride Function ToArray As Single()
+  overload: Project.Serializable.ToArray*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: Project.Serializable.magnitude
+  commentId: F:Project.Serializable.magnitude
+  id: magnitude
+  parent: Project.Serializable
+  langs:
+  - csharp
+  - vb
+  name: magnitude
+  nameWithType: Serializable.magnitude
+  fullName: Project.Serializable.magnitude
+  type: Field
+  source:
+    remote:
+      path: Assets/Scripts/Basic Types/Serializeables.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: magnitude
+    path: ../Assets/Scripts/Basic Types/Serializeables.cs
+    startLine: 237
+  assemblies:
+  - Assembly-CSharp
+  namespace: Project
+  syntax:
+    content: public float magnitude
+    return:
+      type: System.Single
+    content.vb: Public magnitude As Single
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Project
+  commentId: N:Project
+  name: Project
+  nameWithType: Project
+  fullName: Project
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Project.Serializable.Update*
+  commentId: Overload:Project.Serializable.Update
+  name: Update
+  nameWithType: Serializable.Update
+  fullName: Project.Serializable.Update
+- uid: System.Collections.Generic.IList{System.Single}
+  commentId: T:System.Collections.Generic.IList{System.Single}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Single>
+  nameWithType: IList<Single>
+  fullName: System.Collections.Generic.IList<System.Single>
+  nameWithType.vb: IList(Of Single)
+  fullName.vb: System.Collections.Generic.IList(Of System.Single)
+  name.vb: IList(Of Single)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Project.Serializable.ToArray*
+  commentId: Overload:Project.Serializable.ToArray
+  name: ToArray
+  nameWithType: Serializable.ToArray
+  fullName: Project.Serializable.ToArray
+- uid: System.Single[]
+  isExternal: true
+  name: Single[]
+  nameWithType: Single[]
+  fullName: System.Single[]
+  nameWithType.vb: Single()
+  fullName.vb: System.Single()
+  name.vb: Single()
+  spec.csharp:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  name: Single
+  nameWithType: Single
+  fullName: System.Single

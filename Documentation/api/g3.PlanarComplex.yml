@@ -1,0 +1,1694 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.PlanarComplex
+  commentId: T:g3.PlanarComplex
+  id: PlanarComplex
+  parent: g3
+  children:
+  - g3.PlanarComplex.#ctor
+  - g3.PlanarComplex.Add(g3.IParametricCurve2d)
+  - g3.PlanarComplex.Add(g3.Polygon2d)
+  - g3.PlanarComplex.Add(g3.PolyLine2d)
+  - g3.PlanarComplex.AllSegmentsItr
+  - g3.PlanarComplex.AngleAccuracyDeg
+  - g3.PlanarComplex.Append(g3.PlanarComplex)
+  - g3.PlanarComplex.Bounds
+  - g3.PlanarComplex.Clone
+  - g3.PlanarComplex.ConvertToLoop(g3.PlanarComplex.SmoothCurveElement,System.Double)
+  - g3.PlanarComplex.CountType(g3.IMultiCurve2d,System.Type)
+  - g3.PlanarComplex.CountType(System.Type)
+  - g3.PlanarComplex.CurvesItr
+  - g3.PlanarComplex.DistanceAccuracy
+  - g3.PlanarComplex.ElementCount
+  - g3.PlanarComplex.ElementsItr
+  - g3.PlanarComplex.EndpointsItr
+  - g3.PlanarComplex.FindClosedLoops(System.Double)
+  - g3.PlanarComplex.FindOpenCurves(System.Double)
+  - g3.PlanarComplex.FindSolidRegions(g3.PlanarComplex.FindSolidsOptions)
+  - g3.PlanarComplex.FindSolidRegions(System.Double,System.Boolean)
+  - g3.PlanarComplex.HasOpenCurves
+  - g3.PlanarComplex.JoinElements(g3.ComplexEndpoint2d,g3.ComplexEndpoint2d,System.Double)
+  - g3.PlanarComplex.LoopLeafComponentsItr
+  - g3.PlanarComplex.LoopsItr
+  - g3.PlanarComplex.MinimizeSampling
+  - g3.PlanarComplex.PrintStats(System.String)
+  - g3.PlanarComplex.Remove(g3.PlanarComplex.Element)
+  - g3.PlanarComplex.Reverse(g3.PlanarComplex.SmoothCurveElement)
+  - g3.PlanarComplex.SpacingT
+  - g3.PlanarComplex.SplitAllLoops
+  - g3.PlanarComplex.Transform(g3.ITransform2,System.Boolean,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: PlanarComplex
+  nameWithType: PlanarComplex
+  fullName: g3.PlanarComplex
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PlanarComplex
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class PlanarComplex
+    content.vb: Public Class PlanarComplex
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.PlanarComplex.DistanceAccuracy
+  commentId: F:g3.PlanarComplex.DistanceAccuracy
+  id: DistanceAccuracy
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: DistanceAccuracy
+  nameWithType: PlanarComplex.DistanceAccuracy
+  fullName: g3.PlanarComplex.DistanceAccuracy
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DistanceAccuracy
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double DistanceAccuracy
+    return:
+      type: System.Double
+    content.vb: Public DistanceAccuracy As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.AngleAccuracyDeg
+  commentId: F:g3.PlanarComplex.AngleAccuracyDeg
+  id: AngleAccuracyDeg
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: AngleAccuracyDeg
+  nameWithType: PlanarComplex.AngleAccuracyDeg
+  fullName: g3.PlanarComplex.AngleAccuracyDeg
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AngleAccuracyDeg
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double AngleAccuracyDeg
+    return:
+      type: System.Double
+    content.vb: Public AngleAccuracyDeg As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.SpacingT
+  commentId: F:g3.PlanarComplex.SpacingT
+  id: SpacingT
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: SpacingT
+  nameWithType: PlanarComplex.SpacingT
+  fullName: g3.PlanarComplex.SpacingT
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SpacingT
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SpacingT
+    return:
+      type: System.Double
+    content.vb: Public SpacingT As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.MinimizeSampling
+  commentId: F:g3.PlanarComplex.MinimizeSampling
+  id: MinimizeSampling
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: MinimizeSampling
+  nameWithType: PlanarComplex.MinimizeSampling
+  fullName: g3.PlanarComplex.MinimizeSampling
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MinimizeSampling
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 27
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool MinimizeSampling
+    return:
+      type: System.Boolean
+    content.vb: Public MinimizeSampling As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.#ctor
+  commentId: M:g3.PlanarComplex.#ctor
+  id: '#ctor'
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: PlanarComplex()
+  nameWithType: PlanarComplex.PlanarComplex()
+  fullName: g3.PlanarComplex.PlanarComplex()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 104
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex()
+    content.vb: Public Sub New
+  overload: g3.PlanarComplex.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.ElementCount
+  commentId: P:g3.PlanarComplex.ElementCount
+  id: ElementCount
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: ElementCount
+  nameWithType: PlanarComplex.ElementCount
+  fullName: g3.PlanarComplex.ElementCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ElementCount
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 109
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int ElementCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ElementCount As Integer
+  overload: g3.PlanarComplex.ElementCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.PlanarComplex.Add(g3.IParametricCurve2d)
+  commentId: M:g3.PlanarComplex.Add(g3.IParametricCurve2d)
+  id: Add(g3.IParametricCurve2d)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Add(IParametricCurve2d)
+  nameWithType: PlanarComplex.Add(IParametricCurve2d)
+  fullName: g3.PlanarComplex.Add(g3.IParametricCurve2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.Element Add(IParametricCurve2d curve)
+    parameters:
+    - id: curve
+      type: g3.IParametricCurve2d
+    return:
+      type: g3.PlanarComplex.Element
+    content.vb: Public Function Add(curve As IParametricCurve2d) As PlanarComplex.Element
+  overload: g3.PlanarComplex.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Add(g3.Polygon2d)
+  commentId: M:g3.PlanarComplex.Add(g3.Polygon2d)
+  id: Add(g3.Polygon2d)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Add(Polygon2d)
+  nameWithType: PlanarComplex.Add(Polygon2d)
+  fullName: g3.PlanarComplex.Add(g3.Polygon2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 133
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.Element Add(Polygon2d poly)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    return:
+      type: g3.PlanarComplex.Element
+    content.vb: Public Function Add(poly As Polygon2d) As PlanarComplex.Element
+  overload: g3.PlanarComplex.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Add(g3.PolyLine2d)
+  commentId: M:g3.PlanarComplex.Add(g3.PolyLine2d)
+  id: Add(g3.PolyLine2d)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Add(PolyLine2d)
+  nameWithType: PlanarComplex.Add(PolyLine2d)
+  fullName: g3.PlanarComplex.Add(g3.PolyLine2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Add
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 144
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.Element Add(PolyLine2d pline)
+    parameters:
+    - id: pline
+      type: g3.PolyLine2d
+    return:
+      type: g3.PlanarComplex.Element
+    content.vb: Public Function Add(pline As PolyLine2d) As PlanarComplex.Element
+  overload: g3.PlanarComplex.Add*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Remove(g3.PlanarComplex.Element)
+  commentId: M:g3.PlanarComplex.Remove(g3.PlanarComplex.Element)
+  id: Remove(g3.PlanarComplex.Element)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Remove(PlanarComplex.Element)
+  nameWithType: PlanarComplex.Remove(PlanarComplex.Element)
+  fullName: g3.PlanarComplex.Remove(g3.PlanarComplex.Element)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Remove
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 155
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Remove(PlanarComplex.Element e)
+    parameters:
+    - id: e
+      type: g3.PlanarComplex.Element
+    content.vb: Public Sub Remove(e As PlanarComplex.Element)
+  overload: g3.PlanarComplex.Remove*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Reverse(g3.PlanarComplex.SmoothCurveElement)
+  commentId: M:g3.PlanarComplex.Reverse(g3.PlanarComplex.SmoothCurveElement)
+  id: Reverse(g3.PlanarComplex.SmoothCurveElement)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Reverse(PlanarComplex.SmoothCurveElement)
+  nameWithType: PlanarComplex.Reverse(PlanarComplex.SmoothCurveElement)
+  fullName: g3.PlanarComplex.Reverse(g3.PlanarComplex.SmoothCurveElement)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Reverse
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 177
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Reverse(PlanarComplex.SmoothCurveElement c)
+    parameters:
+    - id: c
+      type: g3.PlanarComplex.SmoothCurveElement
+    content.vb: Public Sub Reverse(c As PlanarComplex.SmoothCurveElement)
+  overload: g3.PlanarComplex.Reverse*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.AllSegmentsItr
+  commentId: M:g3.PlanarComplex.AllSegmentsItr
+  id: AllSegmentsItr
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: AllSegmentsItr()
+  nameWithType: PlanarComplex.AllSegmentsItr()
+  fullName: g3.PlanarComplex.AllSegmentsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllSegmentsItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 184
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<ComplexSegment2d> AllSegmentsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.ComplexSegment2d}
+    content.vb: Public Function AllSegmentsItr As IEnumerable(Of ComplexSegment2d)
+  overload: g3.PlanarComplex.AllSegmentsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.ElementsItr
+  commentId: M:g3.PlanarComplex.ElementsItr
+  id: ElementsItr
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: ElementsItr()
+  nameWithType: PlanarComplex.ElementsItr()
+  fullName: g3.PlanarComplex.ElementsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ElementsItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 201
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<PlanarComplex.Element> ElementsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.PlanarComplex.Element}
+    content.vb: Public Function ElementsItr As IEnumerable(Of PlanarComplex.Element)
+  overload: g3.PlanarComplex.ElementsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.LoopsItr
+  commentId: M:g3.PlanarComplex.LoopsItr
+  id: LoopsItr
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: LoopsItr()
+  nameWithType: PlanarComplex.LoopsItr()
+  fullName: g3.PlanarComplex.LoopsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LoopsItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 206
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<PlanarComplex.SmoothLoopElement> LoopsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.PlanarComplex.SmoothLoopElement}
+    content.vb: Public Function LoopsItr As IEnumerable(Of PlanarComplex.SmoothLoopElement)
+  overload: g3.PlanarComplex.LoopsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.CurvesItr
+  commentId: M:g3.PlanarComplex.CurvesItr
+  id: CurvesItr
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: CurvesItr()
+  nameWithType: PlanarComplex.CurvesItr()
+  fullName: g3.PlanarComplex.CurvesItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CurvesItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 212
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<PlanarComplex.SmoothCurveElement> CurvesItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.PlanarComplex.SmoothCurveElement}
+    content.vb: Public Function CurvesItr As IEnumerable(Of PlanarComplex.SmoothCurveElement)
+  overload: g3.PlanarComplex.CurvesItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.HasOpenCurves
+  commentId: M:g3.PlanarComplex.HasOpenCurves
+  id: HasOpenCurves
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: HasOpenCurves()
+  nameWithType: PlanarComplex.HasOpenCurves()
+  fullName: g3.PlanarComplex.HasOpenCurves()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasOpenCurves
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 219
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool HasOpenCurves()
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasOpenCurves As Boolean
+  overload: g3.PlanarComplex.HasOpenCurves*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.LoopLeafComponentsItr
+  commentId: M:g3.PlanarComplex.LoopLeafComponentsItr
+  id: LoopLeafComponentsItr
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: LoopLeafComponentsItr()
+  nameWithType: PlanarComplex.LoopLeafComponentsItr()
+  fullName: g3.PlanarComplex.LoopLeafComponentsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LoopLeafComponentsItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 234
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\niterate through &quot;leaf&quot; curves, ie all the IParametricCurve2D&apos;s \nembedded in loops that do not contain any child curves\n"
+  example: []
+  syntax:
+    content: public IEnumerable<IParametricCurve2d> LoopLeafComponentsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.IParametricCurve2d}
+    content.vb: Public Function LoopLeafComponentsItr As IEnumerable(Of IParametricCurve2d)
+  overload: g3.PlanarComplex.LoopLeafComponentsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.EndpointsItr
+  commentId: M:g3.PlanarComplex.EndpointsItr
+  id: EndpointsItr
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: EndpointsItr()
+  nameWithType: PlanarComplex.EndpointsItr()
+  fullName: g3.PlanarComplex.EndpointsItr()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EndpointsItr
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 249
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<ComplexEndpoint2d> EndpointsItr()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.ComplexEndpoint2d}
+    content.vb: Public Function EndpointsItr As IEnumerable(Of ComplexEndpoint2d)
+  overload: g3.PlanarComplex.EndpointsItr*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Bounds
+  commentId: M:g3.PlanarComplex.Bounds
+  id: Bounds
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Bounds()
+  nameWithType: PlanarComplex.Bounds()
+  fullName: g3.PlanarComplex.Bounds()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Bounds
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 265
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox2d Bounds()
+    return:
+      type: g3.AxisAlignedBox2d
+    content.vb: Public Function Bounds As AxisAlignedBox2d
+  overload: g3.PlanarComplex.Bounds*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.SplitAllLoops
+  commentId: M:g3.PlanarComplex.SplitAllLoops
+  id: SplitAllLoops
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: SplitAllLoops()
+  nameWithType: PlanarComplex.SplitAllLoops()
+  fullName: g3.PlanarComplex.SplitAllLoops()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SplitAllLoops
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 276
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SplitAllLoops()
+    content.vb: Public Sub SplitAllLoops
+  overload: g3.PlanarComplex.SplitAllLoops*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.JoinElements(g3.ComplexEndpoint2d,g3.ComplexEndpoint2d,System.Double)
+  commentId: M:g3.PlanarComplex.JoinElements(g3.ComplexEndpoint2d,g3.ComplexEndpoint2d,System.Double)
+  id: JoinElements(g3.ComplexEndpoint2d,g3.ComplexEndpoint2d,System.Double)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: JoinElements(ComplexEndpoint2d, ComplexEndpoint2d, Double)
+  nameWithType: PlanarComplex.JoinElements(ComplexEndpoint2d, ComplexEndpoint2d, Double)
+  fullName: g3.PlanarComplex.JoinElements(g3.ComplexEndpoint2d, g3.ComplexEndpoint2d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: JoinElements
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 305
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool JoinElements(ComplexEndpoint2d a, ComplexEndpoint2d b, double loop_tolerance = 1E-08)
+    parameters:
+    - id: a
+      type: g3.ComplexEndpoint2d
+    - id: b
+      type: g3.ComplexEndpoint2d
+    - id: loop_tolerance
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Function JoinElements(a As ComplexEndpoint2d, b As ComplexEndpoint2d, loop_tolerance As Double = 1E-08) As Boolean
+  overload: g3.PlanarComplex.JoinElements*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.ConvertToLoop(g3.PlanarComplex.SmoothCurveElement,System.Double)
+  commentId: M:g3.PlanarComplex.ConvertToLoop(g3.PlanarComplex.SmoothCurveElement,System.Double)
+  id: ConvertToLoop(g3.PlanarComplex.SmoothCurveElement,System.Double)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: ConvertToLoop(PlanarComplex.SmoothCurveElement, Double)
+  nameWithType: PlanarComplex.ConvertToLoop(PlanarComplex.SmoothCurveElement, Double)
+  fullName: g3.PlanarComplex.ConvertToLoop(g3.PlanarComplex.SmoothCurveElement, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertToLoop
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 361
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void ConvertToLoop(PlanarComplex.SmoothCurveElement curve, double tolerance = 1E-08)
+    parameters:
+    - id: curve
+      type: g3.PlanarComplex.SmoothCurveElement
+    - id: tolerance
+      type: System.Double
+    content.vb: Public Sub ConvertToLoop(curve As PlanarComplex.SmoothCurveElement, tolerance As Double = 1E-08)
+  overload: g3.PlanarComplex.ConvertToLoop*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.FindSolidRegions(System.Double,System.Boolean)
+  commentId: M:g3.PlanarComplex.FindSolidRegions(System.Double,System.Boolean)
+  id: FindSolidRegions(System.Double,System.Boolean)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: FindSolidRegions(Double, Boolean)
+  nameWithType: PlanarComplex.FindSolidRegions(Double, Boolean)
+  fullName: g3.PlanarComplex.FindSolidRegions(System.Double, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindSolidRegions
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 484
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.SolidRegionInfo FindSolidRegions(double fSimplifyDeviationTol = 0.1, bool bWantCurveSolids = true)
+    parameters:
+    - id: fSimplifyDeviationTol
+      type: System.Double
+    - id: bWantCurveSolids
+      type: System.Boolean
+    return:
+      type: g3.PlanarComplex.SolidRegionInfo
+    content.vb: Public Function FindSolidRegions(fSimplifyDeviationTol As Double = 0.1, bWantCurveSolids As Boolean = True) As PlanarComplex.SolidRegionInfo
+  overload: g3.PlanarComplex.FindSolidRegions*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.FindSolidRegions(g3.PlanarComplex.FindSolidsOptions)
+  commentId: M:g3.PlanarComplex.FindSolidRegions(g3.PlanarComplex.FindSolidsOptions)
+  id: FindSolidRegions(g3.PlanarComplex.FindSolidsOptions)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: FindSolidRegions(PlanarComplex.FindSolidsOptions)
+  nameWithType: PlanarComplex.FindSolidRegions(PlanarComplex.FindSolidsOptions)
+  fullName: g3.PlanarComplex.FindSolidRegions(g3.PlanarComplex.FindSolidsOptions)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindSolidRegions
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 494
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.SolidRegionInfo FindSolidRegions(PlanarComplex.FindSolidsOptions options)
+    parameters:
+    - id: options
+      type: g3.PlanarComplex.FindSolidsOptions
+    return:
+      type: g3.PlanarComplex.SolidRegionInfo
+    content.vb: Public Function FindSolidRegions(options As PlanarComplex.FindSolidsOptions) As PlanarComplex.SolidRegionInfo
+  overload: g3.PlanarComplex.FindSolidRegions*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.FindClosedLoops(System.Double)
+  commentId: M:g3.PlanarComplex.FindClosedLoops(System.Double)
+  id: FindClosedLoops(System.Double)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: FindClosedLoops(Double)
+  nameWithType: PlanarComplex.FindClosedLoops(Double)
+  fullName: g3.PlanarComplex.FindClosedLoops(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindClosedLoops
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 779
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.ClosedLoopsInfo FindClosedLoops(double fSimplifyDeviationTol = 0.1)
+    parameters:
+    - id: fSimplifyDeviationTol
+      type: System.Double
+    return:
+      type: g3.PlanarComplex.ClosedLoopsInfo
+    content.vb: Public Function FindClosedLoops(fSimplifyDeviationTol As Double = 0.1) As PlanarComplex.ClosedLoopsInfo
+  overload: g3.PlanarComplex.FindClosedLoops*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.FindOpenCurves(System.Double)
+  commentId: M:g3.PlanarComplex.FindOpenCurves(System.Double)
+  id: FindOpenCurves(System.Double)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: FindOpenCurves(Double)
+  nameWithType: PlanarComplex.FindOpenCurves(Double)
+  fullName: g3.PlanarComplex.FindOpenCurves(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindOpenCurves
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 838
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex.OpenCurvesInfo FindOpenCurves(double fSimplifyDeviationTol = 0.1)
+    parameters:
+    - id: fSimplifyDeviationTol
+      type: System.Double
+    return:
+      type: g3.PlanarComplex.OpenCurvesInfo
+    content.vb: Public Function FindOpenCurves(fSimplifyDeviationTol As Double = 0.1) As PlanarComplex.OpenCurvesInfo
+  overload: g3.PlanarComplex.FindOpenCurves*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Clone
+  commentId: M:g3.PlanarComplex.Clone
+  id: Clone
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: PlanarComplex.Clone()
+  fullName: g3.PlanarComplex.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 880
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public PlanarComplex Clone()
+    return:
+      type: g3.PlanarComplex
+    content.vb: Public Function Clone As PlanarComplex
+  overload: g3.PlanarComplex.Clone*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Append(g3.PlanarComplex)
+  commentId: M:g3.PlanarComplex.Append(g3.PlanarComplex)
+  id: Append(g3.PlanarComplex)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Append(PlanarComplex)
+  nameWithType: PlanarComplex.Append(PlanarComplex)
+  fullName: g3.PlanarComplex.Append(g3.PlanarComplex)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Append
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 899
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Append(PlanarComplex append)
+    parameters:
+    - id: append
+      type: g3.PlanarComplex
+    content.vb: Public Sub Append(append As PlanarComplex)
+  overload: g3.PlanarComplex.Append*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.Transform(g3.ITransform2,System.Boolean,System.Boolean)
+  commentId: M:g3.PlanarComplex.Transform(g3.ITransform2,System.Boolean,System.Boolean)
+  id: Transform(g3.ITransform2,System.Boolean,System.Boolean)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: Transform(ITransform2, Boolean, Boolean)
+  nameWithType: PlanarComplex.Transform(ITransform2, Boolean, Boolean)
+  fullName: g3.PlanarComplex.Transform(g3.ITransform2, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Transform
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 912
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Transform(ITransform2 xform, bool bApplyToSources, bool bRecomputePolygons = false)
+    parameters:
+    - id: xform
+      type: g3.ITransform2
+    - id: bApplyToSources
+      type: System.Boolean
+    - id: bRecomputePolygons
+      type: System.Boolean
+    content.vb: Public Sub Transform(xform As ITransform2, bApplyToSources As Boolean, bRecomputePolygons As Boolean = False)
+  overload: g3.PlanarComplex.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.PrintStats(System.String)
+  commentId: M:g3.PlanarComplex.PrintStats(System.String)
+  id: PrintStats(System.String)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: PrintStats(String)
+  nameWithType: PlanarComplex.PrintStats(String)
+  fullName: g3.PlanarComplex.PrintStats(System.String)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PrintStats
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 946
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void PrintStats(string label = "")
+    parameters:
+    - id: label
+      type: System.String
+    content.vb: Public Sub PrintStats(label As String = "")
+  overload: g3.PlanarComplex.PrintStats*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.CountType(System.Type)
+  commentId: M:g3.PlanarComplex.CountType(System.Type)
+  id: CountType(System.Type)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: CountType(Type)
+  nameWithType: PlanarComplex.CountType(Type)
+  fullName: g3.PlanarComplex.CountType(System.Type)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CountType
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 969
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int CountType(Type t)
+    parameters:
+    - id: t
+      type: System.Type
+    return:
+      type: System.Int32
+    content.vb: Public Function CountType(t As Type) As Integer
+  overload: g3.PlanarComplex.CountType*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.PlanarComplex.CountType(g3.IMultiCurve2d,System.Type)
+  commentId: M:g3.PlanarComplex.CountType(g3.IMultiCurve2d,System.Type)
+  id: CountType(g3.IMultiCurve2d,System.Type)
+  parent: g3.PlanarComplex
+  langs:
+  - csharp
+  - vb
+  name: CountType(IMultiCurve2d, Type)
+  nameWithType: PlanarComplex.CountType(IMultiCurve2d, Type)
+  fullName: g3.PlanarComplex.CountType(g3.IMultiCurve2d, System.Type)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/PlanarComplex.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CountType
+    path: ../Assets/geometry3Sharp/curve/PlanarComplex.cs
+    startLine: 980
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int CountType(IMultiCurve2d curve, Type t)
+    parameters:
+    - id: curve
+      type: g3.IMultiCurve2d
+    - id: t
+      type: System.Type
+    return:
+      type: System.Int32
+    content.vb: Public Function CountType(curve As IMultiCurve2d, t As Type) As Integer
+  overload: g3.PlanarComplex.CountType*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.PlanarComplex.#ctor*
+  commentId: Overload:g3.PlanarComplex.#ctor
+  name: PlanarComplex
+  nameWithType: PlanarComplex.PlanarComplex
+  fullName: g3.PlanarComplex.PlanarComplex
+- uid: g3.PlanarComplex.ElementCount*
+  commentId: Overload:g3.PlanarComplex.ElementCount
+  name: ElementCount
+  nameWithType: PlanarComplex.ElementCount
+  fullName: g3.PlanarComplex.ElementCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.PlanarComplex.Add*
+  commentId: Overload:g3.PlanarComplex.Add
+  name: Add
+  nameWithType: PlanarComplex.Add
+  fullName: g3.PlanarComplex.Add
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: g3.PlanarComplex.Element
+  commentId: T:g3.PlanarComplex.Element
+  parent: g3
+  name: PlanarComplex.Element
+  nameWithType: PlanarComplex.Element
+  fullName: g3.PlanarComplex.Element
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: g3.PolyLine2d
+  commentId: T:g3.PolyLine2d
+  parent: g3
+  name: PolyLine2d
+  nameWithType: PolyLine2d
+  fullName: g3.PolyLine2d
+- uid: g3.PlanarComplex.Remove*
+  commentId: Overload:g3.PlanarComplex.Remove
+  name: Remove
+  nameWithType: PlanarComplex.Remove
+  fullName: g3.PlanarComplex.Remove
+- uid: g3.PlanarComplex.Reverse*
+  commentId: Overload:g3.PlanarComplex.Reverse
+  name: Reverse
+  nameWithType: PlanarComplex.Reverse
+  fullName: g3.PlanarComplex.Reverse
+- uid: g3.PlanarComplex.SmoothCurveElement
+  commentId: T:g3.PlanarComplex.SmoothCurveElement
+  parent: g3
+  name: PlanarComplex.SmoothCurveElement
+  nameWithType: PlanarComplex.SmoothCurveElement
+  fullName: g3.PlanarComplex.SmoothCurveElement
+- uid: g3.PlanarComplex.AllSegmentsItr*
+  commentId: Overload:g3.PlanarComplex.AllSegmentsItr
+  name: AllSegmentsItr
+  nameWithType: PlanarComplex.AllSegmentsItr
+  fullName: g3.PlanarComplex.AllSegmentsItr
+- uid: System.Collections.Generic.IEnumerable{g3.ComplexSegment2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.ComplexSegment2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<ComplexSegment2d>
+  nameWithType: IEnumerable<ComplexSegment2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.ComplexSegment2d>
+  nameWithType.vb: IEnumerable(Of ComplexSegment2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.ComplexSegment2d)
+  name.vb: IEnumerable(Of ComplexSegment2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.ComplexSegment2d
+    name: ComplexSegment2d
+    nameWithType: ComplexSegment2d
+    fullName: g3.ComplexSegment2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.ComplexSegment2d
+    name: ComplexSegment2d
+    nameWithType: ComplexSegment2d
+    fullName: g3.ComplexSegment2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.PlanarComplex.ElementsItr*
+  commentId: Overload:g3.PlanarComplex.ElementsItr
+  name: ElementsItr
+  nameWithType: PlanarComplex.ElementsItr
+  fullName: g3.PlanarComplex.ElementsItr
+- uid: System.Collections.Generic.IEnumerable{g3.PlanarComplex.Element}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.PlanarComplex.Element}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<PlanarComplex.Element>
+  nameWithType: IEnumerable<PlanarComplex.Element>
+  fullName: System.Collections.Generic.IEnumerable<g3.PlanarComplex.Element>
+  nameWithType.vb: IEnumerable(Of PlanarComplex.Element)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.PlanarComplex.Element)
+  name.vb: IEnumerable(Of PlanarComplex.Element)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.PlanarComplex.Element
+    name: PlanarComplex.Element
+    nameWithType: PlanarComplex.Element
+    fullName: g3.PlanarComplex.Element
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.PlanarComplex.Element
+    name: PlanarComplex.Element
+    nameWithType: PlanarComplex.Element
+    fullName: g3.PlanarComplex.Element
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.LoopsItr*
+  commentId: Overload:g3.PlanarComplex.LoopsItr
+  name: LoopsItr
+  nameWithType: PlanarComplex.LoopsItr
+  fullName: g3.PlanarComplex.LoopsItr
+- uid: System.Collections.Generic.IEnumerable{g3.PlanarComplex.SmoothLoopElement}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.PlanarComplex.SmoothLoopElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<PlanarComplex.SmoothLoopElement>
+  nameWithType: IEnumerable<PlanarComplex.SmoothLoopElement>
+  fullName: System.Collections.Generic.IEnumerable<g3.PlanarComplex.SmoothLoopElement>
+  nameWithType.vb: IEnumerable(Of PlanarComplex.SmoothLoopElement)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.PlanarComplex.SmoothLoopElement)
+  name.vb: IEnumerable(Of PlanarComplex.SmoothLoopElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.PlanarComplex.SmoothLoopElement
+    name: PlanarComplex.SmoothLoopElement
+    nameWithType: PlanarComplex.SmoothLoopElement
+    fullName: g3.PlanarComplex.SmoothLoopElement
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.PlanarComplex.SmoothLoopElement
+    name: PlanarComplex.SmoothLoopElement
+    nameWithType: PlanarComplex.SmoothLoopElement
+    fullName: g3.PlanarComplex.SmoothLoopElement
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.CurvesItr*
+  commentId: Overload:g3.PlanarComplex.CurvesItr
+  name: CurvesItr
+  nameWithType: PlanarComplex.CurvesItr
+  fullName: g3.PlanarComplex.CurvesItr
+- uid: System.Collections.Generic.IEnumerable{g3.PlanarComplex.SmoothCurveElement}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.PlanarComplex.SmoothCurveElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<PlanarComplex.SmoothCurveElement>
+  nameWithType: IEnumerable<PlanarComplex.SmoothCurveElement>
+  fullName: System.Collections.Generic.IEnumerable<g3.PlanarComplex.SmoothCurveElement>
+  nameWithType.vb: IEnumerable(Of PlanarComplex.SmoothCurveElement)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.PlanarComplex.SmoothCurveElement)
+  name.vb: IEnumerable(Of PlanarComplex.SmoothCurveElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.PlanarComplex.SmoothCurveElement
+    name: PlanarComplex.SmoothCurveElement
+    nameWithType: PlanarComplex.SmoothCurveElement
+    fullName: g3.PlanarComplex.SmoothCurveElement
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.PlanarComplex.SmoothCurveElement
+    name: PlanarComplex.SmoothCurveElement
+    nameWithType: PlanarComplex.SmoothCurveElement
+    fullName: g3.PlanarComplex.SmoothCurveElement
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.HasOpenCurves*
+  commentId: Overload:g3.PlanarComplex.HasOpenCurves
+  name: HasOpenCurves
+  nameWithType: PlanarComplex.HasOpenCurves
+  fullName: g3.PlanarComplex.HasOpenCurves
+- uid: g3.PlanarComplex.LoopLeafComponentsItr*
+  commentId: Overload:g3.PlanarComplex.LoopLeafComponentsItr
+  name: LoopLeafComponentsItr
+  nameWithType: PlanarComplex.LoopLeafComponentsItr
+  fullName: g3.PlanarComplex.LoopLeafComponentsItr
+- uid: System.Collections.Generic.IEnumerable{g3.IParametricCurve2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.IParametricCurve2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IParametricCurve2d>
+  nameWithType: IEnumerable<IParametricCurve2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.IParametricCurve2d>
+  nameWithType.vb: IEnumerable(Of IParametricCurve2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.IParametricCurve2d)
+  name.vb: IEnumerable(Of IParametricCurve2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.IParametricCurve2d
+    name: IParametricCurve2d
+    nameWithType: IParametricCurve2d
+    fullName: g3.IParametricCurve2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.IParametricCurve2d
+    name: IParametricCurve2d
+    nameWithType: IParametricCurve2d
+    fullName: g3.IParametricCurve2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.EndpointsItr*
+  commentId: Overload:g3.PlanarComplex.EndpointsItr
+  name: EndpointsItr
+  nameWithType: PlanarComplex.EndpointsItr
+  fullName: g3.PlanarComplex.EndpointsItr
+- uid: System.Collections.Generic.IEnumerable{g3.ComplexEndpoint2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.ComplexEndpoint2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<ComplexEndpoint2d>
+  nameWithType: IEnumerable<ComplexEndpoint2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.ComplexEndpoint2d>
+  nameWithType.vb: IEnumerable(Of ComplexEndpoint2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.ComplexEndpoint2d)
+  name.vb: IEnumerable(Of ComplexEndpoint2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.ComplexEndpoint2d
+    name: ComplexEndpoint2d
+    nameWithType: ComplexEndpoint2d
+    fullName: g3.ComplexEndpoint2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.ComplexEndpoint2d
+    name: ComplexEndpoint2d
+    nameWithType: ComplexEndpoint2d
+    fullName: g3.ComplexEndpoint2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.PlanarComplex.Bounds*
+  commentId: Overload:g3.PlanarComplex.Bounds
+  name: Bounds
+  nameWithType: PlanarComplex.Bounds
+  fullName: g3.PlanarComplex.Bounds
+- uid: g3.AxisAlignedBox2d
+  commentId: T:g3.AxisAlignedBox2d
+  parent: g3
+  name: AxisAlignedBox2d
+  nameWithType: AxisAlignedBox2d
+  fullName: g3.AxisAlignedBox2d
+- uid: g3.PlanarComplex.SplitAllLoops*
+  commentId: Overload:g3.PlanarComplex.SplitAllLoops
+  name: SplitAllLoops
+  nameWithType: PlanarComplex.SplitAllLoops
+  fullName: g3.PlanarComplex.SplitAllLoops
+- uid: g3.PlanarComplex.JoinElements*
+  commentId: Overload:g3.PlanarComplex.JoinElements
+  name: JoinElements
+  nameWithType: PlanarComplex.JoinElements
+  fullName: g3.PlanarComplex.JoinElements
+- uid: g3.ComplexEndpoint2d
+  commentId: T:g3.ComplexEndpoint2d
+  parent: g3
+  name: ComplexEndpoint2d
+  nameWithType: ComplexEndpoint2d
+  fullName: g3.ComplexEndpoint2d
+- uid: g3.PlanarComplex.ConvertToLoop*
+  commentId: Overload:g3.PlanarComplex.ConvertToLoop
+  name: ConvertToLoop
+  nameWithType: PlanarComplex.ConvertToLoop
+  fullName: g3.PlanarComplex.ConvertToLoop
+- uid: g3.PlanarComplex.FindSolidRegions*
+  commentId: Overload:g3.PlanarComplex.FindSolidRegions
+  name: FindSolidRegions
+  nameWithType: PlanarComplex.FindSolidRegions
+  fullName: g3.PlanarComplex.FindSolidRegions
+- uid: g3.PlanarComplex.SolidRegionInfo
+  commentId: T:g3.PlanarComplex.SolidRegionInfo
+  parent: g3
+  name: PlanarComplex.SolidRegionInfo
+  nameWithType: PlanarComplex.SolidRegionInfo
+  fullName: g3.PlanarComplex.SolidRegionInfo
+- uid: g3.PlanarComplex.FindSolidsOptions
+  commentId: T:g3.PlanarComplex.FindSolidsOptions
+  parent: g3
+  name: PlanarComplex.FindSolidsOptions
+  nameWithType: PlanarComplex.FindSolidsOptions
+  fullName: g3.PlanarComplex.FindSolidsOptions
+- uid: g3.PlanarComplex.FindClosedLoops*
+  commentId: Overload:g3.PlanarComplex.FindClosedLoops
+  name: FindClosedLoops
+  nameWithType: PlanarComplex.FindClosedLoops
+  fullName: g3.PlanarComplex.FindClosedLoops
+- uid: g3.PlanarComplex.ClosedLoopsInfo
+  commentId: T:g3.PlanarComplex.ClosedLoopsInfo
+  parent: g3
+  name: PlanarComplex.ClosedLoopsInfo
+  nameWithType: PlanarComplex.ClosedLoopsInfo
+  fullName: g3.PlanarComplex.ClosedLoopsInfo
+- uid: g3.PlanarComplex.FindOpenCurves*
+  commentId: Overload:g3.PlanarComplex.FindOpenCurves
+  name: FindOpenCurves
+  nameWithType: PlanarComplex.FindOpenCurves
+  fullName: g3.PlanarComplex.FindOpenCurves
+- uid: g3.PlanarComplex.OpenCurvesInfo
+  commentId: T:g3.PlanarComplex.OpenCurvesInfo
+  parent: g3
+  name: PlanarComplex.OpenCurvesInfo
+  nameWithType: PlanarComplex.OpenCurvesInfo
+  fullName: g3.PlanarComplex.OpenCurvesInfo
+- uid: g3.PlanarComplex.Clone*
+  commentId: Overload:g3.PlanarComplex.Clone
+  name: Clone
+  nameWithType: PlanarComplex.Clone
+  fullName: g3.PlanarComplex.Clone
+- uid: g3.PlanarComplex
+  commentId: T:g3.PlanarComplex
+  parent: g3
+  name: PlanarComplex
+  nameWithType: PlanarComplex
+  fullName: g3.PlanarComplex
+- uid: g3.PlanarComplex.Append*
+  commentId: Overload:g3.PlanarComplex.Append
+  name: Append
+  nameWithType: PlanarComplex.Append
+  fullName: g3.PlanarComplex.Append
+- uid: g3.PlanarComplex.Transform*
+  commentId: Overload:g3.PlanarComplex.Transform
+  name: Transform
+  nameWithType: PlanarComplex.Transform
+  fullName: g3.PlanarComplex.Transform
+- uid: g3.ITransform2
+  commentId: T:g3.ITransform2
+  parent: g3
+  name: ITransform2
+  nameWithType: ITransform2
+  fullName: g3.ITransform2
+- uid: g3.PlanarComplex.PrintStats*
+  commentId: Overload:g3.PlanarComplex.PrintStats
+  name: PrintStats
+  nameWithType: PlanarComplex.PrintStats
+  fullName: g3.PlanarComplex.PrintStats
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.PlanarComplex.CountType*
+  commentId: Overload:g3.PlanarComplex.CountType
+  name: CountType
+  nameWithType: PlanarComplex.CountType
+  fullName: g3.PlanarComplex.CountType
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: g3.IMultiCurve2d
+  commentId: T:g3.IMultiCurve2d
+  parent: g3
+  name: IMultiCurve2d
+  nameWithType: IMultiCurve2d
+  fullName: g3.IMultiCurve2d

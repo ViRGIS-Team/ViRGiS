@@ -9,12 +9,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Virgis {
+namespace Virgis
+{
 
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLayer : Layer<GeographyCollection, FeatureCollection> {
+    public class LineLayer : VirgisLayer<GeographyCollection, FeatureCollection>
+    {
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
         public GameObject CuboidLinePrefab; // prefab to be used for cuboid lines
@@ -39,14 +41,17 @@ namespace Virgis {
         //private List<GameObject> _tempGOs = new List<GameObject>();
         //private List<GameObject> _vertices = new List<GameObject>();
 
-        protected override async Task _init(GeographyCollection layer) {
+        protected override async Task _init(GeographyCollection layer)
+        {
             geoJsonReader = new GeoJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
             symbology = layer.Properties.Units;
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
+            {
                 Shapes shape = symbology["point"].Shape;
-                switch (shape) {
+                switch (shape)
+                {
                     case Shapes.Spheroid:
                         HandlePrefab = SpherePrefab;
                         break;
@@ -60,13 +65,17 @@ namespace Virgis {
                         HandlePrefab = SpherePrefab;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 HandlePrefab = SpherePrefab;
             }
 
-            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
+            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
+            {
                 Shapes shape = symbology["line"].Shape;
-                switch (shape) {
+                switch (shape)
+                {
                     case Shapes.Cuboid:
                         LinePrefab = CuboidLinePrefab;
                         break;
@@ -77,13 +86,15 @@ namespace Virgis {
                         LinePrefab = CylinderLinePrefab;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 LinePrefab = CylinderLinePrefab;
             }
 
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
             Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            Color line = symbology.ContainsKey("line") ? (Color) symbology["line"].Color : Color.white;
+            Color line = symbology.ContainsKey("line") ? (Color)symbology["line"].Color : Color.white;
             Color lineSel = symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
             mainMat = Instantiate(PointBaseMaterial);
             mainMat.SetColor("_BaseColor", col);
@@ -95,24 +106,31 @@ namespace Virgis {
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+        protected override VirgisFeature _addFeature(Vector3[] geometry)
+        {
             return _drawFeature(geometry);
         }
 
-        protected override void _draw() {
-            foreach (Feature feature in features.Features) {
+        protected override void _draw()
+        {
+            foreach (Feature feature in features.Features)
+            {
                 // Get the geometry
                 MultiLineString mLines = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.LineString) {
+                if (feature.Geometry.Type == GeoJSONObjectType.LineString)
+                {
                     mLines = new MultiLineString(new List<LineString>() { feature.Geometry as LineString });
-                } else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString) {
+                }
+                else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString)
+                {
                     mLines = feature.Geometry as MultiLineString;
                 }
 
                 IDictionary<string, object> properties = feature.Properties;
                 string gisId = feature.Id;
 
-                foreach (LineString line in mLines.Coordinates) {
+                foreach (LineString line in mLines.Coordinates)
+                {
                     _drawFeature(line.Vector3(), line.IsLinearRing(), gisId, properties as Dictionary<string, object>);
                 }
             }
@@ -126,30 +144,34 @@ namespace Virgis {
         /// <param name="Lr"> boolean Is the line a linear ring , deafult false</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected VirgisComponent _drawFeature(Vector3[] line, bool Lr = false, string gisId = null, Dictionary<string, object> properties = null) {
+        protected VirgisFeature _drawFeature(Vector3[] line, bool Lr = false, string gisId = null, Dictionary<string, object> properties = null)
+        {
             GameObject dataLine = Instantiate(LinePrefab, transform, false);
 
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
             com.gisId = gisId;
-            com.gisProperties = properties;
-
+            com.gisProperties = properties ?? new Dictionary<string, object>();
             //Draw the line
             com.Draw(line, Lr, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
 
             return com;
         }
 
-        protected override void _checkpoint() {
+        protected override void _checkpoint()
+        {
         }
 
-        protected override void _save() {
+        protected override void _save()
+        {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
-            foreach (Dataline dataFeature in dataFeatures) {
+            foreach (Dataline dataFeature in dataFeatures)
+            {
                 Vector3[] vertices = dataFeature.GetVertexPositions();
                 List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices) {
+                foreach (Vector3 vertex in vertices)
+                {
                     positions.Add(vertex.ToPosition() as Position);
                 }
                 List<LineString> lines = new List<LineString>();
@@ -162,19 +184,22 @@ namespace Virgis {
             features = FC;
         }
 
-        public override GameObject GetFeatureShape() {
+        public override GameObject GetFeatureShape()
+        {
             GameObject fs = Instantiate(HandlePrefab);
             Datapoint com = fs.GetComponent<Datapoint>();
             com.SetMaterial(mainMat, selectedMat);
             return fs;
         }
 
-        public override void Translate(MoveArgs args) {
+        public override void Translate(MoveArgs args)
+        {
             changed = true;
         }
 
 
-        public override void MoveAxis(MoveArgs args) {
+        public override void MoveAxis(MoveArgs args)
+        {
             changed = true;
         }
 

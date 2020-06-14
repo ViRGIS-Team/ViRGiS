@@ -1,0 +1,1920 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DMesh3Builder
+  commentId: T:g3.DMesh3Builder
+  id: DMesh3Builder
+  parent: g3
+  children:
+  - g3.DMesh3Builder.#ctor
+  - g3.DMesh3Builder.AppendMetaData(System.String,System.Object)
+  - g3.DMesh3Builder.AppendNewMesh(g3.DMesh3)
+  - g3.DMesh3Builder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  - g3.DMesh3Builder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  - g3.DMesh3Builder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.DMesh3Builder.AppendVertex(g3.NewVertexInfo)
+  - g3.DMesh3Builder.AppendVertex(System.Double,System.Double,System.Double)
+  - g3.DMesh3Builder.AssignMaterial(System.Int32,System.Int32)
+  - g3.DMesh3Builder.Build``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{System.Int32})
+  - g3.DMesh3Builder.BuildMaterial(g3.GenericMaterial)
+  - g3.DMesh3Builder.DuplicateTriBehavior
+  - g3.DMesh3Builder.MaterialAssignment
+  - g3.DMesh3Builder.Materials
+  - g3.DMesh3Builder.Meshes
+  - g3.DMesh3Builder.Metadata
+  - g3.DMesh3Builder.NonManifoldTriBehavior
+  - g3.DMesh3Builder.SetActiveMesh(System.Int32)
+  - g3.DMesh3Builder.SupportsMetaData
+  langs:
+  - csharp
+  - vb
+  name: DMesh3Builder
+  nameWithType: DMesh3Builder
+  fullName: g3.DMesh3Builder
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DMesh3Builder
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class DMesh3Builder : IMeshBuilder'
+    content.vb: >-
+      Public Class DMesh3Builder
+          Implements IMeshBuilder
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IMeshBuilder
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DMesh3Builder.NonManifoldTriBehavior
+  commentId: F:g3.DMesh3Builder.NonManifoldTriBehavior
+  id: NonManifoldTriBehavior
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: NonManifoldTriBehavior
+  nameWithType: DMesh3Builder.NonManifoldTriBehavior
+  fullName: g3.DMesh3Builder.NonManifoldTriBehavior
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NonManifoldTriBehavior
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nWhat should we do when AddTriangle() fails because triangle is non-manifold?\n"
+  example: []
+  syntax:
+    content: public DMesh3Builder.AddTriangleFailBehaviors NonManifoldTriBehavior
+    return:
+      type: g3.DMesh3Builder.AddTriangleFailBehaviors
+    content.vb: Public NonManifoldTriBehavior As DMesh3Builder.AddTriangleFailBehaviors
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.DuplicateTriBehavior
+  commentId: F:g3.DMesh3Builder.DuplicateTriBehavior
+  id: DuplicateTriBehavior
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: DuplicateTriBehavior
+  nameWithType: DMesh3Builder.DuplicateTriBehavior
+  fullName: g3.DMesh3Builder.DuplicateTriBehavior
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DuplicateTriBehavior
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 23
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nWhat should we do when AddTriangle() fails because the triangle already exists?\n"
+  example: []
+  syntax:
+    content: public DMesh3Builder.AddTriangleFailBehaviors DuplicateTriBehavior
+    return:
+      type: g3.DMesh3Builder.AddTriangleFailBehaviors
+    content.vb: Public DuplicateTriBehavior As DMesh3Builder.AddTriangleFailBehaviors
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.Meshes
+  commentId: F:g3.DMesh3Builder.Meshes
+  id: Meshes
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: Meshes
+  nameWithType: DMesh3Builder.Meshes
+  fullName: g3.DMesh3Builder.Meshes
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Meshes
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<DMesh3> Meshes
+    return:
+      type: System.Collections.Generic.List{g3.DMesh3}
+    content.vb: Public Meshes As List(Of DMesh3)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.Materials
+  commentId: F:g3.DMesh3Builder.Materials
+  id: Materials
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: Materials
+  nameWithType: DMesh3Builder.Materials
+  fullName: g3.DMesh3Builder.Materials
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Materials
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<GenericMaterial> Materials
+    return:
+      type: System.Collections.Generic.List{g3.GenericMaterial}
+    content.vb: Public Materials As List(Of GenericMaterial)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.MaterialAssignment
+  commentId: F:g3.DMesh3Builder.MaterialAssignment
+  id: MaterialAssignment
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: MaterialAssignment
+  nameWithType: DMesh3Builder.MaterialAssignment
+  fullName: g3.DMesh3Builder.MaterialAssignment
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MaterialAssignment
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<int> MaterialAssignment
+    return:
+      type: System.Collections.Generic.List{System.Int32}
+    content.vb: Public MaterialAssignment As List(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.Metadata
+  commentId: F:g3.DMesh3Builder.Metadata
+  id: Metadata
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: Metadata
+  nameWithType: DMesh3Builder.Metadata
+  fullName: g3.DMesh3Builder.Metadata
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Metadata
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public List<Dictionary<string, object>> Metadata
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.Object}}
+    content.vb: Public Metadata As List(Of Dictionary(Of String, Object))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.#ctor
+  commentId: M:g3.DMesh3Builder.#ctor
+  id: '#ctor'
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: DMesh3Builder()
+  nameWithType: DMesh3Builder.DMesh3Builder()
+  fullName: g3.DMesh3Builder.DMesh3Builder()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3Builder()
+    content.vb: Public Sub New
+  overload: g3.DMesh3Builder.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:g3.DMesh3Builder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  id: AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendNewMesh(Boolean, Boolean, Boolean, Boolean)
+  nameWithType: DMesh3Builder.AppendNewMesh(Boolean, Boolean, Boolean, Boolean)
+  fullName: g3.DMesh3Builder.AppendNewMesh(System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendNewMesh
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendNewMesh(bool bHaveVtxNormals, bool bHaveVtxColors, bool bHaveVtxUVs, bool bHaveFaceGroups)
+    parameters:
+    - id: bHaveVtxNormals
+      type: System.Boolean
+    - id: bHaveVtxColors
+      type: System.Boolean
+    - id: bHaveVtxUVs
+      type: System.Boolean
+    - id: bHaveFaceGroups
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendNewMesh(bHaveVtxNormals As Boolean, bHaveVtxColors As Boolean, bHaveVtxUVs As Boolean, bHaveFaceGroups As Boolean) As Integer
+  overload: g3.DMesh3Builder.AppendNewMesh*
+  implements:
+  - g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AppendNewMesh(g3.DMesh3)
+  commentId: M:g3.DMesh3Builder.AppendNewMesh(g3.DMesh3)
+  id: AppendNewMesh(g3.DMesh3)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendNewMesh(DMesh3)
+  nameWithType: DMesh3Builder.AppendNewMesh(DMesh3)
+  fullName: g3.DMesh3Builder.AppendNewMesh(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendNewMesh
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 59
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendNewMesh(DMesh3 existingMesh)
+    parameters:
+    - id: existingMesh
+      type: g3.DMesh3
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendNewMesh(existingMesh As DMesh3) As Integer
+  overload: g3.DMesh3Builder.AppendNewMesh*
+  implements:
+  - g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.SetActiveMesh(System.Int32)
+  commentId: M:g3.DMesh3Builder.SetActiveMesh(System.Int32)
+  id: SetActiveMesh(System.Int32)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: SetActiveMesh(Int32)
+  nameWithType: DMesh3Builder.SetActiveMesh(Int32)
+  fullName: g3.DMesh3Builder.SetActiveMesh(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetActiveMesh
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 70
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetActiveMesh(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+    content.vb: Public Sub SetActiveMesh(id As Integer)
+  overload: g3.DMesh3Builder.SetActiveMesh*
+  implements:
+  - g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DMesh3Builder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  id: AppendTriangle(System.Int32,System.Int32,System.Int32)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangle(Int32, Int32, Int32)
+  nameWithType: DMesh3Builder.AppendTriangle(Int32, Int32, Int32)
+  fullName: g3.DMesh3Builder.AppendTriangle(System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangle
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendTriangle(int i, int j, int k)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendTriangle(i As Integer, j As Integer, k As Integer) As Integer
+  overload: g3.DMesh3Builder.AppendTriangle*
+  implements:
+  - g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.DMesh3Builder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  id: AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendTriangle(Int32, Int32, Int32, Int32)
+  nameWithType: DMesh3Builder.AppendTriangle(Int32, Int32, Int32, Int32)
+  fullName: g3.DMesh3Builder.AppendTriangle(System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendTriangle
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendTriangle(int i, int j, int k, int g)
+    parameters:
+    - id: i
+      type: System.Int32
+    - id: j
+      type: System.Int32
+    - id: k
+      type: System.Int32
+    - id: g
+      type: System.Int32
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendTriangle(i As Integer, j As Integer, k As Integer, g As Integer) As Integer
+  overload: g3.DMesh3Builder.AppendTriangle*
+  implements:
+  - g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AppendVertex(System.Double,System.Double,System.Double)
+  commentId: M:g3.DMesh3Builder.AppendVertex(System.Double,System.Double,System.Double)
+  id: AppendVertex(System.Double,System.Double,System.Double)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(Double, Double, Double)
+  nameWithType: DMesh3Builder.AppendVertex(Double, Double, Double)
+  fullName: g3.DMesh3Builder.AppendVertex(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 118
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendVertex(double x, double y, double z)
+    parameters:
+    - id: x
+      type: System.Double
+    - id: y
+      type: System.Double
+    - id: z
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendVertex(x As Double, y As Double, z As Double) As Integer
+  overload: g3.DMesh3Builder.AppendVertex*
+  implements:
+  - g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AppendVertex(g3.NewVertexInfo)
+  commentId: M:g3.DMesh3Builder.AppendVertex(g3.NewVertexInfo)
+  id: AppendVertex(g3.NewVertexInfo)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendVertex(NewVertexInfo)
+  nameWithType: DMesh3Builder.AppendVertex(NewVertexInfo)
+  fullName: g3.DMesh3Builder.AppendVertex(g3.NewVertexInfo)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendVertex
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 122
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int AppendVertex(NewVertexInfo info)
+    parameters:
+    - id: info
+      type: g3.NewVertexInfo
+    return:
+      type: System.Int32
+    content.vb: Public Function AppendVertex(info As NewVertexInfo) As Integer
+  overload: g3.DMesh3Builder.AppendVertex*
+  implements:
+  - g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.SupportsMetaData
+  commentId: P:g3.DMesh3Builder.SupportsMetaData
+  id: SupportsMetaData
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: SupportsMetaData
+  nameWithType: DMesh3Builder.SupportsMetaData
+  fullName: g3.DMesh3Builder.SupportsMetaData
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SupportsMetaData
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 127
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool SupportsMetaData { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property SupportsMetaData As Boolean
+  overload: g3.DMesh3Builder.SupportsMetaData*
+  implements:
+  - g3.IMeshBuilder.SupportsMetaData
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.DMesh3Builder.AppendMetaData(System.String,System.Object)
+  commentId: M:g3.DMesh3Builder.AppendMetaData(System.String,System.Object)
+  id: AppendMetaData(System.String,System.Object)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AppendMetaData(String, Object)
+  nameWithType: DMesh3Builder.AppendMetaData(String, Object)
+  fullName: g3.DMesh3Builder.AppendMetaData(System.String, System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AppendMetaData
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 128
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AppendMetaData(string identifier, object data)
+    parameters:
+    - id: identifier
+      type: System.String
+    - id: data
+      type: System.Object
+    content.vb: Public Sub AppendMetaData(identifier As String, data As Object)
+  overload: g3.DMesh3Builder.AppendMetaData*
+  implements:
+  - g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.BuildMaterial(g3.GenericMaterial)
+  commentId: M:g3.DMesh3Builder.BuildMaterial(g3.GenericMaterial)
+  id: BuildMaterial(g3.GenericMaterial)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: BuildMaterial(GenericMaterial)
+  nameWithType: DMesh3Builder.BuildMaterial(GenericMaterial)
+  fullName: g3.DMesh3Builder.BuildMaterial(g3.GenericMaterial)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BuildMaterial
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int BuildMaterial(GenericMaterial m)
+    parameters:
+    - id: m
+      type: g3.GenericMaterial
+    return:
+      type: System.Int32
+    content.vb: Public Function BuildMaterial(m As GenericMaterial) As Integer
+  overload: g3.DMesh3Builder.BuildMaterial*
+  implements:
+  - g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.AssignMaterial(System.Int32,System.Int32)
+  commentId: M:g3.DMesh3Builder.AssignMaterial(System.Int32,System.Int32)
+  id: AssignMaterial(System.Int32,System.Int32)
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: AssignMaterial(Int32, Int32)
+  nameWithType: DMesh3Builder.AssignMaterial(Int32, Int32)
+  fullName: g3.DMesh3Builder.AssignMaterial(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AssignMaterial
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 143
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void AssignMaterial(int materialID, int meshID)
+    parameters:
+    - id: materialID
+      type: System.Int32
+    - id: meshID
+      type: System.Int32
+    content.vb: Public Sub AssignMaterial(materialID As Integer, meshID As Integer)
+  overload: g3.DMesh3Builder.AssignMaterial*
+  implements:
+  - g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMesh3Builder.Build``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{System.Int32})
+  commentId: M:g3.DMesh3Builder.Build``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{System.Int32})
+  id: Build``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{System.Int32})
+  parent: g3.DMesh3Builder
+  langs:
+  - csharp
+  - vb
+  name: Build<VType, TType, NType>(IEnumerable<VType>, IEnumerable<TType>, IEnumerable<NType>, IEnumerable<Int32>)
+  nameWithType: DMesh3Builder.Build<VType, TType, NType>(IEnumerable<VType>, IEnumerable<TType>, IEnumerable<NType>, IEnumerable<Int32>)
+  fullName: g3.DMesh3Builder.Build<VType, TType, NType>(System.Collections.Generic.IEnumerable<VType>, System.Collections.Generic.IEnumerable<TType>, System.Collections.Generic.IEnumerable<NType>, System.Collections.Generic.IEnumerable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Build
+    path: ../Assets/geometry3Sharp/mesh/DMesh3Builder.cs
+    startLine: 162
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nultimate generic mesh-builder, pass it arrays of floats/doubles, or lists\nof Vector3d, or anything in-between. Will figure out how to interpret\n"
+  example: []
+  syntax:
+    content: public static DMesh3 Build<VType, TType, NType>(IEnumerable<VType> Vertices, IEnumerable<TType> Triangles, IEnumerable<NType> Normals = null, IEnumerable<int> TriGroups = null)
+    parameters:
+    - id: Vertices
+      type: System.Collections.Generic.IEnumerable{{VType}}
+    - id: Triangles
+      type: System.Collections.Generic.IEnumerable{{TType}}
+    - id: Normals
+      type: System.Collections.Generic.IEnumerable{{NType}}
+    - id: TriGroups
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    typeParameters:
+    - id: VType
+    - id: TType
+    - id: NType
+    return:
+      type: g3.DMesh3
+    content.vb: Public Shared Function Build(Of VType, TType, NType)(Vertices As IEnumerable(Of VType), Triangles As IEnumerable(Of TType), Normals As IEnumerable(Of NType) = Nothing, TriGroups As IEnumerable(Of Integer) = Nothing) As DMesh3
+  overload: g3.DMesh3Builder.Build*
+  nameWithType.vb: DMesh3Builder.Build(Of VType, TType, NType)(IEnumerable(Of VType), IEnumerable(Of TType), IEnumerable(Of NType), IEnumerable(Of Int32))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.DMesh3Builder.Build(Of VType, TType, NType)(System.Collections.Generic.IEnumerable(Of VType), System.Collections.Generic.IEnumerable(Of TType), System.Collections.Generic.IEnumerable(Of NType), System.Collections.Generic.IEnumerable(Of System.Int32))
+  name.vb: Build(Of VType, TType, NType)(IEnumerable(Of VType), IEnumerable(Of TType), IEnumerable(Of NType), IEnumerable(Of Int32))
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IMeshBuilder
+  commentId: T:g3.IMeshBuilder
+  parent: g3
+  name: IMeshBuilder
+  nameWithType: IMeshBuilder
+  fullName: g3.IMeshBuilder
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3Builder.AddTriangleFailBehaviors
+  commentId: T:g3.DMesh3Builder.AddTriangleFailBehaviors
+  parent: g3
+  name: DMesh3Builder.AddTriangleFailBehaviors
+  nameWithType: DMesh3Builder.AddTriangleFailBehaviors
+  fullName: g3.DMesh3Builder.AddTriangleFailBehaviors
+- uid: System.Collections.Generic.List{g3.DMesh3}
+  commentId: T:System.Collections.Generic.List{g3.DMesh3}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<DMesh3>
+  nameWithType: List<DMesh3>
+  fullName: System.Collections.Generic.List<g3.DMesh3>
+  nameWithType.vb: List(Of DMesh3)
+  fullName.vb: System.Collections.Generic.List(Of g3.DMesh3)
+  name.vb: List(Of DMesh3)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.List{g3.GenericMaterial}
+  commentId: T:System.Collections.Generic.List{g3.GenericMaterial}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<GenericMaterial>
+  nameWithType: List<GenericMaterial>
+  fullName: System.Collections.Generic.List<g3.GenericMaterial>
+  nameWithType.vb: List(Of GenericMaterial)
+  fullName.vb: System.Collections.Generic.List(Of g3.GenericMaterial)
+  name.vb: List(Of GenericMaterial)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.GenericMaterial
+    name: GenericMaterial
+    nameWithType: GenericMaterial
+    fullName: g3.GenericMaterial
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.GenericMaterial
+    name: GenericMaterial
+    nameWithType: GenericMaterial
+    fullName: g3.GenericMaterial
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Int32}
+  commentId: T:System.Collections.Generic.List{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Int32>
+  nameWithType: List<Int32>
+  fullName: System.Collections.Generic.List<System.Int32>
+  nameWithType.vb: List(Of Int32)
+  fullName.vb: System.Collections.Generic.List(Of System.Int32)
+  name.vb: List(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.Object}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.Object}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Dictionary<String, Object>>
+  nameWithType: List<Dictionary<String, Object>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.Dictionary<System.String, System.Object>>
+  nameWithType.vb: List(Of Dictionary(Of String, Object))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.Dictionary(Of System.String, System.Object))
+  name.vb: List(Of Dictionary(Of String, Object))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DMesh3Builder.#ctor*
+  commentId: Overload:g3.DMesh3Builder.#ctor
+  name: DMesh3Builder
+  nameWithType: DMesh3Builder.DMesh3Builder
+  fullName: g3.DMesh3Builder.DMesh3Builder
+- uid: g3.DMesh3Builder.AppendNewMesh*
+  commentId: Overload:g3.DMesh3Builder.AppendNewMesh
+  name: AppendNewMesh
+  nameWithType: DMesh3Builder.AppendNewMesh
+  fullName: g3.DMesh3Builder.AppendNewMesh
+- uid: g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: AppendNewMesh(Boolean, Boolean, Boolean, Boolean)
+  nameWithType: IMeshBuilder.AppendNewMesh(Boolean, Boolean, Boolean, Boolean)
+  fullName: g3.IMeshBuilder.AppendNewMesh(System.Boolean, System.Boolean, System.Boolean, System.Boolean)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+    name: AppendNewMesh
+    nameWithType: IMeshBuilder.AppendNewMesh
+    fullName: g3.IMeshBuilder.AppendNewMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendNewMesh(System.Boolean,System.Boolean,System.Boolean,System.Boolean)
+    name: AppendNewMesh
+    nameWithType: IMeshBuilder.AppendNewMesh
+    fullName: g3.IMeshBuilder.AppendNewMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  commentId: M:g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  parent: g3.IMeshBuilder
+  name: AppendNewMesh(DMesh3)
+  nameWithType: IMeshBuilder.AppendNewMesh(DMesh3)
+  fullName: g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+    name: AppendNewMesh
+    nameWithType: IMeshBuilder.AppendNewMesh
+    fullName: g3.IMeshBuilder.AppendNewMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendNewMesh(g3.DMesh3)
+    name: AppendNewMesh
+    nameWithType: IMeshBuilder.AppendNewMesh
+    fullName: g3.IMeshBuilder.AppendNewMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.DMesh3Builder.SetActiveMesh*
+  commentId: Overload:g3.DMesh3Builder.SetActiveMesh
+  name: SetActiveMesh
+  nameWithType: DMesh3Builder.SetActiveMesh
+  fullName: g3.DMesh3Builder.SetActiveMesh
+- uid: g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  commentId: M:g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: SetActiveMesh(Int32)
+  nameWithType: IMeshBuilder.SetActiveMesh(Int32)
+  fullName: g3.IMeshBuilder.SetActiveMesh(System.Int32)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.SetActiveMesh(System.Int32)
+    name: SetActiveMesh
+    nameWithType: IMeshBuilder.SetActiveMesh
+    fullName: g3.IMeshBuilder.SetActiveMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.SetActiveMesh(System.Int32)
+    name: SetActiveMesh
+    nameWithType: IMeshBuilder.SetActiveMesh
+    fullName: g3.IMeshBuilder.SetActiveMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DMesh3Builder.AppendTriangle*
+  commentId: Overload:g3.DMesh3Builder.AppendTriangle
+  name: AppendTriangle
+  nameWithType: DMesh3Builder.AppendTriangle
+  fullName: g3.DMesh3Builder.AppendTriangle
+- uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: AppendTriangle(Int32, Int32, Int32)
+  nameWithType: IMeshBuilder.AppendTriangle(Int32, Int32, Int32)
+  fullName: g3.IMeshBuilder.AppendTriangle(System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+    name: AppendTriangle
+    nameWithType: IMeshBuilder.AppendTriangle
+    fullName: g3.IMeshBuilder.AppendTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32)
+    name: AppendTriangle
+    nameWithType: IMeshBuilder.AppendTriangle
+    fullName: g3.IMeshBuilder.AppendTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: AppendTriangle(Int32, Int32, Int32, Int32)
+  nameWithType: IMeshBuilder.AppendTriangle(Int32, Int32, Int32, Int32)
+  fullName: g3.IMeshBuilder.AppendTriangle(System.Int32, System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: AppendTriangle
+    nameWithType: IMeshBuilder.AppendTriangle
+    fullName: g3.IMeshBuilder.AppendTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendTriangle(System.Int32,System.Int32,System.Int32,System.Int32)
+    name: AppendTriangle
+    nameWithType: IMeshBuilder.AppendTriangle
+    fullName: g3.IMeshBuilder.AppendTriangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DMesh3Builder.AppendVertex*
+  commentId: Overload:g3.DMesh3Builder.AppendVertex
+  name: AppendVertex
+  nameWithType: DMesh3Builder.AppendVertex
+  fullName: g3.DMesh3Builder.AppendVertex
+- uid: g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+  commentId: M:g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: AppendVertex(Double, Double, Double)
+  nameWithType: IMeshBuilder.AppendVertex(Double, Double, Double)
+  fullName: g3.IMeshBuilder.AppendVertex(System.Double, System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+    name: AppendVertex
+    nameWithType: IMeshBuilder.AppendVertex
+    fullName: g3.IMeshBuilder.AppendVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendVertex(System.Double,System.Double,System.Double)
+    name: AppendVertex
+    nameWithType: IMeshBuilder.AppendVertex
+    fullName: g3.IMeshBuilder.AppendVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  commentId: M:g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  parent: g3.IMeshBuilder
+  name: AppendVertex(NewVertexInfo)
+  nameWithType: IMeshBuilder.AppendVertex(NewVertexInfo)
+  fullName: g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+    name: AppendVertex
+    nameWithType: IMeshBuilder.AppendVertex
+    fullName: g3.IMeshBuilder.AppendVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.NewVertexInfo
+    name: NewVertexInfo
+    nameWithType: NewVertexInfo
+    fullName: g3.NewVertexInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendVertex(g3.NewVertexInfo)
+    name: AppendVertex
+    nameWithType: IMeshBuilder.AppendVertex
+    fullName: g3.IMeshBuilder.AppendVertex
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.NewVertexInfo
+    name: NewVertexInfo
+    nameWithType: NewVertexInfo
+    fullName: g3.NewVertexInfo
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.NewVertexInfo
+  commentId: T:g3.NewVertexInfo
+  parent: g3
+  name: NewVertexInfo
+  nameWithType: NewVertexInfo
+  fullName: g3.NewVertexInfo
+- uid: g3.DMesh3Builder.SupportsMetaData*
+  commentId: Overload:g3.DMesh3Builder.SupportsMetaData
+  name: SupportsMetaData
+  nameWithType: DMesh3Builder.SupportsMetaData
+  fullName: g3.DMesh3Builder.SupportsMetaData
+- uid: g3.IMeshBuilder.SupportsMetaData
+  commentId: P:g3.IMeshBuilder.SupportsMetaData
+  parent: g3.IMeshBuilder
+  name: SupportsMetaData
+  nameWithType: IMeshBuilder.SupportsMetaData
+  fullName: g3.IMeshBuilder.SupportsMetaData
+- uid: g3.DMesh3Builder.AppendMetaData*
+  commentId: Overload:g3.DMesh3Builder.AppendMetaData
+  name: AppendMetaData
+  nameWithType: DMesh3Builder.AppendMetaData
+  fullName: g3.DMesh3Builder.AppendMetaData
+- uid: g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+  commentId: M:g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: AppendMetaData(String, Object)
+  nameWithType: IMeshBuilder.AppendMetaData(String, Object)
+  fullName: g3.IMeshBuilder.AppendMetaData(System.String, System.Object)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+    name: AppendMetaData
+    nameWithType: IMeshBuilder.AppendMetaData
+    fullName: g3.IMeshBuilder.AppendMetaData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AppendMetaData(System.String,System.Object)
+    name: AppendMetaData
+    nameWithType: IMeshBuilder.AppendMetaData
+    fullName: g3.IMeshBuilder.AppendMetaData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: g3.DMesh3Builder.BuildMaterial*
+  commentId: Overload:g3.DMesh3Builder.BuildMaterial
+  name: BuildMaterial
+  nameWithType: DMesh3Builder.BuildMaterial
+  fullName: g3.DMesh3Builder.BuildMaterial
+- uid: g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  commentId: M:g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  parent: g3.IMeshBuilder
+  name: BuildMaterial(GenericMaterial)
+  nameWithType: IMeshBuilder.BuildMaterial(GenericMaterial)
+  fullName: g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+    name: BuildMaterial
+    nameWithType: IMeshBuilder.BuildMaterial
+    fullName: g3.IMeshBuilder.BuildMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.GenericMaterial
+    name: GenericMaterial
+    nameWithType: GenericMaterial
+    fullName: g3.GenericMaterial
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.BuildMaterial(g3.GenericMaterial)
+    name: BuildMaterial
+    nameWithType: IMeshBuilder.BuildMaterial
+    fullName: g3.IMeshBuilder.BuildMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.GenericMaterial
+    name: GenericMaterial
+    nameWithType: GenericMaterial
+    fullName: g3.GenericMaterial
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.GenericMaterial
+  commentId: T:g3.GenericMaterial
+  parent: g3
+  name: GenericMaterial
+  nameWithType: GenericMaterial
+  fullName: g3.GenericMaterial
+- uid: g3.DMesh3Builder.AssignMaterial*
+  commentId: Overload:g3.DMesh3Builder.AssignMaterial
+  name: AssignMaterial
+  nameWithType: DMesh3Builder.AssignMaterial
+  fullName: g3.DMesh3Builder.AssignMaterial
+- uid: g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+  commentId: M:g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+  parent: g3.IMeshBuilder
+  isExternal: true
+  name: AssignMaterial(Int32, Int32)
+  nameWithType: IMeshBuilder.AssignMaterial(Int32, Int32)
+  fullName: g3.IMeshBuilder.AssignMaterial(System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+    name: AssignMaterial
+    nameWithType: IMeshBuilder.AssignMaterial
+    fullName: g3.IMeshBuilder.AssignMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.IMeshBuilder.AssignMaterial(System.Int32,System.Int32)
+    name: AssignMaterial
+    nameWithType: IMeshBuilder.AssignMaterial
+    fullName: g3.IMeshBuilder.AssignMaterial
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DMesh3Builder.Build*
+  commentId: Overload:g3.DMesh3Builder.Build
+  name: Build
+  nameWithType: DMesh3Builder.Build
+  fullName: g3.DMesh3Builder.Build
+- uid: System.Collections.Generic.IEnumerable{{VType}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<VType>
+  nameWithType: IEnumerable<VType>
+  fullName: System.Collections.Generic.IEnumerable<VType>
+  nameWithType.vb: IEnumerable(Of VType)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of VType)
+  name.vb: IEnumerable(Of VType)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: VType
+    nameWithType: VType
+    fullName: VType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: VType
+    nameWithType: VType
+    fullName: VType
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{{TType}}
+  commentId: T:System.Collections.Generic.IEnumerable{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<TType>
+  nameWithType: IEnumerable<TType>
+  fullName: System.Collections.Generic.IEnumerable<TType>
+  nameWithType.vb: IEnumerable(Of TType)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TType)
+  name.vb: IEnumerable(Of TType)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TType
+    nameWithType: TType
+    fullName: TType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TType
+    nameWithType: TType
+    fullName: TType
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{{NType}}
+  commentId: T:System.Collections.Generic.IEnumerable{``2}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<NType>
+  nameWithType: IEnumerable<NType>
+  fullName: System.Collections.Generic.IEnumerable<NType>
+  nameWithType.vb: IEnumerable(Of NType)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of NType)
+  name.vb: IEnumerable(Of NType)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: NType
+    nameWithType: NType
+    fullName: NType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: NType
+    nameWithType: NType
+    fullName: NType
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

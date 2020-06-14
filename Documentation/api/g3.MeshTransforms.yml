@@ -1,0 +1,2197 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshTransforms
+  commentId: T:g3.MeshTransforms
+  id: MeshTransforms
+  parent: g3
+  children:
+  - g3.MeshTransforms.ConvertYUpToZUp(g3.Frame3f)
+  - g3.MeshTransforms.ConvertYUpToZUp(g3.IDeformableMesh)
+  - g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3d)
+  - g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3f)
+  - g3.MeshTransforms.ConvertZUpToYUp(g3.Frame3f)
+  - g3.MeshTransforms.ConvertZUpToYUp(g3.IDeformableMesh)
+  - g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3d)
+  - g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3f)
+  - g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Frame3f)
+  - g3.MeshTransforms.FlipLeftRightCoordSystems(g3.IDeformableMesh)
+  - g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3d)
+  - g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3f)
+  - g3.MeshTransforms.FromFrame(g3.IDeformableMesh,g3.Frame3f)
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,g3.IDeformableMesh,System.Int32[],System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,g3.TransformSequence)
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,System.Int32,g3.Vector3d})
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,System.Int32},System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d})
+  - g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2})
+  - g3.MeshTransforms.Rotate(g3.Frame3f,g3.Vector3d,g3.Quaterniond)
+  - g3.MeshTransforms.Rotate(g3.Frame3f,g3.Vector3d,g3.Quaternionf)
+  - g3.MeshTransforms.Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaterniond)
+  - g3.MeshTransforms.Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaternionf)
+  - g3.MeshTransforms.Rotate(g3.Vector3d,g3.Vector3d,g3.Quaterniond)
+  - g3.MeshTransforms.Rotate(g3.Vector3d,g3.Vector3d,g3.Quaternionf)
+  - g3.MeshTransforms.Scale(g3.IDeformableMesh,g3.Vector3d,g3.Vector3d)
+  - g3.MeshTransforms.Scale(g3.IDeformableMesh,System.Double)
+  - g3.MeshTransforms.Scale(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  - g3.MeshTransforms.ToFrame(g3.IDeformableMesh,g3.Frame3f)
+  - g3.MeshTransforms.Translate(g3.IDeformableMesh,g3.Vector3d)
+  - g3.MeshTransforms.Translate(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  - g3.MeshTransforms.VertexNormalOffset(g3.IDeformableMesh,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: MeshTransforms
+  nameWithType: MeshTransforms
+  fullName: g3.MeshTransforms
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshTransforms
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class MeshTransforms
+    content.vb: Public Module MeshTransforms
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.MeshTransforms.Translate(g3.IDeformableMesh,g3.Vector3d)
+  commentId: M:g3.MeshTransforms.Translate(g3.IDeformableMesh,g3.Vector3d)
+  id: Translate(g3.IDeformableMesh,g3.Vector3d)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Translate(IDeformableMesh, Vector3d)
+  nameWithType: MeshTransforms.Translate(IDeformableMesh, Vector3d)
+  fullName: g3.MeshTransforms.Translate(g3.IDeformableMesh, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Translate(IDeformableMesh mesh, Vector3d v)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: v
+      type: g3.Vector3d
+    content.vb: Public Shared Sub Translate(mesh As IDeformableMesh, v As Vector3d)
+  overload: g3.MeshTransforms.Translate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Translate(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  commentId: M:g3.MeshTransforms.Translate(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  id: Translate(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Translate(IDeformableMesh, Double, Double, Double)
+  nameWithType: MeshTransforms.Translate(IDeformableMesh, Double, Double, Double)
+  fullName: g3.MeshTransforms.Translate(g3.IDeformableMesh, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Translate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Translate(IDeformableMesh mesh, double tx, double ty, double tz)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: tx
+      type: System.Double
+    - id: ty
+      type: System.Double
+    - id: tz
+      type: System.Double
+    content.vb: Public Shared Sub Translate(mesh As IDeformableMesh, tx As Double, ty As Double, tz As Double)
+  overload: g3.MeshTransforms.Translate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Rotate(g3.Vector3d,g3.Vector3d,g3.Quaternionf)
+  commentId: M:g3.MeshTransforms.Rotate(g3.Vector3d,g3.Vector3d,g3.Quaternionf)
+  id: Rotate(g3.Vector3d,g3.Vector3d,g3.Quaternionf)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Vector3d, Vector3d, Quaternionf)
+  nameWithType: MeshTransforms.Rotate(Vector3d, Vector3d, Quaternionf)
+  fullName: g3.MeshTransforms.Rotate(g3.Vector3d, g3.Vector3d, g3.Quaternionf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d Rotate(Vector3d pos, Vector3d origin, Quaternionf rotation)
+    parameters:
+    - id: pos
+      type: g3.Vector3d
+    - id: origin
+      type: g3.Vector3d
+    - id: rotation
+      type: g3.Quaternionf
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function Rotate(pos As Vector3d, origin As Vector3d, rotation As Quaternionf) As Vector3d
+  overload: g3.MeshTransforms.Rotate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Rotate(g3.Frame3f,g3.Vector3d,g3.Quaternionf)
+  commentId: M:g3.MeshTransforms.Rotate(g3.Frame3f,g3.Vector3d,g3.Quaternionf)
+  id: Rotate(g3.Frame3f,g3.Vector3d,g3.Quaternionf)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Frame3f, Vector3d, Quaternionf)
+  nameWithType: MeshTransforms.Rotate(Frame3f, Vector3d, Quaternionf)
+  fullName: g3.MeshTransforms.Rotate(g3.Frame3f, g3.Vector3d, g3.Quaternionf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Frame3f Rotate(Frame3f f, Vector3d origin, Quaternionf rotation)
+    parameters:
+    - id: f
+      type: g3.Frame3f
+    - id: origin
+      type: g3.Vector3d
+    - id: rotation
+      type: g3.Quaternionf
+    return:
+      type: g3.Frame3f
+    content.vb: Public Shared Function Rotate(f As Frame3f, origin As Vector3d, rotation As Quaternionf) As Frame3f
+  overload: g3.MeshTransforms.Rotate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Rotate(g3.Frame3f,g3.Vector3d,g3.Quaterniond)
+  commentId: M:g3.MeshTransforms.Rotate(g3.Frame3f,g3.Vector3d,g3.Quaterniond)
+  id: Rotate(g3.Frame3f,g3.Vector3d,g3.Quaterniond)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Frame3f, Vector3d, Quaterniond)
+  nameWithType: MeshTransforms.Rotate(Frame3f, Vector3d, Quaterniond)
+  fullName: g3.MeshTransforms.Rotate(g3.Frame3f, g3.Vector3d, g3.Quaterniond)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 39
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Frame3f Rotate(Frame3f f, Vector3d origin, Quaterniond rotation)
+    parameters:
+    - id: f
+      type: g3.Frame3f
+    - id: origin
+      type: g3.Vector3d
+    - id: rotation
+      type: g3.Quaterniond
+    return:
+      type: g3.Frame3f
+    content.vb: Public Shared Function Rotate(f As Frame3f, origin As Vector3d, rotation As Quaterniond) As Frame3f
+  overload: g3.MeshTransforms.Rotate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaternionf)
+  commentId: M:g3.MeshTransforms.Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaternionf)
+  id: Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaternionf)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Rotate(IDeformableMesh, Vector3d, Quaternionf)
+  nameWithType: MeshTransforms.Rotate(IDeformableMesh, Vector3d, Quaternionf)
+  fullName: g3.MeshTransforms.Rotate(g3.IDeformableMesh, g3.Vector3d, g3.Quaternionf)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 45
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Rotate(IDeformableMesh mesh, Vector3d origin, Quaternionf rotation)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: origin
+      type: g3.Vector3d
+    - id: rotation
+      type: g3.Quaternionf
+    content.vb: Public Shared Sub Rotate(mesh As IDeformableMesh, origin As Vector3d, rotation As Quaternionf)
+  overload: g3.MeshTransforms.Rotate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Rotate(g3.Vector3d,g3.Vector3d,g3.Quaterniond)
+  commentId: M:g3.MeshTransforms.Rotate(g3.Vector3d,g3.Vector3d,g3.Quaterniond)
+  id: Rotate(g3.Vector3d,g3.Vector3d,g3.Quaterniond)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Rotate(Vector3d, Vector3d, Quaterniond)
+  nameWithType: MeshTransforms.Rotate(Vector3d, Vector3d, Quaterniond)
+  fullName: g3.MeshTransforms.Rotate(g3.Vector3d, g3.Vector3d, g3.Quaterniond)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 60
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d Rotate(Vector3d pos, Vector3d origin, Quaterniond rotation)
+    parameters:
+    - id: pos
+      type: g3.Vector3d
+    - id: origin
+      type: g3.Vector3d
+    - id: rotation
+      type: g3.Quaterniond
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function Rotate(pos As Vector3d, origin As Vector3d, rotation As Quaterniond) As Vector3d
+  overload: g3.MeshTransforms.Rotate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaterniond)
+  commentId: M:g3.MeshTransforms.Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaterniond)
+  id: Rotate(g3.IDeformableMesh,g3.Vector3d,g3.Quaterniond)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Rotate(IDeformableMesh, Vector3d, Quaterniond)
+  nameWithType: MeshTransforms.Rotate(IDeformableMesh, Vector3d, Quaterniond)
+  fullName: g3.MeshTransforms.Rotate(g3.IDeformableMesh, g3.Vector3d, g3.Quaterniond)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Rotate
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 63
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Rotate(IDeformableMesh mesh, Vector3d origin, Quaterniond rotation)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: origin
+      type: g3.Vector3d
+    - id: rotation
+      type: g3.Quaterniond
+    content.vb: Public Shared Sub Rotate(mesh As IDeformableMesh, origin As Vector3d, rotation As Quaterniond)
+  overload: g3.MeshTransforms.Rotate*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Scale(g3.IDeformableMesh,g3.Vector3d,g3.Vector3d)
+  commentId: M:g3.MeshTransforms.Scale(g3.IDeformableMesh,g3.Vector3d,g3.Vector3d)
+  id: Scale(g3.IDeformableMesh,g3.Vector3d,g3.Vector3d)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Scale(IDeformableMesh, Vector3d, Vector3d)
+  nameWithType: MeshTransforms.Scale(IDeformableMesh, Vector3d, Vector3d)
+  fullName: g3.MeshTransforms.Scale(g3.IDeformableMesh, g3.Vector3d, g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 78
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Scale(IDeformableMesh mesh, Vector3d scale, Vector3d origin)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: scale
+      type: g3.Vector3d
+    - id: origin
+      type: g3.Vector3d
+    content.vb: Public Shared Sub Scale(mesh As IDeformableMesh, scale As Vector3d, origin As Vector3d)
+  overload: g3.MeshTransforms.Scale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Scale(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  commentId: M:g3.MeshTransforms.Scale(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  id: Scale(g3.IDeformableMesh,System.Double,System.Double,System.Double)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Scale(IDeformableMesh, Double, Double, Double)
+  nameWithType: MeshTransforms.Scale(IDeformableMesh, Double, Double, Double)
+  fullName: g3.MeshTransforms.Scale(g3.IDeformableMesh, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Scale(IDeformableMesh mesh, double sx, double sy, double sz)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: sx
+      type: System.Double
+    - id: sy
+      type: System.Double
+    - id: sz
+      type: System.Double
+    content.vb: Public Shared Sub Scale(mesh As IDeformableMesh, sx As Double, sy As Double, sz As Double)
+  overload: g3.MeshTransforms.Scale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.Scale(g3.IDeformableMesh,System.Double)
+  commentId: M:g3.MeshTransforms.Scale(g3.IDeformableMesh,System.Double)
+  id: Scale(g3.IDeformableMesh,System.Double)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: Scale(IDeformableMesh, Double)
+  nameWithType: MeshTransforms.Scale(IDeformableMesh, Double)
+  fullName: g3.MeshTransforms.Scale(g3.IDeformableMesh, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Scale
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void Scale(IDeformableMesh mesh, double s)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: s
+      type: System.Double
+    content.vb: Public Shared Sub Scale(mesh As IDeformableMesh, s As Double)
+  overload: g3.MeshTransforms.Scale*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ToFrame(g3.IDeformableMesh,g3.Frame3f)
+  commentId: M:g3.MeshTransforms.ToFrame(g3.IDeformableMesh,g3.Frame3f)
+  id: ToFrame(g3.IDeformableMesh,g3.Frame3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ToFrame(IDeformableMesh, Frame3f)
+  nameWithType: MeshTransforms.ToFrame(IDeformableMesh, Frame3f)
+  fullName: g3.MeshTransforms.ToFrame(g3.IDeformableMesh, g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ToFrame
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 101
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: 'Map mesh *into* local coordinates of Frame '
+  example: []
+  syntax:
+    content: public static void ToFrame(IDeformableMesh mesh, Frame3f f)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: f
+      type: g3.Frame3f
+    content.vb: Public Shared Sub ToFrame(mesh As IDeformableMesh, f As Frame3f)
+  overload: g3.MeshTransforms.ToFrame*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.FromFrame(g3.IDeformableMesh,g3.Frame3f)
+  commentId: M:g3.MeshTransforms.FromFrame(g3.IDeformableMesh,g3.Frame3f)
+  id: FromFrame(g3.IDeformableMesh,g3.Frame3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: FromFrame(IDeformableMesh, Frame3f)
+  nameWithType: MeshTransforms.FromFrame(IDeformableMesh, Frame3f)
+  fullName: g3.MeshTransforms.FromFrame(g3.IDeformableMesh, g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FromFrame
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 120
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: 'Map mesh *from* local frame coordinates into &quot;world&quot; coordinates '
+  example: []
+  syntax:
+    content: public static void FromFrame(IDeformableMesh mesh, Frame3f f)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: f
+      type: g3.Frame3f
+    content.vb: Public Shared Sub FromFrame(mesh As IDeformableMesh, f As Frame3f)
+  overload: g3.MeshTransforms.FromFrame*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3d)
+  commentId: M:g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3d)
+  id: ConvertZUpToYUp(g3.Vector3d)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertZUpToYUp(Vector3d)
+  nameWithType: MeshTransforms.ConvertZUpToYUp(Vector3d)
+  fullName: g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertZUpToYUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 139
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d ConvertZUpToYUp(Vector3d v)
+    parameters:
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function ConvertZUpToYUp(v As Vector3d) As Vector3d
+  overload: g3.MeshTransforms.ConvertZUpToYUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3f)
+  commentId: M:g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3f)
+  id: ConvertZUpToYUp(g3.Vector3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertZUpToYUp(Vector3f)
+  nameWithType: MeshTransforms.ConvertZUpToYUp(Vector3f)
+  fullName: g3.MeshTransforms.ConvertZUpToYUp(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertZUpToYUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 143
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3f ConvertZUpToYUp(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    return:
+      type: g3.Vector3f
+    content.vb: Public Shared Function ConvertZUpToYUp(v As Vector3f) As Vector3f
+  overload: g3.MeshTransforms.ConvertZUpToYUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertZUpToYUp(g3.Frame3f)
+  commentId: M:g3.MeshTransforms.ConvertZUpToYUp(g3.Frame3f)
+  id: ConvertZUpToYUp(g3.Frame3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertZUpToYUp(Frame3f)
+  nameWithType: MeshTransforms.ConvertZUpToYUp(Frame3f)
+  fullName: g3.MeshTransforms.ConvertZUpToYUp(g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertZUpToYUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 147
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Frame3f ConvertZUpToYUp(Frame3f f)
+    parameters:
+    - id: f
+      type: g3.Frame3f
+    return:
+      type: g3.Frame3f
+    content.vb: Public Shared Function ConvertZUpToYUp(f As Frame3f) As Frame3f
+  overload: g3.MeshTransforms.ConvertZUpToYUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertZUpToYUp(g3.IDeformableMesh)
+  commentId: M:g3.MeshTransforms.ConvertZUpToYUp(g3.IDeformableMesh)
+  id: ConvertZUpToYUp(g3.IDeformableMesh)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertZUpToYUp(IDeformableMesh)
+  nameWithType: MeshTransforms.ConvertZUpToYUp(IDeformableMesh)
+  fullName: g3.MeshTransforms.ConvertZUpToYUp(g3.IDeformableMesh)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertZUpToYUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 155
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ConvertZUpToYUp(IDeformableMesh mesh)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    content.vb: Public Shared Sub ConvertZUpToYUp(mesh As IDeformableMesh)
+  overload: g3.MeshTransforms.ConvertZUpToYUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3d)
+  commentId: M:g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3d)
+  id: ConvertYUpToZUp(g3.Vector3d)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertYUpToZUp(Vector3d)
+  nameWithType: MeshTransforms.ConvertYUpToZUp(Vector3d)
+  fullName: g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertYUpToZUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 171
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d ConvertYUpToZUp(Vector3d v)
+    parameters:
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function ConvertYUpToZUp(v As Vector3d) As Vector3d
+  overload: g3.MeshTransforms.ConvertYUpToZUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3f)
+  commentId: M:g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3f)
+  id: ConvertYUpToZUp(g3.Vector3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertYUpToZUp(Vector3f)
+  nameWithType: MeshTransforms.ConvertYUpToZUp(Vector3f)
+  fullName: g3.MeshTransforms.ConvertYUpToZUp(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertYUpToZUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 175
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3f ConvertYUpToZUp(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    return:
+      type: g3.Vector3f
+    content.vb: Public Shared Function ConvertYUpToZUp(v As Vector3f) As Vector3f
+  overload: g3.MeshTransforms.ConvertYUpToZUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertYUpToZUp(g3.Frame3f)
+  commentId: M:g3.MeshTransforms.ConvertYUpToZUp(g3.Frame3f)
+  id: ConvertYUpToZUp(g3.Frame3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertYUpToZUp(Frame3f)
+  nameWithType: MeshTransforms.ConvertYUpToZUp(Frame3f)
+  fullName: g3.MeshTransforms.ConvertYUpToZUp(g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertYUpToZUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 179
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Frame3f ConvertYUpToZUp(Frame3f f)
+    parameters:
+    - id: f
+      type: g3.Frame3f
+    return:
+      type: g3.Frame3f
+    content.vb: Public Shared Function ConvertYUpToZUp(f As Frame3f) As Frame3f
+  overload: g3.MeshTransforms.ConvertYUpToZUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.ConvertYUpToZUp(g3.IDeformableMesh)
+  commentId: M:g3.MeshTransforms.ConvertYUpToZUp(g3.IDeformableMesh)
+  id: ConvertYUpToZUp(g3.IDeformableMesh)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: ConvertYUpToZUp(IDeformableMesh)
+  nameWithType: MeshTransforms.ConvertYUpToZUp(IDeformableMesh)
+  fullName: g3.MeshTransforms.ConvertYUpToZUp(g3.IDeformableMesh)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ConvertYUpToZUp
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 187
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void ConvertYUpToZUp(IDeformableMesh mesh)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    content.vb: Public Shared Sub ConvertYUpToZUp(mesh As IDeformableMesh)
+  overload: g3.MeshTransforms.ConvertYUpToZUp*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3d)
+  commentId: M:g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3d)
+  id: FlipLeftRightCoordSystems(g3.Vector3d)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: FlipLeftRightCoordSystems(Vector3d)
+  nameWithType: MeshTransforms.FlipLeftRightCoordSystems(Vector3d)
+  fullName: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FlipLeftRightCoordSystems
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 204
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3d FlipLeftRightCoordSystems(Vector3d v)
+    parameters:
+    - id: v
+      type: g3.Vector3d
+    return:
+      type: g3.Vector3d
+    content.vb: Public Shared Function FlipLeftRightCoordSystems(v As Vector3d) As Vector3d
+  overload: g3.MeshTransforms.FlipLeftRightCoordSystems*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3f)
+  commentId: M:g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3f)
+  id: FlipLeftRightCoordSystems(g3.Vector3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: FlipLeftRightCoordSystems(Vector3f)
+  nameWithType: MeshTransforms.FlipLeftRightCoordSystems(Vector3f)
+  fullName: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Vector3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FlipLeftRightCoordSystems
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 208
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector3f FlipLeftRightCoordSystems(Vector3f v)
+    parameters:
+    - id: v
+      type: g3.Vector3f
+    return:
+      type: g3.Vector3f
+    content.vb: Public Shared Function FlipLeftRightCoordSystems(v As Vector3f) As Vector3f
+  overload: g3.MeshTransforms.FlipLeftRightCoordSystems*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Frame3f)
+  commentId: M:g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Frame3f)
+  id: FlipLeftRightCoordSystems(g3.Frame3f)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: FlipLeftRightCoordSystems(Frame3f)
+  nameWithType: MeshTransforms.FlipLeftRightCoordSystems(Frame3f)
+  fullName: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FlipLeftRightCoordSystems
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 212
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Frame3f FlipLeftRightCoordSystems(Frame3f f)
+    parameters:
+    - id: f
+      type: g3.Frame3f
+    return:
+      type: g3.Frame3f
+    content.vb: Public Shared Function FlipLeftRightCoordSystems(f As Frame3f) As Frame3f
+  overload: g3.MeshTransforms.FlipLeftRightCoordSystems*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.IDeformableMesh)
+  commentId: M:g3.MeshTransforms.FlipLeftRightCoordSystems(g3.IDeformableMesh)
+  id: FlipLeftRightCoordSystems(g3.IDeformableMesh)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: FlipLeftRightCoordSystems(IDeformableMesh)
+  nameWithType: MeshTransforms.FlipLeftRightCoordSystems(IDeformableMesh)
+  fullName: g3.MeshTransforms.FlipLeftRightCoordSystems(g3.IDeformableMesh)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FlipLeftRightCoordSystems
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 222
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void FlipLeftRightCoordSystems(IDeformableMesh mesh)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    content.vb: Public Shared Sub FlipLeftRightCoordSystems(mesh As IDeformableMesh)
+  overload: g3.MeshTransforms.FlipLeftRightCoordSystems*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.VertexNormalOffset(g3.IDeformableMesh,System.Double)
+  commentId: M:g3.MeshTransforms.VertexNormalOffset(g3.IDeformableMesh,System.Double)
+  id: VertexNormalOffset(g3.IDeformableMesh,System.Double)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: VertexNormalOffset(IDeformableMesh, Double)
+  nameWithType: MeshTransforms.VertexNormalOffset(IDeformableMesh, Double)
+  fullName: g3.MeshTransforms.VertexNormalOffset(g3.IDeformableMesh, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: VertexNormalOffset
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 250
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void VertexNormalOffset(IDeformableMesh mesh, double offsetDistance)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: offsetDistance
+      type: System.Double
+    content.vb: Public Shared Sub VertexNormalOffset(mesh As IDeformableMesh, offsetDistance As Double)
+  overload: g3.MeshTransforms.VertexNormalOffset*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  id: PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3d})
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, Func<Vector3d, Vector3d>)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, Func<Vector3d, Vector3d>)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Func<g3.Vector3d, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 265
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply TransformF to vertices of mesh\n"
+  example: []
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh mesh, Func<Vector3d, Vector3d> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3d}
+    content.vb: Public Shared Sub PerVertexTransform(mesh As IDeformableMesh, TransformF As Func(Of Vector3d, Vector3d))
+  overload: g3.MeshTransforms.PerVertexTransform*
+  nameWithType.vb: MeshTransforms.PerVertexTransform(IDeformableMesh, Func(Of Vector3d, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Func(Of g3.Vector3d, g3.Vector3d))
+  name.vb: PerVertexTransform(IDeformableMesh, Func(Of Vector3d, Vector3d))
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d})
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d})
+  id: PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d})
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, Func<Vector3d, Vector3f, Vector3d>)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, Func<Vector3d, Vector3f, Vector3d>)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Func<g3.Vector3d, g3.Vector3f, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 275
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh mesh, Func<Vector3d, Vector3f, Vector3d> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d}
+    content.vb: Public Shared Sub PerVertexTransform(mesh As IDeformableMesh, TransformF As Func(Of Vector3d, Vector3f, Vector3d))
+  overload: g3.MeshTransforms.PerVertexTransform*
+  nameWithType.vb: MeshTransforms.PerVertexTransform(IDeformableMesh, Func(Of Vector3d, Vector3f, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Func(Of g3.Vector3d, g3.Vector3f, g3.Vector3d))
+  name.vb: PerVertexTransform(IDeformableMesh, Func(Of Vector3d, Vector3f, Vector3d))
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2})
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2})
+  id: PerVertexTransform(g3.IDeformableMesh,System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2})
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, Func<Vector3d, Vector3f, Vector3dTuple2>)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, Func<Vector3d, Vector3f, Vector3dTuple2>)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Func<g3.Vector3d, g3.Vector3f, g3.Vector3dTuple2>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 290
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply TransformF to vertices and normals of mesh\n"
+  example: []
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh mesh, Func<Vector3d, Vector3f, Vector3dTuple2> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: TransformF
+      type: System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2}
+    content.vb: Public Shared Sub PerVertexTransform(mesh As IDeformableMesh, TransformF As Func(Of Vector3d, Vector3f, Vector3dTuple2))
+  overload: g3.MeshTransforms.PerVertexTransform*
+  nameWithType.vb: MeshTransforms.PerVertexTransform(IDeformableMesh, Func(Of Vector3d, Vector3f, Vector3dTuple2))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Func(Of g3.Vector3d, g3.Vector3f, g3.Vector3dTuple2))
+  name.vb: PerVertexTransform(IDeformableMesh, Func(Of Vector3d, Vector3f, Vector3dTuple2))
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,g3.TransformSequence)
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,g3.TransformSequence)
+  id: PerVertexTransform(g3.IDeformableMesh,g3.TransformSequence)
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, TransformSequence)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, TransformSequence)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, g3.TransformSequence)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 306
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply Transform to vertices and normals of mesh\n"
+  example: []
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh mesh, TransformSequence xform)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: xform
+      type: g3.TransformSequence
+    content.vb: Public Shared Sub PerVertexTransform(mesh As IDeformableMesh, xform As TransformSequence)
+  overload: g3.MeshTransforms.PerVertexTransform*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,System.Int32,g3.Vector3d})
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,System.Int32,g3.Vector3d})
+  id: PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{g3.Vector3d,System.Int32,g3.Vector3d})
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, IEnumerable<Int32>, Func<Vector3d, Int32, Vector3d>)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, IEnumerable<Int32>, Func<Vector3d, Int32, Vector3d>)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Collections.Generic.IEnumerable<System.Int32>, System.Func<g3.Vector3d, System.Int32, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 329
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply TransformF to subset of vertices of mesh\n"
+  example: []
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh mesh, IEnumerable<int> vertices, Func<Vector3d, int, Vector3d> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: TransformF
+      type: System.Func{g3.Vector3d,System.Int32,g3.Vector3d}
+    content.vb: Public Shared Sub PerVertexTransform(mesh As IDeformableMesh, vertices As IEnumerable(Of Integer), TransformF As Func(Of Vector3d, Integer, Vector3d))
+  overload: g3.MeshTransforms.PerVertexTransform*
+  nameWithType.vb: MeshTransforms.PerVertexTransform(IDeformableMesh, IEnumerable(Of Int32), Func(Of Vector3d, Int32, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Collections.Generic.IEnumerable(Of System.Int32), System.Func(Of g3.Vector3d, System.Int32, g3.Vector3d))
+  name.vb: PerVertexTransform(IDeformableMesh, IEnumerable(Of Int32), Func(Of Vector3d, Int32, Vector3d))
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,System.Int32},System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,System.Int32},System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  id: PerVertexTransform(g3.IDeformableMesh,System.Collections.Generic.IEnumerable{System.Int32},System.Func{System.Int32,System.Int32},System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, IEnumerable<Int32>, Func<Int32, Int32>, Func<Vector3d, Int32, Int32, Vector3d>)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, IEnumerable<Int32>, Func<Int32, Int32>, Func<Vector3d, Int32, Int32, Vector3d>)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Collections.Generic.IEnumerable<System.Int32>, System.Func<System.Int32, System.Int32>, System.Func<g3.Vector3d, System.Int32, System.Int32, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 342
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply TransformF to subset of mesh vertices defined by MapV[vertices] \n"
+  example: []
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh mesh, IEnumerable<int> vertices, Func<int, int> MapV, Func<Vector3d, int, int, Vector3d> TransformF)
+    parameters:
+    - id: mesh
+      type: g3.IDeformableMesh
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{System.Int32}
+    - id: MapV
+      type: System.Func{System.Int32,System.Int32}
+    - id: TransformF
+      type: System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d}
+    content.vb: Public Shared Sub PerVertexTransform(mesh As IDeformableMesh, vertices As IEnumerable(Of Integer), MapV As Func(Of Integer, Integer), TransformF As Func(Of Vector3d, Integer, Integer, Vector3d))
+  overload: g3.MeshTransforms.PerVertexTransform*
+  nameWithType.vb: MeshTransforms.PerVertexTransform(IDeformableMesh, IEnumerable(Of Int32), Func(Of Int32, Int32), Func(Of Vector3d, Int32, Int32, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, System.Collections.Generic.IEnumerable(Of System.Int32), System.Func(Of System.Int32, System.Int32), System.Func(Of g3.Vector3d, System.Int32, System.Int32, g3.Vector3d))
+  name.vb: PerVertexTransform(IDeformableMesh, IEnumerable(Of Int32), Func(Of Int32, Int32), Func(Of Vector3d, Int32, Int32, Vector3d))
+- uid: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,g3.IDeformableMesh,System.Int32[],System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  commentId: M:g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh,g3.IDeformableMesh,System.Int32[],System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  id: PerVertexTransform(g3.IDeformableMesh,g3.IDeformableMesh,System.Int32[],System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d})
+  parent: g3.MeshTransforms
+  langs:
+  - csharp
+  - vb
+  name: PerVertexTransform(IDeformableMesh, IDeformableMesh, Int32[], Func<Vector3d, Int32, Int32, Vector3d>)
+  nameWithType: MeshTransforms.PerVertexTransform(IDeformableMesh, IDeformableMesh, Int32[], Func<Vector3d, Int32, Int32, Vector3d>)
+  fullName: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, g3.IDeformableMesh, System.Int32[], System.Func<g3.Vector3d, System.Int32, System.Int32, g3.Vector3d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshTransforms.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: PerVertexTransform
+    path: ../Assets/geometry3Sharp/mesh/MeshTransforms.cs
+    startLine: 357
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nApply TransformF to subset of mesh vertices defined by MapV[vertices] \n"
+  example: []
+  syntax:
+    content: public static void PerVertexTransform(IDeformableMesh targetMesh, IDeformableMesh sourceMesh, int[] mapV, Func<Vector3d, int, int, Vector3d> TransformF)
+    parameters:
+    - id: targetMesh
+      type: g3.IDeformableMesh
+    - id: sourceMesh
+      type: g3.IDeformableMesh
+    - id: mapV
+      type: System.Int32[]
+    - id: TransformF
+      type: System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d}
+    content.vb: Public Shared Sub PerVertexTransform(targetMesh As IDeformableMesh, sourceMesh As IDeformableMesh, mapV As Integer(), TransformF As Func(Of Vector3d, Integer, Integer, Vector3d))
+  overload: g3.MeshTransforms.PerVertexTransform*
+  nameWithType.vb: MeshTransforms.PerVertexTransform(IDeformableMesh, IDeformableMesh, Int32(), Func(Of Vector3d, Int32, Int32, Vector3d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.MeshTransforms.PerVertexTransform(g3.IDeformableMesh, g3.IDeformableMesh, System.Int32(), System.Func(Of g3.Vector3d, System.Int32, System.Int32, g3.Vector3d))
+  name.vb: PerVertexTransform(IDeformableMesh, IDeformableMesh, Int32(), Func(Of Vector3d, Int32, Int32, Vector3d))
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MeshTransforms.Translate*
+  commentId: Overload:g3.MeshTransforms.Translate
+  name: Translate
+  nameWithType: MeshTransforms.Translate
+  fullName: g3.MeshTransforms.Translate
+- uid: g3.IDeformableMesh
+  commentId: T:g3.IDeformableMesh
+  parent: g3
+  name: IDeformableMesh
+  nameWithType: IDeformableMesh
+  fullName: g3.IDeformableMesh
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.MeshTransforms.Rotate*
+  commentId: Overload:g3.MeshTransforms.Rotate
+  name: Rotate
+  nameWithType: MeshTransforms.Rotate
+  fullName: g3.MeshTransforms.Rotate
+- uid: g3.Quaternionf
+  commentId: T:g3.Quaternionf
+  parent: g3
+  name: Quaternionf
+  nameWithType: Quaternionf
+  fullName: g3.Quaternionf
+- uid: g3.Frame3f
+  commentId: T:g3.Frame3f
+  parent: g3
+  name: Frame3f
+  nameWithType: Frame3f
+  fullName: g3.Frame3f
+- uid: g3.Quaterniond
+  commentId: T:g3.Quaterniond
+  parent: g3
+  name: Quaterniond
+  nameWithType: Quaterniond
+  fullName: g3.Quaterniond
+- uid: g3.MeshTransforms.Scale*
+  commentId: Overload:g3.MeshTransforms.Scale
+  name: Scale
+  nameWithType: MeshTransforms.Scale
+  fullName: g3.MeshTransforms.Scale
+- uid: g3.MeshTransforms.ToFrame*
+  commentId: Overload:g3.MeshTransforms.ToFrame
+  name: ToFrame
+  nameWithType: MeshTransforms.ToFrame
+  fullName: g3.MeshTransforms.ToFrame
+- uid: g3.MeshTransforms.FromFrame*
+  commentId: Overload:g3.MeshTransforms.FromFrame
+  name: FromFrame
+  nameWithType: MeshTransforms.FromFrame
+  fullName: g3.MeshTransforms.FromFrame
+- uid: g3.MeshTransforms.ConvertZUpToYUp*
+  commentId: Overload:g3.MeshTransforms.ConvertZUpToYUp
+  name: ConvertZUpToYUp
+  nameWithType: MeshTransforms.ConvertZUpToYUp
+  fullName: g3.MeshTransforms.ConvertZUpToYUp
+- uid: g3.Vector3f
+  commentId: T:g3.Vector3f
+  parent: g3
+  name: Vector3f
+  nameWithType: Vector3f
+  fullName: g3.Vector3f
+- uid: g3.MeshTransforms.ConvertYUpToZUp*
+  commentId: Overload:g3.MeshTransforms.ConvertYUpToZUp
+  name: ConvertYUpToZUp
+  nameWithType: MeshTransforms.ConvertYUpToZUp
+  fullName: g3.MeshTransforms.ConvertYUpToZUp
+- uid: g3.MeshTransforms.FlipLeftRightCoordSystems*
+  commentId: Overload:g3.MeshTransforms.FlipLeftRightCoordSystems
+  name: FlipLeftRightCoordSystems
+  nameWithType: MeshTransforms.FlipLeftRightCoordSystems
+  fullName: g3.MeshTransforms.FlipLeftRightCoordSystems
+- uid: g3.MeshTransforms.VertexNormalOffset*
+  commentId: Overload:g3.MeshTransforms.VertexNormalOffset
+  name: VertexNormalOffset
+  nameWithType: MeshTransforms.VertexNormalOffset
+  fullName: g3.MeshTransforms.VertexNormalOffset
+- uid: g3.MeshTransforms.PerVertexTransform*
+  commentId: Overload:g3.MeshTransforms.PerVertexTransform
+  name: PerVertexTransform
+  nameWithType: MeshTransforms.PerVertexTransform
+  fullName: g3.MeshTransforms.PerVertexTransform
+- uid: System.Func{g3.Vector3d,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,g3.Vector3d}
+  parent: System
+  definition: System.Func`2
+  name: Func<Vector3d, Vector3d>
+  nameWithType: Func<Vector3d, Vector3d>
+  fullName: System.Func<g3.Vector3d, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Vector3d)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3d}
+  parent: System
+  definition: System.Func`3
+  name: Func<Vector3d, Vector3f, Vector3d>
+  nameWithType: Func<Vector3d, Vector3f, Vector3d>
+  fullName: System.Func<g3.Vector3d, g3.Vector3f, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Vector3f, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, g3.Vector3f, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Vector3f, Vector3d)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2}
+  commentId: T:System.Func{g3.Vector3d,g3.Vector3f,g3.Vector3dTuple2}
+  parent: System
+  definition: System.Func`3
+  name: Func<Vector3d, Vector3f, Vector3dTuple2>
+  nameWithType: Func<Vector3d, Vector3f, Vector3dTuple2>
+  fullName: System.Func<g3.Vector3d, g3.Vector3f, g3.Vector3dTuple2>
+  nameWithType.vb: Func(Of Vector3d, Vector3f, Vector3dTuple2)
+  fullName.vb: System.Func(Of g3.Vector3d, g3.Vector3f, g3.Vector3dTuple2)
+  name.vb: Func(Of Vector3d, Vector3f, Vector3dTuple2)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3dTuple2
+    name: Vector3dTuple2
+    nameWithType: Vector3dTuple2
+    fullName: g3.Vector3dTuple2
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3f
+    name: Vector3f
+    nameWithType: Vector3f
+    fullName: g3.Vector3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3dTuple2
+    name: Vector3dTuple2
+    nameWithType: Vector3dTuple2
+    fullName: g3.Vector3dTuple2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.TransformSequence
+  commentId: T:g3.TransformSequence
+  parent: g3
+  name: TransformSequence
+  nameWithType: TransformSequence
+  fullName: g3.TransformSequence
+- uid: System.Collections.Generic.IEnumerable{System.Int32}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Int32>
+  nameWithType: IEnumerable<Int32>
+  fullName: System.Collections.Generic.IEnumerable<System.Int32>
+  nameWithType.vb: IEnumerable(Of Int32)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Int32)
+  name.vb: IEnumerable(Of Int32)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{g3.Vector3d,System.Int32,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,System.Int32,g3.Vector3d}
+  parent: System
+  definition: System.Func`3
+  name: Func<Vector3d, Int32, Vector3d>
+  nameWithType: Func<Vector3d, Int32, Vector3d>
+  fullName: System.Func<g3.Vector3d, System.Int32, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Int32, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, System.Int32, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Int32, Vector3d)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Func{System.Int32,System.Int32}
+  commentId: T:System.Func{System.Int32,System.Int32}
+  parent: System
+  definition: System.Func`2
+  name: Func<Int32, Int32>
+  nameWithType: Func<Int32, Int32>
+  fullName: System.Func<System.Int32, System.Int32>
+  nameWithType.vb: Func(Of Int32, Int32)
+  fullName.vb: System.Func(Of System.Int32, System.Int32)
+  name.vb: Func(Of Int32, Int32)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d}
+  commentId: T:System.Func{g3.Vector3d,System.Int32,System.Int32,g3.Vector3d}
+  parent: System
+  definition: System.Func`4
+  name: Func<Vector3d, Int32, Int32, Vector3d>
+  nameWithType: Func<Vector3d, Int32, Int32, Vector3d>
+  fullName: System.Func<g3.Vector3d, System.Int32, System.Int32, g3.Vector3d>
+  nameWithType.vb: Func(Of Vector3d, Int32, Int32, Vector3d)
+  fullName.vb: System.Func(Of g3.Vector3d, System.Int32, System.Int32, g3.Vector3d)
+  name.vb: Func(Of Vector3d, Int32, Int32, Vector3d)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`4
+  commentId: T:System.Func`4
+  isExternal: true
+  name: Func<T1, T2, T3, TResult>
+  nameWithType: Func<T1, T2, T3, TResult>
+  fullName: System.Func<T1, T2, T3, TResult>
+  nameWithType.vb: Func(Of T1, T2, T3, TResult)
+  fullName.vb: System.Func(Of T1, T2, T3, TResult)
+  name.vb: Func(Of T1, T2, T3, TResult)
+  spec.csharp:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T3
+    nameWithType: T3
+    fullName: T3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`4
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T3
+    nameWithType: T3
+    fullName: T3
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()

@@ -1,0 +1,742 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.ArcLengthSoftTranslation
+  commentId: T:g3.ArcLengthSoftTranslation
+  id: ArcLengthSoftTranslation
+  parent: g3
+  children:
+  - g3.ArcLengthSoftTranslation.#ctor
+  - g3.ArcLengthSoftTranslation.ArcRadius
+  - g3.ArcLengthSoftTranslation.BeginDeformation
+  - g3.ArcLengthSoftTranslation.Curve
+  - g3.ArcLengthSoftTranslation.EndDeformation
+  - g3.ArcLengthSoftTranslation.Handle
+  - g3.ArcLengthSoftTranslation.roi_index
+  - g3.ArcLengthSoftTranslation.roi_weights
+  - g3.ArcLengthSoftTranslation.start_positions
+  - g3.ArcLengthSoftTranslation.UpdateDeformation(g3.Vector3d)
+  - g3.ArcLengthSoftTranslation.UpdateROI(System.Int32)
+  - g3.ArcLengthSoftTranslation.WeightFunc
+  langs:
+  - csharp
+  - vb
+  name: ArcLengthSoftTranslation
+  nameWithType: ArcLengthSoftTranslation
+  fullName: g3.ArcLengthSoftTranslation
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcLengthSoftTranslation
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class ArcLengthSoftTranslation
+    content.vb: Public Class ArcLengthSoftTranslation
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.ArcLengthSoftTranslation.Curve
+  commentId: P:g3.ArcLengthSoftTranslation.Curve
+  id: Curve
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: Curve
+  nameWithType: ArcLengthSoftTranslation.Curve
+  fullName: g3.ArcLengthSoftTranslation.Curve
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Curve
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 106
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DCurve3 Curve { get; set; }
+    parameters: []
+    return:
+      type: g3.DCurve3
+    content.vb: Public Property Curve As DCurve3
+  overload: g3.ArcLengthSoftTranslation.Curve*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.Handle
+  commentId: P:g3.ArcLengthSoftTranslation.Handle
+  id: Handle
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: Handle
+  nameWithType: ArcLengthSoftTranslation.Handle
+  fullName: g3.ArcLengthSoftTranslation.Handle
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Handle
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 114
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Handle { get; set; }
+    parameters: []
+    return:
+      type: g3.Vector3d
+    content.vb: Public Property Handle As Vector3d
+  overload: g3.ArcLengthSoftTranslation.Handle*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.ArcRadius
+  commentId: P:g3.ArcLengthSoftTranslation.ArcRadius
+  id: ArcRadius
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: ArcRadius
+  nameWithType: ArcLengthSoftTranslation.ArcRadius
+  fullName: g3.ArcLengthSoftTranslation.ArcRadius
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ArcRadius
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double ArcRadius { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ArcRadius As Double
+  overload: g3.ArcLengthSoftTranslation.ArcRadius*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.WeightFunc
+  commentId: P:g3.ArcLengthSoftTranslation.WeightFunc
+  id: WeightFunc
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: WeightFunc
+  nameWithType: ArcLengthSoftTranslation.WeightFunc
+  fullName: g3.ArcLengthSoftTranslation.WeightFunc
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: WeightFunc
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 128
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<double, double, double> WeightFunc { get; set; }
+    parameters: []
+    return:
+      type: System.Func{System.Double,System.Double,System.Double}
+    content.vb: Public Property WeightFunc As Func(Of Double, Double, Double)
+  overload: g3.ArcLengthSoftTranslation.WeightFunc*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.roi_index
+  commentId: F:g3.ArcLengthSoftTranslation.roi_index
+  id: roi_index
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: roi_index
+  nameWithType: ArcLengthSoftTranslation.roi_index
+  fullName: g3.ArcLengthSoftTranslation.roi_index
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: roi_index
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 134
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int[] roi_index
+    return:
+      type: System.Int32[]
+    content.vb: Public roi_index As Integer()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.roi_weights
+  commentId: F:g3.ArcLengthSoftTranslation.roi_weights
+  id: roi_weights
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: roi_weights
+  nameWithType: ArcLengthSoftTranslation.roi_weights
+  fullName: g3.ArcLengthSoftTranslation.roi_weights
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: roi_weights
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 135
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double[] roi_weights
+    return:
+      type: System.Double[]
+    content.vb: Public roi_weights As Double()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.start_positions
+  commentId: F:g3.ArcLengthSoftTranslation.start_positions
+  id: start_positions
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: start_positions
+  nameWithType: ArcLengthSoftTranslation.start_positions
+  fullName: g3.ArcLengthSoftTranslation.start_positions
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: start_positions
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 136
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d[] start_positions
+    return:
+      type: g3.Vector3d[]
+    content.vb: Public start_positions As Vector3d()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.#ctor
+  commentId: M:g3.ArcLengthSoftTranslation.#ctor
+  id: '#ctor'
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: ArcLengthSoftTranslation()
+  nameWithType: ArcLengthSoftTranslation.ArcLengthSoftTranslation()
+  fullName: g3.ArcLengthSoftTranslation.ArcLengthSoftTranslation()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 140
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ArcLengthSoftTranslation()
+    content.vb: Public Sub New
+  overload: g3.ArcLengthSoftTranslation.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.BeginDeformation
+  commentId: M:g3.ArcLengthSoftTranslation.BeginDeformation
+  id: BeginDeformation
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: BeginDeformation()
+  nameWithType: ArcLengthSoftTranslation.BeginDeformation()
+  fullName: g3.ArcLengthSoftTranslation.BeginDeformation()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BeginDeformation
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 152
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void BeginDeformation()
+    content.vb: Public Sub BeginDeformation
+  overload: g3.ArcLengthSoftTranslation.BeginDeformation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.UpdateDeformation(g3.Vector3d)
+  commentId: M:g3.ArcLengthSoftTranslation.UpdateDeformation(g3.Vector3d)
+  id: UpdateDeformation(g3.Vector3d)
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: UpdateDeformation(Vector3d)
+  nameWithType: ArcLengthSoftTranslation.UpdateDeformation(Vector3d)
+  fullName: g3.ArcLengthSoftTranslation.UpdateDeformation(g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdateDeformation
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 163
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void UpdateDeformation(Vector3d newHandlePos)
+    parameters:
+    - id: newHandlePos
+      type: g3.Vector3d
+    content.vb: Public Sub UpdateDeformation(newHandlePos As Vector3d)
+  overload: g3.ArcLengthSoftTranslation.UpdateDeformation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.EndDeformation
+  commentId: M:g3.ArcLengthSoftTranslation.EndDeformation
+  id: EndDeformation
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: EndDeformation()
+  nameWithType: ArcLengthSoftTranslation.EndDeformation()
+  fullName: g3.ArcLengthSoftTranslation.EndDeformation()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EndDeformation
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 172
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void EndDeformation()
+    content.vb: Public Sub
+  overload: g3.ArcLengthSoftTranslation.EndDeformation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.ArcLengthSoftTranslation.UpdateROI(System.Int32)
+  commentId: M:g3.ArcLengthSoftTranslation.UpdateROI(System.Int32)
+  id: UpdateROI(System.Int32)
+  parent: g3.ArcLengthSoftTranslation
+  langs:
+  - csharp
+  - vb
+  name: UpdateROI(Int32)
+  nameWithType: ArcLengthSoftTranslation.UpdateROI(Int32)
+  fullName: g3.ArcLengthSoftTranslation.UpdateROI(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: UpdateROI
+    path: ../Assets/geometry3Sharp/curve/SimpleCurveDeformers.cs
+    startLine: 192
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void UpdateROI(int nNearVertexHint = -1)
+    parameters:
+    - id: nNearVertexHint
+      type: System.Int32
+    content.vb: Public Sub UpdateROI(nNearVertexHint As Integer = -1)
+  overload: g3.ArcLengthSoftTranslation.UpdateROI*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.ArcLengthSoftTranslation.Curve*
+  commentId: Overload:g3.ArcLengthSoftTranslation.Curve
+  name: Curve
+  nameWithType: ArcLengthSoftTranslation.Curve
+  fullName: g3.ArcLengthSoftTranslation.Curve
+- uid: g3.DCurve3
+  commentId: T:g3.DCurve3
+  parent: g3
+  name: DCurve3
+  nameWithType: DCurve3
+  fullName: g3.DCurve3
+- uid: g3.ArcLengthSoftTranslation.Handle*
+  commentId: Overload:g3.ArcLengthSoftTranslation.Handle
+  name: Handle
+  nameWithType: ArcLengthSoftTranslation.Handle
+  fullName: g3.ArcLengthSoftTranslation.Handle
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.ArcLengthSoftTranslation.ArcRadius*
+  commentId: Overload:g3.ArcLengthSoftTranslation.ArcRadius
+  name: ArcRadius
+  nameWithType: ArcLengthSoftTranslation.ArcRadius
+  fullName: g3.ArcLengthSoftTranslation.ArcRadius
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.ArcLengthSoftTranslation.WeightFunc*
+  commentId: Overload:g3.ArcLengthSoftTranslation.WeightFunc
+  name: WeightFunc
+  nameWithType: ArcLengthSoftTranslation.WeightFunc
+  fullName: g3.ArcLengthSoftTranslation.WeightFunc
+- uid: System.Func{System.Double,System.Double,System.Double}
+  commentId: T:System.Func{System.Double,System.Double,System.Double}
+  parent: System
+  definition: System.Func`3
+  name: Func<Double, Double, Double>
+  nameWithType: Func<Double, Double, Double>
+  fullName: System.Func<System.Double, System.Double, System.Double>
+  nameWithType.vb: Func(Of Double, Double, Double)
+  fullName.vb: System.Func(Of System.Double, System.Double, System.Double)
+  name.vb: Func(Of Double, Double, Double)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Int32[]
+  isExternal: true
+  name: Int32[]
+  nameWithType: Int32[]
+  fullName: System.Int32[]
+  nameWithType.vb: Int32()
+  fullName.vb: System.Int32()
+  name.vb: Int32()
+  spec.csharp:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.Vector3d[]
+  isExternal: true
+  name: Vector3d[]
+  nameWithType: Vector3d[]
+  fullName: g3.Vector3d[]
+  nameWithType.vb: Vector3d()
+  fullName.vb: g3.Vector3d()
+  name.vb: Vector3d()
+  spec.csharp:
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.ArcLengthSoftTranslation.#ctor*
+  commentId: Overload:g3.ArcLengthSoftTranslation.#ctor
+  name: ArcLengthSoftTranslation
+  nameWithType: ArcLengthSoftTranslation.ArcLengthSoftTranslation
+  fullName: g3.ArcLengthSoftTranslation.ArcLengthSoftTranslation
+- uid: g3.ArcLengthSoftTranslation.BeginDeformation*
+  commentId: Overload:g3.ArcLengthSoftTranslation.BeginDeformation
+  name: BeginDeformation
+  nameWithType: ArcLengthSoftTranslation.BeginDeformation
+  fullName: g3.ArcLengthSoftTranslation.BeginDeformation
+- uid: g3.ArcLengthSoftTranslation.UpdateDeformation*
+  commentId: Overload:g3.ArcLengthSoftTranslation.UpdateDeformation
+  name: UpdateDeformation
+  nameWithType: ArcLengthSoftTranslation.UpdateDeformation
+  fullName: g3.ArcLengthSoftTranslation.UpdateDeformation
+- uid: g3.ArcLengthSoftTranslation.EndDeformation*
+  commentId: Overload:g3.ArcLengthSoftTranslation.EndDeformation
+  name: EndDeformation
+  nameWithType: ArcLengthSoftTranslation.EndDeformation
+  fullName: g3.ArcLengthSoftTranslation.EndDeformation
+- uid: g3.ArcLengthSoftTranslation.UpdateROI*
+  commentId: Overload:g3.ArcLengthSoftTranslation.UpdateROI
+  name: UpdateROI
+  nameWithType: ArcLengthSoftTranslation.UpdateROI
+  fullName: g3.ArcLengthSoftTranslation.UpdateROI
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

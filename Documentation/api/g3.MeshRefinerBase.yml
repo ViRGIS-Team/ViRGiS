@@ -1,0 +1,970 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshRefinerBase
+  commentId: T:g3.MeshRefinerBase
+  id: MeshRefinerBase
+  parent: g3
+  children:
+  - g3.MeshRefinerBase.#ctor
+  - g3.MeshRefinerBase.#ctor(g3.DMesh3)
+  - g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  - g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  - g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  - g3.MeshRefinerBase.Cancelled
+  - g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  - g3.MeshRefinerBase.constraints
+  - g3.MeshRefinerBase.Constraints
+  - g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  - g3.MeshRefinerBase.edge_flip_tol
+  - g3.MeshRefinerBase.EdgeFlipTolerance
+  - g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  - g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  - g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  - g3.MeshRefinerBase.mesh
+  - g3.MeshRefinerBase.Mesh
+  - g3.MeshRefinerBase.Progress
+  - g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  - g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  - g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: MeshRefinerBase
+  nameWithType: MeshRefinerBase
+  fullName: g3.MeshRefinerBase
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshRefinerBase
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 7
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class MeshRefinerBase
+    content.vb: Public Class MeshRefinerBase
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - g3.Reducer
+  - g3.Remesher
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.MeshRefinerBase.mesh
+  commentId: F:g3.MeshRefinerBase.mesh
+  id: mesh
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: mesh
+  nameWithType: MeshRefinerBase.mesh
+  fullName: g3.MeshRefinerBase.mesh
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mesh
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected DMesh3 mesh
+    return:
+      type: g3.DMesh3
+    content.vb: Protected mesh As DMesh3
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.constraints
+  commentId: F:g3.MeshRefinerBase.constraints
+  id: constraints
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: constraints
+  nameWithType: MeshRefinerBase.constraints
+  fullName: g3.MeshRefinerBase.constraints
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: constraints
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected MeshConstraints constraints
+    return:
+      type: g3.MeshConstraints
+    content.vb: Protected constraints As MeshConstraints
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  commentId: F:g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  id: AllowCollapseFixedVertsWithSameSetID
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: AllowCollapseFixedVertsWithSameSetID
+  nameWithType: MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  fullName: g3.MeshRefinerBase.AllowCollapseFixedVertsWithSameSetID
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllowCollapseFixedVertsWithSameSetID
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 15
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool AllowCollapseFixedVertsWithSameSetID
+    return:
+      type: System.Boolean
+    content.vb: Public AllowCollapseFixedVertsWithSameSetID As Boolean
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRefinerBase.EdgeFlipTolerance
+  commentId: P:g3.MeshRefinerBase.EdgeFlipTolerance
+  id: EdgeFlipTolerance
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: EdgeFlipTolerance
+  nameWithType: MeshRefinerBase.EdgeFlipTolerance
+  fullName: g3.MeshRefinerBase.EdgeFlipTolerance
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: EdgeFlipTolerance
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nIf normals dot product is less than this, we consider it a normal flip. default = 0\n"
+  example: []
+  syntax:
+    content: public double EdgeFlipTolerance { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property EdgeFlipTolerance As Double
+  overload: g3.MeshRefinerBase.EdgeFlipTolerance*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRefinerBase.edge_flip_tol
+  commentId: F:g3.MeshRefinerBase.edge_flip_tol
+  id: edge_flip_tol
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: edge_flip_tol
+  nameWithType: MeshRefinerBase.edge_flip_tol
+  fullName: g3.MeshRefinerBase.edge_flip_tol
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: edge_flip_tol
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double edge_flip_tol
+    return:
+      type: System.Double
+    content.vb: Protected edge_flip_tol As Double
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.#ctor(g3.DMesh3)
+  commentId: M:g3.MeshRefinerBase.#ctor(g3.DMesh3)
+  id: '#ctor(g3.DMesh3)'
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: MeshRefinerBase(DMesh3)
+  nameWithType: MeshRefinerBase.MeshRefinerBase(DMesh3)
+  fullName: g3.MeshRefinerBase.MeshRefinerBase(g3.DMesh3)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshRefinerBase(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    content.vb: Public Sub New(mesh As DMesh3)
+  overload: g3.MeshRefinerBase.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRefinerBase.#ctor
+  commentId: M:g3.MeshRefinerBase.#ctor
+  id: '#ctor'
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: MeshRefinerBase()
+  nameWithType: MeshRefinerBase.MeshRefinerBase()
+  fullName: g3.MeshRefinerBase.MeshRefinerBase()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected MeshRefinerBase()
+    content.vb: Protected Sub New
+  overload: g3.MeshRefinerBase.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.Mesh
+  commentId: P:g3.MeshRefinerBase.Mesh
+  id: Mesh
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: Mesh
+  nameWithType: MeshRefinerBase.Mesh
+  fullName: g3.MeshRefinerBase.Mesh
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Mesh
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DMesh3 Mesh { get; }
+    parameters: []
+    return:
+      type: g3.DMesh3
+    content.vb: Public ReadOnly Property Mesh As DMesh3
+  overload: g3.MeshRefinerBase.Mesh*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshRefinerBase.Constraints
+  commentId: P:g3.MeshRefinerBase.Constraints
+  id: Constraints
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: Constraints
+  nameWithType: MeshRefinerBase.Constraints
+  fullName: g3.MeshRefinerBase.Constraints
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Constraints
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public MeshConstraints Constraints { get; }
+    parameters: []
+    return:
+      type: g3.MeshConstraints
+    content.vb: Public ReadOnly Property Constraints As MeshConstraints
+  overload: g3.MeshRefinerBase.Constraints*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  commentId: M:g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  id: SetExternalConstraints(g3.MeshConstraints)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: SetExternalConstraints(MeshConstraints)
+  nameWithType: MeshRefinerBase.SetExternalConstraints(MeshConstraints)
+  fullName: g3.MeshRefinerBase.SetExternalConstraints(g3.MeshConstraints)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetExternalConstraints
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 46
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetExternalConstraints(MeshConstraints cons)
+    parameters:
+    - id: cons
+      type: g3.MeshConstraints
+    content.vb: Public Sub SetExternalConstraints(cons As MeshConstraints)
+  overload: g3.MeshRefinerBase.SetExternalConstraints*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRefinerBase.Progress
+  commentId: F:g3.MeshRefinerBase.Progress
+  id: Progress
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: Progress
+  nameWithType: MeshRefinerBase.Progress
+  fullName: g3.MeshRefinerBase.Progress
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Progress
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 55
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSet this to be able to cancel running remesher\n"
+  example: []
+  syntax:
+    content: public ProgressCancel Progress
+    return:
+      type: g3.ProgressCancel
+    content.vb: Public Progress As ProgressCancel
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.MeshRefinerBase.Cancelled
+  commentId: M:g3.MeshRefinerBase.Cancelled
+  id: Cancelled
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: Cancelled()
+  nameWithType: MeshRefinerBase.Cancelled()
+  fullName: g3.MeshRefinerBase.Cancelled()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Cancelled
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 60
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nif this returns true, abort computation. \n"
+  example: []
+  syntax:
+    content: protected virtual bool Cancelled()
+    return:
+      type: System.Boolean
+    content.vb: Protected Overridable Function Cancelled As Boolean
+  overload: g3.MeshRefinerBase.Cancelled*
+  modifiers.csharp:
+  - protected
+  - virtual
+  modifiers.vb:
+  - Protected
+  - Overridable
+- uid: g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  commentId: M:g3.MeshRefinerBase.edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  id: edge_flip_metric(g3.Vector3d@,g3.Vector3d@)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: edge_flip_metric(ref Vector3d, ref Vector3d)
+  nameWithType: MeshRefinerBase.edge_flip_metric(ref Vector3d, ref Vector3d)
+  fullName: g3.MeshRefinerBase.edge_flip_metric(ref g3.Vector3d, ref g3.Vector3d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: edge_flip_metric
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 65
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double edge_flip_metric(ref Vector3d n0, ref Vector3d n1)
+    parameters:
+    - id: n0
+      type: g3.Vector3d
+    - id: n1
+      type: g3.Vector3d
+    return:
+      type: System.Double
+    content.vb: Protected Function edge_flip_metric(ByRef n0 As Vector3d, ByRef n1 As Vector3d) As Double
+  overload: g3.MeshRefinerBase.edge_flip_metric*
+  nameWithType.vb: MeshRefinerBase.edge_flip_metric(ByRef Vector3d, ByRef Vector3d)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshRefinerBase.edge_flip_metric(ByRef g3.Vector3d, ByRef g3.Vector3d)
+  name.vb: edge_flip_metric(ByRef Vector3d, ByRef Vector3d)
+- uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  commentId: M:g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  id: collapse_creates_flip_or_invalid(System.Int32,System.Int32,g3.Vector3d@,System.Int32,System.Int32)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: collapse_creates_flip_or_invalid(Int32, Int32, ref Vector3d, Int32, Int32)
+  nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid(Int32, Int32, ref Vector3d, Int32, Int32)
+  fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32, System.Int32, ref g3.Vector3d, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: collapse_creates_flip_or_invalid
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ncheck if edge collapse will create a face-normal flip. \nAlso checks if collapse would violate link condition, since\nwe are iterating over one-ring anyway.\n\nThis only checks one-ring of vid, so you have to call it twice,\nwith vid and vother reversed, to check both one-rings\n"
+  example: []
+  syntax:
+    content: protected bool collapse_creates_flip_or_invalid(int vid, int vother, ref Vector3d newv, int tc, int td)
+    parameters:
+    - id: vid
+      type: System.Int32
+    - id: vother
+      type: System.Int32
+    - id: newv
+      type: g3.Vector3d
+    - id: tc
+      type: System.Int32
+    - id: td
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function collapse_creates_flip_or_invalid(vid As Integer, vother As Integer, ByRef newv As Vector3d, tc As Integer, td As Integer) As Boolean
+  overload: g3.MeshRefinerBase.collapse_creates_flip_or_invalid*
+  nameWithType.vb: MeshRefinerBase.collapse_creates_flip_or_invalid(Int32, Int32, ByRef Vector3d, Int32, Int32)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshRefinerBase.collapse_creates_flip_or_invalid(System.Int32, System.Int32, ByRef g3.Vector3d, System.Int32, System.Int32)
+  name.vb: collapse_creates_flip_or_invalid(Int32, Int32, ByRef Vector3d, Int32, Int32)
+- uid: g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.MeshRefinerBase.flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  id: flip_inverts_normals(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: flip_inverts_normals(Int32, Int32, Int32, Int32, Int32)
+  nameWithType: MeshRefinerBase.flip_inverts_normals(Int32, Int32, Int32, Int32, Int32)
+  fullName: g3.MeshRefinerBase.flip_inverts_normals(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: flip_inverts_normals
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 120
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCheck if edge flip might reverse normal direction. \n\nNot entirely clear on how to implement this test. \nCurrently checking if any normal-pairs are reversed.\n"
+  example: []
+  syntax:
+    content: protected bool flip_inverts_normals(int a, int b, int c, int d, int t0)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    - id: c
+      type: System.Int32
+    - id: d
+      type: System.Int32
+    - id: t0
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function flip_inverts_normals(a As Integer, b As Integer, c As Integer, d As Integer, t0 As Integer) As Boolean
+  overload: g3.MeshRefinerBase.flip_inverts_normals*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  commentId: M:g3.MeshRefinerBase.can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  id: can_collapse_constraints(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, out Int32)
+  nameWithType: MeshRefinerBase.can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, out Int32)
+  fullName: g3.MeshRefinerBase.can_collapse_constraints(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, out System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: can_collapse_constraints
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 154
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool can_collapse_constraints(int eid, int a, int b, int c, int d, int tc, int td, out int collapse_to)
+    parameters:
+    - id: eid
+      type: System.Int32
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    - id: c
+      type: System.Int32
+    - id: d
+      type: System.Int32
+    - id: tc
+      type: System.Int32
+    - id: td
+      type: System.Int32
+    - id: collapse_to
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function can_collapse_constraints(eid As Integer, a As Integer, b As Integer, c As Integer, d As Integer, tc As Integer, td As Integer, ByRef collapse_to As Integer) As Boolean
+  overload: g3.MeshRefinerBase.can_collapse_constraints*
+  nameWithType.vb: MeshRefinerBase.can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, ByRef Int32)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshRefinerBase.can_collapse_constraints(System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, System.Int32, ByRef System.Int32)
+  name.vb: can_collapse_constraints(Int32, Int32, Int32, Int32, Int32, Int32, Int32, ByRef Int32)
+- uid: g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  commentId: M:g3.MeshRefinerBase.can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  id: can_collapse_vtx(System.Int32,System.Int32,System.Int32,System.Int32@)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: can_collapse_vtx(Int32, Int32, Int32, out Int32)
+  nameWithType: MeshRefinerBase.can_collapse_vtx(Int32, Int32, Int32, out Int32)
+  fullName: g3.MeshRefinerBase.can_collapse_vtx(System.Int32, System.Int32, System.Int32, out System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: can_collapse_vtx
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 191
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool can_collapse_vtx(int eid, int a, int b, out int collapse_to)
+    parameters:
+    - id: eid
+      type: System.Int32
+    - id: a
+      type: System.Int32
+    - id: b
+      type: System.Int32
+    - id: collapse_to
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function can_collapse_vtx(eid As Integer, a As Integer, b As Integer, ByRef collapse_to As Integer) As Boolean
+  overload: g3.MeshRefinerBase.can_collapse_vtx*
+  nameWithType.vb: MeshRefinerBase.can_collapse_vtx(Int32, Int32, Int32, ByRef Int32)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshRefinerBase.can_collapse_vtx(System.Int32, System.Int32, System.Int32, ByRef System.Int32)
+  name.vb: can_collapse_vtx(Int32, Int32, Int32, ByRef Int32)
+- uid: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  commentId: M:g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  id: vertex_is_fixed(System.Int32)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: vertex_is_fixed(Int32)
+  nameWithType: MeshRefinerBase.vertex_is_fixed(Int32)
+  fullName: g3.MeshRefinerBase.vertex_is_fixed(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertex_is_fixed
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 250
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool vertex_is_fixed(int vid)
+    parameters:
+    - id: vid
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function vertex_is_fixed(vid As Integer) As Boolean
+  overload: g3.MeshRefinerBase.vertex_is_fixed*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  commentId: M:g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  id: vertex_is_constrained(System.Int32)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: vertex_is_constrained(Int32)
+  nameWithType: MeshRefinerBase.vertex_is_constrained(Int32)
+  fullName: g3.MeshRefinerBase.vertex_is_constrained(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: vertex_is_constrained
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 256
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool vertex_is_constrained(int vid)
+    parameters:
+    - id: vid
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Protected Function vertex_is_constrained(vid As Integer) As Boolean
+  overload: g3.MeshRefinerBase.vertex_is_constrained*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  commentId: M:g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  id: get_vertex_constraint(System.Int32)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: get_vertex_constraint(Int32)
+  nameWithType: MeshRefinerBase.get_vertex_constraint(Int32)
+  fullName: g3.MeshRefinerBase.get_vertex_constraint(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: get_vertex_constraint
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 266
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected VertexConstraint get_vertex_constraint(int vid)
+    parameters:
+    - id: vid
+      type: System.Int32
+    return:
+      type: g3.VertexConstraint
+    content.vb: Protected Function get_vertex_constraint(vid As Integer) As VertexConstraint
+  overload: g3.MeshRefinerBase.get_vertex_constraint*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  commentId: M:g3.MeshRefinerBase.get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  id: get_vertex_constraint(System.Int32,g3.VertexConstraint@)
+  parent: g3.MeshRefinerBase
+  langs:
+  - csharp
+  - vb
+  name: get_vertex_constraint(Int32, ref VertexConstraint)
+  nameWithType: MeshRefinerBase.get_vertex_constraint(Int32, ref VertexConstraint)
+  fullName: g3.MeshRefinerBase.get_vertex_constraint(System.Int32, ref g3.VertexConstraint)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: get_vertex_constraint
+    path: ../Assets/geometry3Sharp/mesh/MeshRefinerBase.cs
+    startLine: 272
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool get_vertex_constraint(int vid, ref VertexConstraint vc)
+    parameters:
+    - id: vid
+      type: System.Int32
+    - id: vc
+      type: g3.VertexConstraint
+    return:
+      type: System.Boolean
+    content.vb: Protected Function get_vertex_constraint(vid As Integer, ByRef vc As VertexConstraint) As Boolean
+  overload: g3.MeshRefinerBase.get_vertex_constraint*
+  nameWithType.vb: MeshRefinerBase.get_vertex_constraint(Int32, ByRef VertexConstraint)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.MeshRefinerBase.get_vertex_constraint(System.Int32, ByRef g3.VertexConstraint)
+  name.vb: get_vertex_constraint(Int32, ByRef VertexConstraint)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.MeshConstraints
+  commentId: T:g3.MeshConstraints
+  parent: g3
+  name: MeshConstraints
+  nameWithType: MeshConstraints
+  fullName: g3.MeshConstraints
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.MeshRefinerBase.EdgeFlipTolerance*
+  commentId: Overload:g3.MeshRefinerBase.EdgeFlipTolerance
+  name: EdgeFlipTolerance
+  nameWithType: MeshRefinerBase.EdgeFlipTolerance
+  fullName: g3.MeshRefinerBase.EdgeFlipTolerance
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.MeshRefinerBase.#ctor*
+  commentId: Overload:g3.MeshRefinerBase.#ctor
+  name: MeshRefinerBase
+  nameWithType: MeshRefinerBase.MeshRefinerBase
+  fullName: g3.MeshRefinerBase.MeshRefinerBase
+- uid: g3.MeshRefinerBase.Mesh*
+  commentId: Overload:g3.MeshRefinerBase.Mesh
+  name: Mesh
+  nameWithType: MeshRefinerBase.Mesh
+  fullName: g3.MeshRefinerBase.Mesh
+- uid: g3.MeshRefinerBase.Constraints*
+  commentId: Overload:g3.MeshRefinerBase.Constraints
+  name: Constraints
+  nameWithType: MeshRefinerBase.Constraints
+  fullName: g3.MeshRefinerBase.Constraints
+- uid: g3.MeshRefinerBase.SetExternalConstraints*
+  commentId: Overload:g3.MeshRefinerBase.SetExternalConstraints
+  name: SetExternalConstraints
+  nameWithType: MeshRefinerBase.SetExternalConstraints
+  fullName: g3.MeshRefinerBase.SetExternalConstraints
+- uid: g3.ProgressCancel
+  commentId: T:g3.ProgressCancel
+  parent: g3
+  name: ProgressCancel
+  nameWithType: ProgressCancel
+  fullName: g3.ProgressCancel
+- uid: g3.MeshRefinerBase.Cancelled*
+  commentId: Overload:g3.MeshRefinerBase.Cancelled
+  name: Cancelled
+  nameWithType: MeshRefinerBase.Cancelled
+  fullName: g3.MeshRefinerBase.Cancelled
+- uid: g3.MeshRefinerBase.edge_flip_metric*
+  commentId: Overload:g3.MeshRefinerBase.edge_flip_metric
+  name: edge_flip_metric
+  nameWithType: MeshRefinerBase.edge_flip_metric
+  fullName: g3.MeshRefinerBase.edge_flip_metric
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.MeshRefinerBase.collapse_creates_flip_or_invalid*
+  commentId: Overload:g3.MeshRefinerBase.collapse_creates_flip_or_invalid
+  name: collapse_creates_flip_or_invalid
+  nameWithType: MeshRefinerBase.collapse_creates_flip_or_invalid
+  fullName: g3.MeshRefinerBase.collapse_creates_flip_or_invalid
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.MeshRefinerBase.flip_inverts_normals*
+  commentId: Overload:g3.MeshRefinerBase.flip_inverts_normals
+  name: flip_inverts_normals
+  nameWithType: MeshRefinerBase.flip_inverts_normals
+  fullName: g3.MeshRefinerBase.flip_inverts_normals
+- uid: g3.MeshRefinerBase.can_collapse_constraints*
+  commentId: Overload:g3.MeshRefinerBase.can_collapse_constraints
+  name: can_collapse_constraints
+  nameWithType: MeshRefinerBase.can_collapse_constraints
+  fullName: g3.MeshRefinerBase.can_collapse_constraints
+- uid: g3.MeshRefinerBase.can_collapse_vtx*
+  commentId: Overload:g3.MeshRefinerBase.can_collapse_vtx
+  name: can_collapse_vtx
+  nameWithType: MeshRefinerBase.can_collapse_vtx
+  fullName: g3.MeshRefinerBase.can_collapse_vtx
+- uid: g3.MeshRefinerBase.vertex_is_fixed*
+  commentId: Overload:g3.MeshRefinerBase.vertex_is_fixed
+  name: vertex_is_fixed
+  nameWithType: MeshRefinerBase.vertex_is_fixed
+  fullName: g3.MeshRefinerBase.vertex_is_fixed
+- uid: g3.MeshRefinerBase.vertex_is_constrained*
+  commentId: Overload:g3.MeshRefinerBase.vertex_is_constrained
+  name: vertex_is_constrained
+  nameWithType: MeshRefinerBase.vertex_is_constrained
+  fullName: g3.MeshRefinerBase.vertex_is_constrained
+- uid: g3.MeshRefinerBase.get_vertex_constraint*
+  commentId: Overload:g3.MeshRefinerBase.get_vertex_constraint
+  name: get_vertex_constraint
+  nameWithType: MeshRefinerBase.get_vertex_constraint
+  fullName: g3.MeshRefinerBase.get_vertex_constraint
+- uid: g3.VertexConstraint
+  commentId: T:g3.VertexConstraint
+  parent: g3
+  name: VertexConstraint
+  nameWithType: VertexConstraint
+  fullName: g3.VertexConstraint

@@ -1,0 +1,774 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DSparseGrid3`1
+  commentId: T:g3.DSparseGrid3`1
+  id: DSparseGrid3`1
+  parent: g3
+  children:
+  - g3.DSparseGrid3`1.#ctor(`0)
+  - g3.DSparseGrid3`1.Allocated
+  - g3.DSparseGrid3`1.AllocatedIndices
+  - g3.DSparseGrid3`1.BoundsInclusive
+  - g3.DSparseGrid3`1.Count
+  - g3.DSparseGrid3`1.Density
+  - g3.DSparseGrid3`1.Dimensions
+  - g3.DSparseGrid3`1.Free(g3.Vector3i)
+  - g3.DSparseGrid3`1.FreeAll
+  - g3.DSparseGrid3`1.Get(g3.Vector3i,System.Boolean)
+  - g3.DSparseGrid3`1.Has(g3.Vector3i)
+  langs:
+  - csharp
+  - vb
+  name: DSparseGrid3<ElemType>
+  nameWithType: DSparseGrid3<ElemType>
+  fullName: g3.DSparseGrid3<ElemType>
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DSparseGrid3
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 47
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nDynamic sparse 3D grid. Idea is that we have grid of some type of object\nand we don&apos;t want to pre-allocate full grid of them. So we allocate on-demand.\nThis can be used to implement multi-grid schemes, eg for example the GridElement\ntype could be Bitmap3 of a fixed dimension.\n"
+  example: []
+  syntax:
+    content: 'public class DSparseGrid3<ElemType> : IGrid3 where ElemType : class, IGridElement3'
+    typeParameters:
+    - id: ElemType
+    content.vb: >-
+      Public Class DSparseGrid3(Of ElemType As {Class, IGridElement3})
+          Implements IGrid3
+  inheritance:
+  - System.Object
+  implements:
+  - g3.IGrid3
+  nameWithType.vb: DSparseGrid3(Of ElemType)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: g3.DSparseGrid3(Of ElemType)
+  name.vb: DSparseGrid3(Of ElemType)
+- uid: g3.DSparseGrid3`1.#ctor(`0)
+  commentId: M:g3.DSparseGrid3`1.#ctor(`0)
+  id: '#ctor(`0)'
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: DSparseGrid3(ElemType)
+  nameWithType: DSparseGrid3<ElemType>.DSparseGrid3(ElemType)
+  fullName: g3.DSparseGrid3<ElemType>.DSparseGrid3(ElemType)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 58
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nMust provide a sample instance of the element type that we can Duplicate()\nto make additional copies. Should be no data in here\n"
+  example: []
+  syntax:
+    content: public DSparseGrid3(ElemType toDuplicate)
+    parameters:
+    - id: toDuplicate
+      type: '{ElemType}'
+    content.vb: Public Sub New(toDuplicate As ElemType)
+  overload: g3.DSparseGrid3`1.#ctor*
+  nameWithType.vb: DSparseGrid3(Of ElemType).DSparseGrid3(ElemType)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).DSparseGrid3(ElemType)
+- uid: g3.DSparseGrid3`1.Has(g3.Vector3i)
+  commentId: M:g3.DSparseGrid3`1.Has(g3.Vector3i)
+  id: Has(g3.Vector3i)
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Has(Vector3i)
+  nameWithType: DSparseGrid3<ElemType>.Has(Vector3i)
+  fullName: g3.DSparseGrid3<ElemType>.Has(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Has
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 66
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Has(Vector3i index)
+    parameters:
+    - id: index
+      type: g3.Vector3i
+    return:
+      type: System.Boolean
+    content.vb: Public Function Has(index As Vector3i) As Boolean
+  overload: g3.DSparseGrid3`1.Has*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Has(Vector3i)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Has(g3.Vector3i)
+- uid: g3.DSparseGrid3`1.Get(g3.Vector3i,System.Boolean)
+  commentId: M:g3.DSparseGrid3`1.Get(g3.Vector3i,System.Boolean)
+  id: Get(g3.Vector3i,System.Boolean)
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Get(Vector3i, Boolean)
+  nameWithType: DSparseGrid3<ElemType>.Get(Vector3i, Boolean)
+  fullName: g3.DSparseGrid3<ElemType>.Get(g3.Vector3i, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Get
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 72
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public ElemType Get(Vector3i index, bool allocateIfMissing = true)
+    parameters:
+    - id: index
+      type: g3.Vector3i
+    - id: allocateIfMissing
+      type: System.Boolean
+    return:
+      type: '{ElemType}'
+    content.vb: Public Function Get(index As Vector3i, allocateIfMissing As Boolean = True) As ElemType
+  overload: g3.DSparseGrid3`1.Get*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Get(Vector3i, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Get(g3.Vector3i, System.Boolean)
+- uid: g3.DSparseGrid3`1.Free(g3.Vector3i)
+  commentId: M:g3.DSparseGrid3`1.Free(g3.Vector3i)
+  id: Free(g3.Vector3i)
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Free(Vector3i)
+  nameWithType: DSparseGrid3<ElemType>.Free(Vector3i)
+  fullName: g3.DSparseGrid3<ElemType>.Free(g3.Vector3i)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Free
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 84
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Free(Vector3i index)
+    parameters:
+    - id: index
+      type: g3.Vector3i
+    return:
+      type: System.Boolean
+    content.vb: Public Function Free(index As Vector3i) As Boolean
+  overload: g3.DSparseGrid3`1.Free*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Free(Vector3i)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Free(g3.Vector3i)
+- uid: g3.DSparseGrid3`1.FreeAll
+  commentId: M:g3.DSparseGrid3`1.FreeAll
+  id: FreeAll
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: FreeAll()
+  nameWithType: DSparseGrid3<ElemType>.FreeAll()
+  fullName: g3.DSparseGrid3<ElemType>.FreeAll()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FreeAll
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void FreeAll()
+    content.vb: Public Sub FreeAll
+  overload: g3.DSparseGrid3`1.FreeAll*
+  nameWithType.vb: DSparseGrid3(Of ElemType).FreeAll()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).FreeAll()
+- uid: g3.DSparseGrid3`1.Count
+  commentId: P:g3.DSparseGrid3`1.Count
+  id: Count
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: DSparseGrid3<ElemType>.Count
+  fullName: g3.DSparseGrid3<ElemType>.Count
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Count
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 101
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: g3.DSparseGrid3`1.Count*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Count
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Count
+- uid: g3.DSparseGrid3`1.Density
+  commentId: P:g3.DSparseGrid3`1.Density
+  id: Density
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Density
+  nameWithType: DSparseGrid3<ElemType>.Density
+  fullName: g3.DSparseGrid3<ElemType>.Density
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Density
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 106
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Density { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Density As Double
+  overload: g3.DSparseGrid3`1.Density*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Density
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Density
+- uid: g3.DSparseGrid3`1.BoundsInclusive
+  commentId: P:g3.DSparseGrid3`1.BoundsInclusive
+  id: BoundsInclusive
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: BoundsInclusive
+  nameWithType: DSparseGrid3<ElemType>.BoundsInclusive
+  fullName: g3.DSparseGrid3<ElemType>.BoundsInclusive
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BoundsInclusive
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 115
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nreturns integer-aabb where indices range from [min,max] (inclusive)\n"
+  example: []
+  syntax:
+    content: public AxisAlignedBox3i BoundsInclusive { get; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox3i
+    content.vb: Public ReadOnly Property BoundsInclusive As AxisAlignedBox3i
+  overload: g3.DSparseGrid3`1.BoundsInclusive*
+  implements:
+  - g3.IGrid3.BoundsInclusive
+  nameWithType.vb: DSparseGrid3(Of ElemType).BoundsInclusive
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DSparseGrid3(Of ElemType).BoundsInclusive
+- uid: g3.DSparseGrid3`1.Dimensions
+  commentId: P:g3.DSparseGrid3`1.Dimensions
+  id: Dimensions
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Dimensions
+  nameWithType: DSparseGrid3<ElemType>.Dimensions
+  fullName: g3.DSparseGrid3<ElemType>.Dimensions
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Dimensions
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 121
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3i Dimensions { get; }
+    parameters: []
+    return:
+      type: g3.Vector3i
+    content.vb: Public ReadOnly Property Dimensions As Vector3i
+  overload: g3.DSparseGrid3`1.Dimensions*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Dimensions
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Dimensions
+- uid: g3.DSparseGrid3`1.AllocatedIndices
+  commentId: M:g3.DSparseGrid3`1.AllocatedIndices
+  id: AllocatedIndices
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: AllocatedIndices()
+  nameWithType: DSparseGrid3<ElemType>.AllocatedIndices()
+  fullName: g3.DSparseGrid3<ElemType>.AllocatedIndices()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: AllocatedIndices
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 127
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<Vector3i> AllocatedIndices()
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.Vector3i}
+    content.vb: Public Function AllocatedIndices As IEnumerable(Of Vector3i)
+  overload: g3.DSparseGrid3`1.AllocatedIndices*
+  nameWithType.vb: DSparseGrid3(Of ElemType).AllocatedIndices()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).AllocatedIndices()
+- uid: g3.DSparseGrid3`1.Allocated
+  commentId: M:g3.DSparseGrid3`1.Allocated
+  id: Allocated
+  parent: g3.DSparseGrid3`1
+  langs:
+  - csharp
+  - vb
+  name: Allocated()
+  nameWithType: DSparseGrid3<ElemType>.Allocated()
+  fullName: g3.DSparseGrid3<ElemType>.Allocated()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Allocated
+    path: ../Assets/geometry3Sharp/spatial/DSparseGrid3.cs
+    startLine: 133
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<KeyValuePair<Vector3i, ElemType>> Allocated()
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{g3.Vector3i,{ElemType}}}
+    content.vb: Public Function Allocated As IEnumerable(Of KeyValuePair(Of Vector3i, ElemType))
+  overload: g3.DSparseGrid3`1.Allocated*
+  nameWithType.vb: DSparseGrid3(Of ElemType).Allocated()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Allocated()
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.IGrid3
+  commentId: T:g3.IGrid3
+  parent: g3
+  name: IGrid3
+  nameWithType: IGrid3
+  fullName: g3.IGrid3
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DSparseGrid3`1.#ctor*
+  commentId: Overload:g3.DSparseGrid3`1.#ctor
+  name: DSparseGrid3
+  nameWithType: DSparseGrid3<ElemType>.DSparseGrid3
+  fullName: g3.DSparseGrid3<ElemType>.DSparseGrid3
+  nameWithType.vb: DSparseGrid3(Of ElemType).DSparseGrid3
+  fullName.vb: g3.DSparseGrid3(Of ElemType).DSparseGrid3
+- uid: '{ElemType}'
+  commentId: '!:ElemType'
+  definition: ElemType
+  name: ElemType
+  nameWithType: ElemType
+  fullName: ElemType
+- uid: ElemType
+  name: ElemType
+  nameWithType: ElemType
+  fullName: ElemType
+- uid: g3.DSparseGrid3`1.Has*
+  commentId: Overload:g3.DSparseGrid3`1.Has
+  name: Has
+  nameWithType: DSparseGrid3<ElemType>.Has
+  fullName: g3.DSparseGrid3<ElemType>.Has
+  nameWithType.vb: DSparseGrid3(Of ElemType).Has
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Has
+- uid: g3.Vector3i
+  commentId: T:g3.Vector3i
+  parent: g3
+  name: Vector3i
+  nameWithType: Vector3i
+  fullName: g3.Vector3i
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: g3.DSparseGrid3`1.Get*
+  commentId: Overload:g3.DSparseGrid3`1.Get
+  name: Get
+  nameWithType: DSparseGrid3<ElemType>.Get
+  fullName: g3.DSparseGrid3<ElemType>.Get
+  nameWithType.vb: DSparseGrid3(Of ElemType).Get
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Get
+- uid: g3.DSparseGrid3`1.Free*
+  commentId: Overload:g3.DSparseGrid3`1.Free
+  name: Free
+  nameWithType: DSparseGrid3<ElemType>.Free
+  fullName: g3.DSparseGrid3<ElemType>.Free
+  nameWithType.vb: DSparseGrid3(Of ElemType).Free
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Free
+- uid: g3.DSparseGrid3`1.FreeAll*
+  commentId: Overload:g3.DSparseGrid3`1.FreeAll
+  name: FreeAll
+  nameWithType: DSparseGrid3<ElemType>.FreeAll
+  fullName: g3.DSparseGrid3<ElemType>.FreeAll
+  nameWithType.vb: DSparseGrid3(Of ElemType).FreeAll
+  fullName.vb: g3.DSparseGrid3(Of ElemType).FreeAll
+- uid: g3.DSparseGrid3`1.Count*
+  commentId: Overload:g3.DSparseGrid3`1.Count
+  name: Count
+  nameWithType: DSparseGrid3<ElemType>.Count
+  fullName: g3.DSparseGrid3<ElemType>.Count
+  nameWithType.vb: DSparseGrid3(Of ElemType).Count
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.DSparseGrid3`1.Density*
+  commentId: Overload:g3.DSparseGrid3`1.Density
+  name: Density
+  nameWithType: DSparseGrid3<ElemType>.Density
+  fullName: g3.DSparseGrid3<ElemType>.Density
+  nameWithType.vb: DSparseGrid3(Of ElemType).Density
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Density
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.DSparseGrid3`1.BoundsInclusive*
+  commentId: Overload:g3.DSparseGrid3`1.BoundsInclusive
+  name: BoundsInclusive
+  nameWithType: DSparseGrid3<ElemType>.BoundsInclusive
+  fullName: g3.DSparseGrid3<ElemType>.BoundsInclusive
+  nameWithType.vb: DSparseGrid3(Of ElemType).BoundsInclusive
+  fullName.vb: g3.DSparseGrid3(Of ElemType).BoundsInclusive
+- uid: g3.IGrid3.BoundsInclusive
+  commentId: P:g3.IGrid3.BoundsInclusive
+  parent: g3.IGrid3
+  name: BoundsInclusive
+  nameWithType: IGrid3.BoundsInclusive
+  fullName: g3.IGrid3.BoundsInclusive
+- uid: g3.AxisAlignedBox3i
+  commentId: T:g3.AxisAlignedBox3i
+  parent: g3
+  name: AxisAlignedBox3i
+  nameWithType: AxisAlignedBox3i
+  fullName: g3.AxisAlignedBox3i
+- uid: g3.DSparseGrid3`1.Dimensions*
+  commentId: Overload:g3.DSparseGrid3`1.Dimensions
+  name: Dimensions
+  nameWithType: DSparseGrid3<ElemType>.Dimensions
+  fullName: g3.DSparseGrid3<ElemType>.Dimensions
+  nameWithType.vb: DSparseGrid3(Of ElemType).Dimensions
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Dimensions
+- uid: g3.DSparseGrid3`1.AllocatedIndices*
+  commentId: Overload:g3.DSparseGrid3`1.AllocatedIndices
+  name: AllocatedIndices
+  nameWithType: DSparseGrid3<ElemType>.AllocatedIndices
+  fullName: g3.DSparseGrid3<ElemType>.AllocatedIndices
+  nameWithType.vb: DSparseGrid3(Of ElemType).AllocatedIndices
+  fullName.vb: g3.DSparseGrid3(Of ElemType).AllocatedIndices
+- uid: System.Collections.Generic.IEnumerable{g3.Vector3i}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector3i}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector3i>
+  nameWithType: IEnumerable<Vector3i>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector3i>
+  nameWithType.vb: IEnumerable(Of Vector3i)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector3i)
+  name.vb: IEnumerable(Of Vector3i)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.DSparseGrid3`1.Allocated*
+  commentId: Overload:g3.DSparseGrid3`1.Allocated
+  name: Allocated
+  nameWithType: DSparseGrid3<ElemType>.Allocated
+  fullName: g3.DSparseGrid3<ElemType>.Allocated
+  nameWithType.vb: DSparseGrid3(Of ElemType).Allocated
+  fullName.vb: g3.DSparseGrid3(Of ElemType).Allocated
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{g3.Vector3i,{ElemType}}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{g3.Vector3i,`0}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<KeyValuePair<Vector3i, ElemType>>
+  nameWithType: IEnumerable<KeyValuePair<Vector3i, ElemType>>
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<g3.Vector3i, ElemType>>
+  nameWithType.vb: IEnumerable(Of KeyValuePair(Of Vector3i, ElemType))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of g3.Vector3i, ElemType))
+  name.vb: IEnumerable(Of KeyValuePair(Of Vector3i, ElemType))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    nameWithType: KeyValuePair
+    fullName: System.Collections.Generic.KeyValuePair
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ElemType
+    nameWithType: ElemType
+    fullName: ElemType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    nameWithType: KeyValuePair
+    fullName: System.Collections.Generic.KeyValuePair
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ElemType
+    nameWithType: ElemType
+    fullName: ElemType
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )

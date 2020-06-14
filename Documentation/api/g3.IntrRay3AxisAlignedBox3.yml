@@ -1,0 +1,718 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.IntrRay3AxisAlignedBox3
+  commentId: T:g3.IntrRay3AxisAlignedBox3
+  id: IntrRay3AxisAlignedBox3
+  parent: g3
+  children:
+  - g3.IntrRay3AxisAlignedBox3.#ctor(g3.Ray3d,g3.AxisAlignedBox3d)
+  - g3.IntrRay3AxisAlignedBox3.Box
+  - g3.IntrRay3AxisAlignedBox3.Compute
+  - g3.IntrRay3AxisAlignedBox3.Find
+  - g3.IntrRay3AxisAlignedBox3.FindRayIntersectT(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double@)
+  - g3.IntrRay3AxisAlignedBox3.Intersects(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double)
+  - g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  - g3.IntrRay3AxisAlignedBox3.Point0
+  - g3.IntrRay3AxisAlignedBox3.Point1
+  - g3.IntrRay3AxisAlignedBox3.Quantity
+  - g3.IntrRay3AxisAlignedBox3.Ray
+  - g3.IntrRay3AxisAlignedBox3.RayParam0
+  - g3.IntrRay3AxisAlignedBox3.RayParam1
+  - g3.IntrRay3AxisAlignedBox3.Result
+  - g3.IntrRay3AxisAlignedBox3.Test
+  - g3.IntrRay3AxisAlignedBox3.Type
+  langs:
+  - csharp
+  - vb
+  name: IntrRay3AxisAlignedBox3
+  nameWithType: IntrRay3AxisAlignedBox3
+  fullName: g3.IntrRay3AxisAlignedBox3
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IntrRay3AxisAlignedBox3
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 8
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class IntrRay3AxisAlignedBox3
+    content.vb: Public Class IntrRay3AxisAlignedBox3
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.IntrRay3AxisAlignedBox3.Ray
+  commentId: P:g3.IntrRay3AxisAlignedBox3.Ray
+  id: Ray
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Ray
+  nameWithType: IntrRay3AxisAlignedBox3.Ray
+  fullName: g3.IntrRay3AxisAlignedBox3.Ray
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Ray
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 11
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Ray3d Ray { get; set; }
+    parameters: []
+    return:
+      type: g3.Ray3d
+    content.vb: Public Property Ray As Ray3d
+  overload: g3.IntrRay3AxisAlignedBox3.Ray*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Box
+  commentId: P:g3.IntrRay3AxisAlignedBox3.Box
+  id: Box
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Box
+  nameWithType: IntrRay3AxisAlignedBox3.Box
+  fullName: g3.IntrRay3AxisAlignedBox3.Box
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Box
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 18
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public AxisAlignedBox3d Box { get; set; }
+    parameters: []
+    return:
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Property Box As AxisAlignedBox3d
+  overload: g3.IntrRay3AxisAlignedBox3.Box*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Quantity
+  commentId: F:g3.IntrRay3AxisAlignedBox3.Quantity
+  id: Quantity
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Quantity
+  nameWithType: IntrRay3AxisAlignedBox3.Quantity
+  fullName: g3.IntrRay3AxisAlignedBox3.Quantity
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Quantity
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 24
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int Quantity
+    return:
+      type: System.Int32
+    content.vb: Public Quantity As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Result
+  commentId: F:g3.IntrRay3AxisAlignedBox3.Result
+  id: Result
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: IntrRay3AxisAlignedBox3.Result
+  fullName: g3.IntrRay3AxisAlignedBox3.Result
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Result
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntersectionResult Result
+    return:
+      type: g3.IntersectionResult
+    content.vb: Public Result As IntersectionResult
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Type
+  commentId: F:g3.IntrRay3AxisAlignedBox3.Type
+  id: Type
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IntrRay3AxisAlignedBox3.Type
+  fullName: g3.IntrRay3AxisAlignedBox3.Type
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntersectionType Type
+    return:
+      type: g3.IntersectionType
+    content.vb: Public Type As IntersectionType
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  commentId: P:g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  id: IsSimpleIntersection
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: IsSimpleIntersection
+  nameWithType: IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  fullName: g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsSimpleIntersection
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 28
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsSimpleIntersection { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSimpleIntersection As Boolean
+  overload: g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.IntrRay3AxisAlignedBox3.RayParam0
+  commentId: F:g3.IntrRay3AxisAlignedBox3.RayParam0
+  id: RayParam0
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: RayParam0
+  nameWithType: IntrRay3AxisAlignedBox3.RayParam0
+  fullName: g3.IntrRay3AxisAlignedBox3.RayParam0
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RayParam0
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double RayParam0
+    return:
+      type: System.Double
+    content.vb: Public RayParam0 As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.RayParam1
+  commentId: F:g3.IntrRay3AxisAlignedBox3.RayParam1
+  id: RayParam1
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: RayParam1
+  nameWithType: IntrRay3AxisAlignedBox3.RayParam1
+  fullName: g3.IntrRay3AxisAlignedBox3.RayParam1
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RayParam1
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 32
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double RayParam1
+    return:
+      type: System.Double
+    content.vb: Public RayParam1 As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Point0
+  commentId: F:g3.IntrRay3AxisAlignedBox3.Point0
+  id: Point0
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Point0
+  nameWithType: IntrRay3AxisAlignedBox3.Point0
+  fullName: g3.IntrRay3AxisAlignedBox3.Point0
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Point0
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Point0
+    return:
+      type: g3.Vector3d
+    content.vb: Public Point0 As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Point1
+  commentId: F:g3.IntrRay3AxisAlignedBox3.Point1
+  id: Point1
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Point1
+  nameWithType: IntrRay3AxisAlignedBox3.Point1
+  fullName: g3.IntrRay3AxisAlignedBox3.Point1
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Point1
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 34
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Vector3d Point1
+    return:
+      type: g3.Vector3d
+    content.vb: Public Point1 As Vector3d
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.#ctor(g3.Ray3d,g3.AxisAlignedBox3d)
+  commentId: M:g3.IntrRay3AxisAlignedBox3.#ctor(g3.Ray3d,g3.AxisAlignedBox3d)
+  id: '#ctor(g3.Ray3d,g3.AxisAlignedBox3d)'
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: IntrRay3AxisAlignedBox3(Ray3d, AxisAlignedBox3d)
+  nameWithType: IntrRay3AxisAlignedBox3.IntrRay3AxisAlignedBox3(Ray3d, AxisAlignedBox3d)
+  fullName: g3.IntrRay3AxisAlignedBox3.IntrRay3AxisAlignedBox3(g3.Ray3d, g3.AxisAlignedBox3d)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntrRay3AxisAlignedBox3(Ray3d r, AxisAlignedBox3d b)
+    parameters:
+    - id: r
+      type: g3.Ray3d
+    - id: b
+      type: g3.AxisAlignedBox3d
+    content.vb: Public Sub New(r As Ray3d, b As AxisAlignedBox3d)
+  overload: g3.IntrRay3AxisAlignedBox3.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Compute
+  commentId: M:g3.IntrRay3AxisAlignedBox3.Compute
+  id: Compute
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Compute()
+  nameWithType: IntrRay3AxisAlignedBox3.Compute()
+  fullName: g3.IntrRay3AxisAlignedBox3.Compute()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 41
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IntrRay3AxisAlignedBox3 Compute()
+    return:
+      type: g3.IntrRay3AxisAlignedBox3
+    content.vb: Public Function Compute As IntrRay3AxisAlignedBox3
+  overload: g3.IntrRay3AxisAlignedBox3.Compute*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Find
+  commentId: M:g3.IntrRay3AxisAlignedBox3.Find
+  id: Find
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Find()
+  nameWithType: IntrRay3AxisAlignedBox3.Find()
+  fullName: g3.IntrRay3AxisAlignedBox3.Find()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Find
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 48
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Find()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Find As Boolean
+  overload: g3.IntrRay3AxisAlignedBox3.Find*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Test
+  commentId: M:g3.IntrRay3AxisAlignedBox3.Test
+  id: Test
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Test()
+  nameWithType: IntrRay3AxisAlignedBox3.Test()
+  fullName: g3.IntrRay3AxisAlignedBox3.Test()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Test
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 73
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool Test()
+    return:
+      type: System.Boolean
+    content.vb: Public Function Test As Boolean
+  overload: g3.IntrRay3AxisAlignedBox3.Test*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.IntrRay3AxisAlignedBox3.Intersects(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double)
+  commentId: M:g3.IntrRay3AxisAlignedBox3.Intersects(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double)
+  id: Intersects(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double)
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: Intersects(ref Ray3d, ref AxisAlignedBox3d, Double)
+  nameWithType: IntrRay3AxisAlignedBox3.Intersects(ref Ray3d, ref AxisAlignedBox3d, Double)
+  fullName: g3.IntrRay3AxisAlignedBox3.Intersects(ref g3.Ray3d, ref g3.AxisAlignedBox3d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Intersects
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 83
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\ntest if ray intersects box.\nexpandExtents allows you to scale box for hit-testing purposes. \n"
+  example: []
+  syntax:
+    content: public static bool Intersects(ref Ray3d ray, ref AxisAlignedBox3d box, double expandExtents = 0)
+    parameters:
+    - id: ray
+      type: g3.Ray3d
+    - id: box
+      type: g3.AxisAlignedBox3d
+    - id: expandExtents
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Intersects(ByRef ray As Ray3d, ByRef box As AxisAlignedBox3d, expandExtents As Double = 0) As Boolean
+  overload: g3.IntrRay3AxisAlignedBox3.Intersects*
+  nameWithType.vb: IntrRay3AxisAlignedBox3.Intersects(ByRef Ray3d, ByRef AxisAlignedBox3d, Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntrRay3AxisAlignedBox3.Intersects(ByRef g3.Ray3d, ByRef g3.AxisAlignedBox3d, System.Double)
+  name.vb: Intersects(ByRef Ray3d, ByRef AxisAlignedBox3d, Double)
+- uid: g3.IntrRay3AxisAlignedBox3.FindRayIntersectT(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double@)
+  commentId: M:g3.IntrRay3AxisAlignedBox3.FindRayIntersectT(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double@)
+  id: FindRayIntersectT(g3.Ray3d@,g3.AxisAlignedBox3d@,System.Double@)
+  parent: g3.IntrRay3AxisAlignedBox3
+  langs:
+  - csharp
+  - vb
+  name: FindRayIntersectT(ref Ray3d, ref AxisAlignedBox3d, out Double)
+  nameWithType: IntrRay3AxisAlignedBox3.FindRayIntersectT(ref Ray3d, ref AxisAlignedBox3d, out Double)
+  fullName: g3.IntrRay3AxisAlignedBox3.FindRayIntersectT(ref g3.Ray3d, ref g3.AxisAlignedBox3d, out System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindRayIntersectT
+    path: ../Assets/geometry3Sharp/intersection/IntrRay3AxisAlignedBox3.cs
+    startLine: 147
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nFind intersection of ray with AABB, without having to construct any new classes.\nReturns ray T-value of first intersection (or double.MaxVlaue on miss)\n"
+  example: []
+  syntax:
+    content: public static bool FindRayIntersectT(ref Ray3d ray, ref AxisAlignedBox3d box, out double RayParam)
+    parameters:
+    - id: ray
+      type: g3.Ray3d
+    - id: box
+      type: g3.AxisAlignedBox3d
+    - id: RayParam
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function FindRayIntersectT(ByRef ray As Ray3d, ByRef box As AxisAlignedBox3d, ByRef RayParam As Double) As Boolean
+  overload: g3.IntrRay3AxisAlignedBox3.FindRayIntersectT*
+  nameWithType.vb: IntrRay3AxisAlignedBox3.FindRayIntersectT(ByRef Ray3d, ByRef AxisAlignedBox3d, ByRef Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.IntrRay3AxisAlignedBox3.FindRayIntersectT(ByRef g3.Ray3d, ByRef g3.AxisAlignedBox3d, ByRef System.Double)
+  name.vb: FindRayIntersectT(ByRef Ray3d, ByRef AxisAlignedBox3d, ByRef Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.IntrRay3AxisAlignedBox3.Ray*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.Ray
+  name: Ray
+  nameWithType: IntrRay3AxisAlignedBox3.Ray
+  fullName: g3.IntrRay3AxisAlignedBox3.Ray
+- uid: g3.Ray3d
+  commentId: T:g3.Ray3d
+  parent: g3
+  name: Ray3d
+  nameWithType: Ray3d
+  fullName: g3.Ray3d
+- uid: g3.IntrRay3AxisAlignedBox3.Box*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.Box
+  name: Box
+  nameWithType: IntrRay3AxisAlignedBox3.Box
+  fullName: g3.IntrRay3AxisAlignedBox3.Box
+- uid: g3.AxisAlignedBox3d
+  commentId: T:g3.AxisAlignedBox3d
+  parent: g3
+  name: AxisAlignedBox3d
+  nameWithType: AxisAlignedBox3d
+  fullName: g3.AxisAlignedBox3d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.IntersectionResult
+  commentId: T:g3.IntersectionResult
+  parent: g3
+  name: IntersectionResult
+  nameWithType: IntersectionResult
+  fullName: g3.IntersectionResult
+- uid: g3.IntersectionType
+  commentId: T:g3.IntersectionType
+  parent: g3
+  name: IntersectionType
+  nameWithType: IntersectionType
+  fullName: g3.IntersectionType
+- uid: g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  name: IsSimpleIntersection
+  nameWithType: IntrRay3AxisAlignedBox3.IsSimpleIntersection
+  fullName: g3.IntrRay3AxisAlignedBox3.IsSimpleIntersection
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.Vector3d
+  commentId: T:g3.Vector3d
+  parent: g3
+  name: Vector3d
+  nameWithType: Vector3d
+  fullName: g3.Vector3d
+- uid: g3.IntrRay3AxisAlignedBox3.#ctor*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.#ctor
+  name: IntrRay3AxisAlignedBox3
+  nameWithType: IntrRay3AxisAlignedBox3.IntrRay3AxisAlignedBox3
+  fullName: g3.IntrRay3AxisAlignedBox3.IntrRay3AxisAlignedBox3
+- uid: g3.IntrRay3AxisAlignedBox3.Compute*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.Compute
+  name: Compute
+  nameWithType: IntrRay3AxisAlignedBox3.Compute
+  fullName: g3.IntrRay3AxisAlignedBox3.Compute
+- uid: g3.IntrRay3AxisAlignedBox3
+  commentId: T:g3.IntrRay3AxisAlignedBox3
+  parent: g3
+  name: IntrRay3AxisAlignedBox3
+  nameWithType: IntrRay3AxisAlignedBox3
+  fullName: g3.IntrRay3AxisAlignedBox3
+- uid: g3.IntrRay3AxisAlignedBox3.Find*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.Find
+  name: Find
+  nameWithType: IntrRay3AxisAlignedBox3.Find
+  fullName: g3.IntrRay3AxisAlignedBox3.Find
+- uid: g3.IntrRay3AxisAlignedBox3.Test*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.Test
+  name: Test
+  nameWithType: IntrRay3AxisAlignedBox3.Test
+  fullName: g3.IntrRay3AxisAlignedBox3.Test
+- uid: g3.IntrRay3AxisAlignedBox3.Intersects*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.Intersects
+  name: Intersects
+  nameWithType: IntrRay3AxisAlignedBox3.Intersects
+  fullName: g3.IntrRay3AxisAlignedBox3.Intersects
+- uid: g3.IntrRay3AxisAlignedBox3.FindRayIntersectT*
+  commentId: Overload:g3.IntrRay3AxisAlignedBox3.FindRayIntersectT
+  name: FindRayIntersectT
+  nameWithType: IntrRay3AxisAlignedBox3.FindRayIntersectT
+  fullName: g3.IntrRay3AxisAlignedBox3.FindRayIntersectT

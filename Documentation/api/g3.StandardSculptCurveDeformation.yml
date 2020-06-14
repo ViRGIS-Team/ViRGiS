@@ -1,0 +1,720 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.StandardSculptCurveDeformation
+  commentId: T:g3.StandardSculptCurveDeformation
+  id: StandardSculptCurveDeformation
+  parent: g3
+  children:
+  - g3.StandardSculptCurveDeformation.#ctor
+  - g3.StandardSculptCurveDeformation.Apply(g3.Frame3f)
+  - g3.StandardSculptCurveDeformation.DeformF
+  - g3.StandardSculptCurveDeformation.ModifiedV
+  - g3.StandardSculptCurveDeformation.NewV
+  - g3.StandardSculptCurveDeformation.SmoothAlpha
+  - g3.StandardSculptCurveDeformation.SmoothIterations
+  langs:
+  - csharp
+  - vb
+  name: StandardSculptCurveDeformation
+  nameWithType: StandardSculptCurveDeformation
+  fullName: g3.StandardSculptCurveDeformation
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: StandardSculptCurveDeformation
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 76
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: 'public class StandardSculptCurveDeformation : SculptCurveDeformation'
+    content.vb: >-
+      Public Class StandardSculptCurveDeformation
+          Inherits SculptCurveDeformation
+  inheritance:
+  - System.Object
+  - g3.SculptCurveDeformation
+  derivedClasses:
+  - g3.SculptCurveMove
+  - g3.SculptCurveSmooth
+  inheritedMembers:
+  - g3.SculptCurveDeformation._curve
+  - g3.SculptCurveDeformation.Curve
+  - g3.SculptCurveDeformation._weightfunc
+  - g3.SculptCurveDeformation.WeightFunc
+  - g3.SculptCurveDeformation.radius
+  - g3.SculptCurveDeformation.Radius
+  - g3.SculptCurveDeformation.vPreviousPos
+  - g3.SculptCurveDeformation.BeginDeformation(g3.Frame3f)
+  - g3.SculptCurveDeformation.UpdateDeformation(g3.Frame3f)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.StandardSculptCurveDeformation.DeformF
+  commentId: F:g3.StandardSculptCurveDeformation.DeformF
+  id: DeformF
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: DeformF
+  nameWithType: StandardSculptCurveDeformation.DeformF
+  fullName: g3.StandardSculptCurveDeformation.DeformF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DeformF
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 82
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<int, double, Vector3d> DeformF
+    return:
+      type: System.Func{System.Int32,System.Double,g3.Vector3d}
+    content.vb: Public DeformF As Func(Of Integer, Double, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.StandardSculptCurveDeformation.SmoothAlpha
+  commentId: F:g3.StandardSculptCurveDeformation.SmoothAlpha
+  id: SmoothAlpha
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: SmoothAlpha
+  nameWithType: StandardSculptCurveDeformation.SmoothAlpha
+  fullName: g3.StandardSculptCurveDeformation.SmoothAlpha
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SmoothAlpha
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 86
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double SmoothAlpha
+    return:
+      type: System.Double
+    content.vb: Public SmoothAlpha As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.StandardSculptCurveDeformation.SmoothIterations
+  commentId: F:g3.StandardSculptCurveDeformation.SmoothIterations
+  id: SmoothIterations
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: SmoothIterations
+  nameWithType: StandardSculptCurveDeformation.SmoothIterations
+  fullName: g3.StandardSculptCurveDeformation.SmoothIterations
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SmoothIterations
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 87
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int SmoothIterations
+    return:
+      type: System.Int32
+    content.vb: Public SmoothIterations As Integer
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.StandardSculptCurveDeformation.NewV
+  commentId: F:g3.StandardSculptCurveDeformation.NewV
+  id: NewV
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: NewV
+  nameWithType: StandardSculptCurveDeformation.NewV
+  fullName: g3.StandardSculptCurveDeformation.NewV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NewV
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 90
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public DVector<Vector3d> NewV
+    return:
+      type: g3.DVector{g3.Vector3d}
+    content.vb: Public NewV As DVector(Of Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.StandardSculptCurveDeformation.ModifiedV
+  commentId: F:g3.StandardSculptCurveDeformation.ModifiedV
+  id: ModifiedV
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: ModifiedV
+  nameWithType: StandardSculptCurveDeformation.ModifiedV
+  fullName: g3.StandardSculptCurveDeformation.ModifiedV
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ModifiedV
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 91
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BitArray ModifiedV
+    return:
+      type: System.Collections.BitArray
+    content.vb: Public ModifiedV As BitArray
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.StandardSculptCurveDeformation.#ctor
+  commentId: M:g3.StandardSculptCurveDeformation.#ctor
+  id: '#ctor'
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: StandardSculptCurveDeformation()
+  nameWithType: StandardSculptCurveDeformation.StandardSculptCurveDeformation()
+  fullName: g3.StandardSculptCurveDeformation.StandardSculptCurveDeformation()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 95
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public StandardSculptCurveDeformation()
+    content.vb: Public Sub New
+  overload: g3.StandardSculptCurveDeformation.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.StandardSculptCurveDeformation.Apply(g3.Frame3f)
+  commentId: M:g3.StandardSculptCurveDeformation.Apply(g3.Frame3f)
+  id: Apply(g3.Frame3f)
+  parent: g3.StandardSculptCurveDeformation
+  langs:
+  - csharp
+  - vb
+  name: Apply(Frame3f)
+  nameWithType: StandardSculptCurveDeformation.Apply(Frame3f)
+  fullName: g3.StandardSculptCurveDeformation.Apply(g3.Frame3f)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Apply
+    path: ../Assets/geometry3Sharp/curve/SculptCurveDeformers.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override SculptCurveDeformation.DeformInfo Apply(Frame3f vNextPos)
+    parameters:
+    - id: vNextPos
+      type: g3.Frame3f
+    return:
+      type: g3.SculptCurveDeformation.DeformInfo
+    content.vb: Public Overrides Function Apply(vNextPos As Frame3f) As SculptCurveDeformation.DeformInfo
+  overridden: g3.SculptCurveDeformation.Apply(g3.Frame3f)
+  overload: g3.StandardSculptCurveDeformation.Apply*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.SculptCurveDeformation
+  commentId: T:g3.SculptCurveDeformation
+  parent: g3
+  name: SculptCurveDeformation
+  nameWithType: SculptCurveDeformation
+  fullName: g3.SculptCurveDeformation
+- uid: g3.SculptCurveDeformation._curve
+  commentId: F:g3.SculptCurveDeformation._curve
+  parent: g3.SculptCurveDeformation
+  name: _curve
+  nameWithType: SculptCurveDeformation._curve
+  fullName: g3.SculptCurveDeformation._curve
+- uid: g3.SculptCurveDeformation.Curve
+  commentId: P:g3.SculptCurveDeformation.Curve
+  parent: g3.SculptCurveDeformation
+  name: Curve
+  nameWithType: SculptCurveDeformation.Curve
+  fullName: g3.SculptCurveDeformation.Curve
+- uid: g3.SculptCurveDeformation._weightfunc
+  commentId: F:g3.SculptCurveDeformation._weightfunc
+  parent: g3.SculptCurveDeformation
+  name: _weightfunc
+  nameWithType: SculptCurveDeformation._weightfunc
+  fullName: g3.SculptCurveDeformation._weightfunc
+- uid: g3.SculptCurveDeformation.WeightFunc
+  commentId: P:g3.SculptCurveDeformation.WeightFunc
+  parent: g3.SculptCurveDeformation
+  name: WeightFunc
+  nameWithType: SculptCurveDeformation.WeightFunc
+  fullName: g3.SculptCurveDeformation.WeightFunc
+- uid: g3.SculptCurveDeformation.radius
+  commentId: F:g3.SculptCurveDeformation.radius
+  parent: g3.SculptCurveDeformation
+  name: radius
+  nameWithType: SculptCurveDeformation.radius
+  fullName: g3.SculptCurveDeformation.radius
+- uid: g3.SculptCurveDeformation.Radius
+  commentId: P:g3.SculptCurveDeformation.Radius
+  parent: g3.SculptCurveDeformation
+  name: Radius
+  nameWithType: SculptCurveDeformation.Radius
+  fullName: g3.SculptCurveDeformation.Radius
+- uid: g3.SculptCurveDeformation.vPreviousPos
+  commentId: F:g3.SculptCurveDeformation.vPreviousPos
+  parent: g3.SculptCurveDeformation
+  name: vPreviousPos
+  nameWithType: SculptCurveDeformation.vPreviousPos
+  fullName: g3.SculptCurveDeformation.vPreviousPos
+- uid: g3.SculptCurveDeformation.BeginDeformation(g3.Frame3f)
+  commentId: M:g3.SculptCurveDeformation.BeginDeformation(g3.Frame3f)
+  parent: g3.SculptCurveDeformation
+  name: BeginDeformation(Frame3f)
+  nameWithType: SculptCurveDeformation.BeginDeformation(Frame3f)
+  fullName: g3.SculptCurveDeformation.BeginDeformation(g3.Frame3f)
+  spec.csharp:
+  - uid: g3.SculptCurveDeformation.BeginDeformation(g3.Frame3f)
+    name: BeginDeformation
+    nameWithType: SculptCurveDeformation.BeginDeformation
+    fullName: g3.SculptCurveDeformation.BeginDeformation
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.SculptCurveDeformation.BeginDeformation(g3.Frame3f)
+    name: BeginDeformation
+    nameWithType: SculptCurveDeformation.BeginDeformation
+    fullName: g3.SculptCurveDeformation.BeginDeformation
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.SculptCurveDeformation.UpdateDeformation(g3.Frame3f)
+  commentId: M:g3.SculptCurveDeformation.UpdateDeformation(g3.Frame3f)
+  parent: g3.SculptCurveDeformation
+  name: UpdateDeformation(Frame3f)
+  nameWithType: SculptCurveDeformation.UpdateDeformation(Frame3f)
+  fullName: g3.SculptCurveDeformation.UpdateDeformation(g3.Frame3f)
+  spec.csharp:
+  - uid: g3.SculptCurveDeformation.UpdateDeformation(g3.Frame3f)
+    name: UpdateDeformation
+    nameWithType: SculptCurveDeformation.UpdateDeformation
+    fullName: g3.SculptCurveDeformation.UpdateDeformation
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.SculptCurveDeformation.UpdateDeformation(g3.Frame3f)
+    name: UpdateDeformation
+    nameWithType: SculptCurveDeformation.UpdateDeformation
+    fullName: g3.SculptCurveDeformation.UpdateDeformation
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Func{System.Int32,System.Double,g3.Vector3d}
+  commentId: T:System.Func{System.Int32,System.Double,g3.Vector3d}
+  parent: System
+  definition: System.Func`3
+  name: Func<Int32, Double, Vector3d>
+  nameWithType: Func<Int32, Double, Vector3d>
+  fullName: System.Func<System.Int32, System.Double, g3.Vector3d>
+  nameWithType.vb: Func(Of Int32, Double, Vector3d)
+  fullName.vb: System.Func(Of System.Int32, System.Double, g3.Vector3d)
+  name.vb: Func(Of Int32, Double, Vector3d)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: g3.DVector{g3.Vector3d}
+  commentId: T:g3.DVector{g3.Vector3d}
+  parent: g3
+  definition: g3.DVector`1
+  name: DVector<Vector3d>
+  nameWithType: DVector<Vector3d>
+  fullName: g3.DVector<g3.Vector3d>
+  nameWithType.vb: DVector(Of Vector3d)
+  fullName.vb: g3.DVector(Of g3.Vector3d)
+  name.vb: DVector(Of Vector3d)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DVector`1
+  commentId: T:g3.DVector`1
+  parent: g3
+  name: DVector<T>
+  nameWithType: DVector<T>
+  fullName: g3.DVector<T>
+  nameWithType.vb: DVector(Of T)
+  fullName.vb: g3.DVector(Of T)
+  name.vb: DVector(Of T)
+  spec.csharp:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: g3.DVector`1
+    name: DVector
+    nameWithType: DVector
+    fullName: g3.DVector
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.BitArray
+  commentId: T:System.Collections.BitArray
+  parent: System.Collections
+  isExternal: true
+  name: BitArray
+  nameWithType: BitArray
+  fullName: System.Collections.BitArray
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+- uid: g3.StandardSculptCurveDeformation.#ctor*
+  commentId: Overload:g3.StandardSculptCurveDeformation.#ctor
+  name: StandardSculptCurveDeformation
+  nameWithType: StandardSculptCurveDeformation.StandardSculptCurveDeformation
+  fullName: g3.StandardSculptCurveDeformation.StandardSculptCurveDeformation
+- uid: g3.SculptCurveDeformation.Apply(g3.Frame3f)
+  commentId: M:g3.SculptCurveDeformation.Apply(g3.Frame3f)
+  parent: g3.SculptCurveDeformation
+  name: Apply(Frame3f)
+  nameWithType: SculptCurveDeformation.Apply(Frame3f)
+  fullName: g3.SculptCurveDeformation.Apply(g3.Frame3f)
+  spec.csharp:
+  - uid: g3.SculptCurveDeformation.Apply(g3.Frame3f)
+    name: Apply
+    nameWithType: SculptCurveDeformation.Apply
+    fullName: g3.SculptCurveDeformation.Apply
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.SculptCurveDeformation.Apply(g3.Frame3f)
+    name: Apply
+    nameWithType: SculptCurveDeformation.Apply
+    fullName: g3.SculptCurveDeformation.Apply
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Frame3f
+    name: Frame3f
+    nameWithType: Frame3f
+    fullName: g3.Frame3f
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.StandardSculptCurveDeformation.Apply*
+  commentId: Overload:g3.StandardSculptCurveDeformation.Apply
+  name: Apply
+  nameWithType: StandardSculptCurveDeformation.Apply
+  fullName: g3.StandardSculptCurveDeformation.Apply
+- uid: g3.Frame3f
+  commentId: T:g3.Frame3f
+  parent: g3
+  name: Frame3f
+  nameWithType: Frame3f
+  fullName: g3.Frame3f
+- uid: g3.SculptCurveDeformation.DeformInfo
+  commentId: T:g3.SculptCurveDeformation.DeformInfo
+  parent: g3
+  name: SculptCurveDeformation.DeformInfo
+  nameWithType: SculptCurveDeformation.DeformInfo
+  fullName: g3.SculptCurveDeformation.DeformInfo

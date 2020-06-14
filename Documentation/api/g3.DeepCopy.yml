@@ -1,0 +1,344 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DeepCopy
+  commentId: T:g3.DeepCopy
+  id: DeepCopy
+  parent: g3
+  children:
+  - g3.DeepCopy.Array``1(System.Collections.Generic.IEnumerable{``0})
+  - g3.DeepCopy.List``1(System.Collections.Generic.IEnumerable{``0})
+  langs:
+  - csharp
+  - vb
+  name: DeepCopy
+  nameWithType: DeepCopy
+  fullName: g3.DeepCopy
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DeepCopy.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: DeepCopy
+    path: ../Assets/geometry3Sharp/core/DeepCopy.cs
+    startLine: 10
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nCollection of utility functions for one-line deep copies of lists\n"
+  example: []
+  syntax:
+    content: public static class DeepCopy
+    content.vb: Public Module DeepCopy
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.DeepCopy.List``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:g3.DeepCopy.List``1(System.Collections.Generic.IEnumerable{``0})
+  id: List``1(System.Collections.Generic.IEnumerable{``0})
+  parent: g3.DeepCopy
+  langs:
+  - csharp
+  - vb
+  name: List<T>(IEnumerable<T>)
+  nameWithType: DeepCopy.List<T>(IEnumerable<T>)
+  fullName: g3.DeepCopy.List<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DeepCopy.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: List
+    path: ../Assets/geometry3Sharp/core/DeepCopy.cs
+    startLine: 13
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      public static List<T> List<T>(IEnumerable<T> Input)
+          where T : IDuplicatable<T>
+    parameters:
+    - id: Input
+      type: System.Collections.Generic.IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function List(Of T As IDuplicatable(Of T))(Input As IEnumerable(Of T)) As List(Of T)
+  overload: g3.DeepCopy.List*
+  nameWithType.vb: DeepCopy.List(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.DeepCopy.List(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: List(Of T)(IEnumerable(Of T))
+- uid: g3.DeepCopy.Array``1(System.Collections.Generic.IEnumerable{``0})
+  commentId: M:g3.DeepCopy.Array``1(System.Collections.Generic.IEnumerable{``0})
+  id: Array``1(System.Collections.Generic.IEnumerable{``0})
+  parent: g3.DeepCopy
+  langs:
+  - csharp
+  - vb
+  name: Array<T>(IEnumerable<T>)
+  nameWithType: DeepCopy.Array<T>(IEnumerable<T>)
+  fullName: g3.DeepCopy.Array<T>(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/DeepCopy.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Array
+    path: ../Assets/geometry3Sharp/core/DeepCopy.cs
+    startLine: 22
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: >-
+      public static T[] Array<T>(IEnumerable<T> Input)
+          where T : IDuplicatable<T>
+    parameters:
+    - id: Input
+      type: System.Collections.Generic.IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}[]'
+    content.vb: Public Shared Function Array(Of T As IDuplicatable(Of T))(Input As IEnumerable(Of T)) As T()
+  overload: g3.DeepCopy.Array*
+  nameWithType.vb: DeepCopy.Array(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.DeepCopy.Array(Of T)(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: Array(Of T)(IEnumerable(Of T))
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.DeepCopy.List*
+  commentId: Overload:g3.DeepCopy.List
+  name: List
+  nameWithType: DeepCopy.List
+  fullName: g3.DeepCopy.List
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.DeepCopy.Array*
+  commentId: Overload:g3.DeepCopy.Array
+  name: Array
+  nameWithType: DeepCopy.Array
+  fullName: g3.DeepCopy.Array
+- uid: '{T}[]'
+  isExternal: true
+  name: T[]
+  nameWithType: T[]
+  fullName: T[]
+  nameWithType.vb: T()
+  fullName.vb: T()
+  name.vb: T()
+  spec.csharp:
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ()
+    nameWithType: ()
+    fullName: ()

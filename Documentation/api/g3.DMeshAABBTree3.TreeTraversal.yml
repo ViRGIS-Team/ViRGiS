@@ -1,0 +1,341 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.DMeshAABBTree3.TreeTraversal
+  commentId: T:g3.DMeshAABBTree3.TreeTraversal
+  id: DMeshAABBTree3.TreeTraversal
+  parent: g3
+  children:
+  - g3.DMeshAABBTree3.TreeTraversal.NextBoxF
+  - g3.DMeshAABBTree3.TreeTraversal.NextTriangleF
+  langs:
+  - csharp
+  - vb
+  name: DMeshAABBTree3.TreeTraversal
+  nameWithType: DMeshAABBTree3.TreeTraversal
+  fullName: g3.DMeshAABBTree3.TreeTraversal
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DMeshAABBTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: TreeTraversal
+    path: ../Assets/geometry3Sharp/spatial/DMeshAABBTree.cs
+    startLine: 1003
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nInstances of this class can be passed in to the DoTraversal() function to implement your\nown tree-traversal queries.\nNextBoxF() is called for each box node. Return false from this function to halt terminate \nthat branch of the traversal, or true to descend into that box&apos;s children (boxes or triangles).\nNextTriangleF() is called for each triangle.\n"
+  example: []
+  syntax:
+    content: public class TreeTraversal
+    content.vb: Public Class TreeTraversal
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.DMeshAABBTree3.TreeTraversal.NextBoxF
+  commentId: F:g3.DMeshAABBTree3.TreeTraversal.NextBoxF
+  id: NextBoxF
+  parent: g3.DMeshAABBTree3.TreeTraversal
+  langs:
+  - csharp
+  - vb
+  name: NextBoxF
+  nameWithType: DMeshAABBTree3.TreeTraversal.NextBoxF
+  fullName: g3.DMeshAABBTree3.TreeTraversal.NextBoxF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DMeshAABBTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NextBoxF
+    path: ../Assets/geometry3Sharp/spatial/DMeshAABBTree.cs
+    startLine: 1007
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<AxisAlignedBox3f, int, bool> NextBoxF
+    return:
+      type: System.Func{g3.AxisAlignedBox3f,System.Int32,System.Boolean}
+    content.vb: Public NextBoxF As Func(Of AxisAlignedBox3f, Integer, Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.DMeshAABBTree3.TreeTraversal.NextTriangleF
+  commentId: F:g3.DMeshAABBTree3.TreeTraversal.NextTriangleF
+  id: NextTriangleF
+  parent: g3.DMeshAABBTree3.TreeTraversal
+  langs:
+  - csharp
+  - vb
+  name: NextTriangleF
+  nameWithType: DMeshAABBTree3.TreeTraversal.NextTriangleF
+  fullName: g3.DMeshAABBTree3.TreeTraversal.NextTriangleF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/spatial/DMeshAABBTree.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: NextTriangleF
+    path: ../Assets/geometry3Sharp/spatial/DMeshAABBTree.cs
+    startLine: 1009
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Action<int> NextTriangleF
+    return:
+      type: System.Action{System.Int32}
+    content.vb: Public NextTriangleF As Action(Of Integer)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Func{g3.AxisAlignedBox3f,System.Int32,System.Boolean}
+  commentId: T:System.Func{g3.AxisAlignedBox3f,System.Int32,System.Boolean}
+  parent: System
+  definition: System.Func`3
+  name: Func<AxisAlignedBox3f, Int32, Boolean>
+  nameWithType: Func<AxisAlignedBox3f, Int32, Boolean>
+  fullName: System.Func<g3.AxisAlignedBox3f, System.Int32, System.Boolean>
+  nameWithType.vb: Func(Of AxisAlignedBox3f, Int32, Boolean)
+  fullName.vb: System.Func(Of g3.AxisAlignedBox3f, System.Int32, System.Boolean)
+  name.vb: Func(Of AxisAlignedBox3f, Int32, Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.AxisAlignedBox3f
+    name: AxisAlignedBox3f
+    nameWithType: AxisAlignedBox3f
+    fullName: g3.AxisAlignedBox3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.AxisAlignedBox3f
+    name: AxisAlignedBox3f
+    nameWithType: AxisAlignedBox3f
+    fullName: g3.AxisAlignedBox3f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T1
+    nameWithType: T1
+    fullName: T1
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action{System.Int32}
+  commentId: T:System.Action{System.Int32}
+  parent: System
+  definition: System.Action`1
+  name: Action<Int32>
+  nameWithType: Action<Int32>
+  fullName: System.Action<System.Int32>
+  nameWithType.vb: Action(Of Int32)
+  fullName.vb: System.Action(Of System.Int32)
+  name.vb: Action(Of Int32)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    nameWithType: Action
+    fullName: System.Action
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

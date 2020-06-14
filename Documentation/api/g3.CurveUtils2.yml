@@ -1,0 +1,1294 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.CurveUtils2
+  commentId: T:g3.CurveUtils2
+  id: CurveUtils2
+  parent: g3
+  children:
+  - g3.CurveUtils2.CentroidVtx(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.CurveUtils2.Convert(g3.Polygon2d)
+  - g3.CurveUtils2.Filter``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean})
+  - g3.CurveUtils2.FilterDegenerate(System.Collections.Generic.List{g3.GeneralPolygon2d},System.Double)
+  - g3.CurveUtils2.FindNearestVertex(g3.Vector2d,System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.CurveUtils2.Flatten(g3.IParametricCurve2d)
+  - g3.CurveUtils2.Flatten(System.Collections.Generic.List{g3.IParametricCurve2d})
+  - g3.CurveUtils2.GetMaxOriginDistances(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  - g3.CurveUtils2.LaplacianSmooth(System.Collections.Generic.IList{g3.Vector2d},System.Double,System.Int32,System.Boolean,System.Boolean)
+  - g3.CurveUtils2.LaplacianSmoothConstrained(g3.GeneralPolygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean)
+  - g3.CurveUtils2.LaplacianSmoothConstrained(g3.Polygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean,System.Boolean)
+  - g3.CurveUtils2.LeafCurvesIteration(g3.IParametricCurve2d)
+  - g3.CurveUtils2.SampledDistance(g3.IParametricCurve2d,g3.Vector2d,System.Int32)
+  - g3.CurveUtils2.Split``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0}@,System.Collections.Generic.List{``0}@,System.Func{``0,System.Boolean})
+  - g3.CurveUtils2.SplitToTargetLength(g3.Polygon2d,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: CurveUtils2
+  nameWithType: CurveUtils2
+  fullName: g3.CurveUtils2
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CurveUtils2
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class CurveUtils2
+    content.vb: Public Module CurveUtils2
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.CurveUtils2.Convert(g3.Polygon2d)
+  commentId: M:g3.CurveUtils2.Convert(g3.Polygon2d)
+  id: Convert(g3.Polygon2d)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: Convert(Polygon2d)
+  nameWithType: CurveUtils2.Convert(Polygon2d)
+  fullName: g3.CurveUtils2.Convert(g3.Polygon2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Convert
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 9
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static IParametricCurve2d Convert(Polygon2d poly)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    return:
+      type: g3.IParametricCurve2d
+    content.vb: Public Shared Function Convert(poly As Polygon2d) As IParametricCurve2d
+  overload: g3.CurveUtils2.Convert*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.SampledDistance(g3.IParametricCurve2d,g3.Vector2d,System.Int32)
+  commentId: M:g3.CurveUtils2.SampledDistance(g3.IParametricCurve2d,g3.Vector2d,System.Int32)
+  id: SampledDistance(g3.IParametricCurve2d,g3.Vector2d,System.Int32)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: SampledDistance(IParametricCurve2d, Vector2d, Int32)
+  nameWithType: CurveUtils2.SampledDistance(IParametricCurve2d, Vector2d, Int32)
+  fullName: g3.CurveUtils2.SampledDistance(g3.IParametricCurve2d, g3.Vector2d, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SampledDistance
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 21
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static double SampledDistance(IParametricCurve2d c, Vector2d point, int N = 100)
+    parameters:
+    - id: c
+      type: g3.IParametricCurve2d
+    - id: point
+      type: g3.Vector2d
+    - id: N
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Shared Function SampledDistance(c As IParametricCurve2d, point As Vector2d, N As Integer = 100) As Double
+  overload: g3.CurveUtils2.SampledDistance*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.LeafCurvesIteration(g3.IParametricCurve2d)
+  commentId: M:g3.CurveUtils2.LeafCurvesIteration(g3.IParametricCurve2d)
+  id: LeafCurvesIteration(g3.IParametricCurve2d)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: LeafCurvesIteration(IParametricCurve2d)
+  nameWithType: CurveUtils2.LeafCurvesIteration(IParametricCurve2d)
+  fullName: g3.CurveUtils2.LeafCurvesIteration(g3.IParametricCurve2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LeafCurvesIteration
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 40
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nif the children of C are a tree, iterate through all the leaves\n"
+  example: []
+  syntax:
+    content: public static IEnumerable<IParametricCurve2d> LeafCurvesIteration(IParametricCurve2d c)
+    parameters:
+    - id: c
+      type: g3.IParametricCurve2d
+    return:
+      type: System.Collections.Generic.IEnumerable{g3.IParametricCurve2d}
+    content.vb: Public Shared Function LeafCurvesIteration(c As IParametricCurve2d) As IEnumerable(Of IParametricCurve2d)
+  overload: g3.CurveUtils2.LeafCurvesIteration*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.Flatten(System.Collections.Generic.List{g3.IParametricCurve2d})
+  commentId: M:g3.CurveUtils2.Flatten(System.Collections.Generic.List{g3.IParametricCurve2d})
+  id: Flatten(System.Collections.Generic.List{g3.IParametricCurve2d})
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: Flatten(List<IParametricCurve2d>)
+  nameWithType: CurveUtils2.Flatten(List<IParametricCurve2d>)
+  fullName: g3.CurveUtils2.Flatten(System.Collections.Generic.List<g3.IParametricCurve2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Flatten
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 53
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static List<IParametricCurve2d> Flatten(List<IParametricCurve2d> curves)
+    parameters:
+    - id: curves
+      type: System.Collections.Generic.List{g3.IParametricCurve2d}
+    return:
+      type: System.Collections.Generic.List{g3.IParametricCurve2d}
+    content.vb: Public Shared Function Flatten(curves As List(Of IParametricCurve2d)) As List(Of IParametricCurve2d)
+  overload: g3.CurveUtils2.Flatten*
+  nameWithType.vb: CurveUtils2.Flatten(List(Of IParametricCurve2d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.Flatten(System.Collections.Generic.List(Of g3.IParametricCurve2d))
+  name.vb: Flatten(List(Of IParametricCurve2d))
+- uid: g3.CurveUtils2.Flatten(g3.IParametricCurve2d)
+  commentId: M:g3.CurveUtils2.Flatten(g3.IParametricCurve2d)
+  id: Flatten(g3.IParametricCurve2d)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: Flatten(IParametricCurve2d)
+  nameWithType: CurveUtils2.Flatten(IParametricCurve2d)
+  fullName: g3.CurveUtils2.Flatten(g3.IParametricCurve2d)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Flatten
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 62
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static List<IParametricCurve2d> Flatten(IParametricCurve2d curve)
+    parameters:
+    - id: curve
+      type: g3.IParametricCurve2d
+    return:
+      type: System.Collections.Generic.List{g3.IParametricCurve2d}
+    content.vb: Public Shared Function Flatten(curve As IParametricCurve2d) As List(Of IParametricCurve2d)
+  overload: g3.CurveUtils2.Flatten*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.GetMaxOriginDistances(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.CurveUtils2.GetMaxOriginDistances(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: GetMaxOriginDistances(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: GetMaxOriginDistances(IEnumerable<Vector2d>)
+  nameWithType: CurveUtils2.GetMaxOriginDistances(IEnumerable<Vector2d>)
+  fullName: g3.CurveUtils2.GetMaxOriginDistances(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetMaxOriginDistances
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 68
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector2d GetMaxOriginDistances(IEnumerable<Vector2d> vertices)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    return:
+      type: g3.Vector2d
+    content.vb: Public Shared Function GetMaxOriginDistances(vertices As IEnumerable(Of Vector2d)) As Vector2d
+  overload: g3.CurveUtils2.GetMaxOriginDistances*
+  nameWithType.vb: CurveUtils2.GetMaxOriginDistances(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.GetMaxOriginDistances(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: GetMaxOriginDistances(IEnumerable(Of Vector2d))
+- uid: g3.CurveUtils2.FindNearestVertex(g3.Vector2d,System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.CurveUtils2.FindNearestVertex(g3.Vector2d,System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: FindNearestVertex(g3.Vector2d,System.Collections.Generic.IEnumerable{g3.Vector2d})
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: FindNearestVertex(Vector2d, IEnumerable<Vector2d>)
+  nameWithType: CurveUtils2.FindNearestVertex(Vector2d, IEnumerable<Vector2d>)
+  fullName: g3.CurveUtils2.FindNearestVertex(g3.Vector2d, System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FindNearestVertex
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 81
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static int FindNearestVertex(Vector2d pt, IEnumerable<Vector2d> vertices)
+    parameters:
+    - id: pt
+      type: g3.Vector2d
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    return:
+      type: System.Int32
+    content.vb: Public Shared Function FindNearestVertex(pt As Vector2d, vertices As IEnumerable(Of Vector2d)) As Integer
+  overload: g3.CurveUtils2.FindNearestVertex*
+  nameWithType.vb: CurveUtils2.FindNearestVertex(Vector2d, IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.FindNearestVertex(g3.Vector2d, System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: FindNearestVertex(Vector2d, IEnumerable(Of Vector2d))
+- uid: g3.CurveUtils2.CentroidVtx(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  commentId: M:g3.CurveUtils2.CentroidVtx(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  id: CentroidVtx(System.Collections.Generic.IEnumerable{g3.Vector2d})
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: CentroidVtx(IEnumerable<Vector2d>)
+  nameWithType: CurveUtils2.CentroidVtx(IEnumerable<Vector2d>)
+  fullName: g3.CurveUtils2.CentroidVtx(System.Collections.Generic.IEnumerable<g3.Vector2d>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: CentroidVtx
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Vector2d CentroidVtx(IEnumerable<Vector2d> vertices)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IEnumerable{g3.Vector2d}
+    return:
+      type: g3.Vector2d
+    content.vb: Public Shared Function CentroidVtx(vertices As IEnumerable(Of Vector2d)) As Vector2d
+  overload: g3.CurveUtils2.CentroidVtx*
+  nameWithType.vb: CurveUtils2.CentroidVtx(IEnumerable(Of Vector2d))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.CentroidVtx(System.Collections.Generic.IEnumerable(Of g3.Vector2d))
+  name.vb: CentroidVtx(IEnumerable(Of Vector2d))
+- uid: g3.CurveUtils2.LaplacianSmooth(System.Collections.Generic.IList{g3.Vector2d},System.Double,System.Int32,System.Boolean,System.Boolean)
+  commentId: M:g3.CurveUtils2.LaplacianSmooth(System.Collections.Generic.IList{g3.Vector2d},System.Double,System.Int32,System.Boolean,System.Boolean)
+  id: LaplacianSmooth(System.Collections.Generic.IList{g3.Vector2d},System.Double,System.Int32,System.Boolean,System.Boolean)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: LaplacianSmooth(IList<Vector2d>, Double, Int32, Boolean, Boolean)
+  nameWithType: CurveUtils2.LaplacianSmooth(IList<Vector2d>, Double, Int32, Boolean, Boolean)
+  fullName: g3.CurveUtils2.LaplacianSmooth(System.Collections.Generic.IList<g3.Vector2d>, System.Double, System.Int32, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LaplacianSmooth
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 113
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void LaplacianSmooth(IList<Vector2d> vertices, double alpha, int iterations, bool is_loop, bool in_place = false)
+    parameters:
+    - id: vertices
+      type: System.Collections.Generic.IList{g3.Vector2d}
+    - id: alpha
+      type: System.Double
+    - id: iterations
+      type: System.Int32
+    - id: is_loop
+      type: System.Boolean
+    - id: in_place
+      type: System.Boolean
+    content.vb: Public Shared Sub LaplacianSmooth(vertices As IList(Of Vector2d), alpha As Double, iterations As Integer, is_loop As Boolean, in_place As Boolean = False)
+  overload: g3.CurveUtils2.LaplacianSmooth*
+  nameWithType.vb: CurveUtils2.LaplacianSmooth(IList(Of Vector2d), Double, Int32, Boolean, Boolean)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.LaplacianSmooth(System.Collections.Generic.IList(Of g3.Vector2d), System.Double, System.Int32, System.Boolean, System.Boolean)
+  name.vb: LaplacianSmooth(IList(Of Vector2d), Double, Int32, Boolean, Boolean)
+- uid: g3.CurveUtils2.LaplacianSmoothConstrained(g3.Polygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:g3.CurveUtils2.LaplacianSmoothConstrained(g3.Polygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean,System.Boolean)
+  id: LaplacianSmoothConstrained(g3.Polygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean,System.Boolean)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: LaplacianSmoothConstrained(Polygon2d, Double, Int32, Double, Boolean, Boolean, Boolean)
+  nameWithType: CurveUtils2.LaplacianSmoothConstrained(Polygon2d, Double, Int32, Double, Boolean, Boolean, Boolean)
+  fullName: g3.CurveUtils2.LaplacianSmoothConstrained(g3.Polygon2d, System.Double, System.Int32, System.Double, System.Boolean, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LaplacianSmoothConstrained
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 160
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nConstrained laplacian smoothing of input polygon, alpha X iterations.\nvertices are only allowed to move at most max_dist from constraint\nif bAllowShrink == false, vertices are kept outside input polygon\nif bAllowGrow == false, vertices are kept inside input polygon\n\nmax_dist is measured from vertex[i] to original_vertex[i], unless\nyou set bPerVertexDistances = false, then distance to original polygon\nis used (which is much more expensive)\n\n[TODO] this is pretty hacky...could be better in lots of ways...\n\n"
+  example: []
+  syntax:
+    content: public static void LaplacianSmoothConstrained(Polygon2d poly, double alpha, int iterations, double max_dist, bool bAllowShrink, bool bAllowGrow, bool bPerVertexDistances = true)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    - id: alpha
+      type: System.Double
+    - id: iterations
+      type: System.Int32
+    - id: max_dist
+      type: System.Double
+    - id: bAllowShrink
+      type: System.Boolean
+    - id: bAllowGrow
+      type: System.Boolean
+    - id: bPerVertexDistances
+      type: System.Boolean
+    content.vb: Public Shared Sub LaplacianSmoothConstrained(poly As Polygon2d, alpha As Double, iterations As Integer, max_dist As Double, bAllowShrink As Boolean, bAllowGrow As Boolean, bPerVertexDistances As Boolean = True)
+  overload: g3.CurveUtils2.LaplacianSmoothConstrained*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.LaplacianSmoothConstrained(g3.GeneralPolygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean)
+  commentId: M:g3.CurveUtils2.LaplacianSmoothConstrained(g3.GeneralPolygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean)
+  id: LaplacianSmoothConstrained(g3.GeneralPolygon2d,System.Double,System.Int32,System.Double,System.Boolean,System.Boolean)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: LaplacianSmoothConstrained(GeneralPolygon2d, Double, Int32, Double, Boolean, Boolean)
+  nameWithType: CurveUtils2.LaplacianSmoothConstrained(GeneralPolygon2d, Double, Int32, Double, Boolean, Boolean)
+  fullName: g3.CurveUtils2.LaplacianSmoothConstrained(g3.GeneralPolygon2d, System.Double, System.Int32, System.Double, System.Boolean, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LaplacianSmoothConstrained
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 218
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static void LaplacianSmoothConstrained(GeneralPolygon2d solid, double alpha, int iterations, double max_dist, bool bAllowShrink, bool bAllowGrow)
+    parameters:
+    - id: solid
+      type: g3.GeneralPolygon2d
+    - id: alpha
+      type: System.Double
+    - id: iterations
+      type: System.Int32
+    - id: max_dist
+      type: System.Double
+    - id: bAllowShrink
+      type: System.Boolean
+    - id: bAllowGrow
+      type: System.Boolean
+    content.vb: Public Shared Sub LaplacianSmoothConstrained(solid As GeneralPolygon2d, alpha As Double, iterations As Integer, max_dist As Double, bAllowShrink As Boolean, bAllowGrow As Boolean)
+  overload: g3.CurveUtils2.LaplacianSmoothConstrained*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.Filter``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean})
+  commentId: M:g3.CurveUtils2.Filter``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean})
+  id: Filter``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean})
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: Filter<T>(List<T>, Func<T, Boolean>)
+  nameWithType: CurveUtils2.Filter<T>(List<T>, Func<T, Boolean>)
+  fullName: g3.CurveUtils2.Filter<T>(System.Collections.Generic.List<T>, System.Func<T, System.Boolean>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Filter
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 231
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nreturn list of objects for which keepF(obj) returns true\n"
+  example: []
+  syntax:
+    content: public static List<T> Filter<T>(List<T> objects, Func<T, bool> keepF)
+    parameters:
+    - id: objects
+      type: System.Collections.Generic.List{{T}}
+    - id: keepF
+      type: System.Func{{T},System.Boolean}
+    typeParameters:
+    - id: T
+    return:
+      type: System.Collections.Generic.List{{T}}
+    content.vb: Public Shared Function Filter(Of T)(objects As List(Of T), keepF As Func(Of T, Boolean)) As List(Of T)
+  overload: g3.CurveUtils2.Filter*
+  nameWithType.vb: CurveUtils2.Filter(Of T)(List(Of T), Func(Of T, Boolean))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.Filter(Of T)(System.Collections.Generic.List(Of T), System.Func(Of T, System.Boolean))
+  name.vb: Filter(Of T)(List(Of T), Func(Of T, Boolean))
+- uid: g3.CurveUtils2.Split``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0}@,System.Collections.Generic.List{``0}@,System.Func{``0,System.Boolean})
+  commentId: M:g3.CurveUtils2.Split``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0}@,System.Collections.Generic.List{``0}@,System.Func{``0,System.Boolean})
+  id: Split``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0}@,System.Collections.Generic.List{``0}@,System.Func{``0,System.Boolean})
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: Split<T>(List<T>, out List<T>, out List<T>, Func<T, Boolean>)
+  nameWithType: CurveUtils2.Split<T>(List<T>, out List<T>, out List<T>, Func<T, Boolean>)
+  fullName: g3.CurveUtils2.Split<T>(System.Collections.Generic.List<T>, out System.Collections.Generic.List<T>, out System.Collections.Generic.List<T>, System.Func<T, System.Boolean>)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Split
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 245
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nSplit the input list into two new lists, based on predicate (set1 == true)\n"
+  example: []
+  syntax:
+    content: public static void Split<T>(List<T> objects, out List<T> set1, out List<T> set2, Func<T, bool> splitF)
+    parameters:
+    - id: objects
+      type: System.Collections.Generic.List{{T}}
+    - id: set1
+      type: System.Collections.Generic.List{{T}}
+    - id: set2
+      type: System.Collections.Generic.List{{T}}
+    - id: splitF
+      type: System.Func{{T},System.Boolean}
+    typeParameters:
+    - id: T
+    content.vb: Public Shared Sub Split(Of T)(objects As List(Of T), ByRef set1 As List(Of T), ByRef set2 As List(Of T), splitF As Func(Of T, Boolean))
+  overload: g3.CurveUtils2.Split*
+  nameWithType.vb: CurveUtils2.Split(Of T)(List(Of T), ByRef List(Of T), ByRef List(Of T), Func(Of T, Boolean))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.Split(Of T)(System.Collections.Generic.List(Of T), ByRef System.Collections.Generic.List(Of T), ByRef System.Collections.Generic.List(Of T), System.Func(Of T, System.Boolean))
+  name.vb: Split(Of T)(List(Of T), ByRef List(Of T), ByRef List(Of T), Func(Of T, Boolean))
+- uid: g3.CurveUtils2.SplitToTargetLength(g3.Polygon2d,System.Double)
+  commentId: M:g3.CurveUtils2.SplitToTargetLength(g3.Polygon2d,System.Double)
+  id: SplitToTargetLength(g3.Polygon2d,System.Double)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: SplitToTargetLength(Polygon2d, Double)
+  nameWithType: CurveUtils2.SplitToTargetLength(Polygon2d, Double)
+  fullName: g3.CurveUtils2.SplitToTargetLength(g3.Polygon2d, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SplitToTargetLength
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 259
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static Polygon2d SplitToTargetLength(Polygon2d poly, double length)
+    parameters:
+    - id: poly
+      type: g3.Polygon2d
+    - id: length
+      type: System.Double
+    return:
+      type: g3.Polygon2d
+    content.vb: Public Shared Function SplitToTargetLength(poly As Polygon2d, length As Double) As Polygon2d
+  overload: g3.CurveUtils2.SplitToTargetLength*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.CurveUtils2.FilterDegenerate(System.Collections.Generic.List{g3.GeneralPolygon2d},System.Double)
+  commentId: M:g3.CurveUtils2.FilterDegenerate(System.Collections.Generic.List{g3.GeneralPolygon2d},System.Double)
+  id: FilterDegenerate(System.Collections.Generic.List{g3.GeneralPolygon2d},System.Double)
+  parent: g3.CurveUtils2
+  langs:
+  - csharp
+  - vb
+  name: FilterDegenerate(List<GeneralPolygon2d>, Double)
+  nameWithType: CurveUtils2.FilterDegenerate(List<GeneralPolygon2d>, Double)
+  fullName: g3.CurveUtils2.FilterDegenerate(System.Collections.Generic.List<g3.GeneralPolygon2d>, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/CurveUtils2.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: FilterDegenerate
+    path: ../Assets/geometry3Sharp/curve/CurveUtils2.cs
+    startLine: 293
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nRemove polygons and polygon-holes smaller than minArea\n"
+  example: []
+  syntax:
+    content: public static List<GeneralPolygon2d> FilterDegenerate(List<GeneralPolygon2d> polygons, double minArea)
+    parameters:
+    - id: polygons
+      type: System.Collections.Generic.List{g3.GeneralPolygon2d}
+    - id: minArea
+      type: System.Double
+    return:
+      type: System.Collections.Generic.List{g3.GeneralPolygon2d}
+    content.vb: Public Shared Function FilterDegenerate(polygons As List(Of GeneralPolygon2d), minArea As Double) As List(Of GeneralPolygon2d)
+  overload: g3.CurveUtils2.FilterDegenerate*
+  nameWithType.vb: CurveUtils2.FilterDegenerate(List(Of GeneralPolygon2d), Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: g3.CurveUtils2.FilterDegenerate(System.Collections.Generic.List(Of g3.GeneralPolygon2d), System.Double)
+  name.vb: FilterDegenerate(List(Of GeneralPolygon2d), Double)
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.CurveUtils2.Convert*
+  commentId: Overload:g3.CurveUtils2.Convert
+  name: Convert
+  nameWithType: CurveUtils2.Convert
+  fullName: g3.CurveUtils2.Convert
+- uid: g3.Polygon2d
+  commentId: T:g3.Polygon2d
+  parent: g3
+  name: Polygon2d
+  nameWithType: Polygon2d
+  fullName: g3.Polygon2d
+- uid: g3.IParametricCurve2d
+  commentId: T:g3.IParametricCurve2d
+  parent: g3
+  name: IParametricCurve2d
+  nameWithType: IParametricCurve2d
+  fullName: g3.IParametricCurve2d
+- uid: g3.CurveUtils2.SampledDistance*
+  commentId: Overload:g3.CurveUtils2.SampledDistance
+  name: SampledDistance
+  nameWithType: CurveUtils2.SampledDistance
+  fullName: g3.CurveUtils2.SampledDistance
+- uid: g3.Vector2d
+  commentId: T:g3.Vector2d
+  parent: g3
+  name: Vector2d
+  nameWithType: Vector2d
+  fullName: g3.Vector2d
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.CurveUtils2.LeafCurvesIteration*
+  commentId: Overload:g3.CurveUtils2.LeafCurvesIteration
+  name: LeafCurvesIteration
+  nameWithType: CurveUtils2.LeafCurvesIteration
+  fullName: g3.CurveUtils2.LeafCurvesIteration
+- uid: System.Collections.Generic.IEnumerable{g3.IParametricCurve2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.IParametricCurve2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IParametricCurve2d>
+  nameWithType: IEnumerable<IParametricCurve2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.IParametricCurve2d>
+  nameWithType.vb: IEnumerable(Of IParametricCurve2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.IParametricCurve2d)
+  name.vb: IEnumerable(Of IParametricCurve2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.IParametricCurve2d
+    name: IParametricCurve2d
+    nameWithType: IParametricCurve2d
+    fullName: g3.IParametricCurve2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.IParametricCurve2d
+    name: IParametricCurve2d
+    nameWithType: IParametricCurve2d
+    fullName: g3.IParametricCurve2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: g3.CurveUtils2.Flatten*
+  commentId: Overload:g3.CurveUtils2.Flatten
+  name: Flatten
+  nameWithType: CurveUtils2.Flatten
+  fullName: g3.CurveUtils2.Flatten
+- uid: System.Collections.Generic.List{g3.IParametricCurve2d}
+  commentId: T:System.Collections.Generic.List{g3.IParametricCurve2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<IParametricCurve2d>
+  nameWithType: List<IParametricCurve2d>
+  fullName: System.Collections.Generic.List<g3.IParametricCurve2d>
+  nameWithType.vb: List(Of IParametricCurve2d)
+  fullName.vb: System.Collections.Generic.List(Of g3.IParametricCurve2d)
+  name.vb: List(Of IParametricCurve2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.IParametricCurve2d
+    name: IParametricCurve2d
+    nameWithType: IParametricCurve2d
+    fullName: g3.IParametricCurve2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.IParametricCurve2d
+    name: IParametricCurve2d
+    nameWithType: IParametricCurve2d
+    fullName: g3.IParametricCurve2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CurveUtils2.GetMaxOriginDistances*
+  commentId: Overload:g3.CurveUtils2.GetMaxOriginDistances
+  name: GetMaxOriginDistances
+  nameWithType: CurveUtils2.GetMaxOriginDistances
+  fullName: g3.CurveUtils2.GetMaxOriginDistances
+- uid: System.Collections.Generic.IEnumerable{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IEnumerable{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<Vector2d>
+  nameWithType: IEnumerable<Vector2d>
+  fullName: System.Collections.Generic.IEnumerable<g3.Vector2d>
+  nameWithType.vb: IEnumerable(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of g3.Vector2d)
+  name.vb: IEnumerable(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CurveUtils2.FindNearestVertex*
+  commentId: Overload:g3.CurveUtils2.FindNearestVertex
+  name: FindNearestVertex
+  nameWithType: CurveUtils2.FindNearestVertex
+  fullName: g3.CurveUtils2.FindNearestVertex
+- uid: g3.CurveUtils2.CentroidVtx*
+  commentId: Overload:g3.CurveUtils2.CentroidVtx
+  name: CentroidVtx
+  nameWithType: CurveUtils2.CentroidVtx
+  fullName: g3.CurveUtils2.CentroidVtx
+- uid: g3.CurveUtils2.LaplacianSmooth*
+  commentId: Overload:g3.CurveUtils2.LaplacianSmooth
+  name: LaplacianSmooth
+  nameWithType: CurveUtils2.LaplacianSmooth
+  fullName: g3.CurveUtils2.LaplacianSmooth
+- uid: System.Collections.Generic.IList{g3.Vector2d}
+  commentId: T:System.Collections.Generic.IList{g3.Vector2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<Vector2d>
+  nameWithType: IList<Vector2d>
+  fullName: System.Collections.Generic.IList<g3.Vector2d>
+  nameWithType.vb: IList(Of Vector2d)
+  fullName.vb: System.Collections.Generic.IList(Of g3.Vector2d)
+  name.vb: IList(Of Vector2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CurveUtils2.LaplacianSmoothConstrained*
+  commentId: Overload:g3.CurveUtils2.LaplacianSmoothConstrained
+  name: LaplacianSmoothConstrained
+  nameWithType: CurveUtils2.LaplacianSmoothConstrained
+  fullName: g3.CurveUtils2.LaplacianSmoothConstrained
+- uid: g3.GeneralPolygon2d
+  commentId: T:g3.GeneralPolygon2d
+  parent: g3
+  name: GeneralPolygon2d
+  nameWithType: GeneralPolygon2d
+  fullName: g3.GeneralPolygon2d
+- uid: g3.CurveUtils2.Filter*
+  commentId: Overload:g3.CurveUtils2.Filter
+  name: Filter
+  nameWithType: CurveUtils2.Filter
+  fullName: g3.CurveUtils2.Filter
+- uid: System.Collections.Generic.List{{T}}
+  commentId: T:System.Collections.Generic.List{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func{{T},System.Boolean}
+  commentId: T:System.Func{``0,System.Boolean}
+  parent: System
+  definition: System.Func`2
+  name: Func<T, Boolean>
+  nameWithType: Func<T, Boolean>
+  fullName: System.Func<T, System.Boolean>
+  nameWithType.vb: Func(Of T, Boolean)
+  fullName.vb: System.Func(Of T, System.Boolean)
+  name.vb: Func(Of T, Boolean)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.CurveUtils2.Split*
+  commentId: Overload:g3.CurveUtils2.Split
+  name: Split
+  nameWithType: CurveUtils2.Split
+  fullName: g3.CurveUtils2.Split
+- uid: g3.CurveUtils2.SplitToTargetLength*
+  commentId: Overload:g3.CurveUtils2.SplitToTargetLength
+  name: SplitToTargetLength
+  nameWithType: CurveUtils2.SplitToTargetLength
+  fullName: g3.CurveUtils2.SplitToTargetLength
+- uid: g3.CurveUtils2.FilterDegenerate*
+  commentId: Overload:g3.CurveUtils2.FilterDegenerate
+  name: FilterDegenerate
+  nameWithType: CurveUtils2.FilterDegenerate
+  fullName: g3.CurveUtils2.FilterDegenerate
+- uid: System.Collections.Generic.List{g3.GeneralPolygon2d}
+  commentId: T:System.Collections.Generic.List{g3.GeneralPolygon2d}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<GeneralPolygon2d>
+  nameWithType: List<GeneralPolygon2d>
+  fullName: System.Collections.Generic.List<g3.GeneralPolygon2d>
+  nameWithType.vb: List(Of GeneralPolygon2d)
+  fullName.vb: System.Collections.Generic.List(Of g3.GeneralPolygon2d)
+  name.vb: List(Of GeneralPolygon2d)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: g3.GeneralPolygon2d
+    name: GeneralPolygon2d
+    nameWithType: GeneralPolygon2d
+    fullName: g3.GeneralPolygon2d
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: g3.GeneralPolygon2d
+    name: GeneralPolygon2d
+    nameWithType: GeneralPolygon2d
+    fullName: g3.GeneralPolygon2d
+  - name: )
+    nameWithType: )
+    fullName: )

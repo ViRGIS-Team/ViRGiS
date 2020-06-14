@@ -1,0 +1,1415 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.Geometry.LineString
+  commentId: T:GeoJSON.Net.Geometry.LineString
+  id: LineString
+  parent: GeoJSON.Net.Geometry
+  children:
+  - GeoJSON.Net.Geometry.LineString.#ctor(System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition})
+  - GeoJSON.Net.Geometry.LineString.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}})
+  - GeoJSON.Net.Geometry.LineString.Coordinates
+  - GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString)
+  - GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  - GeoJSON.Net.Geometry.LineString.Equals(System.Object)
+  - GeoJSON.Net.Geometry.LineString.GetHashCode
+  - GeoJSON.Net.Geometry.LineString.GetHashCode(GeoJSON.Net.Geometry.LineString)
+  - GeoJSON.Net.Geometry.LineString.IsClosed
+  - GeoJSON.Net.Geometry.LineString.IsLinearRing
+  - GeoJSON.Net.Geometry.LineString.op_Equality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  - GeoJSON.Net.Geometry.LineString.op_Inequality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  - GeoJSON.Net.Geometry.LineString.Type
+  langs:
+  - csharp
+  - vb
+  name: LineString
+  nameWithType: LineString
+  fullName: GeoJSON.Net.Geometry.LineString
+  type: Class
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: LineString
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 17
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDefines the LineString type.\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-3.1.4\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonObject(MemberSerialization.OptIn)]
+
+      public class LineString : GeoJSONObject, IGeoJSONObject, IEqualityComparer<GeoJSONObject>, IEquatable<GeoJSONObject>, IGeometryObject, IEqualityComparer<LineString>, IEquatable<LineString>
+    content.vb: >-
+      <JsonObject(MemberSerialization.OptIn)>
+
+      Public Class LineString
+          Inherits GeoJSONObject
+          Implements IGeoJSONObject, IEqualityComparer(Of GeoJSONObject), IEquatable(Of GeoJSONObject), IGeometryObject, IEqualityComparer(Of LineString), IEquatable(Of LineString)
+  inheritance:
+  - System.Object
+  - GeoJSON.Net.GeoJSONObject
+  implements:
+  - GeoJSON.Net.IGeoJSONObject
+  - GeoJSON.Net.Geometry.IGeometryObject
+  inheritedMembers:
+  - GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  - GeoJSON.Net.GeoJSONObject.CRS
+  - GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  - GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  - GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  extensionMethods:
+  - GeoJSON.Net.Geometry.LineString.Virgis.LineExtensionMethods.Point(System.Int32)
+  - GeoJSON.Net.Geometry.LineString.Virgis.LineExtensionMethods.Points
+  - GeoJSON.Net.Geometry.LineString.Virgis.LineExtensionMethods.Vector3
+  attributes:
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor(Newtonsoft.Json.MemberSerialization)
+    arguments:
+    - type: Newtonsoft.Json.MemberSerialization
+      value: 1
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: GeoJSON.Net.Geometry.LineString.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}})
+  commentId: M:GeoJSON.Net.Geometry.LineString.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}})
+  id: '#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}})'
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: LineString(IEnumerable<IEnumerable<Double>>)
+  nameWithType: LineString.LineString(IEnumerable<IEnumerable<Double>>)
+  fullName: GeoJSON.Net.Geometry.LineString.LineString(System.Collections.Generic.IEnumerable<System.Collections.Generic.IEnumerable<System.Double>>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 24
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nInitializes a new <xref href=\"GeoJSON.Net.Geometry.LineString\" data-throw-if-not-resolved=\"false\"></xref> from a 2-d array of <xref href=\"System.Double\" data-throw-if-not-resolved=\"false\"></xref>s\nthat matches the &quot;coordinates&quot; field in the JSON representation.\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonConstructor]
+
+      public LineString(IEnumerable<IEnumerable<double>> coordinates)
+    parameters:
+    - id: coordinates
+      type: System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}}
+    content.vb: >-
+      <JsonConstructor>
+
+      Public Sub New(coordinates As IEnumerable(Of IEnumerable(Of Double)))
+  overload: GeoJSON.Net.Geometry.LineString.#ctor*
+  attributes:
+  - type: Newtonsoft.Json.JsonConstructorAttribute
+    ctor: Newtonsoft.Json.JsonConstructorAttribute.#ctor
+    arguments: []
+  nameWithType.vb: LineString.LineString(IEnumerable(Of IEnumerable(Of Double)))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: GeoJSON.Net.Geometry.LineString.LineString(System.Collections.Generic.IEnumerable(Of System.Collections.Generic.IEnumerable(Of System.Double)))
+  name.vb: LineString(IEnumerable(Of IEnumerable(Of Double)))
+- uid: GeoJSON.Net.Geometry.LineString.#ctor(System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition})
+  commentId: M:GeoJSON.Net.Geometry.LineString.#ctor(System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition})
+  id: '#ctor(System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition})'
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: LineString(IEnumerable<IPosition>)
+  nameWithType: LineString.LineString(IEnumerable<IPosition>)
+  fullName: GeoJSON.Net.Geometry.LineString.LineString(System.Collections.Generic.IEnumerable<GeoJSON.Net.Geometry.IPosition>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 35
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nInitializes a new instance of the <xref href=\"GeoJSON.Net.Geometry.LineString\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public LineString(IEnumerable<IPosition> coordinates)
+    parameters:
+    - id: coordinates
+      type: System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition}
+      description: The coordinates.
+    content.vb: Public Sub New(coordinates As IEnumerable(Of IPosition))
+  overload: GeoJSON.Net.Geometry.LineString.#ctor*
+  nameWithType.vb: LineString.LineString(IEnumerable(Of IPosition))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: GeoJSON.Net.Geometry.LineString.LineString(System.Collections.Generic.IEnumerable(Of GeoJSON.Net.Geometry.IPosition))
+  name.vb: LineString(IEnumerable(Of IPosition))
+- uid: GeoJSON.Net.Geometry.LineString.Type
+  commentId: P:GeoJSON.Net.Geometry.LineString.Type
+  id: Type
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: LineString.Type
+  fullName: GeoJSON.Net.Geometry.LineString.Type
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 48
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  syntax:
+    content: public override GeoJSONObjectType Type { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.GeoJSONObjectType
+    content.vb: Public Overrides ReadOnly Property Type As GeoJSONObjectType
+  overridden: GeoJSON.Net.GeoJSONObject.Type
+  overload: GeoJSON.Net.Geometry.LineString.Type*
+  implements:
+  - GeoJSON.Net.Geometry.IGeometryObject.Type
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: GeoJSON.Net.Geometry.LineString.Coordinates
+  commentId: P:GeoJSON.Net.Geometry.LineString.Coordinates
+  id: Coordinates
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Coordinates
+  nameWithType: LineString.Coordinates
+  fullName: GeoJSON.Net.Geometry.LineString.Coordinates
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Coordinates
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 53
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nThe positions of the line string.\n"
+  example: []
+  syntax:
+    content: >-
+      [JsonProperty("coordinates", Required = Required.Always)]
+
+      [JsonConverter(typeof(PositionEnumerableConverter))]
+
+      public ReadOnlyCollection<IPosition> Coordinates { get; }
+    parameters: []
+    return:
+      type: System.Collections.ObjectModel.ReadOnlyCollection{GeoJSON.Net.Geometry.IPosition}
+    content.vb: >-
+      <JsonProperty("coordinates", Required:=Required.Always)>
+
+      <JsonConverter(GetType(PositionEnumerableConverter))>
+
+      Public ReadOnly Property Coordinates As ReadOnlyCollection(Of IPosition)
+  overload: GeoJSON.Net.Geometry.LineString.Coordinates*
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: coordinates
+    namedArguments:
+    - name: Required
+      type: Newtonsoft.Json.Required
+      value: 2
+  - type: Newtonsoft.Json.JsonConverterAttribute
+    ctor: Newtonsoft.Json.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: GeoJSON.Net.Converters.PositionEnumerableConverter
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: GeoJSON.Net.Geometry.LineString.IsClosed
+  commentId: M:GeoJSON.Net.Geometry.LineString.IsClosed
+  id: IsClosed
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: IsClosed()
+  nameWithType: LineString.IsClosed()
+  fullName: GeoJSON.Net.Geometry.LineString.IsClosed()
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsClosed
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 63
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether this instance has its first and last coordinate at the same position and thereby is closed.\n"
+  example: []
+  syntax:
+    content: public bool IsClosed()
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if this instance is closed; otherwise, <code>false</code>.\n"
+    content.vb: Public Function IsClosed As Boolean
+  overload: GeoJSON.Net.Geometry.LineString.IsClosed*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Geometry.LineString.IsLinearRing
+  commentId: M:GeoJSON.Net.Geometry.LineString.IsLinearRing
+  id: IsLinearRing
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: IsLinearRing()
+  nameWithType: LineString.IsLinearRing()
+  fullName: GeoJSON.Net.Geometry.LineString.IsLinearRing()
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsLinearRing
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 82
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether this LineString is a LinearRing.\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-3.1.1\n"
+  example: []
+  syntax:
+    content: public bool IsLinearRing()
+    return:
+      type: System.Boolean
+      description: "\n<code>true</code> if it is a linear ring; otherwise, <code>false</code>.\n"
+    content.vb: Public Function IsLinearRing As Boolean
+  overload: GeoJSON.Net.Geometry.LineString.IsLinearRing*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Geometry.LineString.Equals(System.Object)
+  commentId: M:GeoJSON.Net.Geometry.LineString.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Equals(Object)
+  nameWithType: LineString.Equals(Object)
+  fullName: GeoJSON.Net.Geometry.LineString.Equals(System.Object)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 92
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether the specified object is equal to the current object\n"
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  overload: GeoJSON.Net.Geometry.LineString.Equals*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString)
+  commentId: M:GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString)
+  id: Equals(GeoJSON.Net.Geometry.LineString)
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Equals(LineString)
+  nameWithType: LineString.Equals(LineString)
+  fullName: GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 100
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether the specified object is equal to the current object\n"
+  example: []
+  syntax:
+    content: public bool Equals(LineString other)
+    parameters:
+    - id: other
+      type: GeoJSON.Net.Geometry.LineString
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As LineString) As Boolean
+  overload: GeoJSON.Net.Geometry.LineString.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  commentId: M:GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  id: Equals(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Equals(LineString, LineString)
+  nameWithType: LineString.Equals(LineString, LineString)
+  fullName: GeoJSON.Net.Geometry.LineString.Equals(GeoJSON.Net.Geometry.LineString, GeoJSON.Net.Geometry.LineString)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Equals
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 108
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether the specified object instances are considered equal\n"
+  example: []
+  syntax:
+    content: public bool Equals(LineString left, LineString right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Geometry.LineString
+    - id: right
+      type: GeoJSON.Net.Geometry.LineString
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(left As LineString, right As LineString) As Boolean
+  overload: GeoJSON.Net.Geometry.LineString.Equals*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: GeoJSON.Net.Geometry.LineString.op_Equality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  commentId: M:GeoJSON.Net.Geometry.LineString.op_Equality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  id: op_Equality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Equality(LineString, LineString)
+  nameWithType: LineString.Equality(LineString, LineString)
+  fullName: GeoJSON.Net.Geometry.LineString.Equality(GeoJSON.Net.Geometry.LineString, GeoJSON.Net.Geometry.LineString)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Equality
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 120
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether the specified object instances are considered equal\n"
+  example: []
+  syntax:
+    content: public static bool operator ==(LineString left, LineString right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Geometry.LineString
+    - id: right
+      type: GeoJSON.Net.Geometry.LineString
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As LineString, right As LineString) As Boolean
+  overload: GeoJSON.Net.Geometry.LineString.op_Equality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: GeoJSON.Net.Geometry.LineString.op_Inequality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  commentId: M:GeoJSON.Net.Geometry.LineString.op_Inequality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  id: op_Inequality(GeoJSON.Net.Geometry.LineString,GeoJSON.Net.Geometry.LineString)
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: Inequality(LineString, LineString)
+  nameWithType: LineString.Inequality(LineString, LineString)
+  fullName: GeoJSON.Net.Geometry.LineString.Inequality(GeoJSON.Net.Geometry.LineString, GeoJSON.Net.Geometry.LineString)
+  type: Operator
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: op_Inequality
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 136
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nDetermines whether the specified object instances are not considered equal\n"
+  example: []
+  syntax:
+    content: public static bool operator !=(LineString left, LineString right)
+    parameters:
+    - id: left
+      type: GeoJSON.Net.Geometry.LineString
+    - id: right
+      type: GeoJSON.Net.Geometry.LineString
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As LineString, right As LineString) As Boolean
+  overload: GeoJSON.Net.Geometry.LineString.op_Inequality*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: GeoJSON.Net.Geometry.LineString.GetHashCode
+  commentId: M:GeoJSON.Net.Geometry.LineString.GetHashCode
+  id: GetHashCode
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: LineString.GetHashCode()
+  fullName: GeoJSON.Net.Geometry.LineString.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 144
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nReturns the hash code for this instance\n"
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode As Integer
+  overridden: GeoJSON.Net.GeoJSONObject.GetHashCode
+  overload: GeoJSON.Net.Geometry.LineString.GetHashCode*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: GeoJSON.Net.Geometry.LineString.GetHashCode(GeoJSON.Net.Geometry.LineString)
+  commentId: M:GeoJSON.Net.Geometry.LineString.GetHashCode(GeoJSON.Net.Geometry.LineString)
+  id: GetHashCode(GeoJSON.Net.Geometry.LineString)
+  parent: GeoJSON.Net.Geometry.LineString
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode(LineString)
+  nameWithType: LineString.GetHashCode(LineString)
+  fullName: GeoJSON.Net.Geometry.LineString.GetHashCode(GeoJSON.Net.Geometry.LineString)
+  type: Method
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/LineString.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetHashCode
+    path: ../Assets/GeoJSON.Net/Geometry/LineString.cs
+    startLine: 157
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nReturns the hash code for the specified object\n"
+  example: []
+  syntax:
+    content: public int GetHashCode(LineString other)
+    parameters:
+    - id: other
+      type: GeoJSON.Net.Geometry.LineString
+    return:
+      type: System.Int32
+    content.vb: Public Function GetHashCode(other As LineString) As Integer
+  overload: GeoJSON.Net.Geometry.LineString.GetHashCode*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: GeoJSON.Net.Geometry
+  commentId: N:GeoJSON.Net.Geometry
+  name: GeoJSON.Net.Geometry
+  nameWithType: GeoJSON.Net.Geometry
+  fullName: GeoJSON.Net.Geometry
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: GeoJSON.Net.GeoJSONObject
+  commentId: T:GeoJSON.Net.GeoJSONObject
+  parent: GeoJSON.Net
+  name: GeoJSONObject
+  nameWithType: GeoJSONObject
+  fullName: GeoJSON.Net.GeoJSONObject
+- uid: GeoJSON.Net.IGeoJSONObject
+  commentId: T:GeoJSON.Net.IGeoJSONObject
+  parent: GeoJSON.Net
+  name: IGeoJSONObject
+  nameWithType: IGeoJSONObject
+  fullName: GeoJSON.Net.IGeoJSONObject
+- uid: GeoJSON.Net.Geometry.IGeometryObject
+  commentId: T:GeoJSON.Net.Geometry.IGeometryObject
+  parent: GeoJSON.Net.Geometry
+  name: IGeometryObject
+  nameWithType: IGeometryObject
+  fullName: GeoJSON.Net.Geometry.IGeometryObject
+- uid: GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  commentId: P:GeoJSON.Net.GeoJSONObject.BoundingBoxes
+  parent: GeoJSON.Net.GeoJSONObject
+  name: BoundingBoxes
+  nameWithType: GeoJSONObject.BoundingBoxes
+  fullName: GeoJSON.Net.GeoJSONObject.BoundingBoxes
+- uid: GeoJSON.Net.GeoJSONObject.CRS
+  commentId: P:GeoJSON.Net.GeoJSONObject.CRS
+  parent: GeoJSON.Net.GeoJSONObject
+  name: CRS
+  nameWithType: GeoJSONObject.CRS
+  fullName: GeoJSON.Net.GeoJSONObject.CRS
+- uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Equals(GeoJSONObject)
+  nameWithType: GeoJSONObject.Equals(GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Equals(GeoJSONObject, GeoJSONObject)
+  nameWithType: GeoJSONObject.Equals(GeoJSONObject, GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject, GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(GeoJSON.Net.GeoJSONObject,GeoJSON.Net.GeoJSONObject)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  commentId: M:GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  parent: GeoJSON.Net.GeoJSONObject
+  name: GetHashCode(GeoJSONObject)
+  nameWithType: GeoJSONObject.GetHashCode(GeoJSONObject)
+  fullName: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode(GeoJSON.Net.GeoJSONObject)
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.GeoJSONObject
+    name: GeoJSONObject
+    nameWithType: GeoJSONObject
+    fullName: GeoJSON.Net.GeoJSONObject
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Geometry.LineString.Virgis.LineExtensionMethods.Point(System.Int32)
+  commentId: M:Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString,System.Int32)
+  parent: Virgis.LineExtensionMethods
+  definition: Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString,System.Int32)
+  name: Point(Int32)
+  nameWithType: LineExtensionMethods.Point(Int32)
+  fullName: Virgis.LineExtensionMethods.Point(System.Int32)
+  spec.csharp:
+  - uid: Virgis.LineExtensionMethods.Point(System.Int32)
+    name: Point
+    nameWithType: LineExtensionMethods.Point
+    fullName: Virgis.LineExtensionMethods.Point
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.LineExtensionMethods.Point(System.Int32)
+    name: Point
+    nameWithType: LineExtensionMethods.Point
+    fullName: Virgis.LineExtensionMethods.Point
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Geometry.LineString.Virgis.LineExtensionMethods.Points
+  commentId: M:Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+  parent: Virgis.LineExtensionMethods
+  definition: Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+  name: Points()
+  nameWithType: LineExtensionMethods.Points()
+  fullName: Virgis.LineExtensionMethods.Points()
+  spec.csharp:
+  - uid: Virgis.LineExtensionMethods.Points
+    name: Points
+    nameWithType: LineExtensionMethods.Points
+    fullName: Virgis.LineExtensionMethods.Points
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.LineExtensionMethods.Points
+    name: Points
+    nameWithType: LineExtensionMethods.Points
+    fullName: Virgis.LineExtensionMethods.Points
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Geometry.LineString.Virgis.LineExtensionMethods.Vector3
+  commentId: M:Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+  parent: Virgis.LineExtensionMethods
+  definition: Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+  name: Vector3()
+  nameWithType: LineExtensionMethods.Vector3()
+  fullName: Virgis.LineExtensionMethods.Vector3()
+  spec.csharp:
+  - uid: Virgis.LineExtensionMethods.Vector3
+    name: Vector3
+    nameWithType: LineExtensionMethods.Vector3
+    fullName: Virgis.LineExtensionMethods.Vector3
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.LineExtensionMethods.Vector3
+    name: Vector3
+    nameWithType: LineExtensionMethods.Vector3
+    fullName: Virgis.LineExtensionMethods.Vector3
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GeoJSON.Net
+  commentId: N:GeoJSON.Net
+  name: GeoJSON.Net
+  nameWithType: GeoJSON.Net
+  fullName: GeoJSON.Net
+- uid: Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString,System.Int32)
+  commentId: M:Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString,System.Int32)
+  isExternal: true
+  name: Point(LineString, Int32)
+  nameWithType: LineExtensionMethods.Point(LineString, Int32)
+  fullName: Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString, System.Int32)
+  spec.csharp:
+  - uid: Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString,System.Int32)
+    name: Point
+    nameWithType: LineExtensionMethods.Point
+    fullName: Virgis.LineExtensionMethods.Point
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.Geometry.LineString
+    name: LineString
+    nameWithType: LineString
+    fullName: GeoJSON.Net.Geometry.LineString
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.LineExtensionMethods.Point(GeoJSON.Net.Geometry.LineString,System.Int32)
+    name: Point
+    nameWithType: LineExtensionMethods.Point
+    fullName: Virgis.LineExtensionMethods.Point
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.Geometry.LineString
+    name: LineString
+    nameWithType: LineString
+    fullName: GeoJSON.Net.Geometry.LineString
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.LineExtensionMethods
+  commentId: T:Virgis.LineExtensionMethods
+  parent: Virgis
+  name: LineExtensionMethods
+  nameWithType: LineExtensionMethods
+  fullName: Virgis.LineExtensionMethods
+- uid: Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+  commentId: M:Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+  name: Points(LineString)
+  nameWithType: LineExtensionMethods.Points(LineString)
+  fullName: Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+  spec.csharp:
+  - uid: Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+    name: Points
+    nameWithType: LineExtensionMethods.Points
+    fullName: Virgis.LineExtensionMethods.Points
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.Geometry.LineString
+    name: LineString
+    nameWithType: LineString
+    fullName: GeoJSON.Net.Geometry.LineString
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.LineExtensionMethods.Points(GeoJSON.Net.Geometry.LineString)
+    name: Points
+    nameWithType: LineExtensionMethods.Points
+    fullName: Virgis.LineExtensionMethods.Points
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.Geometry.LineString
+    name: LineString
+    nameWithType: LineString
+    fullName: GeoJSON.Net.Geometry.LineString
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+  commentId: M:Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+  name: Vector3(LineString)
+  nameWithType: LineExtensionMethods.Vector3(LineString)
+  fullName: Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+  spec.csharp:
+  - uid: Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+    name: Vector3
+    nameWithType: LineExtensionMethods.Vector3
+    fullName: Virgis.LineExtensionMethods.Vector3
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.Geometry.LineString
+    name: LineString
+    nameWithType: LineString
+    fullName: GeoJSON.Net.Geometry.LineString
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Virgis.LineExtensionMethods.Vector3(GeoJSON.Net.Geometry.LineString)
+    name: Vector3
+    nameWithType: LineExtensionMethods.Vector3
+    fullName: Virgis.LineExtensionMethods.Vector3
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: GeoJSON.Net.Geometry.LineString
+    name: LineString
+    nameWithType: LineString
+    fullName: GeoJSON.Net.Geometry.LineString
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Virgis
+  commentId: N:Virgis
+  name: Virgis
+  nameWithType: Virgis
+  fullName: Virgis
+- uid: GeoJSON.Net.Geometry.LineString
+  commentId: T:GeoJSON.Net.Geometry.LineString
+  parent: GeoJSON.Net.Geometry
+  name: LineString
+  nameWithType: LineString
+  fullName: GeoJSON.Net.Geometry.LineString
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: GeoJSON.Net.Geometry.LineString.#ctor*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.#ctor
+  name: LineString
+  nameWithType: LineString.LineString
+  fullName: GeoJSON.Net.Geometry.LineString.LineString
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IEnumerable<Double>>
+  nameWithType: IEnumerable<IEnumerable<Double>>
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.IEnumerable<System.Double>>
+  nameWithType.vb: IEnumerable(Of IEnumerable(Of Double))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.IEnumerable(Of System.Double))
+  name.vb: IEnumerable(Of IEnumerable(Of Double))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition}
+  commentId: T:System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.IPosition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IPosition>
+  nameWithType: IEnumerable<IPosition>
+  fullName: System.Collections.Generic.IEnumerable<GeoJSON.Net.Geometry.IPosition>
+  nameWithType.vb: IEnumerable(Of IPosition)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of GeoJSON.Net.Geometry.IPosition)
+  name.vb: IEnumerable(Of IPosition)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: GeoJSON.Net.Geometry.IPosition
+    name: IPosition
+    nameWithType: IPosition
+    fullName: GeoJSON.Net.Geometry.IPosition
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: GeoJSON.Net.Geometry.IPosition
+    name: IPosition
+    nameWithType: IPosition
+    fullName: GeoJSON.Net.Geometry.IPosition
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.GeoJSONObject.Type
+  commentId: P:GeoJSON.Net.GeoJSONObject.Type
+  parent: GeoJSON.Net.GeoJSONObject
+  name: Type
+  nameWithType: GeoJSONObject.Type
+  fullName: GeoJSON.Net.GeoJSONObject.Type
+- uid: GeoJSON.Net.Geometry.LineString.Type*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.Type
+  name: Type
+  nameWithType: LineString.Type
+  fullName: GeoJSON.Net.Geometry.LineString.Type
+- uid: GeoJSON.Net.Geometry.IGeometryObject.Type
+  commentId: P:GeoJSON.Net.Geometry.IGeometryObject.Type
+  parent: GeoJSON.Net.Geometry.IGeometryObject
+  name: Type
+  nameWithType: IGeometryObject.Type
+  fullName: GeoJSON.Net.Geometry.IGeometryObject.Type
+- uid: GeoJSON.Net.GeoJSONObjectType
+  commentId: T:GeoJSON.Net.GeoJSONObjectType
+  parent: GeoJSON.Net
+  name: GeoJSONObjectType
+  nameWithType: GeoJSONObjectType
+  fullName: GeoJSON.Net.GeoJSONObjectType
+- uid: GeoJSON.Net.Geometry.LineString.Coordinates*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.Coordinates
+  name: Coordinates
+  nameWithType: LineString.Coordinates
+  fullName: GeoJSON.Net.Geometry.LineString.Coordinates
+- uid: System.Collections.ObjectModel.ReadOnlyCollection{GeoJSON.Net.Geometry.IPosition}
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection{GeoJSON.Net.Geometry.IPosition}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ReadOnlyCollection`1
+  name: ReadOnlyCollection<IPosition>
+  nameWithType: ReadOnlyCollection<IPosition>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<GeoJSON.Net.Geometry.IPosition>
+  nameWithType.vb: ReadOnlyCollection(Of IPosition)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of GeoJSON.Net.Geometry.IPosition)
+  name.vb: ReadOnlyCollection(Of IPosition)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: GeoJSON.Net.Geometry.IPosition
+    name: IPosition
+    nameWithType: IPosition
+    fullName: GeoJSON.Net.Geometry.IPosition
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: GeoJSON.Net.Geometry.IPosition
+    name: IPosition
+    nameWithType: IPosition
+    fullName: GeoJSON.Net.Geometry.IPosition
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+  commentId: T:System.Collections.ObjectModel.ReadOnlyCollection`1
+  isExternal: true
+  name: ReadOnlyCollection<T>
+  nameWithType: ReadOnlyCollection<T>
+  fullName: System.Collections.ObjectModel.ReadOnlyCollection<T>
+  nameWithType.vb: ReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ReadOnlyCollection(Of T)
+  name.vb: ReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ReadOnlyCollection`1
+    name: ReadOnlyCollection
+    nameWithType: ReadOnlyCollection
+    fullName: System.Collections.ObjectModel.ReadOnlyCollection
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+- uid: GeoJSON.Net.Geometry.LineString.IsClosed*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.IsClosed
+  name: IsClosed
+  nameWithType: LineString.IsClosed
+  fullName: GeoJSON.Net.Geometry.LineString.IsClosed
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: GeoJSON.Net.Geometry.LineString.IsLinearRing*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.IsLinearRing
+  name: IsLinearRing
+  nameWithType: LineString.IsLinearRing
+  fullName: GeoJSON.Net.Geometry.LineString.IsLinearRing
+- uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  commentId: M:GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  parent: GeoJSON.Net.GeoJSONObject
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: GeoJSONObject.Equals(Object)
+  fullName: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.Equals(System.Object)
+    name: Equals
+    nameWithType: GeoJSONObject.Equals
+    fullName: GeoJSON.Net.GeoJSONObject.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Geometry.LineString.Equals*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.Equals
+  name: Equals
+  nameWithType: LineString.Equals
+  fullName: GeoJSON.Net.Geometry.LineString.Equals
+- uid: GeoJSON.Net.Geometry.LineString.op_Equality*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.op_Equality
+  name: Equality
+  nameWithType: LineString.Equality
+  fullName: GeoJSON.Net.Geometry.LineString.Equality
+- uid: GeoJSON.Net.Geometry.LineString.op_Inequality*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.op_Inequality
+  name: Inequality
+  nameWithType: LineString.Inequality
+  fullName: GeoJSON.Net.Geometry.LineString.Inequality
+- uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+  commentId: M:GeoJSON.Net.GeoJSONObject.GetHashCode
+  parent: GeoJSON.Net.GeoJSONObject
+  name: GetHashCode()
+  nameWithType: GeoJSONObject.GetHashCode()
+  fullName: GeoJSON.Net.GeoJSONObject.GetHashCode()
+  spec.csharp:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: GeoJSON.Net.GeoJSONObject.GetHashCode
+    name: GetHashCode
+    nameWithType: GeoJSONObject.GetHashCode
+    fullName: GeoJSON.Net.GeoJSONObject.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: GeoJSON.Net.Geometry.LineString.GetHashCode*
+  commentId: Overload:GeoJSON.Net.Geometry.LineString.GetHashCode
+  name: GetHashCode
+  nameWithType: LineString.GetHashCode
+  fullName: GeoJSON.Net.Geometry.LineString.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

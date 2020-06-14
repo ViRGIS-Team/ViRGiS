@@ -1,0 +1,488 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.RemapItr`2
+  commentId: T:g3.RemapItr`2
+  id: RemapItr`2
+  parent: g3
+  children:
+  - g3.RemapItr`2.#ctor(System.Collections.Generic.IEnumerable{`1},System.Func{`1,`0})
+  - g3.RemapItr`2.GetEnumerator
+  - g3.RemapItr`2.OtherItr
+  - g3.RemapItr`2.ValueF
+  langs:
+  - csharp
+  - vb
+  name: RemapItr<T, T2>
+  nameWithType: RemapItr<T, T2>
+  fullName: g3.RemapItr<T, T2>
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Iterators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: RemapItr
+    path: ../Assets/geometry3Sharp/core/g3Iterators.cs
+    startLine: 33
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nIterator that re-maps iterated values via a Func\n"
+  example: []
+  syntax:
+    content: 'public class RemapItr<T, T2> : IEnumerable<T>, IEnumerable'
+    typeParameters:
+    - id: T
+    - id: T2
+    content.vb: >-
+      Public Class RemapItr(Of T, T2)
+          Implements IEnumerable(Of T), IEnumerable
+  inheritance:
+  - System.Object
+  nameWithType.vb: RemapItr(Of T, T2)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: g3.RemapItr(Of T, T2)
+  name.vb: RemapItr(Of T, T2)
+- uid: g3.RemapItr`2.OtherItr
+  commentId: F:g3.RemapItr`2.OtherItr
+  id: OtherItr
+  parent: g3.RemapItr`2
+  langs:
+  - csharp
+  - vb
+  name: OtherItr
+  nameWithType: RemapItr<T, T2>.OtherItr
+  fullName: g3.RemapItr<T, T2>.OtherItr
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Iterators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: OtherItr
+    path: ../Assets/geometry3Sharp/core/g3Iterators.cs
+    startLine: 35
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerable<T2> OtherItr
+    return:
+      type: System.Collections.Generic.IEnumerable{{T2}}
+    content.vb: Public OtherItr As IEnumerable(Of T2)
+  nameWithType.vb: RemapItr(Of T, T2).OtherItr
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.RemapItr(Of T, T2).OtherItr
+- uid: g3.RemapItr`2.ValueF
+  commentId: F:g3.RemapItr`2.ValueF
+  id: ValueF
+  parent: g3.RemapItr`2
+  langs:
+  - csharp
+  - vb
+  name: ValueF
+  nameWithType: RemapItr<T, T2>.ValueF
+  fullName: g3.RemapItr<T, T2>.ValueF
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Iterators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: ValueF
+    path: ../Assets/geometry3Sharp/core/g3Iterators.cs
+    startLine: 36
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public Func<T2, T> ValueF
+    return:
+      type: System.Func{{T2},{T}}
+    content.vb: Public ValueF As Func(Of T2, T)
+  nameWithType.vb: RemapItr(Of T, T2).ValueF
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.RemapItr(Of T, T2).ValueF
+- uid: g3.RemapItr`2.#ctor(System.Collections.Generic.IEnumerable{`1},System.Func{`1,`0})
+  commentId: M:g3.RemapItr`2.#ctor(System.Collections.Generic.IEnumerable{`1},System.Func{`1,`0})
+  id: '#ctor(System.Collections.Generic.IEnumerable{`1},System.Func{`1,`0})'
+  parent: g3.RemapItr`2
+  langs:
+  - csharp
+  - vb
+  name: RemapItr(IEnumerable<T2>, Func<T2, T>)
+  nameWithType: RemapItr<T, T2>.RemapItr(IEnumerable<T2>, Func<T2, T>)
+  fullName: g3.RemapItr<T, T2>.RemapItr(System.Collections.Generic.IEnumerable<T2>, System.Func<T2, T>)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Iterators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/core/g3Iterators.cs
+    startLine: 38
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public RemapItr(IEnumerable<T2> otherIterator, Func<T2, T> valueFunction)
+    parameters:
+    - id: otherIterator
+      type: System.Collections.Generic.IEnumerable{{T2}}
+    - id: valueFunction
+      type: System.Func{{T2},{T}}
+    content.vb: Public Sub New(otherIterator As IEnumerable(Of T2), valueFunction As Func(Of T2, T))
+  overload: g3.RemapItr`2.#ctor*
+  nameWithType.vb: RemapItr(Of T, T2).RemapItr(IEnumerable(Of T2), Func(Of T2, T))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.RemapItr(Of T, T2).RemapItr(System.Collections.Generic.IEnumerable(Of T2), System.Func(Of T2, T))
+  name.vb: RemapItr(IEnumerable(Of T2), Func(Of T2, T))
+- uid: g3.RemapItr`2.GetEnumerator
+  commentId: M:g3.RemapItr`2.GetEnumerator
+  id: GetEnumerator
+  parent: g3.RemapItr`2
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: RemapItr<T, T2>.GetEnumerator()
+  fullName: g3.RemapItr<T, T2>.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/core/g3Iterators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetEnumerator
+    path: ../Assets/geometry3Sharp/core/g3Iterators.cs
+    startLine: 42
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public IEnumerator<T> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{{T}}
+    content.vb: Public Function GetEnumerator As IEnumerator(Of T)
+  overload: g3.RemapItr`2.GetEnumerator*
+  nameWithType.vb: RemapItr(Of T, T2).GetEnumerator()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.RemapItr(Of T, T2).GetEnumerator()
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable{{T2}}
+  commentId: T:System.Collections.Generic.IEnumerable{`1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<T2>
+  nameWithType: IEnumerable<T2>
+  fullName: System.Collections.Generic.IEnumerable<T2>
+  nameWithType.vb: IEnumerable(Of T2)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T2)
+  name.vb: IEnumerable(Of T2)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.Func{{T2},{T}}
+  commentId: T:System.Func{`1,`0}
+  parent: System
+  definition: System.Func`2
+  name: Func<T2, T>
+  nameWithType: Func<T2, T>
+  fullName: System.Func<T2, T>
+  nameWithType.vb: Func(Of T2, T)
+  fullName.vb: System.Func(Of T2, T)
+  name.vb: Func(Of T2, T)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T2
+    nameWithType: T2
+    fullName: T2
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    nameWithType: Func
+    fullName: System.Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.RemapItr`2.#ctor*
+  commentId: Overload:g3.RemapItr`2.#ctor
+  name: RemapItr
+  nameWithType: RemapItr<T, T2>.RemapItr
+  fullName: g3.RemapItr<T, T2>.RemapItr
+  nameWithType.vb: RemapItr(Of T, T2).RemapItr
+  fullName.vb: g3.RemapItr(Of T, T2).RemapItr
+- uid: g3.RemapItr`2.GetEnumerator*
+  commentId: Overload:g3.RemapItr`2.GetEnumerator
+  name: GetEnumerator
+  nameWithType: RemapItr<T, T2>.GetEnumerator
+  fullName: g3.RemapItr<T, T2>.GetEnumerator
+  nameWithType.vb: RemapItr(Of T, T2).GetEnumerator
+  fullName.vb: g3.RemapItr(Of T, T2).GetEnumerator
+- uid: System.Collections.Generic.IEnumerator{{T}}
+  commentId: T:System.Collections.Generic.IEnumerator{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    nameWithType: IEnumerator
+    fullName: System.Collections.Generic.IEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

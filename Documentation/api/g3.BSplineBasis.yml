@@ -1,0 +1,1314 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.BSplineBasis
+  commentId: T:g3.BSplineBasis
+  id: BSplineBasis
+  parent: g3
+  children:
+  - g3.BSplineBasis.#ctor
+  - g3.BSplineBasis.#ctor(System.Int32,System.Int32,System.Boolean)
+  - g3.BSplineBasis.#ctor(System.Int32,System.Int32,System.Double[],System.Boolean)
+  - g3.BSplineBasis.Allocate
+  - g3.BSplineBasis.Clone
+  - g3.BSplineBasis.Compute(System.Double,System.Int32,System.Int32@,System.Int32@)
+  - g3.BSplineBasis.GetD0(System.Int32)
+  - g3.BSplineBasis.GetD1(System.Int32)
+  - g3.BSplineBasis.GetD2(System.Int32)
+  - g3.BSplineBasis.GetD3(System.Int32)
+  - g3.BSplineBasis.GetDegree
+  - g3.BSplineBasis.GetInteriorKnot(System.Int32)
+  - g3.BSplineBasis.GetKey(System.Double@)
+  - g3.BSplineBasis.GetKnot(System.Int32)
+  - g3.BSplineBasis.GetNumCtrlPoints
+  - g3.BSplineBasis.Initialize(System.Int32,System.Int32,System.Boolean)
+  - g3.BSplineBasis.InteriorKnotCount
+  - g3.BSplineBasis.IsOpen
+  - g3.BSplineBasis.IsUniform
+  - g3.BSplineBasis.KnotCount
+  - g3.BSplineBasis.mBD0
+  - g3.BSplineBasis.mBD1
+  - g3.BSplineBasis.mBD2
+  - g3.BSplineBasis.mBD3
+  - g3.BSplineBasis.mDegree
+  - g3.BSplineBasis.mKnot
+  - g3.BSplineBasis.mNumCtrlPoints
+  - g3.BSplineBasis.mOpen
+  - g3.BSplineBasis.mUniform
+  - g3.BSplineBasis.SetInteriorKnot(System.Int32,System.Double)
+  - g3.BSplineBasis.SetKnot(System.Int32,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: BSplineBasis
+  nameWithType: BSplineBasis
+  fullName: g3.BSplineBasis
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: BSplineBasis
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 5
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public class BSplineBasis
+    content.vb: Public Class BSplineBasis
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.BSplineBasis.#ctor
+  commentId: M:g3.BSplineBasis.#ctor
+  id: '#ctor'
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: BSplineBasis()
+  nameWithType: BSplineBasis.BSplineBasis()
+  fullName: g3.BSplineBasis.BSplineBasis()
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 16
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected BSplineBasis()
+    content.vb: Protected Sub New
+  overload: g3.BSplineBasis.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.#ctor(System.Int32,System.Int32,System.Boolean)
+  commentId: M:g3.BSplineBasis.#ctor(System.Int32,System.Int32,System.Boolean)
+  id: '#ctor(System.Int32,System.Int32,System.Boolean)'
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: BSplineBasis(Int32, Int32, Boolean)
+  nameWithType: BSplineBasis.BSplineBasis(Int32, Int32, Boolean)
+  fullName: g3.BSplineBasis.BSplineBasis(System.Int32, System.Int32, System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BSplineBasis(int numCtrlPoints, int degree, bool open)
+    parameters:
+    - id: numCtrlPoints
+      type: System.Int32
+    - id: degree
+      type: System.Int32
+    - id: open
+      type: System.Boolean
+    content.vb: Public Sub New(numCtrlPoints As Integer, degree As Integer, open As Boolean)
+  overload: g3.BSplineBasis.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.#ctor(System.Int32,System.Int32,System.Double[],System.Boolean)
+  commentId: M:g3.BSplineBasis.#ctor(System.Int32,System.Int32,System.Double[],System.Boolean)
+  id: '#ctor(System.Int32,System.Int32,System.Double[],System.Boolean)'
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: BSplineBasis(Int32, Int32, Double[], Boolean)
+  nameWithType: BSplineBasis.BSplineBasis(Int32, Int32, Double[], Boolean)
+  fullName: g3.BSplineBasis.BSplineBasis(System.Int32, System.Int32, System.Double[], System.Boolean)
+  type: Constructor
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: .ctor
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 57
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BSplineBasis(int numCtrlPoints, int degree, double[] knots, bool bIsInteriorKnots)
+    parameters:
+    - id: numCtrlPoints
+      type: System.Int32
+    - id: degree
+      type: System.Int32
+    - id: knots
+      type: System.Double[]
+    - id: bIsInteriorKnots
+      type: System.Boolean
+    content.vb: Public Sub New(numCtrlPoints As Integer, degree As Integer, knots As Double(), bIsInteriorKnots As Boolean)
+  overload: g3.BSplineBasis.#ctor*
+  nameWithType.vb: BSplineBasis.BSplineBasis(Int32, Int32, Double(), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.BSplineBasis.BSplineBasis(System.Int32, System.Int32, System.Double(), System.Boolean)
+  name.vb: BSplineBasis(Int32, Int32, Double(), Boolean)
+- uid: g3.BSplineBasis.Clone
+  commentId: M:g3.BSplineBasis.Clone
+  id: Clone
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: BSplineBasis.Clone()
+  fullName: g3.BSplineBasis.Clone()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Clone
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 81
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public BSplineBasis Clone()
+    return:
+      type: g3.BSplineBasis
+    content.vb: Public Function Clone As BSplineBasis
+  overload: g3.BSplineBasis.Clone*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetNumCtrlPoints
+  commentId: M:g3.BSplineBasis.GetNumCtrlPoints
+  id: GetNumCtrlPoints
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetNumCtrlPoints()
+  nameWithType: BSplineBasis.GetNumCtrlPoints()
+  fullName: g3.BSplineBasis.GetNumCtrlPoints()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetNumCtrlPoints
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 94
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetNumCtrlPoints()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetNumCtrlPoints As Integer
+  overload: g3.BSplineBasis.GetNumCtrlPoints*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetDegree
+  commentId: M:g3.BSplineBasis.GetDegree
+  id: GetDegree
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetDegree()
+  nameWithType: BSplineBasis.GetDegree()
+  fullName: g3.BSplineBasis.GetDegree()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetDegree
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 97
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int GetDegree()
+    return:
+      type: System.Int32
+    content.vb: Public Function GetDegree As Integer
+  overload: g3.BSplineBasis.GetDegree*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.IsOpen
+  commentId: M:g3.BSplineBasis.IsOpen
+  id: IsOpen
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: IsOpen()
+  nameWithType: BSplineBasis.IsOpen()
+  fullName: g3.BSplineBasis.IsOpen()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsOpen
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 100
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsOpen()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsOpen As Boolean
+  overload: g3.BSplineBasis.IsOpen*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.IsUniform
+  commentId: M:g3.BSplineBasis.IsUniform
+  id: IsUniform
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: IsUniform()
+  nameWithType: BSplineBasis.IsUniform()
+  fullName: g3.BSplineBasis.IsUniform()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsUniform
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 103
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public bool IsUniform()
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsUniform As Boolean
+  overload: g3.BSplineBasis.IsUniform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.KnotCount
+  commentId: P:g3.BSplineBasis.KnotCount
+  id: KnotCount
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: KnotCount
+  nameWithType: BSplineBasis.KnotCount
+  fullName: g3.BSplineBasis.KnotCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: KnotCount
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 108
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int KnotCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property KnotCount As Integer
+  overload: g3.BSplineBasis.KnotCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BSplineBasis.InteriorKnotCount
+  commentId: P:g3.BSplineBasis.InteriorKnotCount
+  id: InteriorKnotCount
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: InteriorKnotCount
+  nameWithType: BSplineBasis.InteriorKnotCount
+  fullName: g3.BSplineBasis.InteriorKnotCount
+  type: Property
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: InteriorKnotCount
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 111
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public int InteriorKnotCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property InteriorKnotCount As Integer
+  overload: g3.BSplineBasis.InteriorKnotCount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: g3.BSplineBasis.SetInteriorKnot(System.Int32,System.Double)
+  commentId: M:g3.BSplineBasis.SetInteriorKnot(System.Int32,System.Double)
+  id: SetInteriorKnot(System.Int32,System.Double)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: SetInteriorKnot(Int32, Double)
+  nameWithType: BSplineBasis.SetInteriorKnot(Int32, Double)
+  fullName: g3.BSplineBasis.SetInteriorKnot(System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetInteriorKnot
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 119
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetInteriorKnot(int j, double value)
+    parameters:
+    - id: j
+      type: System.Int32
+    - id: value
+      type: System.Double
+    content.vb: Public Sub SetInteriorKnot(j As Integer, value As Double)
+  overload: g3.BSplineBasis.SetInteriorKnot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetInteriorKnot(System.Int32)
+  commentId: M:g3.BSplineBasis.GetInteriorKnot(System.Int32)
+  id: GetInteriorKnot(System.Int32)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetInteriorKnot(Int32)
+  nameWithType: BSplineBasis.GetInteriorKnot(Int32)
+  fullName: g3.BSplineBasis.GetInteriorKnot(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetInteriorKnot
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 132
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetInteriorKnot(int j)
+    parameters:
+    - id: j
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetInteriorKnot(j As Integer) As Double
+  overload: g3.BSplineBasis.GetInteriorKnot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.SetKnot(System.Int32,System.Double)
+  commentId: M:g3.BSplineBasis.SetKnot(System.Int32,System.Double)
+  id: SetKnot(System.Int32,System.Double)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: SetKnot(Int32, Double)
+  nameWithType: BSplineBasis.SetKnot(Int32, Double)
+  fullName: g3.BSplineBasis.SetKnot(System.Int32, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: SetKnot
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 146
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void SetKnot(int j, double value)
+    parameters:
+    - id: j
+      type: System.Int32
+    - id: value
+      type: System.Double
+    content.vb: Public Sub SetKnot(j As Integer, value As Double)
+  overload: g3.BSplineBasis.SetKnot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetKnot(System.Int32)
+  commentId: M:g3.BSplineBasis.GetKnot(System.Int32)
+  id: GetKnot(System.Int32)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetKnot(Int32)
+  nameWithType: BSplineBasis.GetKnot(Int32)
+  fullName: g3.BSplineBasis.GetKnot(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetKnot
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 149
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetKnot(int j)
+    parameters:
+    - id: j
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetKnot(j As Integer) As Double
+  overload: g3.BSplineBasis.GetKnot*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetD0(System.Int32)
+  commentId: M:g3.BSplineBasis.GetD0(System.Int32)
+  id: GetD0(System.Int32)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetD0(Int32)
+  nameWithType: BSplineBasis.GetD0(Int32)
+  fullName: g3.BSplineBasis.GetD0(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetD0
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 155
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetD0(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetD0(i As Integer) As Double
+  overload: g3.BSplineBasis.GetD0*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetD1(System.Int32)
+  commentId: M:g3.BSplineBasis.GetD1(System.Int32)
+  id: GetD1(System.Int32)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetD1(Int32)
+  nameWithType: BSplineBasis.GetD1(Int32)
+  fullName: g3.BSplineBasis.GetD1(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetD1
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 158
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetD1(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetD1(i As Integer) As Double
+  overload: g3.BSplineBasis.GetD1*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetD2(System.Int32)
+  commentId: M:g3.BSplineBasis.GetD2(System.Int32)
+  id: GetD2(System.Int32)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetD2(Int32)
+  nameWithType: BSplineBasis.GetD2(Int32)
+  fullName: g3.BSplineBasis.GetD2(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetD2
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 161
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetD2(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetD2(i As Integer) As Double
+  overload: g3.BSplineBasis.GetD2*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.GetD3(System.Int32)
+  commentId: M:g3.BSplineBasis.GetD3(System.Int32)
+  id: GetD3(System.Int32)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetD3(Int32)
+  nameWithType: BSplineBasis.GetD3(Int32)
+  fullName: g3.BSplineBasis.GetD3(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetD3
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 164
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double GetD3(int i)
+    parameters:
+    - id: i
+      type: System.Int32
+    return:
+      type: System.Double
+    content.vb: Public Function GetD3(i As Integer) As Double
+  overload: g3.BSplineBasis.GetD3*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.BSplineBasis.Compute(System.Double,System.Int32,System.Int32@,System.Int32@)
+  commentId: M:g3.BSplineBasis.Compute(System.Double,System.Int32,System.Int32@,System.Int32@)
+  id: Compute(System.Double,System.Int32,System.Int32@,System.Int32@)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: Compute(Double, Int32, ref Int32, ref Int32)
+  nameWithType: BSplineBasis.Compute(Double, Int32, ref Int32, ref Int32)
+  fullName: g3.BSplineBasis.Compute(System.Double, System.Int32, ref System.Int32, ref System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Compute
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 169
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public void Compute(double t, int order, ref int minIndex, ref int maxIndex)
+    parameters:
+    - id: t
+      type: System.Double
+    - id: order
+      type: System.Int32
+    - id: minIndex
+      type: System.Int32
+    - id: maxIndex
+      type: System.Int32
+    content.vb: Public Sub Compute(t As Double, order As Integer, ByRef minIndex As Integer, ByRef maxIndex As Integer)
+  overload: g3.BSplineBasis.Compute*
+  nameWithType.vb: BSplineBasis.Compute(Double, Int32, ByRef Int32, ByRef Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: g3.BSplineBasis.Compute(System.Double, System.Int32, ByRef System.Int32, ByRef System.Int32)
+  name.vb: Compute(Double, Int32, ByRef Int32, ByRef Int32)
+- uid: g3.BSplineBasis.Initialize(System.Int32,System.Int32,System.Boolean)
+  commentId: M:g3.BSplineBasis.Initialize(System.Int32,System.Int32,System.Boolean)
+  id: Initialize(System.Int32,System.Int32,System.Boolean)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: Initialize(Int32, Int32, Boolean)
+  nameWithType: BSplineBasis.Initialize(Int32, Int32, Boolean)
+  fullName: g3.BSplineBasis.Initialize(System.Int32, System.Int32, System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Initialize
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 277
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int Initialize(int numCtrlPoints, int degree, bool open)
+    parameters:
+    - id: numCtrlPoints
+      type: System.Int32
+    - id: degree
+      type: System.Int32
+    - id: open
+      type: System.Boolean
+    return:
+      type: System.Int32
+    content.vb: Protected Function Initialize(numCtrlPoints As Integer, degree As Integer, open As Boolean) As Integer
+  overload: g3.BSplineBasis.Initialize*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.Allocate
+  commentId: M:g3.BSplineBasis.Allocate
+  id: Allocate
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: Allocate()
+  nameWithType: BSplineBasis.Allocate()
+  fullName: g3.BSplineBasis.Allocate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Allocate
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 301
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[, ] Allocate()
+    return:
+      type: System.Double[,]
+    content.vb: Protected Function Allocate As Double(,)
+  overload: g3.BSplineBasis.Allocate*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.GetKey(System.Double@)
+  commentId: M:g3.BSplineBasis.GetKey(System.Double@)
+  id: GetKey(System.Double@)
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: GetKey(ref Double)
+  nameWithType: BSplineBasis.GetKey(ref Double)
+  fullName: g3.BSplineBasis.GetKey(ref System.Double)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: GetKey
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 317
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int GetKey(ref double t)
+    parameters:
+    - id: t
+      type: System.Double
+    return:
+      type: System.Int32
+    content.vb: Protected Function GetKey(ByRef t As Double) As Integer
+  overload: g3.BSplineBasis.GetKey*
+  nameWithType.vb: BSplineBasis.GetKey(ByRef Double)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+  fullName.vb: g3.BSplineBasis.GetKey(ByRef System.Double)
+  name.vb: GetKey(ByRef Double)
+- uid: g3.BSplineBasis.mNumCtrlPoints
+  commentId: F:g3.BSplineBasis.mNumCtrlPoints
+  id: mNumCtrlPoints
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mNumCtrlPoints
+  nameWithType: BSplineBasis.mNumCtrlPoints
+  fullName: g3.BSplineBasis.mNumCtrlPoints
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mNumCtrlPoints
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 357
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int mNumCtrlPoints
+    return:
+      type: System.Int32
+    content.vb: Protected mNumCtrlPoints As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mDegree
+  commentId: F:g3.BSplineBasis.mDegree
+  id: mDegree
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mDegree
+  nameWithType: BSplineBasis.mDegree
+  fullName: g3.BSplineBasis.mDegree
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mDegree
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 358
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected int mDegree
+    return:
+      type: System.Int32
+    content.vb: Protected mDegree As Integer
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mKnot
+  commentId: F:g3.BSplineBasis.mKnot
+  id: mKnot
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mKnot
+  nameWithType: BSplineBasis.mKnot
+  fullName: g3.BSplineBasis.mKnot
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mKnot
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 359
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[] mKnot
+    return:
+      type: System.Double[]
+    content.vb: Protected mKnot As Double()
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mOpen
+  commentId: F:g3.BSplineBasis.mOpen
+  id: mOpen
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mOpen
+  nameWithType: BSplineBasis.mOpen
+  fullName: g3.BSplineBasis.mOpen
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mOpen
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 360
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool mOpen
+    return:
+      type: System.Boolean
+    content.vb: Protected mOpen As Boolean
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mUniform
+  commentId: F:g3.BSplineBasis.mUniform
+  id: mUniform
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mUniform
+  nameWithType: BSplineBasis.mUniform
+  fullName: g3.BSplineBasis.mUniform
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mUniform
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 360
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected bool mUniform
+    return:
+      type: System.Boolean
+    content.vb: Protected mUniform As Boolean
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mBD0
+  commentId: F:g3.BSplineBasis.mBD0
+  id: mBD0
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mBD0
+  nameWithType: BSplineBasis.mBD0
+  fullName: g3.BSplineBasis.mBD0
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mBD0
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 366
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[, ] mBD0
+    return:
+      type: System.Double[,]
+    content.vb: Protected mBD0 As Double(,)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mBD1
+  commentId: F:g3.BSplineBasis.mBD1
+  id: mBD1
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mBD1
+  nameWithType: BSplineBasis.mBD1
+  fullName: g3.BSplineBasis.mBD1
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mBD1
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 367
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[, ] mBD1
+    return:
+      type: System.Double[,]
+    content.vb: Protected mBD1 As Double(,)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mBD2
+  commentId: F:g3.BSplineBasis.mBD2
+  id: mBD2
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mBD2
+  nameWithType: BSplineBasis.mBD2
+  fullName: g3.BSplineBasis.mBD2
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mBD2
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 368
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[, ] mBD2
+    return:
+      type: System.Double[,]
+    content.vb: Protected mBD2 As Double(,)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: g3.BSplineBasis.mBD3
+  commentId: F:g3.BSplineBasis.mBD3
+  id: mBD3
+  parent: g3.BSplineBasis
+  langs:
+  - csharp
+  - vb
+  name: mBD3
+  nameWithType: BSplineBasis.mBD3
+  fullName: g3.BSplineBasis.mBD3
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/curve/BSplineBasis.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: mBD3
+    path: ../Assets/geometry3Sharp/curve/BSplineBasis.cs
+    startLine: 369
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: protected double[, ] mBD3
+    return:
+      type: System.Double[,]
+    content.vb: Protected mBD3 As Double(,)
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.BSplineBasis.#ctor*
+  commentId: Overload:g3.BSplineBasis.#ctor
+  name: BSplineBasis
+  nameWithType: BSplineBasis.BSplineBasis
+  fullName: g3.BSplineBasis.BSplineBasis
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: g3.BSplineBasis.Clone*
+  commentId: Overload:g3.BSplineBasis.Clone
+  name: Clone
+  nameWithType: BSplineBasis.Clone
+  fullName: g3.BSplineBasis.Clone
+- uid: g3.BSplineBasis
+  commentId: T:g3.BSplineBasis
+  parent: g3
+  name: BSplineBasis
+  nameWithType: BSplineBasis
+  fullName: g3.BSplineBasis
+- uid: g3.BSplineBasis.GetNumCtrlPoints*
+  commentId: Overload:g3.BSplineBasis.GetNumCtrlPoints
+  name: GetNumCtrlPoints
+  nameWithType: BSplineBasis.GetNumCtrlPoints
+  fullName: g3.BSplineBasis.GetNumCtrlPoints
+- uid: g3.BSplineBasis.GetDegree*
+  commentId: Overload:g3.BSplineBasis.GetDegree
+  name: GetDegree
+  nameWithType: BSplineBasis.GetDegree
+  fullName: g3.BSplineBasis.GetDegree
+- uid: g3.BSplineBasis.IsOpen*
+  commentId: Overload:g3.BSplineBasis.IsOpen
+  name: IsOpen
+  nameWithType: BSplineBasis.IsOpen
+  fullName: g3.BSplineBasis.IsOpen
+- uid: g3.BSplineBasis.IsUniform*
+  commentId: Overload:g3.BSplineBasis.IsUniform
+  name: IsUniform
+  nameWithType: BSplineBasis.IsUniform
+  fullName: g3.BSplineBasis.IsUniform
+- uid: g3.BSplineBasis.KnotCount*
+  commentId: Overload:g3.BSplineBasis.KnotCount
+  name: KnotCount
+  nameWithType: BSplineBasis.KnotCount
+  fullName: g3.BSplineBasis.KnotCount
+- uid: g3.BSplineBasis.InteriorKnotCount*
+  commentId: Overload:g3.BSplineBasis.InteriorKnotCount
+  name: InteriorKnotCount
+  nameWithType: BSplineBasis.InteriorKnotCount
+  fullName: g3.BSplineBasis.InteriorKnotCount
+- uid: g3.BSplineBasis.SetInteriorKnot*
+  commentId: Overload:g3.BSplineBasis.SetInteriorKnot
+  name: SetInteriorKnot
+  nameWithType: BSplineBasis.SetInteriorKnot
+  fullName: g3.BSplineBasis.SetInteriorKnot
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.BSplineBasis.GetInteriorKnot*
+  commentId: Overload:g3.BSplineBasis.GetInteriorKnot
+  name: GetInteriorKnot
+  nameWithType: BSplineBasis.GetInteriorKnot
+  fullName: g3.BSplineBasis.GetInteriorKnot
+- uid: g3.BSplineBasis.SetKnot*
+  commentId: Overload:g3.BSplineBasis.SetKnot
+  name: SetKnot
+  nameWithType: BSplineBasis.SetKnot
+  fullName: g3.BSplineBasis.SetKnot
+- uid: g3.BSplineBasis.GetKnot*
+  commentId: Overload:g3.BSplineBasis.GetKnot
+  name: GetKnot
+  nameWithType: BSplineBasis.GetKnot
+  fullName: g3.BSplineBasis.GetKnot
+- uid: g3.BSplineBasis.GetD0*
+  commentId: Overload:g3.BSplineBasis.GetD0
+  name: GetD0
+  nameWithType: BSplineBasis.GetD0
+  fullName: g3.BSplineBasis.GetD0
+- uid: g3.BSplineBasis.GetD1*
+  commentId: Overload:g3.BSplineBasis.GetD1
+  name: GetD1
+  nameWithType: BSplineBasis.GetD1
+  fullName: g3.BSplineBasis.GetD1
+- uid: g3.BSplineBasis.GetD2*
+  commentId: Overload:g3.BSplineBasis.GetD2
+  name: GetD2
+  nameWithType: BSplineBasis.GetD2
+  fullName: g3.BSplineBasis.GetD2
+- uid: g3.BSplineBasis.GetD3*
+  commentId: Overload:g3.BSplineBasis.GetD3
+  name: GetD3
+  nameWithType: BSplineBasis.GetD3
+  fullName: g3.BSplineBasis.GetD3
+- uid: g3.BSplineBasis.Compute*
+  commentId: Overload:g3.BSplineBasis.Compute
+  name: Compute
+  nameWithType: BSplineBasis.Compute
+  fullName: g3.BSplineBasis.Compute
+- uid: g3.BSplineBasis.Initialize*
+  commentId: Overload:g3.BSplineBasis.Initialize
+  name: Initialize
+  nameWithType: BSplineBasis.Initialize
+  fullName: g3.BSplineBasis.Initialize
+- uid: g3.BSplineBasis.Allocate*
+  commentId: Overload:g3.BSplineBasis.Allocate
+  name: Allocate
+  nameWithType: BSplineBasis.Allocate
+  fullName: g3.BSplineBasis.Allocate
+- uid: System.Double[,]
+  isExternal: true
+  name: Double[,]
+  nameWithType: Double[,]
+  fullName: System.Double[,]
+  nameWithType.vb: Double(,)
+  fullName.vb: System.Double(,)
+  name.vb: Double(,)
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[,]'
+    nameWithType: '[,]'
+    fullName: '[,]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: (,)
+    nameWithType: (,)
+    fullName: (,)
+- uid: g3.BSplineBasis.GetKey*
+  commentId: Overload:g3.BSplineBasis.GetKey
+  name: GetKey
+  nameWithType: BSplineBasis.GetKey
+  fullName: g3.BSplineBasis.GetKey

@@ -1,0 +1,1548 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.Sphere3Generator_NormalizedCube
+  commentId: T:g3.Sphere3Generator_NormalizedCube
+  id: Sphere3Generator_NormalizedCube
+  parent: g3
+  children:
+  - g3.Sphere3Generator_NormalizedCube.Generate
+  - g3.Sphere3Generator_NormalizedCube.Radius
+  langs:
+  - csharp
+  - vb
+  name: Sphere3Generator_NormalizedCube
+  nameWithType: Sphere3Generator_NormalizedCube
+  fullName: g3.Sphere3Generator_NormalizedCube
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/SphereGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Sphere3Generator_NormalizedCube
+    path: ../Assets/geometry3Sharp/mesh_generators/SphereGenerators.cs
+    startLine: 12
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  summary: "\nGenerate a mesh of a sphere by first generating a mesh of a cube, \nand then normalizing the vertices and moving them to sphere of desired radius.\n"
+  example: []
+  syntax:
+    content: 'public class Sphere3Generator_NormalizedCube : GridBox3Generator'
+    content.vb: >-
+      Public Class Sphere3Generator_NormalizedCube
+          Inherits GridBox3Generator
+  inheritance:
+  - System.Object
+  - g3.MeshGenerator
+  - g3.GridBox3Generator
+  inheritedMembers:
+  - g3.GridBox3Generator.Box
+  - g3.GridBox3Generator.EdgeVertices
+  - g3.GridBox3Generator.NoSharedVertices
+  - g3.MeshGenerator.vertices
+  - g3.MeshGenerator.uv
+  - g3.MeshGenerator.normals
+  - g3.MeshGenerator.triangles
+  - g3.MeshGenerator.groups
+  - g3.MeshGenerator.WantUVs
+  - g3.MeshGenerator.WantNormals
+  - g3.MeshGenerator.WantGroups
+  - g3.MeshGenerator.Clockwise
+  - g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  - g3.MeshGenerator.MakeSimpleMesh
+  - g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  - g3.MeshGenerator.MakeDMesh
+  - g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  - g3.MeshGenerator.MakeNTMesh
+  - g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+  - g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  - g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  - g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  - g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+  - g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  - g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  - g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  - g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  - g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: g3.Sphere3Generator_NormalizedCube.Radius
+  commentId: F:g3.Sphere3Generator_NormalizedCube.Radius
+  id: Radius
+  parent: g3.Sphere3Generator_NormalizedCube
+  langs:
+  - csharp
+  - vb
+  name: Radius
+  nameWithType: Sphere3Generator_NormalizedCube.Radius
+  fullName: g3.Sphere3Generator_NormalizedCube.Radius
+  type: Field
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/SphereGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Radius
+    path: ../Assets/geometry3Sharp/mesh_generators/SphereGenerators.cs
+    startLine: 14
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public double Radius
+    return:
+      type: System.Double
+    content.vb: Public Radius As Double
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: g3.Sphere3Generator_NormalizedCube.Generate
+  commentId: M:g3.Sphere3Generator_NormalizedCube.Generate
+  id: Generate
+  parent: g3.Sphere3Generator_NormalizedCube
+  langs:
+  - csharp
+  - vb
+  name: Generate()
+  nameWithType: Sphere3Generator_NormalizedCube.Generate()
+  fullName: g3.Sphere3Generator_NormalizedCube.Generate()
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/mesh_generators/SphereGenerators.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Generate
+    path: ../Assets/geometry3Sharp/mesh_generators/SphereGenerators.cs
+    startLine: 25
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public override MeshGenerator Generate()
+    return:
+      type: g3.MeshGenerator
+    content.vb: Public Overrides Function Generate As MeshGenerator
+  overridden: g3.GridBox3Generator.Generate
+  overload: g3.Sphere3Generator_NormalizedCube.Generate*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: g3.MeshGenerator
+  commentId: T:g3.MeshGenerator
+  parent: g3
+  name: MeshGenerator
+  nameWithType: MeshGenerator
+  fullName: g3.MeshGenerator
+- uid: g3.GridBox3Generator
+  commentId: T:g3.GridBox3Generator
+  parent: g3
+  name: GridBox3Generator
+  nameWithType: GridBox3Generator
+  fullName: g3.GridBox3Generator
+- uid: g3.GridBox3Generator.Box
+  commentId: F:g3.GridBox3Generator.Box
+  parent: g3.GridBox3Generator
+  name: Box
+  nameWithType: GridBox3Generator.Box
+  fullName: g3.GridBox3Generator.Box
+- uid: g3.GridBox3Generator.EdgeVertices
+  commentId: F:g3.GridBox3Generator.EdgeVertices
+  parent: g3.GridBox3Generator
+  name: EdgeVertices
+  nameWithType: GridBox3Generator.EdgeVertices
+  fullName: g3.GridBox3Generator.EdgeVertices
+- uid: g3.GridBox3Generator.NoSharedVertices
+  commentId: F:g3.GridBox3Generator.NoSharedVertices
+  parent: g3.GridBox3Generator
+  name: NoSharedVertices
+  nameWithType: GridBox3Generator.NoSharedVertices
+  fullName: g3.GridBox3Generator.NoSharedVertices
+- uid: g3.MeshGenerator.vertices
+  commentId: F:g3.MeshGenerator.vertices
+  parent: g3.MeshGenerator
+  name: vertices
+  nameWithType: MeshGenerator.vertices
+  fullName: g3.MeshGenerator.vertices
+- uid: g3.MeshGenerator.uv
+  commentId: F:g3.MeshGenerator.uv
+  parent: g3.MeshGenerator
+  name: uv
+  nameWithType: MeshGenerator.uv
+  fullName: g3.MeshGenerator.uv
+- uid: g3.MeshGenerator.normals
+  commentId: F:g3.MeshGenerator.normals
+  parent: g3.MeshGenerator
+  name: normals
+  nameWithType: MeshGenerator.normals
+  fullName: g3.MeshGenerator.normals
+- uid: g3.MeshGenerator.triangles
+  commentId: F:g3.MeshGenerator.triangles
+  parent: g3.MeshGenerator
+  name: triangles
+  nameWithType: MeshGenerator.triangles
+  fullName: g3.MeshGenerator.triangles
+- uid: g3.MeshGenerator.groups
+  commentId: F:g3.MeshGenerator.groups
+  parent: g3.MeshGenerator
+  name: groups
+  nameWithType: MeshGenerator.groups
+  fullName: g3.MeshGenerator.groups
+- uid: g3.MeshGenerator.WantUVs
+  commentId: F:g3.MeshGenerator.WantUVs
+  parent: g3.MeshGenerator
+  name: WantUVs
+  nameWithType: MeshGenerator.WantUVs
+  fullName: g3.MeshGenerator.WantUVs
+- uid: g3.MeshGenerator.WantNormals
+  commentId: F:g3.MeshGenerator.WantNormals
+  parent: g3.MeshGenerator
+  name: WantNormals
+  nameWithType: MeshGenerator.WantNormals
+  fullName: g3.MeshGenerator.WantNormals
+- uid: g3.MeshGenerator.WantGroups
+  commentId: F:g3.MeshGenerator.WantGroups
+  parent: g3.MeshGenerator
+  name: WantGroups
+  nameWithType: MeshGenerator.WantGroups
+  fullName: g3.MeshGenerator.WantGroups
+- uid: g3.MeshGenerator.Clockwise
+  commentId: F:g3.MeshGenerator.Clockwise
+  parent: g3.MeshGenerator
+  name: Clockwise
+  nameWithType: MeshGenerator.Clockwise
+  fullName: g3.MeshGenerator.Clockwise
+- uid: g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  commentId: M:g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  parent: g3.MeshGenerator
+  name: MakeMesh(SimpleMesh)
+  nameWithType: MeshGenerator.MakeMesh(SimpleMesh)
+  fullName: g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+  spec.csharp:
+  - uid: g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+    name: MakeMesh
+    nameWithType: MeshGenerator.MakeMesh
+    fullName: g3.MeshGenerator.MakeMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.SimpleMesh
+    name: SimpleMesh
+    nameWithType: SimpleMesh
+    fullName: g3.SimpleMesh
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.MakeMesh(g3.SimpleMesh)
+    name: MakeMesh
+    nameWithType: MeshGenerator.MakeMesh
+    fullName: g3.MeshGenerator.MakeMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.SimpleMesh
+    name: SimpleMesh
+    nameWithType: SimpleMesh
+    fullName: g3.SimpleMesh
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.MakeSimpleMesh
+  commentId: M:g3.MeshGenerator.MakeSimpleMesh
+  parent: g3.MeshGenerator
+  name: MakeSimpleMesh()
+  nameWithType: MeshGenerator.MakeSimpleMesh()
+  fullName: g3.MeshGenerator.MakeSimpleMesh()
+  spec.csharp:
+  - uid: g3.MeshGenerator.MakeSimpleMesh
+    name: MakeSimpleMesh
+    nameWithType: MeshGenerator.MakeSimpleMesh
+    fullName: g3.MeshGenerator.MakeSimpleMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.MakeSimpleMesh
+    name: MakeSimpleMesh
+    nameWithType: MeshGenerator.MakeSimpleMesh
+    fullName: g3.MeshGenerator.MakeSimpleMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  commentId: M:g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  parent: g3.MeshGenerator
+  name: MakeMesh(DMesh3)
+  nameWithType: MeshGenerator.MakeMesh(DMesh3)
+  fullName: g3.MeshGenerator.MakeMesh(g3.DMesh3)
+  spec.csharp:
+  - uid: g3.MeshGenerator.MakeMesh(g3.DMesh3)
+    name: MakeMesh
+    nameWithType: MeshGenerator.MakeMesh
+    fullName: g3.MeshGenerator.MakeMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.MakeMesh(g3.DMesh3)
+    name: MakeMesh
+    nameWithType: MeshGenerator.MakeMesh
+    fullName: g3.MeshGenerator.MakeMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.DMesh3
+    name: DMesh3
+    nameWithType: DMesh3
+    fullName: g3.DMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.MakeDMesh
+  commentId: M:g3.MeshGenerator.MakeDMesh
+  parent: g3.MeshGenerator
+  name: MakeDMesh()
+  nameWithType: MeshGenerator.MakeDMesh()
+  fullName: g3.MeshGenerator.MakeDMesh()
+  spec.csharp:
+  - uid: g3.MeshGenerator.MakeDMesh
+    name: MakeDMesh
+    nameWithType: MeshGenerator.MakeDMesh
+    fullName: g3.MeshGenerator.MakeDMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.MakeDMesh
+    name: MakeDMesh
+    nameWithType: MeshGenerator.MakeDMesh
+    fullName: g3.MeshGenerator.MakeDMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  commentId: M:g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  parent: g3.MeshGenerator
+  name: MakeMesh(NTMesh3)
+  nameWithType: MeshGenerator.MakeMesh(NTMesh3)
+  fullName: g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+  spec.csharp:
+  - uid: g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+    name: MakeMesh
+    nameWithType: MeshGenerator.MakeMesh
+    fullName: g3.MeshGenerator.MakeMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.NTMesh3
+    name: NTMesh3
+    nameWithType: NTMesh3
+    fullName: g3.NTMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.MakeMesh(g3.NTMesh3)
+    name: MakeMesh
+    nameWithType: MeshGenerator.MakeMesh
+    fullName: g3.MeshGenerator.MakeMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.NTMesh3
+    name: NTMesh3
+    nameWithType: NTMesh3
+    fullName: g3.NTMesh3
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.MakeNTMesh
+  commentId: M:g3.MeshGenerator.MakeNTMesh
+  parent: g3.MeshGenerator
+  name: MakeNTMesh()
+  nameWithType: MeshGenerator.MakeNTMesh()
+  fullName: g3.MeshGenerator.MakeNTMesh()
+  spec.csharp:
+  - uid: g3.MeshGenerator.MakeNTMesh
+    name: MakeNTMesh
+    nameWithType: MeshGenerator.MakeNTMesh
+    fullName: g3.MeshGenerator.MakeNTMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.MakeNTMesh
+    name: MakeNTMesh
+    nameWithType: MeshGenerator.MakeNTMesh
+    fullName: g3.MeshGenerator.MakeNTMesh
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+  commentId: M:g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: duplicate_vertex_span(Int32, Int32)
+  nameWithType: MeshGenerator.duplicate_vertex_span(Int32, Int32)
+  fullName: g3.MeshGenerator.duplicate_vertex_span(System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+    name: duplicate_vertex_span
+    nameWithType: MeshGenerator.duplicate_vertex_span
+    fullName: g3.MeshGenerator.duplicate_vertex_span
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.duplicate_vertex_span(System.Int32,System.Int32)
+    name: duplicate_vertex_span
+    nameWithType: MeshGenerator.duplicate_vertex_span
+    fullName: g3.MeshGenerator.duplicate_vertex_span
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  commentId: M:g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: append_disc(Int32, Int32, Int32, Boolean, Boolean, Int32, Int32)
+  nameWithType: MeshGenerator.append_disc(Int32, Int32, Int32, Boolean, Boolean, Int32, Int32)
+  fullName: g3.MeshGenerator.append_disc(System.Int32, System.Int32, System.Int32, System.Boolean, System.Boolean, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+    name: append_disc
+    nameWithType: MeshGenerator.append_disc
+    fullName: g3.MeshGenerator.append_disc
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.append_disc(System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean,System.Int32@,System.Int32)
+    name: append_disc
+    nameWithType: MeshGenerator.append_disc
+    fullName: g3.MeshGenerator.append_disc
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  commentId: M:g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: append_rectangle(Int32, Int32, Int32, Int32, Boolean, Int32, Int32)
+  nameWithType: MeshGenerator.append_rectangle(Int32, Int32, Int32, Int32, Boolean, Int32, Int32)
+  fullName: g3.MeshGenerator.append_rectangle(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+    name: append_rectangle
+    nameWithType: MeshGenerator.append_rectangle
+    fullName: g3.MeshGenerator.append_rectangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.append_rectangle(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32)
+    name: append_rectangle
+    nameWithType: MeshGenerator.append_rectangle
+    fullName: g3.MeshGenerator.append_rectangle
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  commentId: M:g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: append_2d_disc_segment(Int32, Int32, Int32, Int32, Boolean, Int32, Int32, Int32, Double)
+  nameWithType: MeshGenerator.append_2d_disc_segment(Int32, Int32, Int32, Int32, Boolean, Int32, Int32, Int32, Double)
+  fullName: g3.MeshGenerator.append_2d_disc_segment(System.Int32, System.Int32, System.Int32, System.Int32, System.Boolean, System.Int32, System.Int32, System.Int32, System.Double)
+  spec.csharp:
+  - uid: g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+    name: append_2d_disc_segment
+    nameWithType: MeshGenerator.append_2d_disc_segment
+    fullName: g3.MeshGenerator.append_2d_disc_segment
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.append_2d_disc_segment(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Int32,System.Double)
+    name: append_2d_disc_segment
+    nameWithType: MeshGenerator.append_2d_disc_segment
+    fullName: g3.MeshGenerator.append_2d_disc_segment
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+  commentId: M:g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: estimate_normal(Int32, Int32, Int32)
+  nameWithType: MeshGenerator.estimate_normal(Int32, Int32, Int32)
+  fullName: g3.MeshGenerator.estimate_normal(System.Int32, System.Int32, System.Int32)
+  spec.csharp:
+  - uid: g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+    name: estimate_normal
+    nameWithType: MeshGenerator.estimate_normal
+    fullName: g3.MeshGenerator.estimate_normal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.estimate_normal(System.Int32,System.Int32,System.Int32)
+    name: estimate_normal
+    nameWithType: MeshGenerator.estimate_normal
+    fullName: g3.MeshGenerator.estimate_normal
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: bilerp(Vector3d, Vector3d, Vector3d, Vector3d, Double, Double)
+  nameWithType: MeshGenerator.bilerp(Vector3d, Vector3d, Vector3d, Vector3d, Double, Double)
+  fullName: g3.MeshGenerator.bilerp(g3.Vector3d, g3.Vector3d, g3.Vector3d, g3.Vector3d, System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,g3.Vector3d@,System.Double,System.Double)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3d
+    name: Vector3d
+    nameWithType: Vector3d
+    fullName: g3.Vector3d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: bilerp(Vector2d, Vector2d, Vector2d, Vector2d, Double, Double)
+  nameWithType: MeshGenerator.bilerp(Vector2d, Vector2d, Vector2d, Vector2d, Double, Double)
+  fullName: g3.MeshGenerator.bilerp(g3.Vector2d, g3.Vector2d, g3.Vector2d, g3.Vector2d, System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,g3.Vector2d@,System.Double,System.Double)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2d
+    name: Vector2d
+    nameWithType: Vector2d
+    fullName: g3.Vector2d
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: bilerp(Vector2f, Vector2f, Vector2f, Vector2f, Single, Single)
+  nameWithType: MeshGenerator.bilerp(Vector2f, Vector2f, Vector2f, Vector2f, Single, Single)
+  fullName: g3.MeshGenerator.bilerp(g3.Vector2f, g3.Vector2f, g3.Vector2f, g3.Vector2f, System.Single, System.Single)
+  spec.csharp:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,g3.Vector2f@,System.Single,System.Single)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector2f
+    name: Vector2f
+    nameWithType: Vector2f
+    fullName: g3.Vector2f
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Single
+    name: Single
+    nameWithType: Single
+    fullName: System.Single
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  commentId: M:g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: bilerp(Vector3i, Vector3i, Vector3i, Vector3i, Double, Double)
+  nameWithType: MeshGenerator.bilerp(Vector3i, Vector3i, Vector3i, Vector3i, Double, Double)
+  fullName: g3.MeshGenerator.bilerp(g3.Vector3i, g3.Vector3i, g3.Vector3i, g3.Vector3i, System.Double, System.Double)
+  spec.csharp:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.bilerp(g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,g3.Vector3i@,System.Double,System.Double)
+    name: bilerp
+    nameWithType: MeshGenerator.bilerp
+    fullName: g3.MeshGenerator.bilerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  commentId: M:g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+  parent: g3.MeshGenerator
+  isExternal: true
+  name: lerp(Vector3i, Vector3i, Double)
+  nameWithType: MeshGenerator.lerp(Vector3i, Vector3i, Double)
+  fullName: g3.MeshGenerator.lerp(g3.Vector3i, g3.Vector3i, System.Double)
+  spec.csharp:
+  - uid: g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+    name: lerp
+    nameWithType: MeshGenerator.lerp
+    fullName: g3.MeshGenerator.lerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.MeshGenerator.lerp(g3.Vector3i@,g3.Vector3i@,System.Double)
+    name: lerp
+    nameWithType: MeshGenerator.lerp
+    fullName: g3.MeshGenerator.lerp
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: g3.Vector3i
+    name: Vector3i
+    nameWithType: Vector3i
+    fullName: g3.Vector3i
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: g3.GridBox3Generator.Generate
+  commentId: M:g3.GridBox3Generator.Generate
+  parent: g3.GridBox3Generator
+  name: Generate()
+  nameWithType: GridBox3Generator.Generate()
+  fullName: g3.GridBox3Generator.Generate()
+  spec.csharp:
+  - uid: g3.GridBox3Generator.Generate
+    name: Generate
+    nameWithType: GridBox3Generator.Generate
+    fullName: g3.GridBox3Generator.Generate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: g3.GridBox3Generator.Generate
+    name: Generate
+    nameWithType: GridBox3Generator.Generate
+    fullName: g3.GridBox3Generator.Generate
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: g3.Sphere3Generator_NormalizedCube.Generate*
+  commentId: Overload:g3.Sphere3Generator_NormalizedCube.Generate
+  name: Generate
+  nameWithType: Sphere3Generator_NormalizedCube.Generate
+  fullName: g3.Sphere3Generator_NormalizedCube.Generate

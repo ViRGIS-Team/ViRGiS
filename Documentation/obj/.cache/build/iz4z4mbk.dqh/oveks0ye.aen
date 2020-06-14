@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MultiLineString
+   | ViRGIS VR GIS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MultiLineString
+   | ViRGIS VR GIS ">
+    <meta name="generator" content="docfx 2.54.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="GeoJSON.Net.Geometry.MultiLineString">
+  
+  
+  <h1 id="GeoJSON_Net_Geometry_MultiLineString" data-uid="GeoJSON.Net.Geometry.MultiLineString" class="text-break">Class MultiLineString
+  </h1>
+  <div class="markdown level0 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Defines the MultiLineString type.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="GeoJSON.Net.GeoJSONObject.html">GeoJSONObject</a></div>
+    <div class="level2"><span class="xref">MultiLineString</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="GeoJSON.Net.IGeoJSONObject.html">IGeoJSONObject</a></div>
+    <div><a class="xref" href="GeoJSON.Net.Geometry.IGeometryObject.html">IGeometryObject</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_BoundingBoxes">GeoJSONObject.BoundingBoxes</a>
+    </div>
+    <div>
+      <a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_CRS">GeoJSONObject.CRS</a>
+    </div>
+    <div>
+      <a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_Equals_GeoJSON_Net_GeoJSONObject_">GeoJSONObject.Equals(GeoJSONObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_Equals_GeoJSON_Net_GeoJSONObject_GeoJSON_Net_GeoJSONObject_">GeoJSONObject.Equals(GeoJSONObject, GeoJSONObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_GetHashCode_GeoJSON_Net_GeoJSONObject_">GeoJSONObject.GetHashCode(GeoJSONObject)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="GeoJSON.Net.Geometry.html">GeoJSON.Net.Geometry</a></h6>
+  <h6><strong>Assembly</strong>: Assembly-CSharp.dll</h6>
+  <h5 id="GeoJSON_Net_Geometry_MultiLineString_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MultiLineString : GeoJSONObject, IGeoJSONObject, IEqualityComparer&lt;GeoJSONObject&gt;, IEquatable&lt;GeoJSONObject&gt;, IGeometryObject, IEqualityComparer&lt;MultiLineString&gt;, IEquatable&lt;MultiLineString&gt;</code></pre>
+  </div>
+  <h5 id="GeoJSON_Net_Geometry_MultiLineString_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">See <a href="https://tools.ietf.org/html/rfc7946#section-3.1.5" data-raw-source="https://tools.ietf.org/html/rfc7946#section-3.1.5" sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">https://tools.ietf.org/html/rfc7946#section-3.1.5</a></p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString__ctor_System_Collections_Generic_IEnumerable_GeoJSON_Net_Geometry_LineString__.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.%23ctor(System.Collections.Generic.IEnumerable%7BGeoJSON.Net.Geometry.LineString%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L25">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString__ctor_" data-uid="GeoJSON.Net.Geometry.MultiLineString.#ctor*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString__ctor_System_Collections_Generic_IEnumerable_GeoJSON_Net_Geometry_LineString__" data-uid="GeoJSON.Net.Geometry.MultiLineString.#ctor(System.Collections.Generic.IEnumerable{GeoJSON.Net.Geometry.LineString})">MultiLineString(IEnumerable&lt;LineString&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Initializes a new instance of the <a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MultiLineString(IEnumerable&lt;LineString&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="GeoJSON.Net.Geometry.LineString.html">LineString</a>&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="1" sourceendlinenumber="1">The coordinates.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Double____.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.%23ctor(System.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BSystem.Collections.Generic.IEnumerable%7BSystem.Double%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L35">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString__ctor_" data-uid="GeoJSON.Net.Geometry.MultiLineString.#ctor*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString__ctor_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Collections_Generic_IEnumerable_System_Double____" data-uid="GeoJSON.Net.Geometry.MultiLineString.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Double}}})">MultiLineString(IEnumerable&lt;IEnumerable&lt;IEnumerable&lt;Double&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="3">Initializes a new <a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a> from a 3-d array
+of <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a>s that matches the &quot;coordinates&quot; field in the JSON representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonConstructor]
+public MultiLineString(IEnumerable&lt;IEnumerable&lt;IEnumerable&lt;double&gt;&gt;&gt; coordinates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a>&gt;&gt;&gt;</td>
+        <td><span class="parametername">coordinates</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_Coordinates.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.Coordinates%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L47">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_Coordinates_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Coordinates*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_Coordinates" data-uid="GeoJSON.Net.Geometry.MultiLineString.Coordinates">Coordinates</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">The collection of line strings of this <a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;coordinates&quot;, Required = Required.Always)]
+[JsonConverter(typeof(LineStringEnumerableConverter))]
+public ReadOnlyCollection&lt;LineString&gt; Coordinates { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.objectmodel.readonlycollection-1">ReadOnlyCollection</a>&lt;<a class="xref" href="GeoJSON.Net.Geometry.LineString.html">LineString</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_Type.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L42">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_Type_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Type*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_Type" data-uid="GeoJSON.Net.Geometry.MultiLineString.Type">Type</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GeoJSONObjectType Type { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.GeoJSONObjectType.html">GeoJSONObjectType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_Type">GeoJSONObject.Type</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_Equals_GeoJSON_Net_Geometry_MultiLineString_.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.Equals(GeoJSON.Net.Geometry.MultiLineString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L64">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_Equals_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Equals*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_Equals_GeoJSON_Net_Geometry_MultiLineString_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Equals(GeoJSON.Net.Geometry.MultiLineString)">Equals(MultiLineString)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Determines whether the specified object is equal to the current object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MultiLineString other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_Equals_GeoJSON_Net_Geometry_MultiLineString_GeoJSON_Net_Geometry_MultiLineString_.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.Equals(GeoJSON.Net.Geometry.MultiLineString%2CGeoJSON.Net.Geometry.MultiLineString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L72">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_Equals_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Equals*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_Equals_GeoJSON_Net_Geometry_MultiLineString_GeoJSON_Net_Geometry_MultiLineString_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Equals(GeoJSON.Net.Geometry.MultiLineString,GeoJSON.Net.Geometry.MultiLineString)">Equals(MultiLineString, MultiLineString)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Determines whether the specified object instances are considered equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(MultiLineString left, MultiLineString right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_Equals_System_Object_.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L56">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_Equals_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Equals*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_Equals_System_Object_" data-uid="GeoJSON.Net.Geometry.MultiLineString.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Determines whether the specified object is equal to the current object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_Equals_System_Object_">GeoJSONObject.Equals(Object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_GetHashCode.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L108">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_GetHashCode_" data-uid="GeoJSON.Net.Geometry.MultiLineString.GetHashCode*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_GetHashCode" data-uid="GeoJSON.Net.Geometry.MultiLineString.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Returns the hash code for this instance</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="GeoJSON.Net.GeoJSONObject.html#GeoJSON_Net_GeoJSONObject_GetHashCode">GeoJSONObject.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_GetHashCode_GeoJSON_Net_Geometry_MultiLineString_.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.GetHashCode(GeoJSON.Net.Geometry.MultiLineString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L121">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_GetHashCode_" data-uid="GeoJSON.Net.Geometry.MultiLineString.GetHashCode*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_GetHashCode_GeoJSON_Net_Geometry_MultiLineString_" data-uid="GeoJSON.Net.Geometry.MultiLineString.GetHashCode(GeoJSON.Net.Geometry.MultiLineString)">GetHashCode(MultiLineString)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Returns the hash code for the specified object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetHashCode(MultiLineString other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_op_Equality_GeoJSON_Net_Geometry_MultiLineString_GeoJSON_Net_Geometry_MultiLineString_.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.op_Equality(GeoJSON.Net.Geometry.MultiLineString%2CGeoJSON.Net.Geometry.MultiLineString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L84">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_op_Equality_" data-uid="GeoJSON.Net.Geometry.MultiLineString.op_Equality*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_op_Equality_GeoJSON_Net_Geometry_MultiLineString_GeoJSON_Net_Geometry_MultiLineString_" data-uid="GeoJSON.Net.Geometry.MultiLineString.op_Equality(GeoJSON.Net.Geometry.MultiLineString,GeoJSON.Net.Geometry.MultiLineString)">Equality(MultiLineString, MultiLineString)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Determines whether the specified object instances are considered equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MultiLineString left, MultiLineString right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString_op_Inequality_GeoJSON_Net_Geometry_MultiLineString_GeoJSON_Net_Geometry_MultiLineString_.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString.op_Inequality(GeoJSON.Net.Geometry.MultiLineString%2CGeoJSON.Net.Geometry.MultiLineString)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L100">View Source</a>
+  </span>
+  <a id="GeoJSON_Net_Geometry_MultiLineString_op_Inequality_" data-uid="GeoJSON.Net.Geometry.MultiLineString.op_Inequality*"></a>
+  <h4 id="GeoJSON_Net_Geometry_MultiLineString_op_Inequality_GeoJSON_Net_Geometry_MultiLineString_GeoJSON_Net_Geometry_MultiLineString_" data-uid="GeoJSON.Net.Geometry.MultiLineString.op_Inequality(GeoJSON.Net.Geometry.MultiLineString,GeoJSON.Net.Geometry.MultiLineString)">Inequality(MultiLineString, MultiLineString)</h4>
+  <div class="markdown level1 summary"><p sourcefile="api/GeoJSON.Net.Geometry.MultiLineString.yml" sourcestartlinenumber="2" sourceendlinenumber="2">Determines whether the specified object instances are not considered equal</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MultiLineString left, MultiLineString right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">left</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="GeoJSON.Net.Geometry.MultiLineString.html">MultiLineString</a></td>
+        <td><span class="parametername">right</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="GeoJSON.Net.IGeoJSONObject.html">IGeoJSONObject</a>
+  </div>
+  <div>
+      <a class="xref" href="GeoJSON.Net.Geometry.IGeometryObject.html">IGeometryObject</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/new/gh-pages/apiSpec/new?filename=GeoJSON_Net_Geometry_MultiLineString.md&amp;value=---%0Auid%3A%20GeoJSON.Net.Geometry.MultiLineString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/runette/ViRGIS/blob/gh-pages/Assets/GeoJSON.Net/Geometry/MultiLineString.cs/#L19" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ViRGIS VR GIS
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

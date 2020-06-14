@@ -1,0 +1,207 @@
+### YamlMime:ManagedReference
+items:
+- uid: g3.MeshValidation
+  commentId: T:g3.MeshValidation
+  id: MeshValidation
+  parent: g3
+  children:
+  - g3.MeshValidation.HasDuplicateTriangles(g3.DMesh3)
+  - g3.MeshValidation.IsBoundaryLoop(g3.DMesh3,g3.EdgeLoop)
+  - g3.MeshValidation.IsEdgeLoop(g3.DMesh3,g3.EdgeLoop)
+  langs:
+  - csharp
+  - vb
+  name: MeshValidation
+  nameWithType: MeshValidation
+  fullName: g3.MeshValidation
+  type: Class
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/MeshValidation.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: MeshValidation
+    path: ../Assets/geometry3Sharp/queries/MeshValidation.cs
+    startLine: 26
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static class MeshValidation
+    content.vb: Public Module MeshValidation
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: g3.MeshValidation.IsEdgeLoop(g3.DMesh3,g3.EdgeLoop)
+  commentId: M:g3.MeshValidation.IsEdgeLoop(g3.DMesh3,g3.EdgeLoop)
+  id: IsEdgeLoop(g3.DMesh3,g3.EdgeLoop)
+  parent: g3.MeshValidation
+  langs:
+  - csharp
+  - vb
+  name: IsEdgeLoop(DMesh3, EdgeLoop)
+  nameWithType: MeshValidation.IsEdgeLoop(DMesh3, EdgeLoop)
+  fullName: g3.MeshValidation.IsEdgeLoop(g3.DMesh3, g3.EdgeLoop)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/MeshValidation.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsEdgeLoop
+    path: ../Assets/geometry3Sharp/queries/MeshValidation.cs
+    startLine: 29
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static ValidationStatus IsEdgeLoop(DMesh3 mesh, EdgeLoop loop)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: loop
+      type: g3.EdgeLoop
+    return:
+      type: g3.ValidationStatus
+    content.vb: Public Shared Function IsEdgeLoop(mesh As DMesh3, loop As EdgeLoop) As ValidationStatus
+  overload: g3.MeshValidation.IsEdgeLoop*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshValidation.IsBoundaryLoop(g3.DMesh3,g3.EdgeLoop)
+  commentId: M:g3.MeshValidation.IsBoundaryLoop(g3.DMesh3,g3.EdgeLoop)
+  id: IsBoundaryLoop(g3.DMesh3,g3.EdgeLoop)
+  parent: g3.MeshValidation
+  langs:
+  - csharp
+  - vb
+  name: IsBoundaryLoop(DMesh3, EdgeLoop)
+  nameWithType: MeshValidation.IsBoundaryLoop(DMesh3, EdgeLoop)
+  fullName: g3.MeshValidation.IsBoundaryLoop(g3.DMesh3, g3.EdgeLoop)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/MeshValidation.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IsBoundaryLoop
+    path: ../Assets/geometry3Sharp/queries/MeshValidation.cs
+    startLine: 49
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static ValidationStatus IsBoundaryLoop(DMesh3 mesh, EdgeLoop loop)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    - id: loop
+      type: g3.EdgeLoop
+    return:
+      type: g3.ValidationStatus
+    content.vb: Public Shared Function IsBoundaryLoop(mesh As DMesh3, loop As EdgeLoop) As ValidationStatus
+  overload: g3.MeshValidation.IsBoundaryLoop*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: g3.MeshValidation.HasDuplicateTriangles(g3.DMesh3)
+  commentId: M:g3.MeshValidation.HasDuplicateTriangles(g3.DMesh3)
+  id: HasDuplicateTriangles(g3.DMesh3)
+  parent: g3.MeshValidation
+  langs:
+  - csharp
+  - vb
+  name: HasDuplicateTriangles(DMesh3)
+  nameWithType: MeshValidation.HasDuplicateTriangles(DMesh3)
+  fullName: g3.MeshValidation.HasDuplicateTriangles(g3.DMesh3)
+  type: Method
+  source:
+    remote:
+      path: Assets/geometry3Sharp/queries/MeshValidation.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: HasDuplicateTriangles
+    path: ../Assets/geometry3Sharp/queries/MeshValidation.cs
+    startLine: 79
+  assemblies:
+  - geometry3Sharp
+  namespace: g3
+  syntax:
+    content: public static ValidationStatus HasDuplicateTriangles(DMesh3 mesh)
+    parameters:
+    - id: mesh
+      type: g3.DMesh3
+    return:
+      type: g3.ValidationStatus
+    content.vb: Public Shared Function HasDuplicateTriangles(mesh As DMesh3) As ValidationStatus
+  overload: g3.MeshValidation.HasDuplicateTriangles*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: g3
+  commentId: N:g3
+  name: g3
+  nameWithType: g3
+  fullName: g3
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: g3.MeshValidation.IsEdgeLoop*
+  commentId: Overload:g3.MeshValidation.IsEdgeLoop
+  name: IsEdgeLoop
+  nameWithType: MeshValidation.IsEdgeLoop
+  fullName: g3.MeshValidation.IsEdgeLoop
+- uid: g3.DMesh3
+  commentId: T:g3.DMesh3
+  parent: g3
+  name: DMesh3
+  nameWithType: DMesh3
+  fullName: g3.DMesh3
+- uid: g3.EdgeLoop
+  commentId: T:g3.EdgeLoop
+  parent: g3
+  name: EdgeLoop
+  nameWithType: EdgeLoop
+  fullName: g3.EdgeLoop
+- uid: g3.ValidationStatus
+  commentId: T:g3.ValidationStatus
+  parent: g3
+  name: ValidationStatus
+  nameWithType: ValidationStatus
+  fullName: g3.ValidationStatus
+- uid: g3.MeshValidation.IsBoundaryLoop*
+  commentId: Overload:g3.MeshValidation.IsBoundaryLoop
+  name: IsBoundaryLoop
+  nameWithType: MeshValidation.IsBoundaryLoop
+  fullName: g3.MeshValidation.IsBoundaryLoop
+- uid: g3.MeshValidation.HasDuplicateTriangles*
+  commentId: Overload:g3.MeshValidation.HasDuplicateTriangles
+  name: HasDuplicateTriangles
+  nameWithType: MeshValidation.HasDuplicateTriangles
+  fullName: g3.MeshValidation.HasDuplicateTriangles

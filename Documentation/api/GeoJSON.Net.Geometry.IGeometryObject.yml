@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: GeoJSON.Net.Geometry.IGeometryObject
+  commentId: T:GeoJSON.Net.Geometry.IGeometryObject
+  id: IGeometryObject
+  parent: GeoJSON.Net.Geometry
+  children:
+  - GeoJSON.Net.Geometry.IGeometryObject.Type
+  langs:
+  - csharp
+  - vb
+  name: IGeometryObject
+  nameWithType: IGeometryObject
+  fullName: GeoJSON.Net.Geometry.IGeometryObject
+  type: Interface
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/IGeometryObject.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: IGeometryObject
+    path: ../Assets/GeoJSON.Net/Geometry/IGeometryObject.cs
+    startLine: 7
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nBase Interface for GeometryObject types.\n"
+  example: []
+  syntax:
+    content: public interface IGeometryObject
+    content.vb: Public Interface IGeometryObject
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: GeoJSON.Net.Geometry.IGeometryObject.Type
+  commentId: P:GeoJSON.Net.Geometry.IGeometryObject.Type
+  id: Type
+  parent: GeoJSON.Net.Geometry.IGeometryObject
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IGeometryObject.Type
+  fullName: GeoJSON.Net.Geometry.IGeometryObject.Type
+  type: Property
+  source:
+    remote:
+      path: Assets/GeoJSON.Net/Geometry/IGeometryObject.cs
+      branch: gh-pages
+      repo: https://github.com/runette/ViRGIS.git
+    id: Type
+    path: ../Assets/GeoJSON.Net/Geometry/IGeometryObject.cs
+    startLine: 20
+  assemblies:
+  - Assembly-CSharp
+  namespace: GeoJSON.Net.Geometry
+  summary: "\nGets the (mandatory) type of the GeoJSON Object.\nHowever, for GeoJSON Objects only the &apos;Point&apos;, &apos;MultiPoint&apos;, &apos;LineString&apos;, &apos;MultiLineString&apos;, \n&apos;Polygon&apos;, &apos;MultiPolygon&apos;, or &apos;GeometryCollection&apos; types are allowed.\n"
+  remarks: "\nSee https://tools.ietf.org/html/rfc7946#section-3.1\n"
+  example: []
+  syntax:
+    content: GeoJSONObjectType Type { get; }
+    parameters: []
+    return:
+      type: GeoJSON.Net.GeoJSONObjectType
+      description: "\nThe type of the object.\n"
+    content.vb: ReadOnly Property Type As GeoJSONObjectType
+  overload: GeoJSON.Net.Geometry.IGeometryObject.Type*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+references:
+- uid: GeoJSON.Net.Geometry
+  commentId: N:GeoJSON.Net.Geometry
+  name: GeoJSON.Net.Geometry
+  nameWithType: GeoJSON.Net.Geometry
+  fullName: GeoJSON.Net.Geometry
+- uid: GeoJSON.Net.Geometry.IGeometryObject.Type*
+  commentId: Overload:GeoJSON.Net.Geometry.IGeometryObject.Type
+  name: Type
+  nameWithType: IGeometryObject.Type
+  fullName: GeoJSON.Net.Geometry.IGeometryObject.Type
+- uid: GeoJSON.Net.GeoJSONObjectType
+  commentId: T:GeoJSON.Net.GeoJSONObjectType
+  parent: GeoJSON.Net
+  name: GeoJSONObjectType
+  nameWithType: GeoJSONObjectType
+  fullName: GeoJSON.Net.GeoJSONObjectType
+- uid: GeoJSON.Net
+  commentId: N:GeoJSON.Net
+  name: GeoJSON.Net
+  nameWithType: GeoJSON.Net
+  fullName: GeoJSON.Net

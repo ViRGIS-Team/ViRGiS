@@ -10,7 +10,7 @@ using GeoJSON.Net.Geometry;
 namespace Virgis
 {
 
-    public class MeshLayer : Layer<GeographyCollection, MeshData>
+    public class MeshLayer : VirgisLayer<GeographyCollection, MeshData>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -53,7 +53,7 @@ namespace Virgis
             features = Mesh;
             symbology = layer.Properties.Units;
 
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
             Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             mainMat = Instantiate(HandleMaterial);
             mainMat.SetColor("_BaseColor", col);
@@ -61,14 +61,14 @@ namespace Virgis
             selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry)
+        protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
         protected override void _draw()
         {
             transform.position = layer.Position.Coordinates.Vector3();
-            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position * AppState.instance.abstractMap.WorldRelativeScale));
+            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = layer.Properties.Units;
             meshes = new List<GameObject>();
 
@@ -78,17 +78,18 @@ namespace Virgis
                 MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();
                 MeshRenderer renderer = meshGameObject.AddComponent<MeshRenderer>();
                 renderer.material = material;
-                meshGameObject.transform.parent = gameObject.transform;
+                meshGameObject.transform.localScale = AppState.instance.map.transform.localScale;
+                meshGameObject.transform.parent = transform;
                 meshGameObject.transform.localPosition = Vector3.zero;
                 mf.mesh = simpleMesh.ToMesh();
                 meshes.Add(meshGameObject);
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
-            GameObject centreHandle = Instantiate(handle, gameObject.transform.position, Quaternion.identity);
-            centreHandle.transform.parent = transform;
-            centreHandle.transform.localScale = transform.InverseTransformVector(AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale * AppState.instance.abstractMap.WorldRelativeScale));
+            GameObject centreHandle = Instantiate(handle, transform.position, Quaternion.identity);
+            centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3) symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
+            centreHandle.transform.parent = transform;
 
         }
 
@@ -137,11 +138,6 @@ namespace Virgis
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
         }
-
-        public override GameObject GetFeatureShape() {
-            return handle;
-        }
-
     }
 }
 
