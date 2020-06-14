@@ -13,7 +13,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon Layer
     /// </summary>
-    public class XsectLayer: Layer<GeologyCollection, EgbFeatureCollection>
+    public class XsectLayer: VirgisLayer<GeologyCollection, EgbFeatureCollection>
     {
 
         // The prefab for the data points to be instantiated
@@ -41,7 +41,7 @@ namespace Virgis
             features = egbReader.features;
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry)
+        protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }

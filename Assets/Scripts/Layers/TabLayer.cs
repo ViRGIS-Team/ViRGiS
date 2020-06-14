@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public class TabLayer : Layer<GeologyCollection, DataPlotter>
+    public class TabLayer : VirgisLayer<GeologyCollection, DataPlotter>
     {
  
 
@@ -24,7 +24,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        protected override VirgisComponent _addFeature(Vector3[] geometry) {
+        protected override VirgisFeature _addFeature(Vector3[] geometry) {
             throw new System.NotImplementedException();
         }
 

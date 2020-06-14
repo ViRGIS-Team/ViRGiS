@@ -205,7 +205,7 @@ namespace Virgis
 
             //Draw the Polygon
             List<VertexLookup> VertexTable = Lr.VertexTable;
-            VertexTable.Add(new VertexLookup() { Id = c.id, Vertex = -1, Com = c });
+            VertexTable.Add(new VertexLookup() { Id = c.GetId(), Vertex = -1, Com = c });
             p.Draw(Lr.VertexTable, bodyMain);
 
             centroid.transform.localScale = symbology["point"].Transform.Scale;
