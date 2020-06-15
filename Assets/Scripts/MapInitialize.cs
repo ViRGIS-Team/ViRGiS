@@ -213,7 +213,8 @@ namespace Virgis
         }
 
         private void OnApplicationQuit() {
-            Save();
+            Debug.Log("MapInitialize: OnApplicationQuit");
+            //Save();
         }
 
     }
