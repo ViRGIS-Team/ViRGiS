@@ -172,7 +172,7 @@ namespace Virgis
         // use this for processing any key inputs
         // 
 
-        public void HandleKeyInput(InputAction.CallbackContext context)
+        public async void HandleKeyInput(InputAction.CallbackContext context)
         {
             InputAction action = context.action;
             switch (action.name)
@@ -187,6 +187,7 @@ namespace Virgis
                     appState.StopDiscardEditSession();
                     break;
                 case "Exit":
+                    Debug.Log("FlyingCam: Application Quit");
                     Application.Quit();
                     break;
             }
