@@ -148,19 +148,21 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        public override void ExitEditSession(bool saved) {
+        public override async void ExitEditSession(bool saved) {
             if (!saved) {
                 Draw();
             }
-            Save();
+            await Save();
         }
 
         protected override void _checkpoint()
         {
         }
 
-        public new async void Save()
+        public new async Task Save()
         {
+            // TODO: wrap this in try/catch block
+            Debug.Log("MapInitialize.Save starts");
             foreach (IVirgisLayer com in appState.layers)
             {
                 RecordSet layer = com.Save();
@@ -171,6 +173,7 @@ namespace Virgis
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
             geoJsonReader.SetProject(appState.project);
             await geoJsonReader.Save();
+            Debug.Log("MapInitialize.Save ends");
         }
 
         protected override void _save()
@@ -210,11 +213,6 @@ namespace Virgis
         public override GameObject GetFeatureShape()
         {
             return null;
-        }
-
-        private void OnApplicationQuit() {
-            Debug.Log("MapInitialize: OnApplicationQuit");
-            //Save();
         }
 
     }
