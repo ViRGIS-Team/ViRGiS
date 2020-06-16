@@ -40,8 +40,9 @@ namespace Virgis {
         private string fileName;
         public string Payload;
         public EgbFeatureCollection features;
+        public SpatialReference CRS;
 
-       SpatialReference EPSG4326 = new SpatialReference(
+        SpatialReference EPSG4326 = new SpatialReference(
                 @"GEOGCS[""WGS 84"",
                     DATUM[""WGS_1984"",
                         SPHEROID[""WGS 84"", 6378137, 298.257223563,
@@ -52,28 +53,7 @@ namespace Virgis {
                     UNIT[""degree"", 0.0174532925199433,
                         AUTHORITY[""EPSG"", ""9122""]],
                     AUTHORITY[""EPSG"", ""4326""]]");
-        SpatialReference EPSG32637 = new SpatialReference(
-          @"PROJCS[""WGS 84 / UTM zone 37N"", GEOGCS[""WGS 84"",
-                    DATUM[""WGS_1984"",
-                        SPHEROID[""WGS 84"", 6378137, 298.257223563,
-                        AUTHORITY[""EPSG"", ""7030""]],
-                    AUTHORITY[""EPSG"", ""6326""]],
-                PRIMEM[""Greenwich"", 0,
-                AUTHORITY[""EPSG"", ""8901""]],
-                UNIT[""degree"", 0.0174532925199433,
-                AUTHORITY[""EPSG"", ""9122""]],
-                AUTHORITY[""EPSG"", ""4326""]],
-                PROJECTION[""Transverse_Mercator""],
-                PARAMETER[""latitude_of_origin"", 0],
-                PARAMETER[""central_meridian"", 39],
-                PARAMETER[""scale_factor"", 0.9996],
-                PARAMETER[""false_easting"", 500000],
-                PARAMETER[""false_northing"", 0],
-                UNIT[""metre"", 1,
-                    AUTHORITY[""EPSG"", ""9001""]],
-                AXIS[""Easting"", EAST],
-                AXIS[""Northing"", NORTH],
-                AUTHORITY[""EPSG"", ""32637""]]"");");
+
 
          CoordinateTransformation transform;
 
@@ -83,10 +63,6 @@ namespace Virgis {
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }
-
-            transform = new CoordinateTransformation(EPSG32637, EPSG4326);
-            
-
         }
 
 
@@ -166,7 +142,7 @@ namespace Virgis {
                         if (args[0].Contains("ID")) {
                             feature.Id = ParseValue(args[1]) as string;
                         } else {
-                           feature.image.Add(ParseValue(args[0]) as string, ParseValue(args[1]));
+                            feature.image.Add(ParseValue(args[0]) as string, ParseValue(args[1]));
                         }
                     } else
 
@@ -177,7 +153,14 @@ namespace Virgis {
                         if (line.Contains("BottomVertex")) {
                             bottom.Add(ParseGeometry(line));
                         }
+                    } else
+
+                    if (line.Contains("CoordinateSystem")) {
+                        string[] args = line.Split('=');
+                        string coordsys = ParseValue(args[1]) as string;
+                        CRS = new SpatialReference(coordsys);
                     }
+
                 }
             }
         }
@@ -189,14 +172,14 @@ namespace Virgis {
                 try {
                     Geometry geom = new Geometry(wkbGeometryType.wkbPoint25D);
                     geom.AddPoint((double) ParseValue(coords[0]), (double) ParseValue(coords[1]), (double) ParseValue(coords[2]));
-                    geom.Transform(transform);
+                    //geom.Transform(transform);
                     Position ret = new Position(geom.GetY(0), geom.GetX(0), geom.GetZ(0));
                     return ret;
                 } catch { 
                     return null; 
                 }
             } else {
-                Debug.Log("bbad Coords : " + line);
+                Debug.Log("bad Coords : " + line);
                 return null;
             }
         }
