@@ -104,9 +104,9 @@ namespace Virgis
 
                 // Get the geometry
           
-                Vector3 origin = feature.bottom.Point(0).Vector3();
-                Vector3[] top = feature.top.Vector3();
-                Vector3[] bottom = feature.bottom.Vector3();
+                Vector3[] top = feature.top.TransformPoint();
+                Vector3[] bottom = feature.bottom.TransformPoint();
+                Vector3 origin = bottom[0];
                 int length = top.Length;
 
                 Vector3[]  poly = new Vector3[4] { bottom[1], top[1], top[0],bottom[0]};

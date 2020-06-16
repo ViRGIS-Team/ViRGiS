@@ -1,14 +1,14 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
+using Boo.Lang;
+using g3;
+using GeoJSON.Net.Geometry;
+using Mapbox.Unity.Utilities;
+using OSGeo.OGR;
+using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
-using GeoJSON.Net.Geometry;
-using g3;
-using System;
-using Mapbox.Unity.Utilities;
 
-
-namespace Virgis
-{
+namespace Virgis {
 
     /// <summary>
     /// Structure used to hold the details of a generic move request sent to a target enitity
@@ -231,7 +231,29 @@ namespace Virgis
         }
     }
 
+    /// <summary>
+    ///Extension Methods to OGR Geometry
+    /// </summary>
+    public static class GeometryExtensions {
 
+        /// <summary>
+        /// COnvert Geometry to Vector3[] of World Space coordinates taking account of zoom
+        /// </summary>
+        /// <param name="geom"> Geometry</param>
+        /// <returns>VEctor3[]</returns>
+        public static Vector3[] TransformPoint(this Geometry geom) {
+            int count = geom.GetPointCount();
+            List<Vector3> ret = new List<Vector3>();
+            for (int i = 0; i < count; i++) {
+                double[] argout = new double[3];
+                geom.GetPoint(i, argout);
+                Vector3 mapLocal = Conversions.GeoToWorldPosition(argout[1], argout[0], AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
+                mapLocal.y = (float)argout[2];
+                ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
+            }
+            return ret.ToArray();
+        }
+    }
 
     public static class SimpleMeshExtensions
     {

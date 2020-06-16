@@ -10,8 +10,7 @@ using OSGeo.OGR;
 using GeoJSON.Net.Geometry;
 using OSGeo.GDAL;
 using OSGeo.OSR;
-using GeoJSON.Net.Contrib.Wkb;
-using GeoJSON.Net.CoordinateReferenceSystem;
+
 
 namespace Virgis {
 
@@ -22,8 +21,8 @@ namespace Virgis {
         }
         public string Id;
         public Dictionary<string, object> image;
-        public LineString top;
-        public LineString bottom;
+        public Geometry top;
+        public Geometry bottom;
     }
 
     public class EgbFeatureCollection : List<EgbFeature> {
@@ -103,84 +102,81 @@ namespace Virgis {
             bool obDef = false;
 
             EgbFeature feature = new EgbFeature();
-            List<Position> top = new List<Position>();
-            List<Position> bottom = new List<Position>();
+            Geometry top = new Geometry(wkbGeometryType.wkbLineString25D);
+            Geometry bottom = new Geometry(wkbGeometryType.wkbLineString25D);
             features = new EgbFeatureCollection();
 
-                foreach (string line in lines) {
-                    if (line.Contains("ImageDefinition Begin")) {
-                        imDef = true;
-                        obDef = false;
-                        feature = new EgbFeature();
-                    } else
+            foreach (string line in lines) {
+                if (line.Contains("ImageDefinition Begin")) {
+                    imDef = true;
+                    obDef = false;
+                    feature = new EgbFeature();
+                } else
 
-                    if (line.Contains("ImageDefinition End")) {
-                        imDef = false;
-                        obDef = false;
+                if (line.Contains("ImageDefinition End")) {
+                    imDef = false;
+                    obDef = false;
 
-                    } else
+                } else
 
-                    if (line.Contains("ObjectDefinition Begin")) {
-                        imDef = false;
-                        obDef = true;
+                if (line.Contains("ObjectDefinition Begin")) {
+                    imDef = false;
+                    obDef = true;
 
-                    } else
+                } else
 
-                    if (line.Contains("ObjectDefinition End")) {
-                        feature.top = new LineString(top);
-                        feature.bottom = new LineString(bottom);
-                        features.Add(feature);
-                        top = new List<Position>();
-                        bottom = new List<Position>();
-                        imDef = false;
-                        obDef = false;
+                if (line.Contains("ObjectDefinition End")) {
+                    feature.top = top;
+                    feature.bottom = bottom;
+                    features.Add(feature);
+                    top = new Geometry(wkbGeometryType.wkbLineString25D);
+                    bottom = new Geometry(wkbGeometryType.wkbLineString25D);
+                    imDef = false;
+                    obDef = false;
 
-                    } else
+                } else
 
-                    if (imDef) {
-                        string[] args = line.Split('=');
-                        if (args[0].Contains("ID")) {
-                            feature.Id = ParseValue(args[1]) as string;
-                        } else {
-                            feature.image.Add(ParseValue(args[0]) as string, ParseValue(args[1]));
-                        }
-                    } else
-
-                    if (obDef) {
-                        if (line.Contains("TopVertex")) {
-                            top.Add(ParseGeometry(line));
-                        } else
-                        if (line.Contains("BottomVertex")) {
-                            bottom.Add(ParseGeometry(line));
-                        }
-                    } else
-
-                    if (line.Contains("CoordinateSystem")) {
-                        string[] args = line.Split('=');
-                        string coordsys = ParseValue(args[1]) as string;
-                        CRS = new SpatialReference(coordsys);
+                if (imDef) {
+                    string[] args = line.Split('=');
+                    if (args[0].Contains("ID")) {
+                        feature.Id = ParseValue(args[1]) as string;
+                    } else {
+                        feature.image.Add(ParseValue(args[0]) as string, ParseValue(args[1]));
                     }
+                } else
 
+                if (obDef) {
+                    if (line.Contains("TopVertex")) {
+                        ParseGeometry(line, top);
+                    } else
+                    if (line.Contains("BottomVertex")) {
+                        ParseGeometry(line, bottom);
+                    }
+                } else
+
+                if (line.Contains("CoordinateSystem")) {
+                    string[] args = line.Split('=');
+                    string coordsys = ParseValue(args[1]) as string;
+                    CRS = new SpatialReference(null);
+                    CRS.ImportFromMICoordSys(coordsys);
+                    transform = new CoordinateTransformation(CRS, EPSG4326);
                 }
             }
-        }
 
-        private Position  ParseGeometry(string line) {
+            foreach (EgbFeature f in features) {
+                f.top.Transform(transform);
+                f.bottom.Transform(transform);
+            }
+        }
+    }
+
+        private void  ParseGeometry(string line, Geometry geom ) {
             string[] args = line.Split('=');
             string[] coords = args[1].Split(',');
             if (coords.Length == 3) {
-                try {
-                    Geometry geom = new Geometry(wkbGeometryType.wkbPoint25D);
-                    geom.AddPoint((double) ParseValue(coords[0]), (double) ParseValue(coords[1]), (double) ParseValue(coords[2]));
-                    //geom.Transform(transform);
-                    Position ret = new Position(geom.GetY(0), geom.GetX(0), geom.GetZ(0));
-                    return ret;
-                } catch { 
-                    return null; 
-                }
+                geom.AddPoint((double) ParseValue(coords[0]), (double) ParseValue(coords[1]), (double) ParseValue(coords[2]));
             } else {
                 Debug.Log("bad Coords : " + line);
-                return null;
             }
         }
 
