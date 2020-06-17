@@ -109,17 +109,11 @@ namespace Virgis
                 Vector3 origin = bottom[0];
                 int length = top.Length;
 
-                Vector3[]  poly = new Vector3[4] { bottom[1], top[1], top[0],bottom[0]};
-                DCurve3 curve = new DCurve3();
-                curve.Vector3(poly, true);
-                Vector3 center = (Vector3) curve.Center();
-
-                List<VertexLookup> VertexTable = new List<VertexLookup>();
-                VertexTable.Add(new VertexLookup() { Id = System.Guid.NewGuid(), Vertex = -1 });
-                for (int i = 0; i < 4; i++) {
-                    GameObject point = Instantiate(HandlePrefab, poly[i], Quaternion.identity, transform);
-                    VertexTable.Add(new VertexLookup() { Id = System.Guid.NewGuid(), Vertex = i, Com = point.GetComponent<Datapoint>() });
-                }
+                //List<VertexLookup> VertexTable = new List<VertexLookup>();
+                //for (int i = 0; i < 4; i++) {
+                //    GameObject point = Instantiate(HandlePrefab, poly[i], Quaternion.identity, transform);
+                //    VertexTable.Add(new VertexLookup() { Id = System.Guid.NewGuid(), Vertex = i, Com = point.GetComponent<Datapoint>() });
+                //}
 
                 tex = null;
                 if (feature.image.ContainsKey("Image") && feature.image["Image"] != null) {
@@ -133,15 +127,16 @@ namespace Virgis
 
                 //Create the GameObjects
                 // GameObject dataLine = Instantiate(LinePrefab, origin, Quaternion.identity);
-                GameObject dataPoly = Instantiate(PolygonPrefab, origin, Quaternion.identity, transform);
+                GameObject dataPoly = Instantiate(PolygonPrefab, transform);
+                dataPoly.transform.localScale = Vector3.one;
                    // dataPoly.transform.parent = gameObject.transform;
                    // dataLine.transform.parent = dataPoly.transform;
 
                    // add the gis data from geoJSON
-                Datapolygon com = dataPoly.GetComponent<Datapolygon>();
+                Dataplane com = dataPoly.GetComponent<Dataplane>();
                 com.gisId = gisId;
                 com.gisProperties = properties;
-                com.Centroid = center;
+ 
                    //// com.Centroid = centroid.GetComponent<Datapoint>();
                    // com.Centroid.SetColor((Color)symbology["point"].Color);
 
@@ -162,7 +157,7 @@ namespace Virgis
 
                    // //Draw the Polygon
 
-                com.Draw(VertexTable, Mat);
+                com.Draw(top, bottom, Mat);
                 Material newMat = dataPoly.GetComponentInChildren<Renderer>().material;
                 if (tex != null) newMat.SetTexture("_BaseMap", tex);
                 // //centroid.transform.localScale = symbology["point"].Transform.Scale;
