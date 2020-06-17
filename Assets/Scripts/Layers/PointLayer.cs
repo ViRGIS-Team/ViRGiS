@@ -124,7 +124,7 @@ namespace Virgis {
 
         protected override void _checkpoint() {
         }
-        protected override void _save() {
+        protected override async Task _save() {
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapoint pointFunc in pointFuncs) {
@@ -132,7 +132,7 @@ namespace Virgis {
             }
             FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
-            geoJsonReader.Save();
+            await geoJsonReader.Save();
             features = FC;
         }
 

@@ -112,12 +112,13 @@ namespace Virgis
 
         protected override void _checkpoint() { }
 
-        protected override void _save()
+        protected override Task _save()
         {
             layer.Position = transform.position.ToPoint();
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
+            return Task.CompletedTask;
         }
     }
 }

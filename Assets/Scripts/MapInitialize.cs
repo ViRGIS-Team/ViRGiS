@@ -159,24 +159,26 @@ namespace Virgis
         {
         }
 
-        public new async Task Save()
+        public new async Task<RecordSet> Save()
         {
             // TODO: wrap this in try/catch block
             Debug.Log("MapInitialize.Save starts");
             foreach (IVirgisLayer com in appState.layers)
             {
-                RecordSet layer = com.Save();
-                int index = appState.project.RecordSets.FindIndex(x => x.Id == layer.Id);
-                appState.project.RecordSets[index] = layer;
+                RecordSet alayer = await com.Save();
+                int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
+                appState.project.RecordSets[index] = alayer;
             }
             appState.project.Scale = appState.GetScale();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
             geoJsonReader.SetProject(appState.project);
             await geoJsonReader.Save();
             Debug.Log("MapInitialize.Save ends");
+            // TODO: should return the root layer in v2
+            return null;
         }
 
-        protected override void _save()
+        protected override Task _save()
         {
             throw new System.NotImplementedException();
         }
