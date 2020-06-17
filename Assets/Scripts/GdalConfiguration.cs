@@ -68,27 +68,27 @@ namespace Virgis
                 //    return;
                 //}
 
-                //string executingAssemblyFile = new Uri(Assembly.GetExecutingAssembly().GetName().CodeBase).LocalPath;
-                //executingDirectory = Path.GetDirectoryName(executingAssemblyFile);
+                string executingAssemblyFile = new Uri(Assembly.GetExecutingAssembly().GetName().CodeBase).LocalPath;
+                executingDirectory = Path.GetDirectoryName(executingAssemblyFile);
 
-                //if (string.IsNullOrEmpty(executingDirectory))
-                //    throw new InvalidOperationException("cannot get executing directory");
+                if (string.IsNullOrEmpty(executingDirectory))
+                    throw new InvalidOperationException("cannot get executing directory");
 
 
                 //// modify search place and order
                 //SetDefaultDllDirectories(DllSearchFlags);
 
-                //gdalPath = Path.Combine(executingDirectory, "gdal");
-                //nativePath = Path.Combine(gdalPath, GetPlatform());
-                //if (!Directory.Exists(nativePath))
-                //    throw new DirectoryNotFoundException($"GDAL native directory not found at '{nativePath}'");
-                //if (!File.Exists(Path.Combine(nativePath, "gdal_wrap.dll")))
-                //    throw new FileNotFoundException(
-                //        $"GDAL native wrapper file not found at '{Path.Combine(nativePath, "gdal_wrap.dll")}'");
+                gdalPath = Path.Combine(executingDirectory, "Assets\\plugins\\gdal");
+                nativePath = Path.Combine(gdalPath, GetPlatform());
+                if (!Directory.Exists(nativePath))
+                    throw new DirectoryNotFoundException($"GDAL native directory not found at '{nativePath}'");
+                if (!File.Exists(Path.Combine(nativePath, "gdal_wrap.dll")))
+                    throw new FileNotFoundException(
+                        $"GDAL native wrapper file not found at '{Path.Combine(nativePath, "gdal_wrap.dll")}'");
 
                 //// Add directories
-                //AddDllDirectory(nativePath);
-                //AddDllDirectory(Path.Combine(nativePath, "plugins"));
+                AddDllDirectory(nativePath);
+                AddDllDirectory(Path.Combine(nativePath, "plugins"));
 
                 // Set the additional GDAL environment variables.
                 string gdalData = "C:/Documents/Github/ViRGIS/Plugins/GDAL/GDAL_DATA";
