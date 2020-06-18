@@ -208,12 +208,16 @@ namespace Virgis
         {
             if (_usable)
             {
+                string drivers = "";
                 var num = Gdal.GetDriverCount();
                 for (var i = 0; i < num; i++)
                 {
                     var driver = Gdal.GetDriver(i);
-                    Trace.WriteLine($"GDAL {i}: {driver.ShortName}-{driver.LongName}");
+                    drivers += $"GDAL {i}: {driver.ShortName}-{driver.LongName}";
+                    drivers += ", ";
                 }
+                UnityEngine.Debug.Log($"GDAL Drivers : {drivers}");
+
             }
         }
     }

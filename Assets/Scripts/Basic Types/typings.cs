@@ -247,7 +247,7 @@ namespace Virgis {
             for (int i = 0; i < count; i++) {
                 double[] argout = new double[3];
                 geom.GetPoint(i, argout);
-                Vector3 mapLocal = Conversions.GeoToWorldPosition(argout[1], argout[0], AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
+                Vector3 mapLocal = Conversions.GeoToWorldPosition(argout[0], argout[1], AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
                 mapLocal.y = (float)argout[2];
                 ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
             }

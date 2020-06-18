@@ -59,6 +59,7 @@ namespace Virgis {
         public EgbReader() {
             try {
                 GdalConfiguration.ConfigureOgr();
+                GdalConfiguration.ConfigureGdal();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }
@@ -159,13 +160,15 @@ namespace Virgis {
                     string coordsys = ParseValue(args[1]) as string;
                     CRS = new SpatialReference(null);
                     CRS.ImportFromMICoordSys(coordsys);
+                    CRS.ExportToPrettyWkt(out string prettyCRS, 0);
+                    Debug.Log(prettyCRS);
                     transform = new CoordinateTransformation(CRS, EPSG4326);
                 }
             }
 
             foreach (EgbFeature f in features) {
-                f.top.Transform(transform);
-                f.bottom.Transform(transform);
+                int res1 = f.top.Transform(transform);
+                int res2 = f.bottom.Transform(transform);
             }
         }
     }
