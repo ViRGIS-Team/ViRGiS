@@ -38,7 +38,6 @@ namespace Virgis
             egbReader = new EgbReader();
             await egbReader.Load(layer.Source);
             egbReader.Read();
-            features = egbReader.features;
         }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)

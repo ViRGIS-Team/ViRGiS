@@ -30,14 +30,15 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
+using UnityEngine;
 using System.Runtime.InteropServices;
 using Gdal = OSGeo.GDAL.Gdal;
 using Ogr = OSGeo.OGR.Ogr;
+using Osr = OSGeo.OSR.Osr;
 
 namespace Virgis
 {
-    public static class GdalConfiguration
+    public static class GdalConfiguration 
     {
         private static volatile bool _configuredOgr;
         private static volatile bool _configuredGdal;
@@ -57,7 +58,7 @@ namespace Virgis
         /// </summary>
         static GdalConfiguration()
         {
-            string executingDirectory = null, gdalPath = null, nativePath = null;
+             string executingDirectory = null, gdalPath = null, nativePath = null;
             try
             {
                 //if (!IsWindows)
@@ -68,8 +69,7 @@ namespace Virgis
                 //    return;
                 //}
 
-                string executingAssemblyFile = new Uri(Assembly.GetExecutingAssembly().GetName().CodeBase).LocalPath;
-                executingDirectory = Path.GetDirectoryName(executingAssemblyFile);
+                executingDirectory = Directory.GetCurrentDirectory();
 
                 if (string.IsNullOrEmpty(executingDirectory))
                     throw new InvalidOperationException("cannot get executing directory");
@@ -78,20 +78,22 @@ namespace Virgis
                 //// modify search place and order
                 //SetDefaultDllDirectories(DllSearchFlags);
 
-                gdalPath = Path.Combine(executingDirectory, "Assets\\plugins\\gdal");
-                nativePath = Path.Combine(gdalPath, GetPlatform());
-                if (!Directory.Exists(nativePath))
+                nativePath = Path.Combine(executingDirectory, "Assets\\plugins", GetPlatform());
+
+                gdalPath = Path.Combine(nativePath, "Gdal");
+
+                if (!Directory.Exists(gdalPath))
                     throw new DirectoryNotFoundException($"GDAL native directory not found at '{nativePath}'");
-                if (!File.Exists(Path.Combine(nativePath, "gdal_wrap.dll")))
+                if (!File.Exists(Path.Combine(gdalPath, "gdal_wrap.dll")))
                     throw new FileNotFoundException(
                         $"GDAL native wrapper file not found at '{Path.Combine(nativePath, "gdal_wrap.dll")}'");
 
                 //// Add directories
-                AddDllDirectory(nativePath);
+                AddDllDirectory(gdalPath);
                 AddDllDirectory(Path.Combine(nativePath, "plugins"));
 
                 // Set the additional GDAL environment variables.
-                string gdalData = "C:/Documents/Github/ViRGIS/Plugins/GDAL/GDAL_DATA";
+                string gdalData = Path.Combine(gdalPath, "gdal-data");
                 Environment.SetEnvironmentVariable("GDAL_DATA", gdalData);
                 Gdal.SetConfigOption("GDAL_DATA", gdalData);
 
@@ -105,16 +107,19 @@ namespace Virgis
                 //string projSharePath = Path.Combine(gdalPath, "share");
                 Environment.SetEnvironmentVariable("PROJ_LIB", gdalData);
                 Gdal.SetConfigOption("PROJ_LIB", gdalData);
+                Osr.SetPROJSearchPath(gdalData);
 
                 _usable = true;
+
+                UnityEngine.Debug.Log($"GDAL version string : {Gdal.VersionInfo(null)}");
             }
             catch (Exception e)
             {
                 _usable = false;
-                Trace.WriteLine(e, "error");
-                Trace.WriteLine($"Executing directory: {executingDirectory}", "error");
-                Trace.WriteLine($"gdal directory: {gdalPath}", "error");
-                Trace.WriteLine($"native directory: {nativePath}", "error");
+                UnityEngine.Debug.LogError(e.ToString());
+                UnityEngine.Debug.LogError($"Executing directory: {executingDirectory}");
+                UnityEngine.Debug.LogError($"gdal directory: {gdalPath}");
+                UnityEngine.Debug.LogError($"native directory: {nativePath}");
 
                 throw;
             }
@@ -184,22 +189,23 @@ namespace Virgis
         }
         private static void PrintDriversOgr()
         {
-#if DEBUG
             if (_usable)
             {
+                string drivers = "";
                 var num = Ogr.GetDriverCount();
                 for (var i = 0; i < num; i++)
                 {
                     var driver = Ogr.GetDriver(i);
-                    Trace.WriteLine($"OGR {i}: {driver.GetName()}", "Debug");
+                    drivers += $"OGR {i}: {driver.GetName()}";
+                    drivers += ", ";
                 }
+                UnityEngine.Debug.Log($"OGR Drivers : {drivers}");
+
             }
-#endif
         }
 
         private static void PrintDriversGdal()
         {
-#if DEBUG
             if (_usable)
             {
                 var num = Gdal.GetDriverCount();
@@ -209,7 +215,6 @@ namespace Virgis
                     Trace.WriteLine($"GDAL {i}: {driver.ShortName}-{driver.LongName}");
                 }
             }
-#endif
         }
     }
 }
