@@ -49,7 +49,7 @@ public class PointCloudInspector : MonoBehaviour
         Debug.Log("PDAL SHA1: " + config.Sha1);
         Debug.Log("PDAL Debug Info: " + config.DebugInfo);
 
-        string path = "Assets/pdal/Examples/classification-ground.json";
+        string path = "Assets/Plugins/x64/Pdal/Examples/classification-ground.json";
         string json = File.ReadAllText(path);
 
         pdal.Pipeline pipeline = new pdal.Pipeline(json);

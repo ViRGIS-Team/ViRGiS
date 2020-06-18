@@ -90,8 +90,8 @@ namespace pdal
 		{
 			//string cwd = Environment.CurrentDirectory;
 
-			GdalData = "Assets/gdal/Data";
-			Proj4Data = "Assets/proj4/Data";
+			GdalData = "Assets/plugis/x64/Gdal/gdal-data";
+			Proj4Data = "Assets/plugins/x64/Gdal/gdal-data";
 		}
 
 		/// The path to the GDAL data directory
