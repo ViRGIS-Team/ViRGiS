@@ -21,6 +21,7 @@ namespace Virgis
     {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
+        public AbstractMap MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
         public GameObject PointLayer;
@@ -70,16 +71,14 @@ namespace Virgis
 
             //initialize space
             Vector2d origin = appState.project.Origin.Coordinates.Vector2d();
-            GameObject Map = gameObject;
-            AbstractMap _map = Map.GetComponent<AbstractMap>();
-            _map.UseWorldScale();
-            _map.Initialize(origin, appState.project.MapScale);
+            MapBoxLayer.UseWorldScale();
+            MapBoxLayer.Initialize(origin, appState.project.MapScale);
 
 
             //set globals
             appState.initProj();
-            appState.abstractMap = _map;
-            appState.map = Map;
+            appState.abstractMap = MapBoxLayer;
+            appState.map = gameObject;
             appState.ZoomChange(appState.project.Scale);
             appState.mainCamera = MainCamera;
             MainCamera.transform.position = appState.project.Camera.Coordinates.Vector3();
