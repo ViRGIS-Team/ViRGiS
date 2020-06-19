@@ -190,7 +190,7 @@ namespace Virgis
             p.Centroid = c.transform.position;
             c.SetMaterial(mainMat, selectedMat);
 
-            if (symbology["body"].ContainsKey("Label") && (properties?.ContainsKey(symbology["body"].Label) ?? false))
+            if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (properties?.ContainsKey(symbology["body"].Label) ?? false))
             {
                 //Set the label
                 GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false);

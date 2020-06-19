@@ -53,7 +53,7 @@ namespace Virgis
                     if (vLookup.Line && vLookup.Line.vEnd == vdata.Vertex)
                         vLookup.Line.MoveEnd(data.pos);
                 }
-                label.position = _labelPosition();
+                if (label) label.position = _labelPosition();
             }
         }
 
@@ -128,11 +128,11 @@ namespace Virgis
             //Set the label
             if (LabelPrefab != null)
             {
-                GameObject labelObject = Instantiate(LabelPrefab, _labelPosition(), Quaternion.identity, transform);
-                label = labelObject.transform;
-                Text labelText = labelObject.GetComponentInChildren<Text>();
                 if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
                    {
+                    GameObject labelObject = Instantiate(LabelPrefab, _labelPosition(), Quaternion.identity, transform);
+                    label = labelObject.transform;
+                    Text labelText = labelObject.GetComponentInChildren<Text>();
                     labelText.text = (string)gisProperties[symbology["line"].Label];
                 }
             }
