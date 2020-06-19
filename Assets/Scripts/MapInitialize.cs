@@ -77,6 +77,7 @@ namespace Virgis
 
 
             //set globals
+            appState.initProj();
             appState.abstractMap = _map;
             appState.map = Map;
             appState.ZoomChange(appState.project.Scale);

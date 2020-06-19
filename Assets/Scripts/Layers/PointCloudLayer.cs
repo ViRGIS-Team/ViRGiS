@@ -36,7 +36,7 @@ namespace Virgis
             foreach (CSVRow point in data) {
                 features.vertexCount++;
                 features.vertices.Add(new Vector3((float) point["X"], 0.0f, (float) point["Y"]));
-                features.normals.Add(Vector3.one);
+                features.normals.Add(Vector3.up);
                 features.colors.Add(new Color((float) point["Red"] / 255, (float) point["Green"] / 255, (float) point["Blue"] / 255));
             }
 
@@ -84,6 +84,15 @@ namespace Virgis
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
             centreHandle.transform.parent = transform;
+        }
+
+        public override void SetVisible(bool visible) {
+            if (layer.Visible != visible) {
+                layer.Visible = visible;
+                gameObject.SetActive(visible);
+                VisualEffect vfx = model.GetComponent<VisualEffect>();
+                if (visible) vfx.Play();
+            }
         }
 
         public override void Translate(MoveArgs args)

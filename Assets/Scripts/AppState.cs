@@ -1,8 +1,10 @@
 ﻿using Mapbox.Unity.Map;
+using OSGeo.OSR;
 using Project;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace Virgis {
 
@@ -16,6 +18,7 @@ namespace Virgis {
         private EditSession _editSession;
         private List<Component> _layers;
         private ZoomEvent _zoomChange;
+        private SpatialReference _crs;
 
         void Awake() {
             print("AppState awakens");
@@ -60,6 +63,23 @@ namespace Virgis {
 
         public GisProject project {
             get; set;
+        }
+
+        public  SpatialReference mapProj {
+            get => _crs;
+        }
+
+        public void initProj() {
+            if (project != null) {
+                try {
+                    GdalConfiguration.ConfigureOgr();
+                    GdalConfiguration.ConfigureGdal();
+                } catch (Exception e) {
+                    Debug.LogError(e.ToString());
+                }
+                _crs = new SpatialReference(null);
+                _crs.ImportFromProj4($"+proj=tmerc +datum=WGS84 +units=m +axis=enu +no-defs +lat_0={project.Origin.Coordinates.Latitude} +lon_0={project.Origin.Coordinates.Longitude}");
+            }
         }
 
         public List<Component> layers {

@@ -247,10 +247,10 @@ namespace Virgis {
 
 
         public virtual GameObject GetFeatureShape() {
-            return null;
+            return default;
         }
 
-        public void SetVisible(bool visible) {
+        public virtual void SetVisible(bool visible) {
             if (layer.Visible != visible) {
                 layer.Visible = visible;
                 gameObject.SetActive(visible);

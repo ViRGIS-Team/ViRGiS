@@ -242,13 +242,13 @@ namespace Virgis {
         /// <param name="geom"> Geometry</param>
         /// <returns>VEctor3[]</returns>
         public static Vector3[] TransformPoint(this Geometry geom) {
+            geom.TransformTo(AppState.instance.mapProj);
             int count = geom.GetPointCount();
             List<Vector3> ret = new List<Vector3>();
             for (int i = 0; i < count; i++) {
                 double[] argout = new double[3];
                 geom.GetPoint(i, argout);
-                Vector3 mapLocal = Conversions.GeoToWorldPosition(argout[0], argout[1], AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
-                mapLocal.y = (float)argout[2];
+                Vector3 mapLocal = new Vector3((float) argout[0], (float) argout[2], (float) argout[1]);
                 ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
             }
             return ret.ToArray();

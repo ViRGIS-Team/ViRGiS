@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
@@ -7,8 +7,6 @@ using System.Text;
 using System;
 using System.Text.RegularExpressions;
 using OSGeo.OGR;
-using GeoJSON.Net.Geometry;
-using OSGeo.GDAL;
 using OSGeo.OSR;
 
 
@@ -57,12 +55,6 @@ namespace Virgis {
          CoordinateTransformation transform;
 
         public EgbReader() {
-            try {
-                GdalConfiguration.ConfigureOgr();
-                GdalConfiguration.ConfigureGdal();
-            } catch (Exception e) {
-                Debug.LogError(e.ToString());
-            }
         }
 
 

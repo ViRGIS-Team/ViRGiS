@@ -211,8 +211,5 @@ namespace Virgis
             changed = true;
         }
 
-        public override GameObject GetFeatureShape() {
-            throw new NotImplementedException();
-        }
     }
 }
