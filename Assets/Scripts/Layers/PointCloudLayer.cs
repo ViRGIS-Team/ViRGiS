@@ -27,8 +27,19 @@ namespace Virgis
 
         protected override async Task _init(GeographyCollection layer)
         {
-            PlyImport reader = new PlyImport();
-            features = await reader.Load(layer.Source);
+            //PlyImport reader = new PlyImport();
+            //features = await reader.Load(layer.Source);
+            CSVReader reader = new CSVReader();
+            await reader.Load(layer.Source);
+            CSVData data = reader.Read();
+            features = new ParticleData();
+            foreach (CSVRow point in data) {
+                features.vertexCount++;
+                features.vertices.Add(new Vector3((float) point["X"], 0.0f, (float) point["Y"]));
+                features.normals.Add(Vector3.one);
+                features.colors.Add(new Color((float) point["Red"] / 255, (float) point["Green"] / 255, (float) point["Blue"] / 255));
+            }
+
             symbology = layer.Properties.Units;
 
             Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
@@ -46,8 +57,8 @@ namespace Virgis
 
         protected override void _draw()
         {
-            transform.position = layer.Position.Coordinates.Vector3();
-            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
+            transform.position = layer.Position != null ?  layer.Position.Coordinates.Vector3() : Vector3.zero ;
+            if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = layer.Properties.Units;
 
             model = Instantiate(pointCloud, transform, false);
@@ -64,10 +75,12 @@ namespace Virgis
             vfx.SetVector3("_size", symbology["point"].Transform.Scale);
             vfx.Play();
 
-            transform.rotation = layer.Transform.Rotate;
-            transform.localScale = layer.Transform.Scale;
-            vfx.SetVector3("_scale", layer.Transform.Scale);
-            GameObject centreHandle = Instantiate(handle,  transform.position , Quaternion.identity);
+            if (layer.Transform != null) {
+                transform.rotation = layer.Transform.Rotate;
+                transform.localScale = layer.Transform.Scale;
+                vfx.SetVector3("_scale", layer.Transform.Scale);
+            }
+            GameObject centreHandle = Instantiate(handle, transform.position, Quaternion.identity);
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
             centreHandle.transform.parent = transform;

@@ -19,7 +19,7 @@ namespace Virgis {
     public class CSVReader {
         static string SPLIT_RE = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))"; // Define delimiters, regular expression craziness
         static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r"; // Define line delimiters, regular experession craziness
-        static char[] TRIM_CHARS = { '\"' };
+        static char[] TRIM_CHARS = { '\"', '/', '\\', ' ' };
 
         private string fileName;
         public string Payload;
@@ -57,7 +57,9 @@ namespace Virgis {
             if (lines.Length <= 1)
                 return list; //Check that there is more than one line
 
-            var header = Regex.Split(lines[0], SPLIT_RE); //Split header (element 0)
+            string[] header = Regex.Split(lines[0], SPLIT_RE); //Split header (element 0)
+            for (int i = 0; i < header.Length; i++)
+                header[i] = header[i].TrimStart(TRIM_CHARS).TrimEnd(TRIM_CHARS).Replace("\\", ""); // Trim characters
 
             // Loops through lines
             for (var i = 1; i < lines.Length; i++) {

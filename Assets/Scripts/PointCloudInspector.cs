@@ -52,7 +52,7 @@ public class PointCloudInspector : MonoBehaviour
         string path = "Assets/Plugins/x64/Pdal/Examples/classification-ground.json";
         string json = File.ReadAllText(path);
 
-        pdal.Pipeline pipeline = new pdal.Pipeline(json);
+        pdal.Pipeline pipeline = new pdal.Pipeline();
 
         long pointCount = pipeline.Execute();
         Debug.Log("Executed pipeline at " + path);

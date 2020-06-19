@@ -1,0 +1,31 @@
+{
+    "pipeline": [
+        {
+            "type":"readers.gdal",
+            "filename":"../Pdal/Examples/Magnetic_TFI_RTP.tif",
+            "header":"mag"
+        },
+        {
+            "type":"filters.range",
+            "limits":"mag[0:50000]"
+        },
+        {
+            "type": "filters.ferry",
+            "dimensions": "=>Z"
+      },
+        {
+            "type":"filters.reprojection",
+            "in_srs": "epsg:27700",
+            "out_srs":"+proj=tmerc +datum=WGS84 +units=m +no-defs +lat_0=53.316200583246534 +lon_0=-1.791218230167096"
+        },
+        {
+            "type":"filters.colorinterp",
+            "ramp":"blue_red",
+            "dimension":"mag"
+          },
+        {
+            "type":"writers.text",
+            "filename":"../../../../test_data/Magnetic_TFI_RTP.txt"
+        }
+    ]
+}
