@@ -220,5 +220,114 @@ namespace Virgis
 
             }
         }
+
+        public static void ConfiurePdal() {
+            pdal.Config config = new pdal.Config();
+            UnityEngine.Debug.Log("GDAL Data Path: " + config.GdalData);
+            UnityEngine.Debug.Log("Proj4 Data Path: " + config.Proj4Data);
+
+            UnityEngine.Debug.Log("PDAL Version Integer: " + config.VersionInteger);
+            UnityEngine.Debug.Log("PDAL Version Major: " + config.VersionMajor);
+            UnityEngine.Debug.Log("PDAL Version Minor: " + config.VersionMinor);
+            UnityEngine.Debug.Log("PDAL Version Patch: " + config.VersionPatch);
+
+            UnityEngine.Debug.Log("PDAL Full Version: " + config.FullVersion);
+            UnityEngine.Debug.Log("PDAL Version: " + config.Version);
+            UnityEngine.Debug.Log("PDAL SHA1: " + config.Sha1);
+            UnityEngine.Debug.Log("PDAL Debug Info: " + config.DebugInfo);
+
+            string path = "Assets/Plugins/x64/Pdal/Examples/classification-ground.json";
+            string json = File.ReadAllText(path);
+
+            pdal.Pipeline pipeline = new pdal.Pipeline();
+
+            long pointCount = pipeline.Execute();
+            UnityEngine.Debug.Log("Executed pipeline at " + path);
+            UnityEngine.Debug.Log("Point count: " + pointCount);
+            UnityEngine.Debug.Log("Log Level: " + pipeline.LogLevel);
+            UnityEngine.Debug.Log("Metadata: " + pipeline.Metadata);
+            UnityEngine.Debug.Log("Schema: " + pipeline.Schema);
+            UnityEngine.Debug.Log("Log: " + pipeline.Log);
+            UnityEngine.Debug.Log("Pipeline JSON: " + json);
+            UnityEngine.Debug.Log("Result JSON: " + pipeline.Json);
+
+            pdal.PointViewIterator views = pipeline.Views;
+            pdal.PointView view = views != null ? views.Next : null;
+
+            while (view != null) {
+                UnityEngine.Debug.Log("View " + view.Id);
+                UnityEngine.Debug.Log("\tproj4: " + view.Proj4);
+                UnityEngine.Debug.Log("\tWKT: " + view.Wkt);
+                UnityEngine.Debug.Log("\tSize: " + view.Size + " points");
+                UnityEngine.Debug.Log("\tEmpty? " + view.Empty);
+
+                pdal.PointLayout layout = view.Layout;
+                UnityEngine.Debug.Log("\tHas layout? " + (layout != null));
+
+                if (layout != null) {
+                    UnityEngine.Debug.Log("\tLayout - Point Size: " + layout.PointSize + " bytes");
+                    pdal.DimTypeList types = layout.Types;
+                    UnityEngine.Debug.Log("\tLayout - Has dimension type list? " + (types != null));
+
+                    if (types != null) {
+                        uint size = types.Size;
+                        UnityEngine.Debug.Log("\tLayout - Dimension type count: " + size + " dimensions");
+                        UnityEngine.Debug.Log("\tLayout - Point size calculated from dimension type list: " + types.ByteCount + " bytes");
+
+                        UnityEngine.Debug.Log("\tDimension Types (including value of first point in view)");
+                        byte[] point = view.GetPackedPoint(types, 0);
+                        int position = 0;
+
+                        for (uint i = 0; i < size; ++i) {
+                            pdal.DimType type = types.at(i);
+                            string interpretationName = type.InterpretationName;
+                            int interpretationByteCount = type.InterpretationByteCount;
+                            string value = "?";
+
+                            if (interpretationName == "double") {
+                                value = BitConverter.ToDouble(point, position).ToString();
+                            } else if (interpretationName == "float") {
+                                value = BitConverter.ToSingle(point, position).ToString();
+                            } else if (interpretationName.StartsWith("uint64")) {
+                                value = BitConverter.ToUInt64(point, position).ToString();
+                            } else if (interpretationName.StartsWith("uint32")) {
+                                value = BitConverter.ToUInt32(point, position).ToString();
+                            } else if (interpretationName.StartsWith("uint16")) {
+                                value = BitConverter.ToUInt16(point, position).ToString();
+                            } else if (interpretationName.StartsWith("uint8")) {
+                                value = point[position].ToString();
+                            } else if (interpretationName.StartsWith("int64")) {
+                                value = BitConverter.ToInt64(point, position).ToString();
+                            } else if (interpretationName.StartsWith("int32")) {
+                                value = BitConverter.ToInt32(point, position).ToString();
+                            } else if (interpretationName.StartsWith("int16")) {
+                                value = BitConverter.ToInt16(point, position).ToString();
+                            } else if (interpretationName.StartsWith("int8")) {
+                                value = ((sbyte) point[position]).ToString();
+                            }
+
+                            UnityEngine.Debug.Log("\t\tType " + type.Id + " [" + type.IdName
+                                + " (" + type.Interpretation + ":" + type.InterpretationName + " <" + type.InterpretationByteCount + " bytes>"
+                                + "), position " + position
+                                + ", scale " + type.Scale
+                                + ", offset " + type.Offset + "]: " + value);
+
+                            position += interpretationByteCount;
+                        }
+                    }
+
+                    types.Dispose();
+                }
+
+                view.Dispose();
+                view = views.Next;
+            }
+
+            if (views != null) {
+                views.Dispose();
+            }
+
+            pipeline.Dispose();
+        }
     }
 }

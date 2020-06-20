@@ -2,17 +2,17 @@
     "pipeline": [
         {
             "type":"readers.gdal",
-            "filename":"../Pdal/Examples/Magnetic_TFI_RTP.tif",
-            "header":"mag"
+            "filename":"../../../../test_data/Electrical_conductivity.ers",
+            "header":"res"
         },
         {
             "type":"filters.range",
-            "limits":"mag[0:50000]"
+            "limits":"res[0:50]"
         },
         {
             "type": "filters.ferry",
             "dimensions": "=>Z"
-      },
+        },
         {
             "type":"filters.reprojection",
             "in_srs": "epsg:27700",
@@ -20,12 +20,12 @@
         },
         {
             "type":"filters.colorinterp",
-            "ramp":"blue_red",
-            "dimension":"mag"
+            "ramp":"heat_map",
+            "dimension":"res"
           },
         {
             "type":"writers.text",
-            "filename":"../../../../test_data/Magnetic_TFI_RTP.txt"
+            "filename":"../../../../test_data/Electrical_conductivity.txt"
         }
     ]
 }

@@ -74,6 +74,7 @@ namespace Virgis {
                 try {
                     GdalConfiguration.ConfigureOgr();
                     GdalConfiguration.ConfigureGdal();
+                    GdalConfiguration.ConfiurePdal();
                 } catch (Exception e) {
                     Debug.LogError(e.ToString());
                 }
