@@ -27,14 +27,43 @@
  * DEALINGS IN THE SOFTWARE.
  *****************************************************************************/
 
+/******************************************************************************
+* Added PDAL config code Copyright (c) 2019, Simverge Software LLC. All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following
+* conditions are met:
+*
+* 1. Redistributions of source code must retain the above copyright notice,
+*    this list of conditions and the following disclaimer.
+* 2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+*    and/or other materials provided with the distribution.
+* 3. Neither the name of Simverge Software LLC nor the names of its
+*    contributors may be used to endorse or promote products derived from this
+*    software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+* AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+* ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+* LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+* CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+* SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+* INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+* CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+* ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+* POSSIBILITY OF SUCH DAMAGE.
+*****************************************************************************/
+
 using System;
-using System.Diagnostics;
 using System.IO;
 using UnityEngine;
 using System.Runtime.InteropServices;
 using Gdal = OSGeo.GDAL.Gdal;
 using Ogr = OSGeo.OGR.Ogr;
 using Osr = OSGeo.OSR.Osr;
+using Debug = UnityEngine.Debug;
 
 namespace Virgis
 {
@@ -58,41 +87,10 @@ namespace Virgis
         /// </summary>
         static GdalConfiguration()
         {
-             string executingDirectory = null, gdalPath = null, nativePath = null;
             try
             {
-                //if (!IsWindows)
-                //{
-                //    const string notSet = "_Not_set_";
-                //    string tmp = Gdal.GetConfigOption("GDAL_DATA", notSet);
-                //    _usable = tmp != notSet;
-                //    return;
-                //}
-
-                executingDirectory = Directory.GetCurrentDirectory();
-
-                if (string.IsNullOrEmpty(executingDirectory))
-                    throw new InvalidOperationException("cannot get executing directory");
-
-
-                //// modify search place and order
-                //SetDefaultDllDirectories(DllSearchFlags);
-
-                nativePath = Path.Combine(executingDirectory, "Assets\\plugins", GetPlatform());
-
-                gdalPath = Path.Combine(nativePath, "Gdal");
-
-                if (!Directory.Exists(gdalPath))
-                    throw new DirectoryNotFoundException($"GDAL native directory not found at '{nativePath}'");
-                if (!File.Exists(Path.Combine(gdalPath, "gdal_wrap.dll")))
-                    throw new FileNotFoundException(
-                        $"GDAL native wrapper file not found at '{Path.Combine(nativePath, "gdal_wrap.dll")}'");
-
-                //// Add directories
-                AddDllDirectory(gdalPath);
-                AddDllDirectory(Path.Combine(nativePath, "plugins"));
-
-                // Set the additional GDAL environment variables.
+                // Set the GDAL environment variables.
+                string gdalPath = Application.streamingAssetsPath;
                 string gdalData = Path.Combine(gdalPath, "gdal-data");
                 Environment.SetEnvironmentVariable("GDAL_DATA", gdalData);
                 Gdal.SetConfigOption("GDAL_DATA", gdalData);
@@ -111,16 +109,12 @@ namespace Virgis
 
                 _usable = true;
 
-                UnityEngine.Debug.Log($"GDAL version string : {Gdal.VersionInfo(null)}");
+                Debug.Log($"GDAL version string : {Gdal.VersionInfo(null)}");
             }
             catch (Exception e)
             {
                 _usable = false;
-                UnityEngine.Debug.LogError(e.ToString());
-                UnityEngine.Debug.LogError($"Executing directory: {executingDirectory}");
-                UnityEngine.Debug.LogError($"gdal directory: {gdalPath}");
-                UnityEngine.Debug.LogError($"native directory: {nativePath}");
-
+                Debug.LogError(e.ToString());
                 throw;
             }
         }
@@ -199,7 +193,7 @@ namespace Virgis
                     drivers += $"OGR {i}: {driver.GetName()}";
                     drivers += ", ";
                 }
-                UnityEngine.Debug.Log($"OGR Drivers : {drivers}");
+                Debug.Log($"OGR Drivers : {drivers}");
 
             }
         }
@@ -216,65 +210,65 @@ namespace Virgis
                     drivers += $"GDAL {i}: {driver.ShortName}-{driver.LongName}";
                     drivers += ", ";
                 }
-                UnityEngine.Debug.Log($"GDAL Drivers : {drivers}");
+                Debug.Log($"GDAL Drivers : {drivers}");
 
             }
         }
 
         public static void ConfiurePdal() {
             pdal.Config config = new pdal.Config();
-            UnityEngine.Debug.Log("GDAL Data Path: " + config.GdalData);
-            UnityEngine.Debug.Log("Proj4 Data Path: " + config.Proj4Data);
+            Debug.Log("GDAL Data Path: " + config.GdalData);
+            Debug.Log("Proj4 Data Path: " + config.Proj4Data);
 
-            UnityEngine.Debug.Log("PDAL Version Integer: " + config.VersionInteger);
-            UnityEngine.Debug.Log("PDAL Version Major: " + config.VersionMajor);
-            UnityEngine.Debug.Log("PDAL Version Minor: " + config.VersionMinor);
-            UnityEngine.Debug.Log("PDAL Version Patch: " + config.VersionPatch);
+            Debug.Log("PDAL Version Integer: " + config.VersionInteger);
+            Debug.Log("PDAL Version Major: " + config.VersionMajor);
+            Debug.Log("PDAL Version Minor: " + config.VersionMinor);
+            Debug.Log("PDAL Version Patch: " + config.VersionPatch);
 
-            UnityEngine.Debug.Log("PDAL Full Version: " + config.FullVersion);
-            UnityEngine.Debug.Log("PDAL Version: " + config.Version);
-            UnityEngine.Debug.Log("PDAL SHA1: " + config.Sha1);
-            UnityEngine.Debug.Log("PDAL Debug Info: " + config.DebugInfo);
+            Debug.Log("PDAL Full Version: " + config.FullVersion);
+            Debug.Log("PDAL Version: " + config.Version);
+            Debug.Log("PDAL SHA1: " + config.Sha1);
+            Debug.Log("PDAL Debug Info: " + config.DebugInfo);
 
             string path = "Assets/Plugins/x64/Pdal/Examples/classification-ground.json";
-            string json = File.ReadAllText(path);
+            //string json = File.ReadAllText(path);
 
             pdal.Pipeline pipeline = new pdal.Pipeline();
 
             long pointCount = pipeline.Execute();
-            UnityEngine.Debug.Log("Executed pipeline at " + path);
-            UnityEngine.Debug.Log("Point count: " + pointCount);
-            UnityEngine.Debug.Log("Log Level: " + pipeline.LogLevel);
-            UnityEngine.Debug.Log("Metadata: " + pipeline.Metadata);
-            UnityEngine.Debug.Log("Schema: " + pipeline.Schema);
-            UnityEngine.Debug.Log("Log: " + pipeline.Log);
-            UnityEngine.Debug.Log("Pipeline JSON: " + json);
-            UnityEngine.Debug.Log("Result JSON: " + pipeline.Json);
+            Debug.Log("Executed pipeline at " + path);
+            Debug.Log("Point count: " + pointCount);
+            Debug.Log("Log Level: " + pipeline.LogLevel);
+            Debug.Log("Metadata: " + pipeline.Metadata);
+            Debug.Log("Schema: " + pipeline.Schema);
+            Debug.Log("Log: " + pipeline.Log);
+            //Debug.Log("Pipeline JSON: " + json);
+            Debug.Log("Result JSON: " + pipeline.Json);
 
             pdal.PointViewIterator views = pipeline.Views;
             pdal.PointView view = views != null ? views.Next : null;
 
             while (view != null) {
-                UnityEngine.Debug.Log("View " + view.Id);
-                UnityEngine.Debug.Log("\tproj4: " + view.Proj4);
-                UnityEngine.Debug.Log("\tWKT: " + view.Wkt);
-                UnityEngine.Debug.Log("\tSize: " + view.Size + " points");
-                UnityEngine.Debug.Log("\tEmpty? " + view.Empty);
+                Debug.Log("View " + view.Id);
+                Debug.Log("\tproj4: " + view.Proj4);
+                Debug.Log("\tWKT: " + view.Wkt);
+                Debug.Log("\tSize: " + view.Size + " points");
+                Debug.Log("\tEmpty? " + view.Empty);
 
                 pdal.PointLayout layout = view.Layout;
-                UnityEngine.Debug.Log("\tHas layout? " + (layout != null));
+                Debug.Log("\tHas layout? " + (layout != null));
 
                 if (layout != null) {
-                    UnityEngine.Debug.Log("\tLayout - Point Size: " + layout.PointSize + " bytes");
+                    Debug.Log("\tLayout - Point Size: " + layout.PointSize + " bytes");
                     pdal.DimTypeList types = layout.Types;
-                    UnityEngine.Debug.Log("\tLayout - Has dimension type list? " + (types != null));
+                    Debug.Log("\tLayout - Has dimension type list? " + (types != null));
 
                     if (types != null) {
                         uint size = types.Size;
-                        UnityEngine.Debug.Log("\tLayout - Dimension type count: " + size + " dimensions");
-                        UnityEngine.Debug.Log("\tLayout - Point size calculated from dimension type list: " + types.ByteCount + " bytes");
+                        Debug.Log("\tLayout - Dimension type count: " + size + " dimensions");
+                        Debug.Log("\tLayout - Point size calculated from dimension type list: " + types.ByteCount + " bytes");
 
-                        UnityEngine.Debug.Log("\tDimension Types (including value of first point in view)");
+                        Debug.Log("\tDimension Types (including value of first point in view)");
                         byte[] point = view.GetPackedPoint(types, 0);
                         int position = 0;
 
@@ -306,7 +300,7 @@ namespace Virgis
                                 value = ((sbyte) point[position]).ToString();
                             }
 
-                            UnityEngine.Debug.Log("\t\tType " + type.Id + " [" + type.IdName
+                            Debug.Log("\t\tType " + type.Id + " [" + type.IdName
                                 + " (" + type.Interpretation + ":" + type.InterpretationName + " <" + type.InterpretationByteCount + " bytes>"
                                 + "), position " + position
                                 + ", scale " + type.Scale
