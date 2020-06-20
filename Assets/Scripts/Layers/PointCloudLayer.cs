@@ -35,7 +35,7 @@ namespace Virgis
             features = new ParticleData();
             foreach (CSVRow point in data) {
                 features.vertexCount++;
-                features.vertices.Add(new Vector3((float) point["X"], 0.0f, (float) point["Y"]));
+                features.vertices.Add(new Vector3((float) point["X"], -(float)point["HeightAboveGround"], (float) point["Y"]));
                 features.normals.Add(Vector3.up);
                 features.colors.Add(new Color((float) point["Red"] / 255, (float) point["Green"] / 255, (float) point["Blue"] / 255));
             }
