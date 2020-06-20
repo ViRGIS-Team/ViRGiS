@@ -1,9 +1,11 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using Boo.Lang;
 using g3;
+using GeoJSON.Net.CoordinateReferenceSystem;
 using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Utilities;
 using OSGeo.OGR;
+using OSGeo.OSR;
 using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
@@ -73,8 +75,18 @@ namespace Virgis {
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        public static Point ToPoint(this Vector3 position) {
-            return new Point(position.ToPosition());
+        public static Point ToPoint(this Vector3 point) {
+            return new Point(point.ToPosition());
+        }
+    }
+
+    public static class PointExtensionsMethods {
+        static public Vector3 ToVector3(this Point point) {
+            return point.ToGeometry().TransformPoint()[0];
+        }
+
+        static public Geometry ToGeometry(this Point point) {
+            return (point.Coordinates).ToGeometry(point.CRS);
         }
     }
 
@@ -87,7 +99,7 @@ namespace Virgis {
         /// <returns>Mapbox.Utils.Vector2d</returns>
         public static Mapbox.Utils.Vector2d Vector2d(this IPosition position)
         {
-            return new Mapbox.Utils.Vector2d((float)position.Latitude, (float)position.Longitude);
+            return new Mapbox.Utils.Vector2d(position.Latitude, position.Longitude);
         }
 
         /// <summary>
@@ -100,32 +112,39 @@ namespace Virgis {
             return new Vector2((float)position.Latitude, (float)position.Longitude);
         }
 
-        /// <summary>
-        /// Converts IPositon to Position
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
-        public static Position Point(this IPosition position)
-        {
-            return position as Position;
-        }
 
         /// <summary>
         /// Converts Iposition to Vector3 World Space coordinates takling account of zoom, scale and mapscale
         /// </summary>
         /// <param name="position">IPosition</param>
         /// <returns>Vector3</returns>
-        public static Vector3 Vector3(this IPosition position)
+        public static Vector3 Vector3(this IPosition position, ICRSObject crs = null)
         {
-            float Alt;
-            if (position.Altitude == null) {
-                Alt = 0.0f;
-            } else {
-                Alt = (float) position.Altitude;
-            };
-            Vector3 mapLocal = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
-            mapLocal.y = Alt;
-            return AppState.instance.map.transform.TransformPoint(mapLocal);
+            if (crs == null) crs = DefaultCRS.Instance;
+            return position.ToGeometry(crs).TransformPoint()[0];
+        }
+
+        public static Geometry ToGeometry(this IPosition position, ICRSObject crs) {
+            Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
+            SpatialReference sr = new SpatialReference(null);
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
+            switch (crs.Type) {
+                case CRSType.Name:
+                    string name = (crs as NamedCRS).Properties["name"] as string;
+                    sr.SetWellKnownGeogCS(name);
+                    break;
+                case CRSType.Link:
+                    string url = (crs as LinkedCRS).Properties["href"] as string;
+                    sr.ImportFromUrl(url);
+                    break;
+                case CRSType.Unspecified:
+                    sr.SetWellKnownGeogCS("EPSG:4326");
+                    break;
+            }
+            geom.AssignSpatialReference(sr);
+            geom.AddPoint(position.Latitude, position.Longitude, (double)position.Altitude);
+            return geom;
         }
     }
 

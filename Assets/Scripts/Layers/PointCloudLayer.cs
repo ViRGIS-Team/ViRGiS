@@ -57,9 +57,10 @@ namespace Virgis
 
         protected override void _draw()
         {
+            GeographyCollection layer = GetMetadata();
             transform.position = layer.Position != null ?  layer.Position.Coordinates.Vector3() : Vector3.zero ;
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
+            Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
 
             model = Instantiate(pointCloud, transform, false);
 
@@ -87,8 +88,8 @@ namespace Virgis
         }
 
         public override void SetVisible(bool visible) {
-            if (layer.Visible != visible) {
-                layer.Visible = visible;
+            if (_layer.Visible != visible) {
+                _layer.Visible = visible;
                 gameObject.SetActive(visible);
                 VisualEffect vfx = model.GetComponent<VisualEffect>();
                 if (visible) vfx.Play();
@@ -136,10 +137,10 @@ namespace Virgis
 
         protected override void _save()
         {
-            layer.Position = transform.position.ToPoint();
-            layer.Transform.Position = Vector3.zero;
-            layer.Transform.Rotate = transform.rotation;
-            layer.Transform.Scale = transform.localScale;
+            _layer.Position = transform.position.ToPoint();
+            _layer.Transform.Position = Vector3.zero;
+            _layer.Transform.Rotate = transform.rotation;
+            _layer.Transform.Scale = transform.localScale;
         }
     }
 }

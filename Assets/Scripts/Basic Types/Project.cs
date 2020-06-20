@@ -20,9 +20,6 @@ namespace Project
         [JsonProperty(PropertyName = "origin", Required = Required.Always)]
         public Point Origin;
 
-        [JsonProperty(PropertyName = "mapscale", Required = Required.Always)]
-        public int MapScale;
-
         [JsonProperty(PropertyName = "scale", Required = Required.Always)]
         public float Scale;
 
@@ -35,11 +32,6 @@ namespace Project
         [JsonProperty(PropertyName = "recordsets", Required = Required.Always)]
         [JsonConverter(typeof(RecordsetConverter))]
         public List<RecordSet> RecordSets;
-
-        public Point Camera
-        {
-            get { return Cameras[0]; }
-        }
     }
 
     public class RecordSet : TestableObject
@@ -141,14 +133,15 @@ namespace Project
                     IList<JObject> sets = jarray.Select(c => (JObject)c).ToList();
                     List<RecordSet> result = new List<RecordSet>();
                     foreach (JObject set in sets)
-                    { 
+                    {
 
-                        if (set["type"].ToString() == RecordSetType.GeographyCollection.ToString())
-                        {
+                        if (set["type"].ToString() == RecordSetType.GeographyCollection.ToString()) {
                             result.Add(set.ToObject(typeof(GeographyCollection)) as GeographyCollection);
-                        } else
+                        } else if (set["type"].ToString() == RecordSetType.GeologyCollection.ToString())
                         {
                             result.Add(set.ToObject(typeof(GeologyCollection)) as GeologyCollection);
+                        } else {
+                            result.Add(set.ToObject(typeof(RecordSet)) as RecordSet);
                         }
 
                     }
@@ -168,6 +161,7 @@ namespace Project
 
     public enum RecordSetType
     {
+        RecordSet,
         GeologyCollection,
         GeographyCollection
     }
@@ -182,9 +176,6 @@ namespace Project
             [JsonProperty(PropertyName = "units", Required = Required.Always)]
             public Dictionary<string, Unit> Units;
         }
-
-
-
     }
 
     public class  GeologyCollection : GeographyCollection
@@ -206,6 +197,7 @@ namespace Project
 
     public enum RecordSetDataType
     {
+        MapBox,
         Point,
         Line,
         Polygon,

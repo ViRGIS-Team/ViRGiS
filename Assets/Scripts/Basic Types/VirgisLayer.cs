@@ -27,7 +27,7 @@ namespace Virgis {
     /// </summary>
     public abstract class VirgisLayer : MonoBehaviour, IVirgisLayer {
 
-        public RecordSet layer;
+        public RecordSet _layer;
 
         public bool changed = true; // true is this layer has been changed from the original file
         protected Guid _id;
@@ -116,7 +116,7 @@ namespace Virgis {
             if (changed) {
                 _save();
             }
-            return layer;
+            return GetMetadata();
         }
 
         /// <summary>
@@ -215,7 +215,15 @@ namespace Virgis {
         /// </summary>
         /// <returns></returns>
         public RecordSet GetMetadata() {
-            return layer;
+            return _layer;
+        }
+
+        /// <summary>
+        /// Sets the layer Metadat
+        /// </summary>
+        /// <param name="layer">Data tyoe that inherits form RecordSet</param>
+        public void SetMetadata(RecordSet layer) {
+            _layer = layer;
         }
 
 
@@ -224,8 +232,8 @@ namespace Virgis {
         }
 
         public virtual void SetVisible(bool visible) {
-            if (layer.Visible != visible) {
-                layer.Visible = visible;
+            if (_layer.Visible != visible) {
+                _layer.Visible = visible;
                 gameObject.SetActive(visible);
             }
         }
@@ -235,7 +243,7 @@ namespace Virgis {
         /// </summary>
         /// <returns>Boolean</returns>
         public bool IsVisible() {
-            return layer.Visible;
+            return _layer.Visible;
         }
 
         /// <summary>
@@ -282,9 +290,9 @@ namespace Virgis {
         readonly Type LayerType = typeof(T);
         readonly Type DataType = typeof(S);
 
-
-        public new T layer; // holds the RecordSet data for this layer
         public S features; // holds the feature data for this layer
+
+
 
         /// <summary>
         /// Called to initialise this layer
@@ -294,11 +302,10 @@ namespace Virgis {
         /// <param name="layer"> The GeographyCollection object that defines this layer</param>
         /// <returns>refernce to this GameObject for chaining</returns>
         public async Task<VirgisLayer<T, S>> Init(T layer) {
-            this.layer = layer;
+            SetMetadata(layer as RecordSet);
             await _init(layer);
             return this;
         }
-
 
         /// <summary>
         /// Implement the layer specific init code in this method
@@ -306,6 +313,16 @@ namespace Virgis {
         /// <param name="layer"></param>
         /// <returns></returns>
         protected abstract Task _init(T layer);
+
+
+        public new T GetMetadata() {
+            return (this as VirgisLayer).GetMetadata() as T;
+        }
+
+        public void SetMetadata(T layer) {
+            (this as VirgisLayer).SetMetadata(layer);
+        }
+
 
         public override bool Equals(object obj) {
             if (obj == null)

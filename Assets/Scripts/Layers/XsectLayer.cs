@@ -48,7 +48,7 @@ namespace Virgis
 
         protected async override void _draw()
         {
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
+            Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
 
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
             {

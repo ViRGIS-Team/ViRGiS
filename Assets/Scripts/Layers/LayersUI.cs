@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Project;
 
 namespace Virgis
 {
@@ -68,7 +69,7 @@ namespace Virgis
                 // obtain the actual Layer object
                 //                ILayer layer = comp.GetComponentInChildren<ILayer>();
                 IVirgisLayer layer = (IVirgisLayer)comp;
-                print($"CreateLayerPanels: layer {layer.GetMetadata().Id ?? ""}, {layer.GetMetadata().DisplayName ?? ""}");
+                Debug.Log($"CreateLayerPanels: layer {layer.GetMetadata().Id ?? ""}, {layer.GetMetadata().DisplayName ?? ""}");
                 // create a view panel for this particular layer
                 newLayerPanel = (GameObject)Instantiate(layerPanelPrefab, transform);
                 // obtain the panel script
