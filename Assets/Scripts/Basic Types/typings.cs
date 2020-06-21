@@ -120,7 +120,8 @@ namespace Virgis {
         /// <returns>Vector3</returns>
         public static Vector3 Vector3(this IPosition position, ICRSObject crs = null)
         {
-            if (crs == null) crs = DefaultCRS.Instance;
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
             return position.ToGeometry(crs).TransformPoint()[0];
         }
 
