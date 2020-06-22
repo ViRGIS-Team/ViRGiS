@@ -58,7 +58,7 @@ namespace Virgis
         protected override void _draw()
         {
             GeographyCollection layer = GetMetadata();
-            transform.position = layer.Position != null ?  layer.Position.Coordinates.Vector3() : Vector3.zero ;
+            transform.position = layer.Position != null ?  layer.Position.ToVector3() : Vector3.zero ;
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
 

@@ -81,8 +81,7 @@ namespace Virgis {
                     mPoint = feature.Geometry as MultiPoint;
                 }
                 foreach (Point geometry in mPoint.Coordinates) {
-                    Position in_position = geometry.Coordinates as Position;
-                    _drawFeature(in_position.Vector3(), feature.Id, feature.Properties as Dictionary<string, object>);
+                    _drawFeature(geometry.ToVector3(), feature.Id, feature.Properties as Dictionary<string, object>);
                 }
             }
         }

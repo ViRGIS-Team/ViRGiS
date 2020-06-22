@@ -154,12 +154,12 @@ namespace Virgis
                         {
                             JObject jobject = (JObject)properties["polyhedral"];
                             Point centerPoint = jobject.ToObject<Point>();
-                            center = centerPoint.Coordinates.Vector3();
+                            center = centerPoint.ToVector3();
                             properties["polyhedral"] = center.ToPoint();
                         }
                         else
                         {
-                            center = (properties["polyhedral"] as Point).Coordinates.Vector3();
+                            center = (properties["polyhedral"] as Point).ToVector3();
                         }
                     }
                     else

@@ -1,14 +1,13 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using Boo.Lang;
 using g3;
 using GeoJSON.Net.CoordinateReferenceSystem;
 using GeoJSON.Net.Geometry;
-using Mapbox.Unity.Utilities;
 using OSGeo.OGR;
 using OSGeo.OSR;
 using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Virgis {
 
@@ -64,10 +63,36 @@ namespace Virgis {
         /// </summary>
         /// <param name="position">Vector3 World Space coordinates</param>
         /// <returns>Position</returns>
-        static public IPosition ToPosition(this Vector3 position) {
+        static public IPosition ToPosition(this Vector3 position, ICRSObject crs = null) {
+            Geometry geom = position.ToGeometry();
+            SpatialReference sr = new SpatialReference(null);
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
+            switch (crs.Type) {
+                case CRSType.Name:
+                    string name = (crs as NamedCRS).Properties["name"] as string;
+                    sr.SetWellKnownGeogCS(name);
+                    break;
+                case CRSType.Link:
+                    string url = (crs as LinkedCRS).Properties["href"] as string;
+                    sr.ImportFromUrl(url);
+                    break;
+                case CRSType.Unspecified:
+                    sr.SetWellKnownGeogCS("EPSG:4326");
+                    break;
+            }
+            geom.TransformTo(sr);
+            double[] argout = new double[3];
+            geom.GetPoint(0, argout);
+            return new Position(argout[0], argout[1], argout[2]);
+        }
+
+        static public Geometry ToGeometry(this Vector3 position) {
+            Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
+            geom.AssignSpatialReference(AppState.instance.mapProj);
             Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(position);
-            Mapbox.Utils.Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale);
-            return new Position(_latlng.x, _latlng.y, mapLocal.y);
+            geom.AddPoint(mapLocal.x, mapLocal.z, mapLocal.y);
+            return geom;
         }
 
         /// <summary>
@@ -144,7 +169,8 @@ namespace Virgis {
                     break;
             }
             geom.AssignSpatialReference(sr);
-            geom.AddPoint(position.Latitude, position.Longitude, (double)position.Altitude);
+            Nullable<double> alt = position.Altitude;
+            geom.AddPoint(position.Latitude, position.Longitude, alt ?? 0.0 );
             return geom;
         }
     }
@@ -185,10 +211,37 @@ namespace Virgis {
         /// <returns>Vector3[] World Space Locations</returns>
         static public Vector3[] Vector3(this LineString line) {
             Vector3[] result = new Vector3[line.Coordinates.Count];
-            for (int i = 0; i < line.Coordinates.Count; i++) {
-                result[i] = line.Point(i).Vector3();
+            Geometry geom = line.ToGeometry();
+            return geom.TransformPoint();
+        }
+
+
+        static public Geometry ToGeometry(this LineString line) {
+            Geometry geom = new Geometry(wkbGeometryType.wkbLineString);
+            SpatialReference sr = new SpatialReference(null);
+            ICRSObject crs = line.CRS;
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
+            switch (crs.Type) {
+                case CRSType.Name:
+                    string name = (crs as NamedCRS).Properties["name"] as string;
+                    sr.SetWellKnownGeogCS(name);
+                    break;
+                case CRSType.Link:
+                    string url = (crs as LinkedCRS).Properties["href"] as string;
+                    sr.ImportFromUrl(url);
+                    break;
+                case CRSType.Unspecified:
+                    sr.SetWellKnownGeogCS("EPSG:4326");
+                    break;
             }
-            return result;
+            geom.AssignSpatialReference(sr);
+            Position[] vertexes = line.Points();
+            foreach (Position vertex in vertexes) {
+                Nullable<double> alt = vertex.Altitude;
+                geom.AddPoint(vertex.Latitude, vertex.Longitude, alt ?? 0.0);
+            }
+            return geom;
         }
     }
 
