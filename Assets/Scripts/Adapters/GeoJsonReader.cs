@@ -1,6 +1,7 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using UnityEngine;
 using GeoJSON.Net.Feature;
+using GeoJSON.Net.CoordinateReferenceSystem;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text;
@@ -25,7 +26,9 @@ namespace Virgis
             }
             else
             {
-                return JsonConvert.DeserializeObject<FeatureCollection>(payload);
+                FeatureCollection fc = JsonConvert.DeserializeObject<FeatureCollection>(payload);
+                ICRSObject crs = fc.CRS;
+                return fc;
             }
         }
 
