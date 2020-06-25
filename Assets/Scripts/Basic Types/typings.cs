@@ -71,7 +71,7 @@ namespace Virgis {
             switch (crs.Type) {
                 case CRSType.Name:
                     string name = (crs as NamedCRS).Properties["name"] as string;
-                    sr.SetWellKnownGeogCS(name);
+                    sr.SetProjCS(name);
                     break;
                 case CRSType.Link:
                     string url = (crs as LinkedCRS).Properties["href"] as string;
@@ -107,7 +107,7 @@ namespace Virgis {
 
     public static class PointExtensionsMethods {
         static public Vector3 ToVector3(this Point point) {
-            return point.ToGeometry().TransformPoint()[0];
+            return point.ToGeometry().Transform()[0];
         }
 
         static public Geometry ToGeometry(this Point point) {
@@ -147,7 +147,7 @@ namespace Virgis {
         {
             if (crs == null)
                 crs = new NamedCRS("EPSG:4326");
-            return position.ToGeometry(crs).TransformPoint()[0];
+            return position.ToGeometry(crs).Transform()[0];
         }
 
         public static Geometry ToGeometry(this IPosition position, ICRSObject crs) {
@@ -158,7 +158,14 @@ namespace Virgis {
             switch (crs.Type) {
                 case CRSType.Name:
                     string name = (crs as NamedCRS).Properties["name"] as string;
-                    sr.SetWellKnownGeogCS(name);
+                    if (name.Contains("urn")) {
+                        sr.ImportFromUrl(name);
+                    } else if (name.Contains("EPSG")) {
+                        string[] args = name.Split(':');
+                        sr.ImportFromEPSG(int.Parse(args[1]));
+                    } else {
+                        sr.SetWellKnownGeogCS(name);
+                    }
                     break;
                 case CRSType.Link:
                     string url = (crs as LinkedCRS).Properties["href"] as string;
@@ -212,7 +219,7 @@ namespace Virgis {
         static public Vector3[] Vector3(this LineString line) {
             Vector3[] result = new Vector3[line.Coordinates.Count];
             Geometry geom = line.ToGeometry();
-            return geom.TransformPoint();
+            return geom.Transform();
         }
 
 
@@ -225,7 +232,14 @@ namespace Virgis {
             switch (crs.Type) {
                 case CRSType.Name:
                     string name = (crs as NamedCRS).Properties["name"] as string;
-                    sr.SetWellKnownGeogCS(name);
+                    if (name.Contains("urn")) {
+                        sr.ImportFromUrl(name);
+                    } else if (name.Contains("EPSG")) {
+                        string[] args = name.Split(':');
+                        sr.ImportFromEPSG(int.Parse(args[1]));
+                    } else {
+                        sr.SetWellKnownGeogCS(name);
+                    }
                     break;
                 case CRSType.Link:
                     string url = (crs as LinkedCRS).Properties["href"] as string;
@@ -314,7 +328,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="geom"> Geometry</param>
         /// <returns>VEctor3[]</returns>
-        public static Vector3[] TransformPoint(this Geometry geom) {
+        public static Vector3[] Transform(this Geometry geom) {
             geom.TransformTo(AppState.instance.mapProj);
             int count = geom.GetPointCount();
             List<Vector3> ret = new List<Vector3>();
