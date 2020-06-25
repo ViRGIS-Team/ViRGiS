@@ -1,8 +1,5 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using GeoJSON.Net;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
-using Newtonsoft.Json.Linq;
+
 using Project;
 using System;
 using System.Collections.Generic;
@@ -11,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using g3;
+using OSGeo.OGR;
 
 namespace Virgis
 {
@@ -18,7 +16,7 @@ namespace Virgis
     /// <summary>
     /// Controls an instance of a Polygon Layer
     /// </summary>
-    public class PolygonLayer : VirgisLayer<GeographyCollection, FeatureCollection>
+    public class PolygonLayer : VirgisLayer<GeographyCollection, Layer>
     {
 
         // The prefab for the data points to be instantiated
@@ -125,51 +123,22 @@ namespace Virgis
 
         protected override void _draw()
         {
-            foreach (Feature feature in features.Features)
+            long FeatureCount = features.GetFeatureCount(1);
+            for (int i = 0; i < FeatureCount; i++)
             {
-                IDictionary<string, object> properties = feature.Properties;
-                string gisId = feature.Id;
+                Feature feature = features.GetFeature(i);
+                string properties = feature.GetNativeData();
+                //string gisId = feature.Id;
 
-
-                // Get the geometry
-                MultiPolygon mPols = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.Polygon)
-                {
-                    mPols = new MultiPolygon(new List<Polygon>() { feature.Geometry as Polygon });
-                }
-                else if (feature.Geometry.Type == GeoJSONObjectType.MultiPolygon)
-                {
-                    mPols = feature.Geometry as MultiPolygon;
-                }
-
-                foreach (Polygon mPol in mPols.Coordinates)
-                {
-                    ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
-                    LineString perimeter = LinearRings[0];
-                    Vector3[] poly = perimeter.Vector3();
-                    Vector3 center = Vector3.zero;
-                    if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
-                    {
-                        if (properties["polyhedral"].GetType() != typeof(Point))
-                        {
-                            JObject jobject = (JObject)properties["polyhedral"];
-                            Point centerPoint = jobject.ToObject<Point>();
-                            center = centerPoint.ToVector3();
-                            properties["polyhedral"] = center.ToPoint();
-                        }
-                        else
-                        {
-                            center = (properties["polyhedral"] as Point).ToVector3();
-                        }
+                Geometry poly = feature.GetGeometryRef();
+                Geometry center = poly.Centroid();
+                center.AssignSpatialReference(poly.GetSpatialReference());
+                if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
+                    Geometry line = poly.GetGeometryRef(0);
+                    wkbGeometryType type = line.GetGeometryType();
+                    if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D ) {
+                       // _drawFeature(poly.TransformWorld(), center.TransformWorld()[0]);
                     }
-                    else
-                    {
-                        DCurve3 curve = new DCurve3();
-                        curve.Vector3(poly, true);
-                        center = (Vector3)curve.Center();
-                        properties["polyhedral"] = center.ToPoint();
-                    }
-                    _drawFeature(poly, center, gisId, properties as Dictionary<string, object>);
                 }
             }
 
@@ -220,34 +189,34 @@ namespace Virgis
         }
         protected override void _save()
         {
-            Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
-            List<Feature> thisFeatures = new List<Feature>();
-            foreach (Datapolygon dataFeature in dataFeatures)
-            {
-                Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-                Vector3[] vertices = perimeter.GetVertexPositions();
-                List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices)
-                {
-                    positions.Add(vertex.ToPosition() as Position);
-                }
-                LineString line = new LineString(positions);
-                if (!line.IsLinearRing())
-                {
-                    Debug.LogError("This Polygon is not a Linear Ring");
-                    return;
-                }
-                List<LineString> LinearRings = new List<LineString>();
-                LinearRings.Add(line);
-                Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string,object> ?? new Dictionary<string,object>();
-                Vector3 centroid = dataFeature.Centroid;
-                properties["polyhedral"] = centroid.ToPoint();
-                thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
-            };
-            FeatureCollection FC = new FeatureCollection(thisFeatures);
-            geoJsonReader.SetFeatureCollection(FC);
-            geoJsonReader.Save();
-            features = FC;
+            //Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
+            //List<Feature> thisFeatures = new List<Feature>();
+            //foreach (Datapolygon dataFeature in dataFeatures)
+            //{
+            //    Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
+            //    Vector3[] vertices = perimeter.GetVertexPositions();
+            //    List<Position> positions = new List<Position>();
+            //    foreach (Vector3 vertex in vertices)
+            //    {
+            //        positions.Add(vertex.ToPosition() as Position);
+            //    }
+            //    LineString line = new LineString(positions);
+            //    if (!line.IsLinearRing())
+            //    {
+            //        Debug.LogError("This Polygon is not a Linear Ring");
+            //        return;
+            //    }
+            //    List<LineString> LinearRings = new List<LineString>();
+            //    LinearRings.Add(line);
+            //    Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string,object> ?? new Dictionary<string,object>();
+            //    Vector3 centroid = dataFeature.Centroid;
+            //    properties["polyhedral"] = centroid.ToPoint();
+            //    thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
+            //};
+            //FeatureCollection FC = new FeatureCollection(thisFeatures);
+            //geoJsonReader.SetFeatureCollection(FC);
+            //geoJsonReader.Save();
+            //features = FC;
         }
 
 

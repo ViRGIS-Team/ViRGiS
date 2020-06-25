@@ -37,7 +37,7 @@ namespace Virgis
         public string inputfile;
 
         //File reader for Project and GeoJSON file
-        private GeoJsonReader geoJsonReader;
+        private ProjectJsonReader projectJsonReader;
 
 
         ///<summary>
@@ -63,11 +63,11 @@ namespace Virgis
         async void Start()
         {
             // Fetch Project definition - return if the file cannot be read - this will lead to an empty world
-            geoJsonReader = new GeoJsonReader();
-            await geoJsonReader.Load(inputfile);
-            if (geoJsonReader.payload is null)
+            projectJsonReader = new ProjectJsonReader();
+            await projectJsonReader.Load(inputfile);
+            if (projectJsonReader.payload is null)
                 return;
-            appState.project = geoJsonReader.GetProject();
+            appState.project = projectJsonReader.GetProject();
 
             //set globals
             appState.initProj();
@@ -175,8 +175,8 @@ namespace Virgis
             }
             appState.project.Scale = appState.GetScale();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
-            geoJsonReader.SetProject(appState.project);
-            await geoJsonReader.Save();
+            projectJsonReader.SetProject(appState.project);
+            await projectJsonReader.Save();
         }
 
         protected override void _save()

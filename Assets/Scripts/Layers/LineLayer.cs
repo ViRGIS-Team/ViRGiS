@@ -28,7 +28,7 @@ namespace Virgis
         public Material LineBaseMaterial;
 
         // used to read the GeoJSON file for this layer
-        private GeoJsonReader geoJsonReader;
+        private ProjectJsonReader geoJsonReader;
 
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
@@ -43,7 +43,7 @@ namespace Virgis
 
         protected override async Task _init(GeographyCollection layer)
         {
-            geoJsonReader = new GeoJsonReader();
+            geoJsonReader = new ProjectJsonReader();
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
             symbology = layer.Properties.Units;

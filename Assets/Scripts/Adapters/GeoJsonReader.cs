@@ -1,13 +1,12 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using UnityEngine;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.CoordinateReferenceSystem;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Project;
 using System;
+using OSGeo.OGR;
 
 namespace Virgis
 {
@@ -15,40 +14,29 @@ namespace Virgis
 
     public class GeoJsonReader
     {
-        public string payload;
+        private Layer _payload;
         public string fileName;
+        private DataSource _datasource;
 
-        public FeatureCollection getFeatureCollection()
+        public Layer getFeatureCollection()
         {
-            if (payload is null)
-            {
-                return new FeatureCollection();
-            }
-            else
-            {
-                FeatureCollection fc = JsonConvert.DeserializeObject<FeatureCollection>(payload);
-                ICRSObject crs = fc.CRS;
-                return fc;
-            }
+            return _payload;
         }
 
         public async Task Load(string file)
         {
             fileName = file;
-            char[] result;
-            StringBuilder builder = new StringBuilder();
             try
             {
-                using (StreamReader reader = File.OpenText(file))
-                {
-                    result = new char[reader.BaseStream.Length];
-                    await reader.ReadAsync(result, 0, (int)reader.BaseStream.Length);
-                }
-
-                foreach (char c in result)
-                {
-                    builder.Append(c);
-                }
+                _datasource = Ogr.Open(fileName, 1);
+                if (_datasource == null)
+                    throw (new FileNotFoundException());
+                _payload = _datasource.GetLayerByIndex(0);
+                string crsWkt;
+                _payload.GetSpatialRef().ExportToPrettyWkt(out crsWkt, 0);
+                Debug.Log(crsWkt);
+                if (_payload == null)
+                    throw (new NotSupportedException());
             }
             catch (Exception e) when (
                    e is UnauthorizedAccessException ||
@@ -58,32 +46,21 @@ namespace Virgis
                    )
             {
                 Debug.LogError("Failed to Load" + file + " : " + e.ToString());
-                payload = null;
+
             }
-            payload = builder.ToString();
         }
 
-        public GisProject GetProject()
-        {
-            return JsonConvert.DeserializeObject<GisProject>(payload);
-        }
+
 
         public async Task Save()
         {
-            using (StreamWriter writer = new StreamWriter(fileName, false))
-            {
-                await writer.WriteAsync(payload);
-            }
+            
         }
 
-        public void SetFeatureCollection(FeatureCollection contents)
+        public void SetFeatureCollection(Layer contents)
         {
-            payload = JsonConvert.SerializeObject(contents, Formatting.Indented);
+           
         }
 
-        public void SetProject(GisProject project)
-        {
-            payload = JsonConvert.SerializeObject(project, Formatting.Indented);
-        }
     }
 }

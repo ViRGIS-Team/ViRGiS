@@ -1,17 +1,15 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using GeoJSON.Net;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
 using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-
+using OSGeo.OGR;
+using System.Linq;
 
 namespace Virgis {
 
-    public class PointLayer : VirgisLayer<GeographyCollection, FeatureCollection> {
+    public class PointLayer : VirgisLayer<GeographyCollection, Layer> {
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
         public GameObject CubePrefab;
@@ -72,16 +70,14 @@ namespace Virgis {
 
 
         protected override void _draw() {
-            foreach (Feature feature in features.Features) {
-                // Get the geometry
-                MultiPoint mPoint = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.Point) {
-                    mPoint = new MultiPoint(new List<Point>() { feature.Geometry as Point });
-                } else if (feature.Geometry.Type == GeoJSONObjectType.MultiPoint) {
-                    mPoint = feature.Geometry as MultiPoint;
-                }
-                foreach (Point geometry in mPoint.Coordinates) {
-                    _drawFeature(geometry.ToVector3(), feature.Id, feature.Properties as Dictionary<string, object>);
+            long FeatureCount = features.GetFeatureCount(1);
+            for (int i = 0; i < FeatureCount; i++) {
+                Feature feature = features.GetFeature(i);
+                string properties = feature.GetNativeData();
+                //string gisId = feature.Id;
+                Geometry point = feature.GetGeometryRef();
+                if (point.GetGeometryType() == wkbGeometryType.wkbPoint || point.GetGeometryType() == wkbGeometryType.wkbPoint25D || point.GetGeometryType() == wkbGeometryType.wkbPointM || point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
+                    point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item));
                 }
             }
         }
@@ -126,15 +122,15 @@ namespace Virgis {
         protected override void _checkpoint() {
         }
         protected override void _save() {
-            Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
-            List<Feature> thisFeatures = new List<Feature>();
-            foreach (Datapoint pointFunc in pointFuncs) {
-                thisFeatures.Add(new Feature(pointFunc.gameObject.transform.position.ToPoint(), pointFunc.gisProperties, pointFunc.gisId));
-            }
-            FeatureCollection FC = new FeatureCollection(thisFeatures);
-            geoJsonReader.SetFeatureCollection(FC);
-            geoJsonReader.Save();
-            features = FC;
+            //Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
+            //List<Feature> thisFeatures = new List<Feature>();
+            //foreach (Datapoint pointFunc in pointFuncs) {
+            //    thisFeatures.Add(new Feature(pointFunc.gameObject.transform.position.ToPoint(), pointFunc.gisProperties, pointFunc.gisId));
+            //}
+            //FeatureCollection FC = new FeatureCollection(thisFeatures);
+            //geoJsonReader.SetFeatureCollection(FC);
+            //geoJsonReader.Save();
+            //features = FC;
         }
 
         public override GameObject GetFeatureShape() {

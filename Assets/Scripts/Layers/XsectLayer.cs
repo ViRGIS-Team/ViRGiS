@@ -104,8 +104,8 @@ namespace Virgis
 
                 // Get the geometry
           
-                Vector3[] top = feature.top.Transform();
-                Vector3[] bottom = feature.bottom.Transform();
+                Vector3[] top = feature.top.TransformWorld();
+                Vector3[] bottom = feature.bottom.TransformWorld();
                 Vector3 origin = bottom[0];
                 int length = top.Length;
 

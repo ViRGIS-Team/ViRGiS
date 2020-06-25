@@ -107,7 +107,7 @@ namespace Virgis {
 
     public static class PointExtensionsMethods {
         static public Vector3 ToVector3(this Point point) {
-            return point.ToGeometry().Transform()[0];
+            return point.ToGeometry().TransformWorld()[0];
         }
 
         static public Geometry ToGeometry(this Point point) {
@@ -147,7 +147,7 @@ namespace Virgis {
         {
             if (crs == null)
                 crs = new NamedCRS("EPSG:4326");
-            return position.ToGeometry(crs).Transform()[0];
+            return position.ToGeometry(crs).TransformWorld()[0];
         }
 
         public static Geometry ToGeometry(this IPosition position, ICRSObject crs) {
@@ -219,7 +219,7 @@ namespace Virgis {
         static public Vector3[] Vector3(this LineString line) {
             Vector3[] result = new Vector3[line.Coordinates.Count];
             Geometry geom = line.ToGeometry();
-            return geom.Transform();
+            return geom.TransformWorld();
         }
 
 
@@ -328,15 +328,20 @@ namespace Virgis {
         /// </summary>
         /// <param name="geom"> Geometry</param>
         /// <returns>VEctor3[]</returns>
-        public static Vector3[] Transform(this Geometry geom) {
+        public static Vector3[] TransformWorld(this Geometry geom) {
             geom.TransformTo(AppState.instance.mapProj);
             int count = geom.GetPointCount();
             List<Vector3> ret = new List<Vector3>();
-            for (int i = 0; i < count; i++) {
-                double[] argout = new double[3];
-                geom.GetPoint(i, argout);
-                Vector3 mapLocal = new Vector3((float) argout[0], (float) argout[2], (float) argout[1]);
-                ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
+            if (count > 0)
+                for (int i = 0; i < count; i++) {
+                    double[] argout = new double[3];
+                    geom.GetPoint(i, argout);
+                    Vector3 mapLocal = new Vector3((float) argout[0], (float) argout[2], (float) argout[1]);
+                    ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
+                }
+            else {
+                string wkt;
+
             }
             return ret.ToArray();
         }
