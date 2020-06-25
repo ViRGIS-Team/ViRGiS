@@ -2,7 +2,7 @@
     "pipeline": [
         {
             "type":"readers.gdal",
-            "filename":"../../../../test_data/Magnetic_TFI_RTP.ers",
+            "filename":"../../../../test_data/EC_DML.ers",
             "header":"mag"
         },
         {
@@ -15,7 +15,7 @@
         },
         {
             "type":"filters.hag_dem",
-            "raster": "../../../../test_data/dem.ers"
+            "raster": "../../../../test_data/hope_dem.tif"
         },
         {
             "type":"filters.reprojection",
@@ -29,7 +29,7 @@
           },
         {
             "type":"writers.text",
-            "filename":"../../../../test_data/Magnetic_TFI_RTP.txt"
+            "filename":"../../../../test_data/EC_DML.txt"
         }
     ]
 }
