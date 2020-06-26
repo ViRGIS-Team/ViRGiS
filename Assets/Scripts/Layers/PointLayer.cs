@@ -121,7 +121,7 @@ namespace Virgis {
 
         protected override void _checkpoint() {
         }
-        protected override async Task _save() {
+        protected override Task _save() {
             //Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             //List<Feature> thisFeatures = new List<Feature>();
             //foreach (Datapoint pointFunc in pointFuncs) {
@@ -131,6 +131,7 @@ namespace Virgis {
             //geoJsonReader.SetFeatureCollection(FC);
             //geoJsonReader.Save();
             //features = FC;
+            return Task.CompletedTask;
         }
 
         public override GameObject GetFeatureShape() {

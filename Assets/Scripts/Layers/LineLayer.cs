@@ -162,7 +162,7 @@ namespace Virgis
         {
         }
 
-        protected override async Task _save()
+        protected override Task _save()
         {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             List<Feature> thisFeatures = new List<Feature>();
@@ -180,8 +180,9 @@ namespace Virgis
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);
             geoJsonReader.SetFeatureCollection(FC);
-            await geoJsonReader.Save();
+            geoJsonReader.Save();
             features = FC;
+            return Task.CompletedTask;
         }
 
         public override GameObject GetFeatureShape()

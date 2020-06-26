@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using System.Threading.Tasks;
 
 namespace Virgis {
 
@@ -24,11 +25,12 @@ namespace Virgis {
             }
         }
 
-        protected override void _save() {
+        protected override Task _save() {
             VirgisLayer[] layers = GetComponentsInChildren<VirgisLayer>();
             foreach (VirgisLayer layer in layers) {
                 layer.Save();
             }
+            return Task.CompletedTask;
         }
     }
 }

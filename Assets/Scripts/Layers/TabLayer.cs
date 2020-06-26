@@ -20,7 +20,7 @@ namespace Virgis {
             
         }
 
-        protected override void _save() {
+        protected override Task _save() {
             throw new System.NotImplementedException();
         }
 

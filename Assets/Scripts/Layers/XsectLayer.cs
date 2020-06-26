@@ -169,7 +169,7 @@ namespace Virgis
         }
 
         protected override void _checkpoint() { }
-        protected override void _save()
+        protected override Task _save()
         {
             //Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             //List<Feature> thisFeatures = new List<Feature>();
@@ -199,6 +199,7 @@ namespace Virgis
             //geoJsonReader.SetFeatureCollection(FC);
             //geoJsonReader.Save();
             //features = FC;
+            return Task.CompletedTask;
         }
 
         public override void Translate(MoveArgs args)
