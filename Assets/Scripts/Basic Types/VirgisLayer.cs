@@ -13,7 +13,7 @@ namespace Virgis {
         VirgisFeature AddFeature(Vector3[] geometry);
         void Draw();
         void CheckPoint();
-        RecordSet Save();
+        Task<RecordSet> Save();
         VirgisFeature GetFeature(Guid id);
         GameObject GetFeatureShape();
         void SetVisible(bool visible);
@@ -112,9 +112,9 @@ namespace Virgis {
         /// Called to save the current layer data to source
         /// </summary>
         /// <returns>A copy of the data save dot the source</returns>
-        public RecordSet Save() {
+        public virtual async Task<RecordSet> Save() {
             if (changed) {
-                _save();
+                await _save();
             }
             return GetMetadata();
         }
@@ -123,7 +123,7 @@ namespace Virgis {
         /// Implment the layer specific draw code in this method
         /// </summary>
         /// <returns></returns>
-        protected abstract void _save();
+        protected abstract Task _save();
 
         /// <summary>
         /// Called Whenever a member entity is asked to Translate

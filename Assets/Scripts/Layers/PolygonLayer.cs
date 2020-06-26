@@ -187,7 +187,7 @@ namespace Virgis
         protected override void _checkpoint()
         {
         }
-        protected override void _save()
+        protected override async Task _save()
         {
             //Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             //List<Feature> thisFeatures = new List<Feature>();
