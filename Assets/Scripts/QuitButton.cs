@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 
-public class QuitButton : MonoBehaviour {
+namespace Virgis {
+    public class QuitButton : MonoBehaviour {
 
-    public void OnClick() {
-        Debug.Log("QuitButton: Application Quit");
-        Application.Quit();
+        public async void OnClick() {
+            Debug.Log("QuitButton.OnClick save before quit");
+            MapInitialize mi = AppState.instance.map.GetComponentInChildren<MapInitialize>();
+            await mi.Save();
+            Debug.Log("QuitButton.OnClick now quit");
+            Application.Quit();
+        }
     }
 }

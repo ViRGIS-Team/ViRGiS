@@ -102,7 +102,7 @@ namespace Virgis {
             throw new NotImplementedException();
         }
 
-        protected override void _save() {
+        protected override Task _save() {
             throw new NotImplementedException();
         }
 

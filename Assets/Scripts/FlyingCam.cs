@@ -1,5 +1,6 @@
 ﻿//https://stackoverflow.com/questions/58328209/how-to-make-a-free-fly-camera-script-in-unity-with-acceleration-and-decceleratio
 // copyright Runette Software Ltd, 2020. All rights reserved
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zinnia.Cast;
@@ -187,7 +188,10 @@ namespace Virgis
                     appState.StopDiscardEditSession();
                     break;
                 case "Exit":
-                    Debug.Log("FlyingCam: Application Quit");
+                    Debug.Log("FlyingCam.Exit save before quit");
+                    MapInitialize mi = appState.map.GetComponentInChildren<MapInitialize>();
+                    await mi.Save();
+                    Debug.Log("FlyingCam.Exit now quit");
                     Application.Quit();
                     break;
             }
