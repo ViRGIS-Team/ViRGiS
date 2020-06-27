@@ -73,11 +73,9 @@ namespace Virgis {
             long FeatureCount = features.GetFeatureCount(1);
             for (int i = 0; i < FeatureCount; i++) {
                 Feature feature = features.GetFeature(i);
-                string properties = feature.GetNativeData();
-                //string gisId = feature.Id;
                 Geometry point = feature.GetGeometryRef();
                 if (point.GetGeometryType() == wkbGeometryType.wkbPoint || point.GetGeometryType() == wkbGeometryType.wkbPoint25D || point.GetGeometryType() == wkbGeometryType.wkbPointM || point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                    point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item));
+                    point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
                 }
             }
         }
@@ -88,16 +86,17 @@ namespace Virgis {
         /// <param name="position"> Vector3 position</param>
         /// <param name="gisId">string Id</param>
         /// <param name="properties">Dictionary properties</param>
-        protected VirgisFeature _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
+        protected VirgisFeature _drawFeature(Vector3 position, Feature feature = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);
             dataPoint.transform.position = position;
 
-            // add the gis data from geoJSON
+            // add the gis data from source
             Datapoint com = dataPoint.GetComponent<Datapoint>();
-            com.gisId = gisId;
-            com.gisProperties = properties ?? new Dictionary<string, object>();
+            if (feature != null) com.feature = feature;
             com.SetMaterial(mainMat, selectedMat);
+
+            
 
             //Set the symbology
             if (symbology.ContainsKey("point")) {
@@ -108,12 +107,12 @@ namespace Virgis {
 
 
             //Set the label
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (properties?.ContainsKey(symbology["point"].Label) ?? false)) {
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (feature?.ContainsKey(symbology["point"].Label) ?? false)) {
                 GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
                 labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
                 labelObject.transform.localPosition = Vector3.up * displacement;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string) properties[symbology["point"].Label];
+                labelText.text = (string) feature.Fetch(symbology["point"].Label);
             }
 
             return com;
@@ -122,11 +121,14 @@ namespace Virgis {
         protected override void _checkpoint() {
         }
         protected override Task _save() {
-            //Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
-            //List<Feature> thisFeatures = new List<Feature>();
-            //foreach (Datapoint pointFunc in pointFuncs) {
-            //    thisFeatures.Add(new Feature(pointFunc.gameObject.transform.position.ToPoint(), pointFunc.gisProperties, pointFunc.gisId));
-            //}
+            Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
+            List<Feature> thisFeatures = new List<Feature>();
+            foreach (Datapoint pointFunc in pointFuncs) {
+                Feature feature = pointFunc.feature;
+                feature.SetGeometry(pointFunc.gameObject.transform.position.ToGeometry());
+                thisFeatures.Add(feature);
+            }
+
             //FeatureCollection FC = new FeatureCollection(thisFeatures);
             //geoJsonReader.SetFeatureCollection(FC);
             //geoJsonReader.Save();

@@ -405,6 +405,41 @@ namespace Virgis {
                 );
         }
     }
+    public static class FeatureExtensions {
+
+        public static bool ContainsKey(this Feature feature, string name) {
+            int fieldCount = feature.GetFieldCount();
+            bool flag = false;
+            for (int i = 0; i < fieldCount; i++) {
+                FieldDefn fd = feature.GetFieldDefnRef(i);
+                if (fd.GetName() == name) {
+                    flag = true;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        public static object Fetch(this Feature feature, string name) {
+            int fieldCount = feature.GetFieldCount();
+            object ret = null;
+            for (int i = 0; i < fieldCount; i++) {
+                FieldDefn fd = feature.GetFieldDefnRef(i);
+                if (fd.GetName() == name) {
+                    FieldType ft = fd.GetFieldType();
+                    switch (ft) {
+                        case FieldType.OFTString:
+                            ret = feature.GetFieldAsString(i);
+                            break;
+                        case FieldType.OFTReal:
+                            ret = feature.GetFieldAsDouble(i);
+                            break;
+                    }
+                }
+            }
+            return ret;
+        }
+    }
 
     /// <summary>
     /// Structure used to hold avertex for an arbitrary shape and to calculate equality

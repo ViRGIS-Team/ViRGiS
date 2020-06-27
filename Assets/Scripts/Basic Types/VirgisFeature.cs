@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Project;
+using OSGeo.OGR;
 
 namespace Virgis
 {
@@ -47,6 +48,8 @@ namespace Virgis
 
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
+        public Feature feature; // Feature tht was the source for this GO
+
 
 
         void Awake()
