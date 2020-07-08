@@ -43,6 +43,7 @@ namespace Virgis
                 {
                     result = new char[reader.BaseStream.Length];
                     await reader.ReadAsync(result, 0, (int)reader.BaseStream.Length);
+                    reader.Close();
                 }
 
                 foreach (char c in result)

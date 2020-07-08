@@ -27,9 +27,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *****************************************************************************/
 
-using System;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using UnityEngine;
 
 namespace pdal
 {
@@ -88,11 +89,12 @@ namespace pdal
 		 */
 		public Config()
 		{
-			//string cwd = Environment.CurrentDirectory;
+            //string cwd = Environment.CurrentDirectory;
 
-			GdalData = "Assets/plugis/x64/Gdal/gdal-data";
-			Proj4Data = "Assets/plugins/x64/Gdal/gdal-data";
-		}
+            string gdalPath = Application.streamingAssetsPath;
+            GdalData = Path.Combine(gdalPath, "gdal-data");
+            Proj4Data = Path.Combine(gdalPath, "proj");
+        }
 
 		/// The path to the GDAL data directory
 		public string GdalData

@@ -92,6 +92,7 @@ namespace Virgis
                 // Set the GDAL environment variables.
                 string gdalPath = Application.streamingAssetsPath;
                 string gdalData = Path.Combine(gdalPath, "gdal-data");
+                string projData = Path.Combine(gdalPath, "proj");
                 Environment.SetEnvironmentVariable("GDAL_DATA", gdalData);
                 Gdal.SetConfigOption("GDAL_DATA", gdalData);
 
@@ -103,9 +104,9 @@ namespace Virgis
                 Gdal.SetConfigOption("GEOTIFF_CSV", gdalData);
 
                 //string projSharePath = Path.Combine(gdalPath, "share");
-                Environment.SetEnvironmentVariable("PROJ_LIB", gdalData);
-                Gdal.SetConfigOption("PROJ_LIB", gdalData);
-                Osr.SetPROJSearchPath(gdalData);
+                Environment.SetEnvironmentVariable("PROJ_LIB", projData);
+                Gdal.SetConfigOption("PROJ_LIB", projData);
+                Osr.SetPROJSearchPath(projData);
 
                 _usable = true;
 
@@ -230,13 +231,14 @@ namespace Virgis
             Debug.Log("PDAL SHA1: " + config.Sha1);
             Debug.Log("PDAL Debug Info: " + config.DebugInfo);
 
-            string path = "Assets/Plugins/x64/Pdal/Examples/classification-ground.json";
-            //string json = File.ReadAllText(path);
+            string Data = Path.Combine(Application.streamingAssetsPath, "Examples/classification-ground.json");
+            string json = File.ReadAllText(Data);
 
             pdal.Pipeline pipeline = new pdal.Pipeline();
+            //pipeline.Json = json;
 
             long pointCount = pipeline.Execute();
-            Debug.Log("Executed pipeline at " + path);
+            Debug.Log("Executed pipeline at " + Data);
             Debug.Log("Point count: " + pointCount);
             Debug.Log("Log Level: " + pipeline.LogLevel);
             Debug.Log("Metadata: " + pipeline.Metadata);

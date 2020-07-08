@@ -87,14 +87,19 @@ namespace Virgis
             centreHandle.transform.parent = transform;
         }
 
-        public override void SetVisible(bool visible) {
-            if (_layer.Visible != visible) {
-                _layer.Visible = visible;
-                gameObject.SetActive(visible);
-                VisualEffect vfx = model.GetComponent<VisualEffect>();
-                if (visible) vfx.Play();
-            }
+        public override void _set_visible() {
+            base._set_visible();
+            BakedPointCloud cloud = ScriptableObject.CreateInstance<BakedPointCloud>();
+            ParticleData data = features as ParticleData;
+            cloud.Initialize(data.vertices, data.colors);
+            VisualEffect vfx = model.GetComponent<VisualEffect>();
+            vfx.SetTexture("_Positions", cloud.positionMap);
+            vfx.SetTexture("_Colors", cloud.colorMap);
+            vfx.SetInt("_pointCount", cloud.pointCount);
+            vfx.SetVector3("_size", symbology["point"].Transform.Scale);
+            vfx.Play();
         }
+
 
         public override void Translate(MoveArgs args)
         {

@@ -235,7 +235,11 @@ namespace Virgis {
             if (_layer.Visible != visible) {
                 _layer.Visible = visible;
                 gameObject.SetActive(visible);
+                _set_visible();
             }
+        }
+
+        public virtual void _set_visible() {
         }
 
         /// <summary>

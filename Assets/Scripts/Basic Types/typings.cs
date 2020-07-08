@@ -66,20 +66,22 @@ namespace Virgis {
         static public IPosition ToPosition(this Vector3 position, ICRSObject crs = null) {
             Geometry geom = position.ToGeometry();
             SpatialReference sr = new SpatialReference(null);
-            if (crs == null)
-                crs = new NamedCRS("EPSG:4326");
-            switch (crs.Type) {
-                case CRSType.Name:
-                    string name = (crs as NamedCRS).Properties["name"] as string;
-                    sr.SetProjCS(name);
-                    break;
-                case CRSType.Link:
-                    string url = (crs as LinkedCRS).Properties["href"] as string;
-                    sr.ImportFromUrl(url);
-                    break;
-                case CRSType.Unspecified:
-                    sr.SetWellKnownGeogCS("EPSG:4326");
-                    break;
+            if (crs == null) {
+                sr.SetWellKnownGeogCS("EPSG:4326");
+            } else {
+                switch (crs.Type) {
+                    case CRSType.Name:
+                        string name = (crs as NamedCRS).Properties["name"] as string;
+                        sr.SetProjCS(name);
+                        break;
+                    case CRSType.Link:
+                        string url = (crs as LinkedCRS).Properties["href"] as string;
+                        sr.ImportFromUrl(url);
+                        break;
+                    case CRSType.Unspecified:
+                        sr.SetWellKnownGeogCS("EPSG:4326");
+                        break;
+                }
             }
             geom.TransformTo(sr);
             double[] argout = new double[3];
