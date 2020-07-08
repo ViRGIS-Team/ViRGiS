@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using OSGeo.OGR;
 using System.Linq;
+using System.Globalization;
 
 namespace Virgis {
 
@@ -123,16 +124,16 @@ namespace Virgis {
         protected override Task _save() {
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             List<Feature> thisFeatures = new List<Feature>();
+            long n = features.GetFeatureCount(0);
+            for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
             foreach (Datapoint pointFunc in pointFuncs) {
                 Feature feature = pointFunc.feature;
-                feature.SetGeometry(pointFunc.gameObject.transform.position.ToGeometry());
-                thisFeatures.Add(feature);
+                Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
+                geom.TransformTo(geoJsonReader.CRS);
+                feature.SetGeometry(geom);
+                features.SetFeature(feature);
             }
-
-            //FeatureCollection FC = new FeatureCollection(thisFeatures);
-            //geoJsonReader.SetFeatureCollection(FC);
-            //geoJsonReader.Save();
-            //features = FC;
+            features.SyncToDisk();
             return Task.CompletedTask;
         }
 
