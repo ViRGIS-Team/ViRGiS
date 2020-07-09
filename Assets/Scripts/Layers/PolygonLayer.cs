@@ -118,33 +118,31 @@ namespace Virgis
         {
             DCurve3 curve = new DCurve3();
             curve.Vector3(geometry, true);
-            return _drawFeature(geometry, (Vector3)curve.Center());
+            return _drawFeature(new DCurve3().Vector3(geometry, false), (Vector3)curve.Center());
         }
 
         protected override void _draw()
         {
             long FeatureCount = features.GetFeatureCount(1);
+            features.ResetReading();
             for (int i = 0; i < FeatureCount; i++)
             {
-                Feature feature = features.GetFeature(i);
-                string properties = feature.GetNativeData();
-                //string gisId = feature.Id;
-
+                Feature feature = features.GetNextFeature();
                 Geometry poly = feature.GetGeometryRef();
                 Geometry center = poly.Centroid();
-                center.AssignSpatialReference(poly.GetSpatialReference());
+                center.AssignSpatialReference(geoJsonReader.CRS);
                 if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
                     Geometry line = poly.GetGeometryRef(0);
                     wkbGeometryType type = line.GetGeometryType();
                     if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D ) {
-                       // _drawFeature(poly.TransformWorld(), center.TransformWorld()[0]);
+                        _drawFeature(new DCurve3().FromGeometry(line), center.TransformWorld()[0], feature);
                     }
                 }
             }
 
         }
 
-        protected VirgisFeature _drawFeature(Vector3[] perimeter, Vector3 center, string gisId = null, Dictionary<string, object> properties = null)
+        protected VirgisFeature _drawFeature(DCurve3 perimeter, Vector3 center, Feature feature = null)
         {
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
@@ -154,23 +152,25 @@ namespace Virgis
             // add the gis data from geoJSON
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
             Datapoint c = centroid.GetComponent<Datapoint>();
-            p.gisId = gisId;
-            p.gisProperties = properties;
+            if (feature != null)
+                p.feature = feature;
+
+
             p.Centroid = c.transform.position;
             c.SetMaterial(mainMat, selectedMat);
 
-            if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (properties?.ContainsKey(symbology["body"].Label) ?? false))
+            if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false))
             {
                 //Set the label
                 GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false);
                 labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string)properties[symbology["body"].Label];
+                labelText.text = (string)feature.Fetch(symbology["body"].Label);
             }
 
             // Darw the LinearRing
             Dataline Lr = dataLine.GetComponent<Dataline>();
-            Lr.Draw(perimeter, true, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
+            Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
 
             //Draw the Polygon
             List<VertexLookup> VertexTable = Lr.VertexTable;

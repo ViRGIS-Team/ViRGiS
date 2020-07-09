@@ -99,7 +99,7 @@ namespace Virgis
         /// <param name="LinePrefab"> The prefab to be used for the line</param>
         /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
-        public void Draw(Vector3[] line, bool Lr,  Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+        public void Draw(DCurve3 curve, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
         {
             this.symbology = symbology;
             this.LinePrefab = LinePrefab;
@@ -109,7 +109,10 @@ namespace Virgis
             this.selectedMat = selectedMat;
             this.lineMain = lineMain;
             this.lineSelected = lineSelected;
-            this.Lr = Lr;
+            Lr = curve.Closed;
+            this.curve = curve;
+            Vector3[] line = curve.ToWorld();
+
 
             int i = 0;
             foreach (Vector3 vertex in line)
@@ -128,12 +131,12 @@ namespace Virgis
             //Set the label
             if (LabelPrefab != null)
             {
-                if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && gisProperties.ContainsKey(symbology["line"].Label))
+                if (symbology["line"].ContainsKey("Label") && symbology["line"].Label != null && (feature?.ContainsKey(symbology["line"].Label) ?? false))
                    {
                     GameObject labelObject = Instantiate(LabelPrefab, _labelPosition(), Quaternion.identity, transform);
                     label = labelObject.transform;
                     Text labelText = labelObject.GetComponentInChildren<Text>();
-                    labelText.text = (string)gisProperties[symbology["line"].Label];
+                    labelText.text = (string)feature.Fetch(symbology["line"].Label);
                 }
             }
         }

@@ -85,8 +85,8 @@ namespace Virgis {
         /// Draws a single feature based on world space coordinates
         /// </summary>
         /// <param name="position"> Vector3 position</param>
-        /// <param name="gisId">string Id</param>
-        /// <param name="properties">Dictionary properties</param>
+        /// <param name="feature">Feature (optional)</param>
+
         protected VirgisFeature _drawFeature(Vector3 position, Feature feature = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);

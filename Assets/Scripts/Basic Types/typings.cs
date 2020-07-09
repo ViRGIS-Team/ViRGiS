@@ -9,6 +9,8 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using System.Collections.Generic;
 
+using System.IO;
+
 namespace Virgis {
 
     /// <summary>
@@ -269,7 +271,7 @@ namespace Virgis {
         /// <param name="curve">DCurve</param>
         /// <param name="verteces">Vextor3[]</param>
         /// <param name="bClosed">whether the line is closed</param>
-        public static void Vector3(this g3.DCurve3 curve, Vector3[] verteces, bool bClosed)
+        public static DCurve3 Vector3(this DCurve3 curve, Vector3[] verteces, bool bClosed)
         {
             curve.ClearVertices();
             curve.Closed = bClosed;
@@ -277,6 +279,47 @@ namespace Virgis {
             {
                 curve.AppendVertex(vertex);
             }
+            return curve;
+        }
+
+        public static DCurve3 FromGeometry(this DCurve3 curve, Geometry geom ) {
+            geom.TransformTo(AppState.instance.mapProj);
+            //byte[] wkb = new byte[geom.WkbSize()];
+            //geom.ExportToWkb(wkb, wkbByteOrder.wkbNDR);
+            //IGeometryObject line = WkbConverter.ToGeoJSONGeometry(wkb);
+            //if (line.Type == GeoJSON.Net.GeoJSONObjectType.LineString) {
+            //    LineString ls = line as LineString;
+            //    curve.Vector3(ls.Vector3(), ls.IsClosed());
+            //} else {
+            //    Debug.LogError("geometry is not a LineString");
+            //}
+            //Stream stream = new MemoryStream(wkb);
+            //Wkx.WkbSerializer ws = new Wkx.WkbSerializer();
+            //Wkx.Geometry wg = ws.Deserialize(stream);
+            //if (wg.GeometryType == Wkx.GeometryType.LineString) {
+            //    Wkx.LineString ls = wg as Wkx.LineString;
+            //    return ls;
+            //} else {
+            //    throw new NotSupportedException();
+            //}
+            int n = geom.GetPointCount();
+            Vector3d[] ls = new Vector3d[n];
+            for (int i = 0; i < n; i++) {
+                double[] argout = new double[3];
+                geom.GetPoint(i, argout);
+                ls[i] = new Vector3d(argout);
+            }
+            return new DCurve3(ls, geom.IsRing());
+        }
+
+        public static Vector3[] ToWorld(this DCurve3 curve) {
+            List<Vector3> ret = new List<Vector3>();
+            List<Vector3d> vertexes = curve.Vertices as List<Vector3d>;
+            for (int i = 0; i < curve.VertexCount; i++) {
+                Vector3 local = new Vector3((float)vertexes[i].x, (float)vertexes[i].z, (float)vertexes[i].y);
+                ret.Add(AppState.instance.map.transform.TransformVector(local));
+            }
+            return ret.ToArray();
         }
 
         /// <summary>
