@@ -283,25 +283,10 @@ namespace Virgis {
         }
 
         public static DCurve3 FromGeometry(this DCurve3 curve, Geometry geom ) {
-            geom.TransformTo(AppState.instance.mapProj);
-            //byte[] wkb = new byte[geom.WkbSize()];
-            //geom.ExportToWkb(wkb, wkbByteOrder.wkbNDR);
-            //IGeometryObject line = WkbConverter.ToGeoJSONGeometry(wkb);
-            //if (line.Type == GeoJSON.Net.GeoJSONObjectType.LineString) {
-            //    LineString ls = line as LineString;
-            //    curve.Vector3(ls.Vector3(), ls.IsClosed());
-            //} else {
-            //    Debug.LogError("geometry is not a LineString");
-            //}
-            //Stream stream = new MemoryStream(wkb);
-            //Wkx.WkbSerializer ws = new Wkx.WkbSerializer();
-            //Wkx.Geometry wg = ws.Deserialize(stream);
-            //if (wg.GeometryType == Wkx.GeometryType.LineString) {
-            //    Wkx.LineString ls = wg as Wkx.LineString;
-            //    return ls;
-            //} else {
-            //    throw new NotSupportedException();
-            //}
+            if (geom.TransformTo(AppState.instance.mapProj) != 0)
+                throw new NotSupportedException("projection failed");
+            if (geom.Transform(AppState.instance.mapTrans) != 0)
+                throw new NotSupportedException("axis change failed");
             int n = geom.GetPointCount();
             Vector3d[] ls = new Vector3d[n];
             for (int i = 0; i < n; i++) {
@@ -312,11 +297,16 @@ namespace Virgis {
             return new DCurve3(ls, geom.IsRing());
         }
 
+        /// <summary>
+        /// Converts DCurve3 whihc is in Local Vector3d coordinates to Vector3[] World coordinates 
+        /// </summary>
+        /// <param name="curve">input curve</param>
+        /// <returns>Vector3[] in world coordinates</returns>
         public static Vector3[] ToWorld(this DCurve3 curve) {
             List<Vector3> ret = new List<Vector3>();
             List<Vector3d> vertexes = curve.Vertices as List<Vector3d>;
             for (int i = 0; i < curve.VertexCount; i++) {
-                Vector3 local = new Vector3((float)vertexes[i].x, (float)vertexes[i].z, (float)vertexes[i].y);
+                Vector3 local = (Vector3)vertexes[i];
                 ret.Add(AppState.instance.map.transform.TransformVector(local));
             }
             return ret.ToArray();
@@ -374,19 +364,21 @@ namespace Virgis {
         /// <param name="geom"> Geometry</param>
         /// <returns>VEctor3[]</returns>
         public static Vector3[] TransformWorld(this Geometry geom) {
-            geom.TransformTo(AppState.instance.mapProj);
+            if (geom.TransformTo(AppState.instance.mapProj) != 0)
+                throw new NotSupportedException("projection failed");
+            if (geom.Transform(AppState.instance.mapTrans) != 0)
+                throw new NotSupportedException("axis change failed");
             int count = geom.GetPointCount();
             List<Vector3> ret = new List<Vector3>();
             if (count > 0)
                 for (int i = 0; i < count; i++) {
                     double[] argout = new double[3];
                     geom.GetPoint(i, argout);
-                    Vector3 mapLocal = new Vector3((float) argout[0], (float) argout[2], (float) argout[1]);
+                    Vector3 mapLocal =  (Vector3)new Vector3d(argout);
                     ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
                 }
             else {
-                string wkt;
-
+                throw new NotSupportedException("no Points in geometry");
             }
             return ret.ToArray();
         }
