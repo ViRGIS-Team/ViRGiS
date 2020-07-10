@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Project;
+using OSGeo.OGR;
 
 namespace Virgis
 {
@@ -17,6 +18,7 @@ namespace Virgis
         void ExitEditSession(bool saved);
         Guid GetId();
         RecordSet GetMetadata();
+        void SetMetadata(RecordSet meta);
         VirgisFeature GetClosest(Vector3 coords, Guid[] exclude);
         void MoveAxis(MoveArgs args);
         void Translate(MoveArgs args);
@@ -46,6 +48,8 @@ namespace Virgis
 
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
+        public Feature feature; // Feature tht was the source for this GO
+
 
 
         void Awake()
@@ -170,6 +174,11 @@ namespace Virgis
 
         public RecordSet GetMetadata() {
             return new RecordSet() { Id = gisId, Properties = gisProperties };
+        }
+
+        public void SetMetadata(RecordSet meta) {
+            gisId = meta.Id;
+            gisProperties = meta.Properties;
         }
 
         public override bool Equals(object obj) {

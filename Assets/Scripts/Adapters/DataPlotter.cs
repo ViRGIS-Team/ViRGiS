@@ -36,7 +36,7 @@ namespace Virgis {
         }
 
         protected override void _draw() {
-
+            RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = new Dictionary<string, Unit>();
             float displacement = 1.0f;
             if (layer.Properties.ContainsKey("Units")) {

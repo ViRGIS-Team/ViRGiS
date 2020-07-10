@@ -17,6 +17,14 @@ namespace Virgis
 		public List<Color32> colors;
 		public int vertexCount;
 		public Bounds bounds;
+
+        public ParticleData() {
+            vertices = new List<Vector3>();
+            normals = new List<Vector3>();
+            colors = new List<Color32>();
+            vertexCount = 0;
+            bounds = new Bounds();
+        }
 	}
 }
 

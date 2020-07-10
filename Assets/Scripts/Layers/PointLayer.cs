@@ -1,17 +1,16 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using GeoJSON.Net;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
 using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-
+using OSGeo.OGR;
+using System.Linq;
+using System.Globalization;
 
 namespace Virgis {
 
-    public class PointLayer : VirgisLayer<GeographyCollection, FeatureCollection> {
+    public class PointLayer : VirgisLayer<GeographyCollection, Layer> {
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
         public GameObject CubePrefab;
@@ -69,18 +68,15 @@ namespace Virgis {
             return newFeature;
         }
 
+
+
         protected override void _draw() {
-            foreach (Feature feature in features.Features) {
-                // Get the geometry
-                MultiPoint mPoint = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.Point) {
-                    mPoint = new MultiPoint(new List<Point>() { feature.Geometry as Point });
-                } else if (feature.Geometry.Type == GeoJSONObjectType.MultiPoint) {
-                    mPoint = feature.Geometry as MultiPoint;
-                }
-                foreach (Point geometry in mPoint.Coordinates) {
-                    Position in_position = geometry.Coordinates as Position;
-                    _drawFeature(in_position.Vector3(), feature.Id, feature.Properties as Dictionary<string, object>);
+            long FeatureCount = features.GetFeatureCount(1);
+            for (int i = 0; i < FeatureCount; i++) {
+                Feature feature = features.GetFeature(i);
+                Geometry point = feature.GetGeometryRef();
+                if (point.GetGeometryType() == wkbGeometryType.wkbPoint || point.GetGeometryType() == wkbGeometryType.wkbPoint25D || point.GetGeometryType() == wkbGeometryType.wkbPointM || point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
+                    point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
                 }
             }
         }
@@ -89,18 +85,19 @@ namespace Virgis {
         /// Draws a single feature based on world space coordinates
         /// </summary>
         /// <param name="position"> Vector3 position</param>
-        /// <param name="gisId">string Id</param>
-        /// <param name="properties">Dictionary properties</param>
-        protected VirgisFeature _drawFeature(Vector3 position, string gisId = null, Dictionary<string, object> properties = null) {
+        /// <param name="feature">Feature (optional)</param>
+
+        protected VirgisFeature _drawFeature(Vector3 position, Feature feature = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(PointPrefab, transform, false);
             dataPoint.transform.position = position;
 
-            // add the gis data from geoJSON
+            // add the gis data from source
             Datapoint com = dataPoint.GetComponent<Datapoint>();
-            com.gisId = gisId;
-            com.gisProperties = properties ?? new Dictionary<string, object>();
+            if (feature != null) com.feature = feature;
             com.SetMaterial(mainMat, selectedMat);
+
+            
 
             //Set the symbology
             if (symbology.ContainsKey("point")) {
@@ -111,12 +108,12 @@ namespace Virgis {
 
 
             //Set the label
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (properties?.ContainsKey(symbology["point"].Label) ?? false)) {
+            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (feature?.ContainsKey(symbology["point"].Label) ?? false)) {
                 GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
                 labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
                 labelObject.transform.localPosition = Vector3.up * displacement;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string) properties[symbology["point"].Label];
+                labelText.text = (string) feature.Fetch(symbology["point"].Label);
             }
 
             return com;
@@ -124,16 +121,20 @@ namespace Virgis {
 
         protected override void _checkpoint() {
         }
-        protected override async Task _save() {
+        protected override Task _save() {
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             List<Feature> thisFeatures = new List<Feature>();
+            long n = features.GetFeatureCount(0);
+            for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
             foreach (Datapoint pointFunc in pointFuncs) {
-                thisFeatures.Add(new Feature(pointFunc.gameObject.transform.position.ToPoint(), pointFunc.gisProperties, pointFunc.gisId));
+                Feature feature = pointFunc.feature;
+                Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
+                geom.TransformTo(geoJsonReader.CRS);
+                feature.SetGeometry(geom);
+                features.SetFeature(feature);
             }
-            FeatureCollection FC = new FeatureCollection(thisFeatures);
-            geoJsonReader.SetFeatureCollection(FC);
-            await geoJsonReader.Save();
-            features = FC;
+            features.SyncToDisk();
+            return Task.CompletedTask;
         }
 
         public override GameObject GetFeatureShape() {

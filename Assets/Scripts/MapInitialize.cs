@@ -1,11 +1,11 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using GeoJSON.Net.Geometry;
 using Mapbox.Unity.Map;
-using Mapbox.Utils;
 using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using System;
 
 
 namespace Virgis
@@ -17,10 +17,11 @@ namespace Virgis
     /// 
     /// It is run once at Startup
     /// </summary>
-    public class MapInitialize : VirgisLayer<RecordSet, FeatureObject>
+    public class MapInitialize : VirgisLayer
     {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
+        public AbstractMap MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
         public GameObject PointLayer;
@@ -28,6 +29,7 @@ namespace Virgis
         public GameObject PolygonLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
+        public GameObject XsectLayer;
         public GameObject CsvLayer;
         public AppState appState;
 
@@ -35,7 +37,7 @@ namespace Virgis
         public string inputfile;
 
         //File reader for Project and GeoJSON file
-        private GeoJsonReader geoJsonReader;
+        private ProjectJsonReader projectJsonReader;
 
 
         ///<summary>
@@ -61,68 +63,72 @@ namespace Virgis
         async void Start()
         {
             // Fetch Project definition - return if the file cannot be read - this will lead to an empty world
-            geoJsonReader = new GeoJsonReader();
-            await geoJsonReader.Load(inputfile);
-            if (geoJsonReader.payload is null)
+            projectJsonReader = new ProjectJsonReader();
+            await projectJsonReader.Load(inputfile);
+            if (projectJsonReader.payload is null)
                 return;
-            appState.project = geoJsonReader.GetProject();
-
-            //initialize space
-            Vector2d origin = appState.project.Origin.Coordinates.Vector2d();
-            GameObject Map = gameObject;
-            AbstractMap _map = Map.GetComponent<AbstractMap>();
-            _map.UseWorldScale();
-            _map.Initialize(origin, appState.project.MapScale);
-
+            appState.project = projectJsonReader.GetProject();
 
             //set globals
-            appState.abstractMap = _map;
-            appState.map = Map;
+            appState.initProj();
+            appState.map = gameObject;
             appState.ZoomChange(appState.project.Scale);
             appState.mainCamera = MainCamera;
-            MainCamera.transform.position = appState.project.Camera.Coordinates.Vector3();
+            MainCamera.transform.position = appState.project.Cameras[0].ToVector3();
 
             await Init(null);
-            Draw();
         }
 
-        async new Task<VirgisLayer<RecordSet, FeatureObject>> Init(RecordSet layer)
+        async new Task<VirgisLayer> Init(RecordSet notImportant)
         {
-            Component temp = null;
+            VirgisLayer temp = null;
             foreach (RecordSet thisLayer in appState.project.RecordSets)
             {
-                switch (thisLayer.DataType)
-                {
-                    case RecordSetDataType.Point:
-                        temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(thisLayer as GeographyCollection);
-                        break;
-                    case RecordSetDataType.Line:
-                        temp = await Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(thisLayer as GeographyCollection);
-                        break;
-                    case RecordSetDataType.Polygon:
-                        temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(thisLayer as GeographyCollection);
-                        break;
-                    case RecordSetDataType.PointCloud:
-                        temp = await Instantiate(PointCloud, Vector3.zero, Quaternion.identity).GetComponent<PointCloudLayer>().Init(thisLayer as GeographyCollection);
-                        break;
-                    case RecordSetDataType.Mesh:
-                        temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
-                        break;
-                    case RecordSetDataType.CSV:
-                        temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
-                        break;
+                try {
+                    switch (thisLayer.DataType) {
+                        case RecordSetDataType.MapBox:
+                            MapBoxLayer.UseWorldScale();
+                            MapBoxLayer.Initialize(appState.project.Origin.Coordinates.Vector2d(), Convert.ToInt32(thisLayer.Properties["mapscale"]));
+                            appState.abstractMap = MapBoxLayer;
+                            temp = MapBoxLayer.GetComponent<ContainerLayer>();
+                            temp.SetMetadata(thisLayer);
+                            temp.changed = false;
+                            break;
+                        case RecordSetDataType.Point:
+                            temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.Line:
+                            temp = await Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.Polygon:
+                            temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.PointCloud:
+                            temp = await Instantiate(PointCloud, Vector3.zero, Quaternion.identity).GetComponent<PointCloudLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.Mesh:
+                            temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.XSect:
+                            temp = await Instantiate(XsectLayer, Vector3.zero, Quaternion.identity).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);
+                            break;
+                        case RecordSetDataType.CSV:
+                            temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
+                            break;
+                        default:
+                            Debug.LogError(thisLayer.Type.ToString() + " is not known.");
+                            break;
+                    }
+                    temp.transform.parent = transform;
+                    appState.addLayer(temp);
+                    temp.gameObject.SetActive(thisLayer.Visible);
+                    temp.Draw();
+                } catch (Exception e) {
+                    Debug.LogError(e.ToString() ?? "Unknown Error");
                 }
-                temp.transform.parent = transform;
-                appState.addLayer(temp);
-                temp.gameObject.SetActive(thisLayer.Visible);
             }
             appState.Init();
             return this;
-        }
-
-        protected override Task _init(RecordSet layer)
-        {
-            throw new System.NotImplementedException();
         }
 
         public new void Add(MoveArgs args)
@@ -171,10 +177,9 @@ namespace Virgis
             }
             appState.project.Scale = appState.GetScale();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
-            geoJsonReader.SetProject(appState.project);
-            await geoJsonReader.Save();
-            Debug.Log("MapInitialize.Save ends");
-            // TODO: should return the root layer in v2
+            projectJsonReader.SetProject(appState.project);
+            await projectJsonReader.Save();
+                        // TODO: should return the root layer in v2
             return null;
         }
 

@@ -17,7 +17,7 @@ namespace Virgis
 
         private bool BlockMove = false; // Is this component in a block move state
         private GameObject Shape; // gameObject to be used for the shape
-        public Datapoint Centroid; // Polyhedral center vertex
+        public Vector3 Centroid; // Polyhedral center vertex
         public List<VertexLookup> VertexTable;
 
 
@@ -97,11 +97,10 @@ namespace Virgis
         {
             
             VertexTable = verteces;
-            VertexTable.Add(new VertexLookup() { Id = Centroid.GetId(), Vertex = -1, Com = Centroid });
             
             Shape = new GameObject("Polygon Shape");
             Shape.transform.parent = gameObject.transform;
-            Shape.transform.position = Centroid.transform.position;
+            Shape.transform.position = Centroid;
 
             MakeMesh();
 
@@ -181,7 +180,7 @@ namespace Virgis
         public Vector3[] Vertices()
         {
             Vector3[] vertices = new Vector3[VertexTable.Count];
-            vertices[0] = Shape.transform.InverseTransformPoint(Centroid.transform.position);
+            vertices[0] = Shape.transform.InverseTransformPoint(Centroid);
 
 
             for (int i = 0; i < VertexTable.Count - 1; i++)

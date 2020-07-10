@@ -67,9 +67,10 @@ namespace Virgis
         }
         protected override void _draw()
         {
-            transform.position = layer.Position.Coordinates.Vector3();
+            GeographyCollection layer = GetMetadata();
+            transform.position = layer.Position.ToVector3();
             transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
+            Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             meshes = new List<GameObject>();
 
             foreach (SimpleMesh simpleMesh in (features as MeshData).Mesh.Meshes)
@@ -133,10 +134,10 @@ namespace Virgis
 
         protected override Task _save()
         {
-            layer.Position = transform.position.ToPoint();
-            layer.Transform.Position = Vector3.zero;
-            layer.Transform.Rotate = transform.rotation;
-            layer.Transform.Scale = transform.localScale;
+            _layer.Position = transform.position.ToPoint();
+            _layer.Transform.Position = Vector3.zero;
+            _layer.Transform.Rotate = transform.rotation;
+            _layer.Transform.Scale = transform.localScale;
             return Task.CompletedTask;
         }
     }

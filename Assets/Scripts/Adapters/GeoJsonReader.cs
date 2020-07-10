@@ -1,12 +1,13 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using UnityEngine;
-using GeoJSON.Net.Feature;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Project;
 using System;
+using OSGeo.OGR;
+using OSGeo.OSR;
 
 namespace Virgis
 {
@@ -14,38 +15,35 @@ namespace Virgis
 
     public class GeoJsonReader
     {
-        public string payload;
+        private Layer _payload;
         public string fileName;
+        private DataSource _datasource;
+        public SpatialReference CRS;
 
-        public FeatureCollection getFeatureCollection()
+        public Layer getFeatureCollection()
         {
-            if (payload is null)
-            {
-                return new FeatureCollection();
-            }
-            else
-            {
-                return JsonConvert.DeserializeObject<FeatureCollection>(payload);
-            }
+            return _payload;
+        }
+
+        public void setFeatureCollection(Layer data) {
+            _payload = data;
         }
 
         public async Task Load(string file)
         {
             fileName = file;
-            char[] result;
-            StringBuilder builder = new StringBuilder();
             try
             {
-                using (StreamReader reader = File.OpenText(file))
-                {
-                    result = new char[reader.BaseStream.Length];
-                    await reader.ReadAsync(result, 0, (int)reader.BaseStream.Length);
-                }
-
-                foreach (char c in result)
-                {
-                    builder.Append(c);
-                }
+                _datasource = Ogr.Open(fileName, 1);
+                if (_datasource == null)
+                    throw (new FileNotFoundException());
+                _payload = _datasource.GetLayerByIndex(0);
+                string crsWkt;
+                CRS = _payload.GetSpatialRef();
+                CRS.ExportToPrettyWkt(out crsWkt, 0);
+                Debug.Log(crsWkt);
+                if (_payload == null)
+                    throw (new NotSupportedException());
             }
             catch (Exception e) when (
                    e is UnauthorizedAccessException ||
@@ -55,32 +53,35 @@ namespace Virgis
                    )
             {
                 Debug.LogError("Failed to Load" + file + " : " + e.ToString());
-                payload = null;
-            }
-            payload = builder.ToString();
-        }
 
-        public GisProject GetProject()
-        {
-            return JsonConvert.DeserializeObject<GisProject>(payload);
-        }
-
-        public async Task Save()
-        {
-            using (StreamWriter writer = new StreamWriter(fileName, false))
-            {
-                await writer.WriteAsync(payload);
             }
         }
 
-        public void SetFeatureCollection(FeatureCollection contents)
+
+
+        public void Save()
         {
-            payload = JsonConvert.SerializeObject(contents, Formatting.Indented);
+            Driver driver = Ogr.GetDriverByName("GeoJSON");
+            if (driver is null) {
+                Debug.LogError("Failed to save :Incorrect Driver Name");
+                throw (new NotSupportedException());
+            }
+            DataSource ds = driver.CopyDataSource(_datasource, fileName, null);
+            if (ds is null) {
+                Debug.LogError("Failed to save :Creation failed");
+                throw (new NotSupportedException());
+            }
+            string name = _datasource.GetLayerByIndex(0).GetName();
+            ds.DeleteLayer(0);
+            Layer layer = ds.CopyLayer(_payload,name , null );
+            ds.SyncToDisk();
+            ds.FlushCache();
         }
 
-        public void SetProject(GisProject project)
+        public void SetFeatureCollection(Layer contents)
         {
-            payload = JsonConvert.SerializeObject(project, Formatting.Indented);
+           
         }
+
     }
 }

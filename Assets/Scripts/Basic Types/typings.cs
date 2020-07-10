@@ -1,14 +1,17 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
+using g3;
+using GeoJSON.Net.CoordinateReferenceSystem;
+using GeoJSON.Net.Geometry;
+using OSGeo.OGR;
+using OSGeo.OSR;
+using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
-using GeoJSON.Net.Geometry;
-using g3;
-using System;
-using Mapbox.Unity.Utilities;
+using System.Collections.Generic;
 
+using System.IO;
 
-namespace Virgis
-{
+namespace Virgis {
 
     /// <summary>
     /// Structure used to hold the details of a generic move request sent to a target enitity
@@ -62,10 +65,38 @@ namespace Virgis
         /// </summary>
         /// <param name="position">Vector3 World Space coordinates</param>
         /// <returns>Position</returns>
-        static public IPosition ToPosition(this Vector3 position) {
+        static public IPosition ToPosition(this Vector3 position, ICRSObject crs = null) {
+            Geometry geom = position.ToGeometry();
+            SpatialReference sr = new SpatialReference(null);
+            if (crs == null) {
+                sr.SetWellKnownGeogCS("EPSG:4326");
+            } else {
+                switch (crs.Type) {
+                    case CRSType.Name:
+                        string name = (crs as NamedCRS).Properties["name"] as string;
+                        sr.SetProjCS(name);
+                        break;
+                    case CRSType.Link:
+                        string url = (crs as LinkedCRS).Properties["href"] as string;
+                        sr.ImportFromUrl(url);
+                        break;
+                    case CRSType.Unspecified:
+                        sr.SetWellKnownGeogCS("EPSG:4326");
+                        break;
+                }
+            }
+            geom.TransformTo(sr);
+            double[] argout = new double[3];
+            geom.GetPoint(0, argout);
+            return new Position(argout[0], argout[1], argout[2]);
+        }
+
+        static public Geometry ToGeometry(this Vector3 position) {
+            Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
+            geom.AssignSpatialReference(AppState.instance.mapProj);
             Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(position);
-            Mapbox.Utils.Vector2d _latlng = VectorExtensions.GetGeoPosition(mapLocal, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale);
-            return new Position(_latlng.x, _latlng.y, mapLocal.y);
+            geom.AddPoint(mapLocal.x, mapLocal.z, mapLocal.y);
+            return geom;
         }
 
         /// <summary>
@@ -73,8 +104,18 @@ namespace Virgis
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        public static Point ToPoint(this Vector3 position) {
-            return new Point(position.ToPosition());
+        public static Point ToPoint(this Vector3 point) {
+            return new Point(point.ToPosition());
+        }
+    }
+
+    public static class PointExtensionsMethods {
+        static public Vector3 ToVector3(this Point point) {
+            return point.ToGeometry().TransformWorld()[0];
+        }
+
+        static public Geometry ToGeometry(this Point point) {
+            return (point.Coordinates).ToGeometry(point.CRS);
         }
     }
 
@@ -87,7 +128,7 @@ namespace Virgis
         /// <returns>Mapbox.Utils.Vector2d</returns>
         public static Mapbox.Utils.Vector2d Vector2d(this IPosition position)
         {
-            return new Mapbox.Utils.Vector2d((float)position.Latitude, (float)position.Longitude);
+            return new Mapbox.Utils.Vector2d(position.Latitude, position.Longitude);
         }
 
         /// <summary>
@@ -100,32 +141,48 @@ namespace Virgis
             return new Vector2((float)position.Latitude, (float)position.Longitude);
         }
 
-        /// <summary>
-        /// Converts IPositon to Position
-        /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
-        public static Position Point(this IPosition position)
-        {
-            return position as Position;
-        }
 
         /// <summary>
         /// Converts Iposition to Vector3 World Space coordinates takling account of zoom, scale and mapscale
         /// </summary>
         /// <param name="position">IPosition</param>
         /// <returns>Vector3</returns>
-        public static Vector3 Vector3(this IPosition position)
+        public static Vector3 Vector3(this IPosition position, ICRSObject crs = null)
         {
-            float Alt;
-            if (position.Altitude == null) {
-                Alt = 0.0f;
-            } else {
-                Alt = (float) position.Altitude;
-            };
-            Vector3 mapLocal = Conversions.GeoToWorldPosition(position.Latitude, position.Longitude, AppState.instance.abstractMap.CenterMercator, AppState.instance.abstractMap.WorldRelativeScale).ToVector3xz();
-            mapLocal.y = Alt;
-            return AppState.instance.map.transform.TransformPoint(mapLocal);
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
+            return position.ToGeometry(crs).TransformWorld()[0];
+        }
+
+        public static Geometry ToGeometry(this IPosition position, ICRSObject crs) {
+            Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
+            SpatialReference sr = new SpatialReference(null);
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
+            switch (crs.Type) {
+                case CRSType.Name:
+                    string name = (crs as NamedCRS).Properties["name"] as string;
+                    if (name.Contains("urn")) {
+                        sr.ImportFromUrl(name);
+                    } else if (name.Contains("EPSG")) {
+                        string[] args = name.Split(':');
+                        sr.ImportFromEPSG(int.Parse(args[1]));
+                    } else {
+                        sr.SetWellKnownGeogCS(name);
+                    }
+                    break;
+                case CRSType.Link:
+                    string url = (crs as LinkedCRS).Properties["href"] as string;
+                    sr.ImportFromUrl(url);
+                    break;
+                case CRSType.Unspecified:
+                    sr.SetWellKnownGeogCS("EPSG:4326");
+                    break;
+            }
+            geom.AssignSpatialReference(sr);
+            Nullable<double> alt = position.Altitude;
+            geom.AddPoint(position.Latitude, position.Longitude, alt ?? 0.0 );
+            return geom;
         }
     }
 
@@ -165,10 +222,44 @@ namespace Virgis
         /// <returns>Vector3[] World Space Locations</returns>
         static public Vector3[] Vector3(this LineString line) {
             Vector3[] result = new Vector3[line.Coordinates.Count];
-            for (int i = 0; i < line.Coordinates.Count; i++) {
-                result[i] = line.Point(i).Vector3();
+            Geometry geom = line.ToGeometry();
+            return geom.TransformWorld();
+        }
+
+
+        static public Geometry ToGeometry(this LineString line) {
+            Geometry geom = new Geometry(wkbGeometryType.wkbLineString);
+            SpatialReference sr = new SpatialReference(null);
+            ICRSObject crs = line.CRS;
+            if (crs == null)
+                crs = new NamedCRS("EPSG:4326");
+            switch (crs.Type) {
+                case CRSType.Name:
+                    string name = (crs as NamedCRS).Properties["name"] as string;
+                    if (name.Contains("urn")) {
+                        sr.ImportFromUrl(name);
+                    } else if (name.Contains("EPSG")) {
+                        string[] args = name.Split(':');
+                        sr.ImportFromEPSG(int.Parse(args[1]));
+                    } else {
+                        sr.SetWellKnownGeogCS(name);
+                    }
+                    break;
+                case CRSType.Link:
+                    string url = (crs as LinkedCRS).Properties["href"] as string;
+                    sr.ImportFromUrl(url);
+                    break;
+                case CRSType.Unspecified:
+                    sr.SetWellKnownGeogCS("EPSG:4326");
+                    break;
             }
-            return result;
+            geom.AssignSpatialReference(sr);
+            Position[] vertexes = line.Points();
+            foreach (Position vertex in vertexes) {
+                Nullable<double> alt = vertex.Altitude;
+                geom.AddPoint(vertex.Latitude, vertex.Longitude, alt ?? 0.0);
+            }
+            return geom;
         }
     }
 
@@ -180,7 +271,7 @@ namespace Virgis
         /// <param name="curve">DCurve</param>
         /// <param name="verteces">Vextor3[]</param>
         /// <param name="bClosed">whether the line is closed</param>
-        public static void Vector3(this g3.DCurve3 curve, Vector3[] verteces, bool bClosed)
+        public static DCurve3 Vector3(this DCurve3 curve, Vector3[] verteces, bool bClosed)
         {
             curve.ClearVertices();
             curve.Closed = bClosed;
@@ -188,6 +279,47 @@ namespace Virgis
             {
                 curve.AppendVertex(vertex);
             }
+            return curve;
+        }
+
+        public static DCurve3 FromGeometry(this DCurve3 curve, Geometry geom ) {
+            geom.TransformTo(AppState.instance.mapProj);
+            //byte[] wkb = new byte[geom.WkbSize()];
+            //geom.ExportToWkb(wkb, wkbByteOrder.wkbNDR);
+            //IGeometryObject line = WkbConverter.ToGeoJSONGeometry(wkb);
+            //if (line.Type == GeoJSON.Net.GeoJSONObjectType.LineString) {
+            //    LineString ls = line as LineString;
+            //    curve.Vector3(ls.Vector3(), ls.IsClosed());
+            //} else {
+            //    Debug.LogError("geometry is not a LineString");
+            //}
+            //Stream stream = new MemoryStream(wkb);
+            //Wkx.WkbSerializer ws = new Wkx.WkbSerializer();
+            //Wkx.Geometry wg = ws.Deserialize(stream);
+            //if (wg.GeometryType == Wkx.GeometryType.LineString) {
+            //    Wkx.LineString ls = wg as Wkx.LineString;
+            //    return ls;
+            //} else {
+            //    throw new NotSupportedException();
+            //}
+            int n = geom.GetPointCount();
+            Vector3d[] ls = new Vector3d[n];
+            for (int i = 0; i < n; i++) {
+                double[] argout = new double[3];
+                geom.GetPoint(i, argout);
+                ls[i] = new Vector3d(argout);
+            }
+            return new DCurve3(ls, geom.IsRing());
+        }
+
+        public static Vector3[] ToWorld(this DCurve3 curve) {
+            List<Vector3> ret = new List<Vector3>();
+            List<Vector3d> vertexes = curve.Vertices as List<Vector3d>;
+            for (int i = 0; i < curve.VertexCount; i++) {
+                Vector3 local = new Vector3((float)vertexes[i].x, (float)vertexes[i].z, (float)vertexes[i].y);
+                ret.Add(AppState.instance.map.transform.TransformVector(local));
+            }
+            return ret.ToArray();
         }
 
         /// <summary>
@@ -231,7 +363,34 @@ namespace Virgis
         }
     }
 
+    /// <summary>
+    ///Extension Methods to OGR Geometry
+    /// </summary>
+    public static class GeometryExtensions {
 
+        /// <summary>
+        /// COnvert Geometry to Vector3[] of World Space coordinates taking account of zoom
+        /// </summary>
+        /// <param name="geom"> Geometry</param>
+        /// <returns>VEctor3[]</returns>
+        public static Vector3[] TransformWorld(this Geometry geom) {
+            geom.TransformTo(AppState.instance.mapProj);
+            int count = geom.GetPointCount();
+            List<Vector3> ret = new List<Vector3>();
+            if (count > 0)
+                for (int i = 0; i < count; i++) {
+                    double[] argout = new double[3];
+                    geom.GetPoint(i, argout);
+                    Vector3 mapLocal = new Vector3((float) argout[0], (float) argout[2], (float) argout[1]);
+                    ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
+                }
+            else {
+                string wkt;
+
+            }
+            return ret.ToArray();
+        }
+    }
 
     public static class SimpleMeshExtensions
     {
@@ -289,6 +448,41 @@ namespace Virgis
                 Mathf.Round(vector3.y / roundTo) * roundTo,
                 Mathf.Round(vector3.z / roundTo) * roundTo
                 );
+        }
+    }
+    public static class FeatureExtensions {
+
+        public static bool ContainsKey(this Feature feature, string name) {
+            int fieldCount = feature.GetFieldCount();
+            bool flag = false;
+            for (int i = 0; i < fieldCount; i++) {
+                FieldDefn fd = feature.GetFieldDefnRef(i);
+                if (fd.GetName() == name) {
+                    flag = true;
+                    break;
+                }
+            }
+            return flag;
+        }
+
+        public static object Fetch(this Feature feature, string name) {
+            int fieldCount = feature.GetFieldCount();
+            object ret = null;
+            for (int i = 0; i < fieldCount; i++) {
+                FieldDefn fd = feature.GetFieldDefnRef(i);
+                if (fd.GetName() == name) {
+                    FieldType ft = fd.GetFieldType();
+                    switch (ft) {
+                        case FieldType.OFTString:
+                            ret = feature.GetFieldAsString(i);
+                            break;
+                        case FieldType.OFTReal:
+                            ret = feature.GetFieldAsDouble(i);
+                            break;
+                    }
+                }
+            }
+            return ret;
         }
     }
 

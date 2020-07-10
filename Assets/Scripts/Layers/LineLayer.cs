@@ -1,8 +1,8 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
-using GeoJSON.Net;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
+using g3;
+using OSGeo.OGR;
+using OSGeo.OSR;
 using Project;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Virgis
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLayer : VirgisLayer<GeographyCollection, FeatureCollection>
+    public class LineLayer : VirgisLayer<GeographyCollection, Layer>
     {
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
@@ -47,6 +47,7 @@ namespace Virgis
             await geoJsonReader.Load(layer.Source);
             features = geoJsonReader.getFeatureCollection();
             symbology = layer.Properties.Units;
+
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
             {
                 Shapes shape = symbology["point"].Shape;
@@ -108,30 +109,33 @@ namespace Virgis
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
-            return _drawFeature(geometry);
+            return _drawFeature(new DCurve3().Vector3(geometry, false));
         }
 
         protected override void _draw()
         {
-            foreach (Feature feature in features.Features)
-            {
-                // Get the geometry
-                MultiLineString mLines = null;
-                if (feature.Geometry.Type == GeoJSONObjectType.LineString)
-                {
-                    mLines = new MultiLineString(new List<LineString>() { feature.Geometry as LineString });
-                }
-                else if (feature.Geometry.Type == GeoJSONObjectType.MultiLineString)
-                {
-                    mLines = feature.Geometry as MultiLineString;
-                }
-
-                IDictionary<string, object> properties = feature.Properties;
-                string gisId = feature.Id;
-
-                foreach (LineString line in mLines.Coordinates)
-                {
-                    _drawFeature(line.Vector3(), line.IsLinearRing(), gisId, properties as Dictionary<string, object>);
+            long FeatureCount = features.GetFeatureCount(1);
+            for (int i = 0; i < FeatureCount; i++) {
+                Feature feature = features.GetFeature(i);
+                Geometry line = feature.GetGeometryRef();
+                if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
+                    line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
+                    line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
+                    line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
+                ) {
+                    _drawFeature(new DCurve3().FromGeometry(line));
+                } else if 
+                    (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
+                    line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
+                    line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringM ||
+                    line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringZM
+                 ) {
+                    int n = line.GetGeometryCount();
+                    for (int j = 0; j < n; j++) {
+                        Geometry Line2 = line.GetGeometryRef(j);
+                        string Type = Line2.GetGeometryType().ToString();
+                        _drawFeature(new DCurve3().FromGeometry(Line2));
+                    }
                 }
             }
         }
@@ -141,19 +145,18 @@ namespace Virgis
         /// Draws a single feature based on world scale coordinates
         /// </summary>
         /// <param name="line"> Vector3[] coordinates</param>
-        /// <param name="Lr"> boolean Is the line a linear ring , deafult false</param>
-        /// <param name="gisId">string Id</param>
-        /// <param name="properties">Dictionary properties</param>
-        protected VirgisFeature _drawFeature(Vector3[] line, bool Lr = false, string gisId = null, Dictionary<string, object> properties = null)
+        /// <param name="feature">Featire (optinal)</param>
+        protected VirgisFeature _drawFeature(DCurve3 line, Feature feature = null)
         {
             GameObject dataLine = Instantiate(LinePrefab, transform, false);
 
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
-            com.gisId = gisId;
-            com.gisProperties = properties ?? new Dictionary<string, object>();
+            if (feature != null)
+                com.feature = feature;
+
             //Draw the line
-            com.Draw(line, Lr, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
+            com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
 
             return com;
         }
@@ -162,26 +165,27 @@ namespace Virgis
         {
         }
 
-        protected override async Task _save()
+        protected override Task _save()
         {
-            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            List<Feature> thisFeatures = new List<Feature>();
-            foreach (Dataline dataFeature in dataFeatures)
-            {
-                Vector3[] vertices = dataFeature.GetVertexPositions();
-                List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices)
-                {
-                    positions.Add(vertex.ToPosition() as Position);
-                }
-                List<LineString> lines = new List<LineString>();
-                lines.Add(new LineString(positions));
-                thisFeatures.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
-            };
-            FeatureCollection FC = new FeatureCollection(thisFeatures);
-            geoJsonReader.SetFeatureCollection(FC);
-            await geoJsonReader.Save();
-            features = FC;
+            //Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+            //List<Feature> thisFeatures = new List<Feature>();
+            //foreach (Dataline dataFeature in dataFeatures)
+            //{
+            //    Vector3[] vertices = dataFeature.GetVertexPositions();
+            //    List<Position> positions = new List<Position>();
+            //    foreach (Vector3 vertex in vertices)
+            //    {
+            //        positions.Add(vertex.ToPosition() as Position);
+            //    }
+            //    List<LineString> lines = new List<LineString>();
+            //    lines.Add(new LineString(positions));
+            //    thisFeatures.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
+            //};
+            //FeatureCollection FC = new FeatureCollection(thisFeatures);
+            //geoJsonReader.SetFeatureCollection(FC);
+            //geoJsonReader.Save();
+            //features = FC;
+            return Task.CompletedTask;
         }
 
         public override GameObject GetFeatureShape()

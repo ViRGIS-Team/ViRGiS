@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public interface IVirgisLayer: IVirgisEntity {
+    public interface IVirgisLayer : IVirgisEntity {
 
         VirgisFeature AddFeature(Vector3[] geometry);
         void Draw();
@@ -25,16 +25,11 @@ namespace Virgis {
     /// <summary>
     /// Abstract parent for all Layer entities
     /// </summary>
-    public abstract class VirgisLayer<T, S> : MonoBehaviour, IVirgisLayer where T : RecordSet {
+    public abstract class VirgisLayer : MonoBehaviour, IVirgisLayer {
 
-        readonly Type LayerType = typeof(T);
-        readonly Type DataType = typeof(S);
+        public RecordSet _layer;
 
-
-        public T layer; // holds the RecordSet data for this layer
-        public S features; // holds the feature data for this layer
         public bool changed = true; // true is this layer has been changed from the original file
-
         protected Guid _id;
         protected bool _editable;
 
@@ -50,28 +45,6 @@ namespace Virgis {
             AppState.instance.editSession.AddStartEditSessionListener(StartEditSession);
             AppState.instance.editSession.AddEndEditSessionListener(ExitEditSession);
         }
-
-
-        /// <summary>
-        /// Called to initialise this layer
-        /// 
-        /// If the data cannot be read, fails quitely and creates an empty layer
-        /// </summary>
-        /// <param name="layer"> The GeographyCollection object that defines this layer</param>
-        /// <returns>refernce to this GameObject for chaining</returns>
-        public async Task<VirgisLayer<T, S>> Init(T layer) {
-            this.layer = layer;
-            await _init(layer);
-            return this;
-        }
-
-
-        /// <summary>
-        /// Implement the layer specific init code in this method
-        /// </summary>
-        /// <param name="layer"></param>
-        /// <returns></returns>
-        protected abstract Task _init(T layer);
 
         /// <summary>
         /// Call this to create a new feature
@@ -143,7 +116,7 @@ namespace Virgis {
             if (changed) {
                 await _save();
             }
-            return layer;
+            return GetMetadata();
         }
 
         /// <summary>
@@ -180,7 +153,7 @@ namespace Virgis {
         /// Called when an edit session starts
         /// </summary>
         public virtual void StartEditSession() {
-           // do nothing
+            // do nothing
         }
 
         /// <summary>
@@ -242,19 +215,31 @@ namespace Virgis {
         /// </summary>
         /// <returns></returns>
         public RecordSet GetMetadata() {
-            return layer;
+            return _layer;
+        }
+
+        /// <summary>
+        /// Sets the layer Metadat
+        /// </summary>
+        /// <param name="layer">Data tyoe that inherits form RecordSet</param>
+        public void SetMetadata(RecordSet layer) {
+            _layer = layer;
         }
 
 
         public virtual GameObject GetFeatureShape() {
-            return null;
+            return default;
         }
 
-        public void SetVisible(bool visible) {
-            if (layer.Visible != visible) {
-                layer.Visible = visible;
+        public virtual void SetVisible(bool visible) {
+            if (_layer.Visible != visible) {
+                _layer.Visible = visible;
                 gameObject.SetActive(visible);
+                _set_visible();
             }
+        }
+
+        public virtual void _set_visible() {
         }
 
         /// <summary>
@@ -262,7 +247,7 @@ namespace Virgis {
         /// </summary>
         /// <returns>Boolean</returns>
         public bool IsVisible() {
-            return layer.Visible;
+            return _layer.Visible;
         }
 
         /// <summary>
@@ -288,7 +273,7 @@ namespace Virgis {
         public override bool Equals(object obj) {
             if (obj == null)
                 return false;
-            VirgisLayer<T,S> com = obj as VirgisLayer<T,S>;
+            VirgisLayer com = obj as VirgisLayer;
             if (com == null)
                 return false;
             else
@@ -298,11 +283,70 @@ namespace Virgis {
         public override int GetHashCode() {
             return _id.GetHashCode();
         }
-        public bool Equals(VirgisLayer<T,S> other) {
+        public bool Equals(VirgisLayer other) {
             if (other == null)
                 return false;
             return (this._id.Equals(other.GetId()));
         }
+    }
+
+    public abstract class VirgisLayer<T, S> : VirgisLayer where T : RecordSet {
+        readonly Type LayerType = typeof(T);
+        readonly Type DataType = typeof(S);
+
+        public S features; // holds the feature data for this layer
+
+
+
+        /// <summary>
+        /// Called to initialise this layer
+        /// 
+        /// If the data cannot be read, fails quitely and creates an empty layer
+        /// </summary>
+        /// <param name="layer"> The GeographyCollection object that defines this layer</param>
+        /// <returns>refernce to this GameObject for chaining</returns>
+        public async Task<VirgisLayer<T, S>> Init(T layer) {
+            SetMetadata(layer as RecordSet);
+            await _init(layer);
+            return this;
+        }
+
+        /// <summary>
+        /// Implement the layer specific init code in this method
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <returns></returns>
+        protected abstract Task _init(T layer);
+
+
+        public new T GetMetadata() {
+            return (this as VirgisLayer).GetMetadata() as T;
+        }
+
+        public void SetMetadata(T layer) {
+            (this as VirgisLayer).SetMetadata(layer);
+        }
+
+
+        public override bool Equals(object obj) {
+            if (obj == null)
+                return false;
+            VirgisLayer<T, S> com = obj as VirgisLayer<T, S>;
+            if (com == null)
+                return false;
+            else
+                return Equals(com);
+        }
+
+        public override int GetHashCode() {
+            return _id.GetHashCode();
+        }
+        public bool Equals(VirgisLayer<T, S> other) {
+            if (other == null)
+                return false;
+            return (this._id.Equals(other.GetId()));
+        }
+
     }
 }
 
