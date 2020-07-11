@@ -107,23 +107,31 @@ namespace Virgis
             lineSelected.SetColor("_BaseColor", lineSel);
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
+        protected override VirgisFeature _addFeature(Vector3[] line)
         {
-            return _drawFeature(new DCurve3().Vector3(geometry, false));
+            Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
+            geom.AssignSpatialReference(AppState.instance.mapProj);
+            geom.Vector3(line);
+            return _drawFeature(geom, new Feature(new FeatureDefn(null)));
         }
 
         protected override void _draw()
         {
             long FeatureCount = features.GetFeatureCount(1);
+            features.ResetReading();
             for (int i = 0; i < FeatureCount; i++) {
-                Feature feature = features.GetFeature(i);
+                Feature feature = features.GetNextFeature();
+                if (feature == null)
+                    continue;
                 Geometry line = feature.GetGeometryRef();
+                if (line == null)
+                    continue;
                 if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
                     line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
                     line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
                     line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
                 ) {
-                    _drawFeature(new DCurve3().FromGeometry(line));
+                    _drawFeature(line, feature);
                 } else if 
                     (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
                     line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
@@ -134,7 +142,7 @@ namespace Virgis
                     for (int j = 0; j < n; j++) {
                         Geometry Line2 = line.GetGeometryRef(j);
                         string Type = Line2.GetGeometryType().ToString();
-                        _drawFeature(new DCurve3().FromGeometry(Line2));
+                        _drawFeature(Line2, feature);
                     }
                 }
             }
@@ -146,7 +154,7 @@ namespace Virgis
         /// </summary>
         /// <param name="line"> Vector3[] coordinates</param>
         /// <param name="feature">Featire (optinal)</param>
-        protected VirgisFeature _drawFeature(DCurve3 line, Feature feature = null)
+        protected VirgisFeature _drawFeature(Geometry line, Feature feature = null)
         {
             GameObject dataLine = Instantiate(LinePrefab, transform, false);
 
@@ -167,25 +175,19 @@ namespace Virgis
 
         protected override Task _save()
         {
-            //Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            //List<Feature> thisFeatures = new List<Feature>();
-            //foreach (Dataline dataFeature in dataFeatures)
-            //{
-            //    Vector3[] vertices = dataFeature.GetVertexPositions();
-            //    List<Position> positions = new List<Position>();
-            //    foreach (Vector3 vertex in vertices)
-            //    {
-            //        positions.Add(vertex.ToPosition() as Position);
-            //    }
-            //    List<LineString> lines = new List<LineString>();
-            //    lines.Add(new LineString(positions));
-            //    thisFeatures.Add(new Feature(new MultiLineString(lines), dataFeature.gisProperties, dataFeature.gisId));
-            //};
-            //FeatureCollection FC = new FeatureCollection(thisFeatures);
-            //geoJsonReader.SetFeatureCollection(FC);
-            //geoJsonReader.Save();
-            //features = FC;
+            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+            foreach (Dataline dataFeature in dataFeatures) {
+                Feature feature = dataFeature.feature;
+                Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
+                geom.AssignSpatialReference(AppState.instance.mapProj);
+                geom.Vector3(dataFeature.GetVertexPositions());
+                geom.TransformTo(geoJsonReader.CRS);
+                feature.SetGeometryDirectly(geom);
+                features.SetFeature(feature);
+            };
+            features.SyncToDisk();
             return Task.CompletedTask;
+
         }
 
         public override GameObject GetFeatureShape()

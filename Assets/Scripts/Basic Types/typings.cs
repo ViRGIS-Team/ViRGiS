@@ -94,8 +94,7 @@ namespace Virgis {
         static public Geometry ToGeometry(this Vector3 position) {
             Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
             geom.AssignSpatialReference(AppState.instance.mapProj);
-            Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(position);
-            geom.AddPoint(mapLocal.x, mapLocal.z, mapLocal.y);
+            geom.Vector3(new Vector3[1] { position });
             return geom;
         }
 
@@ -294,7 +293,10 @@ namespace Virgis {
                 geom.GetPoint(i, argout);
                 ls[i] = new Vector3d(argout);
             }
-            return new DCurve3(ls, geom.IsRing());
+            curve.ClearVertices();
+            curve.SetVertices(ls);
+            curve.Closed = geom.IsRing();
+            return curve;
         }
 
         /// <summary>
@@ -382,6 +384,14 @@ namespace Virgis {
             }
             return ret.ToArray();
         }
+
+        public static Geometry Vector3(this Geometry geom, Vector3[] points) {
+            foreach (Vector3 point in points) {
+                Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(point);
+                geom.AddPoint(mapLocal.x, mapLocal.z, mapLocal.y);
+            }
+            return geom;
+        }
     }
 
     public static class SimpleMeshExtensions
@@ -457,7 +467,7 @@ namespace Virgis {
             return flag;
         }
 
-        public static object Fetch(this Feature feature, string name) {
+        public static object Get(this Feature feature, string name) {
             int fieldCount = feature.GetFieldCount();
             object ret = null;
             for (int i = 0; i < fieldCount; i++) {
@@ -471,10 +481,34 @@ namespace Virgis {
                         case FieldType.OFTReal:
                             ret = feature.GetFieldAsDouble(i);
                             break;
+                        case FieldType.OFTInteger:
+                            ret = feature.GetFieldAsInteger(i);
+                            break;
                     }
                 }
             }
             return ret;
+        }
+
+        public static void Set(this Feature feature, string name, double value) {
+            int i = feature.GetFieldIndex(name);
+            if (i > -1) {
+                feature.SetField(name, value);
+            }
+        }
+
+        public static void Set(this Feature feature, string name, string value) {
+            int i = feature.GetFieldIndex(name);
+            if (i > -1) {
+                feature.SetField(name, value);
+            }
+        }
+
+        public static void Set(this Feature feature, string name, int value) {
+            int i = feature.GetFieldIndex(name);
+            if (i > -1) {
+                feature.SetField(name, value);
+            }
         }
     }
 

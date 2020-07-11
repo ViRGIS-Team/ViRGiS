@@ -62,7 +62,7 @@ namespace Virgis
         /// </summary>
         async void Start()
         {
-            // Fetch Project definition - return if the file cannot be read - this will lead to an empty world
+            // Get Project definition - return if the file cannot be read - this will lead to an empty world
             projectJsonReader = new ProjectJsonReader();
             await projectJsonReader.Load(inputfile);
             if (projectJsonReader.payload is null)
