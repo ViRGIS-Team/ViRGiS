@@ -90,7 +90,7 @@ namespace Virgis {
                         if (_newFeature != null) {
                             _newFeature.AddVertex(posWhenSinglePress);
                         } else {
-                            _newFeature = editableLayer.AddFeature(new Vector3[2] { posWhenSinglePress, posWhenSinglePress + Vector3.one * Single.Epsilon });
+                            _newFeature = editableLayer.AddFeature(new Vector3[2] { posWhenSinglePress, posWhenSinglePress + Vector3.one * 0.1f });
                             // get the last vertex
                             vertexes = (_newFeature as Dataline).GetVertexes();
                             _firstVertex = vertexes[0];

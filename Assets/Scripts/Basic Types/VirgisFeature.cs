@@ -146,7 +146,7 @@ namespace Virgis
         /// <returns>VirgisComponent The new vertex</returns>
         public virtual VirgisFeature AddVertex(Vector3 position) {
             // do nothing
-            throw new System.NotImplementedException();
+            return this;
         }
 
         /// <summary>

@@ -114,11 +114,12 @@ namespace Virgis
             bodyMain.SetColor("_BaseColor", body);
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
+        protected override VirgisFeature _addFeature(Vector3[] line)
         {
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(geometry, true);
-            return _drawFeature(new DCurve3().Vector3(geometry, false), (Vector3)curve.Center());
+            Geometry geom = new Geometry(wkbGeometryType.wkbLinearRing);
+            geom.AssignSpatialReference(AppState.instance.mapProj);
+            geom.Vector3(line);
+            return _drawFeature(geom, (Vector3) new DCurve3().Vector3(line, true).Center(), new Feature(new FeatureDefn(null)));
         }
 
         protected override void _draw()
@@ -128,21 +129,22 @@ namespace Virgis
             for (int i = 0; i < FeatureCount; i++)
             {
                 Feature feature = features.GetNextFeature();
+                if (feature == null)
+                    continue;
                 Geometry poly = feature.GetGeometryRef();
-                Geometry center = poly.Centroid();
-                center.AssignSpatialReference(geoJsonReader.CRS);
+                if (poly == null)
+                    continue;
                 if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
                     Geometry line = poly.GetGeometryRef(0);
-                    wkbGeometryType type = line.GetGeometryType();
-                    if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D ) {
-                        _drawFeature(new DCurve3().FromGeometry(line), center.TransformWorld()[0], feature);
+                    if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
+                        _drawFeature(line, (Vector3) new DCurve3().Vector3(line.TransformWorld(), true).Center(), feature);
                     }
                 }
             }
 
         }
 
-        protected VirgisFeature _drawFeature(DCurve3 perimeter, Vector3 center, Feature feature = null)
+        protected VirgisFeature _drawFeature(Geometry perimeter, Vector3 center, Feature feature = null)
         {
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
@@ -165,7 +167,7 @@ namespace Virgis
                 GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false);
                 labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string)feature.Fetch(symbology["body"].Label);
+                labelText.text = (string)feature.Get(symbology["body"].Label);
             }
 
             // Darw the LinearRing
@@ -187,36 +189,25 @@ namespace Virgis
         protected override void _checkpoint()
         {
         }
-        protected override async Task _save()
+        protected override Task _save()
         {
-            //Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
-            //List<Feature> thisFeatures = new List<Feature>();
-            //foreach (Datapolygon dataFeature in dataFeatures)
-            //{
-            //    Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-            //    Vector3[] vertices = perimeter.GetVertexPositions();
-            //    List<Position> positions = new List<Position>();
-            //    foreach (Vector3 vertex in vertices)
-            //    {
-            //        positions.Add(vertex.ToPosition() as Position);
-            //    }
-            //    LineString line = new LineString(positions);
-            //    if (!line.IsLinearRing())
-            //    {
-            //        Debug.LogError("This Polygon is not a Linear Ring");
-            //        return;
-            //    }
-            //    List<LineString> LinearRings = new List<LineString>();
-            //    LinearRings.Add(line);
-            //    Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string,object> ?? new Dictionary<string,object>();
-            //    Vector3 centroid = dataFeature.Centroid;
-            //    properties["polyhedral"] = centroid.ToPoint();
-            //    thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
-            //};
-            //FeatureCollection FC = new FeatureCollection(thisFeatures);
-            //geoJsonReader.SetFeatureCollection(FC);
-            //geoJsonReader.Save();
-            //features = FC;
+            Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
+            foreach (Datapolygon dataFeature in dataFeatures)
+            {
+                Feature feature = dataFeature.feature;
+                Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
+                Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
+                geom.AssignSpatialReference(AppState.instance.mapProj);
+                Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
+                lr.Vector3(dataFeature.GetVertexPositions());
+                lr.CloseRings();
+                geom.AddGeometryDirectly(lr);
+                geom.TransformTo(geoJsonReader.CRS);
+                feature.SetGeometryDirectly(geom);
+                features.SetFeature(feature);
+            };
+            features.SyncToDisk();
+            return Task.CompletedTask;
         }
 
 
