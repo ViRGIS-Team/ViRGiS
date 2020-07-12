@@ -63,7 +63,7 @@ namespace Virgis {
         }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry) {
-            VirgisFeature newFeature = _drawFeature(geometry[0]);
+            VirgisFeature newFeature = _drawFeature(geometry[0], new Feature(new FeatureDefn(null)));
             changed = true;
             return newFeature;
         }
@@ -113,7 +113,7 @@ namespace Virgis {
                 labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
                 labelObject.transform.localPosition = Vector3.up * displacement;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string) feature.Fetch(symbology["point"].Label);
+                labelText.text = (string) feature.Get(symbology["point"].Label);
             }
 
             return com;
@@ -130,7 +130,7 @@ namespace Virgis {
                 Feature feature = pointFunc.feature;
                 Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
                 geom.TransformTo(geoJsonReader.CRS);
-                feature.SetGeometry(geom);
+                feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
             }
             features.SyncToDisk();

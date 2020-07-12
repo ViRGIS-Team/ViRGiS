@@ -211,7 +211,7 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Fetch the metadata for this Layer
+        /// Get the metadata for this Layer
         /// </summary>
         /// <returns></returns>
         public RecordSet GetMetadata() {

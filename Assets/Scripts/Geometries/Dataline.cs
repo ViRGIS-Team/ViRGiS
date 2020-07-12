@@ -8,6 +8,7 @@ using Project;
 using g3;
 using UnityEngine.UI;
 using System.Linq;
+using OSGeo.OGR;
 
 namespace Virgis
 {
@@ -29,7 +30,7 @@ namespace Virgis
         private GameObject LabelPrefab;
         private Material lineMain;
         private Material lineSelected;
-        private DCurve3 curve = new DCurve3();
+        public DCurve3 curve = new DCurve3();
 
 
 
@@ -53,6 +54,7 @@ namespace Virgis
                     if (vLookup.Line && vLookup.Line.vEnd == vdata.Vertex)
                         vLookup.Line.MoveEnd(data.pos);
                 }
+                curve.Vector3(GetVertexPositions(), Lr);
                 if (label) label.position = _labelPosition();
             }
         }
@@ -99,7 +101,7 @@ namespace Virgis
         /// <param name="LinePrefab"> The prefab to be used for the line</param>
         /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
-        public void Draw(DCurve3 curve, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+        public void Draw(Geometry geom, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
         {
             this.symbology = symbology;
             this.LinePrefab = LinePrefab;
@@ -109,9 +111,9 @@ namespace Virgis
             this.selectedMat = selectedMat;
             this.lineMain = lineMain;
             this.lineSelected = lineSelected;
-            Lr = curve.Closed;
-            this.curve = curve;
-            Vector3[] line = curve.ToWorld();
+            Lr = geom.IsRing();
+            Vector3[] line = geom.TransformWorld();
+            curve.FromGeometry(geom);
 
 
             int i = 0;
@@ -136,7 +138,7 @@ namespace Virgis
                     GameObject labelObject = Instantiate(LabelPrefab, _labelPosition(), Quaternion.identity, transform);
                     label = labelObject.transform;
                     Text labelText = labelObject.GetComponentInChildren<Text>();
-                    labelText.text = (string)feature.Fetch(symbology["line"].Label);
+                    labelText.text = (string)feature.Get(symbology["line"].Label);
                 }
             }
         }
@@ -359,7 +361,6 @@ namespace Virgis
         /// 
         /// <returns></returns>
         private Vector3 Center() {
-            curve.Vector3(GetVertexPositions(), Lr);
             return (Vector3) curve.CenterMark();
         }
 
