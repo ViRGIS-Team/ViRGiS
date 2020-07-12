@@ -147,28 +147,9 @@ namespace Virgis
                     ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
                     LineString perimeter = LinearRings[0];
                     Vector3[] poly = perimeter.Vector3();
-                    Vector3 center = Vector3.zero;
-                    if (properties.ContainsKey("polyhedral") && properties["polyhedral"] != null)
-                    {
-                        if (properties["polyhedral"].GetType() != typeof(Point))
-                        {
-                            JObject jobject = (JObject)properties["polyhedral"];
-                            Point centerPoint = jobject.ToObject<Point>();
-                            center = centerPoint.Coordinates.Vector3();
-                            properties["polyhedral"] = center.ToPoint();
-                        }
-                        else
-                        {
-                            center = (properties["polyhedral"] as Point).Coordinates.Vector3();
-                        }
-                    }
-                    else
-                    {
-                        DCurve3 curve = new DCurve3();
-                        curve.Vector3(poly, true);
-                        center = (Vector3)curve.Center();
-                        properties["polyhedral"] = center.ToPoint();
-                    }
+                    DCurve3 curve = new DCurve3();
+                    curve.Vector3(poly, true);
+                    Vector3 center = (Vector3)curve.Center();
                     _drawFeature(poly, center, gisId, properties as Dictionary<string, object>);
                 }
             }
@@ -180,21 +161,19 @@ namespace Virgis
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
             GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
-            GameObject centroid = Instantiate(HandlePrefab, dataLine.transform, false);
+
 
             // add the gis data from geoJSON
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
-            Datapoint c = centroid.GetComponent<Datapoint>();
+
             p.gisId = gisId;
             p.gisProperties = properties ?? new Dictionary<string, object>();
-            p.Centroid = c;
-            c.SetMaterial(mainMat, selectedMat);
 
             if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (properties?.ContainsKey(symbology["body"].Label) ?? false))
             {
                 //Set the label
-                GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false);
-                labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
+                GameObject labelObject = Instantiate(LabelPrefab, dataPoly.transform, false);
+                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = (string)properties[symbology["body"].Label];
             }
@@ -205,10 +184,6 @@ namespace Virgis
 
             //Draw the Polygon
             p.Draw(Lr.VertexTable, bodyMain);
-
-            centroid.transform.localScale = symbology["point"].Transform.Scale;
-            centroid.transform.localRotation = symbology["point"].Transform.Rotate;
-            centroid.transform.localPosition = symbology["point"].Transform.Position;
 
             return p;
         }
@@ -238,8 +213,6 @@ namespace Virgis
                 List<LineString> LinearRings = new List<LineString>();
                 LinearRings.Add(line);
                 Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string, object> ?? new Dictionary<string, object>();
-                Datapoint centroid = dataFeature.Centroid;
-                properties["polyhedral"] = centroid.transform.position.ToPoint();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };
             FeatureCollection FC = new FeatureCollection(thisFeatures);

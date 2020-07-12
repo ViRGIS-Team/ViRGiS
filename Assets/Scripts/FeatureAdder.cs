@@ -102,11 +102,9 @@ namespace Virgis {
                         if (_newFeature != null) {
                             if (_lastVertex.Count == 1) {
                                 _newFeature.transform.GetComponentInChildren<Dataline>().AddVertex(posWhenSinglePress);
-                                (_newFeature as Datapolygon).ResetCenter();
                             } else {
                                 _lastVertex[0].UnSelected(SelectionTypes.SELECT);
                                 _lastVertex.RemoveAt(0);
-                                (_newFeature as Datapolygon).ResetCenter();
                             }
 
                         } else {

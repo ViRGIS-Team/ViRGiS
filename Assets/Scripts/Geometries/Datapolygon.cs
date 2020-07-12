@@ -4,6 +4,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using g3;
+using System.Linq;
 
 namespace Virgis
 {
@@ -17,7 +18,6 @@ namespace Virgis
 
         private bool BlockMove = false; // Is this component in a block move state
         private GameObject Shape; // gameObject to be used for the shape
-        public Datapoint Centroid; // Polyhedral center vertex
         public List<VertexLookup> VertexTable;
 
 
@@ -97,11 +97,10 @@ namespace Virgis
         {
             
             VertexTable = verteces;
-            VertexTable.Add(new VertexLookup() { Id = Centroid.GetId(), Vertex = -1, Com = Centroid });
             
             Shape = new GameObject("Polygon Shape");
             Shape.transform.parent = gameObject.transform;
-            Shape.transform.position = Centroid.transform.position;
+
 
             MakeMesh();
 
@@ -126,10 +125,21 @@ namespace Virgis
             if (mf == null)  mf = Shape.AddComponent<MeshFilter>();
             mf.mesh = null;
             Mesh mesh = new Mesh();
-            Vector3[] vertices = Vertices();
-            mesh.vertices = vertices;
-            mesh.triangles = Triangles(vertices.Length - 1);
-            mesh.uv = BuildUVs(vertices);
+            Vector3d[] vertices3d = Vertices();
+            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices3d.ToList<Vector3d>());
+            Frame3f frame = new Frame3f(orth.Origin, orth.Normal);
+            List<Vector2d> vertices2d = new List<Vector2d>();
+            foreach (Vector3d v in vertices3d)
+                vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
+            List<Vector3> vertices3 = new List<Vector3>();
+            foreach (Vector3d v in vertices3d)
+                vertices3.Add((Vector3) v);
+            TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
+            tpg.Polygon = new GeneralPolygon2d(new Polygon2d(vertices2d));
+            tpg.Generate();
+            mesh.vertices = vertices3.ToArray();
+            mesh.triangles = tpg.triangles.ToArray<int>();
+            mesh.uv = BuildUVs(vertices3.ToArray());
 
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
@@ -178,15 +188,15 @@ namespace Virgis
         /// <param name="poly">Vector3[] LineString in Worlspace coordinates</param>
         /// <param name="center">Vector3 centroid in Worldspace coordinates</param>
         /// <returns></returns>
-        public Vector3[] Vertices()
+        public Vector3d[] Vertices()
         {
-            Vector3[] vertices = new Vector3[VertexTable.Count];
-            vertices[0] = Shape.transform.InverseTransformPoint(Centroid.transform.position);
+            Vector3d[] vertices = new Vector3d[VertexTable.Count];
+            //vertices[0] = Shape.transform.InverseTransformPoint(Centroid.transform.position);
 
 
-            for (int i = 0; i < VertexTable.Count - 1; i++)
+            for (int i = 0; i < VertexTable.Count; i++)
             {
-                vertices[i + 1] = Shape.transform.InverseTransformPoint(VertexTable.Find(item => item.Vertex == i).Com.transform.position);
+                vertices[i] = Shape.transform.InverseTransformPoint(VertexTable.Find(item => item.Vertex == i).Com.transform.position);
             }
 
             return vertices;
@@ -194,41 +204,6 @@ namespace Virgis
 
         // STATIC METHODS TO HELP CREATE A POLYGON
 
-        /// <summary>
-        /// calculate the Triangles for a Polyhrderon with length verteces
-        /// </summary>
-        /// <param name="length">number of verteces not including the centroid</param>
-        /// <returns></returns>
-        public static int[] Triangles(int length)
-        {
-            
-            int[] triangles = new int[length * 3];
-
-            for (int i = 0; i < length - 1; i++)
-            {
-                triangles[i * 3] = i + 2;
-                triangles[i * 3 + 1] = 0;
-                triangles[i * 3 + 2] = i + 1;
-            }
-
-            triangles[(length - 1) * 3] = 1;
-            triangles[(length - 1) * 3 + 1] = 0;
-            triangles[(length - 1) * 3 + 2] = length;
-
-            return triangles;
-        }
-
-
-        /// <summary>
-        /// Reset the center vertex to be the center of the Linear Ring vertexes
-        /// </summary>
-        public void ResetCenter() {
-            VertexLookup centroid = VertexTable.Find(item => item.Vertex == -1);
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(GetVertexPositions(), true);
-            centroid.Com.transform.position = (Vector3)curve.Center();
-            MakeMesh();
-        }
 
         static Vector2[] BuildUVs(Vector3[] vertices)
         {
