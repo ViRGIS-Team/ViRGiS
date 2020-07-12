@@ -19,6 +19,7 @@ namespace Virgis {
         private List<Component> _layers;
         private ZoomEvent _zoomChange;
         private SpatialReference _crs;
+        private CoordinateTransformation _trans;
 
         void Awake() {
             print("AppState awakens");
@@ -69,6 +70,10 @@ namespace Virgis {
             get => _crs;
         }
 
+        public CoordinateTransformation mapTrans {
+            get => _trans;
+        }
+
         public void initProj() {
             if (project != null) {
                 try {
@@ -96,6 +101,11 @@ namespace Virgis {
         AXIS[""(N)"", north, ORDER[2], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]]]");
                 //_crs.ImportFromProj4($"+proj=tmerc +datum=WGS84 +units=m +axis=enu +no-defs +lat_0={project.Origin.Coordinates.Latitude} +lon_0={project.Origin.Coordinates.Longitude}");
             }
+            CoordinateTransformationOptions op = new CoordinateTransformationOptions();
+            op.SetOperation("+proj=axisswap +order=1,3,2");
+            _trans = new CoordinateTransformation(_crs, _crs, op);
+            if (_trans == null)
+                throw new NotSupportedException("transformation failed");
         }
 
         public List<Component> layers {
