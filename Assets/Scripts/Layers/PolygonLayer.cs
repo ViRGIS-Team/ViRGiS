@@ -118,7 +118,9 @@ namespace Virgis
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
-            return _drawFeature(geometry, geometry[0]);
+            List<Position> coords = new List<Position>();
+            foreach (Vector3 position in geometry) coords.Add(position.ToPosition() as Position);
+            return _drawFeature(new List<LineString>() { new LineString(coords)});
         }
 
         protected override void _draw()
@@ -143,22 +145,23 @@ namespace Virgis
                 foreach (Polygon mPol in mPols.Coordinates)
                 {
                     ReadOnlyCollection<LineString> LinearRings = mPol.Coordinates;
-                    LineString perimeter = LinearRings[0];
-                    Vector3[] poly = perimeter.Vector3();
-                    DCurve3 curve = new DCurve3();
-                    curve.Vector3(poly, true);
-                    Vector3 center = (Vector3)curve.Center();
-                    _drawFeature(poly, center, gisId, properties as Dictionary<string, object>);
+                    _drawFeature(LinearRings, gisId, properties as Dictionary<string, object>);
                 }
             }
 
         }
 
-        protected VirgisFeature _drawFeature(Vector3[] perimeter, Vector3 center, string gisId = null, Dictionary<string, object> properties = null)
+        protected VirgisFeature _drawFeature(IEnumerable<LineString> LinearRings, string gisId = null, Dictionary<string, object> properties = null)
         {
+
+            LineString perimeter = (LinearRings as ReadOnlyCollection<LineString>)[0];
+            Vector3[] poly = perimeter.Vector3();
+            DCurve3 curve = new DCurve3();
+            curve.Vector3(poly, true);
+            Vector3 center = (Vector3) curve.Center();
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
-            GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
+
 
 
             // add the gis data from geoJSON
@@ -176,12 +179,19 @@ namespace Virgis
                 labelText.text = (string)properties[symbology["body"].Label];
             }
 
+
+            List<Dataline> polygon = new List<Dataline>();
             // Darw the LinearRing
-            Dataline Lr = dataLine.GetComponent<Dataline>();
-            Lr.Draw(perimeter, true, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
+            foreach (LineString LinearRing in LinearRings) {
+                Vector3[] lr = LinearRing.Vector3();
+                GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
+                Dataline com = dataLine.GetComponent<Dataline>();
+                com.Draw(lr, true, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
+                polygon.Add(com);
+            }
 
             //Draw the Polygon
-            p.Draw(Lr.VertexTable, bodyMain);
+            p.Draw(polygon, bodyMain);
 
             return p;
         }

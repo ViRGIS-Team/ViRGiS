@@ -1,9 +1,10 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System;
 using UnityEngine;
 using GeoJSON.Net.Geometry;
 using g3;
-using System;
 using Mapbox.Unity.Utilities;
 
 
@@ -231,6 +232,36 @@ namespace Virgis
         }
     }
 
+
+    public static class PolygonExtensions {
+
+        public static GeneralPolygon2d ToPolygon(this List<Dataline> list) {
+            List<VertexLookup> VertexTable = list[0].VertexTable;
+            Vector3d[] vertices = new Vector3d[VertexTable.Count];
+            for (int j = 0; j < VertexTable.Count; j++) {
+                vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
+            }
+            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices);
+            Frame3f frame = new Frame3f(orth.Origin, orth.Normal);
+            GeneralPolygon2d poly = new GeneralPolygon2d(new Polygon2d());
+            for (int i = 0; i<list.Count; i++) {
+                VertexTable = list[i].VertexTable;
+                vertices = new Vector3d[VertexTable.Count];
+                for (int j = 0; j < VertexTable.Count; j++) {
+                    vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
+                }
+                List<Vector2d> vertices2d = new List<Vector2d>();
+                foreach (Vector3d v in vertices)
+                    vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
+                if (i == 0) {
+                    poly.Outer = new Polygon2d(vertices2d);
+                } else {
+                    poly.AddHole(new Polygon2d(vertices2d), true, false);
+                }
+            }
+            return poly;
+        }
+    }
 
 
     public static class SimpleMeshExtensions

@@ -19,6 +19,7 @@ namespace Virgis
         private bool BlockMove = false; // Is this component in a block move state
         private GameObject Shape; // gameObject to be used for the shape
         public List<VertexLookup> VertexTable;
+        public List<Dataline> Polygon;
 
 
         public override void Selected(SelectionTypes button)
@@ -93,10 +94,11 @@ namespace Virgis
         /// <param name="perimeter">LineString defining the perimter of the polygon</param>
         /// <param name="mat"> Material to be used</param>
         /// <returns></returns>
-        public GameObject Draw( List<VertexLookup> verteces,  Material mat = null)
+        public GameObject Draw( List<Dataline> polygon,  Material mat = null)
         {
             
-            VertexTable = verteces;
+            VertexTable = polygon[0].VertexTable;
+            Polygon = polygon;
             
             Shape = new GameObject("Polygon Shape");
             Shape.transform.parent = gameObject.transform;
@@ -125,19 +127,11 @@ namespace Virgis
             if (mf == null)  mf = Shape.AddComponent<MeshFilter>();
             mf.mesh = null;
             Mesh mesh = new Mesh();
-            Vector3d[] vertices3d = Vertices();
-            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices3d.ToList<Vector3d>());
-            Frame3f frame = new Frame3f(orth.Origin, orth.Normal);
-            List<Vector2d> vertices2d = new List<Vector2d>();
-            foreach (Vector3d v in vertices3d)
-                vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
             TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
-            tpg.Polygon = new GeneralPolygon2d(new Polygon2d(vertices2d));
+            tpg.Polygon = Polygon.ToPolygon();
             tpg.Generate();
-            ///IEnumerable<Vector3d> vertices = tpg.vertices.AsVector3d();
             List<Vector3> vertices3 = new List<Vector3>();
-            foreach (Vector3d v in vertices3d) {
-                //Vector3 vw = frame.FromFrameV((Vector3f)v);
+            foreach (Vector3d v in Vertices()) {
                 vertices3.Add((Vector3)v);
             }
             List<Vector2> uvs = new List<Vector2>();
