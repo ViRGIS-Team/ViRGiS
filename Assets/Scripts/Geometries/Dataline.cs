@@ -55,6 +55,7 @@ namespace Virgis
                 }
                 if (label) label.position = _labelPosition();
             }
+            curve.Vector3(GetVertexPositions(), Lr);
         }
 
         // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
@@ -111,6 +112,7 @@ namespace Virgis
             this.lineSelected = lineSelected;
             this.Lr = Lr;
 
+
             int i = 0;
             foreach (Vector3 vertex in line)
             {
@@ -124,6 +126,7 @@ namespace Virgis
                 }
                 i++;
             }
+            curve.Vector3(GetVertexPositions(), Lr);
 
             //Set the label
             if (LabelPrefab != null)
@@ -271,7 +274,7 @@ namespace Virgis
                 if (Lr && item.isVertex && item.Line.vStart == start) {
                     item.Line.vEnd = start + 1;
                 }
-                if (Lr && item.isVertex && item.Line.vEnd >= VertexTable.Count)
+                if (Lr && item.isVertex && item.Line.vEnd > VertexTable.Count)
                     item.Line.vEnd = 0;
             });
             start++;
@@ -283,6 +286,7 @@ namespace Virgis
             _createSegment(position, VertexTable.Find(item => item.Vertex == end).Com.transform.position, start, end == 0);
             transform.parent.SendMessage("AddVertex", position, SendMessageOptions.DontRequireReceiver);
             vertex.UnSelected(SelectionTypes.SELECT);
+            curve.Vector3(GetVertexPositions(), Lr);
             return vertex;
         }
 
@@ -356,7 +360,6 @@ namespace Virgis
         /// 
         /// <returns></returns>
         private Vector3 Center() {
-            curve.Vector3(GetVertexPositions(), Lr);
             return (Vector3) curve.CenterMark();
         }
 

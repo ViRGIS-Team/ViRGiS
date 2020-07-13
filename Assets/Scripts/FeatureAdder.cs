@@ -108,7 +108,7 @@ namespace Virgis {
                             }
 
                         } else {
-                            _newFeature = editableLayer.AddFeature(new Vector3[4] { posWhenSinglePress, posWhenSinglePress + Vector3.right * Single.Epsilon, posWhenSinglePress + Vector3.up * Single.Epsilon, posWhenSinglePress });
+                            _newFeature = editableLayer.AddFeature(new Vector3[4] { posWhenSinglePress, posWhenSinglePress + Vector3.right * 0.01f, posWhenSinglePress + Vector3.up * 0.01f, posWhenSinglePress });
                             vertexes = (_newFeature as Datapolygon).GetVertexes();
                             _firstVertex = vertexes[0];
                             _lastVertex.Add(vertexes[1]);

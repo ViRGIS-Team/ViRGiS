@@ -118,9 +118,7 @@ namespace Virgis
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(geometry, true);
-            return _drawFeature(geometry, (Vector3)curve.Center());
+            return _drawFeature(geometry, geometry[0]);
         }
 
         protected override void _draw()

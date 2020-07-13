@@ -131,15 +131,23 @@ namespace Virgis
             List<Vector2d> vertices2d = new List<Vector2d>();
             foreach (Vector3d v in vertices3d)
                 vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
-            List<Vector3> vertices3 = new List<Vector3>();
-            foreach (Vector3d v in vertices3d)
-                vertices3.Add((Vector3) v);
             TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
             tpg.Polygon = new GeneralPolygon2d(new Polygon2d(vertices2d));
             tpg.Generate();
+            ///IEnumerable<Vector3d> vertices = tpg.vertices.AsVector3d();
+            List<Vector3> vertices3 = new List<Vector3>();
+            foreach (Vector3d v in vertices3d) {
+                //Vector3 vw = frame.FromFrameV((Vector3f)v);
+                vertices3.Add((Vector3)v);
+            }
+            List<Vector2> uvs = new List<Vector2>();
+            IEnumerable<Vector2d> uv2d = tpg.uv.AsVector2f();
+            foreach (Vector2d uv in uv2d) {
+                uvs.Add((Vector2) uv);
+            }
             mesh.vertices = vertices3.ToArray();
             mesh.triangles = tpg.triangles.ToArray<int>();
-            mesh.uv = BuildUVs(vertices3.ToArray());
+            mesh.uv = uvs.ToArray<Vector2>(); 
 
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
@@ -156,7 +164,7 @@ namespace Virgis
         {
             Mesh mesh = Shape.GetComponent<MeshFilter>().mesh;
             Vector3[] vertices = mesh.vertices;
-            vertices[VertexTable.Find(item => item.Id == data.id ).Vertex + 1] = Shape.transform.InverseTransformPoint(data.pos);
+            vertices[VertexTable.Find(item => item.Id == data.id ).Vertex ] = Shape.transform.InverseTransformPoint(data.pos);
             mesh.vertices = vertices;
             mesh.uv = BuildUVs(vertices);
             mesh.RecalculateBounds();
@@ -271,7 +279,7 @@ namespace Virgis
         /// </summary>
         /// <returns> Datapoint[]</returns>
         public Datapoint[] GetVertexes() {
-            Datapoint[] result = new Datapoint[VertexTable.Count - 1];
+            Datapoint[] result = new Datapoint[VertexTable.Count ];
             for (int i = 0; i < result.Length; i++) {
                 result[i] = VertexTable.Find(item => item.isVertex && item.Vertex == i).Com as Datapoint;
             }
