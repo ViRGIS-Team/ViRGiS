@@ -235,14 +235,14 @@ namespace Virgis
 
     public static class PolygonExtensions {
 
-        public static GeneralPolygon2d ToPolygon(this List<Dataline> list) {
+        public static GeneralPolygon2d ToPolygon(this List<Dataline> list, ref Frame3f frame) {
             List<VertexLookup> VertexTable = list[0].VertexTable;
             Vector3d[] vertices = new Vector3d[VertexTable.Count];
             for (int j = 0; j < VertexTable.Count; j++) {
                 vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
             }
             OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices);
-            Frame3f frame = new Frame3f(orth.Origin, orth.Normal);
+            frame = new Frame3f(orth.Origin, orth.Normal);
             GeneralPolygon2d poly = new GeneralPolygon2d(new Polygon2d());
             for (int i = 0; i<list.Count; i++) {
                 VertexTable = list[i].VertexTable;
@@ -253,10 +253,20 @@ namespace Virgis
                 List<Vector2d> vertices2d = new List<Vector2d>();
                 foreach (Vector3d v in vertices)
                     vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
+                Polygon2d p2d = new Polygon2d(vertices2d);
                 if (i == 0) {
-                    poly.Outer = new Polygon2d(vertices2d);
+                    p2d = new Polygon2d(vertices2d);
+                    p2d.Reverse();
+                    poly.Outer = p2d;
                 } else {
-                    poly.AddHole(new Polygon2d(vertices2d), true, false);
+                    
+                    try {
+                        
+                        poly.AddHole(p2d, true, true);
+                    } catch {
+                        poly.AddHole(p2d, true, true);
+                    }
+                   
                 }
             }
             return poly;
@@ -333,7 +343,8 @@ namespace Virgis
         public bool isVertex;
         public VirgisFeature Com;
         public LineSegment Line;
-
+        public int pVertex;
+        
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

@@ -61,7 +61,6 @@ namespace Virgis
         // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
         public override void MoveAxis(MoveArgs args)
         {
-
             if (args.translate != null) transform.Translate(args.translate, Space.World);
             args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
             transform.RotateAround(args.pos, axis, angle);
@@ -171,9 +170,7 @@ namespace Virgis
         public Vector3[] GetVertexPositions()
         {
             List<Vector3> result = new List<Vector3>();
-            int vertexCount = 0;
-            VertexTable.ForEach(item => { if (item.Vertex > vertexCount) vertexCount = item.Vertex;});
-            for (int i = 0; i < vertexCount +1; i++) {
+            for (int i = 0; i < VertexTable.Count ; i++) {
                     result.Add(VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position);
                 }
             if (Lr)
@@ -216,7 +213,8 @@ namespace Virgis
             }
             else
             {
-                transform.Translate(args.translate, Space.World);
+                args.id = GetId();
+                transform.parent.SendMessage("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
         }
 
