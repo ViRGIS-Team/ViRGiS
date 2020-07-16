@@ -4,66 +4,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 using g3;
+using System.Linq;
+using System;
 
 namespace Virgis
 {
- 
+
 
     /// <summary>
     /// Controls an instance of a Polygon ViRGIS component
     /// </summary>
-    public class Datapolygon : VirgisFeature
-    {
+    public class Datapolygon : VirgisFeature {
 
         private bool BlockMove = false; // Is this component in a block move state
         private GameObject Shape; // gameObject to be used for the shape
-        public Vector3 Centroid; // Polyhedral center vertex
-        public List<VertexLookup> VertexTable;
+        public List<VertexLookup> VertexTable = new List<VertexLookup>();
+        public List<Dataline> Polygon;
 
 
-        public override void Selected(SelectionTypes button)
-        {
-            if (button == SelectionTypes.SELECTALL)
-            {
+        public override void Selected(SelectionTypes button) {
+            if (button == SelectionTypes.SELECTALL) {
                 gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = true;
-                Dataline com = gameObject.GetComponentInChildren<Dataline>();
-                com.Selected(SelectionTypes.SELECTALL);
+                GetComponentsInChildren<Dataline>().ToList<Dataline>().ForEach(item => item.Selected(SelectionTypes.SELECTALL));
             }
         }
 
-        public override void UnSelected(SelectionTypes button)
-        {
-            if (button != SelectionTypes.BROADCAST)
-            {
+        public override void UnSelected(SelectionTypes button) {
+            if (button != SelectionTypes.BROADCAST) {
                 gameObject.BroadcastMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = false;
             }
         }
 
-        public override void VertexMove(MoveArgs data)
-        {
-            if (!BlockMove)
-            {
+        public override void VertexMove(MoveArgs data) {
+            if (!BlockMove) {
                 ShapeMoveVertex(data);
             }
         }
 
-        public override void Translate(MoveArgs args)
-        {
-            if (BlockMove)
-            {
-                GameObject shape = gameObject.transform.Find("Polygon Shape").gameObject;
-                shape.transform.Translate(args.translate, Space.World);
+        public override void Translate(MoveArgs args) {
+            if (BlockMove) {
+                transform.Translate(args.translate, Space.World);
             }
 
         }
 
         // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public override void MoveAxis(MoveArgs args)
-        {
-            if (args.translate != null)
-            {
+        public override void MoveAxis(MoveArgs args) {
+            if (args.translate != null) {
                 Shape.transform.Translate(args.translate, Space.World);
             }
             args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
@@ -73,15 +62,13 @@ namespace Virgis
             Vector3 C = A - B;
             float RS = args.scale;
             Vector3 FP = B + C * RS;
-            if (FP.magnitude < float.MaxValue)
-            {
+            if (FP.magnitude < float.MaxValue) {
                 Shape.transform.localScale = Shape.transform.localScale * RS;
                 Shape.transform.localPosition = FP;
             }
         }
 
-        public override void MoveTo(MoveArgs args)
-        {
+        public override void MoveTo(MoveArgs args) {
             throw new System.NotImplementedException();
         }
 
@@ -93,20 +80,18 @@ namespace Virgis
         /// <param name="perimeter">LineString defining the perimter of the polygon</param>
         /// <param name="mat"> Material to be used</param>
         /// <returns></returns>
-        public GameObject Draw( List<VertexLookup> verteces,  Material mat = null)
-        {
-            
-            VertexTable = verteces;
-            
+        public GameObject Draw(List<Dataline> polygon, Material mat = null) {
+
+            Polygon = polygon;
+
             Shape = new GameObject("Polygon Shape");
             Shape.transform.parent = gameObject.transform;
-            Shape.transform.position = Centroid;
+
 
             MakeMesh();
 
             Renderer rend = Shape.GetComponent<MeshRenderer>();
-            if (rend == null)
-            {
+            if (rend == null) {
                 rend = Shape.AddComponent<MeshRenderer>();
                 rend.material = mat;
             };
@@ -118,17 +103,49 @@ namespace Virgis
         /// <summary>
         /// Generates the actual mesh for the polyhedron
         /// </summary>
-        private void MakeMesh()
-        {
+        private void MakeMesh() {
             MeshFilter mf;
-            mf = Shape.GetComponent<MeshFilter>();    
-            if (mf == null)  mf = Shape.AddComponent<MeshFilter>();
+            mf = Shape.GetComponent<MeshFilter>();
+            if (mf == null) mf = Shape.AddComponent<MeshFilter>();
             mf.mesh = null;
             Mesh mesh = new Mesh();
-            Vector3[] vertices = Vertices();
-            mesh.vertices = vertices;
-            mesh.triangles = Triangles(vertices.Length - 1);
-            mesh.uv = BuildUVs(vertices);
+            TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
+            Frame3f frame = new Frame3f();
+            tpg.Polygon = Polygon.ToPolygon(ref frame);
+            tpg.Generate();
+            int nv = tpg.vertices.Count;
+            VertexTable.Clear();
+
+            foreach (Dataline ring in Polygon) {
+                foreach (VertexLookup v in ring.VertexTable) {
+                    VertexTable.Add(v);
+                }
+            }
+            IEnumerable<Vector3d> vlist = tpg.vertices.AsVector3d();
+            Vector3[] vertices = new Vector3[vlist.Count()];
+
+            for (int i = 0; i < vlist.Count(); i++) {
+                Vector3d v = vlist.ElementAt(i);
+                try {
+                    VertexLookup vl = VertexTable.Find(item => v.xy.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001);
+                    vertices[i] = Shape.transform.InverseTransformPoint(vl.Com.transform.position);
+                    vl.pVertex = i;
+
+
+                } catch {
+                    VertexTable.Add(new VertexLookup() { pVertex = i, Com = VertexTable[0].Com });
+                    vertices[i] = Shape.transform.InverseTransformPoint((Vector3) frame.FromFrameV(v));
+                }
+            }
+
+            List<Vector2> uvs = new List<Vector2>();
+            IEnumerable<Vector2d> uv2d = tpg.uv.AsVector2f();
+            foreach (Vector2d uv in uv2d) {
+                uvs.Add((Vector2) uv);
+            }
+            mesh.vertices = vertices.ToArray();
+            mesh.triangles = tpg.triangles.ToArray<int>();
+            mesh.uv = uvs.ToArray<Vector2>();
 
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
@@ -141,11 +158,10 @@ namespace Virgis
         /// Move a vertex of the polygon and recreate the mesh
         /// </summary>
         /// <param name="data">MoveArgs</param>
-        public void ShapeMoveVertex(MoveArgs data)
-        {
+        public void ShapeMoveVertex(MoveArgs data) {
             Mesh mesh = Shape.GetComponent<MeshFilter>().mesh;
             Vector3[] vertices = mesh.vertices;
-            vertices[VertexTable.Find(item => item.Id == data.id ).Vertex + 1] = Shape.transform.InverseTransformPoint(data.pos);
+            vertices[VertexTable.Find(item => item.Id == data.id).pVertex] = Shape.transform.InverseTransformPoint(data.pos);
             mesh.vertices = vertices;
             mesh.uv = BuildUVs(vertices);
             mesh.RecalculateBounds();
@@ -166,68 +182,16 @@ namespace Virgis
         }
 
         private void _redraw() {
-            VertexTable = GetComponentInChildren<Dataline>().VertexTable;
+            //VertexTable = GetComponentInChildren<Dataline>().VertexTable;
             MakeMesh();
         }
 
 
-        /// <summary>
-        /// Calculate the verteces of the polygon from the LineSString
-        /// </summary>
-        /// <param name="poly">Vector3[] LineString in Worlspace coordinates</param>
-        /// <param name="center">Vector3 centroid in Worldspace coordinates</param>
-        /// <returns></returns>
-        public Vector3[] Vertices()
-        {
-            Vector3[] vertices = new Vector3[VertexTable.Count];
-            vertices[0] = Shape.transform.InverseTransformPoint(Centroid);
+        
 
-
-            for (int i = 0; i < VertexTable.Count - 1; i++)
-            {
-                vertices[i + 1] = Shape.transform.InverseTransformPoint(VertexTable.Find(item => item.Vertex == i).Com.transform.position);
-            }
-
-            return vertices;
-        }
 
         // STATIC METHODS TO HELP CREATE A POLYGON
 
-        /// <summary>
-        /// calculate the Triangles for a Polyhrderon with length verteces
-        /// </summary>
-        /// <param name="length">number of verteces not including the centroid</param>
-        /// <returns></returns>
-        public static int[] Triangles(int length)
-        {
-            
-            int[] triangles = new int[length * 3];
-
-            for (int i = 0; i < length - 1; i++)
-            {
-                triangles[i * 3] = i + 2;
-                triangles[i * 3 + 1] = 0;
-                triangles[i * 3 + 2] = i + 1;
-            }
-
-            triangles[(length - 1) * 3] = 1;
-            triangles[(length - 1) * 3 + 1] = 0;
-            triangles[(length - 1) * 3 + 2] = length;
-
-            return triangles;
-        }
-
-
-        /// <summary>
-        /// Reset the center vertex to be the center of the Linear Ring vertexes
-        /// </summary>
-        public void ResetCenter() {
-            VertexLookup centroid = VertexTable.Find(item => item.Vertex == -1);
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(GetVertexPositions(), true);
-            centroid.Com.transform.position = (Vector3)curve.Center();
-            MakeMesh();
-        }
 
         static Vector2[] BuildUVs(Vector3[] vertices)
         {
@@ -295,16 +259,11 @@ namespace Virgis
         /// </summary>
         /// <returns> Datapoint[]</returns>
         public Datapoint[] GetVertexes() {
-            Datapoint[] result = new Datapoint[VertexTable.Count - 1];
+            Datapoint[] result = new Datapoint[VertexTable.Count ];
             for (int i = 0; i < result.Length; i++) {
-                result[i] = VertexTable.Find(item => item.isVertex && item.Vertex == i).Com as Datapoint;
+                result[i] = VertexTable.Find(item => item.isVertex && item.pVertex == i).Com as Datapoint;
             }
             return result;
-        }
-
-    
-        public Vector3[] GetVertexPositions() {
-            return GetComponentInChildren<Dataline>().GetVertexPositions();
         }
     }
 }

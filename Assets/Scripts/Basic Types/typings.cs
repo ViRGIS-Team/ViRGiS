@@ -393,6 +393,46 @@ namespace Virgis {
             return geom;
         }
     }
+    public static class PolygonExtensions {
+
+        public static GeneralPolygon2d ToPolygon(this List<Dataline> list, ref Frame3f frame) {
+            List<VertexLookup> VertexTable = list[0].VertexTable;
+            Vector3d[] vertices = new Vector3d[VertexTable.Count];
+            for (int j = 0; j < VertexTable.Count; j++) {
+                vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
+            }
+            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices);
+            frame = new Frame3f(orth.Origin, orth.Normal);
+            GeneralPolygon2d poly = new GeneralPolygon2d(new Polygon2d());
+            for (int i = 0; i<list.Count; i++) {
+                VertexTable = list[i].VertexTable;
+                vertices = new Vector3d[VertexTable.Count];
+                for (int j = 0; j < VertexTable.Count; j++) {
+                    vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
+                }
+                List<Vector2d> vertices2d = new List<Vector2d>();
+                foreach (Vector3d v in vertices)
+                    vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
+                Polygon2d p2d = new Polygon2d(vertices2d);
+                if (i == 0) {
+                    p2d = new Polygon2d(vertices2d);
+                    p2d.Reverse();
+                    poly.Outer = p2d;
+                } else {
+                    
+                    try {
+                        
+                        poly.AddHole(p2d, true, true);
+                    } catch {
+                        poly.AddHole(p2d, true, true);
+                    }
+                   
+                }
+            }
+            return poly;
+        }
+    }
+
 
     public static class SimpleMeshExtensions
     {
@@ -522,7 +562,8 @@ namespace Virgis {
         public bool isVertex;
         public VirgisFeature Com;
         public LineSegment Line;
-
+        public int pVertex;
+        
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
