@@ -315,6 +315,14 @@ namespace Virgis {
         }
 
         /// <summary>
+        /// Calculates the 3D Centroid as a World space Vector3 of the DCurve3 that is in local map space.
+        /// </summary>
+        /// <param name="curve">DCurve3 in local map space coordinates</param>
+        /// <returns>Vcetor3 in world space coordinates</returns>
+        public static Vector3 WorldCenter(this DCurve3 curve) {
+            return AppState.instance.map.transform.TransformVector((Vector3) curve.Center());
+        }
+        /// <summary>
         /// Estimates the 3D centroid of a DCurve 
         /// </summary>
         /// <param name="curve">DCurve</param>

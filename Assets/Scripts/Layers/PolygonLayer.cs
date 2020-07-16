@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using g3;
 using OSGeo.OGR;
+using GeoJSON.Net.CoordinateReferenceSystem;
 
 namespace Virgis
 {
@@ -119,7 +120,7 @@ namespace Virgis
             Geometry geom = new Geometry(wkbGeometryType.wkbLinearRing);
             geom.AssignSpatialReference(AppState.instance.mapProj);
             geom.Vector3(line);
-            return _drawFeature(geom, (Vector3) new DCurve3().Vector3(line, true).Center(), new Feature(new FeatureDefn(null)));
+            return _drawFeature(geom, new Feature(new FeatureDefn(null)));
         }
 
         protected override void _draw()
@@ -137,14 +138,14 @@ namespace Virgis
                 if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
                     Geometry line = poly.GetGeometryRef(0);
                     if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
-                        _drawFeature(line, (Vector3) new DCurve3().Vector3(line.TransformWorld(), true).Center(), feature);
+                        _drawFeature(line, feature);
                     }
                 }
             }
 
         }
 
-        protected VirgisFeature _drawFeature(Geometry perimeter, Vector3 center, Feature feature = null)
+        protected VirgisFeature _drawFeature(Geometry polygon,  Feature feature = null)
         {
 
             LineString perimeter = (LinearRings as ReadOnlyCollection<LineString>)[0];
