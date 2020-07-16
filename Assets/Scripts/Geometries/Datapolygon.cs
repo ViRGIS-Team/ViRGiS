@@ -114,6 +114,7 @@ namespace Virgis
             tpg.Polygon = Polygon.ToPolygon(ref frame);
             tpg.Generate();
             int nv = tpg.vertices.Count;
+            VertexTable.Clear();
 
             foreach (Dataline ring in Polygon) {
                 foreach (VertexLookup v in ring.VertexTable) {
@@ -121,10 +122,20 @@ namespace Virgis
                 }
             }
             IEnumerable<Vector3d> vlist = tpg.vertices.AsVector3d();
+            Vector3[] vertices = new Vector3[vlist.Count()];
 
             for (int i = 0; i < vlist.Count(); i++) {
                 Vector3d v = vlist.ElementAt(i);
-                VertexTable.Find(item => v.xy.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001).pVertex = i;
+                try {
+                    VertexLookup vl = VertexTable.Find(item => v.xy.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001);
+                    vertices[i] = Shape.transform.InverseTransformPoint(vl.Com.transform.position);
+                    vl.pVertex = i;
+
+
+                } catch {
+                    VertexTable.Add(new VertexLookup() { pVertex = i, Com = VertexTable[0].Com });
+                    vertices[i] = Shape.transform.InverseTransformPoint((Vector3) frame.FromFrameV(v));
+                }
             }
 
             List<Vector2> uvs = new List<Vector2>();
@@ -132,7 +143,7 @@ namespace Virgis
             foreach (Vector2d uv in uv2d) {
                 uvs.Add((Vector2) uv);
             }
-            mesh.vertices = Vertices<Vector3>();
+            mesh.vertices = vertices.ToArray();
             mesh.triangles = tpg.triangles.ToArray<int>();
             mesh.uv = uvs.ToArray<Vector2>();
 
@@ -176,29 +187,7 @@ namespace Virgis
         }
 
 
-        /// <summary>
-        /// Calculate the vertex positions in world space coordinates of the polygon, in an array of type T whjere T is either Vector3 or Vector3d
-        /// </summary>
-        /// <returns>T{}</returns>
-        public T[] Vertices<T>() {
-            if (typeof(T) == typeof(Vector3)) {
-                Vector3[] vertices = new Vector3[VertexTable.Count];
-
-                for (int i = 0; i < VertexTable.Count; i++) {
-                    vertices[i] = Shape.transform.InverseTransformPoint(VertexTable.Find(item => item.pVertex == i).Com.transform.position);
-                }
-                return vertices as T[];
-            } else if (typeof(T) == typeof(Vector3d)) {
-                Vector3d[] vertices = new Vector3d[VertexTable.Count];
-
-                for (int i = 0; i < VertexTable.Count; i++) {
-                    vertices[i] = (Vector3d) Shape.transform.InverseTransformPoint(VertexTable.Find(item => item.pVertex == i).Com.transform.position);
-                }
-                return vertices as T[];
-            } else {
-                throw new NotSupportedException("Type not supported");
-            }
-        }
+        
 
 
         // STATIC METHODS TO HELP CREATE A POLYGON

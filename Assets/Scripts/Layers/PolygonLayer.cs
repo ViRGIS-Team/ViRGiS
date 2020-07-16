@@ -205,21 +205,21 @@ namespace Virgis
             List<Feature> thisFeatures = new List<Feature>();
             foreach (Datapolygon dataFeature in dataFeatures)
             {
-                Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-                Vector3[] vertices = perimeter.GetVertexPositions();
-                List<Position> positions = new List<Position>();
-                foreach (Vector3 vertex in vertices)
-                {
-                    positions.Add(vertex.ToPosition() as Position);
-                }
-                LineString line = new LineString(positions);
-                if (!line.IsLinearRing())
-                {
-                    Debug.LogError("This Polygon is not a Linear Ring");
-                    return;
-                }
+                Dataline[] polygon = dataFeature.GetComponentsInChildren<Dataline>();
                 List<LineString> LinearRings = new List<LineString>();
-                LinearRings.Add(line);
+                foreach (Dataline perimeter in polygon) {
+                    Vector3[] vertices = perimeter.GetVertexPositions();
+                    List<Position> positions = new List<Position>();
+                    foreach (Vector3 vertex in vertices) {
+                        positions.Add(vertex.ToPosition() as Position);
+                    }
+                    LineString line = new LineString(positions);
+                    if (!line.IsLinearRing()) {
+                        Debug.LogError("This Polygon is not a Linear Ring");
+                        return;
+                    }
+                    LinearRings.Add(line);
+                }
                 Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string, object> ?? new Dictionary<string, object>();
                 thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             };

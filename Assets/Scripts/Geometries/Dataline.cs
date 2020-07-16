@@ -312,16 +312,16 @@ namespace Virgis
                                 }
                             }
                         };
-                        if (Lr && item.isVertex  && item.Line.vEnd >= VertexTable.Count - 1) {
+                        if (Lr && item.isVertex  && item.Line.vEnd >= VertexTable.Count) {
                             item.Line.vEnd = 0;
                         };
                     });
                     int end = thisVertex;
                     int start = thisVertex - 1;
-                    if (Lr && thisVertex >= VertexTable.Count -1) 
+                    if (Lr && thisVertex >= VertexTable.Count ) 
                         end = 0;
                     if (Lr && thisVertex == 0)
-                        start = VertexTable.Count - 2;
+                        start = VertexTable.Count - 1;
                     Debug.Log($"start : {start}, End : {end}");
                     if (VertexTable.Count > 1) {
                         VertexTable.Find(item => item.Vertex == start).Line.MoveEnd(VertexTable.Find(item => item.Vertex == end).Com.transform.position);
