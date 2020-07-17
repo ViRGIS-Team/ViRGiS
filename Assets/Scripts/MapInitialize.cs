@@ -159,15 +159,17 @@ namespace Virgis
         {
         }
 
-        public new async Task<RecordSet> Save()
+        public async Task<RecordSet> Save(bool all = true)
         {
             // TODO: wrap this in try/catch block
             Debug.Log("MapInitialize.Save starts");
-            foreach (IVirgisLayer com in appState.layers)
-            {
-                RecordSet alayer = await com.Save();
-                int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
-                appState.project.RecordSets[index] = alayer;
+
+            if (all) {
+                foreach (IVirgisLayer com in appState.layers) {
+                    RecordSet alayer = await com.Save();
+                    int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
+                    appState.project.RecordSets[index] = alayer;
+                }
             }
             appState.project.Scale = appState.GetScale();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };

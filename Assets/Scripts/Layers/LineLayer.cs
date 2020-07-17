@@ -6,6 +6,7 @@ using GeoJSON.Net.Geometry;
 using Project;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -195,6 +196,8 @@ namespace Virgis
         public override void Translate(MoveArgs args)
         {
             changed = true;
+            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId()).transform.Translate(args.translate, Space.World);
         }
 
 

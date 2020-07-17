@@ -84,11 +84,11 @@ namespace Virgis
         public override void MoveTo(MoveArgs args) {
             if (args.translate != Vector3.zero) {
                 args.id = GetId();
-                SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+                transform.parent.SendMessage("Translate", args, SendMessageOptions.DontRequireReceiver);
             } else if (args.pos != Vector3.zero && args.pos != transform.position) {
                 args.id = GetId();
                 args.translate = args.pos - transform.position;
-                SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
+                transform.parent.SendMessage("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
 
         }
@@ -114,13 +114,7 @@ namespace Virgis
             transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override void VertexMove(MoveArgs args) {
-            
-        }
 
-        public override void Translate(MoveArgs args) {
-            
-        }
 
         public override VirgisFeature GetClosest(Vector3 coords, Guid[] excludes) {
             return this;

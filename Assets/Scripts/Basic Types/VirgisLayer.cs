@@ -196,7 +196,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="button"> SelectionType</param>
         public virtual void Selected(SelectionTypes button) {
-            //do nothing
+            changed = true;
         }
 
         /// <summary>
