@@ -1,7 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
 using Project;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -9,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using g3;
 using OSGeo.OGR;
-using GeoJSON.Net.CoordinateReferenceSystem;
+using OSGeo.OSR;
 
 namespace Virgis
 {
@@ -136,25 +135,18 @@ namespace Virgis
                 if (poly == null)
                     continue;
                 if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
-                    Geometry line = poly.GetGeometryRef(0);
-                    if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
-                        _drawFeature(line, feature);
-                    }
+                     _drawFeature(poly, feature);
                 }
             }
 
         }
 
-        protected VirgisFeature _drawFeature(Geometry polygon,  Feature feature = null)
+        protected VirgisFeature _drawFeature(Geometry poly,  Feature feature = null)
         {
-
-            LineString perimeter = (LinearRings as ReadOnlyCollection<LineString>)[0];
-            Vector3[] poly = perimeter.Vector3();
-            DCurve3 curve = new DCurve3();
-            curve.Vector3(poly, true);
-            Vector3 center = (Vector3) curve.Center();
+            Geometry center = poly.Centroid();
+            center.AssignSpatialReference(poly.GetSpatialReference());
             //Create the GameObjects
-            GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
+            GameObject dataPoly = Instantiate(PolygonPrefab, center.TransformWorld()[0], Quaternion.identity, transform);
 
 
 
@@ -163,11 +155,6 @@ namespace Virgis
 
             if (feature != null)
                 p.feature = feature;
-
-
-   
-
-
 
             if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false))
             {
@@ -180,13 +167,17 @@ namespace Virgis
 
 
             List<Dataline> polygon = new List<Dataline>();
+            List<Geometry> LinearRings = new List<Geometry>();
+            for (int i = 0; i < poly.GetGeometryCount(); i++) LinearRings.Add(poly.GetGeometryRef(i));
             // Darw the LinearRing
-            foreach (LineString LinearRing in LinearRings) {
-                Vector3[] lr = LinearRing.Vector3();
-                GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
-                Dataline com = dataLine.GetComponent<Dataline>();
-                com.Draw(lr, true, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
-                polygon.Add(com);
+            foreach (Geometry LinearRing in LinearRings) {
+                if (LinearRing.GetGeometryType() == wkbGeometryType.wkbLinearRing || LinearRing.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
+                    GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
+                    Dataline com = dataLine.GetComponent<Dataline>();
+                    LinearRing.CloseRings();
+                    com.Draw(LinearRing, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected, true);
+                    polygon.Add(com);
+                }
             }
 
             //Draw the Polygon
@@ -205,33 +196,18 @@ namespace Virgis
             {
                 Feature feature = dataFeature.feature;
                 Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
-                Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
                 geom.AssignSpatialReference(AppState.instance.mapProj);
-                Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-                lr.Vector3(dataFeature.GetVertexPositions());
-                lr.CloseRings();
-                geom.AddGeometryDirectly(lr);
+                Dataline[] poly = dataFeature.GetComponentsInChildren<Dataline>();
+                foreach (Dataline perimeter in poly) {
+                    Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
+                    lr.Vector3(perimeter.GetVertexPositions());
+                    lr.CloseRings();
+                    geom.AddGeometryDirectly(lr);
+                }
                 geom.TransformTo(geoJsonReader.CRS);
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
-                Dataline[] polygon = dataFeature.GetComponentsInChildren<Dataline>();
-                List<LineString> LinearRings = new List<LineString>();
-                foreach (Dataline perimeter in polygon) {
-                    Vector3[] vertices = perimeter.GetVertexPositions();
-                    List<Position> positions = new List<Position>();
-                    foreach (Vector3 vertex in vertices) {
-                        positions.Add(vertex.ToPosition() as Position);
-                    }
-                    LineString line = new LineString(positions);
-                    if (!line.IsLinearRing()) {
-                        Debug.LogError("This Polygon is not a Linear Ring");
-                        return;
-                    }
-                    LinearRings.Add(line);
-                }
-                Dictionary<string, object> properties = dataFeature.gisProperties as Dictionary<string, object> ?? new Dictionary<string, object>();
-                thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
-            };
+            }  
             features.SyncToDisk();
             return Task.CompletedTask;
         }

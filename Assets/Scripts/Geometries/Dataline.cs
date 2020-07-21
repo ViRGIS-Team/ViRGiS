@@ -101,7 +101,7 @@ namespace Virgis
         /// <param name="LinePrefab"> The prefab to be used for the line</param>
         /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
-        public void Draw(Geometry geom, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+        public void Draw(Geometry geom, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected, bool isring = false)
         {
             this.symbology = symbology;
             this.LinePrefab = LinePrefab;
@@ -112,9 +112,13 @@ namespace Virgis
             this.lineMain = lineMain;
             this.lineSelected = lineSelected;
             Lr = geom.IsRing();
+            if (isring)
+                Lr = true;
             Vector3[] line = geom.TransformWorld();
             curve.FromGeometry(geom);
 
+            string type = geom.GetGeometryType().ToString();
+            bool IsRing = geom.IsRing();
 
 
             int i = 0;

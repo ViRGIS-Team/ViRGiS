@@ -419,22 +419,23 @@ namespace Virgis {
                     vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
                 }
                 List<Vector2d> vertices2d = new List<Vector2d>();
-                foreach (Vector3d v in vertices)
-                    vertices2d.Add(frame.ToPlaneUV((Vector3f) v, 3));
+                foreach (Vector3d v in vertices) {
+                    Vector2f vertex = frame.ToPlaneUV((Vector3f) v, 3);
+                    if (i!= 0 && !poly.Outer.Contains(vertex)) break;
+                    vertices2d.Add(vertex);
+                }
                 Polygon2d p2d = new Polygon2d(vertices2d);
                 if (i == 0) {
                     p2d = new Polygon2d(vertices2d);
                     p2d.Reverse();
                     poly.Outer = p2d;
                 } else {
-                    
                     try {
-                        
                         poly.AddHole(p2d, true, true);
                     } catch {
+                        p2d.Reverse();
                         poly.AddHole(p2d, true, true);
                     }
-                   
                 }
             }
             return poly;
