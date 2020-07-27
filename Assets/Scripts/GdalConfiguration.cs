@@ -64,6 +64,7 @@ using Gdal = OSGeo.GDAL.Gdal;
 using Ogr = OSGeo.OGR.Ogr;
 using Osr = OSGeo.OSR.Osr;
 using Debug = UnityEngine.Debug;
+using Mdal;
 
 namespace Virgis
 {
@@ -220,6 +221,7 @@ namespace Virgis
             pdal.Config config = new pdal.Config();
             Debug.Log("GDAL Data Path: " + config.GdalData);
             Debug.Log("Proj4 Data Path: " + config.Proj4Data);
+            Debug.Log("Mdal Version " + Mdal.Mdal.GetVersion());
 
             Debug.Log("PDAL Version Integer: " + config.VersionInteger);
             Debug.Log("PDAL Version Major: " + config.VersionMajor);
