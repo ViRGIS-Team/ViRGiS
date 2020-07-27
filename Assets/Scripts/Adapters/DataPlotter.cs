@@ -24,8 +24,9 @@ namespace Virgis {
 
 
 
-        protected override async Task _init(RecordSet layer) {
+        protected override async Task _init() {
             // Set pointlist to results of function Reader with argument inputfile
+            RecordSet layer = _layer;
             csvReader = new CSVReader();
             await csvReader.Load(layer.Source);
             features = csvReader.Read();

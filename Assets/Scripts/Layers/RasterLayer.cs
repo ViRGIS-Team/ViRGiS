@@ -10,7 +10,7 @@ namespace Virgis
 {
 
 
-    public class PointCloudLayer : VirgisLayer<GeographyCollection, ParticleData>
+    public class RasterLayer : VirgisLayer<GeographyCollection, ParticleData>
     {
         // The prefab for the data points to be instantiated
         public Material material;

@@ -34,7 +34,6 @@ namespace Virgis
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
 
-        private GeoJsonReader geoJsonReader;
         private Dictionary<string, Unit> symbology;
         private Material mainMat;
         private Material selectedMat;
@@ -44,11 +43,8 @@ namespace Virgis
         private Material bodySelected;
 
 
-        protected override async Task _init(GeographyCollection layer)
-        {
-            geoJsonReader = new GeoJsonReader();
-            await geoJsonReader.Load(layer.Source);
-            features = geoJsonReader.getFeatureCollection();
+        protected override async Task _init() {
+            GeographyCollection layer = _layer as GeographyCollection;
             symbology = layer.Properties.Units;
 
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
@@ -204,7 +200,7 @@ namespace Virgis
                     lr.CloseRings();
                     geom.AddGeometryDirectly(lr);
                 }
-                geom.TransformTo(geoJsonReader.CRS);
+                geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
             }  

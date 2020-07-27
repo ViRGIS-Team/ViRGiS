@@ -46,8 +46,8 @@ namespace Virgis
             }
         }
 
-        protected override async Task _init(GeographyCollection layer)
-        {
+        protected override async Task _init() {
+            GeographyCollection layer = _layer as GeographyCollection;
             MeshData Mesh = new MeshData();
             Mesh.Mesh = await loadObj(layer.Source);
             features = Mesh;

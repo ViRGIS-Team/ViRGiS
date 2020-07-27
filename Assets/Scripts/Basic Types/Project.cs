@@ -198,15 +198,16 @@ namespace Project
     public enum RecordSetDataType
     {
         MapBox,
-        Point,
-        Line,
-        Polygon,
+        Vector,
+        Raster,
         PointCloud,
         Mesh,
         Record,
         XSect,
-        Tab,
-        CSV
+        CSV, 
+        Point,
+        Line,
+        Polygon,
     }
 
     public enum GeoTypes

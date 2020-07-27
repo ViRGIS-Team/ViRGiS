@@ -18,19 +18,16 @@ namespace Virgis {
         public GameObject LabelPrefab;
         public Material BaseMaterial;
 
-        // used to read the GeoJSON file for this layer
-        private GeoJsonReader geoJsonReader;
-
         private GameObject PointPrefab;
         private Dictionary<string, Unit> symbology;
         private float displacement;
         private Material mainMat;
         private Material selectedMat;
 
-        protected override async Task _init(GeographyCollection layer) {
-            geoJsonReader = new GeoJsonReader();
-            await geoJsonReader.Load(layer.Source);
-            features = geoJsonReader.getFeatureCollection();
+        protected override async Task _init() {
+            GeographyCollection layer = _layer as GeographyCollection;
+
+
             symbology = layer.Properties.Units;
             displacement = 1.0f;
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
@@ -129,7 +126,7 @@ namespace Virgis {
             foreach (Datapoint pointFunc in pointFuncs) {
                 Feature feature = pointFunc.feature;
                 Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
-                geom.TransformTo(geoJsonReader.CRS);
+                geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
             }
