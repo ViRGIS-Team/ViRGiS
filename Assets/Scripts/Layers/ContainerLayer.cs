@@ -19,9 +19,9 @@ namespace Virgis {
         }
 
         protected override void _draw() {
-            VirgisLayer[] layers = GetComponents<VirgisLayer>();
-            foreach (VirgisLayer layer in layers) {
-                layer.Draw();
+            for (int i = 0; i < transform.parent.childCount; i++) {
+                VirgisLayer layer = transform.GetChild(i).GetComponent<VirgisLayer>();
+                if (layer != null) layer.Draw();
             }
         }
 

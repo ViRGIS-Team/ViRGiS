@@ -80,6 +80,7 @@ namespace Virgis {
                     GdalConfiguration.ConfigureOgr();
                     GdalConfiguration.ConfigureGdal();
                     GdalConfiguration.ConfiurePdal();
+                    GdalConfiguration.ConfigureMdal();
                 } catch (Exception e) {
                     Debug.LogError(e.ToString());
                 }

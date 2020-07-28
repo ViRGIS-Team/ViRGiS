@@ -1,7 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
 using Project;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -9,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using g3;
 using OSGeo.OGR;
+using OSGeo.OSR;
 
 namespace Virgis
 {
@@ -34,7 +34,6 @@ namespace Virgis
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
 
-        private GeoJsonReader geoJsonReader;
         private Dictionary<string, Unit> symbology;
         private Material mainMat;
         private Material selectedMat;
@@ -44,11 +43,8 @@ namespace Virgis
         private Material bodySelected;
 
 
-        protected override async Task _init(GeographyCollection layer)
-        {
-            geoJsonReader = new GeoJsonReader();
-            await geoJsonReader.Load(layer.Source);
-            features = geoJsonReader.getFeatureCollection();
+        protected override async Task _init() {
+            GeographyCollection layer = _layer as GeographyCollection;
             symbology = layer.Properties.Units;
 
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
@@ -119,7 +115,7 @@ namespace Virgis
             Geometry geom = new Geometry(wkbGeometryType.wkbLinearRing);
             geom.AssignSpatialReference(AppState.instance.mapProj);
             geom.Vector3(line);
-            return _drawFeature(geom, (Vector3) new DCurve3().Vector3(line, true).Center(), new Feature(new FeatureDefn(null)));
+            return _drawFeature(geom, new Feature(new FeatureDefn(null)));
         }
 
         protected override void _draw()
@@ -135,53 +131,53 @@ namespace Virgis
                 if (poly == null)
                     continue;
                 if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
-                    Geometry line = poly.GetGeometryRef(0);
-                    if (line.GetGeometryType() == wkbGeometryType.wkbLinearRing || line.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
-                        _drawFeature(line, (Vector3) new DCurve3().Vector3(line.TransformWorld(), true).Center(), feature);
-                    }
+                     _drawFeature(poly, feature);
                 }
             }
 
         }
 
-        protected VirgisFeature _drawFeature(Geometry perimeter, Vector3 center, Feature feature = null)
+        protected VirgisFeature _drawFeature(Geometry poly,  Feature feature = null)
         {
+            Geometry center = poly.Centroid();
+            center.AssignSpatialReference(poly.GetSpatialReference());
             //Create the GameObjects
-            GameObject dataPoly = Instantiate(PolygonPrefab, center, Quaternion.identity, transform);
-            GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
-            GameObject centroid = Instantiate(HandlePrefab, dataLine.transform, false);
+            GameObject dataPoly = Instantiate(PolygonPrefab, center.TransformWorld()[0], Quaternion.identity, transform);
+
+
 
             // add the gis data from geoJSON
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
-            Datapoint c = centroid.GetComponent<Datapoint>();
+
             if (feature != null)
                 p.feature = feature;
-
-
-            p.Centroid = c.transform.position;
-            c.SetMaterial(mainMat, selectedMat);
 
             if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false))
             {
                 //Set the label
-                GameObject labelObject = Instantiate(LabelPrefab, centroid.transform, false);
-                labelObject.transform.Translate(centroid.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
+                GameObject labelObject = Instantiate(LabelPrefab, dataPoly.transform, false);
+                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = (string)feature.Get(symbology["body"].Label);
             }
 
+
+            List<Dataline> polygon = new List<Dataline>();
+            List<Geometry> LinearRings = new List<Geometry>();
+            for (int i = 0; i < poly.GetGeometryCount(); i++) LinearRings.Add(poly.GetGeometryRef(i));
             // Darw the LinearRing
-            Dataline Lr = dataLine.GetComponent<Dataline>();
-            Lr.Draw(perimeter, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected);
+            foreach (Geometry LinearRing in LinearRings) {
+                if (LinearRing.GetGeometryType() == wkbGeometryType.wkbLinearRing || LinearRing.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
+                    GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
+                    Dataline com = dataLine.GetComponent<Dataline>();
+                    LinearRing.CloseRings();
+                    com.Draw(LinearRing, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected, true);
+                    polygon.Add(com);
+                }
+            }
 
             //Draw the Polygon
-            List<VertexLookup> VertexTable = Lr.VertexTable;
-            VertexTable.Add(new VertexLookup() { Id = c.GetId(), Vertex = -1, Com = c });
-            p.Draw(Lr.VertexTable, bodyMain);
-
-            centroid.transform.localScale = symbology["point"].Transform.Scale;
-            centroid.transform.localRotation = symbology["point"].Transform.Rotate;
-            centroid.transform.localPosition = symbology["point"].Transform.Position;
+            p.Draw(polygon, bodyMain);
 
             return p;
         }
@@ -196,16 +192,18 @@ namespace Virgis
             {
                 Feature feature = dataFeature.feature;
                 Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
-                Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
                 geom.AssignSpatialReference(AppState.instance.mapProj);
-                Dataline perimeter = dataFeature.GetComponentInChildren<Dataline>();
-                lr.Vector3(dataFeature.GetVertexPositions());
-                lr.CloseRings();
-                geom.AddGeometryDirectly(lr);
-                geom.TransformTo(geoJsonReader.CRS);
+                Dataline[] poly = dataFeature.GetComponentsInChildren<Dataline>();
+                foreach (Dataline perimeter in poly) {
+                    Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
+                    lr.Vector3(perimeter.GetVertexPositions());
+                    lr.CloseRings();
+                    geom.AddGeometryDirectly(lr);
+                }
+                geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
-            };
+            }  
             features.SyncToDisk();
             return Task.CompletedTask;
         }

@@ -9,8 +9,6 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using System.Collections.Generic;
 
-using System.IO;
-
 namespace Virgis {
 
     /// <summary>
@@ -315,6 +313,14 @@ namespace Virgis {
         }
 
         /// <summary>
+        /// Calculates the 3D Centroid as a World space Vector3 of the DCurve3 that is in local map space.
+        /// </summary>
+        /// <param name="curve">DCurve3 in local map space coordinates</param>
+        /// <returns>Vcetor3 in world space coordinates</returns>
+        public static Vector3 WorldCenter(this DCurve3 curve) {
+            return AppState.instance.map.transform.TransformVector((Vector3) curve.Center());
+        }
+        /// <summary>
         /// Estimates the 3D centroid of a DCurve 
         /// </summary>
         /// <param name="curve">DCurve</param>
@@ -393,37 +399,81 @@ namespace Virgis {
             return geom;
         }
     }
+    public static class PolygonExtensions {
 
-    public static class SimpleMeshExtensions
+        public static GeneralPolygon2d ToPolygon(this List<Dataline> list, ref Frame3f frame) {
+            List<VertexLookup> VertexTable = list[0].VertexTable;
+            Vector3d[] vertices = new Vector3d[VertexTable.Count];
+            for (int j = 0; j < VertexTable.Count; j++) {
+                vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
+            }
+            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices);
+            frame = new Frame3f(orth.Origin, orth.Normal);
+            GeneralPolygon2d poly = new GeneralPolygon2d(new Polygon2d());
+            for (int i = 0; i<list.Count; i++) {
+                VertexTable = list[i].VertexTable;
+                vertices = new Vector3d[VertexTable.Count];
+                for (int j = 0; j < VertexTable.Count; j++) {
+                    vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
+                }
+                List<Vector2d> vertices2d = new List<Vector2d>();
+                foreach (Vector3d v in vertices) {
+                    Vector2f vertex = frame.ToPlaneUV((Vector3f) v, 3);
+                    if (i!= 0 && !poly.Outer.Contains(vertex)) break;
+                    vertices2d.Add(vertex);
+                }
+                Polygon2d p2d = new Polygon2d(vertices2d);
+                if (i == 0) {
+                    p2d = new Polygon2d(vertices2d);
+                    p2d.Reverse();
+                    poly.Outer = p2d;
+                } else {
+                    try {
+                        poly.AddHole(p2d, true, true);
+                    } catch {
+                        p2d.Reverse();
+                        poly.AddHole(p2d, true, true);
+                    }
+                }
+            }
+            return poly;
+        }
+    }
+
+
+    public static class MeshExtensions
     {
         /// <summary>
         /// Converts g3.SimpleMesh to UnityEngine.Mesh
         /// </summary>
-        /// <param name="simpleMesh">SimpleMesh</param>
+        /// <param name="dMesh">SimpleMesh</param>
         /// <returns>UnityEngine.Mesh</returns>
-        public static Mesh ToMesh(this SimpleMesh simpleMesh)
+        public static Mesh ToMesh(this DMesh3 dMesh)
         {
             Mesh unityMesh = new Mesh();
-            Vector3[] vertices = new Vector3[simpleMesh.VertexCount];
-            Color[] colors = new Color[simpleMesh.VertexCount];
-            Vector2[] uvs = new Vector2[simpleMesh.VertexCount];
-            Vector3[] normals = new Vector3[simpleMesh.VertexCount];
+            DMesh3 mesh = new DMesh3();
+            mesh.CompactCopy(dMesh);
+            MeshTransforms.ConvertZUpToYUp(mesh);
+            Vector3[] vertices = new Vector3[mesh.VertexCount];
+            Color[] colors = new Color[mesh.VertexCount];
+            Vector2[] uvs = new Vector2[mesh.VertexCount];
+            Vector3[] normals = new Vector3[mesh.VertexCount];
             NewVertexInfo data;
-            for (int i = 0; i < simpleMesh.VertexCount; i++)
+            for (int i = 0; i < dMesh.VertexCount; i++)
             {
-                data = simpleMesh.GetVertexAll(i);
+                data = mesh.GetVertexAll(i);
                 vertices[i] = (Vector3)data.v;
                 if (data.bHaveC) colors[i] = (Color)data.c;
                 if (data.bHaveUV) uvs[i] = (Vector2)data.uv;
                 if (data.bHaveN) normals[i] = (Vector3)data.n;
             }
             unityMesh.vertices = vertices;
-            if (simpleMesh.HasVertexColors) unityMesh.colors = colors;
-            if (simpleMesh.HasVertexUVs) unityMesh.uv = uvs;
-            if (simpleMesh.HasVertexNormals) unityMesh.normals = normals;
-            int[] triangles = new int[simpleMesh.TriangleCount * 3];
+            if (mesh.HasVertexColors) unityMesh.colors = colors;
+            if (mesh.HasVertexUVs) unityMesh.uv = uvs;
+            if (mesh.HasVertexNormals) unityMesh.normals = normals;
+            int[] triangles = new int[mesh.TriangleCount * 3];
             int j = 0;
-            foreach (Index3i tri in simpleMesh.TrianglesItr())
+            foreach (Index3i tri in mesh.Triangles())
             {
                 triangles[j * 3] = tri.a;
                 triangles[j * 3 + 1] = tri.b;
@@ -522,7 +572,8 @@ namespace Virgis {
         public bool isVertex;
         public VirgisFeature Com;
         public LineSegment Line;
-
+        public int pVertex;
+        
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

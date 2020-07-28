@@ -3,11 +3,11 @@
         {
             "type":"readers.gdal",
             "filename":"../../../../test_data/EC_DML.ers",
-            "header":"mag"
+            "header":"m"
         },
         {
             "type":"filters.range",
-            "limits":"mag[0:50000]"
+            "limits":"m[0:50000]"
         },
         {
             "type":"filters.hag_dem",
@@ -29,11 +29,12 @@
         {
             "type":"filters.colorinterp",
             "ramp":"pestel_shades",
-            "dimension":"mag"
+            "dimension":"m"
           },
         {
             "type":"writers.text",
-            "filename":"../../../../test_data/EC_DML.txt"
+            "filename":"../../../../test_data/EC_DML.txt",
+            "format": "csv"
         }
     ]
 }

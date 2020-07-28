@@ -33,8 +33,8 @@ namespace Virgis
         Texture2D tex;
 
 
-        protected override async Task _init(GeologyCollection layer)
-        {
+        protected override async Task _init() {
+            GeologyCollection layer = _layer as GeologyCollection;
             egbReader = new EgbReader();
             await egbReader.Load(layer.Source);
             egbReader.Read();
@@ -196,8 +196,8 @@ namespace Virgis
             //    thisFeatures.Add(new Feature(new Polygon(LinearRings), properties, dataFeature.gisId));
             //};
             //FeatureCollection FC = new FeatureCollection(thisFeatures);
-            //geoJsonReader.SetFeatureCollection(FC);
-            //geoJsonReader.Save();
+            //ogrReader.SetFeatureCollection(FC);
+            //ogrReader.Save();
             //features = FC;
             return Task.CompletedTask;
         }

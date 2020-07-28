@@ -5,12 +5,12 @@ using System.IO;
 using Project;
 using g3;
 using System;
-
+using Mdal;
 
 namespace Virgis
 {
 
-    public class MeshLayer : VirgisLayer<GeographyCollection, List<DMesh3>>
+    public class MdalLayer : VirgisLayer<GeographyCollection, List<DMesh3>>
     {
         // The prefab for the data points to be instantiated
         public GameObject Mesh;
@@ -18,34 +18,12 @@ namespace Virgis
         private List<Transform> meshes;
         private Dictionary<string, Unit> symbology;
 
-        private async Task<DMesh3Builder> loadObj(string filename)
-        {
-            using (StreamReader reader = File.OpenText(filename))
-            {
-                OBJReader objReader = new OBJReader();
-                DMesh3Builder meshBuilder = new DMesh3Builder();
-                try
-                {
-                    IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
-                }
-                catch (Exception e) when (
-                 e is UnauthorizedAccessException ||
-                 e is DirectoryNotFoundException ||
-                 e is FileNotFoundException ||
-                 e is NotSupportedException
-                 )
-                {
-                    Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
-                    meshBuilder = new DMesh3Builder();
-                }
-                return meshBuilder;
-            }
-        }
-
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
-            DMesh3Builder meshes = await loadObj(layer.Source);
-            features = meshes.Meshes;
+            Datasource ds = new Datasource(layer.Source);
+            features = new List<DMesh3>();
+            for (int i = 0; i < ds.meshes.Length; i++)
+                features.Add(ds.GetMesh(i));
             symbology = layer.Properties.Units;
         }
 
@@ -69,10 +47,10 @@ namespace Virgis
 
         }
 
-        public override void Translate(MoveArgs args)
-        {
-                if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
-                changed = true;
+        public override void Translate(MoveArgs args) {
+            if (args.translate != Vector3.zero)
+                transform.Translate(args.translate, Space.World);
+            changed = true;
         }
 
         /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html

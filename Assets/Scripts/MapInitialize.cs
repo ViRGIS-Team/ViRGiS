@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
-
+using System.Linq;
 
 namespace Virgis
 {
@@ -24,11 +24,11 @@ namespace Virgis
         public AbstractMap MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
-        public GameObject PointLayer;
-        public GameObject LineLayer;
-        public GameObject PolygonLayer;
+        public GameObject VectorLayer;
+        public GameObject RasterLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
+        public GameObject MDALLayer;
         public GameObject XsectLayer;
         public GameObject CsvLayer;
         public AppState appState;
@@ -94,35 +94,49 @@ namespace Virgis
                             temp.SetMetadata(thisLayer);
                             temp.changed = false;
                             break;
-                        case RecordSetDataType.Point:
-                            temp = await Instantiate(PointLayer, Vector3.zero, Quaternion.identity).GetComponent<PointLayer>().Init(thisLayer as GeographyCollection);
+                        case RecordSetDataType.Vector:
+                            temp = await Instantiate(VectorLayer, transform).GetComponent<OgrLayer>().Init(thisLayer as GeographyCollection);
                             break;
-                        case RecordSetDataType.Line:
-                            temp = await Instantiate(LineLayer, Vector3.zero, Quaternion.identity).GetComponent<LineLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        case RecordSetDataType.Polygon:
-                            temp = await Instantiate(PolygonLayer, Vector3.zero, Quaternion.identity).GetComponent<PolygonLayer>().Init(thisLayer as GeographyCollection);
+                        case RecordSetDataType.Raster:
+                            temp = await Instantiate(RasterLayer, transform).GetComponent<RasterLayer>().Init(thisLayer as GeographyCollection);
                             break;
                         case RecordSetDataType.PointCloud:
-                            temp = await Instantiate(PointCloud, Vector3.zero, Quaternion.identity).GetComponent<PointCloudLayer>().Init(thisLayer as GeographyCollection);
+                            temp = await Instantiate(PointCloud,transform).GetComponent<PointCloudLayer>().Init(thisLayer as GeographyCollection);
                             break;
                         case RecordSetDataType.Mesh:
-                            temp = await Instantiate(MeshLayer, Vector3.zero, Quaternion.identity).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
+                            temp = await Instantiate(MeshLayer, transform).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.Mdal:
+                            temp = await Instantiate(MDALLayer, transform).GetComponent<MdalLayer>().Init(thisLayer as GeographyCollection);
                             break;
                         case RecordSetDataType.XSect:
-                            temp = await Instantiate(XsectLayer, Vector3.zero, Quaternion.identity).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);
+                            temp = await Instantiate(XsectLayer, transform).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);
                             break;
                         case RecordSetDataType.CSV:
-                            temp = await Instantiate(CsvLayer, Vector3.zero, Quaternion.identity).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
+                            temp = await Instantiate(CsvLayer,transform).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                             break;
                         default:
                             Debug.LogError(thisLayer.Type.ToString() + " is not known.");
                             break;
                     }
-                    temp.transform.parent = transform;
-                    appState.addLayer(temp);
-                    temp.gameObject.SetActive(thisLayer.Visible);
-                    temp.Draw();
+                    Stack<VirgisLayer> tempLayers = new Stack<VirgisLayer>();
+                    tempLayers.Push(temp);
+                    while (tempLayers.Count > 0) {
+                        VirgisLayer l = tempLayers.Pop();
+                        int children = l.transform.childCount;
+                        if (l._layer.DataType == RecordSetDataType.MapBox)
+                            children = 0;
+                        if (children == 0) {
+                            appState.addLayer(l);
+                            l.gameObject.SetActive(thisLayer.Visible);
+                            l.Draw();
+                            break;
+                        }
+                        for (int i = 0; i < children; i++) {
+                            tempLayers.Push(l.transform.GetChild(i).GetComponent<VirgisLayer>());
+                        }
+                            
+                    }
                 } catch (Exception e) {
                     Debug.LogError(e.ToString() ?? "Unknown Error");
                 }
@@ -165,15 +179,17 @@ namespace Virgis
         {
         }
 
-        public new async Task<RecordSet> Save()
+        public async Task<RecordSet> Save(bool all = true)
         {
             // TODO: wrap this in try/catch block
             Debug.Log("MapInitialize.Save starts");
-            foreach (IVirgisLayer com in appState.layers)
-            {
-                RecordSet alayer = await com.Save();
-                int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
-                appState.project.RecordSets[index] = alayer;
+
+            if (all) {
+                foreach (IVirgisLayer com in appState.layers) {
+                    RecordSet alayer = await com.Save();
+                    int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
+                    appState.project.RecordSets[index] = alayer;
+                }
             }
             appState.project.Scale = appState.GetScale();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };

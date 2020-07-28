@@ -6,6 +6,7 @@ using OSGeo.OSR;
 using Project;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -27,8 +28,6 @@ namespace Virgis
         public Material PointBaseMaterial;
         public Material LineBaseMaterial;
 
-        // used to read the GeoJSON file for this layer
-        private GeoJsonReader geoJsonReader;
 
         private GameObject HandlePrefab;
         private GameObject LinePrefab;
@@ -41,11 +40,8 @@ namespace Virgis
         //private List<GameObject> _tempGOs = new List<GameObject>();
         //private List<GameObject> _vertices = new List<GameObject>();
 
-        protected override async Task _init(GeographyCollection layer)
-        {
-            geoJsonReader = new GeoJsonReader();
-            await geoJsonReader.Load(layer.Source);
-            features = geoJsonReader.getFeatureCollection();
+        protected override async Task _init() {
+            GeographyCollection layer = _layer as GeographyCollection;
             symbology = layer.Properties.Units;
 
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
@@ -181,7 +177,7 @@ namespace Virgis
                 Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
                 geom.AssignSpatialReference(AppState.instance.mapProj);
                 geom.Vector3(dataFeature.GetVertexPositions());
-                geom.TransformTo(geoJsonReader.CRS);
+                geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
             };
@@ -201,6 +197,8 @@ namespace Virgis
         public override void Translate(MoveArgs args)
         {
             changed = true;
+            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId()).transform.Translate(args.translate, Space.World);
         }
 
 

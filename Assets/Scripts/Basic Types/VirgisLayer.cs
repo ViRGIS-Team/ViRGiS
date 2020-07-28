@@ -1,4 +1,5 @@
 ﻿// copyright Runette Software Ltd, 2020. All rights reserved
+using OSGeo.OSR;
 using Project;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ namespace Virgis {
         public bool changed = true; // true is this layer has been changed from the original file
         protected Guid _id;
         protected bool _editable;
+        protected SpatialReference _crs;
 
         void Awake() {
             _id = Guid.NewGuid();
@@ -169,7 +171,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="button"> SelectionType</param>
         public virtual void Selected(SelectionTypes button) {
-            //do nothing
+            changed = true;
         }
 
         /// <summary>
@@ -270,6 +272,22 @@ namespace Virgis {
             return _editable;
         }
 
+        /// <summary>
+        /// Set the Layer CRS
+        /// </summary>
+        /// <param name="crs">SpatialReference</param>
+        public void SetCrs(SpatialReference crs) {
+            _crs = crs;
+        }
+
+        /// <summary>
+        /// Get the Layer CRS
+        /// </summary>
+        /// <returns></returns>
+        public SpatialReference GetCrs() {
+            return _crs;
+        }
+
         public override bool Equals(object obj) {
             if (obj == null)
                 return false;
@@ -305,9 +323,9 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"> The GeographyCollection object that defines this layer</param>
         /// <returns>refernce to this GameObject for chaining</returns>
-        public async Task<VirgisLayer<T, S>> Init(T layer) {
+        public async Task<VirgisLayer<T, S>> Init(T layer ) {
             SetMetadata(layer as RecordSet);
-            await _init(layer);
+            await _init();
             return this;
         }
 
@@ -316,15 +334,32 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"></param>
         /// <returns></returns>
-        protected abstract Task _init(T layer);
+        protected abstract Task _init();
 
-
+        /// <summary>
+        /// Get the layer Metadata
+        /// </summary>
+        /// <returns>RecordSet Layer Metatdata</returns>
         public new T GetMetadata() {
             return (this as VirgisLayer).GetMetadata() as T;
         }
 
+        /// <summary>
+        /// Set the Layer Metadata
+        /// </summary>
+        /// <param name="layer">RecordSet Layer Data</param>
         public void SetMetadata(T layer) {
             (this as VirgisLayer).SetMetadata(layer);
+        }
+
+        /// <summary>
+        /// Set the feature Data for layer explicitly
+        /// </summary>
+        /// <param name="features">Feature Data in the correct format for the layer</param>
+        public void SetFeatures(S features) {
+            if (features != null) {
+                this.features = features;
+            } 
         }
 
 

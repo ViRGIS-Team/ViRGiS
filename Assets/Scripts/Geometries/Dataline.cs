@@ -57,12 +57,12 @@ namespace Virgis
                 curve.Vector3(GetVertexPositions(), Lr);
                 if (label) label.position = _labelPosition();
             }
+            curve.Vector3(GetVertexPositions(), Lr);
         }
 
         // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
         public override void MoveAxis(MoveArgs args)
         {
-
             if (args.translate != null) transform.Translate(args.translate, Space.World);
             args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
             transform.RotateAround(args.pos, axis, angle);
@@ -101,7 +101,7 @@ namespace Virgis
         /// <param name="LinePrefab"> The prefab to be used for the line</param>
         /// <param name="HandlePrefab"> The prefab to be used for the handle</param>
         /// <param name="LabelPrefab"> the prefab to used for the label</param>
-        public void Draw(Geometry geom, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected)
+        public void Draw(Geometry geom, Dictionary<string, Unit> symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected, bool isring = false)
         {
             this.symbology = symbology;
             this.LinePrefab = LinePrefab;
@@ -112,8 +112,13 @@ namespace Virgis
             this.lineMain = lineMain;
             this.lineSelected = lineSelected;
             Lr = geom.IsRing();
+            if (isring)
+                Lr = true;
             Vector3[] line = geom.TransformWorld();
             curve.FromGeometry(geom);
+
+            string type = geom.GetGeometryType().ToString();
+            bool IsRing = geom.IsRing();
 
 
             int i = 0;
@@ -129,6 +134,7 @@ namespace Virgis
                 }
                 i++;
             }
+            curve.Vector3(GetVertexPositions(), Lr);
 
             //Set the label
             if (LabelPrefab != null)
@@ -173,9 +179,7 @@ namespace Virgis
         public Vector3[] GetVertexPositions()
         {
             List<Vector3> result = new List<Vector3>();
-            int vertexCount = 0;
-            VertexTable.ForEach(item => { if (item.Vertex > vertexCount) vertexCount = item.Vertex;});
-            for (int i = 0; i < vertexCount +1; i++) {
+            for (int i = 0; i < VertexTable.Count ; i++) {
                     result.Add(VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position);
                 }
             if (Lr)
@@ -218,7 +222,8 @@ namespace Virgis
             }
             else
             {
-                transform.Translate(args.translate, Space.World);
+                args.id = GetId();
+                transform.parent.SendMessage("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
         }
 
@@ -276,7 +281,7 @@ namespace Virgis
                 if (Lr && item.isVertex && item.Line.vStart == start) {
                     item.Line.vEnd = start + 1;
                 }
-                if (Lr && item.isVertex && item.Line.vEnd >= VertexTable.Count)
+                if (Lr && item.isVertex && item.Line.vEnd > VertexTable.Count)
                     item.Line.vEnd = 0;
             });
             start++;
@@ -288,6 +293,7 @@ namespace Virgis
             _createSegment(position, VertexTable.Find(item => item.Vertex == end).Com.transform.position, start, end == 0);
             transform.parent.SendMessage("AddVertex", position, SendMessageOptions.DontRequireReceiver);
             vertex.UnSelected(SelectionTypes.SELECT);
+            curve.Vector3(GetVertexPositions(), Lr);
             return vertex;
         }
 
@@ -315,16 +321,16 @@ namespace Virgis
                                 }
                             }
                         };
-                        if (Lr && item.isVertex  && item.Line.vEnd >= VertexTable.Count - 1) {
+                        if (Lr && item.isVertex  && item.Line.vEnd >= VertexTable.Count) {
                             item.Line.vEnd = 0;
                         };
                     });
                     int end = thisVertex;
                     int start = thisVertex - 1;
-                    if (Lr && thisVertex >= VertexTable.Count -1) 
+                    if (Lr && thisVertex >= VertexTable.Count ) 
                         end = 0;
                     if (Lr && thisVertex == 0)
-                        start = VertexTable.Count - 2;
+                        start = VertexTable.Count - 1;
                     Debug.Log($"start : {start}, End : {end}");
                     if (VertexTable.Count > 1) {
                         VertexTable.Find(item => item.Vertex == start).Line.MoveEnd(VertexTable.Find(item => item.Vertex == end).Com.transform.position);

@@ -40,6 +40,7 @@ namespace Virgis
         private float _rotationX; // used when clamping vertical rotation
         private Transform currentPointerHit; // current marker selected by pointer
         private Transform currentSelected; // current marker in selected state
+        private Vector3 lastHitPosition; // position of the last recorded hit
         private bool rhTriggerState = false; // current state of the RH trigger
         private bool rhGripState = false; // current state of the RH grip
         private bool lhTriggerState = false; // current state of the LH trigger
@@ -80,6 +81,7 @@ namespace Virgis
                         MoveArgs args = new MoveArgs();
                         args.rotate = Quaternion.FromToRotation(axis, newAxis);
                         args.scale = newAxis.magnitude / axis.magnitude;
+                        args.pos = lastHitPosition;
                         MoveAxis(args);
                         axis = newAxis;
                     }
@@ -417,6 +419,7 @@ namespace Virgis
         //
         public void receiveRay(PointsCast.EventData data)
         {
+            lastHitPosition = data.Points[1];
             if (editSelected || currentPointerHit != null)
             {
                 Vector3 dir = data.Points[1] - data.Points[0];
