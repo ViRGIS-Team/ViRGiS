@@ -10,7 +10,7 @@ using GeoJSON.Net.Geometry;
 namespace Virgis
 {
 
-    public class MeshLayer : VirgisLayer<GeographyCollection, MeshData>
+    public class MeshLayer : VirgisLayer<GeographyCollection, List<SimpleMesh>>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -48,9 +48,8 @@ namespace Virgis
 
         protected override async Task _init(GeographyCollection layer)
         {
-            MeshData Mesh = new MeshData();
-            Mesh.Mesh = await loadObj(layer.Source);
-            features = Mesh;
+            SimpleMeshBuilder meshes = await loadObj(layer.Source);
+            features = meshes.Meshes;
             symbology = layer.Properties.Units;
 
             Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
@@ -72,7 +71,7 @@ namespace Virgis
             Dictionary<string, Unit> symbology = layer.Properties.Units;
             meshes = new List<GameObject>();
 
-            foreach (SimpleMesh simpleMesh in (features as MeshData).Mesh.Meshes)
+            foreach (SimpleMesh simpleMesh in features)
             {
                 GameObject meshGameObject = new GameObject();
                 MeshFilter mf = meshGameObject.AddComponent<MeshFilter>();

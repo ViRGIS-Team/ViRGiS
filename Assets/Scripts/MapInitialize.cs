@@ -17,7 +17,7 @@ namespace Virgis
     /// 
     /// It is run once at Startup
     /// </summary>
-    public class MapInitialize : VirgisLayer<RecordSet, FeatureObject>
+    public class MapInitialize : VirgisLayer<RecordSet, object>
     {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
@@ -86,7 +86,7 @@ namespace Virgis
             Draw();
         }
 
-        async new Task<VirgisLayer<RecordSet, FeatureObject>> Init(RecordSet layer)
+        async new Task<VirgisLayer<RecordSet, object>> Init(RecordSet layer)
         {
             Component temp = null;
             foreach (RecordSet thisLayer in appState.project.RecordSets)

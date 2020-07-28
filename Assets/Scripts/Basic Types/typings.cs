@@ -287,6 +287,7 @@ namespace Virgis
         public static Mesh ToMesh(this SimpleMesh simpleMesh)
         {
             Mesh unityMesh = new Mesh();
+            MeshTransforms.ConvertZUpToYUp(simpleMesh);
             Vector3[] vertices = new Vector3[simpleMesh.VertexCount];
             Color[] colors = new Color[simpleMesh.VertexCount];
             Vector2[] uvs = new Vector2[simpleMesh.VertexCount];
