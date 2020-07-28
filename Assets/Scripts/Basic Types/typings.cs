@@ -9,8 +9,6 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using System.Collections.Generic;
 
-using System.IO;
-
 namespace Virgis {
 
     /// <summary>
@@ -443,36 +441,39 @@ namespace Virgis {
     }
 
 
-    public static class SimpleMeshExtensions
+    public static class MeshExtensions
     {
         /// <summary>
         /// Converts g3.SimpleMesh to UnityEngine.Mesh
         /// </summary>
-        /// <param name="simpleMesh">SimpleMesh</param>
+        /// <param name="dMesh">SimpleMesh</param>
         /// <returns>UnityEngine.Mesh</returns>
-        public static Mesh ToMesh(this SimpleMesh simpleMesh)
+        public static Mesh ToMesh(this DMesh3 dMesh)
         {
             Mesh unityMesh = new Mesh();
-            Vector3[] vertices = new Vector3[simpleMesh.VertexCount];
-            Color[] colors = new Color[simpleMesh.VertexCount];
-            Vector2[] uvs = new Vector2[simpleMesh.VertexCount];
-            Vector3[] normals = new Vector3[simpleMesh.VertexCount];
+            DMesh3 mesh = new DMesh3();
+            mesh.CompactCopy(dMesh);
+            MeshTransforms.ConvertZUpToYUp(mesh);
+            Vector3[] vertices = new Vector3[mesh.VertexCount];
+            Color[] colors = new Color[mesh.VertexCount];
+            Vector2[] uvs = new Vector2[mesh.VertexCount];
+            Vector3[] normals = new Vector3[mesh.VertexCount];
             NewVertexInfo data;
-            for (int i = 0; i < simpleMesh.VertexCount; i++)
+            for (int i = 0; i < dMesh.VertexCount; i++)
             {
-                data = simpleMesh.GetVertexAll(i);
+                data = mesh.GetVertexAll(i);
                 vertices[i] = (Vector3)data.v;
                 if (data.bHaveC) colors[i] = (Color)data.c;
                 if (data.bHaveUV) uvs[i] = (Vector2)data.uv;
                 if (data.bHaveN) normals[i] = (Vector3)data.n;
             }
             unityMesh.vertices = vertices;
-            if (simpleMesh.HasVertexColors) unityMesh.colors = colors;
-            if (simpleMesh.HasVertexUVs) unityMesh.uv = uvs;
-            if (simpleMesh.HasVertexNormals) unityMesh.normals = normals;
-            int[] triangles = new int[simpleMesh.TriangleCount * 3];
+            if (mesh.HasVertexColors) unityMesh.colors = colors;
+            if (mesh.HasVertexUVs) unityMesh.uv = uvs;
+            if (mesh.HasVertexNormals) unityMesh.normals = normals;
+            int[] triangles = new int[mesh.TriangleCount * 3];
             int j = 0;
-            foreach (Index3i tri in simpleMesh.TrianglesItr())
+            foreach (Index3i tri in mesh.Triangles())
             {
                 triangles[j * 3] = tri.a;
                 triangles[j * 3 + 1] = tri.b;

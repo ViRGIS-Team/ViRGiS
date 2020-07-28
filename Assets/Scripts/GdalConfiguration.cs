@@ -217,11 +217,14 @@ namespace Virgis
             }
         }
 
+        public static void ConfigureMdal() {
+            Debug.Log("Mdal Version " + Mdal.Mdal.GetVersion());
+        }
+
         public static void ConfiurePdal() {
             pdal.Config config = new pdal.Config();
             Debug.Log("GDAL Data Path: " + config.GdalData);
             Debug.Log("Proj4 Data Path: " + config.Proj4Data);
-            Debug.Log("Mdal Version " + Mdal.Mdal.GetVersion());
 
             Debug.Log("PDAL Version Integer: " + config.VersionInteger);
             Debug.Log("PDAL Version Major: " + config.VersionMajor);

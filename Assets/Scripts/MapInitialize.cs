@@ -28,6 +28,7 @@ namespace Virgis
         public GameObject RasterLayer;
         public GameObject PointCloud;
         public GameObject MeshLayer;
+        public GameObject MDALLayer;
         public GameObject XsectLayer;
         public GameObject CsvLayer;
         public AppState appState;
@@ -104,6 +105,9 @@ namespace Virgis
                             break;
                         case RecordSetDataType.Mesh:
                             temp = await Instantiate(MeshLayer, transform).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
+                            break;
+                        case RecordSetDataType.Mdal:
+                            temp = await Instantiate(MDALLayer, transform).GetComponent<MdalLayer>().Init(thisLayer as GeographyCollection);
                             break;
                         case RecordSetDataType.XSect:
                             temp = await Instantiate(XsectLayer, transform).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);

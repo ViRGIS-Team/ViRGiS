@@ -202,6 +202,7 @@ namespace Project
         Raster,
         PointCloud,
         Mesh,
+        Mdal,
         Record,
         XSect,
         CSV, 
