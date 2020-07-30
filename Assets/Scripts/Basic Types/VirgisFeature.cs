@@ -12,8 +12,8 @@ namespace Virgis
     /// </summary>
     public interface IVirgisEntity
     {
-        void Selected(SelectionTypes button);
-        void UnSelected(SelectionTypes button);
+        void Selected(SelectionType button);
+        void UnSelected(SelectionType button);
         void StartEditSession();
         void ExitEditSession(bool saved);
         Guid GetId();
@@ -72,7 +72,7 @@ namespace Virgis
         /// Use to tell the Component that it is selected
         /// </summary>
         /// <param name="button"> SelectionType</param>
-        public virtual void Selected(SelectionTypes button) {
+        public virtual void Selected(SelectionType button) {
             //do nothing
         }
 
@@ -80,7 +80,7 @@ namespace Virgis
         /// Use to tell the Component that it is un selected
         /// </summary>
         /// <param name="button"> SelectionType</param>
-        public virtual void UnSelected(SelectionTypes button) {
+        public virtual void UnSelected(SelectionType button) {
             //do nothing
         }
 

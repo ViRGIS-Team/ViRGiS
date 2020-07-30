@@ -14,8 +14,7 @@ namespace Virgis {
     /// <summary>
     /// Structure used to hold the details of a generic move request sent to a target enitity
     /// </summary>
-    public struct MoveArgs
-    {
+    public struct MoveArgs {
         public Guid id; // id of the sending entity
         public Vector3 pos; // OPTIONAL point to move TO in world space coordinates
         public Vector3 translate; // OPTIONSAL translation in world units to be applied to target
@@ -27,11 +26,19 @@ namespace Virgis {
     /// <summary>
     /// Enum holding the types of "selection"tha the user can make
     /// </summary>
-    public enum SelectionTypes
-    {
+    public enum SelectionType {
         SELECT,     // Select a sing;le vertex
         SELECTALL,  // Select all verteces
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
+    }
+
+    public enum FeatureType {
+        POINT,
+        LINE,
+        POLYGON,
+        MESH,
+        POINTCLOUD,
+        RASTER
     }
 
     public static class UnityLayers {
@@ -444,16 +451,21 @@ namespace Virgis {
     public static class MeshExtensions
     {
         /// <summary>
-        /// Converts g3.SimpleMesh to UnityEngine.Mesh
+        /// Converts g3.DMesh3 to UnityEngine.Mesh
         /// </summary>
-        /// <param name="dMesh">SimpleMesh</param>
+        /// <param name="dMesh">Dmesh3</param>
         /// <returns>UnityEngine.Mesh</returns>
         public static Mesh ToMesh(this DMesh3 dMesh)
         {
             Mesh unityMesh = new Mesh();
             DMesh3 mesh = new DMesh3();
             mesh.CompactCopy(dMesh);
-            MeshTransforms.ConvertZUpToYUp(mesh);
+            if (dMesh.HasMetadata) {
+                string crs = dMesh.FindMetadata("CRS") as string;
+                if (crs != null)
+                    mesh.AttachMetadata("CRS", crs);
+            }
+            if ( ! mesh.Transform(AppState.instance.mapProj)) throw new Exception("Mesh Projjection Failed");
             Vector3[] vertices = new Vector3[mesh.VertexCount];
             Color[] colors = new Color[mesh.VertexCount];
             Vector2[] uvs = new Vector2[mesh.VertexCount];
@@ -461,11 +473,16 @@ namespace Virgis {
             NewVertexInfo data;
             for (int i = 0; i < dMesh.VertexCount; i++)
             {
-                data = mesh.GetVertexAll(i);
-                vertices[i] = (Vector3)data.v;
-                if (data.bHaveC) colors[i] = (Color)data.c;
-                if (data.bHaveUV) uvs[i] = (Vector2)data.uv;
-                if (data.bHaveN) normals[i] = (Vector3)data.n;
+                if (dMesh.IsVertex(i)) {
+                    data = mesh.GetVertexAll(i);
+                    vertices[i] = (Vector3) data.v;
+                    if (data.bHaveC)
+                        colors[i] = (Color) data.c;
+                    if (data.bHaveUV)
+                        uvs[i] = (Vector2) data.uv;
+                    if (data.bHaveN)
+                        normals[i] = (Vector3) data.n;
+                }
             }
             unityMesh.vertices = vertices;
             if (mesh.HasVertexColors) unityMesh.colors = colors;
@@ -482,6 +499,67 @@ namespace Virgis {
             }
             unityMesh.triangles = triangles;
             return unityMesh;
+        }
+
+        public static bool Transform(this DMesh3 dMesh, SpatialReference to) {
+            string crs = dMesh.FindMetadata("CRS") as string;
+            if (crs != null && crs != "") {
+                SpatialReference from = new SpatialReference(null);
+                if (crs.Contains("+proj")) {
+                    from.ImportFromProj4(crs);
+                } else {
+                    from.ImportFromWkt(ref crs);
+                };
+                try {
+                    CoordinateTransformation trans = new CoordinateTransformation(from, to);
+                    for (int i = 0; i < dMesh.VertexCount; i++) {
+                        if (dMesh.IsVertex(i)) {
+                            Vector3d vertex = dMesh.GetVertex(i);
+                            double[] dV = new double[3] { vertex.x, vertex.y, vertex.z };
+                            trans.TransformPoint(dV);
+                            AppState.instance.mapTrans.TransformPoint(dV);
+                            dMesh.SetVertex(i, new Vector3d(dV));
+                        }
+                    };
+                    return true;
+                } catch (Exception e) {
+                    return false;
+                }
+            }
+            try {
+                for (int i = 0; i < dMesh.VertexCount; i++) {
+                    if (dMesh.IsVertex(i)) {
+                        Vector3d vertex = dMesh.GetVertex(i);
+                        double[] dV = new double[3] { vertex.x, vertex.y, vertex.z };
+                        AppState.instance.mapTrans.TransformPoint(dV);
+                        dMesh.SetVertex(i, new Vector3d(dV));
+                    }
+                };
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+        }
+
+        public static void CalculateUVs(this DMesh3 dMesh) {
+            dMesh.EnableVertexUVs(Vector2f.Zero);
+            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(dMesh.Vertices());
+            Frame3f frame = new Frame3f(orth.Origin, orth.Normal);
+            AxisAlignedBox3d bounds = dMesh.CachedBounds;
+            AxisAlignedBox2d boundsInFrame = new AxisAlignedBox2d();
+            for (int i = 0; i < 8; i++) {
+                boundsInFrame.Contain(frame.ToPlaneUV((Vector3f)bounds.Corner(i),3));
+            }
+            Vector2f min =(Vector2f)boundsInFrame.Min;
+            float width = (float)boundsInFrame.Width;
+            float height = (float)boundsInFrame.Height;
+
+            for (int i = 0; i < dMesh.VertexCount; i++) {
+                Vector2f UV = frame.ToPlaneUV((Vector3f) dMesh.GetVertex(i), 3);
+                UV.x = (UV.x - min.x) / width;
+                UV.y = (UV.y - min.y) / height;
+                dMesh.SetVertexUV(i, UV);
+            }
         }
     }
 

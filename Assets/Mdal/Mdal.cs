@@ -58,11 +58,10 @@ namespace Mdal {
         [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_projection")]
         private static extern IntPtr MDAL_M_projection(MdalMesh pointer);
 
-        public static SpatialReference GetCRS(MdalMesh pointer) {
+        public static string GetCRS(MdalMesh pointer) {
             IntPtr ret = MDAL_M_projection(pointer);
             string proj = Marshal.PtrToStringAnsi(ret);
-            SpatialReference crs = new SpatialReference(proj);
-            return crs;
+            return proj;
         }
 
         [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_vertexIterator")]
@@ -102,8 +101,8 @@ namespace Mdal {
             this.uri = uri;
             string ret = Mdal.GetNames(uri);
             MDAL_Status status = Mdal.LastStatus();
-            if (status != MDAL_Status.None)
-                throw new Exception(status.ToString());
+            if (ret == null &&  status != MDAL_Status.None)
+                throw new Exception(status.ToString() + uri);
             meshes = ret.Split( new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
@@ -114,9 +113,9 @@ namespace Mdal {
 
     }
 
-        public sealed class MdalMesh : SafeHandleZeroOrMinusOneIsInvalid {
+    public sealed class MdalMesh : SafeHandleZeroOrMinusOneIsInvalid {
 
-        public MdalMesh() : base (ownsHandle: true) {
+        public MdalMesh() : base(ownsHandle: true) {
 
         }
 
@@ -124,10 +123,7 @@ namespace Mdal {
             return true;
         }
 
-        public SimpleMesh ToMesh() {
-            string crs;
-            Mdal.GetCRS(this).ExportToWkt(out crs, null);
-            Debug.Log(crs);
+        private SimpleMesh ToMesh() {
             int vcount = Mdal.MDAL_M_vertexCount(this);
             MdalVertexIterator vi = Mdal.MDAL_M_vertexIterator(this);
             VectorArray3d v = vi.GetVertexes(vcount);
@@ -140,8 +136,16 @@ namespace Mdal {
             return mesh;
         }
 
+        private DMesh3 ToDMesh(SpatialReference fixCRS = null) {
+            DMesh3 mesh = new DMesh3(this.ToMesh(), MeshHints.None, MeshComponents.None);
+            string CRS = Mdal.GetCRS(this);
+            if (CRS != null)
+                mesh.AttachMetadata("CRS", CRS);
+            return mesh;
+        }
+
         public static implicit operator SimpleMesh(MdalMesh thisMesh) => thisMesh.ToMesh();
-        public static implicit operator DMesh3(MdalMesh thisMesh)  => new DMesh3(thisMesh.ToMesh(), MeshHints.None, MeshComponents.None);
+        public static implicit operator DMesh3(MdalMesh thisMesh) => thisMesh.ToDMesh();
     }
 
     public sealed class MdalVertexIterator : SafeHandleZeroOrMinusOneIsInvalid {
@@ -174,11 +178,29 @@ namespace Mdal {
         }
 
         public IndexArray3i GetFaces(int count, int faceSize) {
-            if (faceSize != 3)
-                throw new NotSupportedException("Only Triangulated Meshes supported");
+            if (faceSize > 4)
+                throw new NotSupportedException("Only Tri and Quad Meshes supported");
             int[] faces = new int[count * faceSize];
             int[] faceOff = new int[count];
             int rcount = Mdal.MDAL_FI_next(this, count, faceOff, count * faceSize, faces);
+            if (faceSize == 4) {
+                List<int> ret = new List<int>();
+                int previous = 0;
+                for (int i = 0; i < count; i++) {
+                    int current = faceOff[i];
+                    int size = current - previous;
+                    ret.Add(faces[previous]);
+                    ret.Add(faces[previous + 1]);
+                    ret.Add(faces[previous + 2]);
+                    if (size == 4) {
+                        ret.Add(faces[previous + 2]);
+                        ret.Add(faces[previous + 3]);
+                        ret.Add(faces[previous]);
+                    }
+                    previous = current;
+                }
+                return new IndexArray3i(ret.ToArray());
+            }
             return new IndexArray3i(faces);
         }
     }

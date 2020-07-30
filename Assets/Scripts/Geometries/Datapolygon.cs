@@ -22,17 +22,17 @@ namespace Virgis
         public List<Dataline> Polygon;
 
 
-        public override void Selected(SelectionTypes button) {
-            if (button == SelectionTypes.SELECTALL) {
-                gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+        public override void Selected(SelectionType button) {
+            if (button == SelectionType.SELECTALL) {
+                gameObject.BroadcastMessage("Selected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = true;
-                GetComponentsInChildren<Dataline>().ToList<Dataline>().ForEach(item => item.Selected(SelectionTypes.SELECTALL));
+                GetComponentsInChildren<Dataline>().ToList<Dataline>().ForEach(item => item.Selected(SelectionType.SELECTALL));
             }
         }
 
-        public override void UnSelected(SelectionTypes button) {
-            if (button != SelectionTypes.BROADCAST) {
-                gameObject.BroadcastMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+        public override void UnSelected(SelectionType button) {
+            if (button != SelectionType.BROADCAST) {
+                gameObject.BroadcastMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = false;
             }
         }

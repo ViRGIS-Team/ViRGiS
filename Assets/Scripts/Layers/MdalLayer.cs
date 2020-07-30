@@ -6,6 +6,7 @@ using Project;
 using g3;
 using System;
 using Mdal;
+using OSGeo.OSR;
 
 namespace Virgis
 {
@@ -14,17 +15,28 @@ namespace Virgis
     {
         // The prefab for the data points to be instantiated
         public GameObject Mesh;
+        public Material MeshMaterial;
 
         private List<Transform> meshes;
         private Dictionary<string, Unit> symbology;
 
+        private void Start() {
+            featureType = FeatureType.MESH;
+        }
+
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
+            symbology = layer.Properties.Units;
             Datasource ds = new Datasource(layer.Source);
             features = new List<DMesh3>();
-            for (int i = 0; i < ds.meshes.Length; i++)
-                features.Add(ds.GetMesh(i));
-            symbology = layer.Properties.Units;
+            for (int i = 0; i < ds.meshes.Length; i++) {
+                DMesh3 mesh = ds.GetMesh(i);
+                if (layer.ContainsKey("Crs") && layer.Crs != null) {
+                    mesh.RemoveMetadata("CRS");
+                    mesh.AttachMetadata("CRS", layer.Crs);
+                };
+                features.Add(mesh);
+            }
         }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)
@@ -34,14 +46,14 @@ namespace Virgis
         protected override void _draw()
         {
             GeographyCollection layer = GetMetadata();
-            transform.position = layer.Position.ToVector3();
-            transform.Translate(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<DataMesh>().Draw(dMesh));
+                dMesh.CalculateUVs();
+                meshes.Add(Instantiate(Mesh, transform).GetComponent<DataMesh>().Draw(dMesh, MeshMaterial));
             }
+            transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
 
@@ -49,7 +61,8 @@ namespace Virgis
 
         public override void Translate(MoveArgs args) {
             if (args.translate != Vector3.zero)
-                transform.Translate(args.translate, Space.World);
+                transform.position += args.translate;
+                //transform.Translate(args.translate, Space.World);
             changed = true;
         }
 
@@ -84,8 +97,7 @@ namespace Virgis
 
         protected override Task _save()
         {
-            _layer.Position = transform.position.ToPoint();
-            _layer.Transform.Position = Vector3.zero;
+            _layer.Transform.Position = AppState.instance.map.transform.InverseTransformVector(transform.position);
             _layer.Transform.Rotate = transform.rotation;
             _layer.Transform.Scale = transform.localScale;
             return Task.CompletedTask;

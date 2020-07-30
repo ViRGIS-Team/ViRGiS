@@ -14,9 +14,14 @@ namespace Virgis
     {
         // The prefab for the data points to be instantiated
         public GameObject Mesh;
+        public Material MeshMaterial;
 
         private List<Transform> meshes;
         private Dictionary<string, Unit> symbology;
+
+        private void Start() {
+            featureType = FeatureType.MESH;
+        }
 
         private async Task<DMesh3Builder> loadObj(string filename)
         {
@@ -62,7 +67,7 @@ namespace Virgis
             meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<DataMesh>().Draw(dMesh));
+                meshes.Add(Instantiate(Mesh, transform).GetComponent<DataMesh>().Draw(dMesh, MeshMaterial));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;

@@ -206,14 +206,14 @@ namespace Virgis
         public void HandleMouseClick(InputAction.CallbackContext context)
         {
             InputAction action = context.action;
-            SelectionTypes button = SelectionTypes.SELECT;
+            SelectionType button = SelectionType.SELECT;
             switch (action.name)
             {
                 case "Select":
-                    button = SelectionTypes.SELECT;
+                    button = SelectionType.SELECT;
                     break;
                 case "MultiSelect":
-                    button = SelectionTypes.SELECTALL;
+                    button = SelectionType.SELECTALL;
                     break;
             }
             if (action.phase == InputActionPhase.Canceled && appState.InEditSession())
@@ -226,7 +226,7 @@ namespace Virgis
             }
         }
 
-        private void ClickHandler(SelectionTypes button)
+        private void ClickHandler(SelectionType button)
         {
             RaycastHit hitInfo = new RaycastHit();
             Vector3 mousePos = Input.mousePosition;
@@ -247,7 +247,7 @@ namespace Virgis
         }
 
 
-        private void UnClickHandler(SelectionTypes button)
+        private void UnClickHandler(SelectionType button)
         {
             unSelect(button);
         }
@@ -306,11 +306,11 @@ namespace Virgis
                 from = hitInfo.point;
                 if (rhTriggerState)
                 {
-                    select(SelectionTypes.SELECT);
+                    select(SelectionType.SELECT);
                 }
                 if (rhGripState)
                 {
-                    select(SelectionTypes.SELECTALL);
+                    select(SelectionType.SELECTALL);
                 }
                 if (addVertexState)
                 {
@@ -342,13 +342,13 @@ namespace Virgis
         public void triggerPressed(bool thisEvent)
         {
             rhTriggerState = true;
-            select(SelectionTypes.SELECT);
+            select(SelectionType.SELECT);
         }
 
         public void gripPressed(bool thisEvent)
         {
             rhGripState = true;
-            select(SelectionTypes.SELECTALL);
+            select(SelectionType.SELECTALL);
         }
 
         public void lhTriggerPressed(bool thisEvent)
@@ -379,7 +379,7 @@ namespace Virgis
         public void triggerReleased(bool thisEvent)
         {
             rhTriggerState = false;
-            unSelect(SelectionTypes.SELECT);
+            unSelect(SelectionType.SELECT);
 
         }
 
@@ -387,7 +387,7 @@ namespace Virgis
         {
             rhGripState = false;
             AxisEdit = false;
-            unSelect(SelectionTypes.SELECTALL);
+            unSelect(SelectionType.SELECTALL);
 
         }
 
@@ -485,7 +485,7 @@ namespace Virgis
             }
         }
 
-        private void select(SelectionTypes button)
+        private void select(SelectionType button)
         {
             if (appState.InEditSession() && currentPointerHit != null && LayerIsEditable())
             {
@@ -495,7 +495,7 @@ namespace Virgis
             }
         }
 
-        private void unSelect(SelectionTypes button)
+        private void unSelect(SelectionType button)
         {
             editSelected = false;
             currentSelected?.SendMessage("UnSelected", button, SendMessageOptions.DontRequireReceiver);

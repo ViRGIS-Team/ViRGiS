@@ -29,17 +29,17 @@ namespace Virgis
         }
 
 
-        public override void Selected(SelectionTypes button){
+        public override void Selected(SelectionType button){
             thisRenderer.material = selectedMat;
-            if (button != SelectionTypes.BROADCAST){
+            if (button != SelectionType.BROADCAST){
                 transform.parent.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
             }
         }
 
 
-        public override void UnSelected(SelectionTypes button){
+        public override void UnSelected(SelectionType button){
             thisRenderer.material = mainMat;
-            if (button != SelectionTypes.BROADCAST){
+            if (button != SelectionType.BROADCAST){
                 MoveArgs args = new MoveArgs();
                 switch (AppState.instance.editSession.mode){
                     case EditSession.EditMode.None:

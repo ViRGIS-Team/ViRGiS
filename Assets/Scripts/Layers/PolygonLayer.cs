@@ -42,6 +42,10 @@ namespace Virgis
         private Material bodyMain;
         private Material bodySelected;
 
+        private void Start() {
+            featureType = FeatureType.POLYGON;
+        }
+
 
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
@@ -112,9 +116,13 @@ namespace Virgis
 
         protected override VirgisFeature _addFeature(Vector3[] line)
         {
-            Geometry geom = new Geometry(wkbGeometryType.wkbLinearRing);
+            Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
             geom.AssignSpatialReference(AppState.instance.mapProj);
-            geom.Vector3(line);
+            Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
+            lr.Vector3(line);
+            lr.CloseRings();
+            geom.AddGeometryDirectly(lr);
+            geom.AssignSpatialReference(AppState.instance.mapProj);
             return _drawFeature(geom, new Feature(new FeatureDefn(null)));
         }
 

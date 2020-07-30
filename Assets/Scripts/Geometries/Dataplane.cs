@@ -24,22 +24,22 @@ namespace Virgis
         private Vector3[] bottom;
 
 
-        public override void Selected(SelectionTypes button)
+        public override void Selected(SelectionType button)
         {
-            if (button == SelectionTypes.SELECTALL)
+            if (button == SelectionType.SELECTALL)
             {
-                gameObject.BroadcastMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+                gameObject.BroadcastMessage("Selected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = true;
                 Dataline com = gameObject.GetComponentInChildren<Dataline>();
-                com.Selected(SelectionTypes.SELECTALL);
+                com.Selected(SelectionType.SELECTALL);
             }
         }
 
-        public override void UnSelected(SelectionTypes button)
+        public override void UnSelected(SelectionType button)
         {
-            if (button != SelectionTypes.BROADCAST)
+            if (button != SelectionType.BROADCAST)
             {
-                gameObject.BroadcastMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+                gameObject.BroadcastMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
                 BlockMove = false;
             }
         }
