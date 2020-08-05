@@ -485,9 +485,9 @@ namespace Virgis {
                 }
             }
             unityMesh.vertices = vertices;
-            if (mesh.HasVertexColors) unityMesh.colors = colors;
-            if (mesh.HasVertexUVs) unityMesh.uv = uvs;
-            if (mesh.HasVertexNormals) unityMesh.normals = normals;
+            if (mesh.HasVertexColors) unityMesh.SetColors(colors);
+            if (mesh.HasVertexUVs) unityMesh.SetUVs(0,uvs);
+            if (mesh.HasVertexNormals) unityMesh.SetNormals(normals);
             int[] triangles = new int[mesh.TriangleCount * 3];
             int j = 0;
             foreach (Index3i tri in mesh.Triangles())

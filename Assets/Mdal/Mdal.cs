@@ -55,6 +55,9 @@ namespace Mdal {
         [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_faceCount")]
         public static extern int MDAL_M_faceCount(MdalMesh pointer);
 
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_datasetGroupCount")]
+        public static extern int MDAL_M_datasetGroupCount(MdalMesh pointer);
+
         [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_projection")]
         private static extern IntPtr MDAL_M_projection(MdalMesh pointer);
 
@@ -88,8 +91,26 @@ namespace Mdal {
         [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_faceVerticesMaximumCount")]
         public static extern int MDAL_M_faceVerticesMaximumCount(MdalMesh pointer);
 
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_M_datasetGroup")]
+        public static extern MdalDatasetGroup MDAL_M_datasetGroup(MdalMesh pointer, int index);
 
-        
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_G_name")]
+        public static extern IntPtr MDAL_G_name(MdalDatasetGroup pointer);
+
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_G_datasetCount")]
+        public static extern int MDAL_G_datasetCount(MdalDatasetGroup pointer);
+
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_G_dataset")]
+        public static extern MdalDataset MDAL_G_dataset(MdalDatasetGroup pointer, int index);
+
+
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_D_valueCount")]
+        public static extern int MDAL_D_valueCount(MdalDataset pointer);
+
+        [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_D_data")]
+        public static extern int MDAL_D_data(MdalDataset pointer, int start, int count, MDAL_DataType type, double[] values);
+
+
 
     }
 
@@ -127,8 +148,10 @@ namespace Mdal {
             int vcount = Mdal.MDAL_M_vertexCount(this);
             MdalVertexIterator vi = Mdal.MDAL_M_vertexIterator(this);
             VectorArray3d v = vi.GetVertexes(vcount);
+            bool hasColors;
+            VectorArray3f c = GetColors(vcount, out hasColors);
             SimpleMesh mesh = new SimpleMesh();
-            mesh.AppendVertices(v);
+            mesh.AppendVertices(v, null, c);
             int fcount = Mdal.MDAL_M_faceCount(this);
             MdalFaceIterator fi = Mdal.MDAL_M_faceIterator(this);
             IndexArray3i tri = fi.GetFaces(fcount, Mdal.MDAL_M_faceVerticesMaximumCount(this));
@@ -136,8 +159,40 @@ namespace Mdal {
             return mesh;
         }
 
-        private DMesh3 ToDMesh(SpatialReference fixCRS = null) {
-            DMesh3 mesh = new DMesh3(this.ToMesh(), MeshHints.None, MeshComponents.None);
+        VectorArray3f GetColors(int count, out bool hasColors) {
+            hasColors = false;
+            int dgCount = Mdal.MDAL_M_datasetGroupCount(this);
+            if (dgCount == 0)
+                return default;
+            float[] colors = new float[count * 3];
+            double[] red = new double[count];
+            double[] green = new double[count];
+            double[] blue = new double[count];
+            for (int i = 0; i < dgCount; i++) {
+                MdalDatasetGroup dg = Mdal.MDAL_M_datasetGroup(this, i);
+                string name = dg.GetName();
+                dg.GetDatasets();
+                if (name == "red" && dg.datasets.Count > 0) {
+                    dg.datasets[0].GetValues(ref red);
+                    hasColors = true;
+                }
+                if(name == "green" && dg.datasets.Count > 0)
+                    dg.datasets[0].GetValues(ref green);
+                if(name == "blue" && dg.datasets.Count > 0)
+                    dg.datasets[0].GetValues(ref blue);
+            }
+            if (hasColors) {
+                for (int i = 0; i < count; i++) {
+                    colors[i * 3] = (float) (red[i] / 255);
+                    colors[i * 3 + 1] = (float) (green[i] / 255);
+                    colors[i * 3 + 2] = (float) (blue[i]/255);
+                }
+            }
+            return new VectorArray3f(colors);
+        }
+
+        private DMesh3 ToDMesh() {
+            DMesh3 mesh = new DMesh3(this.ToMesh(), MeshHints.None, MeshComponents.VertexColors);
             string CRS = Mdal.GetCRS(this);
             if (CRS != null)
                 mesh.AttachMetadata("CRS", CRS);
@@ -203,6 +258,51 @@ namespace Mdal {
             }
             return new IndexArray3i(faces);
         }
+    }
+
+    public sealed class MdalDatasetGroup : SafeHandleZeroOrMinusOneIsInvalid {
+        public List<MdalDataset> datasets = new List<MdalDataset>();
+
+        public MdalDatasetGroup() : base(ownsHandle: true) {
+
+        }
+
+        protected override bool ReleaseHandle() {
+            return true;
+        }
+
+        public string GetName() {
+            IntPtr ret = Mdal.MDAL_G_name(this);
+            return Marshal.PtrToStringAnsi(ret);
+        }
+
+        public void GetDatasets() {
+            int count = Mdal.MDAL_G_datasetCount(this);
+            for (int i = 0; i < count; i++) {
+                datasets.Add(Mdal.MDAL_G_dataset(this, i));
+            }
+        }
+
+    }
+
+    public sealed class MdalDataset : SafeHandleZeroOrMinusOneIsInvalid {
+
+        public MdalDataset() : base(ownsHandle: true) {
+
+        }
+
+        protected override bool ReleaseHandle() {
+            return true;
+        }
+
+        public void GetValues(ref double[] values) {
+            if (values.Length != Mdal.MDAL_D_valueCount(this))
+                return;
+
+            Mdal.MDAL_D_data(this, 0, values.Length, MDAL_DataType.SCALAR_DOUBLE, values);
+        }
+
+
     }
 
 
