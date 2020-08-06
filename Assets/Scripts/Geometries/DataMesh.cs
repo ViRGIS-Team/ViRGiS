@@ -9,16 +9,16 @@ public class DataMesh : VirgisFeature
 
     private Vector3 firstHitPosition = Vector3.zero;
     private bool nullifyHitPos = true;
-    public override void Selected(SelectionTypes button) {
+    public override void Selected(SelectionType button) {
         nullifyHitPos = true;
-        transform.parent.SendMessage("Selected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
-        if (button == SelectionTypes.SELECTALL) {
+        transform.parent.SendMessage("Selected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
+        if (button == SelectionType.SELECTALL) {
             BlockMove = true;
         }
     }
 
-    public override void UnSelected(SelectionTypes button) {
-        transform.parent.SendMessage("UnSelected", SelectionTypes.BROADCAST, SendMessageOptions.DontRequireReceiver);
+    public override void UnSelected(SelectionType button) {
+        transform.parent.SendMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
         BlockMove = false;
     }
 
@@ -34,10 +34,12 @@ public class DataMesh : VirgisFeature
         nullifyHitPos = false;
     }
 
-    public Transform Draw(DMesh3 mesh) {
+    public Transform Draw(DMesh3 mesh, Material mat) {
         this.mesh = mesh;
         MeshFilter mf = GetComponent<MeshFilter>();
         MeshCollider mc = GetComponent<MeshCollider>();
+        MeshRenderer mr = GetComponent<MeshRenderer>();
+        mr.material = mat;
         mf.mesh = mesh.ToMesh();
         mc.sharedMesh = mf.mesh;
         return transform;

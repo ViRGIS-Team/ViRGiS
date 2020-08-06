@@ -24,6 +24,10 @@ namespace Virgis
         private Material mainMat;
         private Material selectedMat;
 
+        private void Start() {
+            featureType = FeatureType.RASTER;
+        }
+
 
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;

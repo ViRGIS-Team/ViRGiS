@@ -58,6 +58,8 @@ namespace Project
         [JsonProperty(PropertyName = "visible", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(true)]
         public bool Visible;
+        [JsonProperty(PropertyName = "proj4")]
+        public string Crs;
     }
 
     public class JsonTransform : TestableObject

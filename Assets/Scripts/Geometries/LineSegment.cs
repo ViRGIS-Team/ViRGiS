@@ -39,18 +39,18 @@ namespace Virgis
             _draw();
 
         }
-        public override void Selected(SelectionTypes button)
+        public override void Selected(SelectionType button)
         {
-            if (button == SelectionTypes.SELECTALL) {
+            if (button == SelectionType.SELECTALL) {
                 transform.parent.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
                 selected = true;
             }
         }
 
-        public override void UnSelected(SelectionTypes button)
+        public override void UnSelected(SelectionType button)
         {
             selected = false;
-            if (button != SelectionTypes.BROADCAST)
+            if (button != SelectionType.BROADCAST)
             {
 
             }

@@ -32,6 +32,10 @@ namespace Virgis
         private EgbReader egbReader;
         Texture2D tex;
 
+        private void Start() {
+            featureType = FeatureType.POLYGON;
+        }
+
 
         protected override async Task _init() {
             GeologyCollection layer = _layer as GeologyCollection;

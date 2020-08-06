@@ -309,10 +309,16 @@ namespace g3
 
             foreach (int tid in copy.TriangleIndices()) {
                 Index3i t = copy.GetTriangle(tid);
-                t.a = mapV[t.a]; t.b = mapV[t.b]; t.c = mapV[t.c];
-                int g = (copy.HasTriangleGroups) ? copy.GetTriangleGroup(tid) : InvalidID;
-                AppendTriangle(t, g);
-                max_group_id = Math.Max(max_group_id, g + 1);
+                try {
+                    t.a = mapV[t.a];
+                    t.b = mapV[t.b];
+                    t.c = mapV[t.c];
+                    int g = (copy.HasTriangleGroups) ? copy.GetTriangleGroup(tid) : InvalidID;
+                    AppendTriangle(t, g);
+                    max_group_id = Math.Max(max_group_id, g + 1);
+                } catch (Exception e) {
+                    UnityEngine.Debug.Log("Imdes out of bounds : tid" + tid.ToString());
+                }
             }
 
             return new CompactInfo() {

@@ -40,6 +40,10 @@ namespace Virgis
         //private List<GameObject> _tempGOs = new List<GameObject>();
         //private List<GameObject> _vertices = new List<GameObject>();
 
+        private void Start() {
+            featureType = FeatureType.LINE;
+        }
+
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
             symbology = layer.Properties.Units;

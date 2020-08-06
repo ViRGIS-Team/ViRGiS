@@ -24,6 +24,10 @@ namespace Virgis {
         private Material mainMat;
         private Material selectedMat;
 
+        private void Start() {
+            featureType = FeatureType.POINT;
+        }
+
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
 
@@ -69,8 +73,11 @@ namespace Virgis {
 
         protected override void _draw() {
             long FeatureCount = features.GetFeatureCount(1);
+            features.ResetReading();
             for (int i = 0; i < FeatureCount; i++) {
-                Feature feature = features.GetFeature(i);
+                Feature feature = features.GetNextFeature();
+                if (feature == null)
+                    continue;
                 Geometry point = feature.GetGeometryRef();
                 if (point.GetGeometryType() == wkbGeometryType.wkbPoint || point.GetGeometryType() == wkbGeometryType.wkbPoint25D || point.GetGeometryType() == wkbGeometryType.wkbPointM || point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
                     point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));

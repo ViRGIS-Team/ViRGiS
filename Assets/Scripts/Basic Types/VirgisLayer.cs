@@ -11,6 +11,10 @@ namespace Virgis {
 
     public interface IVirgisLayer : IVirgisEntity {
 
+        FeatureType featureType {
+            get; set;
+        }
+
         VirgisFeature AddFeature(Vector3[] geometry);
         void Draw();
         void CheckPoint();
@@ -29,6 +33,7 @@ namespace Virgis {
     public abstract class VirgisLayer : MonoBehaviour, IVirgisLayer {
 
         public RecordSet _layer;
+        public FeatureType featureType { get; set; }
 
         public bool changed = true; // true is this layer has been changed from the original file
         protected Guid _id;
@@ -170,7 +175,7 @@ namespace Virgis {
         /// called when a daughter IVirgisEntity is selected
         /// </summary>
         /// <param name="button"> SelectionType</param>
-        public virtual void Selected(SelectionTypes button) {
+        public virtual void Selected(SelectionType button) {
             changed = true;
         }
 
@@ -178,7 +183,7 @@ namespace Virgis {
         /// Called when a daughter IVirgisEntity is UnSelected
         /// </summary>
         /// <param name="button">SelectionType</param>
-        public virtual void UnSelected(SelectionTypes button) {
+        public virtual void UnSelected(SelectionType button) {
             // do nothing
         }
 
