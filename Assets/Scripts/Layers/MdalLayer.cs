@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
-using System.IO;
 using Project;
 using g3;
-using System;
 using Mdal;
-using OSGeo.OSR;
 
 namespace Virgis
 {

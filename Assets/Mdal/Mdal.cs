@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
-using UnityEngine;
 using g3;
 using Microsoft.Win32.SafeHandles;
-using OSGeo.OSR;
-
-
+using Virgis;
+using UnityEngine;
 
 namespace Mdal {
 
@@ -176,16 +173,16 @@ namespace Mdal {
                     dg.datasets[0].GetValues(ref red);
                     hasColors = true;
                 }
-                if(name == "green" && dg.datasets.Count > 0)
+                if (name == "green" && dg.datasets.Count > 0)
                     dg.datasets[0].GetValues(ref green);
-                if(name == "blue" && dg.datasets.Count > 0)
+                if (name == "blue" && dg.datasets.Count > 0)
                     dg.datasets[0].GetValues(ref blue);
             }
             if (hasColors) {
                 for (int i = 0; i < count; i++) {
                     colors[i * 3] = (float) (red[i] / 255);
                     colors[i * 3 + 1] = (float) (green[i] / 255);
-                    colors[i * 3 + 2] = (float) (blue[i]/255);
+                    colors[i * 3 + 2] = (float) (blue[i] / 255);
                 }
             }
             return new VectorArray3f(colors);
@@ -201,6 +198,16 @@ namespace Mdal {
 
         public static implicit operator SimpleMesh(MdalMesh thisMesh) => thisMesh.ToMesh();
         public static implicit operator DMesh3(MdalMesh thisMesh) => thisMesh.ToDMesh();
+        public static implicit operator BakedPointCloud(MdalMesh thisMesh) {
+            BakedPointCloud pc = new BakedPointCloud();
+            int vcount = Mdal.MDAL_M_vertexCount(thisMesh);
+            MdalVertexIterator vi = Mdal.MDAL_M_vertexIterator(thisMesh);
+            VectorArray3d v = vi.GetVertexes(vcount);
+            bool hasColors;
+            VectorArray3f c = thisMesh.GetColors(vcount, out hasColors);
+            pc.Initialize(v.AsVector3d(), c.AsVector3f(), vcount);
+            return pc;
+        }
     }
 
     public sealed class MdalVertexIterator : SafeHandleZeroOrMinusOneIsInvalid {

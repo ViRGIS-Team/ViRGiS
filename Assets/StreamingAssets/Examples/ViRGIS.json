@@ -2,7 +2,7 @@
     "pipeline": [
         {
             "type":"readers.gdal",
-            "filename":"../../../../test_data/EC_DML.ers",
+            "filename":"../../../../test_data/MAG_DML.ers",
             "header":"m"
         },
         {
@@ -32,9 +32,8 @@
             "dimension":"m"
           },
         {
-            "type":"writers.text",
-            "filename":"../../../../test_data/EC_DML.txt",
-            "format": "csv"
+            "type":"writers.ply",
+            "filename":"../../../../test_data/MAG_DML.ply"
         }
     ]
 }
