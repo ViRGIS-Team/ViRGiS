@@ -3,14 +3,13 @@ using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
 using Project;
-using Pcx;
-using GeoJSON.Net.Geometry;
+using Mdal;
 
 namespace Virgis
 {
 
 
-    public class RasterLayer : VirgisLayer<GeographyCollection, ParticleData>
+    public class RasterLayer : VirgisLayer<GeographyCollection, BakedPointCloud>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -31,19 +30,8 @@ namespace Virgis
 
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
-            //PlyImport reader = new PlyImport();
-            //features = await reader.Load(layer.Source);
-            CSVReader reader = new CSVReader();
-            await reader.Load(layer.Source);
-            CSVData data = reader.Read();
-            features = new ParticleData();
-            foreach (CSVRow point in data) {
-                features.vertexCount++;
-                features.vertices.Add(new Vector3((float)point["X"], (float)point["Y"], (float) point["Z"]));
-                features.normals.Add(Vector3.up);
-                features.colors.Add(new Color((float) point["Red"] / 255, (float) point["Green"] / 255, (float) point["Blue"] / 255));
-            }
-
+            Datasource ds = new Datasource(layer.Source);
+            features = ds.GetMesh(0);
             symbology = layer.Properties.Units;
 
             Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
@@ -70,13 +58,10 @@ namespace Virgis
 
 
 
-            BakedPointCloud cloud = ScriptableObject.CreateInstance<BakedPointCloud>();
-            ParticleData data = features as ParticleData;
-            cloud.Initialize(data.vertices, data.colors);
             VisualEffect vfx = model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", cloud.positionMap);
-            vfx.SetTexture("_Colors", cloud.colorMap);
-            vfx.SetInt("_pointCount", cloud.pointCount);
+            vfx.SetTexture("_Positions", features.positionMap);
+            vfx.SetTexture("_Colors", features.colorMap);
+            vfx.SetInt("_pointCount", features.pointCount);
             vfx.SetVector3("_size", symbology["point"].Transform.Scale);
             vfx.Play();
 
@@ -93,13 +78,10 @@ namespace Virgis
 
         public override void _set_visible() {
             base._set_visible();
-            BakedPointCloud cloud = ScriptableObject.CreateInstance<BakedPointCloud>();
-            ParticleData data = features as ParticleData;
-            cloud.Initialize(data.vertices, data.colors);
             VisualEffect vfx = model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", cloud.positionMap);
-            vfx.SetTexture("_Colors", cloud.colorMap);
-            vfx.SetInt("_pointCount", cloud.pointCount);
+            vfx.SetTexture("_Positions", features.positionMap);
+            vfx.SetTexture("_Colors", features.colorMap);
+            vfx.SetInt("_pointCount", features.pointCount);
             vfx.SetVector3("_size", symbology["point"].Transform.Scale);
             vfx.Play();
         }

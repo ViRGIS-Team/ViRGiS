@@ -1,13 +1,15 @@
 // Pcx - Point cloud importer & renderer for Unity
 // https://github.com/keijiro/Pcx
 
+// This is a derivative work of the original that was authored by Keijiro and published UnLicensed.
+
 using UnityEngine;
 using System.Collections.Generic;
-
-namespace Pcx
+using g3;
+namespace Virgis
 {
     /// A container class for texture-baked point clouds.
-    public sealed class BakedPointCloud : ScriptableObject
+    public sealed class BakedPointCloud 
     {
 
         /// Number of points
@@ -26,11 +28,11 @@ namespace Pcx
 
 
 
-        public void Initialize(List<Vector3> positions, List<Color32> colors)
+        public void Initialize(IEnumerable<Vector3d> positions, IEnumerable<Vector3f> colors, int size)
         {
-            _pointCount = positions.Count;
+            _pointCount = size;
 
-            var width = Mathf.CeilToInt(Mathf.Sqrt(_pointCount));
+            int width = Mathf.CeilToInt(Mathf.Sqrt(_pointCount));
 
             _positionMap = new Texture2D(width, width, TextureFormat.RGBAHalf, false);
             _positionMap.name = "Position Map";
@@ -40,21 +42,33 @@ namespace Pcx
             _colorMap.name = "Color Map";
             _colorMap.filterMode = FilterMode.Point;
 
-            var i1 = 0;
-            var i2 = 0U;
+            int i1 = 0;
+            uint i2 = 0U;
 
-            for (var y = 0; y < width; y++)
+            IEnumerator<Vector3d> position = positions.GetEnumerator();
+            IEnumerator<Vector3f> color = colors.GetEnumerator();
+
+            position.MoveNext();
+            color.MoveNext();
+
+
+            for (int y = 0; y < width; y++)
             {
-                for (var x = 0; x < width; x++)
+                for (int x = 0; x < width; x++)
                 {
-                    var i = i1 < _pointCount ? i1 : (int)(i2 % _pointCount);
-                    var p = positions[i];
+                    int i = i1 < _pointCount ? i1 : (int)(i2 % _pointCount);
 
-                    _positionMap.SetPixel(x, y, new Color(p.x, p.y, p.z));
-                    _colorMap.SetPixel(x, y, colors[i]);
+                    Vector3d p = position.Current;
+                    Vector3f c = color.Current;
+
+                    _positionMap.SetPixel(x, y, new Color((float)p.x, (float)p.y, (float)p.z));
+                    _colorMap.SetPixel(x, y, new Color(c.x, c.y, c.z));
 
                     i1 ++;
                     i2 += 132049U; // prime
+
+                    position.MoveNext();
+                    color.MoveNext();
                 }
             }
 
