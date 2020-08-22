@@ -19,8 +19,11 @@ namespace Virgis
     /// </summary>
     public class MapInitialize : VirgisLayer<RecordSet, object>
     {
-        // Refernce to the Main Camera GameObject
-        public GameObject MainCamera;
+        // Refernce to the Tracking Frame GameObject that should include the Main Camera(s)
+        public GameObject TrackingSpace;
+
+        // reference to the main camera
+        public Camera MainCamera;
 
         //References to the Prefabs to be used for Layers
         public GameObject PointLayer;
@@ -80,7 +83,8 @@ namespace Virgis
             appState.map = Map;
             appState.ZoomChange(appState.project.Scale);
             appState.mainCamera = MainCamera;
-            MainCamera.transform.position = appState.project.Camera.Coordinates.Vector3();
+            appState.trackingSpace = TrackingSpace;
+            TrackingSpace.transform.position = appState.project.Camera.Coordinates.Vector3();
 
             await Init(null);
             Draw();

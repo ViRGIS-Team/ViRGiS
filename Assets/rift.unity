@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099c2dc721fc400fa27c52dd4aaeb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackingSpace: {fileID: 1964422705}
   DesktopAcceleration: 1
   XAxisSensitivity: 0
   YAxisSensitivity: 0
@@ -844,9 +843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9418f4c3c00104a839cb4a53d739383b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  features: {fileID: 0}
   changed: 1
-  MainCamera: {fileID: 8014835}
+  TrackingSpace: {fileID: 8014835}
+  MainCamera: {fileID: 1329969687}
   PointLayer: {fileID: 1789904940936214724, guid: 82c0b641d928a428981f4eb43e90e0f0,
     type: 3}
   LineLayer: {fileID: 2704245247459435307, guid: 968a18c3606dd4fe2b524dbb09bbf667,
@@ -857,7 +856,8 @@ MonoBehaviour:
     type: 3}
   MeshLayer: {fileID: 103705025751674337, guid: 7899972cde4ea4baea27a4eae07bf527,
     type: 3}
-  CsvLayer: {fileID: 0}
+  CsvLayer: {fileID: 8224753811758663458, guid: 02337782559c0478eb531236c8d6e6eb,
+    type: 3}
   appState: {fileID: 189713285963101377, guid: 8dcb972f0dda9904e845a13a4dfb461b, type: 3}
   inputfile: test_data/gisproject3.json
 --- !u!1001 &975561967
