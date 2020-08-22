@@ -15,7 +15,6 @@ namespace Virgis
     public class FlyingCam : MonoBehaviour
     {
 
-        public GameObject trackingSpace; // reference to the active tracking space
         [Header("Constants - Desktop")]                                 //unity controls and constants input - keyboard
         public float DesktopAcceleration; // controls how fast you speed up
         public float XAxisSensitivity; // control mouse sensitivity
@@ -51,16 +50,13 @@ namespace Virgis
         private Vector3 from; // caches the last position indicated by the user to which to move the selected component
         private AppState appState;
         private Rigidbody _thisRigidbody;
-        private Camera self;
 
 
         private void Start()
         {
             appState = AppState.instance;
-            appState.trackingSpace = trackingSpace;
             _thisRigidbody = GetComponent<Rigidbody>();
             _thisRigidbody.detectCollisions = false;
-            self = GetComponent<Camera>();
 
         }
 
@@ -158,7 +154,7 @@ namespace Virgis
             }
             else
             {
-                Ray ray = self.ScreenPointToRay(Mouse.current.position.ReadValue());
+                Ray ray = appState.mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
                 Vector3 to = ray.GetPoint(selectedDistance);
 
                 if (currentPointerHit != null)
@@ -228,7 +224,7 @@ namespace Virgis
         {
             RaycastHit hitInfo = new RaycastHit();
             Vector3 mousePos = Input.mousePosition;
-            Ray ray = self.ScreenPointToRay(mousePos);
+            Ray ray = appState.mainCamera.ScreenPointToRay(mousePos);
             //Debug.DrawRay(ray.origin, ray.direction * 100f, Color.yellow, 1000f);
             bool hit = Physics.Raycast(ray, out hitInfo);
             if (hit)
