@@ -37,7 +37,12 @@ namespace Virgis
             pipe.Add( new{
                     type= "readers.gdal",
                     filename= layer.Source,
+                    header= "m"
                 });
+
+            if (layer.Properties.Filter != null) {
+                pipe.Add(layer.Properties.Filter);
+            }
 
             if (layer.Properties.Dem != null) {
                 pipe.Add(new {
@@ -51,7 +56,7 @@ namespace Virgis
             } else {
                 pipe.Add(new {
                     type = "filters.ferry",
-                    dimensions = "0=>Z"
+                    dimensions = "=>Z"
                 });
             }
 
@@ -70,14 +75,10 @@ namespace Virgis
                 coord_op= "+proj=axisswap +order=1,-3,2"
             });
 
-            if (layer.Properties.Ramp != null) {
-                string k = layer.Properties.K != null && layer.Properties.K != "" ? layer.Properties.K : "6"; 
-                pipe.Add(new {
-                    type = "filters.colorinterp",
-                    ramp= layer.Properties.Ramp,
-                    dimension= "band-1",
-                    k= k
-                });
+            if (layer.Properties.ColorInterp != null) {
+                Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
+                ci.Add("type", "filters.colorinterp");
+                pipe.Add(ci);
             }
 
 
@@ -86,15 +87,18 @@ namespace Virgis
             });
 
             Pipeline pipeline = new Pipeline(json);
+            if (pipeline.Valid == false)
+                throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
             long pointCount = pipeline.Execute();
-            pdal.PointViewIterator views = pipeline.Views;
-            pdal.PointView view = views != null ? views.Next : null;
-
-            if (view != null) {
-                features = view.GetBakedPointCloud(pointCount);
+            PointViewIterator views = pipeline.Views;
+            if (views != null) {
+                pdal.PointView view = views != null ? views.Next : null;
+                if (view != null) {
+                    features = view.GetBakedPointCloud(pointCount);
+                    view.Dispose();
+                }
+                views.Dispose();
             }
-            view.Dispose();
-            views.Dispose();
             pipeline.Dispose();
             symbology = layer.Properties.Units;
 

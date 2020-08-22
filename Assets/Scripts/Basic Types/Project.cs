@@ -179,10 +179,10 @@ namespace Project
             public Dictionary<string, Unit> Units;
             [JsonProperty(PropertyName = "dem")]
             public string Dem;
-            [JsonProperty(PropertyName = "color_ramp")]
-            public string Ramp;
-            [JsonProperty(PropertyName = "color_k")]
-            public string K;
+            [JsonProperty(PropertyName = "colorinterp")]
+            public Dictionary<string, object> ColorInterp;
+            [JsonProperty(PropertyName = "filter")]
+            public Dictionary<string, object> Filter;
         }
     }
 
@@ -201,12 +201,11 @@ namespace Project
             public string xSect;
             [JsonProperty(PropertyName = "dem")]
             public string Dem;
-            [JsonProperty(PropertyName = "color_ramp")]
-            public string Ramp;
-            [JsonProperty(PropertyName = "color_k")]
-            public string K;
+            [JsonProperty(PropertyName = "colorinterp")]
+            public Dictionary<string, object> ColorInterp;
+            [JsonProperty(PropertyName = "filter")]
+            public Dictionary<string, object> Filter;
         }
-
     }
 
     public enum RecordSetDataType
