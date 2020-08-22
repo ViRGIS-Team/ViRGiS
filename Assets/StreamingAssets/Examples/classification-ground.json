@@ -2,7 +2,7 @@
     "pipeline": [
         {
             "type" : "readers.las",
-            "filename" : "../Pdal/Data/1.2-with-color.las",
+            "filename" : "Assets/StreamingAssets/Pdal/Data/1.2-with-color.las",
             "spatialreference":"EPSG:2993"
         },
 		{
@@ -13,11 +13,6 @@
 		  "type":"filters.stats",
 		  "dimensions":"X,Y,Z,Classification",
 		  "enumerate":"Classification"
-		},
-		{
-			"type":"writers.ply",
-			"storage_mode":"ascii",
-			"filename":"outputfile.ply"
 		}
     ]
 }
