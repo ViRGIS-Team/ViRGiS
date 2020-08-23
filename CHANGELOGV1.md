@@ -2,7 +2,7 @@
 
 ## Version 1.0.1
 
-- Implements #218 - fix for broken UI in Desktop mode.
+- Implements [#218](https://github.com/ViRGIS-Team/ViRGIS/issues/218) - fix for broken UI in Desktop mode.
 
 ## Version 1.0.0
 
