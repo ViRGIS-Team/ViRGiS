@@ -30,8 +30,12 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using Virgis;
+using g3;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
- namespace pdal
+namespace pdal
  {
 	public class PointView : IDisposable
 	{
@@ -190,5 +194,76 @@ using System.Text;
 
 			return clonedView;
 		}
-	}
+
+        public BakedPointCloud GetBakedPointCloud(long size) {
+            BakedPointCloud pc = new BakedPointCloud();
+            PointLayout layout = Layout;
+            DimTypeList typelist = layout.Types;
+            byte[] data = GetAllPackedPoints(typelist);
+            List<Vector3d> positions = new List<Vector3d>();
+            List<Vector3f> colors = new List<Vector3f>();
+
+            uint pointSize = layout.PointSize;
+            Dictionary<string, int> indexs = new Dictionary<string, int>();
+            Dictionary<string, string> types = new Dictionary<string, string>();
+            int count = 0;
+            bool hasColor = false;
+            for (uint j = 0; j < typelist.Size; j++) {
+                DimType type = typelist.at(j);
+                string interpretationName = type.InterpretationName;
+                int interpretationByteCount = type.InterpretationByteCount;
+                string name = type.IdName;
+                indexs.Add(name, count);
+                types.Add(name, interpretationName);
+                if (name == "Red")
+                    hasColor = true;
+                count += interpretationByteCount;
+            }
+
+            for (long i = 0; i < size; i++) {
+                positions.Add( new Vector3d(parseDouble(data, types["X"], (int) (i * pointSize + indexs["X"])), 
+                                            parseDouble(data, types["Y"], (int) (i * pointSize + indexs["Y"])),
+                                            parseDouble(data, types["Z"], (int) (i * pointSize + indexs["Z"]))
+                              ));
+                if (hasColor) 
+                    colors.Add(new Vector3f((float) parseColor(data, types["Red"], (int) (i * pointSize + indexs["Red"])),
+                                            (float) parseColor(data, types["Green"], (int) (i * pointSize + indexs["Green"])),
+                                            (float) parseColor(data, types["Blue"], (int) (i * pointSize + indexs["Blue"]))
+                            ));
+            }
+
+            pc.Initialize(positions, colors, (int)size);
+            return pc;
+        }
+
+        private double parseDouble(byte[] buffer, string interpretationName, int position) {
+            double value = 0;
+            if (interpretationName == "double") {
+                value = BitConverter.ToDouble(buffer, position);
+            } else if (interpretationName == "float") {
+                value = BitConverter.ToSingle(buffer, position);
+            } else if (interpretationName.StartsWith("uint64")) {
+                value = BitConverter.ToUInt64(buffer, position);
+            } else if (interpretationName.StartsWith("uint32")) {
+                value = BitConverter.ToUInt32(buffer, position);
+            } else if (interpretationName.StartsWith("uint16")) {
+                value = BitConverter.ToUInt16(buffer, position);
+            } else if (interpretationName.StartsWith("uint8")) {
+                value = buffer[position];
+            } else if (interpretationName.StartsWith("int64")) {
+                value = BitConverter.ToInt64(buffer, position);
+            } else if (interpretationName.StartsWith("int32")) {
+                value = BitConverter.ToInt32(buffer, position);
+            } else if (interpretationName.StartsWith("int16")) {
+                value = BitConverter.ToInt16(buffer, position);
+            } else if (interpretationName.StartsWith("int8")) {
+                value = ((sbyte) buffer[position]);
+            }
+            return value;
+        }
+
+        private float parseColor(byte[] buffer, string interpretationName, int position) {
+            return (float) parseDouble(buffer, interpretationName, position) / 256;
+        }  
+    }
  }

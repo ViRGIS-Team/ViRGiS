@@ -173,10 +173,16 @@ namespace Project
         [JsonProperty(PropertyName = "properties")]
         public new GeogData Properties;
 
-        public struct GeogData
+        public struct GeogData 
         {
             [JsonProperty(PropertyName = "units", Required = Required.Always)]
             public Dictionary<string, Unit> Units;
+            [JsonProperty(PropertyName = "dem")]
+            public string Dem;
+            [JsonProperty(PropertyName = "colorinterp")]
+            public Dictionary<string, object> ColorInterp;
+            [JsonProperty(PropertyName = "filter")]
+            public Dictionary<string, object> Filter;
         }
     }
 
@@ -193,8 +199,13 @@ namespace Project
             public Dictionary<string, GeoTypes> Lines;
             [JsonProperty(PropertyName = "x_sect_type")]
             public string xSect;
+            [JsonProperty(PropertyName = "dem")]
+            public string Dem;
+            [JsonProperty(PropertyName = "colorinterp")]
+            public Dictionary<string, object> ColorInterp;
+            [JsonProperty(PropertyName = "filter")]
+            public Dictionary<string, object> Filter;
         }
-
     }
 
     public enum RecordSetDataType

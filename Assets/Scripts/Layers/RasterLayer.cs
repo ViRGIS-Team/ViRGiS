@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
 using Project;
-using Mdal;
+using pdal;
+using Newtonsoft.Json;
 
 namespace Virgis
 {
@@ -30,8 +31,75 @@ namespace Virgis
 
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
-            Datasource ds = new Datasource(layer.Source);
-            features = ds.GetMesh(0);
+
+
+            List<object> pipe = new List<object>();
+            pipe.Add( new{
+                    type= "readers.gdal",
+                    filename= layer.Source,
+                    header= "m"
+                });
+
+            if (layer.Properties.Filter != null) {
+                pipe.Add(layer.Properties.Filter);
+            }
+
+            if (layer.Properties.Dem != null) {
+                pipe.Add(new {
+                    type = "filters.hag_dem",
+                    raster = layer.Properties.Dem
+                });
+                pipe.Add(new {
+                    type = "filters.ferry",
+                    dimensions = "HeightAboveGround=>Z"
+                });
+            } else {
+                pipe.Add(new {
+                    type = "filters.ferry",
+                    dimensions = "=>Z"
+                });
+            }
+
+            if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                string crs;
+                AppState.instance.mapProj.ExportToProj4(out crs);
+                pipe.Add(new {
+                    type = "filters.reprojection",
+                    in_srs = layer.Crs,
+                    out_srs = crs
+                });
+            }
+
+            pipe.Add(new {
+                type= "filters.projpipeline",
+                coord_op= "+proj=axisswap +order=1,-3,2"
+            });
+
+            if (layer.Properties.ColorInterp != null) {
+                Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
+                ci.Add("type", "filters.colorinterp");
+                pipe.Add(ci);
+            }
+
+
+            string json = JsonConvert.SerializeObject(new {
+                pipeline = pipe.ToArray()
+            });
+
+            Pipeline pipeline = new Pipeline(json);
+            if (pipeline.Valid == false)
+                throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
+            long pointCount = pipeline.Execute();
+            PointViewIterator views = pipeline.Views;
+            if (views != null) {
+                pdal.PointView view = views != null ? views.Next : null;
+                if (view != null) {
+                    features = view.GetBakedPointCloud(pointCount);
+                    view.Dispose();
+                }
+                views.Dispose();
+            }
+            pipeline.Dispose();
             symbology = layer.Properties.Units;
 
             Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
