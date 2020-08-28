@@ -182,7 +182,7 @@ namespace Project
             [JsonProperty(PropertyName = "colorinterp")]
             public Dictionary<string, object> ColorInterp;
             [JsonProperty(PropertyName = "filter")]
-            public Dictionary<string, object> Filter;
+            public List<Dictionary<string, object>> Filter;
         }
     }
 
@@ -204,7 +204,7 @@ namespace Project
             [JsonProperty(PropertyName = "colorinterp")]
             public Dictionary<string, object> ColorInterp;
             [JsonProperty(PropertyName = "filter")]
-            public Dictionary<string, object> Filter;
+            public List<Dictionary<string, object>> Filter;
         }
     }
 
@@ -222,6 +222,7 @@ namespace Project
         Point,
         Line,
         Polygon,
+        DEM
     }
 
     public enum GeoTypes

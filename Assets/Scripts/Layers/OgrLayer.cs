@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using OSGeo.GDAL;
 using OSGeo.OGR;
 using System.Linq;
 using System;
@@ -30,7 +29,8 @@ namespace Virgis {
             await ogrReader.Load(layer.Source);
             features = ogrReader.GetLayers().ToArray();
             foreach (Layer thisLayer in features) {
-                wkbGeometryType type = OgrReader.Flatten(new Geometry(thisLayer.GetGeomType()));
+                wkbGeometryType type = thisLayer.GetGeomType();
+                OgrReader.Flatten(ref type);
                 switch (type) {
                     case wkbGeometryType.wkbPoint:
                         _layers.Add( await Instantiate(PointLayer,transform).GetComponent<PointLayer>().Init(layer));
@@ -46,6 +46,64 @@ namespace Virgis {
                         _layers.Add(await Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>().Init(layer));
                         _layers.Last().SetFeatures(thisLayer);
                         _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                        break;
+                    case wkbGeometryType.wkbUnknown:
+                        long FeatureCount = thisLayer.GetFeatureCount(1);
+                        thisLayer.ResetReading();
+                        for (int i = 0; i < FeatureCount; i++) {
+                            Feature feature = thisLayer.GetNextFeature();
+                            if (feature == null)
+                                continue;
+                            Geometry geom = feature.GetGeometryRef();
+                            if (geom == null)
+                                continue;
+                            wkbGeometryType ftype = geom.GetGeometryType();
+                            OgrReader.Flatten(ref ftype);
+                            VirgisLayer<GeographyCollection, Layer> layerToAdd = null;
+                            switch (ftype) {
+                                case wkbGeometryType.wkbLineString:
+                                    foreach (VirgisLayer<GeographyCollection, Layer> l in _layers) {
+                                        if (l.GetType() == typeof(LineLayer)) {
+                                            layerToAdd = l;
+                                            break;
+                                        }
+                                     }
+                                    if (layerToAdd == null) {
+                                        _layers.Add(await Instantiate(LineLayer, transform).GetComponent<LineLayer>().Init(layer));
+                                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                                        _layers.Last().SetFeatures(thisLayer);
+                                    }
+                                    break;
+                                case wkbGeometryType.wkbPolygon:
+                                    foreach (VirgisLayer<GeographyCollection, Layer> l in _layers) {
+                                        if (l.GetType() == typeof(PolygonLayer)) {
+                                            layerToAdd = l;
+                                            break;
+                                        }
+                                    }
+                                    if (layerToAdd == null) {
+                                        _layers.Add(await Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>().Init(layer));
+                                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                                        _layers.Last().SetFeatures(thisLayer);
+                                    }
+                                    break;
+                                case wkbGeometryType.wkbPoint:
+                                    foreach (VirgisLayer<GeographyCollection, Layer> l in _layers) {
+                                        if (l.GetType() == typeof(PointLayer)) {
+                                            layerToAdd = l;
+                                            break;
+                                        }
+                                    }
+                                    if (layerToAdd == null) {
+                                        _layers.Add(await Instantiate(PointLayer, transform).GetComponent<PointLayer>().Init(layer));
+                                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                                        _layers.Last().SetFeatures(thisLayer);
+                                    }
+                                    break;
+                                default:
+                                    throw new NotSupportedException($"Geometry type {ftype.ToString()} is not supported");
+                            }
+                        }
                         break;
                 }
             }

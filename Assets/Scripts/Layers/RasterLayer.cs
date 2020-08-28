@@ -41,7 +41,8 @@ namespace Virgis
                 });
 
             if (layer.Properties.Filter != null) {
-                pipe.Add(layer.Properties.Filter);
+                foreach (Dictionary<string, object> item in layer.Properties.Filter)
+                    pipe.Add(item);
             }
 
             if (layer.Properties.Dem != null) {

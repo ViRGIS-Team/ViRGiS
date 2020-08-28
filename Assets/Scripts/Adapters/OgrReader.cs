@@ -48,21 +48,24 @@ namespace Virgis
             }
         }
 
-        public static wkbGeometryType Flatten(Geometry geom) {
-            geom.FlattenTo2D();
-            wkbGeometryType type = geom.GetGeometryType();
-            switch (type) {
-                case wkbGeometryType.wkbMultiLineString:
-                    type = wkbGeometryType.wkbLineString;
-                    break;
-                case wkbGeometryType.wkbMultiPoint:
-                    type = wkbGeometryType.wkbPoint;
-                    break;
-                case wkbGeometryType.wkbMultiPolygon:
-                    type = wkbGeometryType.wkbPolygon;
-                    break;
+        public static void Flatten(ref wkbGeometryType type) {
+            if (type != wkbGeometryType.wkbUnknown) {
+                Geometry geom = new Geometry(type);
+                geom.FlattenTo2D();
+                type = geom.GetGeometryType();
+                switch (type) {
+                    case wkbGeometryType.wkbMultiLineString:
+                        type = wkbGeometryType.wkbLineString;
+                        break;
+                    case wkbGeometryType.wkbMultiPoint:
+                        type = wkbGeometryType.wkbPoint;
+                        break;
+                    case wkbGeometryType.wkbMultiPolygon:
+                        type = wkbGeometryType.wkbPolygon;
+                        break;
+                }
             }
-            return type;
+            return;
         }
     }
 }

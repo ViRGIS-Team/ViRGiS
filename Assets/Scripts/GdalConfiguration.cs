@@ -73,6 +73,10 @@ namespace Virgis
         private static volatile bool _configuredGdal;
         private static volatile bool _usable;
 
+        public enum GDAL_TYPES {
+            
+        }
+
         [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
         static extern bool SetDefaultDllDirectories(uint directoryFlags);
         //               LOAD_LIBRARY_SEARCH_USER_DIRS | LOAD_LIBRARY_SEARCH_SYSTEM32

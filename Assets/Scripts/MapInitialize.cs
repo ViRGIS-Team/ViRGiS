@@ -31,6 +31,7 @@ namespace Virgis
         public GameObject MDALLayer;
         public GameObject XsectLayer;
         public GameObject CsvLayer;
+        public GameObject DemLayer;
         public AppState appState;
 
         // Path to the Project File
@@ -115,6 +116,9 @@ namespace Virgis
                         case RecordSetDataType.CSV:
                             temp = await Instantiate(CsvLayer,transform).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                             break;
+                        case RecordSetDataType.DEM:
+                            temp = await Instantiate(DemLayer, transform).GetComponent<DemLayer>().Init(thisLayer as GeographyCollection);
+                            break;
                         default:
                             Debug.LogError(thisLayer.Type.ToString() + " is not known.");
                             break;
@@ -130,12 +134,11 @@ namespace Virgis
                             appState.addLayer(l);
                             l.gameObject.SetActive(thisLayer.Visible);
                             l.Draw();
-                            break;
+                            continue;
                         }
                         for (int i = 0; i < children; i++) {
                             tempLayers.Push(l.transform.GetChild(i).GetComponent<VirgisLayer>());
-                        }
-                            
+                        } 
                     }
                 } catch (Exception e) {
                     Debug.LogError(e.ToString() ?? "Unknown Error");

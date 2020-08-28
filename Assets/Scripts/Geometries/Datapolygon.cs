@@ -111,37 +111,45 @@ namespace Virgis
             Mesh mesh = new Mesh();
             TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
             Frame3f frame = new Frame3f();
-            tpg.Polygon = Polygon.ToPolygon(ref frame);
-            tpg.Generate();
-            int nv = tpg.vertices.Count;
-            VertexTable.Clear();
+            Vector3[] vertices;
+            List<Vector2> uvs;
 
-            foreach (Dataline ring in Polygon) {
-                foreach (VertexLookup v in ring.VertexTable) {
-                    VertexTable.Add(v);
+            try {
+
+                tpg.Polygon = Polygon.ToPolygon(ref frame);
+                tpg.Generate();
+                int nv = tpg.vertices.Count;
+                VertexTable.Clear();
+
+                foreach (Dataline ring in Polygon) {
+                    foreach (VertexLookup v in ring.VertexTable) {
+                        VertexTable.Add(v);
+                    }
                 }
-            }
-            IEnumerable<Vector3d> vlist = tpg.vertices.AsVector3d();
-            Vector3[] vertices = new Vector3[vlist.Count()];
+                IEnumerable<Vector3d> vlist = tpg.vertices.AsVector3d();
+                vertices = new Vector3[vlist.Count()];
 
-            for (int i = 0; i < vlist.Count(); i++) {
-                Vector3d v = vlist.ElementAt(i);
-                try {
-                    VertexLookup vl = VertexTable.Find(item => v.xy.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001);
-                    vertices[i] = Shape.transform.InverseTransformPoint(vl.Com.transform.position);
-                    vl.pVertex = i;
+                for (int i = 0; i < vlist.Count(); i++) {
+                    Vector3d v = vlist.ElementAt(i);
+                    try {
+                        VertexLookup vl = VertexTable.Find(item => v.xy.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001);
+                        vertices[i] = Shape.transform.InverseTransformPoint(vl.Com.transform.position);
+                        vl.pVertex = i;
 
 
-                } catch {
-                    VertexTable.Add(new VertexLookup() { pVertex = i, Com = VertexTable[0].Com });
-                    vertices[i] = Shape.transform.InverseTransformPoint((Vector3) frame.FromFrameV(v));
+                    } catch {
+                        VertexTable.Add(new VertexLookup() { pVertex = i, Com = VertexTable[0].Com });
+                        vertices[i] = Shape.transform.InverseTransformPoint((Vector3) frame.FromFrameV(v));
+                    }
                 }
-            }
 
-            List<Vector2> uvs = new List<Vector2>();
-            IEnumerable<Vector2d> uv2d = tpg.uv.AsVector2f();
-            foreach (Vector2d uv in uv2d) {
-                uvs.Add((Vector2) uv);
+                uvs = new List<Vector2>();
+                IEnumerable<Vector2d> uv2d = tpg.uv.AsVector2f();
+                foreach (Vector2d uv in uv2d) {
+                    uvs.Add((Vector2) uv);
+                }
+            } catch {
+                throw new Exception("feature is not a valid Polygon");
             }
             mesh.vertices = vertices.ToArray();
             mesh.triangles = tpg.triangles.ToArray<int>();
