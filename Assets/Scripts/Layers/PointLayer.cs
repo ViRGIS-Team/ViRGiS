@@ -83,6 +83,12 @@ namespace Virgis {
                     point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
                 }
             }
+            GeographyCollection layer = GetMetadata();
+            if (layer.Transform != null) {
+                transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);
+                transform.rotation = layer.Transform.Rotate;
+                transform.localScale = layer.Transform.Scale;
+            }
         }
 
         /// <summary>

@@ -292,6 +292,8 @@ namespace Virgis {
             if (geom.Transform(AppState.instance.mapTrans) != 0)
                 throw new NotSupportedException("axis change failed");
             int n = geom.GetPointCount();
+            string crs;
+            geom.GetSpatialReference().ExportToWkt(out crs, null);
             Vector3d[] ls = new Vector3d[n];
             for (int i = 0; i < n; i++) {
                 double[] argout = new double[3];
@@ -379,6 +381,10 @@ namespace Virgis {
         /// <param name="geom"> Geometry</param>
         /// <returns>VEctor3[]</returns>
         public static Vector3[] TransformWorld(this Geometry geom) {
+            if (geom.GetCoordinateDimension() == 2) {
+                geom.Set3D(1);
+            };
+            int dim = geom.GetCoordinateDimension();
             if (geom.TransformTo(AppState.instance.mapProj) != 0)
                 throw new NotSupportedException("projection failed");
             if (geom.Transform(AppState.instance.mapTrans) != 0)

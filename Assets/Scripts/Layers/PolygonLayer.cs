@@ -142,7 +142,12 @@ namespace Virgis
                      _drawFeature(poly, feature);
                 }
             }
-
+            GeographyCollection layer = GetMetadata();
+            if (layer.Transform != null) {
+                transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);
+                transform.rotation = layer.Transform.Rotate;
+                transform.localScale = layer.Transform.Scale;
+            }
         }
 
         protected VirgisFeature _drawFeature(Geometry poly,  Feature feature = null)
@@ -175,7 +180,8 @@ namespace Virgis
             for (int i = 0; i < poly.GetGeometryCount(); i++) LinearRings.Add(poly.GetGeometryRef(i));
             // Darw the LinearRing
             foreach (Geometry LinearRing in LinearRings) {
-                if (LinearRing.GetGeometryType() == wkbGeometryType.wkbLinearRing || LinearRing.GetGeometryType() == wkbGeometryType.wkbLineString25D) {
+                wkbGeometryType type = LinearRing.GetGeometryType();
+                if ( type== wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
                     GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
                     LinearRing.CloseRings();

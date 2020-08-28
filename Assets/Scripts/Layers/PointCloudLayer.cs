@@ -36,7 +36,8 @@ namespace Virgis
             pipe.Add(layer.Source);
 
             if (layer.Properties.Filter != null) {
-                pipe.Add(layer.Properties.Filter);
+                foreach (Dictionary<string, object> item in layer.Properties.Filter)
+                    pipe.Add(item);
             }
 
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
