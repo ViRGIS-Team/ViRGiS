@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
+using System.IO;
 using Project;
 using pdal;
 using Newtonsoft.Json;
@@ -33,7 +34,15 @@ namespace Virgis
             Debug.Log("PC Start");
             GeographyCollection layer = _layer as GeographyCollection;
             List<object> pipe = new List<object>();
-            pipe.Add(layer.Source);
+
+            string ex = Path.GetExtension(layer.Source).ToLower();
+            if (ex == ".xyz")
+                pipe.Add(new {
+                    type = "readers.text",
+                    filename = layer.Source,
+                });
+            else
+                pipe.Add(layer.Source);
 
             if (layer.Properties.Filter != null) {
                 foreach (Dictionary<string, object> item in layer.Properties.Filter)
