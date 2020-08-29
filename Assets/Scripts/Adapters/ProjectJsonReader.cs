@@ -18,48 +18,22 @@ namespace Virgis
         public string payload;
         public string fileName;
 
-        public FeatureCollection getFeatureCollection()
-        {
-            if (payload is null)
-            {
-                return new FeatureCollection();
-            }
-            else
-            {
-                FeatureCollection fc = JsonConvert.DeserializeObject<FeatureCollection>(payload);
-                ICRSObject crs = fc.CRS;
-                return fc;
-            }
-        }
 
-        public async Task Load(string file)
+        public void Load(string file)
         {
             fileName = file;
             char[] result;
             StringBuilder builder = new StringBuilder();
-            try
+            using (StreamReader reader = File.OpenText(file))
             {
-                using (StreamReader reader = File.OpenText(file))
-                {
-                    result = new char[reader.BaseStream.Length];
-                    await reader.ReadAsync(result, 0, (int)reader.BaseStream.Length);
-                    reader.Close();
-                }
-
-                foreach (char c in result)
-                {
-                    builder.Append(c);
-                }
+                result = new char[reader.BaseStream.Length];
+                reader.Read(result, 0, (int)reader.BaseStream.Length);
+                reader.Close();
             }
-            catch (Exception e) when (
-                   e is UnauthorizedAccessException ||
-                   e is DirectoryNotFoundException ||
-                   e is FileNotFoundException ||
-                   e is NotSupportedException
-                   )
+
+            foreach (char c in result)
             {
-                Debug.LogError("Failed to Load" + file + " : " + e.ToString());
-                payload = null;
+                builder.Append(c);
             }
             payload = builder.ToString();
         }
@@ -75,11 +49,6 @@ namespace Virgis
             {
                 await writer.WriteAsync(payload);
             }
-        }
-
-        public void SetFeatureCollection(FeatureCollection contents)
-        {
-            payload = JsonConvert.SerializeObject(contents, Formatting.Indented);
         }
 
         public void SetProject(GisProject project)

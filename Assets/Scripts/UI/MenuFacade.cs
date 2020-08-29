@@ -17,6 +17,7 @@ namespace Virgis {
         public Button stopSaveEditButton;
         public Button stopDiscardEditButton;
         public GameObject layersUI;
+        public GameObject startMenu;
 
         private AppState _appState;
 
@@ -69,6 +70,10 @@ namespace Virgis {
 
         public void OnStopDiscardEditButtonClicked() {
             _appState.StopDiscardEditSession();
+        }
+
+        public void onFileClicked() {
+            startMenu.SetActive(true);
         }
 
         // Changes the state of menu buttons when edit session starts.

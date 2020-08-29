@@ -34,10 +34,8 @@ namespace Virgis
         public GameObject DemLayer;
         public AppState appState;
 
-        // Path to the Project File
-        public string inputfile;
 
-        //File reader for Project and GeoJSON file
+        //File reader for Project file
         private ProjectJsonReader projectJsonReader;
 
 
@@ -54,6 +52,10 @@ namespace Virgis
             }
             appState.AddStartEditSessionListener(_onStartEditSession);
             appState.AddEndEditSessionListener(_onExitEditSession);
+
+            //set globals
+            appState.map = gameObject;
+            appState.mainCamera = MainCamera;
         }
 
         /// 
@@ -61,30 +63,44 @@ namespace Virgis
         /// 
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
-        async void Start()
-        {
+
+
+        public async Task<bool> Load(string file) {
+  
             // Get Project definition - return if the file cannot be read - this will lead to an empty world
             projectJsonReader = new ProjectJsonReader();
-            await projectJsonReader.Load(inputfile);
-            if (projectJsonReader.payload is null)
-                return;
+            try {
+                projectJsonReader.Load(file);
+            } catch (Exception e) {
+                Debug.LogError($"Project File {file} is invalid :: " + e.ToString());
+                return false;
+            }
+
+            if (projectJsonReader.payload is null) {
+                Debug.LogError($"Project File {file} is empty");
+                return false;
+            }
             appState.project = projectJsonReader.GetProject();
 
             //set globals
             appState.initProj();
-            appState.map = gameObject;
             appState.ZoomChange(appState.project.Scale);
-            appState.mainCamera = MainCamera;
             MainCamera.transform.position = appState.project.Cameras[0].ToVector3();
 
-            await Init(null);
+            try {
+                foreach (RecordSet thisLayer in appState.project.RecordSets) {
+                    await initLayer(thisLayer);
+                };
+            } catch {
+                Debug.LogError($"Project File {file} failed");
+                return false;
+            }
+            appState.Init();
+            return true;
         }
 
-        async new Task<VirgisLayer> Init(RecordSet notImportant)
-        {
+        private async Task initLayer(RecordSet thisLayer) {
             VirgisLayer temp = null;
-            foreach (RecordSet thisLayer in appState.project.RecordSets)
-            {
                 try {
                     switch (thisLayer.DataType) {
                         case RecordSetDataType.MapBox:
@@ -143,12 +159,9 @@ namespace Virgis
                 } catch (Exception e) {
                     Debug.LogError(e.ToString() ?? "Unknown Error");
                 }
-            }
-            appState.Init();
-            return this;
         }
 
-        public new void Add(MoveArgs args)
+        public void Add(MoveArgs args)
         {
             throw new System.NotImplementedException();
         }
@@ -205,16 +218,6 @@ namespace Virgis
         protected override Task _save()
         {
             throw new System.NotImplementedException();
-        }
-
-        public override void Translate(MoveArgs args)
-        {
-
-        }
-
-        public override void MoveAxis(MoveArgs args)
-        {
-
         }
 
         public override void StartEditSession()
