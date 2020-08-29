@@ -21,7 +21,7 @@ namespace Virgis
     {
         // Refernce to the Main Camera GameObject
         public GameObject MainCamera;
-        public AbstractMap MapBoxLayer;
+        public GameObject MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
         public GameObject VectorLayer;
@@ -104,10 +104,14 @@ namespace Virgis
                 try {
                     switch (thisLayer.DataType) {
                         case RecordSetDataType.MapBox:
-                            MapBoxLayer.UseWorldScale();
-                            MapBoxLayer.Initialize(appState.project.Origin.Coordinates.Vector2d(), Convert.ToInt32(thisLayer.Properties["mapscale"]));
-                            appState.abstractMap = MapBoxLayer;
-                            temp = MapBoxLayer.GetComponent<ContainerLayer>();
+                            MapBox.MapBoxData props = (thisLayer as MapBox).Properties;
+                            VirgisAbstractMap mbLayer = Instantiate(MapBoxLayer, transform).GetComponent<VirgisAbstractMap>();
+                            mbLayer.UseWorldScale();
+                            mbLayer.SetProperties(props.imagerySourceType, props.elevationLayerType, props.elevationSourceType, props.MapSize);
+                            mbLayer.Initialize(appState.project.Origin.Coordinates.Vector2d(), props.MapScale);
+                            Debug.Log(" Mapbox Options : " + mbLayer.Options.ToString());
+                            appState.abstractMap = mbLayer;
+                            temp = mbLayer.GetComponent<ContainerLayer>();
                             temp.SetMetadata(thisLayer);
                             temp.changed = false;
                             break;

@@ -50,10 +50,10 @@ namespace Virgis {
         }
 
         public async void onFileSelected(string file) {
-            foreach (VirgisLayer layer in AppState.instance.layers) {
-                if (layer.GetMetadata().DataType != RecordSetDataType.MapBox)
-                    layer.gameObject.Destroy();
+            if (AppState.instance.layers != null)  foreach (VirgisLayer layer in AppState.instance.layers) {
+                  layer.gameObject.Destroy();
             }
+            AppState.instance.clearLayers();
             Debug.Log("File selected :" + file);
             gameObject.SetActive(false);
             if (! await AppState.instance.map.GetComponent<MapInitialize>().Load(file)) {

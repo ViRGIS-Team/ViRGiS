@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel;
+using Mapbox.Unity.Map;
 
 namespace Project
 {
@@ -142,6 +143,8 @@ namespace Project
                         } else if (set["type"].ToString() == RecordSetType.GeologyCollection.ToString())
                         {
                             result.Add(set.ToObject(typeof(GeologyCollection)) as GeologyCollection);
+                        } else if (set["type"].ToString() == RecordSetType.MapBox.ToString()) {
+                            result.Add(set.ToObject(typeof(MapBox)) as MapBox);
                         } else {
                             result.Add(set.ToObject(typeof(RecordSet)) as RecordSet);
                         }
@@ -164,8 +167,33 @@ namespace Project
     public enum RecordSetType
     {
         RecordSet,
+        MapBox,
         GeologyCollection,
         GeographyCollection
+    }
+
+    public class MapBox : RecordSet {
+        [JsonProperty(PropertyName = "properties")]
+        public new MapBoxData Properties;
+
+        public struct MapBoxData {
+            [JsonProperty(PropertyName = "mapscale", Required = Required.Always)]
+            public Int32 MapScale;
+            [JsonProperty(PropertyName = "map_size")]
+            public int MapSize;
+            [JsonProperty(PropertyName = "elevation_source_type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [DefaultValue(ElevationSourceType.MapboxTerrain)]
+            [JsonConverter(typeof(StringEnumConverter))]
+            public ElevationSourceType elevationSourceType;
+            [JsonProperty(PropertyName = "elevation_layer_type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [DefaultValue(ElevationLayerType.FlatTerrain)]
+            [JsonConverter(typeof(StringEnumConverter))]
+            public ElevationLayerType elevationLayerType;
+            [JsonProperty(PropertyName = "imagery_source_type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [DefaultValue(ImagerySourceType.MapboxOutdoors)]
+            [JsonConverter(typeof(StringEnumConverter))]
+            public ImagerySourceType imagerySourceType;
+        }
     }
 
     public class GeographyCollection : RecordSet
