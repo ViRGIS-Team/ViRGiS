@@ -43,8 +43,8 @@ namespace Virgis {
             if (isActive) {
                 gameObject.SetActive(false);
             } else {
-                layersUI.SetActive(false);
                 gameObject.SetActive(true);
+                layersUI.GetComponent<LayersUI>().CreateLayerPanels();
             }
         }
 
