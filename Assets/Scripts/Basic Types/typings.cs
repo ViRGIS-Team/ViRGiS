@@ -8,6 +8,7 @@ using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using System.Collections.Generic;
+using Mapbox.Unity.Map;
 
 namespace Virgis {
 

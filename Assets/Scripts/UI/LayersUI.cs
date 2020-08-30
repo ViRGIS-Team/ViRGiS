@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Project;
 
 namespace Virgis
 {
@@ -59,12 +58,20 @@ namespace Virgis
             menus.SetActive(true);
         }
 
-        private void CreateLayerPanels()
+        public void CreateLayerPanels()
         {
+            // Delete any existing panel
+            foreach (var panel in _layersMap) {
+                panel.Value.gameObject.Destroy();
+            }
+
+            _layersMap.Clear();
+
+
             GameObject newLayerPanel;
 
             // appState.layers are actually Layer script (Component)
-            _appState.layers.ForEach(comp =>
+            AppState.instance.layers.ForEach(comp =>
             {
                 // obtain the actual Layer object
                 //                ILayer layer = comp.GetComponentInChildren<ILayer>();

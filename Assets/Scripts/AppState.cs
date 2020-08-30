@@ -36,6 +36,15 @@ namespace Virgis {
             _editSession = new EditSession();
             _layers = new List<Component>();
             _zoomChange = new ZoomEvent();
+
+            try {
+                GdalConfiguration.ConfigureOgr();
+                GdalConfiguration.ConfigureGdal();
+                GdalConfiguration.ConfiurePdal();
+                GdalConfiguration.ConfigureMdal();
+            } catch (Exception e) {
+                Debug.LogError(e.ToString());
+            }
         }
 
         /// <summary>
@@ -76,14 +85,6 @@ namespace Virgis {
 
         public void initProj() {
             if (project != null) {
-                try {
-                    GdalConfiguration.ConfigureOgr();
-                    GdalConfiguration.ConfigureGdal();
-                    GdalConfiguration.ConfiurePdal();
-                    GdalConfiguration.ConfigureMdal();
-                } catch (Exception e) {
-                    Debug.LogError(e.ToString());
-                }
                 _crs = new SpatialReference($@"PROJCRS[""virgis"",
     BASEGEOGCRS[""WGS 84"",
     DATUM[""World Geodetic System 1984"", ELLIPSOID[""WGS 84"", 6378137, 298.257223563, LENGTHUNIT[""metre"", 1]], ID[""EPSG"", 6326]], PRIMEM[""Greenwich"", 0, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8901]]],
