@@ -79,10 +79,24 @@ namespace Virgis {
                 if (feature == null)
                     continue;
                 Geometry point = feature.GetGeometryRef();
-                if (point.GetGeometryType() == wkbGeometryType.wkbPoint || point.GetGeometryType() == wkbGeometryType.wkbPoint25D || point.GetGeometryType() == wkbGeometryType.wkbPointM || point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                    point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
-                }
+                if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
+                    point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
+                    point.GetGeometryType() == wkbGeometryType.wkbPointM ||
+                    point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
+                        point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
+                } else if
+                   (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
+                    point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
+                    point.GetGeometryType() == wkbGeometryType.wkbMultiPointM ||
+                    point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
+                        int n = point.GetGeometryCount();
+                        for (int j = 0; j < n; j++) {
+                            Geometry Point2 = point.GetGeometryRef(j);
+                            string Type = Point2.GetGeometryType().ToString();
+                            Point2.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
+                        }
             }
+        }
             GeographyCollection layer = GetMetadata();
             if (layer.Transform != null) {
                 transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);

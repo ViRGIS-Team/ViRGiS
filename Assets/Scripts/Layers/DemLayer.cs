@@ -44,8 +44,7 @@ namespace Virgis
                 if (sourcetype == "gdal")
                     pipe.Add(new {
                         type = "readers.gdal",
-                        filename = layer.Source,
-                        header = "Z"
+                        filename = layer.Source
                     });
                 else if (ex == ".xyz")
                     pipe.Add(new {
@@ -63,6 +62,7 @@ namespace Virgis
                 if (layer.Properties.ColorInterp != null) {
                     Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
                     ci.Add("type", "filters.colorinterp");
+                    ci.Add("dimension", "band-1");
                     pipe.Add(ci);
                 }
 
