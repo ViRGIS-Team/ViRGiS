@@ -20,7 +20,7 @@ namespace Virgis
     public class MapInitialize : VirgisLayer
     {
         // Refernce to the Main Camera GameObject
-        public GameObject MainCamera;
+        public Camera MainCamera;
         public GameObject MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
