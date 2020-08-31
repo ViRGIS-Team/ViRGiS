@@ -122,7 +122,7 @@ namespace Virgis {
             _layers.Clear();
         }
 
-        public GameObject mainCamera {
+        public Camera mainCamera {
             get; set;
         }
 
