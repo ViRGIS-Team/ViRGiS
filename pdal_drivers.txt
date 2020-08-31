@@ -1,0 +1,44 @@
+
+============================ ===================================================
+Name                         Description
+============================ ===================================================
+readers.bpf                  "Binary Point Format" (BPF) reader support. BPF is
+                             a simple DoD and research format that is used by
+                             some sensor and processing chains.
+readers.ept                  EPT Reader
+readers.faux                 Faux Reader
+readers.gdal                 Read GDAL rasters as point clouds.
+readers.ilvis2               ILVIS2 Reader
+readers.las                  ASPRS LAS 1.0 - 1.4 read support. LASzip support
+                             is also enabled through this driver if LASzip was
+                             found during compilation.
+readers.memoryview           Memory View Reader
+readers.optech               Optech reader support.
+readers.pcd                  Read data in the Point Cloud Library (PCL) format.
+readers.ply                  Read ply files.
+readers.pts                  Pts Reader
+readers.qfit                 QFIT Reader
+readers.sbet                 SBET Reader
+readers.terrasolid           TerraSolid Reader
+readers.text                 Text Reader
+readers.tindex               TileIndex Reader
+writers.bpf                  "Binary Point Format" (BPF) writer support. BPF is
+                             a simple DoD and research format that is used by
+                             some sensor and processing chains.
+writers.ept_addon            EPT Writer
+writers.gdal                 Write a point cloud as a GDAL raster.
+writers.gltf                 Gltf Writer
+writers.las                  ASPRS LAS 1.0 - 1.4 writer. LASzip support is also
+                             available if enabled at compile-time. Note that
+                             LAZ does not provide LAS 1.4 support at this time.
+writers.null                 Null writer. Provides a sink for points in a
+                             pipeline. It's the same as sending pipeline output
+                             to /dev/null.
+writers.ogr                  Write a point cloud as a set of OGR
+                             points/multipoints
+writers.pcd                  Write data in the Point Cloud Library (PCL)
+                             format.
+writers.ply                  ply writer
+writers.sbet                 SBET Writer
+writers.text                 Text Writer
+============================ ===================================================

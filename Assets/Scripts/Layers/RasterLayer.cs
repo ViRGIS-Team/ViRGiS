@@ -13,7 +13,7 @@ namespace Virgis
     public class RasterLayer : VirgisLayer<GeographyCollection, BakedPointCloud>
     {
         // The prefab for the data points to be instantiated
-        public Material material;
+
         public GameObject handle;
         public GameObject pointCloud;
         public List<GameObject> meshes;
