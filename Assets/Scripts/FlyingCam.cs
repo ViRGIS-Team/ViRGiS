@@ -14,6 +14,7 @@ namespace Virgis
     /// </summary>
     public class FlyingCam : MonoBehaviour
     {
+        public GameObject trackingSpace; // reference to the active tracking space 
 
         [Header("Constants - Desktop")]                                 //unity controls and constants input - keyboard
         public float DesktopAcceleration; // controls how fast you speed up
@@ -56,6 +57,7 @@ namespace Virgis
         private void Start()
         {
             appState = AppState.instance;
+            appState.trackingSpace = trackingSpace;
             _thisRigidbody = GetComponent<Rigidbody>();
             _thisRigidbody.detectCollisions = false;
 
