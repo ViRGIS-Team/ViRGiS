@@ -21,6 +21,7 @@ This version will run on the following platforms :
 - #80 - Create a Hierachy of Layers with the "Container Layer" defintition. Make Mapbox a Container Layer and removed from the Map root - so that it is possible to have a model without a map.
 - Converted all Vector layers to OGR layers with one layer  type "Vector". the layer is hierarchical - with sub layers for each layer type etc.
 - Added DEM as a layer type that will accept any GDAL, PDAL or MDAL input type and attempt to create a DEM Mesh.
+- #71 Added the file menu and tideied up the Interface (also #200)
 
 GDAL Version : 3.1.2
 PDAL Version : 2.1.0
