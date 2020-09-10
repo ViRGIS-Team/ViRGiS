@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 namespace Virgis {
 
@@ -20,6 +21,7 @@ namespace Virgis {
         private ZoomEvent _zoomChange;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
+        public Vector3 Orientation;
 
         void Awake() {
             print("AppState awakens");
