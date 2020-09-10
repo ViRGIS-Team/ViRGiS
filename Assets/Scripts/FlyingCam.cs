@@ -90,6 +90,7 @@ namespace Virgis
                     axis = newAxis;
                 }
             }
+            appState.Orientation = appState.mainCamera.transform.forward;
         }
 
         private void FixedUpdate()
