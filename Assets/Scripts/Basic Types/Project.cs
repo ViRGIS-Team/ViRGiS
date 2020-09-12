@@ -201,8 +201,7 @@ namespace Project
         [JsonProperty(PropertyName = "properties")]
         public new GeogData Properties;
 
-        public struct GeogData 
-        {
+        public struct GeogData {
             [JsonProperty(PropertyName = "units", Required = Required.Always)]
             public Dictionary<string, Unit> Units;
             [JsonProperty(PropertyName = "dem")]
@@ -211,6 +210,11 @@ namespace Project
             public Dictionary<string, object> ColorInterp;
             [JsonProperty(PropertyName = "filter")]
             public List<Dictionary<string, object>> Filter;
+            [JsonProperty(PropertyName = "bbox")]
+            public List<double> BBox;
+            [JsonProperty(PropertyName = "is-wfs", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [DefaultValue(false)]
+            public bool isWfs;
         }
     }
 
@@ -233,6 +237,8 @@ namespace Project
             public Dictionary<string, object> ColorInterp;
             [JsonProperty(PropertyName = "filter")]
             public List<Dictionary<string, object>> Filter;
+            [JsonProperty(PropertyName = "bbox")]
+            public List<double> BBox;
         }
     }
 

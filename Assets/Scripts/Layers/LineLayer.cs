@@ -117,10 +117,13 @@ namespace Virgis
 
         protected override void _draw()
         {
-            long FeatureCount = features.GetFeatureCount(1);
+            GeographyCollection layer = GetMetadata();
+            if (layer.Properties.BBox != null) {
+                features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
+            }
             features.ResetReading();
-            for (int i = 0; i < FeatureCount; i++) {
-                Feature feature = features.GetNextFeature();
+            Feature feature = features.GetNextFeature();
+            while (feature != null) {
                 if (feature == null)
                     continue;
                 Geometry line = feature.GetGeometryRef();
@@ -145,8 +148,8 @@ namespace Virgis
                         _drawFeature(Line2, feature);
                     }
                 }
+                feature = features.GetNextFeature();
             }
-            GeographyCollection layer = GetMetadata();
             if (layer.Transform != null) {
                 transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);
                 transform.rotation = layer.Transform.Rotate;

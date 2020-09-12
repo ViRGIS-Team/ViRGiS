@@ -73,18 +73,6 @@ namespace Virgis
         private static volatile bool _configuredGdal;
         private static volatile bool _usable;
 
-        public enum GDAL_TYPES {
-            
-        }
-
-        [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
-        static extern bool SetDefaultDllDirectories(uint directoryFlags);
-        //               LOAD_LIBRARY_SEARCH_USER_DIRS | LOAD_LIBRARY_SEARCH_SYSTEM32
-        private const uint DllSearchFlags = 0x00000400 | 0x00000800;
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AddDllDirectory(string lpPathName);
 
         /// <summary>
         /// Construction of Gdal/Ogr
@@ -97,20 +85,21 @@ namespace Virgis
                 string gdalPath = Application.streamingAssetsPath;
                 string gdalData = Path.Combine(gdalPath, "gdal-data");
                 string projData = Path.Combine(gdalPath, "proj");
-                Environment.SetEnvironmentVariable("GDAL_DATA", gdalData);
                 Gdal.SetConfigOption("GDAL_DATA", gdalData);
 
                 //string driverPath = Path.Combine(nativePath, "plugins");
-                Environment.SetEnvironmentVariable("GDAL_DRIVER_PATH", gdalData);
                 Gdal.SetConfigOption("GDAL_DRIVER_PATH", gdalData);
-
-                Environment.SetEnvironmentVariable("GEOTIFF_CSV", gdalData);
                 Gdal.SetConfigOption("GEOTIFF_CSV", gdalData);
 
                 //string projSharePath = Path.Combine(gdalPath, "share");
-                Environment.SetEnvironmentVariable("PROJ_LIB", projData);
                 Gdal.SetConfigOption("PROJ_LIB", projData);
+                Gdal.SetConfigOption("CURL_CA_BUNDLE", Path.Combine( gdalData,"cacert.pem"));
                 Osr.SetPROJSearchPath(projData);
+
+                //Other gdal configs
+                Gdal.SetConfigOption("OGR_WFS_LOAD_MULTIPLE_LAYER_DEFN", "NO");
+                Gdal.SetConfigOption("OGR_WFS_PAGING_ALLOWED", "YES");
+                Gdal.SetConfigOption("OGR_WFS_USE_STREAMING", "NO");
 
                 _usable = true;
 
