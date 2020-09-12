@@ -26,7 +26,11 @@ namespace Virgis {
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
             ogrReader = new OgrReader();
-            await ogrReader.Load(layer.Source);
+            if (layer.Properties.isWfs) {
+                await ogrReader.LoadWfs(layer.Source, 0);
+            } else {
+                await ogrReader.Load(layer.Source, 1);
+            }
             features = ogrReader.GetLayers().ToArray();
             foreach (Layer thisLayer in features) {
                 wkbGeometryType type = thisLayer.GetGeomType();
@@ -48,10 +52,13 @@ namespace Virgis {
                         _layers.Last().SetCrs(thisLayer.GetSpatialRef());
                         break;
                     case wkbGeometryType.wkbUnknown:
-                        long FeatureCount = thisLayer.GetFeatureCount(1);
+                        GeographyCollection metadata = GetMetadata();
+                        if (metadata.Properties.BBox != null) {
+                            thisLayer.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
+                        }
                         thisLayer.ResetReading();
-                        for (int i = 0; i < FeatureCount; i++) {
-                            Feature feature = thisLayer.GetNextFeature();
+                        Feature feature = thisLayer.GetNextFeature();
+                        while (feature != null) {
                             if (feature == null)
                                 continue;
                             Geometry geom = feature.GetGeometryRef();
@@ -103,6 +110,7 @@ namespace Virgis {
                                 default:
                                     throw new NotSupportedException($"Geometry type {ftype.ToString()} is not supported");
                             }
+                            feature = thisLayer.GetNextFeature();
                         }
                         break;
                 }
@@ -116,7 +124,6 @@ namespace Virgis {
 
 
         protected override void _draw() {
-            throw new NotImplementedException();
         }
 
 

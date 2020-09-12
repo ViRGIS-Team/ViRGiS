@@ -128,21 +128,37 @@ namespace Virgis
 
         protected override void _draw()
         {
-            long FeatureCount = features.GetFeatureCount(1);
+            GeographyCollection layer = GetMetadata();
+            if (layer.Properties.BBox != null) {
+                features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
+            }
             features.ResetReading();
-            for (int i = 0; i < FeatureCount; i++)
-            {
-                Feature feature = features.GetNextFeature();
-                if (feature == null)
-                    continue;
+            Feature feature = features.GetNextFeature();
+            while (feature != null) {
                 Geometry poly = feature.GetGeometryRef();
                 if (poly == null)
                     continue;
-                if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon || poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D || poly.GetGeometryType() == wkbGeometryType.wkbPolygonM || poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
+                if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon ||
+                    poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D ||
+                    poly.GetGeometryType() == wkbGeometryType.wkbPolygonM ||
+                    poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
                      _drawFeature(poly, feature);
+                } else if (poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon ||
+                    poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon25D ||
+                    poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygonM ||
+                    poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygonZM) {
+                    int n = poly.GetGeometryCount();
+                    for (int j = 0; j < n; j++) {
+                        Geometry poly2 = poly.GetGeometryRef(j);
+                        string Type = poly2.GetGeometryType().ToString();
+                        _drawFeature(poly2, feature);
+                    }
                 }
+                {
+                
+                }
+                feature = features.GetNextFeature();
             }
-            GeographyCollection layer = GetMetadata();
             if (layer.Transform != null) {
                 transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);
                 transform.rotation = layer.Transform.Rotate;

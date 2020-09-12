@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using OSGeo.OGR;
-using OSGeo.OSR;
+using OSGeo.GDAL;
 
 namespace Virgis
 {
@@ -16,6 +16,7 @@ namespace Virgis
         private List<Layer> _layers = new List<Layer>();
         public string fileName;
         private DataSource _datasource;
+        private int _update;
 
         public List<Layer> GetLayers()
         {
@@ -23,12 +24,16 @@ namespace Virgis
         }
 
 
-        public async Task Load(string file)
-        {
+        public async Task Load(string file, int update) {
             fileName = file;
+            _update = update;
+            Load();
+        }
+
+        private void Load() {
             try
             {
-                _datasource = Ogr.Open(fileName, 1);
+                _datasource = Ogr.Open(fileName, _update);
                 if (_datasource == null)
                     throw (new FileNotFoundException());
                 for (int i = 0; i < _datasource.GetLayerCount(); i++) 
@@ -36,20 +41,20 @@ namespace Virgis
                 if (_layers.Count == 0)
                     throw (new NotSupportedException());
             }
-            catch (Exception e) when (
-                   e is UnauthorizedAccessException ||
-                   e is DirectoryNotFoundException ||
-                   e is FileNotFoundException ||
-                   e is NotSupportedException
-                   )
+            catch (Exception e) 
             {
-                Debug.LogError("Failed to Load" + file + " : " + e.ToString());
-
+                Debug.LogError("Failed to Load" + fileName + " : " + e.ToString());
             }
         }
 
+        public async Task LoadWfs(string url, int update) {
+            fileName = "WFS:" + url;
+            _update = update;
+            Load();
+        }
+
         public static void Flatten(ref wkbGeometryType type) {
-            if (type != wkbGeometryType.wkbUnknown) {
+            if (type != wkbGeometryType.wkbUnknown && type != wkbGeometryType.wkbNone) {
                 Geometry geom = new Geometry(type);
                 geom.FlattenTo2D();
                 type = geom.GetGeometryType();
