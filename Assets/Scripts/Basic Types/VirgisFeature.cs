@@ -14,8 +14,6 @@ namespace Virgis
     {
         void Selected(SelectionType button);
         void UnSelected(SelectionType button);
-        void StartEditSession();
-        void ExitEditSession(bool saved);
         Guid GetId();
         RecordSet GetMetadata();
         void SetMetadata(RecordSet meta);
@@ -84,19 +82,6 @@ namespace Virgis
             //do nothing
         }
 
-        /// <summary>
-        /// Called when an edit session starts
-        /// </summary>
-        public virtual void StartEditSession() { 
-            //do nothing
-        }
-
-        /// <summary>
-        /// Called when an edit session ends
-        /// </summary>
-        public virtual void ExitEditSession(bool saved) {
-            // do nothing
-        }
 
         /// <summary>
         /// Sent by the UI to request this component to move.

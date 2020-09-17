@@ -189,13 +189,6 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        public override async void ExitEditSession(bool saved) {
-            if (!saved) {
-                Draw();
-            }
-            await Save();
-        }
-
         protected override void _checkpoint()
         {
         }
@@ -225,24 +218,23 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        public override void StartEditSession()
-        {
-            CheckPoint();
-        }
 
         protected void _onStartEditSession()
         {
-            BroadcastMessage("StartEditSession", SendMessageOptions.DontRequireReceiver);
+            CheckPoint();
         }
 
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
         /// <param name="saved">true if stop and save, false if stop and discard</param>
-        protected void _onExitEditSession(bool saved)
+        protected async void _onExitEditSession(bool saved)
         {
-            BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
-        }
+            if (!saved) {
+                Draw();
+            }
+            await Save(!saved);
+    }
 
         public override GameObject GetFeatureShape()
         {

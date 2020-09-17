@@ -14,7 +14,7 @@ public class HudFacade : MonoBehaviour
     {
         AppState.instance.AddEndEditSessionListener(OnEditSessionEnd);
         AppState.instance.AddStartEditSessionListener(OnEditSessionStart);
-        AppState.instance.AddZoomChangeListerner(OnZoomChanged);
+        AppState.instance.AddZoomChangeListener(OnZoomChanged);
         HudLeftText.text = $"1 : {AppState.instance.GetScale()}";
     }
 
