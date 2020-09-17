@@ -44,10 +44,11 @@ namespace Virgis
         /// </summary>
         void Awake()
         {
-            print("Map awakens");
+            Debug.Log("Map awakens");
+            Debug.Log("Virgis Version : " + Application.version);
             if (AppState.instance == null)
             {
-                print("instantiate app state");
+                Debug.Log("instantiate app state");
                 appState = Instantiate(appState);
             }
             appState.AddStartEditSessionListener(_onStartEditSession);
@@ -140,7 +141,7 @@ namespace Virgis
                             temp = await Instantiate(DemLayer, transform).GetComponent<DemLayer>().Init(thisLayer as GeographyCollection);
                             break;
                         default:
-                            Debug.LogError(thisLayer.Type.ToString() + " is not known.");
+                            Debug.LogError(thisLayer.DataType.ToString() + " is not known.");
                             break;
                     }
                     Stack<VirgisLayer> tempLayers = new Stack<VirgisLayer>();

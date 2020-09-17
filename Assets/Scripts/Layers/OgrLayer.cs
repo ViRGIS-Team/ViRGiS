@@ -3,7 +3,6 @@ using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 using OSGeo.OGR;
 using System.Linq;
 using System;
@@ -26,10 +25,10 @@ namespace Virgis {
         protected override async Task _init() {
             GeographyCollection layer = _layer as GeographyCollection;
             ogrReader = new OgrReader();
-            if (layer.Properties.isWfs) {
-                await ogrReader.LoadWfs(layer.Source, 0);
+            if (layer.Properties.SourceType == SourceType.WFS) {
+                await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
             } else {
-                await ogrReader.Load(layer.Source, 1);
+                await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
             }
             features = ogrReader.GetLayers().ToArray();
             foreach (Layer thisLayer in features) {
