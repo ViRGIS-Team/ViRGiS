@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
-using UnityEditor.Experimental.GraphView;
+
 
 namespace Virgis {
 
@@ -19,6 +19,7 @@ namespace Virgis {
         private EditSession _editSession;
         private List<Component> _layers;
         private ZoomEvent _zoomChange;
+        private ProjectChange _projectChange;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
         public Vector3 Orientation;
@@ -38,6 +39,7 @@ namespace Virgis {
             _editSession = new EditSession();
             _layers = new List<Component>();
             _zoomChange = new ZoomEvent();
+            _projectChange = new ProjectChange();
 
             try {
                 GdalConfiguration.ConfigureOgr();
@@ -59,6 +61,7 @@ namespace Virgis {
             IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
             firstLayer.SetEditable(true);
             _editSession.editableLayer = firstLayer;
+            ProjectChange();
         }
 
         public EditSession editSession {
@@ -156,12 +159,20 @@ namespace Virgis {
             _editSession.AddEndEditSessionListener(action);
         }
 
-        public void AddZoomChangeListerner(UnityAction<float> action) {
-            _zoomChange.AddZoomChangeListerner(action);
+        public void AddZoomChangeListener(UnityAction<float> action) {
+            _zoomChange.AddZoomChangeListener(action);
         }
 
         public void ZoomChange(float zoom) {
             _zoomChange.Change(zoom);
+        }
+
+        public void AddProjectChangeListener(UnityAction action) {
+            _projectChange.AddListener(action);
+        }
+
+        public void ProjectChange() {
+            _projectChange.Invoke();
         }
 
         public float GetScale() {

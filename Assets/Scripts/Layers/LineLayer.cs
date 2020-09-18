@@ -1,10 +1,7 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
-using g3;
 using OSGeo.OGR;
-using OSGeo.OSR;
 using Project;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

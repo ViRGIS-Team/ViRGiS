@@ -28,9 +28,10 @@ namespace Virgis
         void Start()
         {
             _appState = AppState.instance;
-            _layersMap = new Dictionary<Guid, LayerUIPanel>();
             _appState.editSession.AddStartEditSessionListener(OnStartEditSession);
             _appState.editSession.AddEndEditSessionListener(OnEndEditSession);
+            _appState.AddProjectChangeListener(onProjectChange);
+            _layersMap = new Dictionary<Guid, LayerUIPanel>();
             CreateLayerPanels();
         }
 
@@ -67,7 +68,7 @@ namespace Virgis
 
             _layersMap.Clear();
 
-
+            
             GameObject newLayerPanel;
 
             // appState.layers are actually Layer script (Component)
@@ -103,6 +104,10 @@ namespace Virgis
                 newLayerPanel.transform.SetParent(layersScrollView.transform, false);
             });
             printEditStatus();
+        }
+
+        private void onProjectChange() {
+            CreateLayerPanels();
         }
 
         private void OnStartEditSession()

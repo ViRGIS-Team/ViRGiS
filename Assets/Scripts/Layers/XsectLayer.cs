@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.IO;
 using Project;
 using System;
-using g3;
 
 namespace Virgis
 {

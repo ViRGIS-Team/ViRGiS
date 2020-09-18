@@ -44,10 +44,11 @@ namespace Virgis
         /// </summary>
         void Awake()
         {
-            print("Map awakens");
+            Debug.Log("Map awakens");
+            Debug.Log("Virgis Version : " + Application.version);
             if (AppState.instance == null)
             {
-                print("instantiate app state");
+                Debug.Log("instantiate app state");
                 appState = Instantiate(appState);
             }
             appState.AddStartEditSessionListener(_onStartEditSession);
@@ -140,7 +141,7 @@ namespace Virgis
                             temp = await Instantiate(DemLayer, transform).GetComponent<DemLayer>().Init(thisLayer as GeographyCollection);
                             break;
                         default:
-                            Debug.LogError(thisLayer.Type.ToString() + " is not known.");
+                            Debug.LogError(thisLayer.DataType.ToString() + " is not known.");
                             break;
                     }
                     Stack<VirgisLayer> tempLayers = new Stack<VirgisLayer>();
@@ -188,13 +189,6 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        public override async void ExitEditSession(bool saved) {
-            if (!saved) {
-                Draw();
-            }
-            await Save();
-        }
-
         protected override void _checkpoint()
         {
         }
@@ -224,24 +218,23 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        public override void StartEditSession()
-        {
-            CheckPoint();
-        }
 
         protected void _onStartEditSession()
         {
-            BroadcastMessage("StartEditSession", SendMessageOptions.DontRequireReceiver);
+            CheckPoint();
         }
 
         /// <summary>
         /// Called when an edit session ends
         /// </summary>
         /// <param name="saved">true if stop and save, false if stop and discard</param>
-        protected void _onExitEditSession(bool saved)
+        protected async void _onExitEditSession(bool saved)
         {
-            BroadcastMessage("ExitEditSession", saved, SendMessageOptions.DontRequireReceiver);
-        }
+            if (!saved) {
+                Draw();
+            }
+            await Save(!saved);
+    }
 
         public override GameObject GetFeatureShape()
         {

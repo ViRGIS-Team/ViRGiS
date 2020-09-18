@@ -46,14 +46,6 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Get the event Manager and register listeners
-        /// </summary>
-        void Start() {
-            AppState.instance.editSession.AddStartEditSessionListener(StartEditSession);
-            AppState.instance.editSession.AddEndEditSessionListener(ExitEditSession);
-        }
-
-        /// <summary>
         /// Call this to create a new feature
         /// </summary>
         /// <param name="position">Vector3 where to create the new layer</param>
@@ -154,21 +146,6 @@ namespace Virgis {
 
         public virtual void VertexMove(MoveArgs args) {
             //do nothing 
-        }
-
-        /// <summary>
-        /// Called when an edit session starts
-        /// </summary>
-        public virtual void StartEditSession() {
-            // do nothing
-        }
-
-        /// <summary>
-        /// Called when an edit session ends
-        /// </summary>
-        /// <param name="saved">true if stop and save, false if stop and discard</param>
-        public virtual void ExitEditSession(bool saved) {
-            // do nothing
         }
 
         /// <summary>

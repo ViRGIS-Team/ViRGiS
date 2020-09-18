@@ -59,7 +59,6 @@
 using System;
 using System.IO;
 using UnityEngine;
-using System.Runtime.InteropServices;
 using Gdal = OSGeo.GDAL.Gdal;
 using Ogr = OSGeo.OGR.Ogr;
 using Osr = OSGeo.OSR.Osr;

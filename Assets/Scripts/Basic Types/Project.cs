@@ -1,5 +1,5 @@
 ﻿
-using System.Collections;
+
 using System.Collections.Generic;
 using System.Linq;
 using System;
@@ -15,13 +15,17 @@ namespace Project
 {
     public class GisProject : TestableObject
     {
+        [JsonProperty(PropertyName = "version", Required = Required.Always)]
+        public string ProjectVersion;
+
         [JsonProperty(PropertyName = "name", Required = Required.Always)]
         public string Name;
 
         [JsonProperty(PropertyName = "origin", Required = Required.Always)]
         public Point Origin;
 
-        [JsonProperty(PropertyName = "scale", Required = Required.Always)]
+        [JsonProperty(PropertyName = "scale", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+        [DefaultValue(1f)]
         public float Scale;
 
         [JsonProperty(PropertyName = "grid-scale")]
@@ -41,8 +45,6 @@ namespace Project
         public string Id;
         [JsonProperty(PropertyName = "display-name")]
         public string DisplayName;
-        [JsonProperty(PropertyName = "type", Required = Required.Always)]
-        public string Type;
         [JsonProperty(PropertyName = "datatype", Required = Required.Always)]
         [JsonConverter(typeof(StringEnumConverter))]
         public RecordSetDataType DataType;
@@ -135,20 +137,22 @@ namespace Project
                     JArray jarray = JArray.Load(reader);
                     IList<JObject> sets = jarray.Select(c => (JObject)c).ToList();
                     List<RecordSet> result = new List<RecordSet>();
-                    foreach (JObject set in sets)
-                    {
-
-                        if (set["type"].ToString() == RecordSetType.GeographyCollection.ToString()) {
-                            result.Add(set.ToObject(typeof(GeographyCollection)) as GeographyCollection);
-                        } else if (set["type"].ToString() == RecordSetType.GeologyCollection.ToString())
-                        {
-                            result.Add(set.ToObject(typeof(GeologyCollection)) as GeologyCollection);
-                        } else if (set["type"].ToString() == RecordSetType.MapBox.ToString()) {
-                            result.Add(set.ToObject(typeof(MapBox)) as MapBox);
-                        } else {
-                            result.Add(set.ToObject(typeof(RecordSet)) as RecordSet);
+                    foreach (JObject set in sets) {
+                        Type type = RecordSetCollectionType.Get((RecordSetDataType) Enum.Parse(typeof(RecordSetDataType), set["datatype"].ToString()));
+                        switch (type) {
+                            case Type _ when type == typeof(GeographyCollection):
+                                result.Add(set.ToObject(typeof(GeographyCollection)) as GeographyCollection);
+                                break;
+                            case Type _ when type == typeof(GeologyCollection):
+                                result.Add(set.ToObject(typeof(GeologyCollection)) as GeologyCollection);
+                                break;
+                            case Type _ when type == typeof(MapBox):
+                                result.Add(set.ToObject(typeof(MapBox)) as MapBox);
+                                break;
+                            default:
+                                result.Add(set.ToObject(typeof(RecordSet)) as RecordSet);
+                                break;
                         }
-
                     }
                     return result;
             }
@@ -212,9 +216,12 @@ namespace Project
             public List<Dictionary<string, object>> Filter;
             [JsonProperty(PropertyName = "bbox")]
             public List<double> BBox;
-            [JsonProperty(PropertyName = "is-wfs", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [JsonProperty(PropertyName = "source-type", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [DefaultValue(SourceType.File)]
+            public SourceType SourceType;
+            [JsonProperty(PropertyName = "read-only", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
             [DefaultValue(false)]
-            public bool isWfs;
+            public bool ReadOnly;
         }
     }
 
@@ -242,8 +249,11 @@ namespace Project
         }
     }
 
-    public enum RecordSetDataType
-    {
+
+    /// <summary>
+    /// Acceptable values for Recordset Type
+    /// </summary>
+    public enum RecordSetDataType{
         MapBox,
         Vector,
         Raster,
@@ -256,31 +266,95 @@ namespace Project
         Point,
         Line,
         Polygon,
-        DEM
+        DEM,
+        Graph
     }
 
-    public enum GeoTypes
-    {
+    /// <summary>
+    /// Used as a lookup to tell which recordset definition should be used with which layer type
+    /// </summary>
+    public class RecordSetCollectionType {
+        public static Type Get(RecordSetDataType rs) {
+            switch (rs) {
+                case RecordSetDataType.MapBox: return typeof(MapBox);
+                case RecordSetDataType.Vector: return typeof(GeographyCollection);
+                case RecordSetDataType.Raster: return typeof(GeographyCollection);
+                case RecordSetDataType.PointCloud: return typeof(GeographyCollection);
+                case RecordSetDataType.Mesh: return typeof(GeographyCollection);
+                case RecordSetDataType.Mdal: return typeof(GeographyCollection);
+                case RecordSetDataType.Record: return typeof(RecordSet);
+                case RecordSetDataType.XSect: return typeof(GeologyCollection);
+                case RecordSetDataType.CSV: return typeof(RecordSet);
+                case RecordSetDataType.Point: return typeof(GeographyCollection);
+                case RecordSetDataType.Line: return typeof(GeographyCollection);
+                case RecordSetDataType.Polygon: return typeof(GeographyCollection);
+                case RecordSetDataType.DEM: return typeof(GeographyCollection);
+                default: return typeof(RecordSet);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Acceptable values for Geology Types
+    /// </summary>
+    public enum GeoTypes{
         Fault,
         Fract,
         Vein
     }
 
+    /// <summary>
+    /// Acceptable values for the Source field of a recordset
+    /// </summary>
+    public enum SourceType {
+        File,
+        WFS,
+        OAPIF,
+        WMS,
+        WCS,
+        DB,
+        AWS,
+        GCS,
+        Azure,
+        Alibaba,
+        Openstack,
+        TCP,
+    }
+
 
     public class Unit : TestableObject
     {
+        /// <summary>
+        /// Color used for the unit of symbology.
+        /// 
+        /// Can be in either integer[0 .. 255] format or float[0..1] format
+        /// </summary>
         [JsonProperty(PropertyName = "color", Required = Required.Always)]
         [JsonConverter(typeof(VectorConverter<SerializableColor>))]
         public SerializableColor Color;
+        /// <summary>
+        /// The shape to be used by the unit of symbology.
+        /// 
+        /// Must contain an instance of Shapes
+        /// </summary>
         [JsonProperty(PropertyName = "shape", Required = Required.Always)]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Shapes Shape; 
+        public Shapes Shape;
+        /// <summary>
+        /// The transfor to be applied to the unit of symnbology
+        /// </summary>
         [JsonProperty(PropertyName = "transform", Required = Required.Always)]
         public JsonTransform Transform;
+        /// <summary>
+        /// The name of a field in the metadata to be used a label for the data entity
+        /// </summary>
         [JsonProperty(PropertyName = "label")]
         public string Label;
     }
 
+    /// <summary>
+    /// Acceptable value for the Shape field in Symbology
+    /// </summary>
     public enum Shapes
     {
         Spheroid,

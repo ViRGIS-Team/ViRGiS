@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Virgis {
@@ -17,7 +15,7 @@ namespace Virgis {
             Invoke(_scale);
         }
 
-        public void AddZoomChangeListerner(UnityAction<float> action) {
+        public void AddZoomChangeListener(UnityAction<float> action) {
             AddListener(action);
         }
 

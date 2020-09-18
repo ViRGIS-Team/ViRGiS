@@ -16,6 +16,8 @@ namespace Virgis {
         public Button startEditButton;
         public Button stopSaveEditButton;
         public Button stopDiscardEditButton;
+        public Button fileButton;
+        public Button quitButton;
         public GameObject layersUI;
         public GameObject startMenu;
 
@@ -44,7 +46,6 @@ namespace Virgis {
                 gameObject.SetActive(false);
             } else {
                 gameObject.SetActive(true);
-                layersUI.GetComponent<LayersUI>().CreateLayerPanels();
             }
         }
 
@@ -87,6 +88,8 @@ namespace Virgis {
             startEditButton.interactable = false;
             stopSaveEditButton.interactable = true;
             stopDiscardEditButton.interactable = true;
+            fileButton.interactable = false;
+            quitButton.interactable = false;
         }
 
         // Changes the state of menu buttons when edit session ends.
@@ -100,6 +103,8 @@ namespace Virgis {
             startEditButton.interactable = true;
             stopSaveEditButton.interactable = false;
             stopDiscardEditButton.interactable = false;
+            fileButton.interactable = true;
+            quitButton.interactable = true;
         }
 
     }
