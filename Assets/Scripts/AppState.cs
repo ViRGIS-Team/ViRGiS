@@ -59,6 +59,8 @@ namespace Virgis {
         /// e.g. New Project, Open Project
         public void Init() {
             IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
+            if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
+                firstLayer = (IVirgisLayer) _layers[1];
             firstLayer.SetEditable(true);
             _editSession.editableLayer = firstLayer;
             ProjectChange();
