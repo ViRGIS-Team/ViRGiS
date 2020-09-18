@@ -6,6 +6,8 @@ using UnityEngine;
 using g3;
 using System.Linq;
 using System;
+using DelaunatorSharp;
+using DelaunatorSharp.Unity.Extensions;
 
 namespace Virgis
 {
@@ -109,16 +111,17 @@ namespace Virgis
             if (mf == null) mf = Shape.AddComponent<MeshFilter>();
             mf.mesh = null;
             Mesh mesh = new Mesh();
-            TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
+            //TriangulatedPolygonGenerator tpg = new TriangulatedPolygonGenerator();
             Frame3f frame = new Frame3f();
             Vector3[] vertices;
-            List<Vector2> uvs;
+            GeneralPolygon2d polygon2d;
+            Delaunator delaunator;
+            List<int> triangles = new List<int>();
 
             try {
 
-                tpg.Polygon = Polygon.ToPolygon(ref frame);
-                tpg.Generate();
-                int nv = tpg.vertices.Count;
+                polygon2d = Polygon.ToPolygon(ref frame);
+                delaunator = new Delaunator(polygon2d.AllVerticesItr().ToPoints());
                 VertexTable.Clear();
 
                 foreach (Dataline ring in Polygon) {
@@ -126,34 +129,54 @@ namespace Virgis
                         VertexTable.Add(v);
                     }
                 }
-                IEnumerable<Vector3d> vlist = tpg.vertices.AsVector3d();
+                IEnumerable<Vector2d> vlist = delaunator.Points.ToVectors2d();
                 vertices = new Vector3[vlist.Count()];
 
                 for (int i = 0; i < vlist.Count(); i++) {
-                    Vector3d v = vlist.ElementAt(i);
+                    Vector2d v = vlist.ElementAt(i);
                     try {
-                        VertexLookup vl = VertexTable.Find(item => v.xy.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001);
+                        VertexLookup vl = VertexTable.Find(item => v.Distance(frame.ToPlaneUV(item.Com.transform.position, 3)) < 0.001);
                         vertices[i] = Shape.transform.InverseTransformPoint(vl.Com.transform.position);
                         vl.pVertex = i;
-
-
                     } catch {
-                        VertexTable.Add(new VertexLookup() { pVertex = i, Com = VertexTable[0].Com });
-                        vertices[i] = Shape.transform.InverseTransformPoint((Vector3) frame.FromFrameV(v));
+                        Debug.Log("UhU");
                     }
                 }
 
-                uvs = new List<Vector2>();
-                IEnumerable<Vector2d> uv2d = tpg.uv.AsVector2f();
-                foreach (Vector2d uv in uv2d) {
-                    uvs.Add((Vector2) uv);
+                IEnumerable<ITriangle> tris =   delaunator.GetTriangles();
+                for (int i = 0; i < tris.Count(); i++) {
+
+                    ITriangle tri = tris.ElementAt(i);
+                    //Segment2d a = new Segment2d(tri.Points.ElementAt(0).ToVector2d(), tri.Points.ElementAt(1).ToVector2d());
+                    //Segment2d b = new Segment2d(tri.Points.ElementAt(1).ToVector2d(), tri.Points.ElementAt(2).ToVector2d());
+                    //Segment2d c = new Segment2d(tri.Points.ElementAt(2).ToVector2d(), tri.Points.ElementAt(0).ToVector2d());
+
+                    //bool fail = false;
+
+                    //foreach (Segment2d seg in new Segment2d[3] { a, b, c }) {
+                    //    if (polygon2d.IsOutside(seg)) {
+                    //        fail = true;
+                    //    }
+                    //}
+
+                    //if (fail)
+                    //    continue;
+
+                    if (polygon2d.Contains(delaunator.GetTriangleCenter(i).ToVector2d())) {
+                        int index = 3 * i;
+                        triangles.Add(delaunator.Triangles[index]);
+                        triangles.Add(delaunator.Triangles[index + 1]);
+                        triangles.Add(delaunator.Triangles[index + 2]);
+                    }
+                    
                 }
+
             } catch {
                 throw new Exception("feature is not a valid Polygon");
             }
-            mesh.vertices = vertices.ToArray();
-            mesh.triangles = tpg.triangles.ToArray<int>();
-            mesh.uv = uvs.ToArray<Vector2>();
+            mesh.vertices = vertices;
+            mesh.triangles = triangles.ToArray();
+            mesh.uv = delaunator.Points.ToVectors2();
 
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
@@ -190,7 +213,6 @@ namespace Virgis
         }
 
         private void _redraw() {
-            //VertexTable = GetComponentInChildren<Dataline>().VertexTable;
             MakeMesh();
         }
 
