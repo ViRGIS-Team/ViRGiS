@@ -39,7 +39,7 @@ namespace pdal
 	 */
 	public class Config
 	{
-		private const string PDALC_LIBRARY = "pdalc";
+		private const string PDALC_LIBRARY = "pdalc"; 
 
 		[DllImport(PDALC_LIBRARY, EntryPoint="PDALGetGdalDataPath")]
 		private static extern int getGdalDataPath([MarshalAs(UnmanagedType.LPStr)] StringBuilder buffer, uint size);

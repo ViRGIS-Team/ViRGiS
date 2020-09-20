@@ -12,7 +12,7 @@ namespace Mdal {
 
     public class Mdal {
 
-        private const string MDAL_LIBRARY = "mdal.dll";
+        private const string MDAL_LIBRARY = "mdal";
 
         [DllImport(MDAL_LIBRARY, EntryPoint = "MDAL_Version")]
         private static extern IntPtr MDAL_Version();

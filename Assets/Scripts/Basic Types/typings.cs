@@ -4,11 +4,13 @@ using GeoJSON.Net.CoordinateReferenceSystem;
 using GeoJSON.Net.Geometry;
 using OSGeo.OGR;
 using OSGeo.OSR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
+using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
+using CRSType = GeoJSON.Net.CoordinateReferenceSystem.CRSType;
 using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using System.Collections.Generic;
-using Mapbox.Unity.Map;
 
 namespace Virgis {
 
