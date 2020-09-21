@@ -31,13 +31,17 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     /// <summary>Gets or sets layer mask used for limiting raycast targets.</summary>
     public LayerMask raycastMask { get { return m_RaycastMask; } set { m_RaycastMask = value; } }
 
+    public float movementDeadzone;
+
     int m_HitCount = 0;
 
     RaycastHit[] m_RaycastHits = new RaycastHit[1];
 
     Vector3[] m_LinePoints;
 
-    bool isUISelectActive; 
+    bool isUISelectActive;
+    DateTime _lastClick;
+
 
 
     public bool enableUIInteraction
@@ -73,6 +77,8 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
 
     protected override void OnEnable()
     {
+        _lastClick = DateTime.Now;
+        
         base.OnEnable();
 
         if (m_EnableUIInteraction)
@@ -181,6 +187,7 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     public void Selected(ObjectPointer.EventData data)
     {
         isUISelectActive = true;
+        _lastClick = DateTime.Now;
     }
 
     // 
@@ -198,6 +205,7 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void receiveRay(PointsCast.EventData data)
     {
+        if (!isUISelectActive || DateTime.Now - _lastClick > new TimeSpan(0, 0, 0, (int) movementDeadzone * 1000))
             m_LinePoints = data.Points.ToArray<Vector3>();
     }
 }
