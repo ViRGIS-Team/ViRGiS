@@ -51,8 +51,8 @@ namespace Virgis
                 Debug.Log("instantiate app state");
                 appState = Instantiate(appState);
             }
-            appState.AddStartEditSessionListener(_onStartEditSession);
-            appState.AddEndEditSessionListener(_onExitEditSession);
+            appState.editSession.StartEvent.Subscribe(_onStartEditSession);
+            appState.editSession.EndEvent.Subscribe(_onExitEditSession);
 
             //set globals
             appState.map = gameObject;
@@ -83,11 +83,6 @@ namespace Virgis
             }
             appState.project = projectJsonReader.GetProject();
 
-            //set globals
-            appState.initProj();
-            appState.ZoomChange(appState.project.Scale);
-            MainCamera.transform.position = appState.project.Cameras[0].ToVector3();
-
             try {
                 foreach (RecordSet thisLayer in appState.project.RecordSets) {
                     await initLayer(thisLayer);
@@ -96,7 +91,11 @@ namespace Virgis
                 Debug.LogError($"Project File {file} failed");
                 return false;
             }
+
+            //set globals
             appState.Init();
+            appState.Zoom.Set(appState.project.Scale);
+            MainCamera.transform.position = appState.project.Cameras[0].ToVector3();
             return true;
         }
 
@@ -205,7 +204,7 @@ namespace Virgis
                     appState.project.RecordSets[index] = alayer;
                 }
             }
-            appState.project.Scale = appState.GetScale();
+            appState.project.Scale = appState.Zoom.Get();
             appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
             projectJsonReader.SetProject(appState.project);
             await projectJsonReader.Save();
@@ -219,7 +218,7 @@ namespace Virgis
         }
 
 
-        protected void _onStartEditSession()
+        protected void _onStartEditSession(bool ignore)
         {
             CheckPoint();
         }

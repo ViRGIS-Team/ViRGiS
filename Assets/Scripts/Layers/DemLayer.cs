@@ -174,6 +174,10 @@ namespace Virgis
             features = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
                 DMesh3 mesh = ds.GetMesh(i);
+                mesh.RemoveMetadata("properties");
+                mesh.AttachMetadata("properties", new Dictionary<string, object>{
+                    { "Name", ds.meshes[i] }
+                });
                 // set the CRS based on what is known
                 if (proj != null) {
                     mesh.RemoveMetadata("CRS");

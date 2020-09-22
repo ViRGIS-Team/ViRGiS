@@ -1,5 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Virgis
@@ -109,5 +110,12 @@ namespace Virgis
             transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
         }
 
+        public override Dictionary<string, object> GetMetadata() {
+            throw new System.NotImplementedException();
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new System.NotImplementedException();
+        }
     }
 }

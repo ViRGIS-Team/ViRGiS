@@ -12,21 +12,23 @@ public class HudFacade : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AppState.instance.AddEndEditSessionListener(OnEditSessionEnd);
-        AppState.instance.AddStartEditSessionListener(OnEditSessionStart);
-        AppState.instance.AddZoomChangeListener(OnZoomChanged);
-        HudLeftText.text = $"1 : {AppState.instance.GetScale()}";
+        AppState appState = AppState.instance;
+        appState.editSession.StartEvent.Subscribe(OnEditSessionEnd);
+        appState.editSession.EndEvent.Subscribe(OnEditSessionStart);
+        appState.Zoom.Event.Subscribe(OnZoomChanged);
+        appState.Orientation.Event.Subscribe(onOrientation);
+
     }
 
-    private void Update() {
-        Vector3 current = AppState.instance.Orientation;
+    public void onOrientation(Vector3 current) {
         current.y = 0;
-        double angle = Math.Ceiling(Vector3.SignedAngle(AppState.instance.map.transform.forward, current, AppState.instance.map.transform.up));
-        if (angle < 0) angle = 360 + angle;
+        double angle = Math.Floor(Vector3.SignedAngle(AppState.instance.map.transform.forward, current, AppState.instance.map.transform.up)/5)*5;
+        if (angle < 0)
+            angle = 360 + angle;
         HudCentreText.text = angle.ToString();
     }
 
-    public void OnEditSessionStart() {
+    public void OnEditSessionStart(bool ignore) {
         HudRightText.text = "Editing";
     }
 

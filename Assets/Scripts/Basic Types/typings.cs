@@ -29,6 +29,7 @@ namespace Virgis {
     public enum SelectionType {
         SELECT,     // Select a sing;le vertex
         SELECTALL,  // Select all verteces
+        INFO,       // Slection Actin related to the Info screen
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
     }
 
@@ -470,6 +471,30 @@ namespace Virgis {
                             break;
                     }
                 }
+            }
+            return ret;
+        }
+
+        public static Dictionary<string, object> GetAll(this Feature feature) {
+            Dictionary<string, object> ret = new Dictionary<string, object>();
+            int fieldCount = feature.GetFieldCount();
+            for (int i = 0; i < fieldCount; i++) {
+                FieldDefn fd = feature.GetFieldDefnRef(i);
+                string key = fd.GetName();
+                object value = null;
+                FieldType ft = fd.GetFieldType();
+                switch (ft) {
+                    case FieldType.OFTString:
+                        value = feature.GetFieldAsString(i);
+                        break;
+                    case FieldType.OFTReal:
+                        value = feature.GetFieldAsDouble(i);
+                        break;
+                    case FieldType.OFTInteger:
+                        value = feature.GetFieldAsInteger(i);
+                        break;
+                }
+                ret.Add(key, value);
             }
             return ret;
         }

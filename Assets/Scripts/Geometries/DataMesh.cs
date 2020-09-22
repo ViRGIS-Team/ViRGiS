@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using g3;
 using Virgis;
+using System.Collections.Generic;
 
 public class DataMesh : VirgisFeature
 {
-    private bool BlockMove = false; // is entity line in a block-move state
+    private bool BlockMove = false; // is entity in a block-move state
     private DMesh3 mesh;
 
     private Vector3 firstHitPosition = Vector3.zero;
@@ -49,4 +50,11 @@ public class DataMesh : VirgisFeature
         return mesh;
     }
 
+    public override Dictionary<string, object> GetMetadata() {
+        return mesh.FindMetadata("properties") as Dictionary<string, object>;
+    }
+
+    public override void SetMetadata(Dictionary<string, object> meta) {
+        throw new System.NotImplementedException();
+    }
 }

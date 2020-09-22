@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
-
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace Virgis {
 
@@ -18,11 +19,35 @@ namespace Virgis {
 
         private EditSession _editSession;
         private List<Component> _layers;
-        private ZoomEvent _zoomChange;
-        private ProjectChange _projectChange;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
-        public Vector3 Orientation;
+        public OrientEvent Orientation {
+            get;
+            private set;
+        }
+
+        public InfoEvent Info {
+            get;
+            private set;
+        }
+
+        public ZoomEvent Zoom {
+            get;
+            private set;
+        }
+
+        public ButtonStatus ButtonStatus{
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Use this to get the project change event
+        /// </summary>
+        public ProjectChange Project {
+            get;
+            private set;
+        }
 
         void Awake() {
             print("AppState awakens");
@@ -38,8 +63,11 @@ namespace Virgis {
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
             _layers = new List<Component>();
-            _zoomChange = new ZoomEvent();
-            _projectChange = new ProjectChange();
+            Zoom = new ZoomEvent();
+            Project = new ProjectChange();
+            Info = new InfoEvent();
+            ButtonStatus = new ButtonStatus();
+            Orientation = new OrientEvent();
 
             try {
                 GdalConfiguration.ConfigureOgr();
@@ -49,6 +77,7 @@ namespace Virgis {
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }
+            Info.Set("");
         }
 
         /// <summary>
@@ -63,7 +92,7 @@ namespace Virgis {
                 firstLayer = (IVirgisLayer) _layers[1];
             firstLayer.SetEditable(true);
             _editSession.editableLayer = firstLayer;
-            ProjectChange();
+            Project.Complete();
         }
 
         public EditSession editSession {
@@ -78,8 +107,17 @@ namespace Virgis {
             get; set;
         }
 
+        /// <summary>
+        /// Use this to change or get the project
+        /// </summary>
         public GisProject project {
-            get; set;
+            get {
+                return Project.Get();
+            } 
+            set {
+                Project.Set(value);
+                initProj();
+            } 
         }
 
         public  SpatialReference mapProj {
@@ -90,6 +128,9 @@ namespace Virgis {
             get => _trans;
         }
 
+        /// <summary>
+        /// Tasks to be run after a project is loaded
+        /// </summary>
         public void initProj() {
             if (project != null) {
                 _crs = new SpatialReference($@"PROJCRS[""virgis"",
@@ -151,34 +192,6 @@ namespace Virgis {
 
         public void StopDiscardEditSession() {
             _editSession.StopAndDiscard();
-        }
-
-        public void AddStartEditSessionListener(UnityAction action) {
-            _editSession.AddStartEditSessionListener(action);
-        }
-
-        public void AddEndEditSessionListener(UnityAction<bool> action) {
-            _editSession.AddEndEditSessionListener(action);
-        }
-
-        public void AddZoomChangeListener(UnityAction<float> action) {
-            _zoomChange.AddZoomChangeListener(action);
-        }
-
-        public void ZoomChange(float zoom) {
-            _zoomChange.Change(zoom);
-        }
-
-        public void AddProjectChangeListener(UnityAction action) {
-            _projectChange.AddListener(action);
-        }
-
-        public void ProjectChange() {
-            _projectChange.Invoke();
-        }
-
-        public float GetScale() {
-            return _zoomChange.GetScale();
         }
 
     }

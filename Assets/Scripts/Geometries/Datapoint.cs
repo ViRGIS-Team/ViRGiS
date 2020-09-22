@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using OSGeo.OGR;
 
 
 namespace Virgis
@@ -14,6 +15,7 @@ namespace Virgis
     public class Datapoint : VirgisFeature
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
+        public Feature feature; // Feature tht was the source for this GO
 
 
         private void Start() {
@@ -136,6 +138,14 @@ namespace Virgis
                 default:
                     throw new NotSupportedException(String.Format("TYpe {} is not support by the Datapoint class", typeof(T).Name));
             }
-        }   
+        }
+
+        public override Dictionary<string, object> GetMetadata() {
+            return feature.GetAll();
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
 
 namespace Virgis {
 
@@ -36,8 +37,8 @@ namespace Virgis {
                 stopDiscardEditButton.interactable = false;
             }
 
-            _appState.AddStartEditSessionListener(OnEditSessionStart);
-            _appState.AddEndEditSessionListener(OnEditSessionEnd);
+            _appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
+            _appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
         }
 
         public void Visible(bool thisEvent) {
@@ -84,7 +85,7 @@ namespace Virgis {
         // This method is triggered when:
         // 1) StartEdit action is triggered
         // 2) Start Edit button is clicked
-        private void OnEditSessionStart() {
+        private void OnEditSessionStart(bool ignore) {
             startEditButton.interactable = false;
             stopSaveEditButton.interactable = true;
             stopDiscardEditButton.interactable = true;

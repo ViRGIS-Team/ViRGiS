@@ -75,7 +75,6 @@ namespace Virgis {
 
                     // add the gis data from geoJSON
                     Datapoint com = dataPoint.GetComponent<Datapoint>();
-                    com.gisProperties = feature;
 
                     //Set the symbology
                     if (symbology.ContainsKey("point")) {

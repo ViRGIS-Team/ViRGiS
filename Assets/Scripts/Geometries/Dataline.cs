@@ -31,6 +31,7 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
         public DCurve3 curve = new DCurve3();
+        public Feature feature; // Feature tht was the source for this GO
 
 
 
@@ -372,6 +373,14 @@ namespace Virgis
 
         private Vector3 _labelPosition() {
             return Center() + transform.TransformVector(Vector3.up) * symbology["line"].Transform.Scale.magnitude;
+        }
+
+        public override Dictionary<string, object> GetMetadata() {
+            return feature.GetAll();
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new NotImplementedException();
         }
     }
 }

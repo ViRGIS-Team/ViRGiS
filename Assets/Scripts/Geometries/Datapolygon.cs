@@ -8,6 +8,7 @@ using System.Linq;
 using System;
 using DelaunatorSharp;
 using DelaunatorSharp.Unity.Extensions;
+using OSGeo.OGR;
 
 namespace Virgis
 {
@@ -22,6 +23,7 @@ namespace Virgis
         private GameObject Shape; // gameObject to be used for the shape
         public List<VertexLookup> VertexTable = new List<VertexLookup>();
         public List<Dataline> Polygon;
+        public Feature feature; // Feature tht was the source for this GO
 
 
         public override void Selected(SelectionType button) {
@@ -294,6 +296,14 @@ namespace Virgis
                 result[i] = VertexTable.Find(item => item.isVertex && item.pVertex == i).Com as Datapoint;
             }
             return result;
+        }
+
+        public override Dictionary<string, object> GetMetadata() {
+            return feature.GetAll();
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new NotImplementedException();
         }
     }
 }

@@ -22,6 +22,8 @@ namespace Virgis
         public List<Vector3> VertexTable;
         private Vector3[] top;
         private Vector3[] bottom;
+        public string gisId;
+        public Dictionary<string, object> gisProperties;
 
 
         public override void Selected(SelectionType button)
@@ -273,6 +275,16 @@ namespace Virgis
     
         public Vector3[] GetVertexPositions() {
             return VertexTable.ToArray();
+        }
+
+        public override Dictionary<string, object> GetMetadata() {
+            Dictionary<string, object> temp = new Dictionary<string, object>(gisProperties);
+            temp.Add("ID", gisId);
+            return temp;
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new System.NotImplementedException();
         }
     }
 }
