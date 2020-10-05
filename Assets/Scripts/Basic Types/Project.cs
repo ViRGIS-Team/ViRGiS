@@ -225,29 +225,7 @@ namespace Project
 
     public class  GeologyCollection : GeographyCollection
     {
-        [JsonProperty(PropertyName = "properties")]
-        public new GeoData Properties;
-
-        public struct GeoData
-        {
-            [JsonProperty(PropertyName = "units", Required = Required.Always)]
-            public Dictionary<string, Unit> Units;
-            [JsonProperty(PropertyName = "lines")]
-            public Dictionary<string, GeoTypes> Lines;
-            [JsonProperty(PropertyName = "x_sect_type")]
-            public string xSect;
-            [JsonProperty(PropertyName = "dem")]
-            public string Dem;
-            [JsonProperty(PropertyName = "colorinterp")]
-            public Dictionary<string, object> ColorInterp;
-            [JsonProperty(PropertyName = "filter")]
-            public List<Dictionary<string, object>> Filter;
-            [JsonProperty(PropertyName = "bbox")]
-            public List<double> BBox;
-            [JsonProperty(PropertyName = "flip", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
-            [DefaultValue(false)]
-            public bool Flip;
-        }
+       
     }
 
 
@@ -262,7 +240,6 @@ namespace Project
         Mesh,
         Mdal,
         Record,
-        XSect,
         CSV, 
         Point,
         Line,
@@ -284,7 +261,6 @@ namespace Project
                 case RecordSetDataType.Mesh: return typeof(GeographyCollection);
                 case RecordSetDataType.Mdal: return typeof(GeographyCollection);
                 case RecordSetDataType.Record: return typeof(RecordSet);
-                case RecordSetDataType.XSect: return typeof(GeologyCollection);
                 case RecordSetDataType.CSV: return typeof(RecordSet);
                 case RecordSetDataType.Point: return typeof(GeographyCollection);
                 case RecordSetDataType.Line: return typeof(GeographyCollection);
@@ -295,14 +271,6 @@ namespace Project
         }
     }
 
-    /// <summary>
-    /// Acceptable values for Geology Types
-    /// </summary>
-    public enum GeoTypes{
-        Fault,
-        Fract,
-        Vein
-    }
 
     /// <summary>
     /// Acceptable values for the Source field of a recordset

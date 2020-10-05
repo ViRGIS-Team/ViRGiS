@@ -125,9 +125,6 @@ namespace Virgis
                         case RecordSetDataType.Mdal:
                             temp = await Instantiate(MDALLayer, transform).GetComponent<MdalLayer>().Init(thisLayer as GeographyCollection);
                             break;
-                        case RecordSetDataType.XSect:
-                            temp = await Instantiate(XsectLayer, transform).GetComponent<XsectLayer>().Init(thisLayer as GeologyCollection);
-                            break;
                         case RecordSetDataType.CSV:
                             temp = await Instantiate(CsvLayer,transform).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
                             break;
