@@ -49,9 +49,7 @@ namespace Project
         [JsonConverter(typeof(StringEnumConverter))]
         public RecordSetDataType DataType;
         [JsonProperty(PropertyName = "source")]
-        public string Source;
-        [JsonProperty(PropertyName = "features")]
-        public FeatureCollection Features;
+        public string Source;  
         [JsonProperty(PropertyName = "position")]
         public Point Position;
         [JsonProperty(PropertyName = "transform")]
@@ -246,6 +244,9 @@ namespace Project
             public List<Dictionary<string, object>> Filter;
             [JsonProperty(PropertyName = "bbox")]
             public List<double> BBox;
+            [JsonProperty(PropertyName = "flip", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
+            [DefaultValue(false)]
+            public bool Flip;
         }
     }
 

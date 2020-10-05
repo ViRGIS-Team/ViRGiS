@@ -20,17 +20,18 @@ namespace Virgis {
             if (leftInfoPanel) {
                 appState.Info.Event.Subscribe(UpdateText);
                 appState.ButtonStatus.Event.Subscribe(ButtonChange);
+            }
+            gameObject.SetActive(false);
         }
-  }
 
         private void UpdateText( string text) {
-            gameObject.SetActive (text != "" ||  appState.ButtonStatus.isLhTrigger);
+            gameObject.SetActive (text != "" ||  (appState.ButtonStatus.isLhTrigger && ! appState.editSession.IsActive()));
             lastText = text;
             if (! appState.ButtonStatus.isLhTrigger || text != "") textBox.text = text;
         }
 
         private void ButtonChange(ButtonStatus status) {
-            if (!status.activate && status.SelectionType == SelectionType.INFO) {
+            if (!status.activate && status.SelectionType == SelectionType.INFO && ! appState.editSession.IsActive()) {
                 gameObject.SetActive(false);
                 textBox.text = lastText;
             }

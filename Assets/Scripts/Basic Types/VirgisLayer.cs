@@ -290,6 +290,10 @@ namespace Virgis {
                 return false;
             return (this._id.Equals(other.GetId()));
         }
+
+        public VirgisLayer GetLayer() {
+            return this;
+        }
     }
 
     public abstract class VirgisLayer<T, S> : VirgisLayer where T : RecordSet {

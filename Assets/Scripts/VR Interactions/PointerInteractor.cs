@@ -41,6 +41,8 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
 
     bool isUISelectActive;
     DateTime _lastClick;
+    bool isSelectRequested;
+    bool isClick;
 
 
 
@@ -114,6 +116,10 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
         model.position = m_StartTransform.position;
         model.orientation = m_StartTransform.rotation;
         model.select = isUISelectActive;
+        if (isClick) {
+            isUISelectActive = false;
+            isClick = false;
+        }
 
 
         int numPoints = 0;
@@ -186,7 +192,7 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void Selected(ObjectPointer.EventData data)
     {
-        isUISelectActive = true;
+        isSelectRequested = true;
         _lastClick = DateTime.Now;
     }
 
@@ -196,7 +202,9 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void UnSelected(ObjectPointer.EventData data)
     {
-        isUISelectActive = false;
+        isUISelectActive = isSelectRequested;
+        if (isUISelectActive)
+            isClick = true;
     }
 
     
@@ -205,7 +213,13 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void receiveRay(PointsCast.EventData data)
     {
-        if (!isUISelectActive || DateTime.Now - _lastClick > new TimeSpan(0, 0, 0, (int) movementDeadzone * 1000))
+        if (isSelectRequested) {
+            if (DateTime.Now - _lastClick > new TimeSpan(0, 0, 0, (int) movementDeadzone * 1000)) {
+                isUISelectActive = true;
+                isSelectRequested = false;
+            }
+            return;
+        }
             m_LinePoints = data.Points.ToArray<Vector3>();
     }
 }

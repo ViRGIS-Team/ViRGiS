@@ -16,7 +16,8 @@ namespace Virgis {
         private LayerPanelEditSelectedEvent _editSelectedEvent;
 
         void Awake() {
-            _editSelectedEvent = new LayerPanelEditSelectedEvent();
+            if (_editSelectedEvent == null)
+                _editSelectedEvent = new LayerPanelEditSelectedEvent();
             editLayerToggle.onValueChanged.AddListener(OnEditToggleValueChange);
             viewLayerToggle.onValueChanged.AddListener(OnViewToggleValueChange);
         }
@@ -35,6 +36,8 @@ namespace Virgis {
         }
 
         public void AddEditSelectedListener(UnityAction<LayerUIPanel, bool> action) {
+            if (_editSelectedEvent == null)
+                _editSelectedEvent = new LayerPanelEditSelectedEvent();
             _editSelectedEvent.AddListener(action);
         }
 

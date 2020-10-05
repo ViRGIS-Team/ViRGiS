@@ -93,7 +93,7 @@ namespace Virgis
 
         public override void MoveAxis(MoveArgs args){
             args.pos = transform.position;
-            transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
+            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
         }
 
         public override void MoveTo(MoveArgs args){
@@ -111,7 +111,7 @@ namespace Virgis
         }
 
         public override Dictionary<string, object> GetMetadata() {
-            throw new System.NotImplementedException();
+            return GetComponentInParent<Dataline>().feature.GetAll();
         }
 
         public override void SetMetadata(Dictionary<string, object> meta) {

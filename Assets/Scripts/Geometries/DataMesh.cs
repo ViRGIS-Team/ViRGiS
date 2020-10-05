@@ -12,7 +12,7 @@ public class DataMesh : VirgisFeature
     private bool nullifyHitPos = true;
     public override void Selected(SelectionType button) {
         nullifyHitPos = true;
-        transform.parent.SendMessage("Selected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
+        transform.parent.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
         if (button == SelectionType.SELECTALL) {
             BlockMove = true;
         }
@@ -31,7 +31,7 @@ public class DataMesh : VirgisFeature
         if (nullifyHitPos)
             firstHitPosition = args.pos;
         args.pos = firstHitPosition;
-        transform.parent.SendMessage("MoveAxis", args);
+        transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
         nullifyHitPos = false;
     }
 
@@ -51,7 +51,10 @@ public class DataMesh : VirgisFeature
     }
 
     public override Dictionary<string, object> GetMetadata() {
-        return mesh.FindMetadata("properties") as Dictionary<string, object>;
+        if (mesh != null)
+            return mesh.FindMetadata("properties") as Dictionary<string, object>;
+        else
+            return transform.parent.GetComponent<IVirgisFeature>().GetMetadata();
     }
 
     public override void SetMetadata(Dictionary<string, object> meta) {

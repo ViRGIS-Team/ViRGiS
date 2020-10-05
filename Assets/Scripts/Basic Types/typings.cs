@@ -86,6 +86,12 @@ namespace Virgis {
             return curve;
         }
 
+        /// <summary>
+        /// Creates ag3.DCurve from a geometry
+        /// </summary>
+        /// <param name="curve"></param>
+        /// <param name="geom"></param>
+        /// <returns></returns>
         public static DCurve3 FromGeometry(this DCurve3 curve, Geometry geom ) {
             if (geom.TransformTo(AppState.instance.mapProj) != 0)
                 throw new NotSupportedException("projection failed");
@@ -168,6 +174,14 @@ namespace Virgis {
             _ = curve.DistanceSquared(position, out int iSeg, out double tangent);
             return iSeg;
         }
+
+        public static List<Vector3d> AllVertexItr(this List<DCurve3> poly) {
+            List<Vector3d> ret = new List<Vector3d>();
+            foreach (DCurve3 curve in poly) {
+                ret.AddRange(curve.Vertices);
+            }
+            return ret;
+        }
     }
 
     /// <summary>
@@ -214,21 +228,12 @@ namespace Virgis {
     }
     public static class PolygonExtensions {
 
-        public static GeneralPolygon2d ToPolygon(this List<Dataline> list, ref Frame3f frame) {
-            List<VertexLookup> VertexTable = list[0].VertexTable;
-            Vector3d[] vertices = new Vector3d[VertexTable.Count];
-            for (int j = 0; j < VertexTable.Count; j++) {
-                vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
-            }
-            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(vertices);
+        public static GeneralPolygon2d ToPolygon(this List<DCurve3> list, ref Frame3f frame) {
+            OrthogonalPlaneFit3 orth = new OrthogonalPlaneFit3(list[0].Vertices);
             frame = new Frame3f(orth.Origin, orth.Normal);
             GeneralPolygon2d poly = new GeneralPolygon2d(new Polygon2d());
             for (int i = 0; i<list.Count; i++) {
-                VertexTable = list[i].VertexTable;
-                vertices = new Vector3d[VertexTable.Count];
-                for (int j = 0; j < VertexTable.Count; j++) {
-                    vertices[j] = VertexTable.Find(item => item.Vertex == j).Com.transform.position;
-                }
+                List<Vector3d> vertices = list[i].Vertices.ToList();
                 List<Vector2d> vertices2d = new List<Vector2d>();
                 foreach (Vector3d v in vertices) {
                     Vector2f vertex = frame.ToPlaneUV((Vector3f) v, 3);
@@ -364,6 +369,9 @@ namespace Virgis {
                 SpatialReference from = new SpatialReference(null);
                 if (crs.Contains("+proj")) {
                     from.ImportFromProj4(crs);
+                } else if (crs.Contains("epsg") || crs.Contains("EPSG")){
+                    int epsg = int.Parse(crs.Split(':')[1]);
+                    from.ImportFromEPSG(epsg);
                 } else {
                     from.ImportFromWkt(ref crs);
                 };
@@ -477,24 +485,26 @@ namespace Virgis {
 
         public static Dictionary<string, object> GetAll(this Feature feature) {
             Dictionary<string, object> ret = new Dictionary<string, object>();
-            int fieldCount = feature.GetFieldCount();
-            for (int i = 0; i < fieldCount; i++) {
-                FieldDefn fd = feature.GetFieldDefnRef(i);
-                string key = fd.GetName();
-                object value = null;
-                FieldType ft = fd.GetFieldType();
-                switch (ft) {
-                    case FieldType.OFTString:
-                        value = feature.GetFieldAsString(i);
-                        break;
-                    case FieldType.OFTReal:
-                        value = feature.GetFieldAsDouble(i);
-                        break;
-                    case FieldType.OFTInteger:
-                        value = feature.GetFieldAsInteger(i);
-                        break;
+            if (feature != null) {
+                int fieldCount = feature.GetFieldCount();
+                for (int i = 0; i < fieldCount; i++) {
+                    FieldDefn fd = feature.GetFieldDefnRef(i);
+                    string key = fd.GetName();
+                    object value = null;
+                    FieldType ft = fd.GetFieldType();
+                    switch (ft) {
+                        case FieldType.OFTString:
+                            value = feature.GetFieldAsString(i);
+                            break;
+                        case FieldType.OFTReal:
+                            value = feature.GetFieldAsDouble(i);
+                            break;
+                        case FieldType.OFTInteger:
+                            value = feature.GetFieldAsInteger(i);
+                            break;
+                    }
+                    ret.Add(key, value);
                 }
-                ret.Add(key, value);
             }
             return ret;
         }

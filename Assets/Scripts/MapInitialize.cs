@@ -1,12 +1,11 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using GeoJSON.Net.Geometry;
-using Mapbox.Unity.Map;
+
 using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
-using System.Linq;
 
 namespace Virgis
 {
@@ -20,7 +19,6 @@ namespace Virgis
     public class MapInitialize : VirgisLayer
     {
         // Refernce to the Main Camera GameObject
-        public Camera MainCamera;
         public GameObject MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
@@ -56,7 +54,6 @@ namespace Virgis
 
             //set globals
             appState.map = gameObject;
-            appState.mainCamera = MainCamera;
         }
 
         /// 
@@ -93,9 +90,7 @@ namespace Virgis
             }
 
             //set globals
-            appState.Init();
-            appState.Zoom.Set(appState.project.Scale);
-            MainCamera.transform.position = appState.project.Cameras[0].ToVector3();
+            appState.Project.Complete();
             return true;
         }
 
@@ -192,24 +187,27 @@ namespace Virgis
         {
         }
 
-        public async Task<RecordSet> Save(bool all = true)
-        {
-            // TODO: wrap this in try/catch block
-            Debug.Log("MapInitialize.Save starts");
-
-            if (all) {
-                foreach (IVirgisLayer com in appState.layers) {
-                    RecordSet alayer = await com.Save();
-                    int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
-                    appState.project.RecordSets[index] = alayer;
+        public async Task<RecordSet> Save(bool all = true) {
+            try {
+                Debug.Log("MapInitialize.Save starts");
+                if (appState.project != null) {
+                    if (all) {
+                        foreach (IVirgisLayer com in appState.layers) {
+                            RecordSet alayer = await com.Save();
+                            int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
+                            appState.project.RecordSets[index] = alayer;
+                        }
+                    }
+                    appState.project.Scale = appState.Zoom.Get();
+                    appState.project.Cameras = new List<Point>() { appState.mainCamera.transform.position.ToPoint() };
+                    projectJsonReader.SetProject(appState.project);
+                    await projectJsonReader.Save();
                 }
+                return default;
+            } catch (Exception e) {
+                Debug.Log("Save failed : " + e.ToString());
+                return default;
             }
-            appState.project.Scale = appState.Zoom.Get();
-            appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
-            projectJsonReader.SetProject(appState.project);
-            await projectJsonReader.Save();
-                        // TODO: should return the root layer in v2
-            return null;
         }
 
         protected override Task _save()

@@ -13,8 +13,8 @@ public class HudFacade : MonoBehaviour
     void Start()
     {
         AppState appState = AppState.instance;
-        appState.editSession.StartEvent.Subscribe(OnEditSessionEnd);
-        appState.editSession.EndEvent.Subscribe(OnEditSessionStart);
+        appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
+        appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
         appState.Zoom.Event.Subscribe(OnZoomChanged);
         appState.Orientation.Event.Subscribe(onOrientation);
 

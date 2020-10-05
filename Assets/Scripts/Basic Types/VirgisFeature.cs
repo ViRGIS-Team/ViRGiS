@@ -20,6 +20,7 @@ namespace Virgis
         void Translate(MoveArgs args);
         void MoveTo(MoveArgs args);
         void VertexMove(MoveArgs args);
+        VirgisLayer GetLayer();
     }
 
     /// <summary>
@@ -48,9 +49,6 @@ namespace Virgis
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
         public Feature feature; // Feature tht was the source for this GO
-
-
-
 
 
         void Awake()
@@ -200,6 +198,10 @@ namespace Virgis
         /// </summary>
         public void UnHover() {
             AppState.instance.Info.Set("");
+        }
+
+        public VirgisLayer GetLayer() {
+            return transform.parent.GetComponent<IVirgisEntity>().GetLayer();
         }
     }
 }

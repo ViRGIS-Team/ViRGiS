@@ -11,7 +11,7 @@ namespace Virgis {
     /// </summary>
     public class ZoomEvent  {
 
-        private float _scale;
+        private float _scale = 1;
 
         private readonly Subject<float> _zoomEvent = new Subject<float>();
 

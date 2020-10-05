@@ -1,5 +1,31 @@
 # Change Log and release notes for ViRGIS Version 2
 
+## Version 2.0.0a3
+
+### Platforms
+
+This version will run on the following platforms :
+
+- Windows - x64 Desktop mode
+- Windows - Rift VR mode
+
+
+### Contents
+
+- #230 - additional fixes for the "click"issue
+- #83 - added tooltips on the controllers
+- #70 - added metadata query tool
+- #162 - use the metatdata query to show coordinates during add
+- standardised polygon draw functions and UV creation functions across all polygon layer types and added mesh collider to make metadata work 
+- improved the polygon tiling functions
+- synched the Projection defintion to the Virgis Backend project.
+- added Project version dependence
+- imporved support for WFS, WMS, WCS and WMTS
+
+GDAL Version : 3.1.2
+PDAL Version : 2.2.0
+MDAL Version : 0.7.0
+
 ## Version 2.0.0a2
 
 ### Platforms

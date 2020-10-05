@@ -113,7 +113,7 @@ namespace Virgis
 
         public override void MoveAxis(MoveArgs args) {
             args.pos = transform.position;
-            transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
+            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
         }
 
 
@@ -126,22 +126,18 @@ namespace Virgis
             transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override T GetGeometry<T>() {
-            switch (typeof(T).Name)
-            {
-                case "Vector3":
-                    return (T)Convert.ChangeType("Hello there", typeof(T));
-                case "Vector3d":
-                    return (T)Convert.ChangeType("Hello there", typeof(T));
-                case "Point":
-                    return (T)Convert.ChangeType(transform.position.ToPoint(), typeof(T));
-                default:
-                    throw new NotSupportedException(String.Format("TYpe {} is not support by the Datapoint class", typeof(T).Name));
-            }
-        }
 
         public override Dictionary<string, object> GetMetadata() {
-            return feature.GetAll();
+            Dictionary<string, object> meta = feature.GetAll();
+            Geometry geom = (gameObject.transform.position.ToGeometry());
+            geom.TransformTo(GetLayer().GetCrs());
+            double[] coords = new double[3];
+            geom.GetPoint(0, coords);
+            meta.Add("X Coordinate", coords[0].ToString());
+            meta.Add("Y Coordinate", coords[1].ToString());
+            meta.Add("Z Coordinate", coords[2].ToString());
+            geom.Dispose();
+            return meta;
         }
 
         public override void SetMetadata(Dictionary<string, object> meta) {

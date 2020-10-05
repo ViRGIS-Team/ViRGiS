@@ -16,7 +16,8 @@ namespace Virgis
     /// </summary>
     public class FlyingCam : MonoBehaviour
     {
-        public GameObject trackingSpace; // reference to the active tracking space 
+        public GameObject trackingSpace; // reference to the active tracking space
+        public Camera MainCamera; // the main camera for ray tracing
 
         [Header("Constants - Desktop")]                                 //unity controls and constants input - keyboard
         public float DesktopAcceleration; // controls how fast you speed up
@@ -62,6 +63,8 @@ namespace Virgis
             _thisRigidbody.detectCollisions = false;
             appState.ButtonStatus.Event.Subscribe(select);
             appState.ButtonStatus.Event.Subscribe(unSelect);
+            appState.mainCamera = MainCamera;
+            appState.Project.Event.Subscribe(Project => onProjectLoad());
         }
 
         private void Update()
@@ -102,6 +105,14 @@ namespace Virgis
         private void FixedUpdate()
         {
             OVRInput.FixedUpdate();
+        }
+
+        /// <summary>
+        /// Tasks tpo be perfomred when a project is fully loaded
+        /// </summary>
+        public void onProjectLoad() {
+            transform.position = appState.project.Cameras[0].Coordinates.Vector3();
+
         }
 
         //
@@ -314,7 +325,7 @@ namespace Virgis
                 {
                     RemoveVertex();
                 }
-                currentPointerHit?.SendMessage("Hover");
+                currentPointerHit?.SendMessage("Hover", SendMessageOptions.DontRequireReceiver);
             }
 
         }
@@ -327,7 +338,7 @@ namespace Virgis
         //
         public void PointerUnhit(ObjectPointer.EventData data)
         {
-            currentPointerHit?.SendMessage("UnHover");
+            currentPointerHit?.SendMessage("UnHover", SendMessageOptions.DontRequireReceiver);
             currentPointerHit = null;
         }
 
@@ -415,17 +426,22 @@ namespace Virgis
             lastHitPosition = data.Points[1];
             if (editSelected || currentPointerHit != null)
             {
-                Vector3 dir = data.Points[1] - data.Points[0];
-                Vector3 to = data.Points[0] + dir.normalized * selectedDistance;
-                if (editSelected)
-                    moveTo(to);
-                from = to;
+                StartCoroutine(UpDateMove(data));
             }
+        }
+
+        IEnumerator UpDateMove(PointsCast.EventData data) {
+            Vector3 dir = data.Points[1] - data.Points[0];
+            Vector3 to = data.Points[0] + dir.normalized * selectedDistance;
+            if (editSelected)
+                moveTo(to);
+            from = to;
+            yield return new WaitForSeconds(0.2f);
         }
 
 
         //
-        // loink to boolean evcents to increase and decrease scale
+        // link to boolean evcents to increase and decrease scale
         //
         public void ScaleUp(bool thisEvent)
         {
