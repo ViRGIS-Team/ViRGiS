@@ -1,5 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Virgis
@@ -92,7 +93,7 @@ namespace Virgis
 
         public override void MoveAxis(MoveArgs args){
             args.pos = transform.position;
-            transform.parent.SendMessageUpwards("MoveAxis", args, SendMessageOptions.DontRequireReceiver);
+            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
         }
 
         public override void MoveTo(MoveArgs args){
@@ -109,5 +110,12 @@ namespace Virgis
             transform.parent.SendMessage("RemoveVertex", this, SendMessageOptions.DontRequireReceiver);
         }
 
+        public override Dictionary<string, object> GetMetadata() {
+            return GetComponentInParent<Dataline>().feature.GetAll();
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new System.NotImplementedException();
+        }
     }
 }

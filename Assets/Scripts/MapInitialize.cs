@@ -1,12 +1,11 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using GeoJSON.Net.Geometry;
-using Mapbox.Unity.Map;
+
 using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
-using System.Linq;
 
 namespace Virgis
 {
@@ -20,7 +19,6 @@ namespace Virgis
     public class MapInitialize : VirgisLayer
     {
         // Refernce to the Main Camera GameObject
-        public Camera MainCamera;
         public GameObject MapBoxLayer;
 
         //References to the Prefabs to be used for Layers
@@ -51,12 +49,11 @@ namespace Virgis
                 Debug.Log("instantiate app state");
                 appState = Instantiate(appState);
             }
-            appState.AddStartEditSessionListener(_onStartEditSession);
-            appState.AddEndEditSessionListener(_onExitEditSession);
+            appState.editSession.StartEvent.Subscribe(_onStartEditSession);
+            appState.editSession.EndEvent.Subscribe(_onExitEditSession);
 
             //set globals
             appState.map = gameObject;
-            appState.mainCamera = MainCamera;
         }
 
         /// 
@@ -83,11 +80,6 @@ namespace Virgis
             }
             appState.project = projectJsonReader.GetProject();
 
-            //set globals
-            appState.initProj();
-            appState.ZoomChange(appState.project.Scale);
-            MainCamera.transform.position = appState.project.Cameras[0].ToVector3();
-
             try {
                 foreach (RecordSet thisLayer in appState.project.RecordSets) {
                     await initLayer(thisLayer);
@@ -96,7 +88,9 @@ namespace Virgis
                 Debug.LogError($"Project File {file} failed");
                 return false;
             }
-            appState.Init();
+
+            //set globals
+            appState.Project.Complete();
             return true;
         }
 
@@ -193,24 +187,27 @@ namespace Virgis
         {
         }
 
-        public async Task<RecordSet> Save(bool all = true)
-        {
-            // TODO: wrap this in try/catch block
-            Debug.Log("MapInitialize.Save starts");
-
-            if (all) {
-                foreach (IVirgisLayer com in appState.layers) {
-                    RecordSet alayer = await com.Save();
-                    int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
-                    appState.project.RecordSets[index] = alayer;
+        public async Task<RecordSet> Save(bool all = true) {
+            try {
+                Debug.Log("MapInitialize.Save starts");
+                if (appState.project != null) {
+                    if (all) {
+                        foreach (IVirgisLayer com in appState.layers) {
+                            RecordSet alayer = await com.Save();
+                            int index = appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
+                            appState.project.RecordSets[index] = alayer;
+                        }
+                    }
+                    appState.project.Scale = appState.Zoom.Get();
+                    appState.project.Cameras = new List<Point>() { appState.mainCamera.transform.position.ToPoint() };
+                    projectJsonReader.SetProject(appState.project);
+                    await projectJsonReader.Save();
                 }
+                return default;
+            } catch (Exception e) {
+                Debug.Log("Save failed : " + e.ToString());
+                return default;
             }
-            appState.project.Scale = appState.GetScale();
-            appState.project.Cameras = new List<Point>() { MainCamera.transform.position.ToPoint() };
-            projectJsonReader.SetProject(appState.project);
-            await projectJsonReader.Save();
-                        // TODO: should return the root layer in v2
-            return null;
         }
 
         protected override Task _save()
@@ -219,7 +216,7 @@ namespace Virgis
         }
 
 
-        protected void _onStartEditSession()
+        protected void _onStartEditSession(bool ignore)
         {
             CheckPoint();
         }

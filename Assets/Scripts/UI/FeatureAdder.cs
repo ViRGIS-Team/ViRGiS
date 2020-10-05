@@ -27,9 +27,9 @@ namespace Virgis {
             _appState = AppState.instance;
             _markerShapeMap = new Dictionary<Guid, GameObject>();
             _markerShape = defaultMarkerShape;
-            _appState.editSession.AddStartEditSessionListener(OnStartEditSession);
-            _appState.editSession.AddEndEditSessionListener(OnEndEditSession);
-            _appState.editSession.AddEditableLayerChangedListener(OnEditableLayerChanged);
+            _appState.editSession.StartEvent.Subscribe(OnStartEditSession);
+            _appState.editSession.EndEvent.Subscribe(OnEndEditSession);
+            _appState.editSession.ChangeLayerEvent.Subscribe(OnEditableLayerChanged);
             _waitingForSecondPress = false;
             _newFeature = null;
         }
@@ -59,7 +59,7 @@ namespace Virgis {
             //Debug.Log($"LeftTriggerReleased: activate = {activate}");
         }
 
-        private void OnStartEditSession() {
+        private void OnStartEditSession(bool ignore) {
             IVirgisLayer editableLayer = _appState.editSession.editableLayer;
             _markerShape = SelectMarkerShape(editableLayer);
             _markerShape.SetActive(true);

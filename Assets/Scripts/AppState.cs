@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
-
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace Virgis {
 
@@ -18,11 +19,35 @@ namespace Virgis {
 
         private EditSession _editSession;
         private List<Component> _layers;
-        private ZoomEvent _zoomChange;
-        private ProjectChange _projectChange;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
-        public Vector3 Orientation;
+        public OrientEvent Orientation {
+            get;
+            private set;
+        }
+
+        public InfoEvent Info {
+            get;
+            private set;
+        }
+
+        public ZoomEvent Zoom {
+            get;
+            private set;
+        }
+
+        public ButtonStatus ButtonStatus{
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Use this to get the project change event
+        /// </summary>
+        public ProjectChange Project {
+            get;
+            private set;
+        }
 
         void Awake() {
             print("AppState awakens");
@@ -38,8 +63,13 @@ namespace Virgis {
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
             _layers = new List<Component>();
-            _zoomChange = new ZoomEvent();
-            _projectChange = new ProjectChange();
+            Zoom = new ZoomEvent();
+            Project = new ProjectChange();
+            Info = new InfoEvent();
+            ButtonStatus = new ButtonStatus();
+            Orientation = new OrientEvent();
+
+            Project.Event.Subscribe(proj => Init());
 
             try {
                 GdalConfiguration.ConfigureOgr();
@@ -63,7 +93,6 @@ namespace Virgis {
                 firstLayer = (IVirgisLayer) _layers[1];
             firstLayer.SetEditable(true);
             _editSession.editableLayer = firstLayer;
-            ProjectChange();
         }
 
         public EditSession editSession {
@@ -78,8 +107,17 @@ namespace Virgis {
             get; set;
         }
 
+        /// <summary>
+        /// Use this to change or get the project
+        /// </summary>
         public GisProject project {
-            get; set;
+            get {
+                return Project.Get();
+            } 
+            set {
+                Project.Set(value);
+                initProj();
+            } 
         }
 
         public  SpatialReference mapProj {
@@ -90,29 +128,32 @@ namespace Virgis {
             get => _trans;
         }
 
+        /// <summary>
+        /// Tasks to be run after a project is loaded
+        /// </summary>
         public void initProj() {
             if (project != null) {
                 _crs = new SpatialReference($@"PROJCRS[""virgis"",
-    BASEGEOGCRS[""WGS 84"",
-    DATUM[""World Geodetic System 1984"", ELLIPSOID[""WGS 84"", 6378137, 298.257223563, LENGTHUNIT[""metre"", 1]], ID[""EPSG"", 6326]], PRIMEM[""Greenwich"", 0, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8901]]],
-    CONVERSION[
-        ""unknown"", METHOD[""Transverse Mercator"", ID[""EPSG"", 9807]],
-        PARAMETER
-        [""Latitude of natural origin"", {project.Origin.Coordinates.Latitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8801]],
-        PARAMETER
-        [""Longitude of natural origin"", {project.Origin.Coordinates.Longitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8802]],
-        PARAMETER[""Scale factor at natural origin"", 1, SCALEUNIT[""unity"", 1], ID[""EPSG"", 8805]],
-        PARAMETER[""False easting"", 0, LENGTHUNIT[""metre"", 1], ID[""EPSG"", 8806]],
-        PARAMETER[""False northing"", 0, LENGTHUNIT[""metre"", 1], ID[""EPSG"", 8807]]
-        ],
-        CS[Cartesian, 2],
-        AXIS[""(E)"", east, ORDER[1], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]],
-        AXIS[""(N)"", north, ORDER[2], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]]]");
-                //_crs.ImportFromProj4($"+proj=tmerc +datum=WGS84 +units=m +axis=enu +no-defs +lat_0={project.Origin.Coordinates.Latitude} +lon_0={project.Origin.Coordinates.Longitude}");
-            }
+                    BASEGEOGCRS[""WGS 84"",
+                    DATUM[""World Geodetic System 1984"", ELLIPSOID[""WGS 84"", 6378137, 298.257223563, LENGTHUNIT[""metre"", 1]], ID[""EPSG"", 6326]], PRIMEM[""Greenwich"", 0, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8901]]],
+                    CONVERSION[
+                        ""unknown"", METHOD[""Transverse Mercator"", ID[""EPSG"", 9807]],
+                        PARAMETER
+                        [""Latitude of natural origin"", {project.Origin.Coordinates.Latitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8801]],
+                        PARAMETER
+                        [""Longitude of natural origin"", {project.Origin.Coordinates.Longitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8802]],
+                        PARAMETER[""Scale factor at natural origin"", 1, SCALEUNIT[""unity"", 1], ID[""EPSG"", 8805]],
+                        PARAMETER[""False easting"", 0, LENGTHUNIT[""metre"", 1], ID[""EPSG"", 8806]],
+                        PARAMETER[""False northing"", 0, LENGTHUNIT[""metre"", 1], ID[""EPSG"", 8807]]
+                        ],
+                        CS[Cartesian, 2],
+                        AXIS[""(E)"", east, ORDER[1], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]],
+                        AXIS[""(N)"", north, ORDER[2], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]]]");
+                            }
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
             op.SetOperation("+proj=axisswap +order=1,3,2");
             _trans = new CoordinateTransformation(_crs, _crs, op);
+            Zoom.Set(project.Scale);
             if (_trans == null)
                 throw new NotSupportedException("transformation failed");
         }
@@ -151,34 +192,6 @@ namespace Virgis {
 
         public void StopDiscardEditSession() {
             _editSession.StopAndDiscard();
-        }
-
-        public void AddStartEditSessionListener(UnityAction action) {
-            _editSession.AddStartEditSessionListener(action);
-        }
-
-        public void AddEndEditSessionListener(UnityAction<bool> action) {
-            _editSession.AddEndEditSessionListener(action);
-        }
-
-        public void AddZoomChangeListener(UnityAction<float> action) {
-            _zoomChange.AddZoomChangeListener(action);
-        }
-
-        public void ZoomChange(float zoom) {
-            _zoomChange.Change(zoom);
-        }
-
-        public void AddProjectChangeListener(UnityAction action) {
-            _projectChange.AddListener(action);
-        }
-
-        public void ProjectChange() {
-            _projectChange.Invoke();
-        }
-
-        public float GetScale() {
-            return _zoomChange.GetScale();
         }
 
     }

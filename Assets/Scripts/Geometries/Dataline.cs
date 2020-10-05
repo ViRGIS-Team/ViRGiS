@@ -9,6 +9,7 @@ using g3;
 using UnityEngine.UI;
 using System.Linq;
 using OSGeo.OGR;
+using Zinnia.Tracking.Follow.Modifier.Property.Rotation;
 
 namespace Virgis
 {
@@ -31,6 +32,7 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
         public DCurve3 curve = new DCurve3();
+        public Feature feature; // Feature tht was the source for this GO
 
 
 
@@ -60,8 +62,18 @@ namespace Virgis
             curve.Vector3(GetVertexPositions(), Lr);
         }
 
+        public override void MoveAxis(MoveArgs args) {
+            args.id = GetId();
+            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
+        }
+
+
+        /// <summary>
+        /// This is called by the parent to action the move
+        /// </summary>
+        /// <param name="args"></param>
         // https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public override void MoveAxis(MoveArgs args)
+        public void MoveAxisAction(MoveArgs args)
         {
             if (args.translate != null) transform.Translate(args.translate, Space.World);
             args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
@@ -182,8 +194,6 @@ namespace Virgis
             for (int i = 0; i < VertexTable.Count ; i++) {
                     result.Add(VertexTable.Find(item => item.isVertex && item.Vertex == i).Com.transform.position);
                 }
-            if (Lr)
-                result.Add(result[0]);
             return result.ToArray();
         }
 
@@ -226,27 +236,6 @@ namespace Virgis
                 transform.parent.SendMessage("Translate", args, SendMessageOptions.DontRequireReceiver);
             }
         }
-
-        public string GetWkt()
-        {
-            string result = "LINESTRING Z";
-            result += GetWktCoords();
-            return result;
-        }
-
-        public string GetWktCoords()
-        {
-
-            string result = "(";
-            foreach (Vector3 vertex in GetVertexPositions())
-            {
-                result += "{vertex.x} {vertex.y} {vertex.z},";
-            }
-            result.TrimEnd(',');
-            result += ")";
-            return result;
-        }
-
 
         public override void MoveTo(MoveArgs args)
         {
@@ -372,6 +361,14 @@ namespace Virgis
 
         private Vector3 _labelPosition() {
             return Center() + transform.TransformVector(Vector3.up) * symbology["line"].Transform.Scale.magnitude;
+        }
+
+        public override Dictionary<string, object> GetMetadata() {
+            return feature.GetAll();
+        }
+
+        public override void SetMetadata(Dictionary<string, object> meta) {
+            throw new NotImplementedException();
         }
     }
 }

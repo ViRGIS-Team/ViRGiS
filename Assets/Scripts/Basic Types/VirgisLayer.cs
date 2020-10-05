@@ -21,6 +21,8 @@ namespace Virgis {
         Task<RecordSet> Save();
         VirgisFeature GetFeature(Guid id);
         GameObject GetFeatureShape();
+        RecordSet GetMetadata();
+        void SetMetadata(RecordSet meta);
         void SetVisible(bool visible);
         bool IsVisible();
         void SetEditable(bool inSession);
@@ -287,6 +289,10 @@ namespace Virgis {
             if (other == null)
                 return false;
             return (this._id.Equals(other.GetId()));
+        }
+
+        public VirgisLayer GetLayer() {
+            return this;
         }
     }
 
