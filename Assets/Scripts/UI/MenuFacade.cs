@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
 
 namespace Virgis {
 
@@ -16,6 +17,8 @@ namespace Virgis {
         public Button startEditButton;
         public Button stopSaveEditButton;
         public Button stopDiscardEditButton;
+        public Button fileButton;
+        public Button quitButton;
         public GameObject layersUI;
         public GameObject startMenu;
 
@@ -34,8 +37,8 @@ namespace Virgis {
                 stopDiscardEditButton.interactable = false;
             }
 
-            _appState.AddStartEditSessionListener(OnEditSessionStart);
-            _appState.AddEndEditSessionListener(OnEditSessionEnd);
+            _appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
+            _appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
         }
 
         public void Visible(bool thisEvent) {
@@ -44,7 +47,6 @@ namespace Virgis {
                 gameObject.SetActive(false);
             } else {
                 gameObject.SetActive(true);
-                layersUI.GetComponent<LayersUI>().CreateLayerPanels();
             }
         }
 
@@ -83,10 +85,12 @@ namespace Virgis {
         // This method is triggered when:
         // 1) StartEdit action is triggered
         // 2) Start Edit button is clicked
-        private void OnEditSessionStart() {
+        private void OnEditSessionStart(bool ignore) {
             startEditButton.interactable = false;
             stopSaveEditButton.interactable = true;
             stopDiscardEditButton.interactable = true;
+            fileButton.interactable = false;
+            quitButton.interactable = false;
         }
 
         // Changes the state of menu buttons when edit session ends.
@@ -100,6 +104,8 @@ namespace Virgis {
             startEditButton.interactable = true;
             stopSaveEditButton.interactable = false;
             stopDiscardEditButton.interactable = false;
+            fileButton.interactable = true;
+            quitButton.interactable = true;
         }
 
     }

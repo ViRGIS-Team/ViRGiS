@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using OSGeo.OGR;
-using OSGeo.GDAL;
 
 namespace Virgis
 {

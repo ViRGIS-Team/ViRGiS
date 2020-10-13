@@ -200,11 +200,26 @@ namespace Project
 
         public SerializableColor() { }
 
+
+        /// <summary>
+        /// Used by JSON.Net to deserialize the object.
+        /// 
+        /// For consistency will Kivy and Python aas well as consistency with web based standards, 
+        /// he function accepts both float [0 .. 1] and integer [0 .. 255] formats.
+        /// 
+        /// This does mean that the function will incorrectly deserialize the color [1i,1i,1i].
+        /// </summary>
+        /// <param name="color">List<float></floats></param>
         public override void Update(IList<float> color)
         {
-            r = color[0] / 255;
-            g = color[1] / 255;
-            b = color[2] / 255;
+            float factor = 1;
+            if (color[0] > 1.0f || color[2] > 1.0f || color[3] > 1.0f) {
+                factor = 255;
+            }
+            
+            r = color[0] / factor;
+            g = color[1] / factor;
+            b = color[2] / factor;
             a = color[3];
         }
 
@@ -220,14 +235,18 @@ namespace Project
             return new SerializableColor(color.r, color.g, color.b, color.a);
         }
 
+        /// <summary>
+        /// Always serialize in float[0..1] format
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("[{0}, {1}, {2}, {3}]", r * 255f, g * 255f, b * 255f, a);
+            return String.Format("[{0}, {1}, {2}, {3}]", r , g , b , a);
         }
 
         public override float[] ToArray()
         {
-            return new float[4] { r * 255, g * 255, b * 255, a };
+            return new float[4] { r , g , b , a };
         }
     }
 

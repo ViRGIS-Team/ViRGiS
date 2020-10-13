@@ -1,10 +1,7 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 
-using g3;
 using OSGeo.OGR;
-using OSGeo.OSR;
 using Project;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -218,12 +215,9 @@ namespace Virgis
         public override void MoveAxis(MoveArgs args)
         {
             changed = true;
+            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId()).MoveAxisAction(args);
         }
-
-        /* public override VirgisComponent GetClosest(Vector3 coords)
-         {
-             throw new System.NotImplementedException();
-         }*/
 
     }
 }

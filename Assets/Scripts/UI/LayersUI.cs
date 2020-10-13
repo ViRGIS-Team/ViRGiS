@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,9 +29,10 @@ namespace Virgis
         void Start()
         {
             _appState = AppState.instance;
+            _appState.editSession.StartEvent.Subscribe(OnStartEditSession);
+            _appState.editSession.EndEvent.Subscribe(OnEndEditSession);
+            _appState.Project.Event.Subscribe(onProjectChange);
             _layersMap = new Dictionary<Guid, LayerUIPanel>();
-            _appState.editSession.AddStartEditSessionListener(OnStartEditSession);
-            _appState.editSession.AddEndEditSessionListener(OnEndEditSession);
             CreateLayerPanels();
         }
 
@@ -67,7 +69,7 @@ namespace Virgis
 
             _layersMap.Clear();
 
-
+            
             GameObject newLayerPanel;
 
             // appState.layers are actually Layer script (Component)
@@ -105,7 +107,11 @@ namespace Virgis
             printEditStatus();
         }
 
-        private void OnStartEditSession()
+        private void onProjectChange(GisProject project) {
+            CreateLayerPanels();
+        }
+
+        private void OnStartEditSession(bool ignore)
         {
             foreach (LayerUIPanel panel in _layersMap.Values)
             {

@@ -21,6 +21,8 @@ namespace Virgis {
         Task<RecordSet> Save();
         VirgisFeature GetFeature(Guid id);
         GameObject GetFeatureShape();
+        RecordSet GetMetadata();
+        void SetMetadata(RecordSet meta);
         void SetVisible(bool visible);
         bool IsVisible();
         void SetEditable(bool inSession);
@@ -43,14 +45,6 @@ namespace Virgis {
         void Awake() {
             _id = Guid.NewGuid();
             _editable = false;
-        }
-
-        /// <summary>
-        /// Get the event Manager and register listeners
-        /// </summary>
-        void Start() {
-            AppState.instance.editSession.AddStartEditSessionListener(StartEditSession);
-            AppState.instance.editSession.AddEndEditSessionListener(ExitEditSession);
         }
 
         /// <summary>
@@ -154,21 +148,6 @@ namespace Virgis {
 
         public virtual void VertexMove(MoveArgs args) {
             //do nothing 
-        }
-
-        /// <summary>
-        /// Called when an edit session starts
-        /// </summary>
-        public virtual void StartEditSession() {
-            // do nothing
-        }
-
-        /// <summary>
-        /// Called when an edit session ends
-        /// </summary>
-        /// <param name="saved">true if stop and save, false if stop and discard</param>
-        public virtual void ExitEditSession(bool saved) {
-            // do nothing
         }
 
         /// <summary>
@@ -310,6 +289,10 @@ namespace Virgis {
             if (other == null)
                 return false;
             return (this._id.Equals(other.GetId()));
+        }
+
+        public VirgisLayer GetLayer() {
+            return this;
         }
     }
 

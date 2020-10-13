@@ -28,7 +28,7 @@ namespace Virgis {
             // Set pointlist to results of function Reader with argument inputfile
             RecordSet layer = _layer;
             csvReader = new CSVReader();
-            await csvReader.Load(layer.Source);
+            csvReader.Load(layer.Source);
             features = csvReader.Read();
         }
 
@@ -75,7 +75,6 @@ namespace Virgis {
 
                     // add the gis data from geoJSON
                     Datapoint com = dataPoint.GetComponent<Datapoint>();
-                    com.gisProperties = feature;
 
                     //Set the symbology
                     if (symbology.ContainsKey("point")) {

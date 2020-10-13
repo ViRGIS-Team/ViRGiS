@@ -31,13 +31,19 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     /// <summary>Gets or sets layer mask used for limiting raycast targets.</summary>
     public LayerMask raycastMask { get { return m_RaycastMask; } set { m_RaycastMask = value; } }
 
+    public float movementDeadzone;
+
     int m_HitCount = 0;
 
     RaycastHit[] m_RaycastHits = new RaycastHit[1];
 
     Vector3[] m_LinePoints;
 
-    bool isUISelectActive; 
+    bool isUISelectActive;
+    DateTime _lastClick;
+    bool isSelectRequested;
+    bool isClick;
+
 
 
     public bool enableUIInteraction
@@ -73,6 +79,8 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
 
     protected override void OnEnable()
     {
+        _lastClick = DateTime.Now;
+        
         base.OnEnable();
 
         if (m_EnableUIInteraction)
@@ -108,6 +116,11 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
         model.position = m_StartTransform.position;
         model.orientation = m_StartTransform.rotation;
         model.select = isUISelectActive;
+        if (isClick) {
+            isUISelectActive = false;
+            isClick = false;
+        }
+
 
         int numPoints = 0;
         GetLinePoints(ref s_CachedLinePoints, ref numPoints);
@@ -147,11 +160,6 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     /// <returns>true if the raycastHit parameter contains a valid raycast result</returns>
     public bool GetCurrentRaycastHit(out RaycastHit raycastHit)
     {
-        if (m_HitCount > 0 )
-        {
-            raycastHit = m_RaycastHits[0];
-            return true;
-        }
         raycastHit = new RaycastHit();
         return false;
     }
@@ -159,17 +167,13 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     /// <summary> This function implements the ILineRenderable interface and returns the sample points of the line. </summary>
     public bool GetLinePoints(ref Vector3[] linePoints, ref int noPoints)
     {
-        if (m_HitCount <= 0)
-        {
-            return false;
-        }
-        else
-        {                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+        if (m_LinePoints != null && m_LinePoints.Length > 0) {
             linePoints = new Vector3[2];
             Array.Copy(m_LinePoints, linePoints, 2);
             noPoints = 2;
             return true;
         }
+        return false;
     }
 
     /// <summary> This function implements the ILineRenderable interface, 
@@ -179,40 +183,7 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //TODO Implemet this for full functionality 
     public bool TryGetHitInfo(ref Vector3 position, ref Vector3 normal, ref int positionInLine, ref bool isValidTarget)
     {
-        //float distance = float.MaxValue;
-        //int rayIndex = int.MaxValue;
-
-        //RaycastHit raycastHit;
-        //if (GetCurrentRaycastHit(out raycastHit))  // if the raycast hits any collider
-        //{
-        //    position = raycastHit.point;
-        //    normal = raycastHit.normal;
-        //    positionInLine = rayIndex = m_HitPositionInLine;
-        //    distance = raycastHit.distance;
-        //    // if the collider is registered as an interactable and the interactable is being hovered
-        //    var interactable = interactionManager.TryGetInteractableForCollider(raycastHit.collider);
-
-        //    isValidTarget = interactable && m_HoverTargets.Contains(interactable);
-        //}
-
-        //RaycastResult result;
-        //int raycastPointIndex;
-        //if (GetCurrentUIRaycastResult(out result, out raycastPointIndex))
-        //{
-        //    if (raycastPointIndex >= 0)
-        //    {
-        //        if (raycastPointIndex < rayIndex || ((raycastPointIndex == rayIndex) && (result.distance <= distance)))
-        //        {
-        //            position = result.worldPosition;
-        //            normal = result.worldNormal;
-        //            positionInLine = raycastPointIndex;
-
-        //            isValidTarget = result.gameObject != null;
-        //        }
-        //    }
-        //}
-        ////return isValidTarget;
-        return true;
+        return false;
     }
 
     // 
@@ -221,7 +192,8 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void Selected(ObjectPointer.EventData data)
     {
-        isUISelectActive = true;
+        isSelectRequested = true;
+        _lastClick = DateTime.Now;
     }
 
     // 
@@ -230,7 +202,9 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void UnSelected(ObjectPointer.EventData data)
     {
-        isUISelectActive = false;
+        isUISelectActive = isSelectRequested;
+        if (isUISelectActive)
+            isClick = true;
     }
 
     
@@ -239,7 +213,13 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
     //
     public void receiveRay(PointsCast.EventData data)
     {
-            m_HitCount = 1;
+        if (isSelectRequested) {
+            if (DateTime.Now - _lastClick > new TimeSpan(0, 0, 0, (int) movementDeadzone * 1000)) {
+                isUISelectActive = true;
+                isSelectRequested = false;
+            }
+            return;
+        }
             m_LinePoints = data.Points.ToArray<Vector3>();
     }
 }

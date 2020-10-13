@@ -1,7 +1,5 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using UnityEngine;
-using GeoJSON.Net.Feature;
-using GeoJSON.Net.CoordinateReferenceSystem;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text;
@@ -40,7 +38,11 @@ namespace Virgis
 
         public GisProject GetProject()
         {
-            return JsonConvert.DeserializeObject<GisProject>(payload);
+            GisProject project = JsonConvert.DeserializeObject<GisProject>(payload);
+            if (project.ProjectVersion != Application.version) {
+                throw new NotSupportedException("Incorrect version of project file");
+            }
+            return project;
         }
 
         public async Task Save()

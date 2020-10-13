@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Project;
 using OSGeo.OGR;
+using System.Linq;
 
 namespace Virgis
 {
@@ -14,16 +14,13 @@ namespace Virgis
     {
         void Selected(SelectionType button);
         void UnSelected(SelectionType button);
-        void StartEditSession();
-        void ExitEditSession(bool saved);
         Guid GetId();
-        RecordSet GetMetadata();
-        void SetMetadata(RecordSet meta);
         VirgisFeature GetClosest(Vector3 coords, Guid[] exclude);
         void MoveAxis(MoveArgs args);
         void Translate(MoveArgs args);
         void MoveTo(MoveArgs args);
         void VertexMove(MoveArgs args);
+        VirgisLayer GetLayer();
     }
 
     /// <summary>
@@ -36,6 +33,11 @@ namespace Virgis
         VirgisFeature AddVertex(Vector3 position);
         void RemoveVertex(VirgisFeature vertex);
         T GetGeometry<T>();
+        Dictionary<string, object> GetMetadata();
+        void SetMetadata(Dictionary<string, object> meta);
+
+        void Hover();
+        void UnHover();
 
     }
 
@@ -43,13 +45,10 @@ namespace Virgis
     {
         protected Material mainMat; // color of the component
         protected Material selectedMat; // color of the component when selected
-        public string gisId; // ID of this component in the geoJSON
-        public Dictionary<string, object> gisProperties; //  geoJSON properties of this component
 
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
         public Feature feature; // Feature tht was the source for this GO
-
 
 
         void Awake()
@@ -84,19 +83,8 @@ namespace Virgis
             //do nothing
         }
 
-        /// <summary>
-        /// Called when an edit session starts
-        /// </summary>
-        public virtual void StartEditSession() { 
-            //do nothing
-        }
+        
 
-        /// <summary>
-        /// Called when an edit session ends
-        /// </summary>
-        public virtual void ExitEditSession(bool saved) {
-            // do nothing
-        }
 
         /// <summary>
         /// Sent by the UI to request this component to move.
@@ -172,14 +160,9 @@ namespace Virgis
             return _id;
         }
 
-        public RecordSet GetMetadata() {
-            return new RecordSet() { Id = gisId, Properties = gisProperties };
-        }
+        public abstract Dictionary<string, object> GetMetadata();
 
-        public void SetMetadata(RecordSet meta) {
-            gisId = meta.Id;
-            gisProperties = meta.Properties;
-        }
+        public abstract void SetMetadata(Dictionary<string, object> meta);
 
         public override bool Equals(object obj) {
             if (obj == null)
@@ -197,6 +180,28 @@ namespace Virgis
             if (other == null)
                 return false;
             return (this._id.Equals(other.GetId()));
+        }
+
+        /// <summary>
+        /// Called whnen the pointer hovers on this feature
+        /// </summary>
+        public void Hover() {
+            Dictionary<string, object> meta = GetMetadata();
+            if (meta != null && meta.Count > 0) {
+                string output = string.Join("\n", meta.Select(x => $"{x.Key}:\t{x.Value}"));
+                AppState.instance.Info.Set(output);
+            }
+        }
+
+        /// <summary>
+        /// called when the pointer stops hoveringon this feature
+        /// </summary>
+        public void UnHover() {
+            AppState.instance.Info.Set("");
+        }
+
+        public VirgisLayer GetLayer() {
+            return transform.parent.GetComponent<IVirgisEntity>().GetLayer();
         }
     }
 }

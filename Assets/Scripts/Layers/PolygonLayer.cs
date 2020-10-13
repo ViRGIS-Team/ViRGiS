@@ -2,13 +2,10 @@
 
 using Project;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using g3;
 using OSGeo.OGR;
-using OSGeo.OSR;
 
 namespace Virgis
 {
