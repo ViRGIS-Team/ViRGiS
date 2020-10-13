@@ -102,7 +102,7 @@ namespace Virgis
 
                 Debug.Log($"GDAL version string : {Gdal.VersionInfo(null)}");
             } catch (Exception e) {
-                _usable = false;
+                    _usable = false;
                 Debug.LogError(e.ToString());
                 throw;
             }
@@ -122,14 +122,16 @@ namespace Virgis
         /// <remarks>Be sure to call this function before using Gdal/Ogr/Osr</remarks>
         public static void ConfigureOgr()
         {
-            //if (!_usable) return;
-            //if (_configuredOgr) return;
+            if (!_usable)
+                return;
+            if (_configuredOgr)
+                return;
 
-            //// Register drivers
-            //Ogr.RegisterAll();
-            //_configuredOgr = true;
+            // Register drivers
+            Ogr.RegisterAll();
+            _configuredOgr = true;
 
-            //PrintDriversOgr();
+            PrintDriversOgr();
         }
 
         /// <summary>
@@ -174,36 +176,32 @@ namespace Virgis
         }
         private static void PrintDriversOgr()
         {
-            //if (_usable)
-            //{
-            //    string drivers = "";
-            //    var num = Ogr.GetDriverCount();
-            //    for (var i = 0; i < num; i++)
-            //    {
-            //        var driver = Ogr.GetDriver(i);
-            //        drivers += $"OGR {i}: {driver.GetName()}";
-            //        drivers += ", ";
-            //    }
-            //    Debug.Log($"OGR Drivers : {drivers}");
+            if (_usable) {
+                string drivers = "";
+                var num = Ogr.GetDriverCount();
+                for (var i = 0; i < num; i++) {
+                    var driver = Ogr.GetDriver(i);
+                    drivers += $"OGR {i}: {driver.GetName()}";
+                    drivers += ", ";
+                }
+                Debug.Log($"OGR Drivers : {drivers}");
 
-            //}
+            }
         }
 
         private static void PrintDriversGdal()
         {
-            //if (_usable)
-            //{
-            //    string drivers = "";
-            //    var num = Gdal.GetDriverCount();
-            //    for (var i = 0; i < num; i++)
-            //    {
-            //        var driver = Gdal.GetDriver(i);
-            //        drivers += $"GDAL {i}: {driver.ShortName}-{driver.LongName}";
-            //        drivers += ", ";
-            //    }
-            //    Debug.Log($"GDAL Drivers : {drivers}");
+            if (_usable) {
+                string drivers = "";
+                var num = Gdal.GetDriverCount();
+                for (var i = 0; i < num; i++) {
+                    var driver = Gdal.GetDriver(i);
+                    drivers += $"GDAL {i}: {driver.ShortName}-{driver.LongName}";
+                    drivers += ", ";
+                }
+                Debug.Log($"GDAL Drivers : {drivers}");
 
-            //}
+            }
         }
 
         public static void ConfigureMdal() {
