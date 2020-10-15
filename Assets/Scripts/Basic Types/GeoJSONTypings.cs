@@ -1,7 +1,8 @@
-﻿using GeoJSON.Net.CoordinateReferenceSystem;
+﻿using CRSType = GeoJSON.Net.CoordinateReferenceSystem.CRSType;
+using GeoJSON.Net.CoordinateReferenceSystem;
 using GeoJSON.Net.Geometry;
 using OSGeo.OGR;
-using OSGeo.OSR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
 using System;
 using System.Collections.ObjectModel;
 using UnityEngine;

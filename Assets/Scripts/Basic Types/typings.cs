@@ -1,7 +1,8 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using g3;
 using OSGeo.OGR;
-using OSGeo.OSR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
+using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
