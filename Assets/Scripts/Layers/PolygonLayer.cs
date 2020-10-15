@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using OSGeo.OGR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
 
 namespace Virgis
 {
@@ -139,6 +140,8 @@ namespace Virgis
                     poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D ||
                     poly.GetGeometryType() == wkbGeometryType.wkbPolygonM ||
                     poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
+                    if (poly.GetSpatialReference() == null)
+                        poly.AssignSpatialReference(GetCrs());
                      _drawFeature(poly, feature);
                 } else if (poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon ||
                     poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon25D ||
@@ -147,7 +150,8 @@ namespace Virgis
                     int n = poly.GetGeometryCount();
                     for (int j = 0; j < n; j++) {
                         Geometry poly2 = poly.GetGeometryRef(j);
-                        string Type = poly2.GetGeometryType().ToString();
+                        if (poly2.GetSpatialReference() == null)
+                            poly2.AssignSpatialReference(GetCrs());
                         _drawFeature(poly2, feature);
                     }
                 }
@@ -167,6 +171,8 @@ namespace Virgis
         {
             Geometry center = poly.Centroid();
             center.AssignSpatialReference(poly.GetSpatialReference());
+            string crs;
+                center.GetSpatialReference().ExportToWkt(out crs, null);
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center.TransformWorld()[0], Quaternion.identity, transform);
 
@@ -178,7 +184,7 @@ namespace Virgis
             if (feature != null)
                 p.feature = feature;
 
-            if (symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false))
+            if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false))
             {
                 //Set the label
                 GameObject labelObject = Instantiate(LabelPrefab, dataPoly.transform, false);

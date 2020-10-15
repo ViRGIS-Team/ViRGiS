@@ -38,17 +38,17 @@ namespace Virgis {
                     case wkbGeometryType.wkbPoint:
                         _layers.Add( await Instantiate(PointLayer,transform).GetComponent<PointLayer>().Init(layer));
                         _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         break;
                     case wkbGeometryType.wkbLineString:
                         _layers.Add(await Instantiate(LineLayer,transform).GetComponent<LineLayer>().Init(layer));
                         _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         break;
                     case wkbGeometryType.wkbPolygon:
                         _layers.Add(await Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>().Init(layer));
                         _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         break;
                     case wkbGeometryType.wkbUnknown:
                         GeographyCollection metadata = GetMetadata();
@@ -76,7 +76,7 @@ namespace Virgis {
                                      }
                                     if (layerToAdd == null) {
                                         _layers.Add(await Instantiate(LineLayer, transform).GetComponent<LineLayer>().Init(layer));
-                                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
                                     }
                                     break;
@@ -89,7 +89,7 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         _layers.Add(await Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>().Init(layer));
-                                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
                                     }
                                     break;
@@ -102,7 +102,7 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         _layers.Add(await Instantiate(PointLayer, transform).GetComponent<PointLayer>().Init(layer));
-                                        _layers.Last().SetCrs(thisLayer.GetSpatialRef());
+                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
                                     }
                                     break;
