@@ -7,6 +7,10 @@ using UnityEngine.Events;
 using System;
 using System.Reactive;
 using System.Reactive.Linq;
+using OSGeo;
+using Mdal;
+using Pdal;
+
 
 namespace Virgis {
 
@@ -82,12 +86,12 @@ namespace Virgis {
                 Debug.LogError(e.ToString());
             };
             try {
-                GdalConfiguration.ConfiurePdal();
+                PdalConfiguration.ConfigurePdal();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             };
             try {
-                GdalConfiguration.ConfigureMdal();
+                MdalConfiguration.ConfigureMdal();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }

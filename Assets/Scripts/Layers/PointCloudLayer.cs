@@ -4,7 +4,7 @@ using UnityEngine.VFX;
 using System.Threading.Tasks;
 using System.IO;
 using Project;
-using pdal;
+using Pdal;
 using Newtonsoft.Json;
 
 namespace Virgis
@@ -81,7 +81,7 @@ namespace Virgis
             long pointCount = pipeline.Execute();
             PointViewIterator views = pipeline.Views;
             if (views != null) {
-                pdal.PointView view = views != null ? views.Next : null;
+                PointView view = views != null ? views.Next : null;
                 if (view != null) {
                     features = view.GetBakedPointCloud(pointCount);
                     view.Dispose();

@@ -4,14 +4,12 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
 using Project;
-using pdal;
+using Pdal;
 using Newtonsoft.Json;
 using Mdal;
 using g3;
 using OSGeo.GDAL;
-using OSGeo.OSR;
 using System;
-using Mapbox.Unity.Map;
 
 namespace Virgis
 {
