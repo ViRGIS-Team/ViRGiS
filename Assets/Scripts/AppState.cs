@@ -3,10 +3,12 @@ using OSGeo.OSR;
 using Project;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using System;
-using System.Reactive;
 using System.Reactive.Linq;
+using OSGeo;
+using Mdal;
+using Pdal;
+
 
 namespace Virgis {
 
@@ -73,9 +75,21 @@ namespace Virgis {
 
             try {
                 GdalConfiguration.ConfigureOgr();
+            } catch (Exception e) {
+                Debug.LogError(e.ToString());
+            };
+            try {
                 GdalConfiguration.ConfigureGdal();
-                GdalConfiguration.ConfiurePdal();
-                GdalConfiguration.ConfigureMdal();
+            } catch (Exception e) {
+                Debug.LogError(e.ToString());
+            };
+            try {
+                PdalConfiguration.ConfigurePdal();
+            } catch (Exception e) {
+                Debug.LogError(e.ToString());
+            };
+            try {
+                MdalConfiguration.ConfigureMdal();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }

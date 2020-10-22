@@ -69,7 +69,7 @@ namespace Virgis
 
         private void Update()
         {
-            OVRInput.Update();
+
             if (appState && appState.ButtonStatus.isAxisEdit && editSelected)
             {
                 Vector3 rh = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RHand);
@@ -102,10 +102,6 @@ namespace Virgis
             yield return new WaitForSeconds(2f);
         }
 
-        private void FixedUpdate()
-        {
-            OVRInput.FixedUpdate();
-        }
 
         /// <summary>
         /// Tasks tpo be perfomred when a project is fully loaded

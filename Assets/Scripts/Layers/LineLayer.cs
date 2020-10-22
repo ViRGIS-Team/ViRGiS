@@ -131,6 +131,8 @@ namespace Virgis
                     line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
                     line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
                 ) {
+                    if (line.GetSpatialReference() == null)
+                        line.AssignSpatialReference(GetCrs());
                     _drawFeature(line, feature);
                 } else if 
                     (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
@@ -141,7 +143,8 @@ namespace Virgis
                     int n = line.GetGeometryCount();
                     for (int j = 0; j < n; j++) {
                         Geometry Line2 = line.GetGeometryRef(j);
-                        string Type = Line2.GetGeometryType().ToString();
+                        if (Line2.GetSpatialReference() == null)
+                            Line2.AssignSpatialReference(GetCrs());
                         _drawFeature(Line2, feature);
                     }
                 }

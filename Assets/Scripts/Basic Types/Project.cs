@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using GeoJSON.Net.Geometry;
-using GeoJSON.Net.Feature;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Converters;
@@ -27,6 +26,9 @@ namespace Project
         [JsonProperty(PropertyName = "scale", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         [DefaultValue(1f)]
         public float Scale;
+
+        [JsonProperty(PropertyName = "default_proj")]
+        public string projectCrs;
 
         [JsonProperty(PropertyName = "grid-scale")]
         public float GridScale;

@@ -7,7 +7,8 @@ using System.Text;
 using System;
 using System.Text.RegularExpressions;
 using OSGeo.OGR;
-using OSGeo.OSR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
+using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
 
 
 namespace Virgis {

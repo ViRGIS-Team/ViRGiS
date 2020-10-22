@@ -40,7 +40,7 @@ namespace Virgis
         {
             GisProject project = JsonConvert.DeserializeObject<GisProject>(payload);
             if (project.ProjectVersion != Application.version) {
-                throw new NotSupportedException("Incorrect version of project file");
+                Debug.LogError("This project was created in a different version of ViRGIS and may not be loaded correctly");
             }
             return project;
         }

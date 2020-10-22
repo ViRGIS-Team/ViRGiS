@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using OSGeo.OGR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
+using Project;
 
 namespace Virgis
 {
@@ -70,6 +72,24 @@ namespace Virgis
                 }
             }
             return;
+        }
+
+        public static SpatialReference getSR(Layer layer, GeographyCollection metadata) {
+            if (metadata.Crs == null) {
+                return layer.GetSpatialRef();
+            }
+            if (metadata.Crs.Contains("epsg:") || metadata.Crs.Contains("EPSG:")) {
+                SpatialReference crs = new SpatialReference(null);
+                string[] parts = metadata.Crs.Split(':');
+                crs.ImportFromEPSG(int.Parse(parts[1]));
+                return crs;
+            }
+            if (metadata.Crs.Contains("proj")) {
+                SpatialReference crs = new SpatialReference(null);
+                crs.ImportFromProj4(metadata.Crs);
+                return crs;
+            }
+            return new SpatialReference(metadata.Crs);
         }
     }
 }
