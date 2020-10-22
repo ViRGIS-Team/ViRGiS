@@ -1,5 +1,25 @@
 # Change Log and release notes for ViRGIS Version 2
 
+## Version 2.1.1RC1
+
+### Platforms
+
+This version will run on the following platforms :
+
+- Windows - x64 Desktop mode
+- Windows - Rift VR mode
+
+### Contents
+
+- External Dependencies moved to UPM Packages
+- Added .3ds support
+- Fixed .dxf support
+
+GDAL Version : 3.1.2
+PDAL Version : 2.2.0
+MDAL Version : 0.7.1
+
+
 ## Version 2.0.0a3
 
 ### Platforms
