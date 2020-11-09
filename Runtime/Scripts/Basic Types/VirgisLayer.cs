@@ -73,7 +73,7 @@ namespace Virgis {
                 //make sure the layer is empty
                 for (int i = transform.childCount - 1; i >= 0; i--) {
                     Transform child = transform.GetChild(i);
-                    child.gameObject.Destroy();
+                    Destroy(child.gameObject);
                 }
 
                 transform.rotation = Quaternion.identity;
@@ -372,4 +372,3 @@ namespace Virgis {
 
     }
 }
-

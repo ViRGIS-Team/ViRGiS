@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#if USE_MAPBOX
+
+using UnityEngine;
 using Mapbox.Unity.Map;
 
 namespace Virgis {
@@ -21,3 +23,4 @@ namespace Virgis {
         }
     }
 }
+#endif

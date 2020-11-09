@@ -140,7 +140,7 @@ namespace Virgis
 
         public override void RemoveVertex(VirgisFeature vertex) {
             if (BlockMove) {
-                gameObject.Destroy();
+                Destroy(gameObject);
             } else {
                 _redraw();
             }

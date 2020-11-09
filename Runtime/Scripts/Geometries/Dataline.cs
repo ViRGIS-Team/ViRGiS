@@ -171,7 +171,7 @@ namespace Virgis
                 VertexLookup First = VertexTable.Find(item => item.Vertex == 0);
                 VertexLookup Last = VertexTable.Find(item => item.Vertex == VertexTable.Count - 1);
                 if (First.Com.transform.position == Last.Com.transform.position) {
-                    Last.Com.gameObject.Destroy();
+                    Destroy(Last.Com.gameObject);
                     VertexTable.Remove(Last);
                     Last = VertexTable.Find(item => item.Vertex == Last.Vertex - 1);
                     Last.Line.MoveEnd(First.Com.transform.position);
@@ -288,17 +288,17 @@ namespace Virgis
 
         public override void RemoveVertex(VirgisFeature vertex) {
             if (BlockMove) {
-                gameObject.Destroy();
+                Destroy(gameObject);
             } else {
                 VertexLookup vLookup = VertexTable.Find(item => item.Com == vertex);
                 if (vLookup.isVertex) {
                     int thisVertex = vLookup.Vertex;
                     if (vLookup.Line != null) {
-                        vLookup.Line.gameObject.Destroy();
+                        Destroy(vLookup.Line.gameObject);
                     } else {
-                        VertexTable.Find(item => item.Vertex == vLookup.Vertex - 1).Line.gameObject.Destroy();
+                        Destroy(VertexTable.Find(item => item.Vertex == vLookup.Vertex - 1).Line.gameObject);
                     }
-                    vLookup.Com.gameObject.Destroy();
+                    Destroy(vLookup.Com.gameObject);
                     VertexTable.Remove(vLookup);
                     VertexTable.ForEach(item => {
                         if (item.Vertex >= thisVertex) {
@@ -324,7 +324,7 @@ namespace Virgis
                     if (VertexTable.Count > 1) {
                         VertexTable.Find(item => item.Vertex == start).Line.MoveEnd(VertexTable.Find(item => item.Vertex == end).Com.transform.position);
                     } else {
-                        gameObject.Destroy();
+                        Destroy(gameObject);
                     }
                 }
             }

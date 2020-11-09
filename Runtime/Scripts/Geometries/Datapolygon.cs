@@ -85,7 +85,7 @@ namespace Virgis
             MeshCollider mc = Shape.GetComponent<MeshCollider>();
             MeshRenderer mr = Shape.GetComponent<MeshRenderer>();
             Material mat = mr.material;
-            mc.Destroy();
+            Destroy(mc);
             mc = Shape.AddComponent<MeshCollider>();
             Vector3[] vertices = mesh.vertices;
             vertices[VertexTable.Find(item => item.Id == data.id).pVertex] = Shape.transform.InverseTransformPoint(data.pos);

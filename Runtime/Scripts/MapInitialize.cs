@@ -99,16 +99,7 @@ namespace Virgis
                 try {
                     switch (thisLayer.DataType) {
                         case RecordSetDataType.MapBox:
-                            MapBox.MapBoxData props = (thisLayer as MapBox).Properties;
-                            VirgisAbstractMap mbLayer = Instantiate(MapBoxLayer, transform).GetComponent<VirgisAbstractMap>();
-                            mbLayer.UseWorldScale();
-                            mbLayer.SetProperties(props.imagerySourceType, props.elevationLayerType, props.elevationSourceType, props.MapSize);
-                            mbLayer.Initialize(appState.project.Origin.Coordinates.Vector2d(), props.MapScale);
-                            Debug.Log(" Mapbox Options : " + mbLayer.Options.ToString());
-                            appState.abstractMap = mbLayer;
-                            temp = mbLayer.GetComponent<ContainerLayer>();
-                            temp.SetMetadata(thisLayer);
-                            temp.changed = false;
+                            temp = await Instantiate(MapBoxLayer, transform).GetComponent<MapBoxLayer>().Init(thisLayer as MapBox);
                             break;
                         case RecordSetDataType.Vector:
                             temp = await Instantiate(VectorLayer, transform).GetComponent<OgrLayer>().Init(thisLayer as GeographyCollection);

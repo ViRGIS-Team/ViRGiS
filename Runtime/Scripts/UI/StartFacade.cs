@@ -51,7 +51,7 @@ namespace Virgis {
 
         public async void onFileSelected(string file) {
             if (AppState.instance.layers != null)  foreach (VirgisLayer layer in AppState.instance.layers) {
-                  layer.gameObject.Destroy();
+                  Destroy(layer.gameObject);
             }
             AppState.instance.clearLayers();
             Debug.Log("File selected :" + file);

@@ -64,7 +64,7 @@ namespace Virgis
         {
             // Delete any existing panel
             foreach (var panel in _layersMap) {
-                panel.Value.gameObject.Destroy();
+                Destroy(panel.Value.gameObject);
             }
 
             _layersMap.Clear();

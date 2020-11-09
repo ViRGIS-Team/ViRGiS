@@ -70,14 +70,6 @@ namespace Virgis {
     }
 
     public static class PositionExtensionMethods {
-        /// <summary>
-        /// Converts Iposition to Vector2D
-        /// </summary>
-        /// <param name="position">IPosition</param>
-        /// <returns>Mapbox.Utils.Vector2d</returns>
-        public static Mapbox.Utils.Vector2d Vector2d(this IPosition position) {
-            return new Mapbox.Utils.Vector2d(position.Latitude, position.Longitude);
-        }
 
         /// <summary>
         /// Converts IPosition to UnityEngine.vector2

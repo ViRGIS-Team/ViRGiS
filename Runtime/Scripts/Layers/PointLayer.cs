@@ -183,7 +183,7 @@ namespace Virgis {
 
         public void RemoveVertex(VirgisFeature vertex) {
             if (AppState.instance.InEditSession() && IsEditable()) {
-                vertex.gameObject.Destroy();
+                Destroy(vertex.gameObject);
             }
         }
     }
