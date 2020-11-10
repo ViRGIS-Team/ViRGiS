@@ -15,7 +15,6 @@ namespace Virgis
     public class Datapoint : VirgisFeature
     {
         private Renderer thisRenderer; // convenience link to the rendere for this marker
-        public Feature feature; // Feature tht was the source for this GO
 
 
         private void Start() {

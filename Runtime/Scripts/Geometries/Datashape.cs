@@ -101,14 +101,14 @@ namespace Virgis
                 }
 
                 // 
-                // eaxtract the truiangles from the delaunay triangulation 
+                // eaxtract the triangles from the delaunay triangulation 
                 //
                 IEnumerable<ITriangle> tris =   delaunator.GetTriangles();
                 for (int i = 0; i < tris.Count(); i++) {
 
                     ITriangle tri = tris.ElementAt(i);
 
-                    if (polygon2d.Contains(delaunator.GetTriangleCenter(i).ToVector2d())) {
+                    if (polygon2d.Contains(delaunator.GetTriangleCircumcenter(i).ToVector2d())) {
                         int index = 3 * i;
                         triangles.Add(delaunator.Triangles[index]);
                         triangles.Add(delaunator.Triangles[index + 1]);

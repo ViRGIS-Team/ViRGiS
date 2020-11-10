@@ -388,7 +388,7 @@ namespace Virgis {
                         }
                     };
                     return true;
-                } catch (Exception e) {
+                } catch {
                     return false;
                 }
             }
@@ -402,7 +402,7 @@ namespace Virgis {
                     }
                 };
                 return true;
-            } catch (Exception e) {
+            } catch {
                 return false;
             }
         }

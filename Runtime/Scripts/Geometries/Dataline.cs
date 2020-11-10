@@ -32,7 +32,6 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
         public DCurve3 curve = new DCurve3();
-        public Feature feature; // Feature tht was the source for this GO
 
 
 
