@@ -16,20 +16,9 @@ namespace Virgis
     /// 
     /// It is run once at Startup
     /// </summary>
-    public class MapInitialize : VirgisLayer
+    public abstract class MapInitialize : VirgisLayer
     {
-        // Refernce to the Main Camera GameObject
-        public GameObject MapBoxLayer;
 
-        //References to the Prefabs to be used for Layers
-        public GameObject VectorLayer;
-        public GameObject RasterLayer;
-        public GameObject PointCloud;
-        public GameObject MeshLayer;
-        public GameObject MDALLayer;
-        public GameObject XsectLayer;
-        public GameObject CsvLayer;
-        public GameObject DemLayer;
         public AppState appState;
 
 
@@ -94,38 +83,12 @@ namespace Virgis
             return true;
         }
 
+        public abstract Task<VirgisLayer> createLayer(RecordSet thisLayer);
+
         private async Task initLayer(RecordSet thisLayer) {
             VirgisLayer temp = null;
                 try {
-                    switch (thisLayer.DataType) {
-                        case RecordSetDataType.MapBox:
-                            temp = await Instantiate(MapBoxLayer, transform).GetComponent<MapBoxLayer>().Init(thisLayer as MapBox);
-                            break;
-                        case RecordSetDataType.Vector:
-                            temp = await Instantiate(VectorLayer, transform).GetComponent<OgrLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        case RecordSetDataType.Raster:
-                            temp = await Instantiate(RasterLayer, transform).GetComponent<RasterLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        case RecordSetDataType.PointCloud:
-                            temp = await Instantiate(PointCloud,transform).GetComponent<PointCloudLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        case RecordSetDataType.Mesh:
-                            temp = await Instantiate(MeshLayer, transform).GetComponent<MeshLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        case RecordSetDataType.Mdal:
-                            temp = await Instantiate(MDALLayer, transform).GetComponent<MdalLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        case RecordSetDataType.CSV:
-                            temp = await Instantiate(CsvLayer,transform).GetComponent<DataPlotter>().Init(thisLayer as RecordSet);
-                            break;
-                        case RecordSetDataType.DEM:
-                            temp = await Instantiate(DemLayer, transform).GetComponent<DemLayer>().Init(thisLayer as GeographyCollection);
-                            break;
-                        default:
-                            Debug.LogError(thisLayer.DataType.ToString() + " is not known.");
-                            break;
-                    }
+                    temp =  await createLayer(thisLayer);                   
                     Stack<VirgisLayer> tempLayers = new Stack<VirgisLayer>();
                     tempLayers.Push(temp);
                     while (tempLayers.Count > 0) {

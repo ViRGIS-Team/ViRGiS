@@ -8,7 +8,7 @@ using Mdal;
 namespace Virgis
 {
 
-    public class MdalLayer : VirgisLayer<GeographyCollection, List<DMesh3>>
+    public class MdalLayer : VirgisLayer<RecordSet, List<DMesh3>>
     {
         // The prefab for the data points to be instantiated
         public GameObject Mesh;
@@ -22,7 +22,7 @@ namespace Virgis
         }
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
             symbology = layer.Properties.Units;
             Datasource ds = new Datasource(layer.Source);
             features = new List<DMesh3>();
@@ -46,7 +46,7 @@ namespace Virgis
         }
         protected override void _draw()
         {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             meshes = new List<Transform>();
 

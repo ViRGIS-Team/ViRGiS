@@ -74,7 +74,7 @@ namespace Virgis
             return;
         }
 
-        public static SpatialReference getSR(Layer layer, GeographyCollection metadata) {
+        public static SpatialReference getSR(Layer layer, RecordSet metadata) {
             if (metadata.Crs == null) {
                 return layer.GetSpatialRef();
             }

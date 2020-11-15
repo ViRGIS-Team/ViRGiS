@@ -15,7 +15,7 @@ namespace Virgis
 {
 
 
-    public class DemLayer : VirgisLayer<GeographyCollection, List<DMesh3>> {
+    public class DemLayer : VirgisLayer<RecordSet, List<DMesh3>> {
         // The prefab for the data points to be instantiated
         public GameObject Mesh;
         public Material MeshMaterial;
@@ -29,7 +29,7 @@ namespace Virgis
 
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
             string ex = Path.GetExtension(layer.Source).ToLower();
             string sourcetype = null;
             Datasource ds = null;
@@ -198,7 +198,7 @@ namespace Virgis
         }
 
         protected override void _draw() {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             meshes = new List<Transform>();
 

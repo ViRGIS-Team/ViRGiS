@@ -10,7 +10,7 @@ using System.Globalization;
 
 namespace Virgis {
 
-    public class PointLayer : VirgisLayer<GeographyCollection, Layer> {
+    public class PointLayer : VirgisLayer<RecordSet, Layer> {
         // The prefab for the data points to be instantiated
         public GameObject SpherePrefab;
         public GameObject CubePrefab;
@@ -29,9 +29,7 @@ namespace Virgis {
         }
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
-
-
+            RecordSet layer = _layer as RecordSet;
             symbology = layer.Properties.Units;
             displacement = 1.0f;
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
@@ -72,7 +70,7 @@ namespace Virgis {
 
 
         protected override void _draw() {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             if (layer.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
             }

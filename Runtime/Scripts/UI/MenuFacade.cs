@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System;
 
@@ -47,13 +46,6 @@ namespace Virgis {
                 gameObject.SetActive(false);
             } else {
                 gameObject.SetActive(true);
-            }
-        }
-
-        public void HandleKeyInput(InputAction.CallbackContext context) {
-            InputAction action = context.action;
-            if (action.name == "ShowMenu") {
-                Visible(true);
             }
         }
 

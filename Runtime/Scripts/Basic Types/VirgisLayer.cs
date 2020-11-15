@@ -65,7 +65,7 @@ namespace Virgis {
         protected abstract VirgisFeature _addFeature(Vector3[] geometry);
 
         /// <summary>
-        /// Draw the layer based upon the features in the features GeographyCollection
+        /// Draw the layer based upon the features in the features RecordSet
         /// </summary>
         public void Draw() {
             //change nothing if there are no changes
@@ -309,10 +309,10 @@ namespace Virgis {
         /// 
         /// If the data cannot be read, fails quitely and creates an empty layer
         /// </summary>
-        /// <param name="layer"> The GeographyCollection object that defines this layer</param>
+        /// <param name="layer"> The RecordSet object that defines this layer</param>
         /// <returns>refernce to this GameObject for chaining</returns>
         public async Task<VirgisLayer<T, S>> Init(T layer ) {
-            SetMetadata(layer as RecordSet);
+            SetMetadata(layer);
             await _init();
             return this;
         }

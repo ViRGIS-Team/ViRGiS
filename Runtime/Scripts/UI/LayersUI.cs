@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Virgis
 {
@@ -34,24 +33,6 @@ namespace Virgis
             _appState.Project.Event.Subscribe(onProjectChange);
             _layersMap = new Dictionary<Guid, LayerUIPanel>();
             CreateLayerPanels();
-        }
-
-        public void HandleKeyInput(InputAction.CallbackContext context)
-        {
-            InputAction action = context.action;
-            if (action.name == "ShowLayers")
-            {
-                bool isActive = gameObject.activeSelf;
-                if (isActive)
-                {
-                    gameObject.SetActive(false);
-                }
-                else
-                {
-                    menus.SetActive(false);
-                    gameObject.SetActive(true);
-                }
-            }
         }
 
         public void OnShowMenuButtonClicked()

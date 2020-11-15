@@ -40,7 +40,9 @@ namespace Virgis {
         POLYGON,
         MESH,
         POINTCLOUD,
-        RASTER
+        RASTER,
+        NONE
+
     }
 
     public static class UnityLayers {

@@ -10,7 +10,7 @@ namespace Virgis
 {
 
 
-    public class RasterLayer : VirgisLayer<GeographyCollection, BakedPointCloud>
+    public class RasterLayer : VirgisLayer<RecordSet, BakedPointCloud>
     {
         // The prefab for the data points to be instantiated
 
@@ -30,7 +30,7 @@ namespace Virgis
 
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
 
 
             List<object> pipe = new List<object>();
@@ -118,7 +118,7 @@ namespace Virgis
 
         protected override void _draw()
         {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ?  layer.Position.ToVector3() : Vector3.zero ;
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;

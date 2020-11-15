@@ -11,7 +11,7 @@ namespace Virgis
 {
 
 
-    public class PointCloudLayer : VirgisLayer<GeographyCollection, BakedPointCloud>
+    public class PointCloudLayer : VirgisLayer<RecordSet, BakedPointCloud>
     {
         // The prefab for the data points to be instantiated
         public Material material;
@@ -32,7 +32,7 @@ namespace Virgis
 
         protected override async Task _init() {
             Debug.Log("PC Start");
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
             List<object> pipe = new List<object>();
 
             string ex = Path.GetExtension(layer.Source).ToLower();
@@ -108,7 +108,7 @@ namespace Virgis
 
         protected override void _draw()
         {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ?  layer.Position.ToVector3() : Vector3.zero ;
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;

@@ -9,14 +9,14 @@ using System;
 
 namespace Virgis {
 
-    public class GraphLayer : VirgisLayer<GeographyCollection, Layer[]> {
+    public class GraphLayer : VirgisLayer<RecordSet, Layer[]> {
         // The prefab for the data points to be instantiated
         public GameObject PointLayer;
         public GameObject LineLayer;
         public GameObject PolygonLayer;
 
 
-        private List<VirgisLayer<GeographyCollection, Layer>> _layers = new List<VirgisLayer<GeographyCollection, Layer>>();
+        private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
 
 
         protected override async Task _init() {

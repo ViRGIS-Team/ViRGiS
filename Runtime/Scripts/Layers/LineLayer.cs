@@ -13,7 +13,7 @@ namespace Virgis
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLayer : VirgisLayer<GeographyCollection, Layer>
+    public class LineLayer : VirgisLayer<RecordSet, Layer>
     {
         // The prefab for the data points to be instantiated
         public GameObject CylinderLinePrefab; // Prefab to be used for cylindrical lines
@@ -42,7 +42,7 @@ namespace Virgis
         }
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
             symbology = layer.Properties.Units;
 
             if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
@@ -114,7 +114,7 @@ namespace Virgis
 
         protected override void _draw()
         {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             if (layer.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
             }

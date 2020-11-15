@@ -9,7 +9,7 @@ using System;
 
 namespace Virgis {
 
-    public class OgrLayer : VirgisLayer<GeographyCollection, Layer[]> {
+    public class OgrLayer : VirgisLayer<RecordSet, Layer[]> {
         // The prefab for the data points to be instantiated
         public GameObject PointLayer;
         public GameObject LineLayer;
@@ -19,11 +19,11 @@ namespace Virgis {
         // used to read the GeoJSON file for this layer
         private OgrReader ogrReader;
 
-        private List<VirgisLayer<GeographyCollection, Layer>> _layers = new List<VirgisLayer<GeographyCollection, Layer>>();
+        private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
 
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
             ogrReader = new OgrReader();
             if (layer.Properties.SourceType == SourceType.WFS) {
                 await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
@@ -51,7 +51,7 @@ namespace Virgis {
                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         break;
                     case wkbGeometryType.wkbUnknown:
-                        GeographyCollection metadata = GetMetadata();
+                        RecordSet metadata = GetMetadata();
                         if (metadata.Properties.BBox != null) {
                             thisLayer.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
                         }
@@ -65,10 +65,10 @@ namespace Virgis {
                                 continue;
                             wkbGeometryType ftype = geom.GetGeometryType();
                             OgrReader.Flatten(ref ftype);
-                            VirgisLayer<GeographyCollection, Layer> layerToAdd = null;
+                            VirgisLayer<RecordSet, Layer> layerToAdd = null;
                             switch (ftype) {
                                 case wkbGeometryType.wkbLineString:
-                                    foreach (VirgisLayer<GeographyCollection, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
                                         if (l.GetType() == typeof(LineLayer)) {
                                             layerToAdd = l;
                                             break;
@@ -81,7 +81,7 @@ namespace Virgis {
                                     }
                                     break;
                                 case wkbGeometryType.wkbPolygon:
-                                    foreach (VirgisLayer<GeographyCollection, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
                                         if (l.GetType() == typeof(PolygonLayer)) {
                                             layerToAdd = l;
                                             break;
@@ -94,7 +94,7 @@ namespace Virgis {
                                     }
                                     break;
                                 case wkbGeometryType.wkbPoint:
-                                    foreach (VirgisLayer<GeographyCollection, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
                                         if (l.GetType() == typeof(PointLayer)) {
                                             layerToAdd = l;
                                             break;

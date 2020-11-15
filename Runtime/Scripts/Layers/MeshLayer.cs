@@ -10,7 +10,7 @@ using System;
 namespace Virgis
 {
 
-    public class MeshLayer : VirgisLayer<GeographyCollection, List<DMesh3>>
+    public class MeshLayer : VirgisLayer<RecordSet, List<DMesh3>>
     {
         // The prefab for the data points to be instantiated
         public GameObject Mesh;
@@ -48,7 +48,7 @@ namespace Virgis
         }
 
         protected override async Task _init() {
-            GeographyCollection layer = _layer as GeographyCollection;
+            RecordSet layer = _layer as RecordSet;
             DMesh3Builder meshes = await loadObj(layer.Source);
             features = meshes.Meshes;
             symbology = layer.Properties.Units;
@@ -60,7 +60,7 @@ namespace Virgis
         }
         protected override void _draw()
         {
-            GeographyCollection layer = GetMetadata();
+            RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ? layer.Position.ToVector3() : Vector3.zero;
             transform.Translate(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
