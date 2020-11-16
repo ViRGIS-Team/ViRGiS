@@ -181,7 +181,7 @@ namespace Virgis
             if (!saved) {
                 Draw();
             }
-            await Save(!saved);
+            await Save(saved);
     }
 
         public override GameObject GetFeatureShape()

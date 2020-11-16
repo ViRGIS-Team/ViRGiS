@@ -203,6 +203,9 @@ namespace Virgis
             meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
+                if (dMesh.HasVertexColors) {
+                    MeshMaterial.SetInt("_hasColor", 1);
+                }
                 dMesh.CalculateUVs();
                 meshes.Add(Instantiate(Mesh, transform).GetComponent<DataMesh>().Draw(dMesh, MeshMaterial));
             }
