@@ -2,6 +2,7 @@
 using g3;
 using Virgis;
 using System.Collections.Generic;
+using System;
 
 public class DataMesh : VirgisFeature
 {
@@ -38,11 +39,18 @@ public class DataMesh : VirgisFeature
     public Transform Draw(DMesh3 mesh, Material mat) {
         this.mesh = mesh;
         MeshFilter mf = GetComponent<MeshFilter>();
-        MeshCollider mc = GetComponent<MeshCollider>();
+        MeshCollider[] mc = GetComponents<MeshCollider>();
         MeshRenderer mr = GetComponent<MeshRenderer>();
         mr.material = mat;
         mf.mesh = mesh.ToMesh();
-        mc.sharedMesh = mf.mesh;
+        mc[0].sharedMesh = mf.mesh;
+        Mesh imesh = new Mesh();
+        imesh.vertices = mf.mesh.vertices;
+        imesh.uv = mf.mesh.uv;
+        int[] t = mf.mesh.triangles;
+        Array.Reverse(t);
+        imesh.triangles = t;
+        mc[1].sharedMesh = imesh;
         return transform;
     }
 

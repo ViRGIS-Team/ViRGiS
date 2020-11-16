@@ -59,11 +59,10 @@ namespace Virgis
             }
 
             MeshFilter mf = Shape.GetComponent<MeshFilter>();
-            MeshCollider mc = GetComponent<MeshCollider>();
-            if (mf == null) mf = Shape.AddComponent<MeshFilter>();
-            if (mc == null) mc = Shape.AddComponent<MeshCollider>();
+            MeshCollider[] mc = Shape.GetComponents<MeshCollider>();
             mf.mesh = null;
             Mesh mesh = new Mesh();
+            Mesh imesh = new Mesh();
             Frame3f frame = new Frame3f();
             Vector3[] vertices;
             GeneralPolygon2d polygon2d;
@@ -108,12 +107,12 @@ namespace Virgis
 
                     ITriangle tri = tris.ElementAt(i);
 
-                    if (polygon2d.Contains(delaunator.GetTriangleCircumcenter(i).ToVector2d())) {
+                    if (polygon2d.Contains(tri.CetIncenter())) {
                         int index = 3 * i;
                         triangles.Add(delaunator.Triangles[index]);
                         triangles.Add(delaunator.Triangles[index + 1]);
                         triangles.Add(delaunator.Triangles[index + 2]);
-                    }   
+                    } 
                 }
             } catch (Exception e) {
                 throw new Exception("feature is not a valid Polygon : " + e.ToString());
@@ -129,8 +128,17 @@ namespace Virgis
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
 
+            imesh.vertices = mesh.vertices;
+            imesh.triangles = triangles.Reverse<int>().ToArray();
+            imesh.uv = mesh.uv;
+
+            imesh.RecalculateBounds();
+            imesh.RecalculateNormals();
+
             mf.mesh = mesh;
-            mc.sharedMesh = mesh;
+            mc[0].sharedMesh = mesh;
+            mc[1].sharedMesh = imesh;
+
         }
 
         public override VirgisFeature AddVertex(Vector3 position) {

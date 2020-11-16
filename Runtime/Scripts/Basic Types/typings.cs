@@ -305,6 +305,18 @@ namespace Virgis {
 
         public static Vector2d ToVector2d(this IPoint point) => new Vector2d((float) point.X, (float) point.Y);
 
+        public static Vector2d CetIncenter(this ITriangle tri) {
+            Vector2d A = tri.Points.ElementAt<IPoint>(0).ToVector2d();
+            Vector2d B = tri.Points.ElementAt<IPoint>(1).ToVector2d();
+            Vector2d C = tri.Points.ElementAt<IPoint>(2).ToVector2d();
+            double a = (B - A).Length;
+            double b = (C - B).Length;
+            double c = (A - C).Length;
+            double x = (a * A.x + b * B.x + c * C.x) / (a + b + c);
+            double y = (a * A.y + b * B.y + c * C.y) / (a + b + c);
+            return new Vector2d(x, y);
+        }
+
     }
 
     public static class Segment2dExtensions {
