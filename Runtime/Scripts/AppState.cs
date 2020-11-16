@@ -1,8 +1,10 @@
 ﻿using OSGeo.OSR;
+using Gdal = OSGeo.GDAL.Gdal;
 using Project;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 using System.Reactive.Linq;
 using OSGeo;
 using Mdal;
@@ -51,16 +53,15 @@ namespace Virgis {
         }
 
         void Awake() {
-            print("AppState awakens");
+            Debug.Log("AppState awakens");
             if (instance == null) {
-                print("AppState instance assigned");
+                Debug.Log("AppState instance assigned");
                 instance = this;
             } else if (instance != this) {
                 // there cannot be another instance
-                print("AppState found another instance");
+                Debug.Log("AppState found another instance");
                 Destroy(gameObject);
             }
-
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
             _layers = new List<Component>();
@@ -71,7 +72,6 @@ namespace Virgis {
             Orientation = new OrientEvent();
 
             Project.Event.Subscribe(proj => Init());
-
             try {
                 GdalConfiguration.ConfigureOgr();
             } catch (Exception e) {
@@ -92,6 +92,7 @@ namespace Virgis {
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }
+            Gdal.SetConfigOption("CURL_CA_BUNDLE", Path.Combine(Application.streamingAssetsPath, "gdal", "cacert.pem"));
         }
 
         /// <summary>
@@ -203,6 +204,5 @@ namespace Virgis {
         public void StopDiscardEditSession() {
             _editSession.StopAndDiscard();
         }
-
     }
 }
