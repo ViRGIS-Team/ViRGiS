@@ -63,6 +63,8 @@ namespace Virgis
             mf.mesh = null;
             Mesh mesh = new Mesh();
             Mesh imesh = new Mesh();
+            mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+            imesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             Frame3f frame = new Frame3f();
             Vector3[] vertices;
             GeneralPolygon2d polygon2d;

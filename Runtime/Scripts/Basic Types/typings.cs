@@ -335,6 +335,7 @@ namespace Virgis {
         public static Mesh ToMesh(this DMesh3 dMesh)
         {
             Mesh unityMesh = new Mesh();
+            unityMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             DMesh3 mesh = new DMesh3();
             mesh.CompactCopy(dMesh);
             if (dMesh.HasMetadata) {

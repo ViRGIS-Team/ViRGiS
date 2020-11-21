@@ -45,6 +45,7 @@ public class DataMesh : VirgisFeature
         mf.mesh = mesh.ToMesh();
         mc[0].sharedMesh = mf.mesh;
         Mesh imesh = new Mesh();
+        imesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         imesh.vertices = mf.mesh.vertices;
         imesh.uv = mf.mesh.uv;
         int[] t = mf.mesh.triangles;
