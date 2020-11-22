@@ -32,15 +32,24 @@ Many of these features are currently available in various packages and initiativ
 
 Go to [Documentation](https://www.virgis.org/v2)
 
-
-
 # Getting ViRGIS
 
-See Distribution and ChangeLog
+ViRGiS Version is provided as a [Unity Package Manager](https://docs.unity3d.com/Packages/com.unity.package-manager-ui@2.0/manual/index.html) (UPM) package.
 
+To install in a Unity Project, add the following lini into the `manifest.json` file: 
+```
+    "com.virgis.project_ns": "https://github.com/ViRGIS-Team/Project-Namespace.git",
+    "com.virgis.virgis_v2": "https://github.com/ViRGIS-Team/ViRGiS_v2.git",
+```
+
+For more details on creating a Unity Project from ViRGiS - see the [documentation](https://www.virgis.org/packaging).
 
 # License
 
 ViRGIS is copyright [Runette Software Ltd](https://runette.co.uk) and it licensed under an MIT license (see [license](/LICENSE))
 
 # Contributing
+
+We actively welcome and encourage contributions.
+
+For more details, see the [documentation](https://www.virgis.org/contributing).
