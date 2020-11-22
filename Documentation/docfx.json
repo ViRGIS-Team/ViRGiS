@@ -3,12 +3,10 @@
         {
             "src": [
                 {
-                    "src": "..",
-                    "files": [ "**.csproj" ]
-                }
-            ],
-            "globalNamespaceId": "Global",
-            "filter": "filterConfig.yml",
+                    "files": ["**.cs"],
+                    "src": "../Assets/scripts"
+                    }
+                ],
             "dest": "api"
         }
     ],
@@ -18,6 +16,7 @@
             "_appFooter": "ViRGIS VR GIS",
             "_enableSearch": true
         },
+        "postProcessors": ["ExtractSearchIndex"],
         "content": [
             {
                 "files": [ "toc.yml", "index.md" ]
@@ -26,40 +25,23 @@
                 "src": "api",
                 "files": [ "*.yml" ],
                 "dest": "api"
-            },
-            {
-                "src": "manual",
-                "files": [ "toc.yml", "*.md" ],
-                "dest": "manual"
-            },
-            {
-                "src": "images",
-                "files": [  "*.png" ],
-                "dest": "images"
             }
         ],
-        "overwrite": [
-            {
-                "src": "..",
-                "files": [ "Assets/Scripts/**/*.md" ]
-            }
-        ],
-        "resource": [
-            {
-                "files": [ "resources/**/*" ]
-            }
+        "template": [
+            "default",
+            "templates/material"
         ],
         "sitemap":
         {
-            "baseUrl": "https://www.virgis.org/docs",
-            "changefreq": "weekly",
+            "baseUrl": "https://www.virgis.org",
+            "changefreq": "daily",
             "fileOptions": {
                 "api/*": {
                     "changefreq": "daily"
                 }
             }
         },
-        "xref": [ "https://normanderwan.github.io/DocFxForUnity/Unity/xrefmap.yml" ],
+        "xref": [ "https://nicoco007.github.io/UnityXRefMap/2019.4/xrefmap.yml" ],
         "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
         "dest": "../docs"
     }
