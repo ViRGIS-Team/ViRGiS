@@ -1,5 +1,30 @@
 # Change Log and release notes for ViRGIS Version 2
 
+## Version 2.2.0
+
+### Platforms
+
+This version will run on the following platforms :
+
+- Windows - x64 Desktop mode
+- Windows - Rift VR mode
+
+### Contents
+
+- Refactored into a UPM Package
+- Removed all dependencies on MapBox and Oculus from the package and moved to the end user project
+
+GDAL Version : 3.1.4
+PDAL Version : 2.2.0
+MDAL Version : 0.7.1
+
+> After Version 2.1 ViRGiS Version 2 was converted from a complete Unity project
+> to a Unity Package Manager (UPM) package.
+>
+> Therefore  - release numbers now refer to the Package version number and not an end-user
+> Application
+
+
 ## Version 2.1.1RC1
 
 ### Platforms
