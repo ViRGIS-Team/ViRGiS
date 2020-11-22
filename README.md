@@ -11,7 +11,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-
+![Virgis Screen Shot](https://www.virgis.org/images/virgis_landscape.png)
 
 # Overview
 
