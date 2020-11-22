@@ -1,0 +1,1166 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class VirgisLayer
+   | ViRGIS VR GIS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class VirgisLayer
+   | ViRGIS VR GIS ">
+    <meta name="generator" content="docfx 2.56.5.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="img" src="https://www.virgis.org/images/virgis_light.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Virgis.VirgisLayer">
+  
+  
+  <h1 id="Virgis_VirgisLayer" data-uid="Virgis.VirgisLayer" class="text-break">Class VirgisLayer
+  </h1>
+  <div class="markdown level0 summary"><p>Abstract parent for all Layer entities</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">VirgisLayer</span></div>
+      <div class="level2"><a class="xref" href="Virgis.ContainerLayer.html">ContainerLayer</a></div>
+      <div class="level2"><a class="xref" href="Virgis.MapInitialize.html">MapInitialize</a></div>
+      <div class="level2"><a class="xref" href="Virgis.VirgisLayer-2.html">VirgisLayer&lt;T, S&gt;</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a></div>
+    <div><a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="Virgis_VirgisLayer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class VirgisLayer : MonoBehaviour, IVirgisLayer, IVirgisEntity</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Virgis_VirgisLayer__crs" data-uid="Virgis.VirgisLayer._crs">_crs</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SpatialReference _crs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SpatialReference</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_VirgisLayer__editable" data-uid="Virgis.VirgisLayer._editable">_editable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool _editable</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_VirgisLayer__id" data-uid="Virgis.VirgisLayer._id">_id</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Guid _id</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_VirgisLayer__layer" data-uid="Virgis.VirgisLayer._layer">_layer</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RecordSet _layer</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RecordSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_VirgisLayer_changed" data-uid="Virgis.VirgisLayer.changed">changed</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool changed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Virgis_VirgisLayer_featureType_" data-uid="Virgis.VirgisLayer.featureType*"></a>
+  <h4 id="Virgis_VirgisLayer_featureType" data-uid="Virgis.VirgisLayer.featureType">featureType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeatureType featureType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.FeatureType.html">FeatureType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Virgis_VirgisLayer__addFeature_" data-uid="Virgis.VirgisLayer._addFeature*"></a>
+  <h4 id="Virgis_VirgisLayer__addFeature_Vector3___" data-uid="Virgis.VirgisLayer._addFeature(Vector3[])">_addFeature(Vector3[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract VirgisFeature _addFeature(Vector3[] geometry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span>[]</td>
+        <td><span class="parametername">geometry</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer__checkpoint_" data-uid="Virgis.VirgisLayer._checkpoint*"></a>
+  <h4 id="Virgis_VirgisLayer__checkpoint" data-uid="Virgis.VirgisLayer._checkpoint">_checkpoint()</h4>
+  <div class="markdown level1 summary"><p>Implement the layer specific checkpoint code here</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void _checkpoint()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisLayer__draw_" data-uid="Virgis.VirgisLayer._draw*"></a>
+  <h4 id="Virgis_VirgisLayer__draw" data-uid="Virgis.VirgisLayer._draw">_draw()</h4>
+  <div class="markdown level1 summary"><p>Implment the layer specific draw code in this method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void _draw()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisLayer__save_" data-uid="Virgis.VirgisLayer._save*"></a>
+  <h4 id="Virgis_VirgisLayer__save" data-uid="Virgis.VirgisLayer._save">_save()</h4>
+  <div class="markdown level1 summary"><p>Implment the layer specific draw code in this method</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task _save()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer__set_visible_" data-uid="Virgis.VirgisLayer._set_visible*"></a>
+  <h4 id="Virgis_VirgisLayer__set_visible" data-uid="Virgis.VirgisLayer._set_visible">_set_visible()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void _set_visible()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisLayer_AddFeature_" data-uid="Virgis.VirgisLayer.AddFeature*"></a>
+  <h4 id="Virgis_VirgisLayer_AddFeature_Vector3___" data-uid="Virgis.VirgisLayer.AddFeature(Vector3[])">AddFeature(Vector3[])</h4>
+  <div class="markdown level1 summary"><p>Call this to create a new feature</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VirgisFeature AddFeature(Vector3[] geometry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span>[]</td>
+        <td><span class="parametername">geometry</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_CheckPoint_" data-uid="Virgis.VirgisLayer.CheckPoint*"></a>
+  <h4 id="Virgis_VirgisLayer_CheckPoint" data-uid="Virgis.VirgisLayer.CheckPoint">CheckPoint()</h4>
+  <div class="markdown level1 summary"><p>Call this to tell the layers to create a checkpoint. </p>
+<p>Only valid outside of an Edit Session. Inside an Edit Session use Save() as CheckPoint() will do nothing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CheckPoint()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisLayer_Draw_" data-uid="Virgis.VirgisLayer.Draw*"></a>
+  <h4 id="Virgis_VirgisLayer_Draw" data-uid="Virgis.VirgisLayer.Draw">Draw()</h4>
+  <div class="markdown level1 summary"><p>Draw the layer based upon the features in the features RecordSet</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Draw()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisLayer_Equals_" data-uid="Virgis.VirgisLayer.Equals*"></a>
+  <h4 id="Virgis_VirgisLayer_Equals_System_Object_" data-uid="Virgis.VirgisLayer.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_Equals_" data-uid="Virgis.VirgisLayer.Equals*"></a>
+  <h4 id="Virgis_VirgisLayer_Equals_Virgis_VirgisLayer_" data-uid="Virgis.VirgisLayer.Equals(Virgis.VirgisLayer)">Equals(VirgisLayer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(VirgisLayer other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisLayer.html">VirgisLayer</a></td>
+        <td><span class="parametername">other</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetClosest_" data-uid="Virgis.VirgisLayer.GetClosest*"></a>
+  <h4 id="Virgis_VirgisLayer_GetClosest_Vector3_System_Guid___" data-uid="Virgis.VirgisLayer.GetClosest(Vector3,System.Guid[])">GetClosest(Vector3, Guid[])</h4>
+  <div class="markdown level1 summary"><p>Get the Closest Feature to the coordinates. Exclude any Component Ids in the Exclude Array. The exclude lis  is primarily used to avoid a GetClosest to a Faeture picking up the feature itself</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VirgisFeature GetClosest(Vector3 coords, Guid[] exclude)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">coords</span></td>
+        <td><p>coordinates </p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a>[]</td>
+        <td><span class="parametername">exclude</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></td>
+        <td><p>returns the featue contained in an enitity of type S</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetCrs_" data-uid="Virgis.VirgisLayer.GetCrs*"></a>
+  <h4 id="Virgis_VirgisLayer_GetCrs" data-uid="Virgis.VirgisLayer.GetCrs">GetCrs()</h4>
+  <div class="markdown level1 summary"><p>Get the Layer CRS</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpatialReference GetCrs()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SpatialReference</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetFeature_" data-uid="Virgis.VirgisLayer.GetFeature*"></a>
+  <h4 id="Virgis_VirgisLayer_GetFeature_System_Guid_" data-uid="Virgis.VirgisLayer.GetFeature(System.Guid)">GetFeature(Guid)</h4>
+  <div class="markdown level1 summary"><p>Get the feature that matches the ID provided </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VirgisFeature GetFeature(Guid id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></td>
+        <td><p>returns the featue contained in an enitity of type S</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetFeatureShape_" data-uid="Virgis.VirgisLayer.GetFeatureShape*"></a>
+  <h4 id="Virgis_VirgisLayer_GetFeatureShape" data-uid="Virgis.VirgisLayer.GetFeatureShape">GetFeatureShape()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual GameObject GetFeatureShape()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetHashCode_" data-uid="Virgis.VirgisLayer.GetHashCode*"></a>
+  <h4 id="Virgis_VirgisLayer_GetHashCode" data-uid="Virgis.VirgisLayer.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetId_" data-uid="Virgis.VirgisLayer.GetId*"></a>
+  <h4 id="Virgis_VirgisLayer_GetId" data-uid="Virgis.VirgisLayer.GetId">GetId()</h4>
+  <div class="markdown level1 summary"><p>Fecth the layer GUID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid GetId()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><p>GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetLayer_" data-uid="Virgis.VirgisLayer.GetLayer*"></a>
+  <h4 id="Virgis_VirgisLayer_GetLayer" data-uid="Virgis.VirgisLayer.GetLayer">GetLayer()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VirgisLayer GetLayer()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.VirgisLayer.html">VirgisLayer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_GetMetadata_" data-uid="Virgis.VirgisLayer.GetMetadata*"></a>
+  <h4 id="Virgis_VirgisLayer_GetMetadata" data-uid="Virgis.VirgisLayer.GetMetadata">GetMetadata()</h4>
+  <div class="markdown level1 summary"><p>Get the metadata for this Layer</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RecordSet GetMetadata()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RecordSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_IsEditable_" data-uid="Virgis.VirgisLayer.IsEditable*"></a>
+  <h4 id="Virgis_VirgisLayer_IsEditable" data-uid="Virgis.VirgisLayer.IsEditable">IsEditable()</h4>
+  <div class="markdown level1 summary"><p>Test to see if this layer is editable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEditable()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_IsVisible_" data-uid="Virgis.VirgisLayer.IsVisible*"></a>
+  <h4 id="Virgis_VirgisLayer_IsVisible" data-uid="Virgis.VirgisLayer.IsVisible">IsVisible()</h4>
+  <div class="markdown level1 summary"><p>Test if this layer is currently visible</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsVisible()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Boolean</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_MoveAxis_" data-uid="Virgis.VirgisLayer.MoveAxis*"></a>
+  <h4 id="Virgis_VirgisLayer_MoveAxis_Virgis_MoveArgs_" data-uid="Virgis.VirgisLayer.MoveAxis(Virgis.MoveArgs)">MoveAxis(MoveArgs)</h4>
+  <div class="markdown level1 summary"><p>Called whenevr a member entity is asked to Change Axis</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MoveAxis(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>MoveArgs Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_MoveTo_" data-uid="Virgis.VirgisLayer.MoveTo*"></a>
+  <h4 id="Virgis_VirgisLayer_MoveTo_Virgis_MoveArgs_" data-uid="Virgis.VirgisLayer.MoveTo(Virgis.MoveArgs)">MoveTo(MoveArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void MoveTo(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_Save_" data-uid="Virgis.VirgisLayer.Save*"></a>
+  <h4 id="Virgis_VirgisLayer_Save" data-uid="Virgis.VirgisLayer.Save">Save()</h4>
+  <div class="markdown level1 summary"><p>Called to save the current layer data to source</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;RecordSet&gt; Save()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<span class="xref">RecordSet</span>&gt;</td>
+        <td><p>A copy of the data save dot the source</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_Selected_" data-uid="Virgis.VirgisLayer.Selected*"></a>
+  <h4 id="Virgis_VirgisLayer_Selected_Virgis_SelectionType_" data-uid="Virgis.VirgisLayer.Selected(Virgis.SelectionType)">Selected(SelectionType)</h4>
+  <div class="markdown level1 summary"><p>called when a daughter IVirgisEntity is selected</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Selected(SelectionType button)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.SelectionType.html">SelectionType</a></td>
+        <td><span class="parametername">button</span></td>
+        <td><p>SelectionType</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_SetCrs_" data-uid="Virgis.VirgisLayer.SetCrs*"></a>
+  <h4 id="Virgis_VirgisLayer_SetCrs_SpatialReference_" data-uid="Virgis.VirgisLayer.SetCrs(SpatialReference)">SetCrs(SpatialReference)</h4>
+  <div class="markdown level1 summary"><p>Set the Layer CRS</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetCrs(SpatialReference crs)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SpatialReference</span></td>
+        <td><span class="parametername">crs</span></td>
+        <td><p>SpatialReference</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_SetEditable_" data-uid="Virgis.VirgisLayer.SetEditable*"></a>
+  <h4 id="Virgis_VirgisLayer_SetEditable_System_Boolean_" data-uid="Virgis.VirgisLayer.SetEditable(System.Boolean)">SetEditable(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets a marker that this particular layer is being edited.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetEditable(bool inSession)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">inSession</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_SetMetadata_" data-uid="Virgis.VirgisLayer.SetMetadata*"></a>
+  <h4 id="Virgis_VirgisLayer_SetMetadata_RecordSet_" data-uid="Virgis.VirgisLayer.SetMetadata(RecordSet)">SetMetadata(RecordSet)</h4>
+  <div class="markdown level1 summary"><p>Sets the layer Metadat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMetadata(RecordSet layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RecordSet</span></td>
+        <td><span class="parametername">layer</span></td>
+        <td><p>Data tyoe that inherits form RecordSet</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_SetVisible_" data-uid="Virgis.VirgisLayer.SetVisible*"></a>
+  <h4 id="Virgis_VirgisLayer_SetVisible_System_Boolean_" data-uid="Virgis.VirgisLayer.SetVisible(System.Boolean)">SetVisible(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetVisible(bool visible)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">visible</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_Translate_" data-uid="Virgis.VirgisLayer.Translate*"></a>
+  <h4 id="Virgis_VirgisLayer_Translate_Virgis_MoveArgs_" data-uid="Virgis.VirgisLayer.Translate(Virgis.MoveArgs)">Translate(MoveArgs)</h4>
+  <div class="markdown level1 summary"><p>Called Whenever a member entity is asked to Translate</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Translate(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td><p>MoveArge Object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_UnSelected_" data-uid="Virgis.VirgisLayer.UnSelected*"></a>
+  <h4 id="Virgis_VirgisLayer_UnSelected_Virgis_SelectionType_" data-uid="Virgis.VirgisLayer.UnSelected(Virgis.SelectionType)">UnSelected(SelectionType)</h4>
+  <div class="markdown level1 summary"><p>Called when a daughter IVirgisEntity is UnSelected</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void UnSelected(SelectionType button)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.SelectionType.html">SelectionType</a></td>
+        <td><span class="parametername">button</span></td>
+        <td><p>SelectionType</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisLayer_VertexMove_" data-uid="Virgis.VirgisLayer.VertexMove*"></a>
+  <h4 id="Virgis_VirgisLayer_VertexMove_Virgis_MoveArgs_" data-uid="Virgis.VirgisLayer.VertexMove(Virgis.MoveArgs)">VertexMove(MoveArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void VertexMove(MoveArgs args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.MoveArgs.html">MoveArgs</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a>
+  </div>
+  <div>
+      <a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            ViRGIS VR GIS
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
