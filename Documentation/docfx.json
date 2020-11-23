@@ -14,7 +14,8 @@
         "globalMetadata": {
             "_appTitle": "ViRGIS VR GIS",
             "_appFooter": "ViRGIS VR GIS",
-            "_enableSearch": true
+            "_enableSearch": true,
+            "_disableToc": false
         },
         "postProcessors": ["ExtractSearchIndex"],
         "content": [
@@ -25,6 +26,26 @@
                 "src": "api",
                 "files": [ "*.yml" ],
                 "dest": "api"
+            },
+            {
+                "src": "gdal",
+                "files": [ "toc.yml", "*.md" ],
+                "dest": "gdal"
+            },
+            {
+                "src": "pdal",
+                "files": [ "toc.yml", "*.md" ],
+                "dest": "pdal"
+            },
+            {
+                "src": "mdal",
+                "files": [ "toc.yml", "*.md" ],
+                "dest": "mdal"
+            },
+            {
+                "src": "other",
+                "files": [ "toc.yml", "*.md" ],
+                "dest": "other"
             }
         ],
         "template": [
