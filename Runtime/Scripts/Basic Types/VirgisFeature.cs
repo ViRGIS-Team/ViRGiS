@@ -36,7 +36,7 @@ namespace Virgis
         Dictionary<string, object> GetMetadata();
         void SetMetadata(Dictionary<string, object> meta);
 
-        void Hover();
+        void Hover(Vector3 hit);
         void UnHover();
 
     }
@@ -185,7 +185,7 @@ namespace Virgis
         /// <summary>
         /// Called whnen the pointer hovers on this feature
         /// </summary>
-        public void Hover() {
+        public void Hover(Vector3 hit) {
             Dictionary<string, object> meta = GetMetadata();
             if (meta != null && meta.Count > 0) {
                 string output = string.Join("\n", meta.Select(x => $"{x.Key}:\t{x.Value}"));
