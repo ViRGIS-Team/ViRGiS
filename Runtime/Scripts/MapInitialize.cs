@@ -32,7 +32,8 @@ namespace Virgis
         void Awake()
         {
             Debug.Log("Map awakens");
-            Debug.Log("Virgis Version : " + Application.version);
+            Debug.Log($"Virgis version : {Application.version}");
+            Debug.Log($"Project version: {GisProject.GetVersion()}");
             if (AppState.instance == null)
             {
                 Debug.Log("instantiate app state");
