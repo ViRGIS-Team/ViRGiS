@@ -39,7 +39,9 @@ namespace Virgis
         public GisProject GetProject()
         {
             GisProject project = JsonConvert.DeserializeObject<GisProject>(payload);
-            if (project.ProjectVersion != Application.version) {
+            string test1 = project.ProjectVersion;
+            string test2 = GisProject.GetVersion();
+            if (project.ProjectVersion != GisProject.GetVersion()) {
                 Debug.LogError("This project was created in a different version of ViRGIS and may not be loaded correctly");
             }
             return project;
