@@ -21,7 +21,6 @@ namespace Virgis
 
         public AppState appState;
 
-
         //File reader for Project file
         private ProjectJsonReader projectJsonReader;
 
@@ -29,7 +28,7 @@ namespace Virgis
         ///<summary>
         ///Instantiates all singletons.
         /// </summary>
-        void Awake()
+        protected void Awake()
         {
             Debug.Log("Map awakens");
             Debug.Log($"Virgis version : {Application.version}");
@@ -46,13 +45,20 @@ namespace Virgis
             appState.map = gameObject;
         }
 
+        protected void Start() {
+            
+        }
+
+        protected void Update() {
+            
+        }
+
+
         /// 
         /// This is the initialisation script.
         /// 
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
-
-
         public async Task<bool> Load(string file) {
   
             // Get Project definition - return if the file cannot be read - this will lead to an empty world
@@ -84,7 +90,14 @@ namespace Virgis
             return true;
         }
 
+        /// <summary>
+        /// override this call in the consuming project to process the individual layers.
+        /// This allows the consuming project to define the layer types
+        /// </summary>
+        /// <param name="thisLayer"> the lkayer that ws pulled from the project file</param>
+        /// <returns></returns>
         public abstract Task<VirgisLayer> createLayer(RecordSet thisLayer);
+
 
         private async Task initLayer(RecordSet thisLayer) {
             VirgisLayer temp = null;
@@ -122,6 +135,10 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
+
+        /// <summary>
+        /// This cll initiates the drawing of the bvirtual spce and calls `Draw ` on each layer in turn.
+        /// </summary>
         new void Draw()
         {
             foreach (IVirgisLayer layer in appState.layers)
@@ -139,6 +156,11 @@ namespace Virgis
         {
         }
 
+        /// <summary>
+        /// thi call initiates the saving of the whole project and calls `Save` on each layer in turn
+        /// </summary>
+        /// <param name="all"></param>
+        /// <returns></returns>
         public async Task<RecordSet> Save(bool all = true) {
             try {
                 Debug.Log("MapInitialize.Save starts");
