@@ -157,7 +157,7 @@ namespace Virgis
         }
 
         /// <summary>
-        /// thi call initiates the saving of the whole project and calls `Save` on each layer in turn
+        /// this call initiates the saving of the whole project and calls `Save` on each layer in turn
         /// </summary>
         /// <param name="all"></param>
         /// <returns></returns>

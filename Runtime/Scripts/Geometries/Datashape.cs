@@ -138,9 +138,12 @@ namespace Virgis
             imesh.RecalculateNormals();
 
             mf.mesh = mesh;
-            mc[0].sharedMesh = mesh;
-            mc[1].sharedMesh = imesh;
-
+            try {
+                mc[0].sharedMesh = mesh;
+                mc[1].sharedMesh = imesh;
+            } catch (Exception e) {
+                Debug.Log(e.ToString());
+            }
         }
 
         public override VirgisFeature AddVertex(Vector3 position) {
