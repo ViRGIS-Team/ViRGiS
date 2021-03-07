@@ -139,6 +139,7 @@ public class EditableMesh : VirgisFeature
             if (args.translate != Vector3.zero) {
                 Vector3 localTranslate = transform.InverseTransformVector(args.translate);
                 MeshFilter mf = GetComponent<MeshFilter>();
+                Mesh mesh = mf.mesh;
                 Vector3d target = dmesh.GetVertex(selectedVertex) + localTranslate;
                 int n = 5;
                 //
@@ -176,7 +177,10 @@ public class EditableMesh : VirgisFeature
                 // 
                 dmesh = deform.Mesh;
                 sphere.transform.localPosition = (Vector3)dmesh.GetVertex(selectedVertex);
-                Mesh mesh = dmesh.ToMesh(false);
+                List<Vector3> vtxs = new List<Vector3>();
+                foreach (int v in dmesh.VertexIndices())
+                    vtxs.Add((Vector3)dmesh.GetVertex(v));
+                mesh.vertices = vtxs.ToArray();
                 mesh.RecalculateBounds();
                 mesh.RecalculateNormals();
                 mesh.RecalculateTangents();
