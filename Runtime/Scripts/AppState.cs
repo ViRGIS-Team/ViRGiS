@@ -26,6 +26,7 @@ namespace Virgis {
         private CoordinateTransformation _trans;
         public Vector3 lastHitPosition;
         public SpatialReference projectCrs;
+        public int editScale;
         public OrientEvent Orientation {
             get;
             private set;
@@ -206,6 +207,7 @@ namespace Virgis {
 
         public void StartEditSession() {
             _editSession.Start();
+            editScale = 5;
         }
 
         public void StopSaveEditSession() {

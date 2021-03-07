@@ -15,7 +15,10 @@ public class EditableMesh : VirgisFeature
     private Vector3 firstHitPosition = Vector3.zero;
     private bool nullifyHitPos = true;
     private Vector3 currentHit;
-    private Int32 currentHitTri;
+    private Index3i currentHitTri;
+    private DMesh3 newDmesh;
+    private int n = 0;
+    private List<Int32> nRing;
 
     public override void Selected(SelectionType button) {
         nullifyHitPos = true;
@@ -94,6 +97,7 @@ public class EditableMesh : VirgisFeature
                         target.z <= zs.Max()
                         ) {
                         f2 = true;
+                        currentHitTri = tri;
                     }
                 }
                 //
@@ -126,7 +130,8 @@ public class EditableMesh : VirgisFeature
         Vector3[] vtxs = imesh.vertices;
         vtxs[selectedVertex] = v;
         imesh.vertices = vtxs;
-        dmesh.SetVertex(selectedVertex, v);
+        dmesh = newDmesh;
+        n = -1;
     }
 
     public override void MoveTo(MoveArgs args) {
@@ -141,24 +146,26 @@ public class EditableMesh : VirgisFeature
                 MeshFilter mf = GetComponent<MeshFilter>();
                 Mesh mesh = mf.sharedMesh;
                 Vector3d target = dmesh.GetVertex(selectedVertex) + localTranslate;
-                int n = 5;
-                //
-                // first we need to find the n-ring of vertices
-                //
-                // first get 1-ring
-                List<Int32> nRing = new List<int>();
-                List<Int32> inside = new List<int>();
-                nRing.Add(selectedVertex);
-                for (int i = 0; i < n; i++) {
-                    int[] working = nRing.ToArray();
-                    nRing.Clear();
-                    foreach (int v in working) {
-                        if (!inside.Contains(v))
-                            foreach (int vring in dmesh.VtxVerticesItr(v)) {
-                                if (!inside.Contains(vring))
-                                    nRing.Add(vring);
-                            }
-                        inside.Add(v);
+                if (n != AppState.instance.editScale) {
+                    n = AppState.instance.editScale;
+                    //
+                    // first we need to find the n-ring of vertices
+                    //
+                    // first get 1-ring
+                    nRing = new List<int>();
+                    List<Int32> inside = new List<int>();
+                    nRing.Add(selectedVertex);
+                    for (int i = 0; i < n; i++) {
+                        int[] working = nRing.ToArray();
+                        nRing.Clear();
+                        foreach (int v in working) {
+                            if (!inside.Contains(v))
+                                foreach (int vring in dmesh.VtxVerticesItr(v)) {
+                                    if (!inside.Contains(vring))
+                                        nRing.Add(vring);
+                                }
+                            inside.Add(v);
+                        }
                     }
                 }
                 //
@@ -172,14 +179,14 @@ public class EditableMesh : VirgisFeature
                     deform.SetConstraint(v, dmesh.GetVertex(v), 10, false);
                 }
                 deform.SolveAndUpdateMesh();
+                newDmesh = deform.Mesh;
                 //
                 // reset the Unity meh
                 // 
-                dmesh = deform.Mesh;
                 sphere.transform.localPosition = (Vector3)dmesh.GetVertex(selectedVertex);
                 List<Vector3> vtxs = new List<Vector3>();
-                foreach (int v in dmesh.VertexIndices())
-                    vtxs.Add((Vector3)dmesh.GetVertex(v));
+                foreach (int v in newDmesh.VertexIndices())
+                    vtxs.Add((Vector3)newDmesh.GetVertex(v));
                 mesh.vertices = vtxs.ToArray();
                 mesh.RecalculateBounds();
                 mesh.RecalculateNormals();
