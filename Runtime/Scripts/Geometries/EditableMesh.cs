@@ -27,21 +27,6 @@ public class EditableMesh : VirgisFeature
             Mesh mesh = mf.sharedMesh;
             currentHit = transform.InverseTransformVector(AppState.instance.lastHitPosition);
             Vector3d target = currentHit;
-            //
-            // ToDo - This is not very optimized - could use directional vectors and triangls to always move closr to the point 
-            //
-            //int current = -1;
-            //float currentDist = float.MaxValue;
-            //if (currentHit != null) {
-            //    for (int i = 0; i < mesh.vertices.Length; i++) {
-            //        Vector3 vtx = mesh.vertices[i];
-            //        float dist = (currentHit - vtx).sqrMagnitude;
-            //        if (dist < currentDist) {
-            //            current = i;
-            //            currentDist = dist;
-            //        }
-            //    }
-            //}
             System.Random rand = new System.Random();
             int count = 0;
             //
@@ -49,7 +34,7 @@ public class EditableMesh : VirgisFeature
             // but limit the interation using a count
             //
             Int32 current = 0;
-            while (count < 10) {
+            while (count < 10000) {
                 count ++;
                 //
                 // choose a random starting point
@@ -63,9 +48,6 @@ public class EditableMesh : VirgisFeature
                 int iter = 0;
                 while (true) {
                     iter++;
-                    //List<Int32> oneRing = new List<Int32>();
-                    //MeshResult res = dmesh.GetVtxTriangles(current, oneRing, true);
-                    //if (res != MeshResult.Ok)
                     //    throw new InvalidOperationException("Meh One Ring operation invalid : " + res.ToString());
                     //
                     // Interate through the vertices in the one Ring and find the clost to the target point
@@ -157,14 +139,48 @@ public class EditableMesh : VirgisFeature
             if (args.translate != Vector3.zero) {
                 Vector3 localTranslate = transform.InverseTransformVector(args.translate);
                 MeshFilter mf = GetComponent<MeshFilter>();
-                Mesh mesh = mf.sharedMesh;
-                Vector3[] vertices = mesh.vertices;
-                vertices[selectedVertex] += localTranslate;
-                sphere.transform.localPosition = vertices[selectedVertex];
-                mesh.vertices = vertices;
+                Vector3d target = dmesh.GetVertex(selectedVertex) + localTranslate;
+                int n = 5;
+                //
+                // first we need to find the n-ring of vertices
+                //
+                // first get 1-ring
+                List<Int32> nRing = new List<int>();
+                List<Int32> inside = new List<int>();
+                nRing.Add(selectedVertex);
+                for (int i = 0; i < n; i++) {
+                    int[] working = nRing.ToArray();
+                    nRing.Clear();
+                    foreach (int v in working) {
+                        if (!inside.Contains(v))
+                            foreach (int vring in dmesh.VtxVerticesItr(v)) {
+                                if (!inside.Contains(vring))
+                                    nRing.Add(vring);
+                            }
+                        inside.Add(v);
+                    }
+                }
+                //
+                // create the deformer
+                // set the constraint that the selected vertex is moved to position
+                // set the contraint that the n-ring remains stationary
+                //
+                LaplacianMeshDeformer deform = new LaplacianMeshDeformer(dmesh);
+                deform.SetConstraint(selectedVertex, target , 1, false);
+                foreach (int v in nRing) {
+                    deform.SetConstraint(v, dmesh.GetVertex(v), 10, false);
+                }
+                deform.SolveAndUpdateMesh();
+                //
+                // reset the Unity meh
+                // 
+                dmesh = deform.Mesh;
+                sphere.transform.localPosition = (Vector3)dmesh.GetVertex(selectedVertex);
+                Mesh mesh = dmesh.ToMesh(false);
                 mesh.RecalculateBounds();
                 mesh.RecalculateNormals();
                 mesh.RecalculateTangents();
+                mf.mesh = mesh;
             }
         }
     }
