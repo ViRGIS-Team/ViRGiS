@@ -237,7 +237,7 @@ namespace Virgis
                 geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
-            }  
+            }
             features.SyncToDisk();
             return Task.CompletedTask;
         }

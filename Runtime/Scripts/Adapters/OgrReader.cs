@@ -75,21 +75,13 @@ namespace Virgis
         }
 
         public static SpatialReference getSR(Layer layer, RecordSet metadata) {
-            if (metadata.Crs == null) {
-                return layer.GetSpatialRef();
+            if (metadata.Crs == null || metadata.Crs == "") {
+                SpatialReference crs = layer.GetSpatialRef();
+                if (crs != null)
+                    return crs;
+                return AppState.instance.projectCrs;
             }
-            if (metadata.Crs.Contains("epsg:") || metadata.Crs.Contains("EPSG:")) {
-                SpatialReference crs = new SpatialReference(null);
-                string[] parts = metadata.Crs.Split(':');
-                crs.ImportFromEPSG(int.Parse(parts[1]));
-                return crs;
-            }
-            if (metadata.Crs.Contains("proj")) {
-                SpatialReference crs = new SpatialReference(null);
-                crs.ImportFromProj4(metadata.Crs);
-                return crs;
-            }
-            return new SpatialReference(metadata.Crs);
+            return Convert.TextToSR(metadata.Crs);
         }
     }
 }

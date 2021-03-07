@@ -88,8 +88,10 @@ namespace Virgis
             });
 
             Pipeline pipeline = new Pipeline(json);
-            if (pipeline.Valid == false)
+            if (pipeline.Valid == false) {
+                Debug.LogError("Pipeline : " + json);
                 throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
+            }
             long pointCount = pipeline.Execute();
             PointViewIterator views = pipeline.Views;
             if (views != null) {

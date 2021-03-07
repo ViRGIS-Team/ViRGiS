@@ -24,6 +24,8 @@ namespace Virgis {
         private List<Component> _layers;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
+        public Vector3 lastHitPosition;
+        public SpatialReference projectCrs;
         public OrientEvent Orientation {
             get;
             private set;
@@ -167,6 +169,15 @@ namespace Virgis {
             Zoom.Set(project.Scale);
             if (_trans == null)
                 throw new NotSupportedException("transformation failed");
+            projectCrs = new SpatialReference(null);
+            if (project.projectCrs != null) {
+                projectCrs.SetWellKnownGeogCS(project.projectCrs);
+            } else {
+                projectCrs.SetWellKnownGeogCS("EPSG:4326");
+            }
+            string wkt;
+            projectCrs.ExportToWkt(out wkt, null);
+            Debug.Log("Project Crs : " + wkt);
         }
 
         public List<Component> layers {

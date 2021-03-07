@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using OSGeo.OGR;
 using System.Linq;
-using System.Globalization;
+
 
 namespace Virgis {
 
@@ -74,17 +74,20 @@ namespace Virgis {
             if (layer.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
             }
+            SetCrs(OgrReader.getSR(features, layer));
             features.ResetReading();
             Feature feature = features.GetNextFeature();
             while (feature != null) {
                 if (feature == null)
                     continue;
                 Geometry point = feature.GetGeometryRef();
+                wkbGeometryType type = point.GetGeometryType();
+                string t = type.ToString();
                 if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
                     point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
                     point.GetGeometryType() == wkbGeometryType.wkbPointM ||
                     point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                        point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
+                        point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
                 } else if
                    (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
                     point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
@@ -93,8 +96,7 @@ namespace Virgis {
                         int n = point.GetGeometryCount();
                         for (int j = 0; j < n; j++) {
                             Geometry Point2 = point.GetGeometryRef(j);
-                            string Type = Point2.GetGeometryType().ToString();
-                            Point2.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
+                            Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
                         }
                        }
                 feature = features.GetNextFeature();
@@ -157,7 +159,7 @@ namespace Virgis {
                 Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
                 geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
-                features.SetFeature(feature);
+                features.CreateFeature(feature);
             }
             features.SyncToDisk();
             return Task.CompletedTask;

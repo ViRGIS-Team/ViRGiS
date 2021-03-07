@@ -95,7 +95,7 @@ namespace Virgis
         }
 
         /// <summary>
-        ///  Sent by the parent entity to request this market to move as part of an entity move
+        ///  Sent by the parent entity to request this marker to move as part of an entity move
         /// </summary>
         /// <param name="argsin">MoveArgs</param>
         void TranslateHandle(MoveArgs argsin) {
@@ -116,7 +116,6 @@ namespace Virgis
         }
 
 
-
         public override VirgisFeature GetClosest(Vector3 coords, Guid[] excludes) {
             return this;
         }
@@ -129,6 +128,8 @@ namespace Virgis
         public override Dictionary<string, object> GetMetadata() {
             Dictionary<string, object> meta = feature.GetAll();
             Geometry geom = (gameObject.transform.position.ToGeometry());
+            string wkt;
+            GetLayer().GetCrs().ExportToWkt(out wkt, null);
             geom.TransformTo(GetLayer().GetCrs());
             double[] coords = new double[3];
             geom.GetPoint(0, coords);
