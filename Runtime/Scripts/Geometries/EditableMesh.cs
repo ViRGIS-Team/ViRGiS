@@ -139,7 +139,7 @@ public class EditableMesh : VirgisFeature
             if (args.translate != Vector3.zero) {
                 Vector3 localTranslate = transform.InverseTransformVector(args.translate);
                 MeshFilter mf = GetComponent<MeshFilter>();
-                Mesh mesh = mf.mesh;
+                Mesh mesh = mf.sharedMesh;
                 Vector3d target = dmesh.GetVertex(selectedVertex) + localTranslate;
                 int n = 5;
                 //
@@ -183,8 +183,6 @@ public class EditableMesh : VirgisFeature
                 mesh.vertices = vtxs.ToArray();
                 mesh.RecalculateBounds();
                 mesh.RecalculateNormals();
-                mesh.RecalculateTangents();
-                mf.mesh = mesh;
             }
         }
     }
