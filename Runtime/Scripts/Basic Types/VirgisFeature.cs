@@ -36,7 +36,7 @@ namespace Virgis
         Dictionary<string, object> GetMetadata();
         void SetMetadata(Dictionary<string, object> meta);
 
-        void Hover();
+        void Hover(Vector3 hit);
         void UnHover();
 
     }
@@ -49,6 +49,7 @@ namespace Virgis
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
         public Feature feature; // Feature tht was the source for this GO
+        public Vector3 lastHit; // last hit location
 
 
         void Awake()
@@ -185,7 +186,8 @@ namespace Virgis
         /// <summary>
         /// Called whnen the pointer hovers on this feature
         /// </summary>
-        public void Hover() {
+        public void Hover(Vector3 hit) {
+            lastHit = hit;
             Dictionary<string, object> meta = GetMetadata();
             if (meta != null && meta.Count > 0) {
                 string output = string.Join("\n", meta.Select(x => $"{x.Key}:\t{x.Value}"));

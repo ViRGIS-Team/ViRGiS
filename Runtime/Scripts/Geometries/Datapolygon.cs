@@ -93,8 +93,12 @@ namespace Virgis
             mesh.uv = BuildUVs(vertices);
             mesh.RecalculateBounds();
             mesh.RecalculateNormals();
-            Physics.BakeMesh(mesh.GetInstanceID(), false);
-            mc.sharedMesh = mesh;
+            try {
+                Physics.BakeMesh(mesh.GetInstanceID(), false);
+                mc.sharedMesh = mesh;
+            } catch (Exception e) {
+                Debug.Log(e.ToString());
+            }
             mat.SetVector("_Tiling", new Vector2(scaleX / _tiling_size, scaleY / _tiling_size));
 
         }

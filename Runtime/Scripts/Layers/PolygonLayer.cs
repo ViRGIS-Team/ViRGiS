@@ -114,6 +114,7 @@ namespace Virgis
 
         protected override VirgisFeature _addFeature(Vector3[] line)
         {
+            changed = true;
             Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
             geom.AssignSpatialReference(AppState.instance.mapProj);
             Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
