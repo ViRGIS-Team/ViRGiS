@@ -45,6 +45,7 @@ namespace Virgis
     {
         protected Material mainMat; // color of the component
         protected Material selectedMat; // color of the component when selected
+        protected MeshRenderer mr;
 
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard

@@ -25,7 +25,7 @@ namespace Virgis
         }
 
 
-        public async Task Load(string file, int update) {
+        public void Load(string file, int update) {
             fileName = file;
             _update = update;
             Load();
@@ -48,7 +48,7 @@ namespace Virgis
             }
         }
 
-        public async Task LoadWfs(string url, int update) {
+        public void LoadWfs(string url, int update) {
             fileName = "WFS:" + url;
             _update = update;
             Load();

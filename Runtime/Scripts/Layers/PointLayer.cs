@@ -28,7 +28,7 @@ namespace Virgis {
             featureType = FeatureType.POINT;
         }
 
-        protected override async Task _init() {
+        protected override void _init() {
             RecordSet layer = _layer as RecordSet;
             symbology = layer.Properties.Units;
             displacement = 1.0f;

@@ -41,7 +41,7 @@ namespace Virgis
             featureType = FeatureType.LINE;
         }
 
-        protected override async Task _init() {
+        protected override void _init() {
             RecordSet layer = _layer as RecordSet;
             symbology = layer.Properties.Units;
 

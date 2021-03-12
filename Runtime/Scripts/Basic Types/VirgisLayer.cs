@@ -246,6 +246,10 @@ namespace Virgis {
         /// or false if otherwise.
         public void SetEditable(bool inSession) {
             _editable = inSession;
+            _set_editable();
+        }
+
+        protected virtual void _set_editable() {
         }
 
         /// <summary>
@@ -311,9 +315,9 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"> The RecordSet object that defines this layer</param>
         /// <returns>refernce to this GameObject for chaining</returns>
-        public async Task<VirgisLayer<T, S>> Init(T layer ) {
+        public  VirgisLayer<T, S> Init(T layer ) {
             SetMetadata(layer);
-            await _init();
+            _init();
             return this;
         }
 
@@ -322,7 +326,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"></param>
         /// <returns></returns>
-        protected abstract Task _init();
+        protected abstract void _init();
 
         /// <summary>
         /// Get the layer Metadata

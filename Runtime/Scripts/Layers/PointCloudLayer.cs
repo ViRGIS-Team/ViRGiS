@@ -30,7 +30,7 @@ namespace Virgis
         }
 
 
-        protected override async Task _init() {
+        protected override void _init() {
             Debug.Log("PC Start");
             RecordSet layer = _layer as RecordSet;
             List<object> pipe = new List<object>();

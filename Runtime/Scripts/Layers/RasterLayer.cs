@@ -29,7 +29,7 @@ namespace Virgis
         }
 
 
-        protected override async Task _init() {
+        protected override void _init() {
             RecordSet layer = _layer as RecordSet;
 
 

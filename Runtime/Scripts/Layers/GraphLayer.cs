@@ -19,7 +19,7 @@ namespace Virgis {
         private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
 
 
-        protected override async Task _init() {
+        protected override void _init() {
             
         }
 

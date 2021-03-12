@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 
 public class EditableMesh : VirgisFeature
-{
+{   
     private bool BlockMove = false; // is entity in a block-move state
     private DMesh3 dmesh;
     private int selectedVertex;
@@ -28,16 +28,16 @@ public class EditableMesh : VirgisFeature
         } else {
             MeshFilter mf = GetComponent<MeshFilter>();
             Mesh mesh = mf.sharedMesh;
-            currentHit = transform.InverseTransformVector(AppState.instance.lastHitPosition);
+            currentHit = transform.InverseTransformPoint(AppState.instance.lastHitPosition);
             Vector3d target = currentHit;
             System.Random rand = new System.Random();
             int count = 0;
             //
-            // The algorithm will find local optima - o repeat until you get the tru optima
+            // The algorithm will find local optima - repeat until you get the tru optima
             // but limit the interation using a count
             //
             Int32 current = 0;
-            while (count < 10000) {
+            while (count < dmesh.VertexCount) {
                 count ++;
                 //
                 // choose a random starting point
@@ -46,7 +46,7 @@ public class EditableMesh : VirgisFeature
                 Vector3d vtx = dmesh.GetVertex(current);
                 double currentDist = vtx.DistanceSquared(target);
                 //
-                // find the ring of triangles arunf the current point
+                // find the ring of triangles around the current point
                 //
                 int iter = 0;
                 while (true) {
@@ -101,14 +101,66 @@ public class EditableMesh : VirgisFeature
                     }
                 }
                 //
-                // if e found on triamgle that contain the current hit then we have finished
+                // if we found on triamgle that contain the current hit then we have finished
                 //
                 if (f2)
                     break;
             }
+            if (count >= dmesh.VertexCount) {
+                //
+                // This is the unoptimized verion but it is guaranteed to find a solution if one exits
+                //
+
+                current = -1;
+                float currentDist = float.MaxValue;
+                if (currentHit != null) {
+                    for (int i = 0; i < mesh.vertices.Length; i++) {
+                        Vector3 vtx = mesh.vertices[i];
+                        float dist = (currentHit - vtx).sqrMagnitude;
+                        if (dist < currentDist) {
+                            current = i;
+                            currentDist = dist;
+                        }
+                    }
+                }
+                //
+                // Check that the closet vertex to the point is an actual solution
+                //
+                bool f2 = false;
+                foreach (Int32 t in dmesh.VtxTrianglesItr(current)) {
+                    Index3i tri = dmesh.GetTriangle(t);
+                    Triangle3d triangle = new Triangle3d(
+                            dmesh.GetVertex(tri.a),
+                            dmesh.GetVertex(tri.b),
+                            dmesh.GetVertex(tri.c)
+                        );
+                    double[] xs = new double[3] { triangle.V0.x, triangle.V1.x, triangle.V2.x };
+                    double[] ys = new double[3] { triangle.V0.y, triangle.V1.y, triangle.V2.y };
+                    double[] zs = new double[3] { triangle.V0.z, triangle.V1.z, triangle.V2.z };
+
+                    if (
+                        target.x >= xs.Min() &&
+                        target.x <= xs.Max() &&
+                        target.y >= ys.Min() &&
+                        target.y <= ys.Max() &&
+                        target.z >= zs.Min() &&
+                        target.z <= zs.Max()
+                        ) {
+                        f2 = true;
+                        currentHitTri = tri;
+                    }
+                }
+                //
+                // if we found on triamgle that contain the current hit then we have finished
+                //
+                if (!f2) {
+                    Debug.LogError(" Mesh Vertex Search : No Solution Found");
+                    return;
+                }
+            }
             selectedVertex = current;
             sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = transform.TransformVector(mesh.vertices[current]);
+            sphere.transform.position = transform.TransformPoint(mesh.vertices[current]);
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             sphere.transform.parent = transform;
             MoveArgs moveto = new MoveArgs();
@@ -125,11 +177,9 @@ public class EditableMesh : VirgisFeature
         MeshFilter mf = GetComponent<MeshFilter>();
         Mesh mesh = mf.sharedMesh;
         mc[0].sharedMesh = mesh;
-        Vector3 v = mesh.vertices[selectedVertex];
         Mesh imesh = mc[1].sharedMesh;
-        Vector3[] vtxs = imesh.vertices;
-        vtxs[selectedVertex] = v;
-        imesh.vertices = vtxs;
+        imesh.vertices = mesh.vertices;
+        mc[1].sharedMesh = imesh;
         dmesh = newDmesh;
         n = -1;
     }
@@ -142,48 +192,53 @@ public class EditableMesh : VirgisFeature
             }
         } else {
             if (args.translate != Vector3.zero) {
-                Vector3 localTranslate = transform.InverseTransformVector(args.translate);
                 MeshFilter mf = GetComponent<MeshFilter>();
                 Mesh mesh = mf.sharedMesh;
+                Vector3 localTranslate = transform.InverseTransformVector(args.translate);
                 Vector3d target = dmesh.GetVertex(selectedVertex) + localTranslate;
-                if (n != AppState.instance.editScale) {
-                    n = AppState.instance.editScale;
-                    //
-                    // first we need to find the n-ring of vertices
-                    //
-                    // first get 1-ring
-                    nRing = new List<int>();
-                    List<Int32> inside = new List<int>();
-                    nRing.Add(selectedVertex);
-                    for (int i = 0; i < n; i++) {
-                        int[] working = nRing.ToArray();
-                        nRing.Clear();
-                        foreach (int v in working) {
-                            if (!inside.Contains(v))
-                                foreach (int vring in dmesh.VtxVerticesItr(v)) {
-                                    if (!inside.Contains(vring))
-                                        nRing.Add(vring);
-                                }
-                            inside.Add(v);
+                if (AppState.instance.editScale > 2) {
+                    if (n != AppState.instance.editScale) {
+                        n = AppState.instance.editScale;
+                        //
+                        // first we need to find the n-ring of vertices
+                        //
+                        // first get 1-ring
+                        nRing = new List<int>();
+                        List<Int32> inside = new List<int>();
+                        nRing.Add(selectedVertex);
+                        for (int i = 0; i < n; i++) {
+                            int[] working = nRing.ToArray();
+                            nRing.Clear();
+                            foreach (int v in working) {
+                                if (!inside.Contains(v))
+                                    foreach (int vring in dmesh.VtxVerticesItr(v)) {
+                                        if (!inside.Contains(vring))
+                                            nRing.Add(vring);
+                                    }
+                                inside.Add(v);
+                            }
                         }
                     }
+                    //
+                    // create the deformer
+                    // set the constraint that the selected vertex is moved to position
+                    // set the contraint that the n-ring remains stationary
+                    //
+                    LaplacianMeshDeformer deform = new LaplacianMeshDeformer(dmesh);
+                    deform.SetConstraint(selectedVertex, target, 1, false);
+                    foreach (int v in nRing) {
+                        deform.SetConstraint(v, dmesh.GetVertex(v), 10, false);
+                    }
+                    deform.SolveAndUpdateMesh();
+                    newDmesh = deform.Mesh;
+                } else {
+                    dmesh.SetVertex(selectedVertex, target);
                 }
-                //
-                // create the deformer
-                // set the constraint that the selected vertex is moved to position
-                // set the contraint that the n-ring remains stationary
-                //
-                LaplacianMeshDeformer deform = new LaplacianMeshDeformer(dmesh);
-                deform.SetConstraint(selectedVertex, target , 1, false);
-                foreach (int v in nRing) {
-                    deform.SetConstraint(v, dmesh.GetVertex(v), 10, false);
-                }
-                deform.SolveAndUpdateMesh();
-                newDmesh = deform.Mesh;
                 //
                 // reset the Unity meh
                 // 
-                sphere.transform.localPosition = (Vector3)dmesh.GetVertex(selectedVertex);
+                if (sphere != null)
+                    sphere.transform.localPosition = (Vector3) dmesh.GetVertex(selectedVertex);
                 List<Vector3> vtxs = new List<Vector3>();
                 foreach (int v in newDmesh.VertexIndices())
                     vtxs.Add((Vector3)newDmesh.GetVertex(v));
@@ -202,13 +257,15 @@ public class EditableMesh : VirgisFeature
         nullifyHitPos = false;
     }
 
-    public Transform Draw(DMesh3 dmeshin, Material mat) {
+    public Transform Draw(DMesh3 dmeshin, Material mat, Material Wf, bool project) {
+        mainMat = mat;
+        selectedMat = Wf;
         dmesh = dmeshin.Compactify();
         MeshFilter mf = GetComponent<MeshFilter>();
         MeshCollider[] mc = GetComponents<MeshCollider>();
-        MeshRenderer mr = GetComponent<MeshRenderer>();
-        mr.material = mat;
-        Mesh umesh = dmesh.ToMesh(false);
+        mr = GetComponent<MeshRenderer>();
+        mr.material = mainMat;
+        Mesh umesh = dmesh.ToMesh(project);
         umesh.RecalculateBounds();
         umesh.RecalculateNormals();
         umesh.RecalculateTangents();
@@ -239,5 +296,13 @@ public class EditableMesh : VirgisFeature
 
     public override void SetMetadata(Dictionary<string, object> meta) {
         throw new System.NotImplementedException();
+    }
+
+    public void OnEdit(bool inSession) {
+        if (inSession) {
+            mr.material = selectedMat;
+        } else {
+            mr.material = mainMat;
+        }
     }
 }

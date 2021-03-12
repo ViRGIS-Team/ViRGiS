@@ -10,26 +10,14 @@ using OSGeo.OSR;
 using DXF = netDxf;
 using netDxf.Entities;
 
-
 namespace Virgis
 {
-
-    public class MeshLayer : VirgisLayer<RecordSet, List<DMesh3>>
+    public class MeshLayer : MeshlayerProtoype
     {
-        // The prefab for the data points to be instantiated
-        public GameObject Mesh;
-        public Material MeshMaterial;
-
-        private List<Transform> meshes;
-        private Dictionary<string, Unit> symbology;
         private List<Feature> ogrFeatures;
         private Layer entities;
 
-        private void Start() {
-            featureType = FeatureType.MESH;
-        }
-
-        private async Task<DMesh3Builder> loadObj(string filename)
+        private DMesh3Builder loadObj(string filename)
         {
             using (StreamReader reader = File.OpenText(filename))
             {
@@ -75,11 +63,11 @@ namespace Virgis
             }  
         }
 
-        protected override async Task _init() {
+        protected override void _init() {
             RecordSet layer = _layer as RecordSet;
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex == ".obj") {
-                DMesh3Builder meshes = await loadObj(layer.Source);
+                DMesh3Builder meshes = loadObj(layer.Source);
                 features = meshes.Meshes;
                 symbology = layer.Properties.Units;
             }
@@ -133,9 +121,9 @@ namespace Virgis
                     //
                     OgrReader ogrReader = new OgrReader();
                     if (layer.Properties.SourceType == SourceType.WFS) {
-                        await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
+                        ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
                     } else {
-                        await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
+                        ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
                     }
                     entities = ogrReader.GetLayers()[0];
                     SetCrs(OgrReader.getSR(entities, layer));
@@ -211,10 +199,6 @@ namespace Virgis
             }
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
-        {
-            throw new System.NotImplementedException();
-        }
         protected override void _draw()
         {
             RecordSet layer = GetMetadata();
@@ -224,46 +208,12 @@ namespace Virgis
             meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial));
+                meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, false));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
 
         }
-
-        public override void Translate(MoveArgs args)
-        {
-            changed = true;
-        }
-
-        /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public override void MoveAxis(MoveArgs args)
-        {
-            if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
-            args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
-            transform.RotateAround(args.pos, axis, angle);
-            Vector3 A = transform.localPosition;
-            Vector3 B = transform.parent.InverseTransformPoint(args.pos);
-            Vector3 C = A - B;
-            float RS = args.scale;
-            Vector3 FP = B + C * RS;
-            if (FP.magnitude < float.MaxValue)
-            {
-                transform.localScale = transform.localScale * RS;
-                transform.localPosition = FP;
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    Transform T = transform.GetChild(i);
-                    if (T.GetComponent<Datapoint>() != null)
-                    {
-                        T.localScale /= RS;
-                    }
-                }
-            }
-            changed = true;
-        }
-
-        protected override void _checkpoint() { }
 
         protected override Task _save()
         {
