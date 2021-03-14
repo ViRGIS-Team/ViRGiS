@@ -3,6 +3,7 @@ using OSGeo.OSR;
 using Project;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Virgis {
         }
 
         VirgisFeature AddFeature(Vector3[] geometry);
-        void Draw();
+        Task Draw();
         void CheckPoint();
         Task<RecordSet> Save();
         VirgisFeature GetFeature(Guid id);
@@ -38,6 +39,7 @@ namespace Virgis {
         public FeatureType featureType { get; set; }
 
         public bool changed = true; // true is this layer has been changed from the original file
+        public bool isContainer = false; // if this is a container layer - do not Draw
         protected Guid _id;
         protected bool _editable;
         protected SpatialReference _crs;
@@ -46,6 +48,33 @@ namespace Virgis {
             _id = Guid.NewGuid();
             _editable = false;
         }
+
+        /// <summary>
+        /// Called to initialise this layer
+        /// 
+        /// If the data cannot be read, fails quitely and creates an empty layer
+        /// </summary>
+        /// <param name="layer"> The RecordSet object that defines this layer</param>
+        /// <returns>refernce to this GameObject for chaining</returns>
+        public async Task Init(RecordSet layer) {
+            try {
+                SetMetadata(layer);
+                await _init();
+                AppState.instance.addLayer(this);
+                gameObject.SetActive(layer.Visible);
+                await Draw();
+                Debug.Log($"Loaded Layer : {layer.DisplayName}");
+            } catch (Exception e) {
+                Debug.LogError($"Layer : { layer.DisplayName} :  {e.ToString()}");
+            }
+        }
+
+        /// <summary>
+        /// Implement the layer specific init code in this method
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <returns></returns>
+        protected abstract Task _init();
 
         /// <summary>
         /// Call this to create a new feature
@@ -67,9 +96,9 @@ namespace Virgis {
         /// <summary>
         /// Draw the layer based upon the features in the features RecordSet
         /// </summary>
-        public void Draw() {
+        public async Task Draw() {
             //change nothing if there are no changes
-            if (changed) {
+            if (changed && ! isContainer) {
                 //make sure the layer is empty
                 for (int i = transform.childCount - 1; i >= 0; i--) {
                     Transform child = transform.GetChild(i);
@@ -80,9 +109,10 @@ namespace Virgis {
                 transform.localPosition = Vector3.zero;
                 transform.localScale = Vector3.one;
 
-                _draw();
+                await _draw();
                 changed = false;
             }
+            return;
         }
 
 
@@ -90,7 +120,7 @@ namespace Virgis {
         /// Implment the layer specific draw code in this method
         /// </summary>
         /// <returns></returns>
-        protected abstract void _draw();
+        protected abstract Task _draw();
 
         /// <summary>
         /// Call this to tell the layers to create a checkpoint. 
@@ -305,28 +335,6 @@ namespace Virgis {
         readonly Type DataType = typeof(S);
 
         public S features; // holds the feature data for this layer
-
-
-
-        /// <summary>
-        /// Called to initialise this layer
-        /// 
-        /// If the data cannot be read, fails quitely and creates an empty layer
-        /// </summary>
-        /// <param name="layer"> The RecordSet object that defines this layer</param>
-        /// <returns>refernce to this GameObject for chaining</returns>
-        public  VirgisLayer<T, S> Init(T layer ) {
-            SetMetadata(layer);
-            _init();
-            return this;
-        }
-
-        /// <summary>
-        /// Implement the layer specific init code in this method
-        /// </summary>
-        /// <param name="layer"></param>
-        /// <returns></returns>
-        protected abstract void _init();
 
         /// <summary>
         /// Get the layer Metadata

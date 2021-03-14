@@ -17,14 +17,20 @@ namespace Virgis
         protected List<Transform> meshes;
         protected Dictionary<string, Unit> symbology;
 
+        private IDisposable startsub;
+        private IDisposable stopsub;
+
         private void Start() {
             featureType = FeatureType.MESH;
             AppState appState = AppState.instance;
-            appState.editSession.StartEvent.Subscribe(_onEditStart);
-            appState.editSession.EndEvent.Subscribe(_onEditStop);
+            startsub = appState.editSession.StartEvent.Subscribe(_onEditStart);
+            stopsub = appState.editSession.EndEvent.Subscribe(_onEditStop);
         }
 
-        
+        private void OnDestroy() {
+            startsub.Dispose();
+            stopsub.Dispose();
+        }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)
         {

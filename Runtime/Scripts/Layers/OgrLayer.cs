@@ -15,20 +15,26 @@ namespace Virgis {
         public GameObject LineLayer;
         public GameObject PolygonLayer;
 
-
         // used to read the GeoJSON file for this layer
         private OgrReader ogrReader;
 
         private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
 
+        private void Start() {
+            isContainer = true;
+        }
 
-        protected override void _init() {
+        private void OnDestroy() {
+            ogrReader?.Dispose();
+        }
+
+        protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             ogrReader = new OgrReader();
             if (layer.Properties.SourceType == SourceType.WFS) {
-                ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
+                await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
             } else {
-                ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
+                await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
             }
             features = ogrReader.GetLayers().ToArray();
             foreach (Layer thisLayer in features) {
@@ -36,28 +42,30 @@ namespace Virgis {
                 OgrReader.Flatten(ref type);
                 switch (type) {
                     case wkbGeometryType.wkbPoint:
-                        _layers.Add( Instantiate(PointLayer,transform).GetComponent<PointLayer>().Init(layer));
+                        _layers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
                         _layers.Last().SetFeatures(thisLayer);
                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        await _layers.Last().Init(layer);
                         break;
                     case wkbGeometryType.wkbLineString:
-                        _layers.Add( Instantiate(LineLayer,transform).GetComponent<LineLayer>().Init(layer));
+                        _layers.Add( Instantiate(LineLayer,transform).GetComponent<LineLayer>());
                         _layers.Last().SetFeatures(thisLayer);
                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        await _layers.Last().Init(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
-                        _layers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>().Init(layer));
+                        _layers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
                         _layers.Last().SetFeatures(thisLayer);
                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        await _layers.Last().Init(layer);
                         break;
                     case wkbGeometryType.wkbUnknown:
                         RecordSet metadata = GetMetadata();
                         if (metadata.Properties.BBox != null) {
                             thisLayer.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
                         }
-                        thisLayer.ResetReading();
-                        Feature feature = thisLayer.GetNextFeature();
-                        while (feature != null) {
+                        await ogrReader.GetFeaturesAsync(thisLayer);
+                        foreach (Feature feature in ogrReader.features) {
                             if (feature == null)
                                 continue;
                             Geometry geom = feature.GetGeometryRef();
@@ -75,9 +83,10 @@ namespace Virgis {
                                         }
                                      }
                                     if (layerToAdd == null) {
-                                        _layers.Add( Instantiate(LineLayer, transform).GetComponent<LineLayer>().Init(layer));
+                                        _layers.Add( Instantiate(LineLayer, transform).GetComponent<LineLayer>());
                                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
+                                        await _layers.Last().Init(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbPolygon:
@@ -88,9 +97,10 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        _layers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>().Init(layer));
+                                        _layers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
                                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
+                                        await _layers.Last().Init(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbPoint:
@@ -101,18 +111,19 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        _layers.Add( Instantiate(PointLayer, transform).GetComponent<PointLayer>().Init(layer));
+                                        _layers.Add( Instantiate(PointLayer, transform).GetComponent<PointLayer>());
                                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
+                                        await _layers.Last().Init(layer);
                                     }
                                     break;
                                 default:
                                     throw new NotSupportedException($"Geometry type {ftype.ToString()} is not supported");
                             }
-                            feature = thisLayer.GetNextFeature();
                         }
                         break;
                 }
+                return;
             }
         }
 
@@ -122,7 +133,8 @@ namespace Virgis {
 
 
 
-        protected override void _draw() {
+        protected override Task _draw() {
+            return Task.CompletedTask;
         }
 
 

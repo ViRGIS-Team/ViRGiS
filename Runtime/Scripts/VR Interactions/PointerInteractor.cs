@@ -33,9 +33,9 @@ public class PointerInteractor : XRBaseInteractor, IUIInteractable
 
     public float movementDeadzone;
 
-    int m_HitCount = 0;
+    protected int m_HitCount = 0;
 
-    RaycastHit[] m_RaycastHits = new RaycastHit[1];
+    protected RaycastHit[] m_RaycastHits = new RaycastHit[1];
 
     Vector3[] m_LinePoints;
 

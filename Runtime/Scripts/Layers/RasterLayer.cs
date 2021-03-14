@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
@@ -29,83 +30,11 @@ namespace Virgis
         }
 
 
-        protected override void _init() {
+        protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-
-
-            List<object> pipe = new List<object>();
-            pipe.Add( new{
-                    type= "readers.gdal",
-                    filename= layer.Source,
-                    header= "m"
-                });
-
-            if (layer.Properties.Filter != null) {
-                foreach (Dictionary<string, object> item in layer.Properties.Filter)
-                    pipe.Add(item);
-            }
-
-            if (layer.Properties.Dem != null) {
-                pipe.Add(new {
-                    type = "filters.hag_dem",
-                    raster = layer.Properties.Dem
-                });
-                pipe.Add(new {
-                    type = "filters.ferry",
-                    dimensions = "HeightAboveGround=>Z"
-                });
-            } else {
-                pipe.Add(new {
-                    type = "filters.ferry",
-                    dimensions = "=>Z"
-                });
-            }
-
-            if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
-                string crs;
-                AppState.instance.mapProj.ExportToProj4(out crs);
-                pipe.Add(new {
-                    type = "filters.reprojection",
-                    in_srs = layer.Crs,
-                    out_srs = crs
-                });
-            }
-
-            pipe.Add(new {
-                type= "filters.projpipeline",
-                coord_op= "+proj=axisswap +order=1,-3,2"
-            });
-
-            if (layer.Properties.ColorInterp != null) {
-                Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
-                ci.Add("type", "filters.colorinterp");
-                pipe.Add(ci);
-            }
-
-
-            string json = JsonConvert.SerializeObject(new {
-                pipeline = pipe.ToArray()
-            });
-
-            Pipeline pipeline = new Pipeline(json);
-            if (pipeline.Valid == false) {
-                Debug.LogError("Pipeline : " + json);
-                throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
-            }
-            long pointCount = pipeline.Execute();
-            PointViewIterator views = pipeline.Views;
-            if (views != null) {
-                PointView view = views != null ? views.Next : null;
-                if (view != null) {
-                    features = view.GetBakedPointCloud(pointCount);
-                    view.Dispose();
-                }
-                views.Dispose();
-            }
-            pipeline.Dispose();
+            await Load(layer);
             symbology = layer.Properties.Units;
-
-            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
+            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
             Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             mainMat = Instantiate(HandleMaterial);
             mainMat.SetColor("_BaseColor", col);
@@ -113,12 +42,95 @@ namespace Virgis
             selectedMat.SetColor("_BaseColor", sel);
         }
 
+        protected Task<int> Load(RecordSet layer) {
+
+            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+            Task<int> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+                List<object> pipe = new List<object>();
+                pipe.Add(new {
+                    type = "readers.gdal",
+                    filename = layer.Source,
+                    header = "m"
+                });
+
+                if (layer.Properties.Filter != null) {
+                    foreach (Dictionary<string, object> item in layer.Properties.Filter)
+                        pipe.Add(item);
+                }
+
+                if (layer.Properties.Dem != null) {
+                    pipe.Add(new {
+                        type = "filters.hag_dem",
+                        raster = layer.Properties.Dem
+                    });
+                    pipe.Add(new {
+                        type = "filters.ferry",
+                        dimensions = "HeightAboveGround=>Z"
+                    });
+                } else {
+                    pipe.Add(new {
+                        type = "filters.ferry",
+                        dimensions = "=>Z"
+                    });
+                }
+
+                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                    string crs;
+                    AppState.instance.mapProj.ExportToProj4(out crs);
+                    pipe.Add(new {
+                        type = "filters.reprojection",
+                        in_srs = layer.Crs,
+                        out_srs = crs
+                    });
+                }
+
+                pipe.Add(new {
+                    type = "filters.projpipeline",
+                    coord_op = "+proj=axisswap +order=1,-3,2"
+                });
+
+                if (layer.Properties.ColorInterp != null) {
+                    Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
+                    ci.Add("type", "filters.colorinterp");
+                    pipe.Add(ci);
+                }
+
+
+                string json = JsonConvert.SerializeObject(new {
+                    pipeline = pipe.ToArray()
+                });
+
+                Pipeline pipeline = new Pipeline(json);
+                if (pipeline.Valid == false) {
+                    Debug.LogError("Pipeline : " + json);
+                    throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
+                }
+                long pointCount = pipeline.Execute();
+                PointViewIterator views = pipeline.Views;
+                if (views != null) {
+                    PointView view = views != null ? views.Next : null;
+                    if (view != null) {
+                        features = view.GetBakedPointCloud(pointCount);
+                        view.Dispose();
+                    }
+                    views.Dispose();
+                }
+                pipeline.Dispose();
+                tcs1.SetResult(1);
+            });
+            return t1;
+        }
+
         protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
 
-        protected override void _draw()
+        protected override Task _draw()
         {
             RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ?  layer.Position.ToVector3() : Vector3.zero ;
@@ -145,6 +157,7 @@ namespace Virgis
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
             centreHandle.transform.parent = transform;
+            return Task.CompletedTask;
         }
 
         public override void _set_visible() {

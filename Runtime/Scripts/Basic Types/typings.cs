@@ -6,9 +6,12 @@ using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+using System.Threading.Tasks;
 using DelaunatorSharp;
 using System.Linq;
 using DXF = netDxf;
+using Mdal;
 
 namespace Virgis {
 
@@ -459,6 +462,20 @@ namespace Virgis {
                 dMesh.SetVertexUV(i, UV);
             }
         }
+
+        public static Task<int> CalculateUVsAsync(this DMesh3 dMesh) {
+
+            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+            Task<int> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+                dMesh.CalculateUVs();
+                tcs1.SetResult(1);
+            });
+            return t1;
+        }
     }
 
     public static class VirgisVectorExtensions {
@@ -647,4 +664,33 @@ namespace Virgis {
             return new SpatialReference(str);
         }
     }
+
+    /// <summary>
+    /// from http://www.stevevermeulen.com/index.php/2017/09/using-async-await-in-unity3d-2017/
+    /// </summary>
+    public static class TaskExtensions {
+        public static IEnumerator AsIEnumerator(this Task task) {
+            while (!task.IsCompleted) {
+                yield return null;
+            }
+
+            if (task.IsFaulted) {
+                throw task.Exception;
+            }
+        }
+    }
+
+    public static class DatasourceExtension {
+        public static Task<MdalMesh> GetMeshAsync(this Datasource ds,  int index) {
+            TaskCompletionSource<MdalMesh> tcs1 = new TaskCompletionSource<MdalMesh>();
+            Task<MdalMesh> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+                tcs1.SetResult(ds.GetMesh(index));
+            });
+            return t1;
+        }
+    } 
 }

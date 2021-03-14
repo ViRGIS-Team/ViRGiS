@@ -24,7 +24,7 @@ namespace Virgis
                 }
 
                 //read results:
-                if (www.isNetworkError || www.isHttpError)
+                if (www.result == UnityWebRequest.Result.ConnectionError)
                 {
                     //log error:
 

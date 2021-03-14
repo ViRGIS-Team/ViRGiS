@@ -24,6 +24,7 @@ namespace Virgis {
         private List<Component> _layers;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
+        private IDisposable initsub;
         public Vector3 lastHitPosition;
         public SpatialReference projectCrs;
         public int editScale;
@@ -74,7 +75,7 @@ namespace Virgis {
             ButtonStatus = new ButtonStatus();
             Orientation = new OrientEvent();
 
-            Project.Event.Subscribe(proj => Init());
+            initsub = Project.Event.Subscribe(proj => Init());
             try {
                 GdalConfiguration.ConfigureOgr();
             } catch (Exception e) {
@@ -98,19 +99,17 @@ namespace Virgis {
             Gdal.SetConfigOption("CURL_CA_BUNDLE", Path.Combine(Application.streamingAssetsPath, "gdal", "cacert.pem"));
         }
 
+        private void OnDestroy() {
+            initsub.Dispose();
+        }
+
         /// <summary>
         /// Init is called after a project has been fully loaded.
         /// </summary>
         /// 
         /// Call this method everytime a new project has been loaded,
         /// e.g. New Project, Open Project
-        public void Init() {
-            IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
-            if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
-                firstLayer = (IVirgisLayer) _layers[1];
-            firstLayer.SetEditable(true);
-            _editSession.editableLayer = firstLayer;
-        }
+        public void Init() { }
 
         public EditSession editSession {
             get => _editSession;
@@ -187,6 +186,14 @@ namespace Virgis {
 
         public void addLayer(Component layer) {
             _layers.Add(layer);
+            if (_layers.Count == 1) {
+                IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
+                if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
+                    firstLayer = (IVirgisLayer) _layers[1];
+                firstLayer.SetEditable(true);
+                _editSession.editableLayer = firstLayer;
+            }
+            Project.Complete();
         }
 
         public void clearLayers() {

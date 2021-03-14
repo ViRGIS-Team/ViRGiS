@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System.Threading.Tasks;
 using System.IO;
@@ -17,28 +18,33 @@ namespace Virgis
         private List<Feature> ogrFeatures;
         private Layer entities;
 
-        private DMesh3Builder loadObj(string filename)
+        private Task<DMesh3Builder> loadObj(string filename)
         {
-            using (StreamReader reader = File.OpenText(filename))
-            {
-                OBJReader objReader = new OBJReader();
-                DMesh3Builder meshBuilder = new DMesh3Builder();
-                try
-                {
-                    IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
+            TaskCompletionSource<DMesh3Builder> tcs1 = new TaskCompletionSource<DMesh3Builder>();
+            Task<DMesh3Builder> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+
+                using (StreamReader reader = File.OpenText(filename)) {
+                    OBJReader objReader = new OBJReader();
+                    DMesh3Builder meshBuilder = new DMesh3Builder();
+                    try {
+                        IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
+                    } catch (Exception e) when (
+                       e is UnauthorizedAccessException ||
+                       e is DirectoryNotFoundException ||
+                       e is FileNotFoundException ||
+                       e is NotSupportedException
+                       ) {
+                        Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
+                        meshBuilder = new DMesh3Builder();
+                    }
+                    tcs1.SetResult(meshBuilder);
                 }
-                catch (Exception e) when (
-                 e is UnauthorizedAccessException ||
-                 e is DirectoryNotFoundException ||
-                 e is FileNotFoundException ||
-                 e is NotSupportedException
-                 )
-                {
-                    Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
-                    meshBuilder = new DMesh3Builder();
-                }
-                return meshBuilder;
-            }
+            });
+            return t1;
         }
 
         private void saveObj(string filename, List<WriteMesh> meshes) {
@@ -63,11 +69,11 @@ namespace Virgis
             }  
         }
 
-        protected override void _init() {
+        protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex == ".obj") {
-                DMesh3Builder meshes = loadObj(layer.Source);
+                DMesh3Builder meshes = await loadObj(layer.Source);
                 features = meshes.Meshes;
                 symbology = layer.Properties.Units;
             }
@@ -115,76 +121,71 @@ namespace Virgis
                         }
                         tris.Add(new Index3i(tri.ToArray()));
                     }
-                } catch (Exception e) {
+                } catch {
                     //
                     // if netDXF fails - try opening in GDAL that can open AutoCAD 2 file
                     //
-                    OgrReader ogrReader = new OgrReader();
-                    if (layer.Properties.SourceType == SourceType.WFS) {
-                        ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
-                    } else {
-                        ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
-                    }
-                    entities = ogrReader.GetLayers()[0];
-                    SetCrs(OgrReader.getSR(entities, layer));
-                    RecordSet metadata = GetMetadata();
-                    if (metadata.Properties.BBox != null) {
-                        entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
-                    }
-                    ogrFeatures = new List<Feature>();
-                    entities.ResetReading();
-                    Feature feature = entities.GetNextFeature();
-                    while (feature != null) {
-                        if (feature == null)
-                            continue;
-                        Geometry geom = feature.GetGeometryRef();
-                        if (geom == null)
-                            continue;
-                        wkbGeometryType ftype = geom.GetGeometryType();
-                        OgrReader.Flatten(ref ftype);
-                        //
-                        // Get the faces
-                        //
-                        if (ftype == wkbGeometryType.wkbPolygon) {
-                            List<Geometry> LinearRings = new List<Geometry>();
-                            List<DCurve3> curves = new List<DCurve3>();
-                            for (int i = 0; i < geom.GetGeometryCount(); i++)
-                                LinearRings.Add(geom.GetGeometryRef(i));
+                    using (OgrReader ogrReader = new OgrReader()) {
+                        if (layer.Properties.SourceType == SourceType.WFS) {
+                            await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
+                        } else {
+                            await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
+                        }
+                        entities = ogrReader.GetLayers()[0];
+                        SetCrs(OgrReader.getSR(entities, layer));
+                        RecordSet metadata = GetMetadata();
+                        if (metadata.Properties.BBox != null) {
+                            entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
+                        }
+                        await ogrReader.GetFeaturesAsync(entities);
+                        foreach (Feature feature in ogrReader.features) {
+                            Geometry geom = feature.GetGeometryRef();
+                            if (geom == null)
+                                continue;
+                            wkbGeometryType ftype = geom.GetGeometryType();
+                            OgrReader.Flatten(ref ftype);
                             //
-                            // Load the faces as a list of DCurve3
+                            // Get the faces
                             //
-                            foreach (Geometry LinearRing in LinearRings) {
-                                wkbGeometryType type = LinearRing.GetGeometryType();
-                                if (type == wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
-                                    LinearRing.CloseRings();
-                                    DCurve3 curve = new DCurve3();
-                                    curve.FromGeometry(LinearRing, GetCrs());
-                                    if (curve.VertexCount != 4) {
-                                        Debug.LogError("incorrect face size");
-                                    } else {
-                                        curves.Add(curve);
+                            if (ftype == wkbGeometryType.wkbPolygon) {
+                                List<Geometry> LinearRings = new List<Geometry>();
+                                List<DCurve3> curves = new List<DCurve3>();
+                                for (int i = 0; i < geom.GetGeometryCount(); i++)
+                                    LinearRings.Add(geom.GetGeometryRef(i));
+                                //
+                                // Load the faces as a list of DCurve3
+                                //
+                                foreach (Geometry LinearRing in LinearRings) {
+                                    wkbGeometryType type = LinearRing.GetGeometryType();
+                                    if (type == wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
+                                        LinearRing.CloseRings();
+                                        DCurve3 curve = new DCurve3();
+                                        curve.FromGeometry(LinearRing, GetCrs());
+                                        if (curve.VertexCount != 4) {
+                                            Debug.LogError("incorrect face size");
+                                        } else {
+                                            curves.Add(curve);
+                                        }
                                     }
                                 }
-                            }
-                            //
-                            // for each tri, check to make sure that vertcie are in the vertex list and add the tri to the tri list
-                            //
-                            foreach (DCurve3 curve in curves) {
-                                List<int> tri = new List<int>();
-                                for (int i = 0; i < 3; i++) {
-                                    Vector3d v = curve.GetVertex(i);
-                                    int index = vertexes.IndexOf(v);
-                                    if (index == -1) {
-                                        vertexes.Add(v);
-                                        index = vertexes.IndexOf(v);
+                                //
+                                // for each tri, check to make sure that vertcie are in the vertex list and add the tri to the tri list
+                                //
+                                foreach (DCurve3 curve in curves) {
+                                    List<int> tri = new List<int>();
+                                    for (int i = 0; i < 3; i++) {
+                                        Vector3d v = curve.GetVertex(i);
+                                        int index = vertexes.IndexOf(v);
+                                        if (index == -1) {
+                                            vertexes.Add(v);
+                                            index = vertexes.IndexOf(v);
+                                        }
+                                        tri.Add(index);
                                     }
-                                    tri.Add(index);
+                                    tris.Add(new Index3i(tri.ToArray()));
                                 }
-                                tris.Add(new Index3i(tri.ToArray()));
-                                ogrFeatures.Add(feature);
                             }
                         }
-                        feature = entities.GetNextFeature();
                     }
                 }
                 //
@@ -196,10 +197,11 @@ namespace Virgis
                 features = new List<DMesh3>();
                 features.Add(dmesh.Compactify());
                 symbology = layer.Properties.Units;
+                return;
             }
         }
 
-        protected override void _draw()
+        protected override Task _draw()
         {
             RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ? layer.Position.ToVector3() : Vector3.zero;
@@ -212,7 +214,7 @@ namespace Virgis
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
-
+            return Task.CompletedTask;
         }
 
         protected override Task _save()

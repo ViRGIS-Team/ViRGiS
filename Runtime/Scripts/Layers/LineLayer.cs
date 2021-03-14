@@ -3,6 +3,7 @@
 using OSGeo.OGR;
 using Project;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -34,74 +35,72 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
 
-        //private List<GameObject> _tempGOs = new List<GameObject>();
-        //private List<GameObject> _vertices = new List<GameObject>();
-
         private void Start() {
             featureType = FeatureType.LINE;
         }
 
-        protected override void _init() {
-            RecordSet layer = _layer as RecordSet;
-            symbology = layer.Properties.Units;
+        protected override async Task _init() {
+            await Load();
+        }
 
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape"))
-            {
-                Shapes shape = symbology["point"].Shape;
-                switch (shape)
-                {
-                    case Shapes.Spheroid:
-                        HandlePrefab = SpherePrefab;
-                        break;
-                    case Shapes.Cuboid:
-                        HandlePrefab = CubePrefab;
-                        break;
-                    case Shapes.Cylinder:
-                        HandlePrefab = CylinderPrefab;
-                        break;
-                    default:
-                        HandlePrefab = SpherePrefab;
-                        break;
+        protected Task<int> Load() {
+            Task<int> t1 = new Task<int>(() => {
+                RecordSet layer = _layer as RecordSet;
+                symbology = layer.Properties.Units;
+
+                if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
+                    Shapes shape = symbology["point"].Shape;
+                    switch (shape) {
+                        case Shapes.Spheroid:
+                            HandlePrefab = SpherePrefab;
+                            break;
+                        case Shapes.Cuboid:
+                            HandlePrefab = CubePrefab;
+                            break;
+                        case Shapes.Cylinder:
+                            HandlePrefab = CylinderPrefab;
+                            break;
+                        default:
+                            HandlePrefab = SpherePrefab;
+                            break;
+                    }
+                } else {
+                    HandlePrefab = SpherePrefab;
                 }
-            }
-            else
-            {
-                HandlePrefab = SpherePrefab;
-            }
 
-            if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape"))
-            {
-                Shapes shape = symbology["line"].Shape;
-                switch (shape)
-                {
-                    case Shapes.Cuboid:
-                        LinePrefab = CuboidLinePrefab;
-                        break;
-                    case Shapes.Cylinder:
-                        LinePrefab = CylinderLinePrefab;
-                        break;
-                    default:
-                        LinePrefab = CylinderLinePrefab;
-                        break;
+                if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
+                    Shapes shape = symbology["line"].Shape;
+                    switch (shape) {
+                        case Shapes.Cuboid:
+                            LinePrefab = CuboidLinePrefab;
+                            break;
+                        case Shapes.Cylinder:
+                            LinePrefab = CylinderLinePrefab;
+                            break;
+                        default:
+                            LinePrefab = CylinderLinePrefab;
+                            break;
+                    }
+                } else {
+                    LinePrefab = CylinderLinePrefab;
                 }
-            }
-            else
-            {
-                LinePrefab = CylinderLinePrefab;
-            }
 
-            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
-            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            Color line = symbology.ContainsKey("line") ? (Color)symbology["line"].Color : Color.white;
-            Color lineSel = symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-            mainMat = Instantiate(PointBaseMaterial);
-            mainMat.SetColor("_BaseColor", col);
-            selectedMat = Instantiate(PointBaseMaterial);
-            selectedMat.SetColor("_BaseColor", sel);
-            lineMain = Instantiate(LineBaseMaterial);
-            lineMain.SetColor("_BaseColor", line);
-            lineSelected = Instantiate(LineBaseMaterial);
-            lineSelected.SetColor("_BaseColor", lineSel);
+                Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+                Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+                Color line = symbology.ContainsKey("line") ? (Color) symbology["line"].Color : Color.white;
+                Color lineSel = symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
+                mainMat = Instantiate(PointBaseMaterial);
+                mainMat.SetColor("_BaseColor", col);
+                selectedMat = Instantiate(PointBaseMaterial);
+                selectedMat.SetColor("_BaseColor", sel);
+                lineMain = Instantiate(LineBaseMaterial);
+                lineMain.SetColor("_BaseColor", line);
+                lineSelected = Instantiate(LineBaseMaterial);
+                lineSelected.SetColor("_BaseColor", lineSel);
+                return 1;
+            });
+            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            return t1;
         }
 
         protected override VirgisFeature _addFeature(Vector3[] line)
@@ -112,43 +111,43 @@ namespace Virgis
             return _drawFeature(geom, new Feature(new FeatureDefn(null)));
         }
 
-        protected override void _draw()
+        protected override async Task _draw()
         {
             RecordSet layer = GetMetadata();
             if (layer.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
             }
-            features.ResetReading();
-            Feature feature = features.GetNextFeature();
-            while (feature != null) {
-                if (feature == null)
-                    continue;
-                Geometry line = feature.GetGeometryRef();
-                if (line == null)
-                    continue;
-                if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
-                    line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
-                    line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
-                    line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
-                ) {
-                    if (line.GetSpatialReference() == null)
-                        line.AssignSpatialReference(GetCrs());
-                    _drawFeature(line, feature);
-                } else if 
-                    (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
-                    line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
-                    line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringM ||
-                    line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringZM
-                 ) {
-                    int n = line.GetGeometryCount();
-                    for (int j = 0; j < n; j++) {
-                        Geometry Line2 = line.GetGeometryRef(j);
-                        if (Line2.GetSpatialReference() == null)
-                            Line2.AssignSpatialReference(GetCrs());
-                        _drawFeature(Line2, feature);
+            using (OgrReader ogrReader = new OgrReader()) {
+                await ogrReader.GetFeaturesAsync(features);
+                foreach (Feature feature in ogrReader.features) {
+                    if (feature == null)
+                        continue;
+                    Geometry line = feature.GetGeometryRef();
+                    if (line == null)
+                        continue;
+                    if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
+                        line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
+                        line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
+                        line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
+                    ) {
+                        if (line.GetSpatialReference() == null)
+                            line.AssignSpatialReference(GetCrs());
+                        await _drawFeatureAsync(line, feature);
+                    } else if
+                        (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
+                        line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
+                        line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringM ||
+                        line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringZM
+                     ) {
+                        int n = line.GetGeometryCount();
+                        for (int j = 0; j < n; j++) {
+                            Geometry Line2 = line.GetGeometryRef(j);
+                            if (Line2.GetSpatialReference() == null)
+                                Line2.AssignSpatialReference(GetCrs());
+                            await _drawFeatureAsync(Line2, feature);
+                        }
                     }
                 }
-                feature = features.GetNextFeature();
             }
             if (layer.Transform != null) {
                 transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);
@@ -176,6 +175,16 @@ namespace Virgis
             com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
 
             return com;
+        }
+
+        protected Task<int> _drawFeatureAsync(Geometry line, Feature feature = null) {
+
+            Task<int> t1 = new Task<int>(() => {
+                _drawFeature(line, feature);
+                return 1;
+            });
+            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            return t1;
         }
 
         protected override void _checkpoint()

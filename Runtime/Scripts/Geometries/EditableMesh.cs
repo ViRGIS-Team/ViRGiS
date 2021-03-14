@@ -163,9 +163,6 @@ public class EditableMesh : VirgisFeature
             sphere.transform.position = transform.TransformPoint(mesh.vertices[current]);
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             sphere.transform.parent = transform;
-            MoveArgs moveto = new MoveArgs();
-            moveto.translate = AppState.instance.lastHitPosition - sphere.transform.position;
-            MoveTo(moveto);
         }
     }
 
@@ -195,7 +192,7 @@ public class EditableMesh : VirgisFeature
                 MeshFilter mf = GetComponent<MeshFilter>();
                 Mesh mesh = mf.sharedMesh;
                 Vector3 localTranslate = transform.InverseTransformVector(args.translate);
-                Vector3d target = dmesh.GetVertex(selectedVertex) + localTranslate;
+                Vector3d target = mesh.vertices[selectedVertex] + localTranslate;
                 if (AppState.instance.editScale > 2) {
                     if (n != AppState.instance.editScale) {
                         n = AppState.instance.editScale;
