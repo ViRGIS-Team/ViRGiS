@@ -21,7 +21,7 @@ namespace Virgis {
         public static AppState instance = null;
 
         private EditSession _editSession;
-        private List<Component> _layers;
+        private List<VirgisLayer> _layers;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
         private IDisposable initsub;
@@ -68,7 +68,7 @@ namespace Virgis {
             }
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
-            _layers = new List<Component>();
+            _layers = new List<VirgisLayer>();
             Zoom = new ZoomEvent();
             Project = new ProjectChange();
             Info = new InfoEvent();
@@ -180,20 +180,22 @@ namespace Virgis {
             Debug.Log("Project Crs : " + wkt);
         }
 
-        public List<Component> layers {
+        public List<VirgisLayer> layers {
             get => _layers;
         }
 
-        public void addLayer(Component layer) {
-            _layers.Add(layer);
-            if (_layers.Count == 1) {
-                IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
-                if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
-                    firstLayer = (IVirgisLayer) _layers[1];
-                firstLayer.SetEditable(true);
-                _editSession.editableLayer = firstLayer;
+        public void addLayer(VirgisLayer layer) {
+            if (! layer.isContainer) {
+                _layers.Add(layer);
+                if (_layers.Count == 1) {
+                    IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
+                    if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
+                        firstLayer = (IVirgisLayer) _layers[1];
+                    firstLayer.SetEditable(true);
+                    _editSession.editableLayer = firstLayer;
+                }
+                Project.Complete();
             }
-            Project.Complete();
         }
 
         public void clearLayers() {

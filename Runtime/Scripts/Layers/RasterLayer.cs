@@ -44,12 +44,7 @@ namespace Virgis
 
         protected Task<int> Load(RecordSet layer) {
 
-            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
-            Task<int> t1 = tcs1.Task;
-            t1.ConfigureAwait(false);
-
-            // Start a background task that will complete tcs1.Task
-            Task.Factory.StartNew(() => {
+            Task<int> t1 = new Task<int>(() => {
                 List<object> pipe = new List<object>();
                 pipe.Add(new {
                     type = "readers.gdal",
@@ -120,8 +115,9 @@ namespace Virgis
                     views.Dispose();
                 }
                 pipeline.Dispose();
-                tcs1.SetResult(1);
+                return 1;
             });
+            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
             return t1;
         }
 
