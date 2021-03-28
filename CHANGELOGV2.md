@@ -7,6 +7,8 @@ This version will run on the following platforms :
 - Windows - x64 Desktop mode
 - Windows - Rift VR mode
 
+UNITY 2020.2
+
 ### Contents
 
 Following Functions :
