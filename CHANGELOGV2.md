@@ -1,6 +1,31 @@
 # Change Log and release notes for ViRGIS Version 2
 
-## Version 2.2.0
+## Version 2.1.2
+
+This version will run on the following platforms :
+
+- Windows - x64 Desktop mode
+- Windows - Rift VR mode
+
+### Contents
+
+Following Functions :
+
+- updates to allow the Virgis Geo new UI
+- Added PLY and 3DS #8 #9
+- Added Editable meshes #7
+- Added Wireframe Edit Mode for meshes
+- updates GDAL to 3.2.2
+- updates PDAL to 2.2.0 with async scripts #13
+- updates MDAL to 0.8.0 with async scripts #12
+- updates branding
+
+GDAL Version : 3.2.2
+PDAL Version : 2.2.0
+MDAL Version : 0.8.0
+netDXF Version : 2.4.1
+
+## Version 2.1.1
 
 ### Platforms
 
