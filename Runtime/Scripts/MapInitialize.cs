@@ -1,8 +1,8 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using GeoJSON.Net.Geometry;
-
 using Project;
 using System.Collections.Generic;
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
@@ -23,6 +23,8 @@ namespace Virgis
 
         //File reader for Project file
         private ProjectJsonReader projectJsonReader;
+        private IDisposable startsub;
+        private IDisposable stopsub;
 
 
         ///<summary>
@@ -38,8 +40,8 @@ namespace Virgis
                 Debug.Log("instantiate app state");
                 appState = Instantiate(appState);
             }
-            appState.editSession.StartEvent.Subscribe(_onStartEditSession);
-            appState.editSession.EndEvent.Subscribe(_onExitEditSession);
+            startsub = appState.editSession.StartEvent.Subscribe(_onStartEditSession);
+            stopsub = appState.editSession.EndEvent.Subscribe(_onExitEditSession);
 
             //set globals
             appState.map = gameObject;
@@ -53,14 +55,23 @@ namespace Virgis
             
         }
 
+        protected void OnDestroy() {
+            startsub.Dispose();
+            stopsub.Dispose();
+        }
+
+        protected override Task _init() {
+            throw new NotImplementedException();
+        }
+
 
         /// 
         /// This is the initialisation script.
         /// 
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
-        public async Task<bool> Load(string file) {
-  
+        public bool Load(string file) {
+            Debug.Log("Starting  to load Project File");
             // Get Project definition - return if the file cannot be read - this will lead to an empty world
             projectJsonReader = new ProjectJsonReader();
             try {
@@ -77,9 +88,7 @@ namespace Virgis
             appState.project = projectJsonReader.GetProject();
 
             try {
-                foreach (RecordSet thisLayer in appState.project.RecordSets) {
-                    await initLayer(thisLayer);
-                };
+                   initLayers(appState.project.RecordSets);
             } catch {
                 Debug.LogError($"Project File {file} failed");
                 return false;
@@ -87,6 +96,7 @@ namespace Virgis
 
             //set globals
             appState.Project.Complete();
+            Debug.Log("Completed load Project File");
             return true;
         }
 
@@ -96,33 +106,16 @@ namespace Virgis
         /// </summary>
         /// <param name="thisLayer"> the lkayer that ws pulled from the project file</param>
         /// <returns></returns>
-        public abstract Task<VirgisLayer> createLayer(RecordSet thisLayer);
+        public abstract VirgisLayer createLayer(RecordSet thisLayer);
 
 
-        private async Task initLayer(RecordSet thisLayer) {
-            VirgisLayer temp = null;
-                try {
-                    temp =  await createLayer(thisLayer);                   
-                    Stack<VirgisLayer> tempLayers = new Stack<VirgisLayer>();
-                    tempLayers.Push(temp);
-                    while (tempLayers.Count > 0) {
-                        VirgisLayer l = tempLayers.Pop();
-                        int children = l.transform.childCount;
-                        if (l._layer.DataType == RecordSetDataType.MapBox)
-                            children = 0;
-                        if (children == 0) {
-                            appState.addLayer(l);
-                            l.gameObject.SetActive(thisLayer.Visible);
-                            l.Draw();
-                            continue;
-                        }
-                        for (int i = 0; i < children; i++) {
-                            tempLayers.Push(l.transform.GetChild(i).GetComponent<VirgisLayer>());
-                        } 
-                    }
-                } catch (Exception e) {
-                    Debug.LogError(e.ToString() ?? "Unknown Error");
-                }
+        private void initLayers(List<RecordSet> layers) {
+            foreach (RecordSet thisLayer in layers) {
+                VirgisLayer temp = null;
+                Debug.Log("Loading Layer : " + thisLayer.DisplayName);
+                temp = createLayer(thisLayer);
+                StartCoroutine(temp.Init(thisLayer).AsIEnumerator());
+            }
         }
 
         public void Add(MoveArgs args)
@@ -147,7 +140,7 @@ namespace Virgis
             }
         }
 
-        protected override void _draw()
+        protected override Task _draw()
         {
             throw new System.NotImplementedException();
         }

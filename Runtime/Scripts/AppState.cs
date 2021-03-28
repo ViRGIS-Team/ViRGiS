@@ -21,9 +21,20 @@ namespace Virgis {
         public static AppState instance = null;
 
         private EditSession _editSession;
-        private List<Component> _layers;
+        private List<VirgisLayer> _layers;
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
+        private IDisposable initsub;
+        public Vector3 lastHitPosition;
+        public SpatialReference projectCrs;
+        public int editScale;
+        public bool guiActive {
+            get {
+                return lhguiActive || rhguiActive;
+            }
+        }
+        public bool lhguiActive;
+        public bool rhguiActive;
         public OrientEvent Orientation {
             get;
             private set;
@@ -64,14 +75,14 @@ namespace Virgis {
             }
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
-            _layers = new List<Component>();
+            _layers = new List<VirgisLayer>();
             Zoom = new ZoomEvent();
             Project = new ProjectChange();
             Info = new InfoEvent();
             ButtonStatus = new ButtonStatus();
             Orientation = new OrientEvent();
 
-            Project.Event.Subscribe(proj => Init());
+            initsub = Project.Event.Subscribe(proj => Init());
             try {
                 GdalConfiguration.ConfigureOgr();
             } catch (Exception e) {
@@ -95,19 +106,17 @@ namespace Virgis {
             Gdal.SetConfigOption("CURL_CA_BUNDLE", Path.Combine(Application.streamingAssetsPath, "gdal", "cacert.pem"));
         }
 
+        private void OnDestroy() {
+            initsub.Dispose();
+        }
+
         /// <summary>
         /// Init is called after a project has been fully loaded.
         /// </summary>
         /// 
         /// Call this method everytime a new project has been loaded,
         /// e.g. New Project, Open Project
-        public void Init() {
-            IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
-            if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
-                firstLayer = (IVirgisLayer) _layers[1];
-            firstLayer.SetEditable(true);
-            _editSession.editableLayer = firstLayer;
-        }
+        public void Init() { }
 
         public EditSession editSession {
             get => _editSession;
@@ -167,14 +176,33 @@ namespace Virgis {
             Zoom.Set(project.Scale);
             if (_trans == null)
                 throw new NotSupportedException("transformation failed");
+            projectCrs = new SpatialReference(null);
+            if (project.projectCrs != null) {
+                projectCrs.SetWellKnownGeogCS(project.projectCrs);
+            } else {
+                projectCrs.SetWellKnownGeogCS("EPSG:4326");
+            }
+            string wkt;
+            projectCrs.ExportToWkt(out wkt, null);
+            Debug.Log("Project Crs : " + wkt);
         }
 
-        public List<Component> layers {
+        public List<VirgisLayer> layers {
             get => _layers;
         }
 
-        public void addLayer(Component layer) {
-            _layers.Add(layer);
+        public void addLayer(VirgisLayer layer) {
+            if (! layer.isContainer) {
+                _layers.Add(layer);
+                if (_layers.Count == 1) {
+                    IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
+                    if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
+                        firstLayer = (IVirgisLayer) _layers[1];
+                    firstLayer.SetEditable(true);
+                    _editSession.editableLayer = firstLayer;
+                }
+                Project.Complete();
+            }
         }
 
         public void clearLayers() {
@@ -185,7 +213,7 @@ namespace Virgis {
             get; set;
         }
 
-        public GameObject trackingSpace {
+        public Transform trackingSpace {
             get; set;
         }
 
@@ -195,6 +223,7 @@ namespace Virgis {
 
         public void StartEditSession() {
             _editSession.Start();
+            editScale = 5;
         }
 
         public void StopSaveEditSession() {

@@ -12,12 +12,13 @@ namespace Virgis
 {
 
 
-    public class OgrReader
+    public class OgrReader: IDisposable
     {
         private List<Layer> _layers = new List<Layer>();
         public string fileName;
         private DataSource _datasource;
         private int _update;
+        public List<Feature> features;
 
         public List<Layer> GetLayers()
         {
@@ -25,33 +26,73 @@ namespace Virgis
         }
 
 
-        public async Task Load(string file, int update) {
+        public async Task  Load(string file, int update) {
             fileName = file;
             _update = update;
-            Load();
+            await Load();
         }
 
-        private void Load() {
+        private Task<int> Load() {
             try
             {
-                _datasource = Ogr.Open(fileName, _update);
-                if (_datasource == null)
-                    throw (new FileNotFoundException());
-                for (int i = 0; i < _datasource.GetLayerCount(); i++) 
-                _layers.Add(_datasource.GetLayerByIndex(i));
-                if (_layers.Count == 0)
-                    throw (new NotSupportedException());
+                TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+                Task<int> t1 = tcs1.Task;
+                t1.ConfigureAwait(false);
+
+                // Start a background task that will complete tcs1.Task
+                Task.Factory.StartNew(() =>
+                {
+                    try {
+                        _datasource = Ogr.Open(fileName, _update);
+                        if (_datasource == null)
+                            throw (new FileNotFoundException());
+                        for (int i = 0; i < _datasource.GetLayerCount(); i++)
+                            _layers.Add(_datasource.GetLayerByIndex(i));
+                        if (_layers.Count == 0)
+                            throw (new NotSupportedException());
+                        tcs1.SetResult(1);
+                    } catch (Exception e) {
+                        tcs1.SetException(e);
+                    }
+                });
+                return t1;
             }
             catch (Exception e) 
             {
                 Debug.LogError("Failed to Load" + fileName + " : " + e.ToString());
+                throw e;
             }
         }
 
         public async Task LoadWfs(string url, int update) {
             fileName = "WFS:" + url;
             _update = update;
-            Load();
+            await Load();
+        }
+
+        public Task<int> GetFeaturesAsync(Layer layer) {
+
+            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+            Task<int> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+                try {
+                    layer.ResetReading();
+                    features = new List<Feature>();
+                    Feature f = null;
+                    do {
+                        f = layer.GetNextFeature();
+                        if (f != null)
+                            features.Add(f);
+                    } while (f != null);
+                    tcs1.SetResult(1);
+                } catch (Exception e) {
+                    tcs1.SetException(e);
+                }
+            });
+            return t1;
         }
 
         public static void Flatten(ref wkbGeometryType type) {
@@ -75,21 +116,17 @@ namespace Virgis
         }
 
         public static SpatialReference getSR(Layer layer, RecordSet metadata) {
-            if (metadata.Crs == null) {
-                return layer.GetSpatialRef();
+            if (metadata.Crs == null || metadata.Crs == "") {
+                SpatialReference crs = layer.GetSpatialRef();
+                if (crs != null)
+                    return crs;
+                return AppState.instance.projectCrs;
             }
-            if (metadata.Crs.Contains("epsg:") || metadata.Crs.Contains("EPSG:")) {
-                SpatialReference crs = new SpatialReference(null);
-                string[] parts = metadata.Crs.Split(':');
-                crs.ImportFromEPSG(int.Parse(parts[1]));
-                return crs;
-            }
-            if (metadata.Crs.Contains("proj")) {
-                SpatialReference crs = new SpatialReference(null);
-                crs.ImportFromProj4(metadata.Crs);
-                return crs;
-            }
-            return new SpatialReference(metadata.Crs);
+            return Convert.TextToSR(metadata.Crs);
+        }
+
+        public void Dispose() {
+            _datasource?.Dispose();
         }
     }
 }

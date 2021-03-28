@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using OSGeo.OGR;
-using System.Linq;
 using System;
 
 namespace Virgis {
@@ -19,8 +18,8 @@ namespace Virgis {
         private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
 
 
-        protected override async Task _init() {
-            
+        protected override Task _init() {
+            return Task.CompletedTask;
         }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry) {
@@ -29,7 +28,8 @@ namespace Virgis {
 
 
 
-        protected override void _draw() {
+        protected override Task _draw() {
+            return Task.CompletedTask;
         }
 
 

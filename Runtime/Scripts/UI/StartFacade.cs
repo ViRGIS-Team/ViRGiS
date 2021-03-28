@@ -49,14 +49,14 @@ namespace Virgis {
             };
         }
 
-        public async void onFileSelected(string file) {
+        public void onFileSelected(string file) {
             if (AppState.instance.layers != null)  foreach (VirgisLayer layer in AppState.instance.layers) {
                   Destroy(layer.gameObject);
             }
             AppState.instance.clearLayers();
             Debug.Log("File selected :" + file);
             gameObject.SetActive(false);
-            if (! await AppState.instance.map.GetComponent<MapInitialize>().Load(file)) {
+            if (! AppState.instance.map.GetComponent<MapInitialize>().Load(file)) {
                 gameObject.SetActive(true);
             }
         } 

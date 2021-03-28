@@ -6,7 +6,7 @@ using System;
 
 public class DataMesh : VirgisFeature
 {
-    private bool BlockMove = false; // is entity in a block-move state
+    protected bool BlockMove = false; // is entity in a block-move state
     private DMesh3 mesh;
 
     private Vector3 firstHitPosition = Vector3.zero;

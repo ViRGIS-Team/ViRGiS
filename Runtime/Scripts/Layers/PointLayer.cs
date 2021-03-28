@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using OSGeo.OGR;
 using System.Linq;
-using System.Globalization;
+
 
 namespace Virgis {
 
@@ -29,36 +29,45 @@ namespace Virgis {
         }
 
         protected override async Task _init() {
-            RecordSet layer = _layer as RecordSet;
-            symbology = layer.Properties.Units;
-            displacement = 1.0f;
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
-                Shapes shape = symbology["point"].Shape;
-                switch (shape) {
-                    case Shapes.Spheroid:
-                        PointPrefab = SpherePrefab;
-                        break;
-                    case Shapes.Cuboid:
-                        PointPrefab = CubePrefab;
-                        break;
-                    case Shapes.Cylinder:
-                        PointPrefab = CylinderPrefab;
-                        displacement = 1.5f;
-                        break;
-                    default:
-                        PointPrefab = SpherePrefab;
-                        break;
-                }
-            } else {
-                PointPrefab = SpherePrefab;
-            }
+            await Load();
+        }
 
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            mainMat = Instantiate(BaseMaterial);
-            mainMat.SetColor("_BaseColor", col);
-            selectedMat = Instantiate(BaseMaterial);
-            selectedMat.SetColor("_BaseColor", sel);
+        protected Task<int> Load() {
+            Task<int> t1 = new Task<int>(() => {
+                RecordSet layer = _layer as RecordSet;
+                symbology = layer.Properties.Units;
+                displacement = 1.0f;
+                if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
+                    Shapes shape = symbology["point"].Shape;
+                    switch (shape) {
+                        case Shapes.Spheroid:
+                            PointPrefab = SpherePrefab;
+                            break;
+                        case Shapes.Cuboid:
+                            PointPrefab = CubePrefab;
+                            break;
+                        case Shapes.Cylinder:
+                            PointPrefab = CylinderPrefab;
+                            displacement = 1.5f;
+                            break;
+                        default:
+                            PointPrefab = SpherePrefab;
+                            break;
+                    }
+                } else {
+                    PointPrefab = SpherePrefab;
+                }
+
+                Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
+                Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+                mainMat = Instantiate(BaseMaterial);
+                mainMat.SetColor("_BaseColor", col);
+                selectedMat = Instantiate(BaseMaterial);
+                selectedMat.SetColor("_BaseColor", sel);
+                return 1;
+            });
+            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            return t1;
         }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry) {
@@ -69,37 +78,36 @@ namespace Virgis {
 
 
 
-        protected override void _draw() {
+        protected override async Task _draw() {
             RecordSet layer = GetMetadata();
             if (layer.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
             }
-            features.ResetReading();
-            Feature feature = features.GetNextFeature();
-            while (feature != null) {
-                if (feature == null)
-                    continue;
-                Geometry point = feature.GetGeometryRef();
-                if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
-                    point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
-                    point.GetGeometryType() == wkbGeometryType.wkbPointM ||
-                    point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                        point.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
-                } else if
-                   (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
-                    point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
-                    point.GetGeometryType() == wkbGeometryType.wkbMultiPointM ||
-                    point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
+            SetCrs(OgrReader.getSR(features, layer));
+            using (OgrReader ogrReader = new OgrReader()) {
+                await ogrReader.GetFeaturesAsync(features);
+                foreach (Feature feature in ogrReader.features) {
+                    Geometry point = feature.GetGeometryRef();
+                    wkbGeometryType type = point.GetGeometryType();
+                    string t = type.ToString();
+                    if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
+                        point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
+                        point.GetGeometryType() == wkbGeometryType.wkbPointM ||
+                        point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
+                        point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await _drawFeatureAsync(item, feature));
+                    } else if
+                       (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
+                        point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
+                        point.GetGeometryType() == wkbGeometryType.wkbMultiPointM ||
+                        point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
                         int n = point.GetGeometryCount();
                         for (int j = 0; j < n; j++) {
                             Geometry Point2 = point.GetGeometryRef(j);
-                            string Type = Point2.GetGeometryType().ToString();
-                            Point2.TransformWorld().ToList<Vector3>().ForEach(item => _drawFeature(item, feature));
+                            Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await _drawFeatureAsync(item, feature));
                         }
-                       }
-                feature = features.GetNextFeature();
+                    }
+                }
             }
-
             if (layer.Transform != null) {
                 transform.position = AppState.instance.map.transform.TransformPoint(layer.Transform.Position);
                 transform.rotation = layer.Transform.Rotate;
@@ -145,6 +153,15 @@ namespace Virgis {
             return com;
         }
 
+        protected Task<int> _drawFeatureAsync(Vector3 position, Feature feature = null) {
+            Task<int> t1 = new Task<int>(() => {
+                _drawFeature(position, feature);
+                return 1;
+            });
+            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            return t1;
+        }
+
         protected override void _checkpoint() {
         }
         protected override Task _save() {
@@ -157,7 +174,7 @@ namespace Virgis {
                 Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
                 geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
-                features.SetFeature(feature);
+                features.CreateFeature(feature);
             }
             features.SyncToDisk();
             return Task.CompletedTask;

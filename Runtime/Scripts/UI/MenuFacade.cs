@@ -22,6 +22,8 @@ namespace Virgis {
         public GameObject startMenu;
 
         private AppState _appState;
+        private IDisposable startsub;
+        private IDisposable stopsub;
 
         // Start is called before the first frame update
         void Start() {
@@ -36,8 +38,13 @@ namespace Virgis {
                 stopDiscardEditButton.interactable = false;
             }
 
-            _appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
-            _appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
+            startsub = _appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
+            stopsub = _appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
+        }
+
+        private void OnDestroy() {
+            startsub.Dispose();
+            stopsub.Dispose();
         }
 
         public void Visible(bool thisEvent) {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
@@ -9,8 +10,6 @@ using Newtonsoft.Json;
 
 namespace Virgis
 {
-
-
     public class PointCloudLayer : VirgisLayer<RecordSet, BakedPointCloud>
     {
         // The prefab for the data points to be instantiated
@@ -29,76 +28,79 @@ namespace Virgis
             featureType = FeatureType.POINTCLOUD;
         }
 
-
         protected override async Task _init() {
-            Debug.Log("PC Start");
             RecordSet layer = _layer as RecordSet;
-            List<object> pipe = new List<object>();
-
-            string ex = Path.GetExtension(layer.Source).ToLower();
-            if (ex == ".xyz")
-                pipe.Add(new {
-                    type = "readers.text",
-                    filename = layer.Source,
-                });
-            else
-                pipe.Add(layer.Source);
-
-            if (layer.Properties.Filter != null) {
-                foreach (Dictionary<string, object> item in layer.Properties.Filter)
-                    pipe.Add(item);
-            }
-
-            if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
-                string crs;
-                AppState.instance.mapProj.ExportToProj4(out crs);
-                pipe.Add(new {
-                    type = "filters.reprojection",
-                    in_srs = layer.Crs,
-                    out_srs = crs
-                });
-            }
-
-            pipe.Add(new {
-                type = "filters.projpipeline",
-                coord_op = "+proj=axisswap +order=1,-3,2"
-            });
-
-            if (layer.Properties.ColorInterp != null) {
-                Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
-                ci.Add("type", "filters.colorinterp");
-                pipe.Add(ci);
-            }
-
-
-            string json = JsonConvert.SerializeObject(new {
-                pipeline = pipe.ToArray()
-            });
-
-            Pipeline pipeline = new Pipeline(json);
-            if (pipeline.Valid == false)
-                throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
-            long pointCount = pipeline.Execute();
-            PointViewIterator views = pipeline.Views;
-            if (views != null) {
-                PointView view = views != null ? views.Next : null;
-                if (view != null) {
-                    features = view.GetBakedPointCloud(pointCount);
-                    view.Dispose();
-                }
-                views.Dispose();
-            }
-            pipeline.Dispose();
-
+            await Load(layer);
             symbology = layer.Properties.Units;
-
-            Color col = symbology.ContainsKey("point") ? (Color)symbology["point"].Color : Color.white;
+            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
             Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             mainMat = Instantiate(HandleMaterial);
             mainMat.SetColor("_BaseColor", col);
             selectedMat = Instantiate(HandleMaterial);
             selectedMat.SetColor("_BaseColor", sel);
-            Debug.Log("PC Finish");
+        }
+
+        protected Task<int> Load(RecordSet layer) {
+            Task<int> t1 = new Task<int>(() => {
+                List<object> pipe = new List<object>();
+
+                string ex = Path.GetExtension(layer.Source).ToLower();
+                if (ex == ".xyz")
+                    pipe.Add(new {
+                        type = "readers.text",
+                        filename = layer.Source,
+                    });
+                else
+                    pipe.Add(layer.Source);
+
+                if (layer.Properties.Filter != null) {
+                    foreach (Dictionary<string, object> item in layer.Properties.Filter)
+                        pipe.Add(item);
+                }
+
+                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                    string crs;
+                    AppState.instance.mapProj.ExportToProj4(out crs);
+                    pipe.Add(new {
+                        type = "filters.reprojection",
+                        in_srs = layer.Crs,
+                        out_srs = crs
+                    });
+                }
+
+                if (layer.Properties.ColorInterp != null) {
+                    Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
+                    ci.Add("type", "filters.colorinterp");
+                    pipe.Add(ci);
+                }
+
+                pipe.Add(new {
+                    type = "filters.projpipeline",
+                    coord_op = "+proj=axisswap +order=1,3,2"
+                });
+
+                string json = JsonConvert.SerializeObject(new {
+                    pipeline = pipe.ToArray()
+                });
+
+                Pipeline pipeline = new Pipeline(json);
+                if (pipeline.Valid == false)
+                    throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
+                long pointCount = pipeline.Execute();
+                PointViewIterator views = pipeline.Views;
+                if (views != null) {
+                    PointView view = views != null ? views.Next : null;
+                    if (view != null) {
+                        features = BakedPointCloud.Initialize(view.GetBpcData(pointCount));
+                        view.Dispose();
+                    }
+                    views.Dispose();
+                }
+                pipeline.Dispose();
+                return 1;
+            });
+            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            return t1;
         }
 
         protected override VirgisFeature _addFeature(Vector3[] geometry)
@@ -106,7 +108,7 @@ namespace Virgis
             throw new System.NotImplementedException();
         }
 
-        protected override void _draw()
+        protected override Task _draw()
         {
             RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ?  layer.Position.ToVector3() : Vector3.zero ;
@@ -131,6 +133,7 @@ namespace Virgis
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
             centreHandle.transform.parent = transform;
+            return Task.CompletedTask;
         }
 
         public override void _set_visible() {

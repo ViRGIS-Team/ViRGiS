@@ -8,16 +8,28 @@ public class HudFacade : MonoBehaviour
     public Text HudLeftText;
     public Text HudRightText;
     public Text HudCentreText;
+
+    private IDisposable startsub;
+    private IDisposable stopsub;
+    private IDisposable zoomsub;
+    private IDisposable orientsub;
     
     // Start is called before the first frame update
     void Start()
     {
         AppState appState = AppState.instance;
-        appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
-        appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
-        appState.Zoom.Event.Subscribe(OnZoomChanged);
-        appState.Orientation.Event.Subscribe(onOrientation);
+        startsub = appState.editSession.StartEvent.Subscribe(OnEditSessionStart);
+        stopsub = appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
+        zoomsub = appState.Zoom.Event.Subscribe(OnZoomChanged);
+        orientsub = appState.Orientation.Event.Subscribe(onOrientation);
 
+    }
+
+    private void OnDestroy() {
+        startsub.Dispose();
+        stopsub.Dispose();
+        zoomsub.Dispose();
+        orientsub.Dispose();
     }
 
     public void onOrientation(Vector3 current) {
