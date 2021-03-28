@@ -28,6 +28,13 @@ namespace Virgis {
         public Vector3 lastHitPosition;
         public SpatialReference projectCrs;
         public int editScale;
+        public bool guiActive {
+            get {
+                return lhguiActive || rhguiActive;
+            }
+        }
+        public bool lhguiActive;
+        public bool rhguiActive;
         public OrientEvent Orientation {
             get;
             private set;
@@ -206,7 +213,7 @@ namespace Virgis {
             get; set;
         }
 
-        public GameObject trackingSpace {
+        public Transform trackingSpace {
             get; set;
         }
 

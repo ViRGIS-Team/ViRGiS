@@ -27,22 +27,19 @@ namespace Virgis
             // Start a background task that will complete tcs1.Task
             Task.Factory.StartNew(() => {
 
-                using (StreamReader reader = File.OpenText(filename)) {
-                    OBJReader objReader = new OBJReader();
-                    DMesh3Builder meshBuilder = new DMesh3Builder();
-                    try {
-                        IOReadResult result = objReader.Read(reader, new ReadOptions(), meshBuilder);
-                    } catch (Exception e) when (
-                       e is UnauthorizedAccessException ||
-                       e is DirectoryNotFoundException ||
-                       e is FileNotFoundException ||
-                       e is NotSupportedException
-                       ) {
-                        Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
-                        meshBuilder = new DMesh3Builder();
-                    }
-                    tcs1.SetResult(meshBuilder);
+                DMesh3Builder meshBuilder = new DMesh3Builder();
+                try {
+                    IOReadResult result = StandardMeshReader.ReadFile(filename, new ReadOptions(), meshBuilder);
+                } catch (Exception e) when (
+                    e is UnauthorizedAccessException ||
+                    e is DirectoryNotFoundException ||
+                    e is FileNotFoundException ||
+                    e is NotSupportedException
+                    ) {
+                    Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
+                    meshBuilder = new DMesh3Builder();
                 }
+                tcs1.SetResult(meshBuilder);
             });
             return t1;
         }
@@ -72,9 +69,15 @@ namespace Virgis
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             string ex = Path.GetExtension(layer.Source).ToLower();
-            if (ex == ".obj") {
+            if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
                 features = meshes.Meshes;
+                foreach (DMesh3 mesh in features) {
+                    foreach (int idx in mesh.VertexIndices()) {
+                        Vector3d vtx = mesh.GetVertex(idx);
+                        mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
+                    }
+                }
                 symbology = layer.Properties.Units;
             }
             if (ex == ".dxf") {
@@ -232,8 +235,14 @@ namespace Virgis
             }
             if (ex == ".obj") {
                 List<WriteMesh> wmeshes = new List<WriteMesh>();
-                foreach (DMesh3 dmesh in features)
-                    wmeshes.Add(new WriteMesh(dmesh, ""));
+                foreach (DMesh3 dmesh in features) {
+                    DMesh3 mesh = new DMesh3(dmesh);
+                    foreach (int idx in mesh.VertexIndices()) {
+                        Vector3d vtx = mesh.GetVertex(idx);
+                        mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
+                    }
+                    wmeshes.Add(new WriteMesh(mesh, ""));
+                }
                 saveObj(layer.Source, wmeshes);
             }
             if (ex == ".dxf") {

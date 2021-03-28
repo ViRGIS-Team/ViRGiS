@@ -129,8 +129,10 @@ namespace Virgis
             Dictionary<string, object> meta = feature.GetAll();
             Geometry geom = (gameObject.transform.position.ToGeometry());
             string wkt;
-            GetLayer().GetCrs().ExportToWkt(out wkt, null);
-            geom.TransformTo(GetLayer().GetCrs());
+            try {
+                GetLayer().GetCrs().ExportToWkt(out wkt, null);
+                geom.TransformTo(GetLayer().GetCrs());
+            } catch { }
             double[] coords = new double[3];
             geom.GetPoint(0, coords);
             meta.Add("X Coordinate", coords[0].ToString());

@@ -679,18 +679,4 @@ namespace Virgis {
             }
         }
     }
-
-    public static class DatasourceExtension {
-        public static Task<MdalMesh> GetMeshAsync(this Datasource ds,  int index) {
-            TaskCompletionSource<MdalMesh> tcs1 = new TaskCompletionSource<MdalMesh>();
-            Task<MdalMesh> t1 = tcs1.Task;
-            t1.ConfigureAwait(false);
-
-            // Start a background task that will complete tcs1.Task
-            Task.Factory.StartNew(() => {
-                tcs1.SetResult(ds.GetMesh(index));
-            });
-            return t1;
-        }
-    } 
 }

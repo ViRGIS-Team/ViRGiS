@@ -68,17 +68,16 @@ namespace Virgis
                     });
                 }
 
-                pipe.Add(new {
-                    type = "filters.projpipeline",
-                    coord_op = "+proj=axisswap +order=1,-3,2"
-                });
-
                 if (layer.Properties.ColorInterp != null) {
                     Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
                     ci.Add("type", "filters.colorinterp");
                     pipe.Add(ci);
                 }
 
+                pipe.Add(new {
+                    type = "filters.projpipeline",
+                    coord_op = "+proj=axisswap +order=1,3,2"
+                });
 
                 string json = JsonConvert.SerializeObject(new {
                     pipeline = pipe.ToArray()
@@ -92,7 +91,7 @@ namespace Virgis
                 if (views != null) {
                     PointView view = views != null ? views.Next : null;
                     if (view != null) {
-                        features = view.GetBakedPointCloud(pointCount);
+                        features = BakedPointCloud.Initialize(view.GetBpcData(pointCount));
                         view.Dispose();
                     }
                     views.Dispose();

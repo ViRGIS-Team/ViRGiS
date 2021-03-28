@@ -109,7 +109,7 @@ namespace Virgis
                 if (views != null) {
                     PointView view = views != null ? views.Next : null;
                     if (view != null) {
-                        features = view.GetBakedPointCloud(pointCount);
+                        features = BakedPointCloud.Initialize(view.GetBpcData(pointCount));
                         view.Dispose();
                     }
                     views.Dispose();

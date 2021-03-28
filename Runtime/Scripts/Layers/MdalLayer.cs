@@ -14,7 +14,7 @@ namespace Virgis
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             symbology = layer.Properties.Units;
-            Datasource ds = new Datasource(layer.Source);
+            Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
                 DMesh3 mesh = await ds.GetMeshAsync(i);

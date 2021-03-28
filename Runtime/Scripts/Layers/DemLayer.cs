@@ -163,7 +163,7 @@ namespace Virgis
                     ds = new Datasource(Path.ChangeExtension(layer.Source, "tmp"));
                 } else {
                     // for MDAL files - load the mesh directly
-                    ds = new Datasource(layer.Source);
+                    ds = Datasource.Load(layer.Source);
                 }
 
                 // Get the mesh()es
