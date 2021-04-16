@@ -28,6 +28,7 @@ namespace Virgis {
         public Vector3 lastHitPosition;
         public SpatialReference projectCrs;
         public int editScale;
+        public int currentView;
         public bool guiActive {
             get {
                 return lhguiActive || rhguiActive;
@@ -63,7 +64,11 @@ namespace Virgis {
             private set;
         }
 
-        void Awake() {
+        protected void Start() {
+            
+        }
+
+        protected void Awake() {
             Debug.Log("AppState awakens");
             if (instance == null) {
                 Debug.Log("AppState instance assigned");
@@ -116,7 +121,7 @@ namespace Virgis {
         /// 
         /// Call this method everytime a new project has been loaded,
         /// e.g. New Project, Open Project
-        public void Init() { }
+        public virtual void Init() { }
 
         public EditSession editSession {
             get => _editSession;
@@ -173,7 +178,6 @@ namespace Virgis {
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
             op.SetOperation("+proj=axisswap +order=1,3,2");
             _trans = new CoordinateTransformation(_crs, _crs, op);
-            Zoom.Set(project.Scale);
             if (_trans == null)
                 throw new NotSupportedException("transformation failed");
             projectCrs = new SpatialReference(null);
