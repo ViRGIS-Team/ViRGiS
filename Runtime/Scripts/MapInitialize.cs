@@ -2,10 +2,10 @@
 using GeoJSON.Net.Geometry;
 using Project;
 using System.Collections.Generic;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
+using UniRx;
 
 namespace Virgis
 {
