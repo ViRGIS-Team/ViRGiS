@@ -1,8 +1,6 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using GeoJSON.Net.Geometry;
 using Project;
 using System.Collections.Generic;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using System;
@@ -93,12 +91,17 @@ namespace Virgis
                 Debug.LogError($"Project File {file} failed");
                 return false;
             }
-
+            onLoad();
             //set globals
             appState.Project.Complete();
             Debug.Log("Completed load Project File");
             return true;
         }
+
+        /// <summary>
+        /// Override this call to add functionality after the Project has loaded
+        /// </summary>
+        public abstract void onLoad();
 
         /// <summary>
         /// override this call in the consuming project to process the individual layers.
@@ -165,8 +168,8 @@ namespace Virgis
                             appState.project.RecordSets[index] = alayer;
                         }
                     }
-                    appState.project.Scale = appState.Zoom.Get();
-                    appState.project.Cameras = new List<Point>() { appState.mainCamera.transform.position.ToPoint() };
+                    appState.project.Scale[appState.currentView] = appState.Zoom.Get();
+                    appState.project.Cameras[appState.currentView] = appState.mainCamera.transform.position.ToPoint();
                     projectJsonReader.SetProject(appState.project);
                     await projectJsonReader.Save();
                 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
@@ -9,8 +8,6 @@ using Newtonsoft.Json;
 
 namespace Virgis
 {
-
-
     public class RasterLayer : VirgisLayer<RecordSet, BakedPointCloud>
     {
         // The prefab for the data points to be instantiated
@@ -42,14 +39,31 @@ namespace Virgis
             selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected Task<int> Load(RecordSet layer) {
+        protected async Task Load(RecordSet layer) {
+            (long, Pipeline) result = await LoadAsync(layer);
+            long pointCount= result.Item1;
+            Pipeline pipeline = result.Item2;
+            PointViewIterator views = pipeline.Views;
+            if (views != null) {
+                PointView view = views != null ? views.Next : null;
+                if (view != null) {
+                    features = BakedPointCloud.Initialize(view.GetBpcData(pointCount));
+                    view.Dispose();
+                }
+                views.Dispose();
+            }
+            pipeline.Dispose();
+        }
 
-            Task<int> t1 = new Task<int>(() => {
+
+        protected Task<(long, Pipeline)> LoadAsync(RecordSet layer) {
+
+            Task<(long, Pipeline)> t1 = new Task<(long, Pipeline)>(() => {
                 List<object> pipe = new List<object>();
                 pipe.Add(new {
                     type = "readers.gdal",
                     filename = layer.Source,
-                    header = "m"
+                    header = layer.Properties.headerString
                 });
 
                 if (layer.Properties.Filter != null) {
@@ -88,7 +102,7 @@ namespace Virgis
                     coord_op = "+proj=axisswap +order=1,-3,2"
                 });
 
-                if (layer.Properties.ColorInterp != null) {
+                if (layer.Properties.ColorMode == ColorMode.SinglebandColor && layer.Properties.ColorInterp != null) {
                     Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
                     ci.Add("type", "filters.colorinterp");
                     pipe.Add(ci);
@@ -105,19 +119,9 @@ namespace Virgis
                     throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
                 }
                 long pointCount = pipeline.Execute();
-                PointViewIterator views = pipeline.Views;
-                if (views != null) {
-                    PointView view = views != null ? views.Next : null;
-                    if (view != null) {
-                        features = BakedPointCloud.Initialize(view.GetBpcData(pointCount));
-                        view.Dispose();
-                    }
-                    views.Dispose();
-                }
-                pipeline.Dispose();
-                return 1;
+                return (pointCount, pipeline);
             });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            t1.Start();
             return t1;
         }
 
