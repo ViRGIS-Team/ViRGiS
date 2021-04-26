@@ -2,7 +2,6 @@
 
 using Project;
 using System.Collections.Generic;
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +37,6 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
         private Material bodyMain;
-        private Material bodySelected;
 
         private void Start() {
             featureType = FeatureType.POLYGON;
@@ -100,7 +98,6 @@ namespace Virgis
                 Color line = symbology.ContainsKey("line") ? (Color) symbology["line"].Color : Color.white;
                 Color lineSel = symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
                 Color body = symbology.ContainsKey("body") ? (Color) symbology["body"].Color : Color.white;
-                Color bodySel = symbology.ContainsKey("body") ? new Color(1 - body.r, 1 - body.g, 1 - body.b, body.a) : Color.red;
                 mainMat = Instantiate(PointBaseMaterial);
                 mainMat.SetColor("_BaseColor", col);
                 selectedMat = Instantiate(PointBaseMaterial);
@@ -174,8 +171,8 @@ namespace Virgis
         {
             Geometry center = poly.Centroid();
             center.AssignSpatialReference(poly.GetSpatialReference());
-            string crs;
-                center.GetSpatialReference().ExportToWkt(out crs, null);
+
+
             //Create the GameObjects
             GameObject dataPoly = Instantiate(PolygonPrefab, center.TransformWorld()[0], Quaternion.identity, transform);
 

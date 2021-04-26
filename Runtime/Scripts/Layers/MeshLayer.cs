@@ -129,11 +129,8 @@ namespace Virgis
                     // if netDXF fails - try opening in GDAL that can open AutoCAD 2 file
                     //
                     using (OgrReader ogrReader = new OgrReader()) {
-                        if (layer.Properties.SourceType == SourceType.WFS) {
-                            await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
-                        } else {
-                            await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
-                        }
+                        await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1,  layer.Properties.SourceType);
+
                         entities = ogrReader.GetLayers()[0];
                         SetCrs(OgrReader.getSR(entities, layer));
                         RecordSet metadata = GetMetadata();
