@@ -14,6 +14,7 @@ namespace Virgis {
         public GameObject PointLayer;
         public GameObject LineLayer;
         public GameObject PolygonLayer;
+        public GameObject TinLayer;
 
         // used to read the GeoJSON file for this layer
         private OgrReader ogrReader;
@@ -29,13 +30,16 @@ namespace Virgis {
         }
 
         protected override async Task _init() {
+            //
+            // Load Dataset
+            //
             RecordSet layer = _layer as RecordSet;
             ogrReader = new OgrReader();
-            if (layer.Properties.SourceType == SourceType.WFS) {
-                await ogrReader.LoadWfs(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
-            } else {
-                await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1);
-            }
+            await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1, layer.Properties.SourceType);
+
+            //
+            // Get and process features
+            //
             features = ogrReader.GetLayers().ToArray();
             foreach (Layer thisLayer in features) {
                 wkbGeometryType type = thisLayer.GetGeomType();
@@ -59,6 +63,15 @@ namespace Virgis {
                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         await _layers.Last().Init(layer);
                         break;
+                    case wkbGeometryType.wkbTIN:
+                        _layers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
+                        _layers.Last().SetFeatures(thisLayer);
+                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        await _layers.Last().Init(layer);
+                        break;
+                    //
+                    // If feature type is unknown, process each feature seperately
+                    //
                     case wkbGeometryType.wkbUnknown:
                         RecordSet metadata = GetMetadata();
                         if (metadata.Properties.BBox != null) {
@@ -112,6 +125,20 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         _layers.Add( Instantiate(PointLayer, transform).GetComponent<PointLayer>());
+                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        _layers.Last().SetFeatures(thisLayer);
+                                        await _layers.Last().Init(layer);
+                                    }
+                                    break;
+                                case wkbGeometryType.wkbTIN:
+                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
+                                        if (l.GetType() == typeof(TinLayer)) {
+                                            layerToAdd = l;
+                                            break;
+                                        }
+                                    }
+                                    if (layerToAdd == null) {
+                                        _layers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
                                         _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         _layers.Last().SetFeatures(thisLayer);
                                         await _layers.Last().Init(layer);

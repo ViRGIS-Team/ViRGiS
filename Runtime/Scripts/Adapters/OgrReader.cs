@@ -1,15 +1,14 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
-using UnityEngine;
-using System.IO;
-using System.Threading.Tasks;
+using OSGeo.OGR;
+using Project;
 using System;
 using System.Collections.Generic;
-using OSGeo.OGR;
+using System.IO;
+using System.Threading.Tasks;
+using UnityEngine;
 using SpatialReference = OSGeo.OSR.SpatialReference;
-using Project;
 
-namespace Virgis
-{
+namespace Virgis {
 
 
     public class OgrReader: IDisposable
@@ -26,8 +25,14 @@ namespace Virgis
         }
 
 
-        public async Task  Load(string file, int update) {
-            fileName = file;
+        public async Task  Load(string source, int update, SourceType type) {
+            if (type == SourceType.File) {
+                fileName = source;
+            } else if (type.ToString().Contains("vsi")) {
+                fileName = $"\\{type}\\{source}";
+            } else {
+                fileName = $"{type}:{source}";
+            }
             _update = update;
             await Load();
         }
@@ -62,12 +67,6 @@ namespace Virgis
                 Debug.LogError("Failed to Load" + fileName + " : " + e.ToString());
                 throw e;
             }
-        }
-
-        public async Task LoadWfs(string url, int update) {
-            fileName = "WFS:" + url;
-            _update = update;
-            await Load();
         }
 
         public Task<int> GetFeaturesAsync(Layer layer) {

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using Virgis;
 using System;
+using UniRx;
 
 public class HudFacade : MonoBehaviour
 {

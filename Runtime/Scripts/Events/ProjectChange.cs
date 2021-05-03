@@ -1,5 +1,4 @@
-﻿using System.Reactive.Subjects;
-using System.Reactive.Linq;
+﻿using UniRx;
 using System;
 using Project;
 

@@ -3,6 +3,7 @@ using UnityEngine;
 using Project;
 using g3;
 using System;
+using UniRx;
 
 namespace Virgis
 {
@@ -15,7 +16,7 @@ namespace Virgis
         public Material WireframeMaterial;
 
         protected List<Transform> meshes;
-        protected Dictionary<string, Unit> symbology;
+        protected Dictionary<string, Project.Unit> symbology;
 
         private IDisposable startsub;
         private IDisposable stopsub;

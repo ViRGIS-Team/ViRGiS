@@ -359,7 +359,7 @@ namespace Virgis {
         /// The DMesh3 must be compact. If neccesary - run Compactify first.
         /// </summary>
         /// <param name="mesh">Dmesh3</param>
-        /// <param name="project"> Should the mesh be projected into virgi projection DEFAULT true</param>
+        /// <param name="project"> Should the mesh be projected into virgis projection DEFAULT true</param>
         /// <returns>UnityEngine.Mesh</returns>
         public static Mesh ToMesh(this DMesh3 mesh, Boolean project = true) {
             Mesh unityMesh = new Mesh();

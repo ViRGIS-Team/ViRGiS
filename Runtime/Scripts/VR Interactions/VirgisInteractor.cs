@@ -51,7 +51,7 @@ namespace Virgis
             }
         }
 
-        private void Start() {
+        private new void Start() {
             base.Start();
             appState = AppState.instance;
             m_ControllerNode = GetComponent<VirgisUIController>().controllerNode;
