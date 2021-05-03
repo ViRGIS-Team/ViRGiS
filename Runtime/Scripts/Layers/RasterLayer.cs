@@ -41,13 +41,12 @@ namespace Virgis
 
         protected async Task Load(RecordSet layer) {
             (long, Pipeline) result = await LoadAsync(layer);
-            long pointCount= result.Item1;
             Pipeline pipeline = result.Item2;
             PointViewIterator views = pipeline.Views;
             if (views != null) {
                 PointView view = views != null ? views.Next : null;
                 if (view != null) {
-                    features = BakedPointCloud.Initialize(view.GetBpcData(pointCount));
+                    features = BakedPointCloud.Initialize(view.GetBpcData());
                     view.Dispose();
                 }
                 views.Dispose();

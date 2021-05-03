@@ -34,6 +34,7 @@ namespace Virgis
                 string proj = null;
                 double scalingFactor = 0;
                 string headerString;
+                features = new List<DMesh3>();
 
                 // Determine the DAL to be used to load the data.
                 // GDAL data is loaded throu PDAL to get a mesh - but the pipeline is radically different
@@ -133,6 +134,7 @@ namespace Virgis
                     if (layer.Properties.ColorInterp != null) {
                         Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
                         ci.Add("type", "filters.colorinterp");
+                        ci["dimension"] = "Z";
                         pipe.Add(ci);
                     }
 
@@ -140,14 +142,6 @@ namespace Virgis
                     pipe.Add(new {
                         type = "filters.delaunay"
                     });
-
-                    pipe.Add(new {
-                        type = "writers.ply",
-                        filename = Path.ChangeExtension(layer.Source, "tmp"),
-                        faces = true
-                    });
-
-
 
                     // serialize the pipeline to json
                     string json = JsonConvert.SerializeObject(new {
@@ -159,34 +153,48 @@ namespace Virgis
                     // create and run the piplene
                     Pipeline pipeline = new Pipeline(json);
                     long pointCount = pipeline.Execute();
+                    using (PointViewIterator views = pipeline.Views) {
+                        views.Reset();
+                        while (views.HasNext()) {
+                            PointView view = views.Next;
+                            if (view != null) {
+                                DMesh3 mesh = view.getMesh();
+                                mesh.RemoveMetadata("properties");  
+                                // set the CRS based on what is known
+                                if (proj != null) {
+                                    mesh.RemoveMetadata("CRS");
+                                    mesh.AttachMetadata("CRS", proj);
+                                }
+                                if (layer.ContainsKey("Crs") && layer.Crs != null) {
+                                    mesh.RemoveMetadata("CRS");
+                                    mesh.AttachMetadata("CRS", layer.Crs);
+                                };
+                                features.Add(mesh);
+                            }
+                        }
+                    }
                     pipeline.Dispose();
-                    ds = new Datasource(Path.ChangeExtension(layer.Source, "tmp"));
                 } else {
                     // for MDAL files - load the mesh directly
                     ds = Datasource.Load(layer.Source);
-                }
 
-                // Get the mesh()es
-                features = new List<DMesh3>();
-                for (int i = 0; i < ds.meshes.Length; i++) {
-                    DMesh3 mesh = ds.GetMesh(i);
-                    mesh.RemoveMetadata("properties");
-                    mesh.AttachMetadata("properties", new Dictionary<string, object>{
-                    { "Name", ds.meshes[i] }
-                });
-                    // set the CRS based on what is known
-                    if (proj != null) {
-                        mesh.RemoveMetadata("CRS");
-                        mesh.AttachMetadata("CRS", proj);
+                    for (int i = 0; i < ds.meshes.Length; i++) {
+                        DMesh3 mesh = ds.GetMesh(i);
+                        mesh.RemoveMetadata("properties");
+                        mesh.AttachMetadata("properties", new Dictionary<string, object>{
+                        { "Name", ds.meshes[i] }
+                    });
+                        // set the CRS based on what is known
+                        if (proj != null) {
+                            mesh.RemoveMetadata("CRS");
+                            mesh.AttachMetadata("CRS", proj);
+                        }
+                        if (layer.ContainsKey("Crs") && layer.Crs != null) {
+                            mesh.RemoveMetadata("CRS");
+                            mesh.AttachMetadata("CRS", layer.Crs);
+                        };
+                        features.Add(mesh);
                     }
-                    if (layer.ContainsKey("Crs") && layer.Crs != null) {
-                        mesh.RemoveMetadata("CRS");
-                        mesh.AttachMetadata("CRS", layer.Crs);
-                    };
-                    features.Add(mesh);
-                }
-                if (sourcetype != "mdal") {
-                    File.Delete(Path.ChangeExtension(layer.Source, "tmp"));
                 }
                 tcs1.SetResult(1);
             });
