@@ -104,7 +104,7 @@ namespace Virgis {
                 Debug.LogError(e.ToString());
             };
             try {
-                MdalConfiguration.ConfigureMdal();
+                Debug.Log($" MDAL Version : {MdalConfiguration.ConfigureMdal()}");
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
             }
