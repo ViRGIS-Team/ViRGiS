@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RasterLayer
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -104,12 +104,6 @@
       <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_features">VirgisLayer&lt;RecordSet, BakedPointCloud&gt;.features</a>
     </div>
     <div>
-      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_Init__0_">VirgisLayer&lt;RecordSet, BakedPointCloud&gt;.Init(RecordSet)</a>
-    </div>
-    <div>
-      <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2__init">VirgisLayer&lt;RecordSet, BakedPointCloud&gt;._init()</a>
-    </div>
-    <div>
       <a class="xref" href="Virgis.VirgisLayer-2.html#Virgis_VirgisLayer_2_GetMetadata">VirgisLayer&lt;RecordSet, BakedPointCloud&gt;.GetMetadata()</a>
     </div>
     <div>
@@ -137,6 +131,9 @@
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_changed">VirgisLayer.changed</a>
     </div>
     <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_isContainer">VirgisLayer.isContainer</a>
+    </div>
+    <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__id">VirgisLayer._id</a>
     </div>
     <div>
@@ -144,6 +141,9 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__crs">VirgisLayer._crs</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Init_RecordSet_">VirgisLayer.Init(RecordSet)</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_AddFeature_Vector3___">VirgisLayer.AddFeature(Vector3[])</a>
@@ -195,6 +195,9 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_SetEditable_System_Boolean_">VirgisLayer.SetEditable(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__set_editable">VirgisLayer._set_editable()</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_IsEditable">VirgisLayer.IsEditable()</a>
@@ -388,8 +391,23 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void _draw()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task _draw()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__draw">VirgisLayer._draw()</a></div>
   
@@ -418,7 +436,7 @@
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Virgis.VirgisLayer&lt;RecordSet, BakedPointCloud&gt;._init()</span></div>
+  <div><a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__init">VirgisLayer._init()</a></div>
   
   
   <a id="Virgis_RasterLayer__save_" data-uid="Virgis.RasterLayer._save*"></a>
@@ -458,6 +476,90 @@
   </div>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__set_visible">VirgisLayer._set_visible()</a></div>
+  
+  
+  <a id="Virgis_RasterLayer_Load_" data-uid="Virgis.RasterLayer.Load*"></a>
+  <h4 id="Virgis_RasterLayer_Load_RecordSet_" data-uid="Virgis.RasterLayer.Load(RecordSet)">Load(RecordSet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task Load(RecordSet layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RecordSet</span></td>
+        <td><span class="parametername">layer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_RasterLayer_LoadAsync_" data-uid="Virgis.RasterLayer.LoadAsync*"></a>
+  <h4 id="Virgis_RasterLayer_LoadAsync_RecordSet_" data-uid="Virgis.RasterLayer.LoadAsync(RecordSet)">LoadAsync(RecordSet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;(long, Pipeline)&gt; LoadAsync(RecordSet layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">RecordSet</span></td>
+        <td><span class="parametername">layer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int64">Int64</a>, <span class="xref">Pipeline</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="Virgis_RasterLayer_MoveAxis_" data-uid="Virgis.RasterLayer.MoveAxis*"></a>

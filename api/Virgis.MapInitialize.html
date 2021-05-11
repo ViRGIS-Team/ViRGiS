@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MapInitialize
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -111,6 +111,9 @@
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_changed">VirgisLayer.changed</a>
     </div>
     <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_isContainer">VirgisLayer.isContainer</a>
+    </div>
+    <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__id">VirgisLayer._id</a>
     </div>
     <div>
@@ -118,6 +121,9 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__crs">VirgisLayer._crs</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Init_RecordSet_">VirgisLayer.Init(RecordSet)</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_AddFeature_Vector3___">VirgisLayer.AddFeature(Vector3[])</a>
@@ -175,6 +181,9 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_SetEditable_System_Boolean_">VirgisLayer.SetEditable(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__set_editable">VirgisLayer._set_editable()</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_IsEditable">VirgisLayer.IsEditable()</a>
@@ -296,10 +305,52 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void _draw()</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Task _draw()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__draw">VirgisLayer._draw()</a></div>
+  
+  
+  <a id="Virgis_MapInitialize__init_" data-uid="Virgis.MapInitialize._init*"></a>
+  <h4 id="Virgis_MapInitialize__init" data-uid="Virgis.MapInitialize._init">_init()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task _init()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__init">VirgisLayer._init()</a></div>
   
   
   <a id="Virgis_MapInitialize__onExitEditSession_" data-uid="Virgis.MapInitialize._onExitEditSession*"></a>
@@ -412,13 +463,26 @@
   </table>
   
   
-  <a id="Virgis_MapInitialize_createLayer_" data-uid="Virgis.MapInitialize.createLayer*"></a>
-  <h4 id="Virgis_MapInitialize_createLayer_RecordSet_" data-uid="Virgis.MapInitialize.createLayer(RecordSet)">createLayer(RecordSet)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Virgis_MapInitialize_Awake_" data-uid="Virgis.MapInitialize.Awake*"></a>
+  <h4 id="Virgis_MapInitialize_Awake" data-uid="Virgis.MapInitialize.Awake">Awake()</h4>
+  <div class="markdown level1 summary"><p>Instantiates all singletons.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Task&lt;VirgisLayer&gt; createLayer(RecordSet thisLayer)</code></pre>
+    <pre><code class="lang-csharp hljs">protected void Awake()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_MapInitialize_createLayer_" data-uid="Virgis.MapInitialize.createLayer*"></a>
+  <h4 id="Virgis_MapInitialize_createLayer_RecordSet_" data-uid="Virgis.MapInitialize.createLayer(RecordSet)">createLayer(RecordSet)</h4>
+  <div class="markdown level1 summary"><p>override this call in the consuming project to process the individual layers.
+This allows the consuming project to define the layer types</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract VirgisLayer createLayer(RecordSet thisLayer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -433,7 +497,8 @@
       <tr>
         <td><span class="xref">RecordSet</span></td>
         <td><span class="parametername">thisLayer</span></td>
-        <td></td>
+        <td><p>the lkayer that ws pulled from the project file</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -447,7 +512,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Virgis.VirgisLayer.html">VirgisLayer</a>&gt;</td>
+        <td><a class="xref" href="Virgis.VirgisLayer.html">VirgisLayer</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -487,7 +552,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; Load(string file)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Load(string file)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -516,16 +581,38 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
+  <a id="Virgis_MapInitialize_OnDestroy_" data-uid="Virgis.MapInitialize.OnDestroy*"></a>
+  <h4 id="Virgis_MapInitialize_OnDestroy" data-uid="Virgis.MapInitialize.OnDestroy">OnDestroy()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void OnDestroy()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_MapInitialize_onLoad_" data-uid="Virgis.MapInitialize.onLoad*"></a>
+  <h4 id="Virgis_MapInitialize_onLoad" data-uid="Virgis.MapInitialize.onLoad">onLoad()</h4>
+  <div class="markdown level1 summary"><p>Override this call to add functionality after the Project has loaded</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void onLoad()</code></pre>
+  </div>
+  
+  
   <a id="Virgis_MapInitialize_Save_" data-uid="Virgis.MapInitialize.Save*"></a>
   <h4 id="Virgis_MapInitialize_Save_System_Boolean_" data-uid="Virgis.MapInitialize.Save(System.Boolean)">Save(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>this call initiates the saving of the whole project and calls <code>Save</code> on each layer in turn</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -563,6 +650,26 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Virgis_MapInitialize_Start_" data-uid="Virgis.MapInitialize.Start*"></a>
+  <h4 id="Virgis_MapInitialize_Start" data-uid="Virgis.MapInitialize.Start">Start()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Start()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_MapInitialize_Update_" data-uid="Virgis.MapInitialize.Update*"></a>
+  <h4 id="Virgis_MapInitialize_Update" data-uid="Virgis.MapInitialize.Update">Update()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Update()</code></pre>
+  </div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a>

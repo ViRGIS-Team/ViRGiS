@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class VirgisLayer&lt;T, S&gt;
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -91,16 +91,15 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="Virgis.VirgisLayer.html">VirgisLayer</a></div>
     <div class="level2"><span class="xref">VirgisLayer&lt;T, S&gt;</span></div>
-      <div class="level3"><a class="xref" href="Virgis.DemLayer.html">DemLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.GraphLayer.html">GraphLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.LineLayer.html">LineLayer</a></div>
-      <div class="level3"><a class="xref" href="Virgis.MdalLayer.html">MdalLayer</a></div>
-      <div class="level3"><a class="xref" href="Virgis.MeshLayer.html">MeshLayer</a></div>
+      <div class="level3"><a class="xref" href="Virgis.MeshlayerProtoype.html">MeshlayerProtoype</a></div>
       <div class="level3"><a class="xref" href="Virgis.OgrLayer.html">OgrLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.PointCloudLayer.html">PointCloudLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.PointLayer.html">PointLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.PolygonLayer.html">PolygonLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.RasterLayer.html">RasterLayer</a></div>
+      <div class="level3"><a class="xref" href="Virgis.TinLayer.html">TinLayer</a></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -119,6 +118,9 @@
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_changed">VirgisLayer.changed</a>
     </div>
     <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_isContainer">VirgisLayer.isContainer</a>
+    </div>
+    <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__id">VirgisLayer._id</a>
     </div>
     <div>
@@ -126,6 +128,12 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__crs">VirgisLayer._crs</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Init_RecordSet_">VirgisLayer.Init(RecordSet)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__init">VirgisLayer._init()</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_AddFeature_Vector3___">VirgisLayer.AddFeature(Vector3[])</a>
@@ -197,6 +205,9 @@
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_SetEditable_System_Boolean_">VirgisLayer.SetEditable(Boolean)</a>
     </div>
     <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__set_editable">VirgisLayer._set_editable()</a>
+    </div>
+    <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_IsEditable">VirgisLayer.IsEditable()</a>
     </div>
     <div>
@@ -265,32 +276,6 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  
-  <a id="Virgis_VirgisLayer_2__init_" data-uid="Virgis.VirgisLayer`2._init*"></a>
-  <h4 id="Virgis_VirgisLayer_2__init" data-uid="Virgis.VirgisLayer`2._init">_init()</h4>
-  <div class="markdown level1 summary"><p>Implement the layer specific init code in this method</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract Task _init()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   
   
   <a id="Virgis_VirgisLayer_2_Equals_" data-uid="Virgis.VirgisLayer`2.Equals*"></a>
@@ -427,52 +412,6 @@
       <tr>
         <td><span class="xref">T</span></td>
         <td><p>RecordSet Layer Metatdata</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Virgis_VirgisLayer_2_Init_" data-uid="Virgis.VirgisLayer`2.Init*"></a>
-  <h4 id="Virgis_VirgisLayer_2_Init__0_" data-uid="Virgis.VirgisLayer`2.Init(`0)">Init(T)</h4>
-  <div class="markdown level1 summary"><p>Called to initialise this layer</p>
-<p>If the data cannot be read, fails quitely and creates an empty layer</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;VirgisLayer&lt;T, S&gt;&gt; Init(T layer)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">layer</span></td>
-        <td><p>The RecordSet object that defines this layer</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Virgis.VirgisLayer-2.html">VirgisLayer</a>&lt;T, S&gt;&gt;</td>
-        <td><p>refernce to this GameObject for chaining</p>
 </td>
       </tr>
     </tbody>

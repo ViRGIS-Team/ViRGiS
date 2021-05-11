@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class OgrReader
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -91,6 +91,10 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">OgrReader</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -119,10 +123,34 @@
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="Virgis_OgrReader_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OgrReader</code></pre>
+    <pre><code class="lang-csharp hljs">public class OgrReader : IDisposable</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
+  
+  
+  <h4 id="Virgis_OgrReader_features" data-uid="Virgis.OgrReader.features">features</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Feature&gt; features</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">Feature</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <h4 id="Virgis_OgrReader_fileName" data-uid="Virgis.OgrReader.fileName">fileName</h4>
@@ -151,6 +179,16 @@
   </h3>
   
   
+  <a id="Virgis_OgrReader_Dispose_" data-uid="Virgis.OgrReader.Dispose*"></a>
+  <h4 id="Virgis_OgrReader_Dispose" data-uid="Virgis.OgrReader.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  
+  
   <a id="Virgis_OgrReader_Flatten_" data-uid="Virgis.OgrReader.Flatten*"></a>
   <h4 id="Virgis_OgrReader_Flatten_wkbGeometryType__" data-uid="Virgis.OgrReader.Flatten(wkbGeometryType@)">Flatten(ref wkbGeometryType)</h4>
   <div class="markdown level1 summary"></div>
@@ -172,6 +210,48 @@
       <tr>
         <td><span class="xref">wkbGeometryType</span></td>
         <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_OgrReader_GetFeaturesAsync_" data-uid="Virgis.OgrReader.GetFeaturesAsync*"></a>
+  <h4 id="Virgis_OgrReader_GetFeaturesAsync_Layer_" data-uid="Virgis.OgrReader.GetFeaturesAsync(Layer)">GetFeaturesAsync(Layer)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; GetFeaturesAsync(Layer layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Layer</span></td>
+        <td><span class="parametername">layer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -251,12 +331,12 @@
   
   
   <a id="Virgis_OgrReader_Load_" data-uid="Virgis.OgrReader.Load*"></a>
-  <h4 id="Virgis_OgrReader_Load_System_String_System_Int32_" data-uid="Virgis.OgrReader.Load(System.String,System.Int32)">Load(String, Int32)</h4>
+  <h4 id="Virgis_OgrReader_Load_System_String_System_Int32_SourceType_" data-uid="Virgis.OgrReader.Load(System.String,System.Int32,SourceType)">Load(String, Int32, SourceType)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Load(string file, int update)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task Load(string source, int update, SourceType type)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -270,12 +350,17 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">file</span></td>
+        <td><span class="parametername">source</span></td>
         <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">update</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">SourceType</span></td>
+        <td><span class="parametername">type</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -295,53 +380,10 @@
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Virgis_OgrReader_LoadWfs_" data-uid="Virgis.OgrReader.LoadWfs*"></a>
-  <h4 id="Virgis_OgrReader_LoadWfs_System_String_System_Int32_" data-uid="Virgis.OgrReader.LoadWfs(System.String,System.Int32)">LoadWfs(String, Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task LoadWfs(string url, int update)</code></pre>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">url</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">update</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 </article>
           </div>
           

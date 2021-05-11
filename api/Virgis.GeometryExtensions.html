@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class GeometryExtensions
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -127,13 +127,13 @@
   
   
   <a id="Virgis_GeometryExtensions_TransformWorld_" data-uid="Virgis.GeometryExtensions.TransformWorld*"></a>
-  <h4 id="Virgis_GeometryExtensions_TransformWorld_Geometry_" data-uid="Virgis.GeometryExtensions.TransformWorld(Geometry)">TransformWorld(Geometry)</h4>
+  <h4 id="Virgis_GeometryExtensions_TransformWorld_Geometry_SpatialReference_" data-uid="Virgis.GeometryExtensions.TransformWorld(Geometry,SpatialReference)">TransformWorld(Geometry, SpatialReference)</h4>
   <div class="markdown level1 summary"><p>COnvert Geometry to Vector3[] of World Space coordinates taking account of zoom</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Vector3[] TransformWorld(this Geometry geom)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Vector3[] TransformWorld(this Geometry geom, SpatialReference crs = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -150,6 +150,11 @@
         <td><span class="parametername">geom</span></td>
         <td><p>Geometry</p>
 </td>
+      </tr>
+      <tr>
+        <td><span class="xref">SpatialReference</span></td>
+        <td><span class="parametername">crs</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

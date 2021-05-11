@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TextureImage
+    <title>Class VirgisInteractor
    | ViRGIS VR GIS </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TextureImage
+    <meta name="title" content="Class VirgisInteractor
    | ViRGIS VR GIS ">
     <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -79,59 +79,114 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Virgis.TextureImage">
+            <article class="content wrap" id="_content" data-uid="Virgis.VirgisInteractor">
   
   
-  <h1 id="Virgis_TextureImage" data-uid="Virgis.TextureImage" class="text-break">Class TextureImage
+  <h1 id="Virgis_VirgisInteractor" data-uid="Virgis.VirgisInteractor" class="text-break">Class VirgisInteractor
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">TextureImage</span></div>
+    <div class="level1"><span class="xref">VirgisInteractor</span></div>
+      <div class="level2"><a class="xref" href="Virgis.VirgisDirectInteractor.html">VirgisDirectInteractor</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IUIInteractor</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Virgis_TextureImage_syntax">Syntax</h5>
+  <h5 id="Virgis_VirgisInteractor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TextureImage</code></pre>
+    <pre><code class="lang-csharp hljs">public class VirgisInteractor : XRDirectInteractor, IUIInteractor</code></pre>
   </div>
-  <h3 id="methods">Methods
+  <h3 id="fields">Fields
   </h3>
   
   
-  <a id="Virgis_TextureImage_Get_" data-uid="Virgis.TextureImage.Get*"></a>
-  <h4 id="Virgis_TextureImage_Get_System_Uri_" data-uid="Virgis.TextureImage.Get(System.Uri)">Get(Uri)</h4>
+  <h4 id="Virgis_VirgisInteractor_m_EnableUIInteraction" data-uid="Virgis.VirgisInteractor.m_EnableUIInteraction">m_EnableUIInteraction</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;Texture2D&gt; Get(Uri url)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool m_EnableUIInteraction</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Virgis_VirgisInteractor_enableUIInteraction_" data-uid="Virgis.VirgisInteractor.enableUIInteraction*"></a>
+  <h4 id="Virgis_VirgisInteractor_enableUIInteraction" data-uid="Virgis.VirgisInteractor.enableUIInteraction">enableUIInteraction</h4>
+  <div class="markdown level1 summary"><p>Gets or sets whether this interactor is able to affect UI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool enableUIInteraction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Virgis_VirgisInteractor_OnDisable_" data-uid="Virgis.VirgisInteractor.OnDisable*"></a>
+  <h4 id="Virgis_VirgisInteractor_OnDisable" data-uid="Virgis.VirgisInteractor.OnDisable">OnDisable()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnDisable()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisInteractor_OnEnable_" data-uid="Virgis.VirgisInteractor.OnEnable*"></a>
+  <h4 id="Virgis_VirgisInteractor_OnEnable" data-uid="Virgis.VirgisInteractor.OnEnable">OnEnable()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnEnable()</code></pre>
+  </div>
+  
+  
+  <a id="Virgis_VirgisInteractor_TryGetUIModel_" data-uid="Virgis.VirgisInteractor.TryGetUIModel*"></a>
+  <h4 id="Virgis_VirgisInteractor_TryGetUIModel_TrackedDeviceModel__" data-uid="Virgis.VirgisInteractor.TryGetUIModel(TrackedDeviceModel@)">TryGetUIModel(out TrackedDeviceModel)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetUIModel(out TrackedDeviceModel model)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,8 +199,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
-        <td><span class="parametername">url</span></td>
+        <td><span class="xref">TrackedDeviceModel</span></td>
+        <td><span class="parametername">model</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -160,11 +215,42 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<span class="xref">Texture2D</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Virgis_VirgisInteractor_UpdateUIModel_" data-uid="Virgis.VirgisInteractor.UpdateUIModel*"></a>
+  <h4 id="Virgis_VirgisInteractor_UpdateUIModel_TrackedDeviceModel__" data-uid="Virgis.VirgisInteractor.UpdateUIModel(TrackedDeviceModel@)">UpdateUIModel(ref TrackedDeviceModel)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void UpdateUIModel(ref TrackedDeviceModel model)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TrackedDeviceModel</span></td>
+        <td><span class="parametername">model</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IUIInteractor</span>
+  </div>
 </article>
           </div>
           

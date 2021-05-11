@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class VirgisVectorExtensions
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -170,6 +170,58 @@
       <tr>
         <td><span class="xref">Vector3</span></td>
         <td><p>Vector3 rounded value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_VirgisVectorExtensions_ToDxfVector3_" data-uid="Virgis.VirgisVectorExtensions.ToDxfVector3*"></a>
+  <h4 id="Virgis_VirgisVectorExtensions_ToDxfVector3_Vector3d_CoordinateTransformation_" data-uid="Virgis.VirgisVectorExtensions.ToDxfVector3(Vector3d,CoordinateTransformation)">ToDxfVector3(Vector3d, CoordinateTransformation)</h4>
+  <div class="markdown level1 summary"><p>Cibvert vector3D in Y-up coordinate frame to a netDXF Vector3 in z-up coordinate frame
+using the optional CoordinateTranform to reproject the dpoint if present</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DXF.Vector3 ToDxfVector3(this Vector3d v, CoordinateTransformation transform = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3d</span></td>
+        <td><span class="parametername">v</span></td>
+        <td><p>Vector3d</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CoordinateTransformation</span></td>
+        <td><span class="parametername">transform</span></td>
+        <td><p>Coordinate Transform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DXF.Vector3</span></td>
+        <td><p>DXF.Vector3</p>
 </td>
       </tr>
     </tbody>
