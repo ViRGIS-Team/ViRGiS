@@ -9,6 +9,7 @@ public class HudFacade : MonoBehaviour
     public Text HudLeftText;
     public Text HudRightText;
     public Text HudCentreText;
+    public Slider HudPosition;
 
     private IDisposable startsub;
     private IDisposable stopsub;
@@ -23,7 +24,7 @@ public class HudFacade : MonoBehaviour
         stopsub = appState.editSession.EndEvent.Subscribe(OnEditSessionEnd);
         zoomsub = appState.Zoom.Event.Subscribe(OnZoomChanged);
         orientsub = appState.Orientation.Event.Subscribe(onOrientation);
-
+        if (HudPosition != null ) HudPosition.onValueChanged.AddListener(onPosition);
     }
 
     private void OnDestroy() {
@@ -31,6 +32,11 @@ public class HudFacade : MonoBehaviour
         stopsub.Dispose();
         zoomsub.Dispose();
         orientsub.Dispose();
+        HudPosition.onValueChanged.RemoveAllListerners();
+    }
+
+    private void onPosition(float position) {
+        transform.position.z = position;
     }
 
     public void onOrientation(Vector3 current) {
