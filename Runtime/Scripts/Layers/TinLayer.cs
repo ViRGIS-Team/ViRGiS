@@ -60,16 +60,20 @@ namespace Virgis {
             using (OgrReader ogrReader = new OgrReader()) {
                 await ogrReader.GetFeaturesAsync(features);
                 foreach (Feature feature in ogrReader.features) {
-                    Geometry tin = feature.GetGeometryRef();
-                    if (tin == null)
-                        continue;
-                    if (tin.GetGeometryType() == wkbGeometryType.wkbTIN ||
-                        tin.GetGeometryType() == wkbGeometryType.wkbTINZ ||
-                        tin.GetGeometryType() == wkbGeometryType.wkbTINM ||
-                        tin.GetGeometryType() == wkbGeometryType.wkbTINZM) {
-                        if (tin.GetSpatialReference() == null)
-                            tin.AssignSpatialReference(GetCrs());
-                        await _drawFeatureAsync(tin, feature);
+                    int geoCount = feature.GetDefnRef().GetGeomFieldCount();
+                    for (int j = 0; j < geoCount; j++) {
+                        Geometry tin = feature.GetGeomFieldRef(j);
+                        if (tin == null)
+                            continue;
+                        if (tin.GetGeometryType() == wkbGeometryType.wkbTIN ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbTINZ ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbTINM ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbTINZM) {
+                            if (tin.GetSpatialReference() == null)
+                                tin.AssignSpatialReference(GetCrs());
+                            await _drawFeatureAsync(tin, feature);
+                        }
+                        tin.Dispose();
                     }
                 }
             }
@@ -131,6 +135,9 @@ namespace Virgis {
             }
 
             DMesh3 dmesh = DMesh3Builder.Build<Vector3d, int, int>(vertexes, tris);
+            string crs;
+            tin.GetSpatialReference().ExportToWkt(out crs, null);
+            dmesh.AttachMetadata("CRS", crs );
 
             mesh.Draw(dmesh, bodyMain, WireframeMaterial, true);
 

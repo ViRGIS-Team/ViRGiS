@@ -87,24 +87,28 @@ namespace Virgis {
             using (OgrReader ogrReader = new OgrReader()) {
                 await ogrReader.GetFeaturesAsync(features);
                 foreach (Feature feature in ogrReader.features) {
-                    Geometry point = feature.GetGeometryRef();
-                    wkbGeometryType type = point.GetGeometryType();
-                    string t = type.ToString();
-                    if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
-                        point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
-                        point.GetGeometryType() == wkbGeometryType.wkbPointM ||
-                        point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                        point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await _drawFeatureAsync(item, feature));
-                    } else if
-                       (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
-                        point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
-                        point.GetGeometryType() == wkbGeometryType.wkbMultiPointM ||
-                        point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
-                        int n = point.GetGeometryCount();
-                        for (int j = 0; j < n; j++) {
-                            Geometry Point2 = point.GetGeometryRef(j);
-                            Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await _drawFeatureAsync(item, feature));
+                    int geoCount = feature.GetDefnRef().GetGeomFieldCount();
+                    for (int j = 0; j < geoCount; j++) {
+                        Geometry point = feature.GetGeomFieldRef(j);
+                        wkbGeometryType type = point.GetGeometryType();
+                        string t = type.ToString();
+                        if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
+                            point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
+                            point.GetGeometryType() == wkbGeometryType.wkbPointM ||
+                            point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
+                            point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await _drawFeatureAsync(item, feature));
+                        } else if
+                           (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
+                            point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
+                            point.GetGeometryType() == wkbGeometryType.wkbMultiPointM ||
+                            point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
+                            int n = point.GetGeometryCount();
+                            for (int k = 0; k < n; k++) {
+                                Geometry Point2 = point.GetGeometryRef(k);
+                                Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await _drawFeatureAsync(item, feature));
+                            }
                         }
+                        point.Dispose();
                     }
                 }
             }

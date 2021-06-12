@@ -122,30 +122,34 @@ namespace Virgis
                 foreach (Feature feature in ogrReader.features) {
                     if (feature == null)
                         continue;
-                    Geometry line = feature.GetGeometryRef();
-                    if (line == null)
-                        continue;
-                    if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
-                        line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
-                        line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
-                        line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
-                    ) {
-                        if (line.GetSpatialReference() == null)
-                            line.AssignSpatialReference(GetCrs());
-                        await _drawFeatureAsync(line, feature);
-                    } else if
-                        (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
-                        line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
-                        line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringM ||
-                        line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringZM
-                     ) {
-                        int n = line.GetGeometryCount();
-                        for (int j = 0; j < n; j++) {
-                            Geometry Line2 = line.GetGeometryRef(j);
-                            if (Line2.GetSpatialReference() == null)
-                                Line2.AssignSpatialReference(GetCrs());
-                            await _drawFeatureAsync(Line2, feature);
+                    int geoCount = feature.GetDefnRef().GetGeomFieldCount();
+                    for (int j = 0; j < geoCount; j++) {
+                        Geometry line = feature.GetGeomFieldRef(j);
+                        if (line == null)
+                            continue;
+                        if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
+                            line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
+                            line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
+                            line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
+                        ) {
+                            if (line.GetSpatialReference() == null)
+                                line.AssignSpatialReference(GetCrs());
+                            await _drawFeatureAsync(line, feature);
+                        } else if
+                            (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
+                            line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
+                            line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringM ||
+                            line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringZM
+                         ) {
+                            int n = line.GetGeometryCount();
+                            for (int k = 0; k < n; k++) {
+                                Geometry Line2 = line.GetGeometryRef(k);
+                                if (Line2.GetSpatialReference() == null)
+                                    Line2.AssignSpatialReference(GetCrs());
+                                await _drawFeatureAsync(Line2, feature);
+                            }
                         }
+                        line.Dispose();
                     }
                 }
             }
