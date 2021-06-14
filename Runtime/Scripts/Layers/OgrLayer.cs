@@ -9,21 +9,20 @@ using System;
 
 namespace Virgis {
 
-    public class OgrLayer : VirgisLayer<RecordSet, Layer[]> {
+    public class OgrContainerLayer : ContainerLayer<RecordSet, Layer> {
+    }
+
+    public class OgrLayer : ContainerLayer<RecordSet, Layer[]> {
         // The prefab for the data points to be instantiated
         public GameObject PointLayer;
         public GameObject LineLayer;
         public GameObject PolygonLayer;
         public GameObject TinLayer;
+        public GameObject ContainerLayer;
 
         // used to read the GeoJSON file for this layer
         private OgrReader ogrReader;
 
-        private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
-
-        private void Start() {
-            isContainer = true;
-        }
 
         private void OnDestroy() {
             ogrReader?.Dispose();
@@ -34,16 +33,22 @@ namespace Virgis {
             // Load Dataset
             //
             RecordSet layer = _layer as RecordSet;
-            using (ogrReader = new OgrReader())
-            {
+            using (ogrReader = new OgrReader()) {
                 await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1, layer.Properties.SourceType);
 
                 //
                 // Get and process features
                 //
                 features = ogrReader.GetLayers().ToArray();
-                foreach (Layer thisLayer in features) 
-                {
+                foreach (Layer thisLayer in features) {
+                    string name = thisLayer.GetName();
+                    RecordSet newLayer = new RecordSet() { DisplayName = name };
+                    GameObject go = Instantiate(ContainerLayer, transform);
+                    OgrContainerLayer container = go.AddComponent<OgrContainerLayer>();
+                    List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
+                    container.SetCrs(OgrReader.getSR(thisLayer, layer));
+                    container.SetFeatures(thisLayer);
+                    await container.Init(newLayer);
                     wkbGeometryType type = thisLayer.GetGeomType();
                     FeatureDefn ld = thisLayer.GetLayerDefn();
                     int geoCount = ld.GetGeomFieldCount();
@@ -52,25 +57,25 @@ namespace Virgis {
                     OgrReader.Flatten(ref type);
                     switch (type) {
                         case wkbGeometryType.wkbPoint:
-                            _layers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
+                            _layers.Add(Instantiate(PointLayer, container.transform).GetComponent<PointLayer>());
                             _layers.Last().SetFeatures(thisLayer);
                             _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                             await _layers.Last().Init(layer);
                             break;
                         case wkbGeometryType.wkbLineString:
-                            _layers.Add(Instantiate(LineLayer, transform).GetComponent<LineLayer>());
+                            _layers.Add(Instantiate(LineLayer, container.transform).GetComponent<LineLayer>());
                             _layers.Last().SetFeatures(thisLayer);
                             _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                             await _layers.Last().Init(layer);
                             break;
                         case wkbGeometryType.wkbPolygon:
-                            _layers.Add(Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
+                            _layers.Add(Instantiate(PolygonLayer, container.transform).GetComponent<PolygonLayer>());
                             _layers.Last().SetFeatures(thisLayer);
                             _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                             await _layers.Last().Init(layer);
                             break;
                         case wkbGeometryType.wkbTIN:
-                            _layers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
+                            _layers.Add(Instantiate(TinLayer, container.transform).GetComponent<TinLayer>());
                             _layers.Last().SetFeatures(thisLayer);
                             _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                             await _layers.Last().Init(layer);
@@ -84,8 +89,7 @@ namespace Virgis {
                                 thisLayer.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
                             }
                             await ogrReader.GetFeaturesAsync(thisLayer);
-                            foreach (Feature feature in ogrReader.features) 
-                                {
+                            foreach (Feature feature in ogrReader.features) {
                                 if (feature == null)
                                     continue;
                                 for (int j = 0; j < geoCount; j++) {
@@ -104,7 +108,7 @@ namespace Virgis {
                                                 }
                                             }
                                             if (layerToAdd == null) {
-                                                _layers.Add(Instantiate(LineLayer, transform).GetComponent<LineLayer>());
+                                                _layers.Add(Instantiate(LineLayer, container.transform).GetComponent<LineLayer>());
                                                 _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                                 _layers.Last().SetFeatures(thisLayer);
                                                 await _layers.Last().Init(layer);
@@ -118,7 +122,7 @@ namespace Virgis {
                                                 }
                                             }
                                             if (layerToAdd == null) {
-                                                _layers.Add(Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
+                                                _layers.Add(Instantiate(PolygonLayer, container.transform).GetComponent<PolygonLayer>());
                                                 _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                                 _layers.Last().SetFeatures(thisLayer);
                                                 await _layers.Last().Init(layer);
@@ -132,7 +136,7 @@ namespace Virgis {
                                                 }
                                             }
                                             if (layerToAdd == null) {
-                                                _layers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
+                                                _layers.Add(Instantiate(PointLayer, container.transform).GetComponent<PointLayer>());
                                                 _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                                 _layers.Last().SetFeatures(thisLayer);
                                                 await _layers.Last().Init(layer);
@@ -146,7 +150,7 @@ namespace Virgis {
                                                 }
                                             }
                                             if (layerToAdd == null) {
-                                                _layers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
+                                                _layers.Add(Instantiate(TinLayer, container.transform).GetComponent<TinLayer>());
                                                 _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                                 _layers.Last().SetFeatures(thisLayer);
                                                 await _layers.Last().Init(layer);
@@ -162,29 +166,6 @@ namespace Virgis {
                     }
                 }
             }
-        }
-
-        protected override VirgisFeature _addFeature(Vector3[] geometry) {
-            throw new NotImplementedException();
-        }
-
-
-
-        protected override Task _draw() {
-            return Task.CompletedTask;
-        }
-
-
-        protected override void _checkpoint() {
-        }
-
-
-        protected async override Task _save() {
-
-            foreach (VirgisLayer thisLayer in _layers) {
-                await thisLayer.Save();
-            }
-            return;
         }
     }
 }

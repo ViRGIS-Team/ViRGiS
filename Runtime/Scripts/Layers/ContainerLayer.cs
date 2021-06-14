@@ -1,12 +1,18 @@
 ﻿
 using UnityEngine;
 using System.Threading.Tasks;
-using System.Collections;
+using System.Collections.Generic;
+using Project;
+using OSGeo.OGR;
 
 namespace Virgis {
 
 
-    public class ContainerLayer : VirgisLayer {
+    public class ContainerLayer<T, S> : VirgisLayer<T, S> where T : RecordSet {
+
+        private void Start() {
+            isContainer = true;
+        }
 
         protected override Task _init() {
             return Task.CompletedTask;
@@ -24,17 +30,19 @@ namespace Virgis {
         }
 
         protected override async Task _draw() {
-            for (int i = 0; i < transform.parent.childCount; i++) {
+            for (int i = 0; i < transform.childCount; i++) {
                 VirgisLayer layer = transform.GetChild(i).GetComponent<VirgisLayer>();
-                if (layer != null) await layer.Draw();
+                if (layer != null)
+                    await layer.Draw();
             }
             return;
         }
 
         protected override async Task _save() {
-            VirgisLayer[] layers = GetComponentsInChildren<VirgisLayer>();
-            foreach (VirgisLayer layer in layers) {
-                await layer.Save();
+            for (int i = 0; i < transform.childCount; i++) {
+                VirgisLayer layer = transform.GetChild(i).GetComponent<VirgisLayer>();
+                if (layer != null)
+                    await layer.Save();
             }
             return;
         }
