@@ -15,9 +15,8 @@ namespace Virgis {
 
             model.position = transform.TransformPoint(0, -1, 0);
             model.orientation = transform.rotation;
-            //model.select = isUISelectActive;
+
             model.select = isUISelectActive;
-            //model.raycastLayerMask = raycastMask;
 
             List<Vector3> raycastPoints = model.raycastPoints;
             raycastPoints.Clear();
