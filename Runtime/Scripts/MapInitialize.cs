@@ -29,7 +29,7 @@ namespace Virgis
         ///<summary>
         ///Instantiates all singletons.
         /// </summary>
-        protected void Awake()
+        protected new void Awake()
         {
             Debug.Log("Map awakens");
             Debug.Log($"Virgis version : {Application.version}");
@@ -88,8 +88,8 @@ namespace Virgis
 
             try {
                    initLayers(appState.project.RecordSets);
-            } catch {
-                Debug.LogError($"Project File {file} failed");
+            } catch (Exception e) {
+                Debug.LogError($"Project File {file} failed :" + e.ToString());
                 return false;
             }
             onLoad();
@@ -108,7 +108,7 @@ namespace Virgis
         /// override this call in the consuming project to process the individual layers.
         /// This allows the consuming project to define the layer types
         /// </summary>
-        /// <param name="thisLayer"> the lkayer that ws pulled from the project file</param>
+        /// <param name="thisLayer"> the layer that ws pulled from the project file</param>
         /// <returns></returns>
         public abstract VirgisLayer createLayer(RecordSet thisLayer);
 
@@ -118,6 +118,7 @@ namespace Virgis
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = createLayer(thisLayer);
+                temp.SetMetadata(thisLayer);
                 StartCoroutine(temp.Init(thisLayer).AsIEnumerator());
             }
         }

@@ -35,7 +35,8 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
 
-        private void Start() {
+        new protected void Awake() {
+            base.Awake();
             featureType = FeatureType.LINE;
         }
 

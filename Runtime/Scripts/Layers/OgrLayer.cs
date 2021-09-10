@@ -9,21 +9,15 @@ using System;
 
 namespace Virgis {
 
-    public class OgrLayer : VirgisLayer<RecordSet, Layer[]> {
+    public class OgrLayer : ContainerLayer<RecordSet, Layer[]> {
         // The prefab for the data points to be instantiated
         public GameObject PointLayer;
         public GameObject LineLayer;
         public GameObject PolygonLayer;
         public GameObject TinLayer;
 
-        // used to read the GeoJSON file for this layer
+        // used to read the source file for this layer
         private OgrReader ogrReader;
-
-        private List<VirgisLayer<RecordSet, Layer>> _layers = new List<VirgisLayer<RecordSet, Layer>>();
-
-        private void Start() {
-            isContainer = true;
-        }
 
         private void OnDestroy() {
             ogrReader?.Dispose();
@@ -46,28 +40,36 @@ namespace Virgis {
                 OgrReader.Flatten(ref type);
                 switch (type) {
                     case wkbGeometryType.wkbPoint:
-                        _layers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
-                        _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        await _layers.Last().Init(layer);
+                        subLayers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
+                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        subLayers.Last().SetMetadata(layer);
+                        subLayers.Last().sourceName = thisLayer.GetName();
+                        await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbLineString:
-                        _layers.Add( Instantiate(LineLayer,transform).GetComponent<LineLayer>());
-                        _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        await _layers.Last().Init(layer);
+                        subLayers.Add( Instantiate(LineLayer,transform).GetComponent<LineLayer>());
+                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        subLayers.Last().SetMetadata(layer);
+                        subLayers.Last().sourceName = thisLayer.GetName();
+                        await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
-                        _layers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
-                        _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        await _layers.Last().Init(layer);
+                        subLayers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
+                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        subLayers.Last().SetMetadata(layer);
+                        subLayers.Last().sourceName = thisLayer.GetName();
+                        await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbTIN:
-                        _layers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
-                        _layers.Last().SetFeatures(thisLayer);
-                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        await _layers.Last().Init(layer);
+                        subLayers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
+                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                        subLayers.Last().SetMetadata(layer);
+                        subLayers.Last().sourceName = thisLayer.GetName();
+                        await subLayers.Last().SubInit(layer);
                         break;
                     //
                     // If feature type is unknown, process each feature seperately
@@ -89,59 +91,63 @@ namespace Virgis {
                             VirgisLayer<RecordSet, Layer> layerToAdd = null;
                             switch (ftype) {
                                 case wkbGeometryType.wkbLineString:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
                                         if (l.GetType() == typeof(LineLayer)) {
                                             layerToAdd = l;
                                             break;
                                         }
                                      }
                                     if (layerToAdd == null) {
-                                        _layers.Add( Instantiate(LineLayer, transform).GetComponent<LineLayer>());
-                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        _layers.Last().SetFeatures(thisLayer);
-                                        await _layers.Last().Init(layer);
+                                        subLayers.Add( Instantiate(LineLayer, transform).GetComponent<LineLayer>());
+                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                                        subLayers.Last().SetMetadata(layer);
+                                        await subLayers.Last().SubInit(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbPolygon:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
                                         if (l.GetType() == typeof(PolygonLayer)) {
                                             layerToAdd = l;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        _layers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
-                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        _layers.Last().SetFeatures(thisLayer);
-                                        await _layers.Last().Init(layer);
+                                        subLayers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
+                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                                        subLayers.Last().SetMetadata(layer);
+                                        await subLayers.Last().SubInit(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbPoint:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
                                         if (l.GetType() == typeof(PointLayer)) {
                                             layerToAdd = l;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        _layers.Add( Instantiate(PointLayer, transform).GetComponent<PointLayer>());
-                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        _layers.Last().SetFeatures(thisLayer);
-                                        await _layers.Last().Init(layer);
+                                        subLayers.Add( Instantiate(PointLayer, transform).GetComponent<PointLayer>());
+                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                                        subLayers.Last().SetMetadata(layer);
+                                        await subLayers.Last().SubInit(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbTIN:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in _layers) {
+                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
                                         if (l.GetType() == typeof(TinLayer)) {
                                             layerToAdd = l;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        _layers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
-                                        _layers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        _layers.Last().SetFeatures(thisLayer);
-                                        await _layers.Last().Init(layer);
+                                        subLayers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
+                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
+                                        subLayers.Last().SetMetadata(layer);
+                                        await subLayers.Last().SubInit(layer);
                                     }
                                     break;
                                 default:
@@ -162,19 +168,6 @@ namespace Virgis {
 
         protected override Task _draw() {
             return Task.CompletedTask;
-        }
-
-
-        protected override void _checkpoint() {
-        }
-
-
-        protected async override Task _save() {
-
-            foreach (VirgisLayer thisLayer in _layers) {
-                await thisLayer.Save();
-            }
-            return;
         }
     }
 }

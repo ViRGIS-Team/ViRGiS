@@ -22,7 +22,8 @@ namespace Virgis
         private Material mainMat;
         private Material selectedMat;
 
-        private void Start() {
+        new protected void Awake() {
+            base.Awake();
             featureType = FeatureType.RASTER;
         }
 

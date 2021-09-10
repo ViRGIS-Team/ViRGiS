@@ -23,7 +23,8 @@ namespace Virgis {
 
         private Dictionary<string, Unit> symbology;
 
-        private void Start() {
+        new protected void Awake() {
+            base.Awake();
             featureType = FeatureType.MESH;
         }
 

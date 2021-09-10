@@ -1,12 +1,17 @@
-﻿
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
-using System.Collections;
+using Project;
 
 namespace Virgis {
 
+    public class ContainerLayer<T, S> : VirgisLayer<T, S> where T : RecordSet {
 
-    public class ContainerLayer : VirgisLayer {
+        protected new void Awake() {
+            base.Awake();
+            isContainer = true;
+            subLayers = new List<IVirgisLayer>();
+        }
 
         protected override Task _init() {
             return Task.CompletedTask;
@@ -17,23 +22,20 @@ namespace Virgis {
         }
 
         protected override void _checkpoint() {
-            VirgisLayer[] layers = GetComponentsInChildren<VirgisLayer>();
-            foreach (VirgisLayer layer in layers) {
+            foreach (IVirgisLayer layer in subLayers) {
                 layer.CheckPoint();
             }
         }
 
         protected override async Task _draw() {
-            for (int i = 0; i < transform.parent.childCount; i++) {
-                VirgisLayer layer = transform.GetChild(i).GetComponent<VirgisLayer>();
-                if (layer != null) await layer.Draw();
+            foreach (IVirgisLayer layer in subLayers) {
+                await layer.Draw();
             }
             return;
         }
 
         protected override async Task _save() {
-            VirgisLayer[] layers = GetComponentsInChildren<VirgisLayer>();
-            foreach (VirgisLayer layer in layers) {
+            foreach (IVirgisLayer layer in subLayers) {
                 await layer.Save();
             }
             return;

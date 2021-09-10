@@ -21,8 +21,12 @@ namespace Virgis
         private IDisposable startsub;
         private IDisposable stopsub;
 
-        private void Start() {
+        new protected void Awake() {
+            base.Awake();
             featureType = FeatureType.MESH;
+        }
+
+        private void Start() {
             AppState appState = AppState.instance;
             startsub = appState.editSession.StartEvent.Subscribe(_onEditStart);
             stopsub = appState.editSession.EndEvent.Subscribe(_onEditStop);
