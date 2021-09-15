@@ -92,7 +92,7 @@ namespace Virgis
             {
                 IVirgisLayer oldEditableLayer = _appState.editSession.editableLayer;
                 _appState.editSession.editableLayer = layerPanel.layer;
-                if (oldEditableLayer != null)
+                if (oldEditableLayer != null && _layersMap.ContainsKey(oldEditableLayer.GetId()))
                     _layersMap[oldEditableLayer.GetId()].editLayerToggle.isOn = false;
             }
             else

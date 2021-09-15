@@ -10,31 +10,41 @@ namespace Virgis {
         public bool leftInfoPanel;
         public Text textBox;
 
-        private AppState appState;
-        private string lastText = "";
+        private AppState m_appState;
+        private string m_lastText = "";
+        private bool m_active = true;
 
 
         // Start is called before the first frame update
         void Start() {
-            appState = AppState.instance;
+            m_appState = AppState.instance;
             if (leftInfoPanel) {
-                appState.Info.Event.Subscribe(UpdateText);
-                appState.ButtonStatus.Event.Subscribe(ButtonChange);
+                m_appState.Info.Event.Subscribe(UpdateText);
+                m_appState.ButtonStatus.Event.Subscribe(ButtonChange);
             }
             gameObject.SetActive(false);
         }
 
         private void UpdateText( string text) {
-            gameObject.SetActive (text != "" ||  (appState.ButtonStatus.isLhTrigger && ! appState.editSession.IsActive()));
-            lastText = text;
-            if (! appState.ButtonStatus.isLhTrigger || text != "") textBox.text = text;
+            if (m_active) {
+                gameObject.SetActive(text != "" || (m_appState.ButtonStatus.isLhTrigger && !m_appState.editSession.IsActive()));
+                m_lastText = text;
+                if (!m_appState.ButtonStatus.isLhTrigger || text != "")
+                    textBox.text = text;
+            }
         }
 
         private void ButtonChange(ButtonStatus status) {
-            if (!status.activate && status.SelectionType == SelectionType.INFO && ! appState.editSession.IsActive()) {
+            if (m_active && !status.activate && status.SelectionType == SelectionType.INFO && ! m_appState.editSession.IsActive()) {
                 gameObject.SetActive(false);
-                textBox.text = lastText;
+                textBox.text = m_lastText;
             }
+        }
+
+        public void SetActive(bool status) {
+            m_active = status;
+            if (!status)
+                gameObject.SetActive(false);
         }
         
     }

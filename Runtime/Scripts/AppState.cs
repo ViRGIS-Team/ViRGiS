@@ -34,8 +34,8 @@ namespace Virgis {
                 return lhguiActive || rhguiActive;
             }
         }
-        public bool lhguiActive;
-        public bool rhguiActive;
+        public bool lhguiActive = false;
+        public bool rhguiActive = false;
         public OrientEvent Orientation {
             get;
             private set;

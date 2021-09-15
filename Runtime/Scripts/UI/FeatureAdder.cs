@@ -43,20 +43,20 @@ namespace Virgis {
         }
 
         public void LeftTriggerPressed(bool activate) {
-            //Debug.Log($"LeftTriggerPressed: activate = {activate}");
-            if (_waitingForSecondPress) {
-                StopCoroutine(_timer);
-                _waitingForSecondPress = false;
-                OnTriggerDoublePress();
-            } else {
-                _timer = WaitForSecondTriggerPress(_markerShape.transform.position);
-                StartCoroutine(_timer);
-                _waitingForSecondPress = true;
+            if (_appState.editSession.IsActive()) {
+                if (_waitingForSecondPress) {
+                    StopCoroutine(_timer);
+                    _waitingForSecondPress = false;
+                    OnTriggerDoublePress();
+                } else {
+                    _timer = WaitForSecondTriggerPress(_markerShape.transform.position);
+                    StartCoroutine(_timer);
+                    _waitingForSecondPress = true;
+                }
             }
         }
 
         public void LeftTriggerReleased(bool activate) {
-            //Debug.Log($"LeftTriggerReleased: activate = {activate}");
         }
 
         private void OnStartEditSession(bool ignore) {

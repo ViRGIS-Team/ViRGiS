@@ -53,7 +53,8 @@ namespace Virgis
             selected = false;
             if (button != SelectionType.BROADCAST)
             {
-
+                transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
+                selected = false;
             }
         }
 

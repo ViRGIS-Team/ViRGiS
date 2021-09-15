@@ -221,7 +221,7 @@ namespace Virgis
         {
             changed = true;
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId()).transform.Translate(args.translate, Space.World);
+            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId())?.transform.Translate(args.translate, Space.World);
         }
 
 
