@@ -1,13 +1,43 @@
 # Change Log and release notes for ViRGIS Version 2
 
+## Version 2.1.3
+
+Contents :
+
+- Container Layers and support for multilayer Vector files
+- Experimental Grid Object
+- removal of all NuGET dependencies
+- moving to UNITY-RX for events
+- updated to PDAL-C 2.1.1 and removing the PLY file write step for DEM Layers
+- Introduction of the TIN layer
+- PG Data now working
+- Introdcution of multiple views
+
+Supported on :
+
+- Windows - x64 Desktop mode
+- Windows - Rift VR mode
+- Windows - Steam VR
+- MacOS - Desktop mode
+- Linux - Desktop Mode
+
+Built on
+
+- Unity 2021.1.20
+- GDAL 3.3.1
+- PDAL 2.2.0
+- MDAL 0.8.1
+- G3 2.0.0
+- GeoJSON 1.2.17
+- Unity XR IT 1.0.0
+- netDXF  2.4.1
+
 ## Version 2.1.2
 
 This version will run on the following platforms :
 
 - Windows - x64 Desktop mode
 - Windows - Rift VR mode
-
-UNITY 2020.2
 
 ### Contents
 
