@@ -1,6 +1,5 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using Project;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using OSGeo.OGR;
@@ -48,7 +47,7 @@ namespace Virgis {
                         await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbLineString:
-                        subLayers.Add( Instantiate(LineLayer,transform).GetComponent<LineLayer>());
+                        subLayers.Add(Instantiate(LineLayer, transform).GetComponent<LineLayer>());
                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         subLayers.Last().SetMetadata(layer);
@@ -56,7 +55,7 @@ namespace Virgis {
                         await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
-                        subLayers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
+                        subLayers.Add(Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         subLayers.Last().SetMetadata(layer);
@@ -96,9 +95,9 @@ namespace Virgis {
                                             layerToAdd = l;
                                             break;
                                         }
-                                     }
+                                    }
                                     if (layerToAdd == null) {
-                                        subLayers.Add( Instantiate(LineLayer, transform).GetComponent<LineLayer>());
+                                        subLayers.Add(Instantiate(LineLayer, transform).GetComponent<LineLayer>());
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
@@ -113,7 +112,7 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        subLayers.Add( Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
+                                        subLayers.Add(Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
@@ -128,7 +127,7 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        subLayers.Add( Instantiate(PointLayer, transform).GetComponent<PointLayer>());
+                                        subLayers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
@@ -150,12 +149,11 @@ namespace Virgis {
                                         await subLayers.Last().SubInit(layer);
                                     }
                                     geom.Dispose();
-                                }
+                                    break;
                             }
-                            break;
-                    }
+                        }
+                        return;
                 }
-                return;
             }
         }
 
