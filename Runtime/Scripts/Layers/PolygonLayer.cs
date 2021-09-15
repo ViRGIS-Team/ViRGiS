@@ -38,7 +38,8 @@ namespace Virgis
         private Material lineSelected;
         private Material bodyMain;
 
-        private void Start() {
+        new protected void Awake() {
+            base.Awake();
             featureType = FeatureType.POLYGON;
         }
 

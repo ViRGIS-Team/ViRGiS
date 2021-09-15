@@ -34,8 +34,8 @@ namespace Virgis {
                 return lhguiActive || rhguiActive;
             }
         }
-        public bool lhguiActive;
-        public bool rhguiActive;
+        public bool lhguiActive = false;
+        public bool rhguiActive = false;
         public OrientEvent Orientation {
             get;
             private set;
@@ -64,6 +64,14 @@ namespace Virgis {
             private set;
         }
 
+        /// <summary>
+        /// Event that is triggered when a layer is added
+        /// </summary>
+        public LayerChange LayerUpdate {
+            get;
+            private set;
+        }
+
         protected void Start() {
             
         }
@@ -86,6 +94,7 @@ namespace Virgis {
             Info = new InfoEvent();
             ButtonStatus = new ButtonStatus();
             Orientation = new OrientEvent();
+            LayerUpdate = new LayerChange();
 
             initsub = Project.Event.Subscribe(proj => Init());
             try {
@@ -196,17 +205,12 @@ namespace Virgis {
         }
 
         public void addLayer(VirgisLayer layer) {
-            if (! layer.isContainer) {
-                _layers.Add(layer);
-                if (_layers.Count == 1) {
-                    IVirgisLayer firstLayer = (IVirgisLayer) _layers[0];
-                    if (firstLayer.GetMetadata().DataType == RecordSetDataType.MapBox && _layers.Count > 1)
-                        firstLayer = (IVirgisLayer) _layers[1];
-                    firstLayer.SetEditable(true);
-                    _editSession.editableLayer = firstLayer;
-                }
-                Project.Complete();
-            }
+            _layers.Add(layer);
+            if (_layers.Count == 1)
+                _editSession.editableLayer = (IVirgisLayer) _layers[0];
+            if (_layers.Count == 2 && _layers[0].GetMetadata().DataType == RecordSetDataType.MapBox)
+                _editSession.editableLayer = (IVirgisLayer) _layers[1];
+            LayerUpdate.AddLayer(layer);
         }
 
         public void clearLayers() {

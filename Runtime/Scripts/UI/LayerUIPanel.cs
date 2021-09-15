@@ -10,7 +10,7 @@ namespace Virgis {
 
     public class LayerUIPanel : MonoBehaviour {
         public Toggle editLayerToggle;
-        public Toggle viewLayerToggle;
+        public Text layerNameText;
 
         private IVirgisLayer _layer;
         private LayerPanelEditSelectedEvent _editSelectedEvent;
@@ -18,20 +18,20 @@ namespace Virgis {
         void Awake() {
             if (_editSelectedEvent == null)
                 _editSelectedEvent = new LayerPanelEditSelectedEvent();
-            editLayerToggle.onValueChanged.AddListener(OnEditToggleValueChange);
-            viewLayerToggle.onValueChanged.AddListener(OnViewToggleValueChange);
+            if (editLayerToggle != null )
+                editLayerToggle.onValueChanged.AddListener(OnEditToggleValueChange);
+
         }
 
         public IVirgisLayer layer {
             get => _layer;
             set {
                 _layer = value;
-                // layer name to be displayed is RecordSet.DisplayName, 
-                // or RecordSet.Id as fallback
-                string displayName = String.IsNullOrEmpty(_layer.GetMetadata().DisplayName) 
-                    ? $"ID: {_layer.GetMetadata().Id}" 
-                    : _layer.GetMetadata().DisplayName;
-                viewLayerToggle.GetComponentInChildren<Text>().text = displayName;
+                if (_layer.sourceName == null || layer.sourceName == "") {
+                    layerNameText.text = _layer.featureType.ToString();
+                } else {
+                    layerNameText.text = _layer.sourceName;
+                }
             }
         }
 
@@ -47,16 +47,6 @@ namespace Virgis {
                 _editSelectedEvent.Invoke(this, true);
             } else if (!enabled && _layer.IsEditable()) {
                 _editSelectedEvent.Invoke(this, false);
-            }
-        }
-
-        private void OnViewToggleValueChange(bool visible) {
-            if (visible) {
-                viewLayerToggle.GetComponentInChildren<Text>().color = new Color32(0, 0, 245, 255);
-                _layer.SetVisible(true);
-            } else {
-                viewLayerToggle.GetComponentInChildren<Text>().color = new Color32(100, 100, 100, 255);
-                _layer.SetVisible(false);
             }
         }
     }

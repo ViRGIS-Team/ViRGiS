@@ -13,21 +13,37 @@ namespace Virgis {
     public interface IVirgisLayer : IVirgisEntity {
 
         FeatureType featureType {
+            get; 
+        }
+
+        string sourceName {
             get; set;
         }
 
+        public bool isContainer {
+            get; 
+        }
+
+        List<IVirgisLayer> subLayers {
+            get;
+        }
+
         VirgisFeature AddFeature(Vector3[] geometry);
+        Task Init(RecordSet layer);
+        Task SubInit(RecordSet layer);
         Task Draw();
         void CheckPoint();
         Task<RecordSet> Save();
         VirgisFeature GetFeature(Guid id);
         GameObject GetFeatureShape();
         RecordSet GetMetadata();
+        SpatialReference GetCrs();
         void SetMetadata(RecordSet meta);
         void SetVisible(bool visible);
         bool IsVisible();
         void SetEditable(bool inSession);
         bool IsEditable();
+        void SetCrs(SpatialReference crs);
     }
 
     /// <summary>
@@ -36,17 +52,25 @@ namespace Virgis {
     public abstract class VirgisLayer : MonoBehaviour, IVirgisLayer {
 
         public RecordSet _layer;
-        public FeatureType featureType { get; set; }
+        public FeatureType featureType { get; protected set; }
 
-        public bool changed = true; // true is this layer has been changed from the original file
-        public bool isContainer = false; // if this is a container layer - do not Draw
+        public string sourceName { get; set; }
+
+        public List<IVirgisLayer> subLayers {
+            get; protected set;
+        }
+
+        public bool changed; // true is this layer has been changed from the original file
+        public bool isContainer { get; protected set; }  // if this is a container layer - do not Draw
         protected Guid _id;
         protected bool _editable;
         protected SpatialReference _crs;
 
-        void Awake() {
+        protected void Awake() {
             _id = Guid.NewGuid();
             _editable = false;
+            changed = true;
+            isContainer = false;
         }
 
         /// <summary>
@@ -55,15 +79,23 @@ namespace Virgis {
         /// If the data cannot be read, fails quitely and creates an empty layer
         /// </summary>
         /// <param name="layer"> The RecordSet object that defines this layer</param>
-        /// <returns>refernce to this GameObject for chaining</returns>
+        /// 
         public async Task Init(RecordSet layer) {
+            await SubInit(layer);
+            Debug.Log($"Loaded Layer : {layer.DisplayName}");
+            AppState.instance.addLayer(this);
+        }
+
+        /// <summary>
+        /// Called to Initialise a sublayer
+        /// </summary>
+        /// <param name="layer"> The RecordSet object that defines this layer</param>
+        /// 
+        public async Task SubInit(RecordSet layer) {
             try {
-                SetMetadata(layer);
                 await _init();
-                AppState.instance.addLayer(this);
                 gameObject.SetActive(layer.Visible);
                 await Draw();
-                Debug.Log($"Loaded Layer : {layer.DisplayName}");
             } catch (Exception e) {
                 Debug.LogError($"Layer : { layer.DisplayName} :  {e.ToString()}");
             }

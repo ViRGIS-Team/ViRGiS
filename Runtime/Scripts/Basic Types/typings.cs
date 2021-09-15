@@ -44,7 +44,8 @@ namespace Virgis {
         MESH,
         POINTCLOUD,
         RASTER,
-        NONE
+        MAP,
+        CUSTOM_FEATURE
 
     }
 

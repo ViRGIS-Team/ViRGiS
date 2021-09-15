@@ -35,7 +35,8 @@ namespace Virgis
         private Material lineMain;
         private Material lineSelected;
 
-        private void Start() {
+        new protected void Awake() {
+            base.Awake();
             featureType = FeatureType.LINE;
         }
 
@@ -224,7 +225,7 @@ namespace Virgis
         {
             changed = true;
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId()).transform.Translate(args.translate, Space.World);
+            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId())?.transform.Translate(args.translate, Space.World);
         }
 
 
