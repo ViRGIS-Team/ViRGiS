@@ -137,27 +137,31 @@ namespace Virgis
             using (OgrReader ogrReader = new OgrReader()) {
                 await ogrReader.GetFeaturesAsync(features);
                 foreach (Feature feature in ogrReader.features) {
-                    Geometry poly = feature.GetGeometryRef();
-                    if (poly == null)
-                        continue;
-                    if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon ||
-                        poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D ||
-                        poly.GetGeometryType() == wkbGeometryType.wkbPolygonM ||
-                        poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
-                        if (poly.GetSpatialReference() == null)
-                            poly.AssignSpatialReference(GetCrs());
-                        await _drawFeatureAsync(poly, feature);
-                    } else if (poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon ||
-                        poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon25D ||
-                        poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygonM ||
-                        poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygonZM) {
-                        int n = poly.GetGeometryCount();
-                        for (int j = 0; j < n; j++) {
-                            Geometry poly2 = poly.GetGeometryRef(j);
-                            if (poly2.GetSpatialReference() == null)
-                                poly2.AssignSpatialReference(GetCrs());
-                            await _drawFeatureAsync(poly2, feature);
+                    int geoCount = feature.GetDefnRef().GetGeomFieldCount();
+                    for (int j = 0; j < geoCount; j++) {
+                        Geometry poly = feature.GetGeomFieldRef(j);
+                        if (poly == null)
+                            continue;
+                        if (poly.GetGeometryType() == wkbGeometryType.wkbPolygon ||
+                            poly.GetGeometryType() == wkbGeometryType.wkbPolygon25D ||
+                            poly.GetGeometryType() == wkbGeometryType.wkbPolygonM ||
+                            poly.GetGeometryType() == wkbGeometryType.wkbPolygonZM) {
+                            if (poly.GetSpatialReference() == null)
+                                poly.AssignSpatialReference(GetCrs());
+                            await _drawFeatureAsync(poly, feature);
+                        } else if (poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon ||
+                            poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygon25D ||
+                            poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygonM ||
+                            poly.GetGeometryType() == wkbGeometryType.wkbMultiPolygonZM) {
+                            int n = poly.GetGeometryCount();
+                            for (int k = 0; k < n; k++) {
+                                Geometry poly2 = poly.GetGeometryRef(k);
+                                if (poly2.GetSpatialReference() == null)
+                                    poly2.AssignSpatialReference(GetCrs());
+                                await _drawFeatureAsync(poly2, feature);
+                            }
                         }
+                        poly.Dispose();
                     }
                 }
             }

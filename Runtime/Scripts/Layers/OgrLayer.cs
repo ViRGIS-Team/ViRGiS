@@ -8,13 +8,13 @@ using System.Linq;
 using System;
 
 namespace Virgis {
-
     public class OgrLayer : ContainerLayer<RecordSet, Layer[]> {
         // The prefab for the data points to be instantiated
         public GameObject PointLayer;
         public GameObject LineLayer;
         public GameObject PolygonLayer;
         public GameObject TinLayer;
+        public GameObject ContainerLayer;
 
         // used to read the source file for this layer
         private OgrReader ogrReader;
@@ -149,12 +149,11 @@ namespace Virgis {
                                         subLayers.Last().SetMetadata(layer);
                                         await subLayers.Last().SubInit(layer);
                                     }
-                                    break;
-                                default:
-                                    throw new NotSupportedException($"Geometry type {ftype.ToString()} is not supported");
+                                    geom.Dispose();
+                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
                 }
                 return;
             }

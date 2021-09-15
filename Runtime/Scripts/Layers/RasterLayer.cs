@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
 using Project;
 using Pdal;
+using OSGeo.GDAL;
 using Newtonsoft.Json;
 
 namespace Virgis
@@ -59,12 +62,41 @@ namespace Virgis
         protected Task<(long, Pipeline)> LoadAsync(RecordSet layer) {
 
             Task<(long, Pipeline)> t1 = new Task<(long, Pipeline)>(() => {
+                Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
+                Band band1 = raster.GetRasterBand(1);
+                double scalingFactor = 0;
                 List<object> pipe = new List<object>();
                 pipe.Add(new {
                     type = "readers.gdal",
                     filename = layer.Source,
                     header = layer.Properties.headerString
                 });
+
+                // Get the size and pixel size of the raster
+                // if the raster has more than 1,000,000 data points, using poisson sampling to down size
+                long datapoints = raster.RasterXSize * raster.RasterYSize;
+                if (datapoints > 1000000) {
+                    try {
+                        double[] geoTransform = new double[6];
+                        raster.GetGeoTransform(geoTransform);
+                        if (geoTransform == null && geoTransform[1] == 0) {
+                            throw new Exception();
+                        }
+                        scalingFactor = Math.Sqrt(datapoints / 1000000d * geoTransform[1]);
+                    } catch {
+                        scalingFactor = Math.Sqrt(datapoints / 1000000d);
+                    };
+
+                    pipe.Add(new {
+                        type = "filters.sample",
+                        radius = scalingFactor
+                    });
+                }
+
+                band1.FlushCache();
+                band1.Dispose();
+                raster.FlushCache();
+                raster.Dispose();
 
                 if (layer.Properties.Filter != null) {
                     foreach (Dictionary<string, object> item in layer.Properties.Filter)

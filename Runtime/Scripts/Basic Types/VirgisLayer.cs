@@ -255,6 +255,8 @@ namespace Virgis {
         /// </summary>
         /// <returns>GUID</returns>
         public Guid GetId() {
+            if (_id == Guid.Empty)
+                _id = Guid.NewGuid();
             return _id;
         }
 

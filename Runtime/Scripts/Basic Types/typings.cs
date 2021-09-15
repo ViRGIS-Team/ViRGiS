@@ -406,7 +406,7 @@ namespace Virgis {
                 SpatialReference from = new SpatialReference(null);
                 if (crs.Contains("+proj")) {
                     from.ImportFromProj4(crs);
-                } else if (crs.Contains("epsg") || crs.Contains("EPSG")) {
+                } else if (crs.StartsWith("epsg") || crs.StartsWith("EPSG")) {
                     int epsg = int.Parse(crs.Split(':')[1]);
                     from.ImportFromEPSG(epsg);
                 } else {
