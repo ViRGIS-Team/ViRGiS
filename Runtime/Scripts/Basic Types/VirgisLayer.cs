@@ -1,9 +1,29 @@
-﻿// copyright Runette Software Ltd, 2020. All rights reserved
+﻿/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using OSGeo.OSR;
 using Project;
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -26,6 +46,11 @@ namespace Virgis {
 
         List<IVirgisLayer> subLayers {
             get;
+        }
+
+        public bool isWriteable {
+            get;
+            set;
         }
 
         VirgisFeature AddFeature(Vector3[] geometry);
@@ -62,15 +87,20 @@ namespace Virgis {
 
         public bool changed; // true is this layer has been changed from the original file
         public bool isContainer { get; protected set; }  // if this is a container layer - do not Draw
-        protected Guid _id;
-        protected bool _editable;
-        protected SpatialReference _crs;
+        public bool isWriteable { // only allow edit and save for layers that can be written
+            get;
+            set;
+        }
+        protected Guid m_id;
+        protected bool m_editable;
+        protected SpatialReference m_crs;
 
         protected void Awake() {
-            _id = Guid.NewGuid();
-            _editable = false;
+            m_id = Guid.NewGuid();
+            m_editable = false;
             changed = true;
             isContainer = false;
+            isWriteable = false;
         }
 
         /// <summary>
@@ -176,7 +206,7 @@ namespace Virgis {
         /// </summary>
         /// <returns>A copy of the data save dot the source</returns>
         public virtual async Task<RecordSet> Save() {
-            if (changed) {
+            if (isWriteable && changed) {
                 await _save();
             }
             return GetMetadata();
@@ -255,9 +285,9 @@ namespace Virgis {
         /// </summary>
         /// <returns>GUID</returns>
         public Guid GetId() {
-            if (_id == Guid.Empty)
-                _id = Guid.NewGuid();
-            return _id;
+            if (m_id == Guid.Empty)
+                m_id = Guid.NewGuid();
+            return m_id;
         }
 
         /// <summary>
@@ -269,18 +299,25 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Sets the layer Metadat
+        /// Sets the layer Metadata
         /// </summary>
         /// <param name="layer">Data tyoe that inherits form RecordSet</param>
         public void SetMetadata(RecordSet layer) {
             _layer = layer;
         }
 
-
+        /// <summary>
+        /// Fetches the feature shape to be used to create new features
+        /// </summary>
+        /// <returns></returns>
         public virtual GameObject GetFeatureShape() {
             return default;
         }
 
+        /// <summary>
+        /// Change the layer visibility
+        /// </summary>
+        /// <param name="visible"></param>
         public virtual void SetVisible(bool visible) {
             if (_layer.Visible != visible) {
                 _layer.Visible = visible;
@@ -309,19 +346,21 @@ namespace Virgis {
         /// <param name="inSession"></param> true to indicate that this layer is in edit session,
         /// or false if otherwise.
         public void SetEditable(bool inSession) {
-            _editable = inSession;
-            _set_editable();
+            if (isWriteable) {
+                m_editable = inSession;
+                _set_editable();
+            }
         }
 
         protected virtual void _set_editable() {
         }
 
         /// <summary>
-        /// Test to see if this layer is editable
+        /// Test to see if this layer is currently being edited
         /// </summary>
         /// <returns>Boolean</returns>
         public bool IsEditable() {
-            return _editable;
+            return m_editable;
         }
 
         /// <summary>
@@ -329,7 +368,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="crs">SpatialReference</param>
         public void SetCrs(SpatialReference crs) {
-            _crs = crs;
+            m_crs = crs;
         }
 
         /// <summary>
@@ -337,7 +376,7 @@ namespace Virgis {
         /// </summary>
         /// <returns></returns>
         public SpatialReference GetCrs() {
-            return _crs;
+            return m_crs;
         }
 
         public override bool Equals(object obj) {
@@ -351,12 +390,12 @@ namespace Virgis {
         }
 
         public override int GetHashCode() {
-            return _id.GetHashCode();
+            return m_id.GetHashCode();
         }
         public bool Equals(VirgisLayer other) {
             if (other == null)
                 return false;
-            return (this._id.Equals(other.GetId()));
+            return (this.m_id.Equals(other.GetId()));
         }
 
         public VirgisLayer GetLayer() {
@@ -375,7 +414,7 @@ namespace Virgis {
         /// </summary>
         /// <returns>RecordSet Layer Metatdata</returns>
         public new T GetMetadata() {
-            return (this as VirgisLayer).GetMetadata() as T;
+            return base.GetMetadata() as T;
         }
 
         /// <summary>
@@ -383,7 +422,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer">RecordSet Layer Data</param>
         public void SetMetadata(T layer) {
-            (this as VirgisLayer).SetMetadata(layer);
+            base.SetMetadata(layer);
         }
 
         /// <summary>
@@ -408,12 +447,12 @@ namespace Virgis {
         }
 
         public override int GetHashCode() {
-            return _id.GetHashCode();
+            return m_id.GetHashCode();
         }
         public bool Equals(VirgisLayer<T, S> other) {
             if (other == null)
                 return false;
-            return (this._id.Equals(other.GetId()));
+            return (this.m_id.Equals(other.GetId()));
         }
 
     }

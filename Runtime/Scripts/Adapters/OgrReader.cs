@@ -1,4 +1,25 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using OSGeo.OGR;
 using Project;
 using System;
@@ -13,15 +34,22 @@ namespace Virgis {
 
     public class OgrReader: IDisposable
     {
-        private List<Layer> _layers = new List<Layer>();
         public string fileName;
-        private DataSource _datasource;
-        private int _update;
         public List<Feature> features;
+
+        private readonly List<Layer> m_layers = new List<Layer>();
+        private DataSource m_datasource;
+        private int m_update;
 
         public List<Layer> GetLayers()
         {
-            return _layers;
+            return m_layers;
+        }
+
+        public bool isWriteable {
+            get {
+                return m_update != 0;
+            }
         }
 
 
@@ -33,7 +61,7 @@ namespace Virgis {
             } else {
                 fileName = $"{type}:{source}";
             }
-            _update = update;
+            m_update = update;
             await Load();
         }
 
@@ -48,12 +76,12 @@ namespace Virgis {
                 Task.Factory.StartNew(() =>
                 {
                     try {
-                        _datasource = Ogr.Open(fileName, _update);
-                        if (_datasource == null)
+                        m_datasource = Ogr.Open(fileName, m_update);
+                        if (m_datasource == null)
                             throw (new FileNotFoundException());
-                        for (int i = 0; i < _datasource.GetLayerCount(); i++)
-                            _layers.Add(_datasource.GetLayerByIndex(i));
-                        if (_layers.Count == 0)
+                        for (int i = 0; i < m_datasource.GetLayerCount(); i++)
+                            m_layers.Add(m_datasource.GetLayerByIndex(i));
+                        if (m_layers.Count == 0)
                             throw (new NotSupportedException());
                         tcs1.SetResult(1);
                     } catch (Exception e) {
@@ -125,7 +153,7 @@ namespace Virgis {
         }
 
         public void Dispose() {
-            _datasource?.Dispose();
+            m_datasource?.Dispose();
         }
     }
 }

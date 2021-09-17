@@ -1,4 +1,25 @@
-using System.Collections;
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,9 +40,8 @@ namespace Virgis {
         public Material WireframeMaterial;
 
 
-        private Material bodyMain;
-
-        private Dictionary<string, Unit> symbology;
+        private Material m_bodyMain;
+        private Dictionary<string, Unit> m_symbology;
 
         new protected void Awake() {
             base.Awake();
@@ -39,10 +59,10 @@ namespace Virgis {
         protected Task<int> Load() {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
-                symbology = layer.Properties.Units;
-                Color body = symbology.ContainsKey("body") ? (Color) symbology["body"].Color : Color.white;
-                bodyMain = Instantiate(MeshBaseMaterial);
-                bodyMain.SetColor("_BaseColor", body);
+                m_symbology = layer.Properties.Units;
+                Color body = m_symbology.ContainsKey("body") ? (Color) m_symbology["body"].Color : Color.white;
+                m_bodyMain = Instantiate(MeshBaseMaterial);
+                m_bodyMain.SetColor("_BaseColor", body);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -140,7 +160,7 @@ namespace Virgis {
             tin.GetSpatialReference().ExportToWkt(out crs, null);
             dmesh.AttachMetadata("CRS", crs );
 
-            mesh.Draw(dmesh, bodyMain, WireframeMaterial, true);
+            mesh.Draw(dmesh, m_bodyMain, WireframeMaterial, true);
 
             //if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false)) {
             //    //Set the label

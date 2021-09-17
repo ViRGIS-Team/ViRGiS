@@ -1,4 +1,26 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
+
 using Project;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -16,10 +38,10 @@ namespace Virgis {
         public GameObject ContainerLayer;
 
         // used to read the source file for this layer
-        private OgrReader ogrReader;
+        private OgrReader m_ogrReader;
 
         private void OnDestroy() {
-            ogrReader?.Dispose();
+            m_ogrReader?.Dispose();
         }
 
         protected override async Task _init() {
@@ -27,13 +49,13 @@ namespace Virgis {
             // Load Dataset
             //
             RecordSet layer = _layer as RecordSet;
-            ogrReader = new OgrReader();
-            await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1, layer.Properties.SourceType);
+            m_ogrReader = new OgrReader();
+            await m_ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1, layer.Properties.SourceType);
 
             //
             // Get and process features
             //
-            features = ogrReader.GetLayers().ToArray();
+            features = m_ogrReader.GetLayers().ToArray();
             foreach (Layer thisLayer in features) {
                 wkbGeometryType type = thisLayer.GetGeomType();
                 OgrReader.Flatten(ref type);
@@ -44,6 +66,7 @@ namespace Virgis {
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         subLayers.Last().SetMetadata(layer);
                         subLayers.Last().sourceName = thisLayer.GetName();
+                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                         await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbLineString:
@@ -52,6 +75,7 @@ namespace Virgis {
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         subLayers.Last().SetMetadata(layer);
                         subLayers.Last().sourceName = thisLayer.GetName();
+                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                         await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
@@ -60,6 +84,7 @@ namespace Virgis {
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         subLayers.Last().SetMetadata(layer);
                         subLayers.Last().sourceName = thisLayer.GetName();
+                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                         await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbTIN:
@@ -68,6 +93,7 @@ namespace Virgis {
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                         subLayers.Last().SetMetadata(layer);
                         subLayers.Last().sourceName = thisLayer.GetName();
+                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                         await subLayers.Last().SubInit(layer);
                         break;
                     //
@@ -78,8 +104,8 @@ namespace Virgis {
                         if (metadata.Properties.BBox != null) {
                             thisLayer.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
                         }
-                        await ogrReader.GetFeaturesAsync(thisLayer);
-                        foreach (Feature feature in ogrReader.features) {
+                        await m_ogrReader.GetFeaturesAsync(thisLayer);
+                        foreach (Feature feature in m_ogrReader.features) {
                             if (feature == null)
                                 continue;
                             Geometry geom = feature.GetGeometryRef();
@@ -101,6 +127,7 @@ namespace Virgis {
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
+                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                                         await subLayers.Last().SubInit(layer);
                                     }
                                     break;
@@ -116,6 +143,7 @@ namespace Virgis {
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
+                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                                         await subLayers.Last().SubInit(layer);
                                     }
                                     break;
@@ -131,6 +159,7 @@ namespace Virgis {
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
+                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                                         await subLayers.Last().SubInit(layer);
                                     }
                                     break;
@@ -146,6 +175,7 @@ namespace Virgis {
                                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
                                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                                         subLayers.Last().SetMetadata(layer);
+                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
                                         await subLayers.Last().SubInit(layer);
                                     }
                                     geom.Dispose();

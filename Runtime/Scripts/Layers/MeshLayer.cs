@@ -1,5 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Collections;
+﻿/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
+using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using System.IO;
@@ -15,8 +36,7 @@ namespace Virgis
 {
     public class MeshLayer : MeshlayerProtoype
     {
-        private List<Feature> ogrFeatures;
-        private Layer entities;
+        private Layer m_entities;
 
         private Task<DMesh3Builder> loadObj(string filename)
         {
@@ -68,6 +88,7 @@ namespace Virgis
 
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
+            isWriteable = true;
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
@@ -131,13 +152,13 @@ namespace Virgis
                     using (OgrReader ogrReader = new OgrReader()) {
                         await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1,  layer.Properties.SourceType);
 
-                        entities = ogrReader.GetLayers()[0];
-                        SetCrs(OgrReader.getSR(entities, layer));
+                        m_entities = ogrReader.GetLayers()[0];
+                        SetCrs(OgrReader.getSR(m_entities, layer));
                         RecordSet metadata = GetMetadata();
                         if (metadata.Properties.BBox != null) {
-                            entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
+                            m_entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
                         }
-                        await ogrReader.GetFeaturesAsync(entities);
+                        await ogrReader.GetFeaturesAsync(m_entities);
                         foreach (Feature feature in ogrReader.features) {
                             Geometry geom = feature.GetGeometryRef();
                             if (geom == null)

@@ -1,4 +1,24 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 
 using Project;
 using System.Collections.Generic;
@@ -28,15 +48,15 @@ namespace Virgis
         public Material LineBaseMaterial;
         public Material BodyBaseMaterial;
 
-        private GameObject HandlePrefab;
-        private GameObject LinePrefab;
+        private GameObject m_handlePrefab;
+        private GameObject m_linePrefab;
 
-        private Dictionary<string, Unit> symbology;
-        private Material mainMat;
-        private Material selectedMat;
-        private Material lineMain;
-        private Material lineSelected;
-        private Material bodyMain;
+        private Dictionary<string, Unit> m_symbology;
+        private Material m_mainMat;
+        private Material m_selectedMat;
+        private Material m_lineMain;
+        private Material m_lineSelected;
+        private Material m_bodyMain;
 
         new protected void Awake() {
             base.Awake();
@@ -55,60 +75,60 @@ namespace Virgis
         protected Task<int> Load() {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
-                symbology = layer.Properties.Units;
+                m_symbology = layer.Properties.Units;
 
-                if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
-                    Shapes shape = symbology["point"].Shape;
+                if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
+                    Shapes shape = m_symbology["point"].Shape;
                     switch (shape) {
                         case Shapes.Spheroid:
-                            HandlePrefab = SpherePrefab;
+                            m_handlePrefab = SpherePrefab;
                             break;
                         case Shapes.Cuboid:
-                            HandlePrefab = CubePrefab;
+                            m_handlePrefab = CubePrefab;
                             break;
                         case Shapes.Cylinder:
-                            HandlePrefab = CylinderPrefab;
+                            m_handlePrefab = CylinderPrefab;
                             break;
                         default:
-                            HandlePrefab = SpherePrefab;
+                            m_handlePrefab = SpherePrefab;
                             break;
                     }
                 } else {
-                    HandlePrefab = SpherePrefab;
+                    m_handlePrefab = SpherePrefab;
                 }
 
-                if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
-                    Shapes shape = symbology["line"].Shape;
+                if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
+                    Shapes shape = m_symbology["line"].Shape;
                     switch (shape) {
                         case Shapes.Cuboid:
-                            LinePrefab = CuboidLinePrefab;
+                            m_linePrefab = CuboidLinePrefab;
                             break;
                         case Shapes.Cylinder:
-                            LinePrefab = CylinderLinePrefab;
+                            m_linePrefab = CylinderLinePrefab;
                             break;
                         default:
-                            LinePrefab = CylinderLinePrefab;
+                            m_linePrefab = CylinderLinePrefab;
                             break;
                     }
                 } else {
-                    LinePrefab = CylinderLinePrefab;
+                    m_linePrefab = CylinderLinePrefab;
                 }
 
-                Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-                Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-                Color line = symbology.ContainsKey("line") ? (Color) symbology["line"].Color : Color.white;
-                Color lineSel = symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-                Color body = symbology.ContainsKey("body") ? (Color) symbology["body"].Color : Color.white;
-                mainMat = Instantiate(PointBaseMaterial);
-                mainMat.SetColor("_BaseColor", col);
-                selectedMat = Instantiate(PointBaseMaterial);
-                selectedMat.SetColor("_BaseColor", sel);
-                lineMain = Instantiate(LineBaseMaterial);
-                lineMain.SetColor("_BaseColor", line);
-                lineSelected = Instantiate(LineBaseMaterial);
-                lineSelected.SetColor("_BaseColor", lineSel);
-                bodyMain = Instantiate(BodyBaseMaterial);
-                bodyMain.SetColor("_BaseColor", body);
+                Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
+                Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+                Color line = m_symbology.ContainsKey("line") ? (Color) m_symbology["line"].Color : Color.white;
+                Color lineSel = m_symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
+                Color body = m_symbology.ContainsKey("body") ? (Color) m_symbology["body"].Color : Color.white;
+                m_mainMat = Instantiate(PointBaseMaterial);
+                m_mainMat.SetColor("_BaseColor", col);
+                m_selectedMat = Instantiate(PointBaseMaterial);
+                m_selectedMat.SetColor("_BaseColor", sel);
+                m_lineMain = Instantiate(LineBaseMaterial);
+                m_lineMain.SetColor("_BaseColor", line);
+                m_lineSelected = Instantiate(LineBaseMaterial);
+                m_lineSelected.SetColor("_BaseColor", lineSel);
+                m_bodyMain = Instantiate(BodyBaseMaterial);
+                m_bodyMain.SetColor("_BaseColor", body);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -189,13 +209,13 @@ namespace Virgis
             if (feature != null)
                 p.feature = feature;
 
-            if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false))
+            if (m_symbology.ContainsKey("body") && m_symbology["body"].ContainsKey("Label") && m_symbology["body"].Label != null && (feature?.ContainsKey(m_symbology["body"].Label) ?? false))
             {
                 //Set the label
                 GameObject labelObject = Instantiate(LabelPrefab, dataPoly.transform, false);
-                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) * symbology["point"].Transform.Scale.magnitude, Space.Self);
+                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) * m_symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string)feature.Get(symbology["body"].Label);
+                labelText.text = (string)feature.Get(m_symbology["body"].Label);
             }
 
 
@@ -206,16 +226,16 @@ namespace Virgis
             foreach (Geometry LinearRing in LinearRings) {
                 wkbGeometryType type = LinearRing.GetGeometryType();
                 if ( type== wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
-                    GameObject dataLine = Instantiate(LinePrefab, dataPoly.transform, false);
+                    GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
                     LinearRing.CloseRings();
-                    com.Draw(LinearRing, symbology, LinePrefab, HandlePrefab, null, mainMat, selectedMat, lineMain, lineSelected, true);
+                    com.Draw(LinearRing, m_symbology, m_linePrefab, m_handlePrefab, null, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, true);
                     polygon.Add(com);
                 }
             }
 
             //Draw the Polygon
-            p.Draw(polygon, bodyMain);
+            p.Draw(polygon, m_bodyMain);
 
             return p;
         }
@@ -259,9 +279,9 @@ namespace Virgis
 
         public override GameObject GetFeatureShape()
         {
-            GameObject fs = Instantiate(HandlePrefab);
+            GameObject fs = Instantiate(m_handlePrefab);
             Datapoint dp = fs.GetComponent<Datapoint>();
-            dp.SetMaterial(mainMat, selectedMat);
+            dp.SetMaterial(m_mainMat, m_selectedMat);
             return fs;
         }
 

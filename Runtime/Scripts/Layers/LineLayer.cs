@@ -1,9 +1,28 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 
 using OSGeo.OGR;
 using Project;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -27,13 +46,13 @@ namespace Virgis
         public Material LineBaseMaterial;
 
 
-        private GameObject HandlePrefab;
-        private GameObject LinePrefab;
-        private Dictionary<string, Unit> symbology;
-        private Material mainMat;
-        private Material selectedMat;
-        private Material lineMain;
-        private Material lineSelected;
+        private GameObject m_handlePrefab;
+        private GameObject m_linePrefab;
+        private Dictionary<string, Unit> m_symbology;
+        private Material m_mainMat;
+        private Material m_selectedMat;
+        private Material m_lineMain;
+        private Material m_lineSelected;
 
         new protected void Awake() {
             base.Awake();
@@ -47,57 +66,57 @@ namespace Virgis
         protected Task<int> Load() {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
-                symbology = layer.Properties.Units;
+                m_symbology = layer.Properties.Units;
 
-                if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
-                    Shapes shape = symbology["point"].Shape;
+                if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
+                    Shapes shape = m_symbology["point"].Shape;
                     switch (shape) {
                         case Shapes.Spheroid:
-                            HandlePrefab = SpherePrefab;
+                            m_handlePrefab = SpherePrefab;
                             break;
                         case Shapes.Cuboid:
-                            HandlePrefab = CubePrefab;
+                            m_handlePrefab = CubePrefab;
                             break;
                         case Shapes.Cylinder:
-                            HandlePrefab = CylinderPrefab;
+                            m_handlePrefab = CylinderPrefab;
                             break;
                         default:
-                            HandlePrefab = SpherePrefab;
+                            m_handlePrefab = SpherePrefab;
                             break;
                     }
                 } else {
-                    HandlePrefab = SpherePrefab;
+                    m_handlePrefab = SpherePrefab;
                 }
 
-                if (symbology.ContainsKey("line") && symbology["line"].ContainsKey("Shape")) {
-                    Shapes shape = symbology["line"].Shape;
+                if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
+                    Shapes shape = m_symbology["line"].Shape;
                     switch (shape) {
                         case Shapes.Cuboid:
-                            LinePrefab = CuboidLinePrefab;
+                            m_linePrefab = CuboidLinePrefab;
                             break;
                         case Shapes.Cylinder:
-                            LinePrefab = CylinderLinePrefab;
+                            m_linePrefab = CylinderLinePrefab;
                             break;
                         default:
-                            LinePrefab = CylinderLinePrefab;
+                            m_linePrefab = CylinderLinePrefab;
                             break;
                     }
                 } else {
-                    LinePrefab = CylinderLinePrefab;
+                    m_linePrefab = CylinderLinePrefab;
                 }
 
-                Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-                Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-                Color line = symbology.ContainsKey("line") ? (Color) symbology["line"].Color : Color.white;
-                Color lineSel = symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-                mainMat = Instantiate(PointBaseMaterial);
-                mainMat.SetColor("_BaseColor", col);
-                selectedMat = Instantiate(PointBaseMaterial);
-                selectedMat.SetColor("_BaseColor", sel);
-                lineMain = Instantiate(LineBaseMaterial);
-                lineMain.SetColor("_BaseColor", line);
-                lineSelected = Instantiate(LineBaseMaterial);
-                lineSelected.SetColor("_BaseColor", lineSel);
+                Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
+                Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+                Color line = m_symbology.ContainsKey("line") ? (Color) m_symbology["line"].Color : Color.white;
+                Color lineSel = m_symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
+                m_mainMat = Instantiate(PointBaseMaterial);
+                m_mainMat.SetColor("_BaseColor", col);
+                m_selectedMat = Instantiate(PointBaseMaterial);
+                m_selectedMat.SetColor("_BaseColor", sel);
+                m_lineMain = Instantiate(LineBaseMaterial);
+                m_lineMain.SetColor("_BaseColor", line);
+                m_lineSelected = Instantiate(LineBaseMaterial);
+                m_lineSelected.SetColor("_BaseColor", lineSel);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -169,7 +188,7 @@ namespace Virgis
         /// <param name="feature">Featire (optinal)</param>
         protected VirgisFeature _drawFeature(Geometry line, Feature feature = null)
         {
-            GameObject dataLine = Instantiate(LinePrefab, transform, false);
+            GameObject dataLine = Instantiate(m_linePrefab, transform, false);
 
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
@@ -177,7 +196,7 @@ namespace Virgis
                 com.feature = feature;
 
             //Draw the line
-            com.Draw(line, symbology, LinePrefab, HandlePrefab, LabelPrefab, mainMat, selectedMat, lineMain, lineSelected);
+            com.Draw(line, m_symbology, m_linePrefab, m_handlePrefab, LabelPrefab, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected);
 
             return com;
         }
@@ -215,9 +234,9 @@ namespace Virgis
 
         public override GameObject GetFeatureShape()
         {
-            GameObject fs = Instantiate(HandlePrefab);
+            GameObject fs = Instantiate(m_handlePrefab);
             Datapoint com = fs.GetComponent<Datapoint>();
-            com.SetMaterial(mainMat, selectedMat);
+            com.SetMaterial(m_mainMat, m_selectedMat);
             return fs;
         }
 
