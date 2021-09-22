@@ -35,7 +35,7 @@ namespace Virgis
         public Material MeshMaterial;
         public Material WireframeMaterial;
 
-        protected List<Transform> m_meshes;
+        protected List<Transform> m_meshes; // List of the meshes in the layer
         protected Dictionary<string, Project.Unit> m_symbology;
 
         new protected void Awake() {
@@ -51,7 +51,7 @@ namespace Virgis
         protected override VirgisFeature _addFeature(DMesh3 mesh) {
             features.Add(mesh);
             EditableMesh emesh = Instantiate(Mesh, transform).GetComponent<EditableMesh>();
-            m_meshes.Add(emesh.Draw(mesh, MeshMaterial, WireframeMaterial, true));
+            m_meshes.Add(emesh.Draw(mesh, MeshMaterial, WireframeMaterial));
             return emesh;
         }
        

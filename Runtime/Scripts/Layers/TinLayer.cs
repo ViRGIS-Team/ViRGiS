@@ -155,8 +155,8 @@ namespace Virgis {
             string crs;
             tin.GetSpatialReference().ExportToWkt(out crs, null);
             dmesh.AttachMetadata("CRS", crs );
-
-            mesh.Draw(dmesh, m_bodyMain, WireframeMaterial, true);
+            dmesh.Transform();
+            mesh.Draw(dmesh, m_bodyMain, WireframeMaterial);
 
             //if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false)) {
             //    //Set the label

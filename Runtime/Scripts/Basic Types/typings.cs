@@ -382,17 +382,16 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Converts g3.DMesh3 to UnityEngine.Mesh.
+        /// Converts g3.DMesh3 to UnityEngine.Mesh. 
+        /// The Dmesh3 must be in Map or Local space coordinates
         /// The DMesh3 must be compact. If neccesary - run Compactify first.
         /// </summary>
         /// <param name="mesh">Dmesh3</param>
-        /// <param name="project"> Should the mesh be projected into virgis projection DEFAULT true. Otherwise Coordinates are assumed to be in Map Space</param>
         /// <returns>UnityEngine.Mesh</returns>
-        public static Mesh ToMesh(this DMesh3 mesh, Boolean project = true) {
+        public static Mesh ToMesh(this DMesh3 mesh) {
             Mesh unityMesh = new Mesh();
             unityMesh.MarkDynamic();
             unityMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
-            if (project && !mesh.Transform()) throw new Exception("Mesh Projection Failed");
             Vector3[] vertices = new Vector3[mesh.VertexCount];
             Color[] colors = new Color[mesh.VertexCount];
             Vector2[] uvs = new Vector2[mesh.VertexCount];
@@ -427,18 +426,16 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Convert a Unity Mesh to projected DMesh3 taking into account mapscale zoom etc
+        /// Convert a Unity Mesh to DMesh3 in Local Coordinates taking into account mapscale zoom etc
         /// </summary>
         /// <param name="mesh"> Unity Mesh</param>
         /// <param name="tform"> Transform of the Gameobject the Mesh is attached to </param>
         /// <param name="to">Optional CRS to use for the output DMesh3</param>
         /// <returns>DMesh3</returns>
-        public static DMesh3 ToDmesh(this Mesh mesh, Transform tform, SpatialReference to = null) {
+        public static DMesh3 ToDmesh(this Mesh mesh, Transform tform) {
             DMesh3 dmesh = new DMesh3();
-            if (to != null)
-                dmesh.AttachMetadata("CRS", to.GetName());
             foreach (Vector3 vertex in mesh.vertices) {
-                dmesh.AppendVertex(tform.TransformPoint(vertex).ToVector3D(to));
+                dmesh.AppendVertex(tform.TransformPoint(vertex).ToVector3D());
             }
             int[] tris = mesh.triangles;
             for (int i = 0; i < tris.Length; i += 3) {

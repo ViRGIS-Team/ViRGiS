@@ -71,8 +71,11 @@ namespace Virgis {
         /// <param name="sr"> Spatial Reference to be used for the result</param>
         /// <returns>Vector3d location</returns>
         static public Vector3d ToVector3D(this Vector3 position, SpatialReference sr = null) {
-            double[] argout = vector3tolocation(position, sr);
-            return new Vector3d(argout[0], argout[1], argout[2]);
+            if (sr != null) {
+                double[] argout = vector3tolocation(position, sr);
+                return new Vector3d(argout[0], argout[1], argout[2]);
+            }
+            return AppState.instance.map.transform.InverseTransformPoint(position);
         }
 
         static private double[] vector3tolocation(Vector3 position, SpatialReference sr = null) {

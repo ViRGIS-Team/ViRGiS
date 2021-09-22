@@ -232,7 +232,8 @@ namespace Virgis
                     MeshMaterial.SetInt("_hasColor", 1);
                 }
                 await dMesh.CalculateUVsAsync();
-                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, true));
+                dMesh.Transform();
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial));
             }
             transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
             transform.rotation = layer.Transform.Rotate;

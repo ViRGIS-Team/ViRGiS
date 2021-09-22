@@ -32,17 +32,18 @@ using OSGeo.OSR;
 public class EditableMesh : VirgisFeature
 {   
     private bool m_BlockMove = false; // is entity in a block-move state
-    private DMesh3 m_dmesh;
+    private DMesh3 m_dmesh; // This is the mesh expressed as a DMesh3 in either local
+                            // space coordinates or projected coordinates depending 
+                            // on m_project 
     private int m_selectedVertex;
     private GameObject m_sphere;
 
-    private Vector3 m_currentHit;
-    private Index3i m_currentHitTri;
-    private DMesh3 m_newDmesh;
+    private Vector3 m_currentHit; // current hit vertex
+    private Index3i m_currentHitTri; // current hit triangle
+    private DMesh3 m_newDmesh; // used when editing the mesh to hold the new reult
     private int n = 0;
     private List<Int32> m_nRing;
     private bool m_selectOn = false;
-    private bool m_project;
 
     public override void Selected(SelectionType button) {
 
@@ -129,7 +130,7 @@ public class EditableMesh : VirgisFeature
                     }
                 }
                 //
-                // if we found on triamgle that contain the current hit then we have finished
+                // if we found on triangle that contain the current hit then we have finished
                 //
                 if (f2)
                     break;
@@ -297,16 +298,24 @@ public class EditableMesh : VirgisFeature
         }
     }
 
-    public Transform Draw(DMesh3 dmeshin, Material mat, Material Wf, bool project) {
+    /// <summary>
+    /// Draws the mesh represented by dmeshin - which should be in local space coordinates
+    /// i.i Map Space coordinates without CRs or projection but that could be affected by 
+    /// layer level scaling
+    /// </summary>
+    /// <param name="dmeshin"></param>
+    /// <param name="mat">Material to be used for mesh normally</param>
+    /// <param name="Wf">Wirframe material to be used when the mesh is being edited</param>
+    /// <returns></returns>
+    public Transform Draw(DMesh3 dmeshin, Material mat, Material Wf) {
         mainMat = mat;
         selectedMat = Wf;
-        m_project = project;
         m_dmesh = dmeshin.Compactify();
         MeshFilter mf = GetComponent<MeshFilter>();
         MeshCollider[] mc = GetComponents<MeshCollider>();
         mr = GetComponent<MeshRenderer>();
         mr.material = mainMat;
-        Mesh umesh = m_dmesh.ToMesh(project);
+        Mesh umesh = m_dmesh.ToMesh();
         umesh.RecalculateBounds();
         umesh.RecalculateNormals();
         umesh.RecalculateTangents();
@@ -330,25 +339,7 @@ public class EditableMesh : VirgisFeature
 
     public DMesh3 GetMesh() {
         MeshFilter mf = GetComponent<MeshFilter>();
-        string crs = m_dmesh.FindMetadata("crs") as string;
-        if (crs != null && crs != "") {
-            SpatialReference sr = new SpatialReference(null);
-            if (crs.Contains("+proj")) {
-                sr.ImportFromProj4(crs);
-            } else if (crs.StartsWith("epsg") || crs.StartsWith("EPSG")) {
-                int epsg = int.Parse(crs.Split(':')[1]);
-                sr.ImportFromEPSG(epsg);
-            } else {
-                sr.ImportFromWkt(ref crs);
-            };
-            return mf.mesh.ToDmesh(transform, sr);
-        }
         return mf.mesh.ToDmesh(transform);
-    }
-
-    public DMesh3 GetMesh(SpatialReference sr) {
-        MeshFilter mf = GetComponent<MeshFilter>();
-        return mf.mesh.ToDmesh(transform, sr);
     }
 
     public override Dictionary<string, object> GetMetadata() {
@@ -388,10 +379,14 @@ public class EditableMesh : VirgisFeature
     public void Delete() {
         MeshFilter mf = GetComponent<MeshFilter>();
         m_newDmesh.RemoveVertex(m_selectedVertex, true, true);
-        MeshAutoRepair mr = new MeshAutoRepair(m_newDmesh);
-        mr.Apply();
-        m_newDmesh = mr.Mesh;
-        Mesh tempMesh = m_newDmesh.ToMesh(m_project);
+        if (m_dmesh.IsClosed()) {
+            MeshAutoRepair mr = new MeshAutoRepair(m_newDmesh);
+            mr.Apply();
+            m_newDmesh = mr.Mesh;
+        } else {
+            m_newDmesh.CompactInPlace();
+        }
+        Mesh tempMesh = m_newDmesh.ToMesh();
         tempMesh.RecalculateBounds();
         tempMesh.RecalculateNormals();
         mf.mesh = tempMesh;
