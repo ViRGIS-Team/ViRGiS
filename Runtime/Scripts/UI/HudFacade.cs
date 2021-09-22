@@ -69,6 +69,7 @@ public class HudFacade : MonoBehaviour
 
     public void OnEditSessionStart(bool ignore) {
         HudRightText.text = "Editing";
+        HudRightText.color = Color.red;
     }
 
     public void OnEditSessionEnd(bool saved) {
@@ -77,5 +78,10 @@ public class HudFacade : MonoBehaviour
 
     public void OnZoomChanged(float scale) {
         HudLeftText.text = $"1 : {Mathf.Round(scale *10) / 10}";
+    }
+
+    public void SetStatus(string text, Color color) {
+        HudRightText.text = text;
+        HudRightText.color = color;
     }
 }

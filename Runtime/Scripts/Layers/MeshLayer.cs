@@ -99,7 +99,7 @@ namespace Virgis
                         mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
                     }
                 }
-                symbology = layer.Properties.Units;
+                m_symbology = layer.Properties.Units;
             }
             if (ex == ".dxf") {
                 List<Vector3d> vertexes = new List<Vector3d>();
@@ -125,7 +125,7 @@ namespace Virgis
                         tri.Add(face.SecondVertex.ToVector3d(transform));
                         tri.Add(face.ThirdVertex.ToVector3d(transform));
                         if (face.FourthVertex != face.ThirdVertex) {
-                            Debug.Log(" Not a Tringle");
+                            Debug.Log(" Not a Triangle");
                         }
                         curves.Add(new DCurve3(tri, false, true));
                     }
@@ -217,7 +217,7 @@ namespace Virgis
                 tris.ForEach(t => dmesh.AppendTriangle(t));
                 features = new List<DMesh3>();
                 features.Add(dmesh.Compactify());
-                symbology = layer.Properties.Units;
+                m_symbology = layer.Properties.Units;
                 return;
             }
         }
@@ -228,10 +228,10 @@ namespace Virgis
             transform.position = layer.Position != null ? layer.Position.ToVector3() : Vector3.zero;
             transform.Translate(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
-            meshes = new List<Transform>();
+            m_meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, false));
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, false));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;

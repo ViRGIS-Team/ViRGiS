@@ -40,7 +40,8 @@ namespace Virgis {
         // used to read the source file for this layer
         private OgrReader m_ogrReader;
 
-        private void OnDestroy() {
+        protected new void OnDestroy() {
+            base.OnDestroy();
             m_ogrReader?.Dispose();
         }
 

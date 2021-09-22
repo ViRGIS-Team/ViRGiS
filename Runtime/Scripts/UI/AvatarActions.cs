@@ -22,7 +22,7 @@ namespace Virgis
         protected Transform m_currentPointerHit; // current marker selected by pointer
         protected Transform m_currentSelected; // current marker in selected state
 
-        protected Vector3 m_from; // caches the last position indicated by the user to which to move the selected component
+        protected Vector3? m_from; // caches the last position indicated by the user to which to move the selected component
         protected AppState m_appState;
         private Rigidbody m_thisRigidbody;
         protected bool m_axisEdit = false; // Whether we are in AxisEdit mode
@@ -106,12 +106,12 @@ namespace Virgis
             if (!m_axisEdit)
             {
                 MoveArgs args = new MoveArgs();
-                args.translate = to - m_from;
+                args.translate = to - (m_from  ?? to);
                 m_currentSelected?.SendMessage("MoveTo", args, SendMessageOptions.DontRequireReceiver);
             }
         }
 
-        protected void select(ButtonStatus button)
+        protected virtual void select(ButtonStatus button)
         {
             if (
                 button.activate &&
@@ -131,7 +131,7 @@ namespace Virgis
             }
         }
 
-        protected void unSelect(ButtonStatus button)
+        protected virtual void unSelect(ButtonStatus button)
         {
             if (!button.activate)
             {
@@ -139,6 +139,7 @@ namespace Virgis
                 m_currentSelected?.SendMessage("UnSelected", m_appState.ButtonStatus.SelectionType, SendMessageOptions.DontRequireReceiver);
                 m_currentSelected = null;
                 m_lightEdit = false;
+                m_from = null;
             }
         }
 

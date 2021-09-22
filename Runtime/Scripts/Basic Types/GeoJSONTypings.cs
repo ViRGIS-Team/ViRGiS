@@ -28,6 +28,7 @@ using SpatialReference = OSGeo.OSR.SpatialReference;
 using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
+using g3;
 
 
 namespace Virgis {
@@ -37,9 +38,9 @@ namespace Virgis {
         /// Convert Vector3 World Space location to Position taking account of zoom, scale and mapscale
         /// </summary>
         /// <param name="position">Vector3 World Space coordinates</param>
+        /// <param name="crs">ICRSObject to use for projection</param>
         /// <returns>Position</returns>
         static public IPosition ToPosition(this Vector3 position, ICRSObject crs = null) {
-            Geometry geom = position.ToGeometry();
             SpatialReference sr = new SpatialReference(null);
             if (crs == null) {
                 sr.SetWellKnownGeogCS("EPSG:4326");
@@ -58,12 +59,36 @@ namespace Virgis {
                         break;
                 }
             }
-            geom.TransformTo(sr);
-            double[] argout = new double[3];
-            geom.GetPoint(0, argout);
+            double[] argout = vector3tolocation(position, sr);
             return new Position(argout[0], argout[1], argout[2]);
         }
 
+        /// <summary>
+        /// Convert Vector3 World Space location to projected Vector3d taking account of zoom, scale and mapscale
+        /// NOTE - if no SR defined then the Vector3d returned is in Map Space coordinates
+        /// </summary>
+        /// <param name="position">Vector3 World Space coordinates</param>
+        /// <param name="sr"> Spatial Reference to be used for the result</param>
+        /// <returns>Vector3d location</returns>
+        static public Vector3d ToVector3D(this Vector3 position, SpatialReference sr = null) {
+            double[] argout = vector3tolocation(position, sr);
+            return new Vector3d(argout[0], argout[1], argout[2]);
+        }
+
+        static private double[] vector3tolocation(Vector3 position, SpatialReference sr = null) {
+            Geometry geom = position.ToGeometry();
+            // if no Spatial Reference the the Vector3d returned is in Map Space coords
+            if (sr != null) geom.TransformTo(sr);
+            double[] argout = new double[3];
+            geom.GetPoint(0, argout);
+            return argout;
+        }
+
+        /// <summary>
+        /// Converts a Vector3 position in World Space coordinates into a Geometry in Map Space Coordinates
+        /// </summary>
+        /// <param name="position">Vector3 position in World Space Coordinates</param>
+        /// <returns>Geometry</returns>
         static public Geometry ToGeometry(this Vector3 position) {
             Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
             geom.AssignSpatialReference(AppState.instance.mapProj);

@@ -35,7 +35,7 @@ namespace Virgis
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
-            symbology = layer.Properties.Units;
+            m_symbology = layer.Properties.Units;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
@@ -57,11 +57,11 @@ namespace Virgis
         {
             RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
-            meshes = new List<Transform>();
+            m_meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
                 await dMesh.CalculateUVsAsync();
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, true));
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, true));
             }
             transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
             transform.rotation = layer.Transform.Rotate;

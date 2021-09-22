@@ -55,6 +55,13 @@ namespace Virgis {
                         layerNameText.text = m_layer.sourceName;
                     }
                 }
+                GameObject featureShape = layer.GetFeatureShape();
+                if (featureShape != null) {
+                    featureShape.transform.parent = transform;
+                    featureShape.transform.localPosition = new Vector3(-60f, 0f, 0f);
+                    featureShape.transform.localRotation = Quaternion.identity;
+                    featureShape.transform.localScale = new Vector3(20f,20f,0.1f);
+                }
             }
         }
 

@@ -63,10 +63,6 @@ namespace Virgis
             featureType = FeatureType.POLYGON;
         }
 
-        private void OnDestroy() {
-            return;
-        }
-
 
         protected override async Task _init() {
             await Load();

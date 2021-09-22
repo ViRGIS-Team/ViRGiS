@@ -21,11 +21,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 using OSGeo.OSR;
+using g3;
 using Project;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 
 namespace Virgis {
@@ -54,6 +56,7 @@ namespace Virgis {
         }
 
         VirgisFeature AddFeature(Vector3[] geometry);
+        VirgisFeature AddFeature(DMesh3 mesh);
         Task Init(RecordSet layer);
         Task SubInit(RecordSet layer);
         Task Draw();
@@ -95,12 +98,25 @@ namespace Virgis {
         protected bool m_editable;
         protected SpatialReference m_crs;
 
+        private readonly List<IDisposable> m_subs = new List<IDisposable>();
+
         protected void Awake() {
             m_id = Guid.NewGuid();
             m_editable = false;
             changed = true;
             isContainer = false;
             isWriteable = false;
+        }
+
+        protected void Start() {
+            AppState appState = AppState.instance;
+            m_subs.Add(appState.editSession.StartEvent.Subscribe(_onEditStart));
+            m_subs.Add(appState.editSession.EndEvent.Subscribe(_onEditStop));
+        }
+
+
+        protected void OnDestroy() {
+            m_subs.ForEach(item => item.Dispose());
         }
 
         /// <summary>
@@ -154,6 +170,26 @@ namespace Virgis {
         /// </summary>
         /// <param name=position"></param>
         protected abstract VirgisFeature _addFeature(Vector3[] geometry);
+
+        /// <summary>
+        /// Call this to create a new feature from a DMesh3 object in Map Space coordinates
+        /// </summary>
+        /// <param name="position">Vector3 where to create the new layer</param>
+        public VirgisFeature AddFeature(DMesh3 mesh) {
+            if (AppState.instance.InEditSession() && IsEditable()) {
+                return _addFeature(mesh);
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// implement the layer specfiic code for creating a new feature here
+        /// </summary>
+        /// <param name=position"></param>
+        protected virtual VirgisFeature _addFeature(DMesh3 mesh)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Draw the layer based upon the features in the features RecordSet
@@ -371,6 +407,24 @@ namespace Virgis {
             m_crs = crs;
         }
 
+        protected virtual void _onEditStart(bool test) {
+            if (IsEditable()) {
+                VirgisFeature[] coms = GetComponentsInChildren<VirgisFeature>();
+                foreach (VirgisFeature com in coms) {
+                    com.OnEdit(true);
+                }
+            }
+        }
+
+        protected virtual void _onEditStop(bool test) {
+            if (IsEditable()) {
+                VirgisFeature[] coms = GetComponentsInChildren<VirgisFeature>();
+                foreach (VirgisFeature com in coms) {
+                    com.OnEdit(false);
+                }
+            }
+        }
+
         /// <summary>
         /// Get the Layer CRS
         /// </summary>
@@ -400,6 +454,10 @@ namespace Virgis {
 
         public VirgisLayer GetLayer() {
             return this;
+        }
+
+        public void OnEdit(bool inSession) {
+            // do nothing
         }
     }
 

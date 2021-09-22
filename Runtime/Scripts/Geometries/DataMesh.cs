@@ -25,25 +25,26 @@ using g3;
 using Virgis;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class DataMesh : VirgisFeature
 {
-    protected bool BlockMove = false; // is entity in a block-move state
-    private DMesh3 mesh;
+    protected bool m_blockMove = false; // is entity in a block-move state
+    private DMesh3 m_mesh;
+    private Vector3 m_firstHitPosition = Vector3.zero;
+    private bool m_nullifyHitPos = true;
 
-    private Vector3 firstHitPosition = Vector3.zero;
-    private bool nullifyHitPos = true;
     public override void Selected(SelectionType button) {
-        nullifyHitPos = true;
+        m_nullifyHitPos = true;
         transform.parent.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
         if (button == SelectionType.SELECTALL) {
-            BlockMove = true;
+            m_blockMove = true;
         }
     }
 
     public override void UnSelected(SelectionType button) {
         transform.parent.SendMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
-        BlockMove = false;
+        m_blockMove = false;
     }
 
     public override void MoveTo(MoveArgs args) {
@@ -51,15 +52,15 @@ public class DataMesh : VirgisFeature
     }
 
     public override void MoveAxis(MoveArgs args) {
-        if (nullifyHitPos)
-            firstHitPosition = args.pos;
-        args.pos = firstHitPosition;
+        if (m_nullifyHitPos)
+            m_firstHitPosition = args.pos;
+        args.pos = m_firstHitPosition;
         transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
-        nullifyHitPos = false;
+        m_nullifyHitPos = false;
     }
 
     public Transform Draw(DMesh3 mesh, Material mat) {
-        this.mesh = mesh;
+        this.m_mesh = mesh;
         MeshFilter mf = GetComponent<MeshFilter>();
         MeshCollider[] mc = GetComponents<MeshCollider>();
         MeshRenderer mr = GetComponent<MeshRenderer>();
@@ -78,17 +79,22 @@ public class DataMesh : VirgisFeature
     }
 
     public DMesh3 GetMesh() {
-        return mesh;
+        return m_mesh;
     }
 
     public override Dictionary<string, object> GetMetadata() {
-        if (mesh != null)
-            return mesh.FindMetadata("properties") as Dictionary<string, object>;
+        if (m_mesh != null)
+            return m_mesh.FindMetadata("properties") as Dictionary<string, object>;
         else
             return transform.parent.GetComponent<IVirgisFeature>().GetMetadata();
     }
 
     public override void SetMetadata(Dictionary<string, object> meta) {
         throw new System.NotImplementedException();
+    }
+
+    public void MakeConvex() {
+        MeshCollider[] mcs = gameObject.GetComponents<MeshCollider>();
+        mcs.ToList().ForEach(item => item.convex = true);
     }
 }

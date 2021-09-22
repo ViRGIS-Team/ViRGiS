@@ -43,6 +43,7 @@ namespace Virgis
         void MoveTo(MoveArgs args);
         void VertexMove(MoveArgs args);
         VirgisLayer GetLayer();
+        void OnEdit(bool inSession);
     }
 
     /// <summary>
@@ -227,6 +228,10 @@ namespace Virgis
 
         public VirgisLayer GetLayer() {
             return transform.parent.GetComponent<IVirgisEntity>().GetLayer();
+        }
+
+        public virtual void OnEdit(bool inSession) {
+            // do nothing
         }
     }
 }

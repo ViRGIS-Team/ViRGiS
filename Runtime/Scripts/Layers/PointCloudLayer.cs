@@ -41,10 +41,10 @@ namespace Virgis
         public List<GameObject> meshes;
         public Material HandleMaterial;
 
-        private GameObject model;
-        private Dictionary<string, Unit> symbology;
-        private Material mainMat;
-        private Material selectedMat;
+        private GameObject m_model;
+        private Dictionary<string, Unit> m_symbology;
+        private Material m_mainMat;
+        private Material m_selectedMat;
 
         new protected void Awake() {
             base.Awake();
@@ -54,13 +54,13 @@ namespace Virgis
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             await Load(layer);
-            symbology = layer.Properties.Units;
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            mainMat = Instantiate(HandleMaterial);
-            mainMat.SetColor("_BaseColor", col);
-            selectedMat = Instantiate(HandleMaterial);
-            selectedMat.SetColor("_BaseColor", sel);
+            m_symbology = layer.Properties.Units;
+            Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
+            Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            m_mainMat = Instantiate(HandleMaterial);
+            m_mainMat.SetColor("_BaseColor", col);
+            m_selectedMat = Instantiate(HandleMaterial);
+            m_selectedMat.SetColor("_BaseColor", sel);
         }
 
         protected Task<int> Load(RecordSet layer) {
@@ -138,9 +138,9 @@ namespace Virgis
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
 
-            model = Instantiate(pointCloud, transform, false);
+            m_model = Instantiate(pointCloud, transform, false);
 
-            VisualEffect vfx = model.GetComponent<VisualEffect>();
+            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
             vfx.SetTexture("_Positions", features.positionMap);
             vfx.SetTexture("_Colors", features.colorMap);
             vfx.SetInt("_pointCount", features.pointCount);
@@ -154,18 +154,18 @@ namespace Virgis
             }
             GameObject centreHandle = Instantiate(handle, transform.position, Quaternion.identity);
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
-            centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
+            centreHandle.GetComponent<Datapoint>().SetMaterial(m_mainMat, m_selectedMat);
             centreHandle.transform.parent = transform;
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
             base._set_visible();
-            VisualEffect vfx = model.GetComponent<VisualEffect>();
+            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
             vfx.SetTexture("_Positions", features.positionMap);
             vfx.SetTexture("_Colors", features.colorMap);
             vfx.SetInt("_pointCount", features.pointCount);
-            vfx.SetVector3("_size", symbology["point"].Transform.Scale);
+            vfx.SetVector3("_size", m_symbology["point"].Transform.Scale);
             vfx.Play();
         }
 
@@ -201,7 +201,7 @@ namespace Virgis
                         T.localScale /= RS;
                     }
                 }
-                VisualEffect vfx = model.GetComponent<VisualEffect>();
+                VisualEffect vfx = m_model.GetComponent<VisualEffect>();
                 vfx.SetVector3("_scale", transform.localScale);
             }
             changed = true;

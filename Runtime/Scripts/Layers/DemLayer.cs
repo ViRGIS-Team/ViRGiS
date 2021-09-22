@@ -21,7 +21,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 using System.Threading.Tasks;
 using System.IO;
@@ -226,14 +225,14 @@ namespace Virgis
         protected override async Task _draw() {
             RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
-            meshes = new List<Transform>();
+            m_meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
                 if (dMesh.HasVertexColors) {
                     MeshMaterial.SetInt("_hasColor", 1);
                 }
                 await dMesh.CalculateUVsAsync();
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, true));
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, true));
             }
             transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
             transform.rotation = layer.Transform.Rotate;

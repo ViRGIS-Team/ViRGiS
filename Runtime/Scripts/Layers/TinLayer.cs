@@ -48,10 +48,6 @@ namespace Virgis {
             featureType = FeatureType.MESH;
         }
 
-        private void OnDestroy() {
-            return;
-        }
-
         protected override async Task _init() {
             await Load();
         }
