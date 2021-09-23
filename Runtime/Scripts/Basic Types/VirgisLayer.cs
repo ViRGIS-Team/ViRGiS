@@ -55,6 +55,11 @@ namespace Virgis {
             set;
         }
 
+        public bool changed {
+            get;
+            set;
+        }
+
         VirgisFeature AddFeature(Vector3[] geometry);
         VirgisFeature AddFeature(DMesh3 mesh);
         Task Init(RecordSet layer);
@@ -88,7 +93,19 @@ namespace Virgis {
             get; protected set;
         }
 
-        public bool changed; // true is this layer has been changed from the original file
+        /// <summary>
+        /// true if this layer has been changed from the original file
+        /// </summary>
+        public bool changed {
+            get {
+                return m_changed;
+            }
+            set {
+                m_changed = value;
+                IVirgisLayer parent = transform.parent?.GetComponent<IVirgisLayer>();
+                if (parent != null) parent.changed = value;
+            }
+        }
         public bool isContainer { get; protected set; }  // if this is a container layer - do not Draw
         public bool isWriteable { // only allow edit and save for layers that can be written
             get;
@@ -97,6 +114,7 @@ namespace Virgis {
         protected Guid m_id;
         protected bool m_editable;
         protected SpatialReference m_crs;
+        private bool m_changed;
 
         private readonly List<IDisposable> m_subs = new List<IDisposable>();
 
@@ -128,6 +146,7 @@ namespace Virgis {
         /// 
         public async Task Init(RecordSet layer) {
             await SubInit(layer);
+            await Draw();
             Debug.Log($"Loaded Layer : {layer.DisplayName}");
             AppState.instance.addLayer(this);
         }
@@ -141,7 +160,6 @@ namespace Virgis {
             try {
                 await _init();
                 gameObject.SetActive(layer.Visible);
-                await Draw();
             } catch (Exception e) {
                 Debug.LogError($"Layer : { layer.DisplayName} :  {e.ToString()}");
             }
@@ -160,6 +178,7 @@ namespace Virgis {
         /// <param name="position">Vector3 where to create the new layer</param>
         public VirgisFeature AddFeature(Vector3[] geometry) {
             if (AppState.instance.InEditSession() && IsEditable()) {
+                changed = true;
                 return _addFeature(geometry);
             }
             return null;
@@ -177,6 +196,7 @@ namespace Virgis {
         /// <param name="position">Vector3 where to create the new layer</param>
         public VirgisFeature AddFeature(DMesh3 mesh) {
             if (AppState.instance.InEditSession() && IsEditable()) {
+                changed = true;
                 return _addFeature(mesh);
             }
             return null;
@@ -196,16 +216,18 @@ namespace Virgis {
         /// </summary>
         public async Task Draw() {
             //change nothing if there are no changes
-            if (changed && ! isContainer) {
-                //make sure the layer is empty
-                for (int i = transform.childCount - 1; i >= 0; i--) {
-                    Transform child = transform.GetChild(i);
-                    Destroy(child.gameObject);
-                }
+            if (changed) {
+                if (!isContainer) {
+                    //make sure the layer is empty
+                    for (int i = transform.childCount - 1; i >= 0; i--) {
+                        Transform child = transform.GetChild(i);
+                        Destroy(child.gameObject);
+                    }
 
-                transform.rotation = Quaternion.identity;
-                transform.localPosition = Vector3.zero;
-                transform.localScale = Vector3.one;
+                    transform.rotation = Quaternion.identity;
+                    transform.localPosition = Vector3.zero;
+                    transform.localScale = Vector3.one;
+                }
 
                 await _draw();
                 changed = false;
@@ -242,7 +264,7 @@ namespace Virgis {
         /// </summary>
         /// <returns>A copy of the data save dot the source</returns>
         public virtual async Task<RecordSet> Save() {
-            if (isWriteable && changed) {
+            if (changed) {
                 await _save();
             }
             return GetMetadata();
@@ -263,7 +285,7 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Called whenevr a member entity is asked to Change Axis
+        /// Called whenever a member entity is asked to Change Axis
         /// </summary>
         /// <param name="args">MoveArgs Object</param>
         public virtual void MoveAxis(MoveArgs args) {

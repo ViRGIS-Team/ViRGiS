@@ -27,7 +27,6 @@ using Virgis;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using OSGeo.OSR;
 
 public class EditableMesh : VirgisFeature
 {   
@@ -39,7 +38,7 @@ public class EditableMesh : VirgisFeature
     private GameObject m_sphere;
 
     private Vector3 m_currentHit; // current hit vertex
-    private Index3i m_currentHitTri; // current hit triangle
+    private int? m_currentHitTri; // current hit triangle
     private DMesh3 m_newDmesh; // used when editing the mesh to hold the new reult
     private int n = 0;
     private List<Int32> m_nRing;
@@ -57,6 +56,7 @@ public class EditableMesh : VirgisFeature
         } else {
             MeshFilter mf = GetComponent<MeshFilter>();
             Mesh mesh = mf.sharedMesh;
+            m_currentHitTri = null;
             m_currentHit = transform.InverseTransformPoint(AppState.instance.lastHitPosition);
             Vector3d target = m_currentHit;
             System.Random rand = new System.Random();
@@ -126,7 +126,7 @@ public class EditableMesh : VirgisFeature
                         target.z <= zs.Max()
                         ) {
                         f2 = true;
-                        m_currentHitTri = tri;
+                        m_currentHitTri = t;
                     }
                 }
                 //
@@ -177,7 +177,7 @@ public class EditableMesh : VirgisFeature
                         target.z <= zs.Max()
                         ) {
                         f2 = true;
-                        m_currentHitTri = tri;
+                        m_currentHitTri = t;
                     }
                 }
                 //
@@ -185,8 +185,8 @@ public class EditableMesh : VirgisFeature
                 //
                 if (!f2) {
                     Debug.LogError(" Mesh Vertex Search : No Solution Found");
-                    return;
                     m_selectOn = false;
+                    return;
                 }
             }
             m_selectedVertex = current;
@@ -350,7 +350,7 @@ public class EditableMesh : VirgisFeature
     }
 
     public override void SetMetadata(Dictionary<string, object> meta) {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public override void OnEdit(bool inSession) {
@@ -368,7 +368,27 @@ public class EditableMesh : VirgisFeature
 
     public override VirgisFeature AddVertex(Vector3 position) {
         if (m_currentHit != null && m_currentHitTri != null) {
-            
+            Vector3d V0 = new Vector3d();
+            Vector3d V1 = new Vector3d();
+            Vector3d V2 = new Vector3d();
+            m_newDmesh.GetTriVertices(m_currentHitTri.Value, ref V0, ref V1, ref V2);
+            Index3i tri = m_newDmesh.GetTriangle(m_currentHitTri.Value);
+            Vector3d bari = MathUtil.BarycentricCoords(m_currentHit, V0, V1, V2);
+            int edgeId = 0;
+            if (bari.x > bari.y && bari.x > bari.z)
+                edgeId = m_newDmesh.FindEdgeFromTri(tri.b, tri.c, m_currentHitTri.Value);
+            if (bari.y > bari.x && bari.y > bari.z)
+                edgeId = m_newDmesh.FindEdgeFromTri(tri.a, tri.c, m_currentHitTri.Value);
+            if (bari.z > bari.y && bari.z > bari.x)
+                edgeId = m_newDmesh.FindEdgeFromTri(tri.b, tri.a, m_currentHitTri.Value);
+            DMesh3.EdgeSplitInfo result = new DMesh3.EdgeSplitInfo();
+            m_newDmesh.SplitEdge(edgeId, out result);
+            Mesh tempMesh = m_newDmesh.ToMesh();
+            tempMesh.RecalculateBounds();
+            tempMesh.RecalculateNormals();
+            MeshFilter mf = GetComponent<MeshFilter>();
+            mf.mesh = tempMesh;
+            UnSelected(SelectionType.SELECT);
         }
         return this;
     }

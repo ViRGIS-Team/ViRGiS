@@ -191,11 +191,5 @@ namespace Virgis {
         protected override VirgisFeature _addFeature(Vector3[] geometry) {
             throw new NotImplementedException();
         }
-
-
-
-        protected override Task _draw() {
-            return Task.CompletedTask;
-        }
     }
 }

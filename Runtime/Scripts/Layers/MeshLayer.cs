@@ -215,8 +215,9 @@ namespace Virgis
                 DMesh3 dmesh = new DMesh3(false, false, false, false);
                 vertexes.ForEach(v => dmesh.AppendVertex(v));
                 tris.ForEach(t => dmesh.AppendTriangle(t));
+                dmesh.CompactInPlace();
                 features = new List<DMesh3>();
-                features.Add(dmesh.Compactify());
+                features.Add(dmesh);
                 m_symbology = layer.Properties.Units;
                 return;
             }
