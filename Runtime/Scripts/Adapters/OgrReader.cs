@@ -98,7 +98,6 @@ namespace Virgis {
         }
 
         public Task<int> GetFeaturesAsync(Layer layer) {
-
             TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
             Task<int> t1 = tcs1.Task;
             t1.ConfigureAwait(false);
@@ -106,20 +105,24 @@ namespace Virgis {
             // Start a background task that will complete tcs1.Task
             Task.Factory.StartNew(() => {
                 try {
-                    layer.ResetReading();
-                    features = new List<Feature>();
-                    Feature f = null;
-                    do {
-                        f = layer.GetNextFeature();
-                        if (f != null)
-                            features.Add(f);
-                    } while (f != null);
+                    GetFeatures(layer);
                     tcs1.SetResult(1);
                 } catch (Exception e) {
                     tcs1.SetException(e);
                 }
             });
             return t1;
+        }
+
+        public void GetFeatures(Layer layer) {
+            layer.ResetReading();
+            features = new List<Feature>();
+            Feature f = null;
+            do {
+                f = layer.GetNextFeature();
+                if (f != null)
+                    features.Add(f);
+            } while (f != null);
         }
 
         public static void Flatten(ref wkbGeometryType type) {
