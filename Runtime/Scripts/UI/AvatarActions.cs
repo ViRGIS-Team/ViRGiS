@@ -31,7 +31,7 @@ namespace Virgis
         protected bool m_delVertexState; // current state of the button to remove vertex
         protected bool m_lightEdit = false; // are we currently editing the lights
 
-        private List<SelectionType> SELECT_SELECTION_TYPES = new List<SelectionType>() { SelectionType.SELECT, SelectionType.SELECTALL };
+        private List<SelectionType> SELECT_SELECTION_TYPES = new List<SelectionType>() { SelectionType.SELECT, SelectionType.SELECTALL, SelectionType.MOVEAXIS };
 
         public void Start()
         {

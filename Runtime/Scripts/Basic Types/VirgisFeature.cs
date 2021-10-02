@@ -69,6 +69,9 @@ namespace Virgis
         protected Material mainMat; // color of the component
         protected Material selectedMat; // color of the component when selected
         protected MeshRenderer mr;
+        protected Vector3 m_firstHitPosition = Vector3.zero;
+        protected bool m_nullifyHitPos = true;
+        protected bool m_blockMove = false; // is entity in a block-move state
 
         private Guid _id; // internal ID for this component - used when it is part of a larger structure
         public Transform label; //  Go of the label or billboard
@@ -97,7 +100,12 @@ namespace Virgis
         /// </summary>
         /// <param name="button"> SelectionType</param>
         public virtual void Selected(SelectionType button) {
-            //do nothing
+            m_nullifyHitPos = true;
+            if (button != SelectionType.BROADCAST)
+                transform.parent.GetComponent<IVirgisEntity>().Selected(button);
+            if (button == SelectionType.SELECTALL) {
+                m_blockMove = true;
+            }
         }
 
         /// <summary>
@@ -105,7 +113,9 @@ namespace Virgis
         /// </summary>
         /// <param name="button"> SelectionType</param>
         public virtual void UnSelected(SelectionType button) {
-            //do nothing
+            if (button != SelectionType.BROADCAST)
+                transform.parent.GetComponent<IVirgisEntity>().UnSelected(SelectionType.BROADCAST);
+            m_blockMove = false;
         }
 
         
@@ -116,7 +126,7 @@ namespace Virgis
         /// </summary>
         /// <param name="args">MoveArgs : Either a trabslate vectir OR a Vector position to move to, both in World space coordinates</param>
         public virtual void MoveTo(MoveArgs args) {
-            //do nothing
+            transform.parent.GetComponent<IVirgisEntity>().Translate(args);
         }
 
         /// <summary>
@@ -124,7 +134,12 @@ namespace Virgis
         /// </summary>
         /// <param name="delta"> Vector representing this channge to the transform</param>
         public virtual void MoveAxis(MoveArgs args) {
-            //do nothing
+            args.id = GetId();
+            if (m_nullifyHitPos)
+                m_firstHitPosition = args.pos;
+            args.pos = m_firstHitPosition;
+            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
+            m_nullifyHitPos = false;
         }
 
         /// <summary>

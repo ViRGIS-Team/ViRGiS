@@ -31,7 +31,6 @@ using System.Threading.Tasks;
 using DelaunatorSharp;
 using System.Linq;
 using DXF = netDxf;
-using Mdal;
 
 namespace Virgis {
 
@@ -53,6 +52,7 @@ namespace Virgis {
     public enum SelectionType {
         SELECT,     // Select a sing;le vertex
         SELECTALL,  // Select all verteces
+        MOVEAXIS,   // select for Rotation and sizing event
         INFO,       // Slection Actin related to the Info screen
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
     }

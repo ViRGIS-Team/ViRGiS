@@ -34,7 +34,6 @@ namespace Virgis
     /// </summary>
     public class Datashape : VirgisFeature {
 
-        protected bool BlockMove = false; // Is this component in a block move state
         public GameObject shapePrefab;
         protected GameObject Shape; // gameObject to be used for the shape
         protected List<VertexLookup> VertexTable = new List<VertexLookup>();
@@ -46,7 +45,7 @@ namespace Virgis
         public override void Selected(SelectionType button) {
             if (button == SelectionType.SELECTALL) {
                 gameObject.BroadcastMessage("Selected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
-                BlockMove = true;
+                m_blockMove = true;
                 GetComponentsInChildren<Dataline>().ToList<Dataline>().ForEach(item => item.Selected(SelectionType.SELECTALL));
             }
         }
@@ -54,7 +53,7 @@ namespace Virgis
         public override void UnSelected(SelectionType button) {
             if (button != SelectionType.BROADCAST) {
                 gameObject.BroadcastMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
-                BlockMove = false;
+                m_blockMove = false;
             }
         }
 
@@ -172,7 +171,7 @@ namespace Virgis
         }
 
         public override void RemoveVertex(VirgisFeature vertex) {
-            if (BlockMove) {
+            if (m_blockMove) {
                 Destroy(gameObject);
             } else {
                 _redraw();

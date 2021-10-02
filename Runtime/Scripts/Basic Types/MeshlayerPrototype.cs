@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Project;
 using g3;
@@ -61,6 +62,8 @@ namespace Virgis
 
         public override void MoveAxis(MoveArgs args) {
             changed = true;
+            EditableMesh[] dataFeatures = gameObject.GetComponentsInChildren<EditableMesh>();
+            dataFeatures.ToList<EditableMesh>().Find(item => args.id == item.GetId()).MoveAxisAction(args);
         }
 
         protected override void _checkpoint() { }

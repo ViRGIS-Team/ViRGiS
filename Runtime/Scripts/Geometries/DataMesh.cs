@@ -29,35 +29,7 @@ using System.Linq;
 
 public class DataMesh : VirgisFeature
 {
-    protected bool m_blockMove = false; // is entity in a block-move state
     private DMesh3 m_mesh;
-    private Vector3 m_firstHitPosition = Vector3.zero;
-    private bool m_nullifyHitPos = true;
-
-    public override void Selected(SelectionType button) {
-        m_nullifyHitPos = true;
-        transform.parent.SendMessage("Selected", button, SendMessageOptions.DontRequireReceiver);
-        if (button == SelectionType.SELECTALL) {
-            m_blockMove = true;
-        }
-    }
-
-    public override void UnSelected(SelectionType button) {
-        transform.parent.SendMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
-        m_blockMove = false;
-    }
-
-    public override void MoveTo(MoveArgs args) {
-        transform.parent.SendMessage("Translate", args);
-    }
-
-    public override void MoveAxis(MoveArgs args) {
-        if (m_nullifyHitPos)
-            m_firstHitPosition = args.pos;
-        args.pos = m_firstHitPosition;
-        transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
-        m_nullifyHitPos = false;
-    }
 
     public Transform Draw(DMesh3 mesh, Material mat) {
         this.m_mesh = mesh;

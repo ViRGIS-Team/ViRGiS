@@ -52,14 +52,13 @@ namespace Virgis
 
 
         public override void Selected(SelectionType button){
+            base.Selected(button);
             thisRenderer.material = selectedMat;
-            if (button != SelectionType.BROADCAST){
-                transform.parent.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
-            }
         }
 
 
         public override void UnSelected(SelectionType button){
+            base.Selected(button);
             thisRenderer.material = mainMat;
             if (button != SelectionType.BROADCAST){
                 MoveArgs args = new MoveArgs();
@@ -87,7 +86,6 @@ namespace Virgis
                         break;
                 }
             }
-            transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
         }
 
  
@@ -133,7 +131,7 @@ namespace Virgis
 
         public override void MoveAxis(MoveArgs args) {
             args.pos = transform.position;
-            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
+            base.MoveAxis(args);
         }
 
 

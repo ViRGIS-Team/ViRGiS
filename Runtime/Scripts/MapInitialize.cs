@@ -25,7 +25,6 @@ using Project;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniRx;
 using UnityEngine;
 
 namespace Virgis {

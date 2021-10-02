@@ -157,8 +157,12 @@ public class EditableMesh : VirgisFeature
         }
     }
 
+    /// <summary>
+    /// This is called by the parent to action the move
+    /// </summary>
+    /// <param name="args"></param>
     /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-    public override void MoveAxis(MoveArgs args) {
+    public void MoveAxisAction(MoveArgs args) {
         if (GetComponent<MeshFilter>().sharedMesh.bounds.Contains(transform.InverseTransformPoint(args.pos)));
         {
             if (args.translate != Vector3.zero)
@@ -174,7 +178,6 @@ public class EditableMesh : VirgisFeature
                 transform.localScale = transform.localScale * RS;
                 transform.localPosition = FP;
             }
-            transform.parent.SendMessage("MoveAxis", args);
         }
     }
 

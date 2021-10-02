@@ -32,16 +32,16 @@ namespace Virgis
     /// </summary>
     public class Datapolygon : Datashape {
 
-        private float _tiling_size;
+        private float m_tiling_size;
 
         public override void VertexMove(MoveArgs data) {
-            if (!BlockMove) {
+            if (!m_blockMove) {
                 ShapeMoveVertex(data);
             }
         }
 
         public override void Translate(MoveArgs args) {
-            if (BlockMove) {
+            if (m_blockMove) {
                 transform.Translate(args.translate, Space.World);
             }
 
@@ -81,7 +81,7 @@ namespace Virgis
         /// <returns></returns>
         public GameObject Draw(List<Dataline> polygon, Material mat, float tiling_size = 10) {
 
-            _tiling_size = tiling_size;
+            m_tiling_size = tiling_size;
             
             lines = polygon;
 
@@ -119,7 +119,7 @@ namespace Virgis
             } catch (Exception e) {
                 Debug.Log(e.ToString());
             }
-            mat.SetVector("_Tiling", new Vector2(scaleX / _tiling_size, scaleY / _tiling_size));
+            mat.SetVector("_Tiling", new Vector2(scaleX / m_tiling_size, scaleY / m_tiling_size));
 
         }
 

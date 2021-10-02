@@ -196,7 +196,7 @@ namespace Virgis
                 com.feature = feature;
 
             //Draw the line
-            com.Draw(line, m_symbology, m_linePrefab, m_handlePrefab, LabelPrefab, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected);
+            com.Draw(line, m_symbology, m_handlePrefab, LabelPrefab, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected);
 
             return com;
         }

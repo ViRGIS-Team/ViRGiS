@@ -225,7 +225,7 @@ namespace Virgis
                     GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
                     LinearRing.CloseRings();
-                    com.Draw(LinearRing, m_symbology, m_linePrefab, m_handlePrefab, null, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, true);
+                    com.Draw(LinearRing, m_symbology, m_handlePrefab, null, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, true);
                     polygon.Add(com);
                 }
             }

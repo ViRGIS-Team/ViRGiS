@@ -35,16 +35,6 @@ namespace Virgis
         public string gisId;
         public Dictionary<string, object> gisProperties;
 
-        public override void MoveAxis(MoveArgs args)
-        {
-            // Do nothing
-        }
-
-        public override void MoveTo(MoveArgs args)
-        {
-            throw new System.NotImplementedException();
-        }
-
         /// <summary>
         /// Called to draw the Polygon based upon the 
         /// </summary>

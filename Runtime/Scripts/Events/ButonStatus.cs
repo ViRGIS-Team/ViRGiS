@@ -28,17 +28,17 @@ namespace Virgis {
 
     public class ButtonStatus {
 
-        private bool _isLhTrigger = false;
-        private bool _isRhTrigger = false;
-        private bool _isLhGrip = false;
-        private bool _isRhGrip = false;
+        private bool m_isLhTrigger = false;
+        private bool m_isRhTrigger = false;
+        private bool m_isLhGrip = false;
+        private bool m_isRhGrip = false;
 
         public bool isLhTrigger {
             get {
-                return _isLhTrigger;
+                return m_isLhTrigger;
             }
             set {
-                _isLhTrigger = value;
+                m_isLhTrigger = value;
                 SelectionType = SelectionType.INFO;
                 activate = value;
                 _buttonEvent.OnNext(this);
@@ -46,10 +46,10 @@ namespace Virgis {
         }
         public bool isRhTrigger {
             get {
-                return _isRhTrigger;
+                return m_isRhTrigger;
             }
             set {
-                _isRhTrigger = value;
+                m_isRhTrigger = value;
                 SelectionType = SelectionType.SELECT;
                 activate = value;
                 _buttonEvent.OnNext(this);
@@ -58,32 +58,42 @@ namespace Virgis {
 
         public bool isLhGrip {
             get {
-                return _isLhGrip;
+                return m_isLhGrip;
             }
             set {
-                _isLhGrip = value;
-                SelectionType = SelectionType.SELECTALL;
+                m_isLhGrip = value;
                 activate = value;
+                if (value) {
+                    if (m_isRhGrip)
+                        SelectionType = SelectionType.MOVEAXIS;
+                    else
+                        return;
+                } else {
+                    if (m_isRhGrip) {
+                        activate = true;
+                        SelectionType = SelectionType.SELECTALL;
+                    }
+                }
                 _buttonEvent.OnNext(this);
             }
         }
         public bool isRhGrip {
             get {
-                return _isRhGrip;
+                return m_isRhGrip;
             }
             set {
-                _isRhGrip = value;
-                SelectionType = SelectionType.SELECTALL;
+                m_isRhGrip = value;
                 activate = value;
+                if (value) {
+                    if (m_isLhGrip)
+                        SelectionType = SelectionType.MOVEAXIS;
+                    else
+                        SelectionType = SelectionType.SELECTALL;
+                }
                 _buttonEvent.OnNext(this);
             }
         }
 
-        public bool isAxisEdit {
-            get {
-                return _isLhGrip && _isRhGrip;
-            }
-        }
 
         public bool activate = false;
 
