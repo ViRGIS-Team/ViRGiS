@@ -66,8 +66,6 @@ namespace Virgis {
                 if (value) {
                     if (m_isRhGrip)
                         SelectionType = SelectionType.MOVEAXIS;
-                    else
-                        return;
                 } else {
                     if (m_isRhGrip) {
                         activate = true;

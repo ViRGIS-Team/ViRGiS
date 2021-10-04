@@ -117,6 +117,7 @@ namespace Virgis
                     }
                     string layout = doc.ActiveLayout;
                     IEnumerable<Face3d> faces = doc.Faces3d;
+                    IEnumerable<PolyfaceMesh> pfs = doc.PolyfaceMeshes;
                     List<DCurve3> curves = new List<DCurve3>();
                     CoordinateTransformation transform = new CoordinateTransformation(GetCrs(), AppState.instance.mapProj);
                     foreach (Face3d face in faces) {
@@ -128,6 +129,21 @@ namespace Virgis
                             Debug.Log(" Not a Triangle");
                         }
                         curves.Add(new DCurve3(tri, false, true));
+                    }
+                    //
+                    // Add the Polyface Meshes
+                    //
+                    foreach (PolyfaceMesh pfmesh in pfs) {
+                        foreach (PolyfaceMeshFace face in pfmesh.Faces) {
+                            List<Vector3d> tri = new List<Vector3d>();
+                            List<short> verts = face.VertexIndexes;
+                            for (int i = 0; i < 3; i++) {
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[0]) - 1].Position.ToVector3d(transform));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[1]) - 1].Position.ToVector3d(transform));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[2]) - 1].Position.ToVector3d(transform));
+                            }
+                            curves.Add(new DCurve3(tri, false, true));
+                        }
                     }
                     //
                     // for each face, check to make sure that vertices are in the vertex list and add the tri to the tri list
@@ -215,7 +231,9 @@ namespace Virgis
                 DMesh3 dmesh = new DMesh3(false, false, false, false);
                 vertexes.ForEach(v => dmesh.AppendVertex(v));
                 tris.ForEach(t => dmesh.AppendTriangle(t));
-                dmesh.CompactInPlace();
+                try {
+                    dmesh.CompactInPlace();
+                } catch { }
                 features = new List<DMesh3>();
                 features.Add(dmesh);
                 m_symbology = layer.Properties.Units;

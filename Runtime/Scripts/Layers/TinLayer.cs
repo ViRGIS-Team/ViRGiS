@@ -90,6 +90,14 @@ namespace Virgis {
                                 tin.AssignSpatialReference(GetCrs());
                             await _drawFeatureAsync(tin, feature);
                         }
+                        else if (tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurface ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurfaceZ ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurfaceM ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurfaceZM) {
+                            if (tin.GetSpatialReference() == null)
+                                tin.AssignSpatialReference(GetCrs());
+                            await _drawFeatureAsync(tin, feature);
+                        }
                         tin.Dispose();
                     }
                 }
@@ -130,16 +138,28 @@ namespace Virgis {
             }
 
             HashSet<Vector3d> vertexhash = new HashSet<Vector3d>();
-
+            double[] argout = new double[3];
+            Vector3d vertex;
+            Vector3d vertex0;
+            Vector3d lastvertex;
             for (int i = 0; i < trigeos.Count; i++) {
                 Geometry tri = trigeos[i];
                 Geometry linearring = tri.GetGeometryRef(0);
-                for (int j = 0; j < 3; j++) {
-                    double[] argout = new double[3];
+                int points = linearring.GetPointCount();
+                linearring.GetPoint(0, argout);
+                vertex0 = new Vector3d(argout);
+                vertexhash.Add(vertex0);
+                linearring.GetPoint(1, argout);
+                lastvertex = new Vector3d(argout);
+                vertexhash.Add(lastvertex);
+                for (int j = 2; j < points - 1; j++) {
                     linearring.GetPoint(j, argout);
-                    Vector3d vertex = new Vector3d(argout);
+                    vertex = new Vector3d(argout);
                     vertexhash.Add(vertex);
+                    trivects.Add(vertex0);
+                    trivects.Add(lastvertex);
                     trivects.Add(vertex);
+                    lastvertex = vertex;
                 }
                 tri.Dispose();
                 linearring.Dispose();
@@ -147,8 +167,8 @@ namespace Virgis {
 
             List<Vector3d> vertexes = vertexhash.ToList();
 
-            foreach (Vector3d vertex in trivects) {
-                tris.Add(vertexes.IndexOf(vertex));
+            foreach (Vector3d vert in trivects) {
+                tris.Add(vertexes.IndexOf(vert));
             }
 
             DMesh3 dmesh = DMesh3Builder.Build<Vector3d, int, int>(vertexes, tris);

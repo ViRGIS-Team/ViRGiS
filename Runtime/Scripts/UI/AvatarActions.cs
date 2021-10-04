@@ -2,8 +2,10 @@
 // copyright Runette Software Ltd, 2020. All rights reserved
 using System.Collections.Generic;
 using System.Collections;
+using System;
 using UnityEngine;
 using UniRx;
+using Project;
 
 namespace Virgis
 {
@@ -30,6 +32,7 @@ namespace Virgis
         protected bool m_addVertexState; // current state of the button to add vertex
         protected bool m_delVertexState; // current state of the button to remove vertex
         protected bool m_lightEdit = false; // are we currently editing the lights
+        protected List<IDisposable> m_subs = new List<IDisposable>();
 
         private List<SelectionType> SELECT_SELECTION_TYPES = new List<SelectionType>() { SelectionType.SELECT, SelectionType.SELECTALL, SelectionType.MOVEAXIS };
 
@@ -41,10 +44,15 @@ namespace Virgis
             Debug.Log("AppState awakens");
             m_thisRigidbody = GetComponent<Rigidbody>();
             m_thisRigidbody.detectCollisions = false;
-            m_appState.ButtonStatus.Event.Subscribe(select);
-            m_appState.ButtonStatus.Event.Subscribe(unSelect);
-            m_appState.Project.Event.Subscribe(Project => onProjectLoad());
+            m_subs.Add(m_appState.ButtonStatus.Event.Subscribe(select));
+            m_subs.Add(m_appState.ButtonStatus.Event.Subscribe(unSelect));
+            m_subs.Add(m_appState.Project.Event.Subscribe(onProjectLoad));
+            m_subs.Add(m_appState.LayerUpdate.Event.Subscribe(LayerAdded));
             StartCoroutine(Orient());
+        }
+
+        public void OnDestroy() {
+            m_subs.ForEach(sub => sub.Dispose());
         }
 
         IEnumerator Orient()
@@ -59,7 +67,7 @@ namespace Virgis
         /// <summary>
         /// Tasks to be performed when a project is fully loaded
         /// </summary>
-        public void onProjectLoad()
+        protected virtual void onProjectLoad(GisProject obj)
         {
             if (m_appState.project.Scale == null)
             {
@@ -72,6 +80,13 @@ namespace Virgis
             {
                 m_appState.project.Cameras.Add(m_appState.project.Cameras[0]);
             }
+        }
+
+        /// <summary>
+        /// Tasks to be performed when a layer is loaded
+        /// </summary>
+        protected virtual void LayerAdded(IVirgisLayer layer) {
+            // do nothing
         }
 
         //

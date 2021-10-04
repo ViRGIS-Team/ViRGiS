@@ -89,6 +89,7 @@ namespace Virgis {
                         await subLayers.Last().SubInit(layer);
                         break;
                     case wkbGeometryType.wkbTIN:
+                    case wkbGeometryType.wkbPolyhedralSurface:
                         subLayers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
                         (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
                         subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -165,6 +166,7 @@ namespace Virgis {
                                     }
                                     break;
                                 case wkbGeometryType.wkbTIN:
+                                case wkbGeometryType.wkbPolyhedralSurface:
                                     foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
                                         if (l.GetType() == typeof(TinLayer)) {
                                             layerToAdd = l;
