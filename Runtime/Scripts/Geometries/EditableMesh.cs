@@ -179,7 +179,7 @@ public class EditableMesh : VirgisFeature
                 transform.localPosition = FP;
             }
         }
-    }
+    } 
 
     /// <summary>
     /// Draws the mesh represented by dmeshin - which should be in local space coordinates

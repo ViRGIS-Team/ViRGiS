@@ -64,6 +64,24 @@ namespace Virgis
             return t1;
         }
 
+        private Task<DXF.DxfDocument> loadDxf(string filename) {
+            TaskCompletionSource<DXF.DxfDocument> tcs1 = new TaskCompletionSource<DXF.DxfDocument>();
+            Task<DXF.DxfDocument> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+
+                DXF.DxfDocument doc;
+                using (Stream stream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
+                    doc = DXF.DxfDocument.Load(stream);
+                    stream.Close();
+                }
+                tcs1.SetResult(doc);
+            });
+            return t1;
+        }
+
         private void saveObj(string filename, List<WriteMesh> meshes) {
             using (TextWriter writer = File.CreateText(filename)) {
                 OBJWriter objWriter = new OBJWriter();
@@ -110,11 +128,7 @@ namespace Virgis
                     // Try opening with netDxf - this will only open files in autoCAD version 2000 or later
                     //
                     if (layer.Crs != null && layer.Crs != "") SetCrs(Convert.TextToSR(layer.Crs));
-                    DXF.DxfDocument doc;
-                    using (Stream stream = File.Open(layer.Source, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
-                        doc = DXF.DxfDocument.Load(stream);
-                        stream.Close();
-                    }
+                    DXF.DxfDocument doc = await loadDxf(layer.Source);
                     string layout = doc.ActiveLayout;
                     IEnumerable<Face3d> faces = doc.Faces3d;
                     IEnumerable<PolyfaceMesh> pfs = doc.PolyfaceMeshes;

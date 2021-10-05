@@ -21,10 +21,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 using System.IO;
+using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UniRx;
 using Project;
-
-
 
 namespace Virgis {
 
@@ -35,19 +36,24 @@ namespace Virgis {
         public string projectDirectory;
         public string searchPattern;
         
-        private AppState _appState;
-
-
+        private AppState m_appState;
+        private List<IDisposable> subs = new List<IDisposable>();
 
         // Start is called before the first frame update
         void Start() {
-            _appState = AppState.instance;
+            m_appState = AppState.instance;
             CreateFilePanels();
+            subs.Add(m_appState.Project.Event.Subscribe(OnProjectLoad));
+            if (m_appState.Project.Get() != null)
+                OnProjectLoad(m_appState.Project.Get());
         }
 
-        // Update is called once per frame
-        void Update() {
+        private void OnDestroy() {
+            subs.ForEach(sub => sub.Dispose());
+        }
 
+        private void OnProjectLoad(GisProject proj) {
+            gameObject.SetActive(false);
         }
 
         private void CreateFilePanels() {
@@ -55,7 +61,6 @@ namespace Virgis {
 
             // get the file list
             foreach (string file in Directory.GetFiles(projectDirectory, searchPattern, SearchOption.AllDirectories)) {
-
 
                 //Create this filelist panel
                 newFilePanel = (GameObject) Instantiate(fileListPanelPrefab, fileScrollView.transform );
@@ -72,16 +77,15 @@ namespace Virgis {
         }
 
         public void onFileSelected(string file) {
-            if (AppState.instance.layers != null)  foreach (VirgisLayer layer in AppState.instance.layers) {
+            if (m_appState.layers != null)  foreach (VirgisLayer layer in m_appState.layers) {
                   Destroy(layer.gameObject);
             }
-            AppState.instance.clearLayers();
+            m_appState.clearLayers();
             Debug.Log("File selected :" + file);
             gameObject.SetActive(false);
-            if (! AppState.instance.map.GetComponent<MapInitialize>().Load(file)) {
+            if (! m_appState.map.GetComponent<MapInitialize>().Load(file)) {
                 gameObject.SetActive(true);
             }
         } 
-
     }
 }

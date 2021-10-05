@@ -40,6 +40,7 @@ namespace Virgis {
         public AppState appState;
         protected AppState m_appState;
         private ProjectJsonReader m_projectJsonReader;
+        protected string m_loadOnStartup;
 
 
         ///<summary>
@@ -48,15 +49,20 @@ namespace Virgis {
         protected new void Awake()
         {
             Debug.Log("Map awakens");
-            Debug.Log($"Virgis version : {Application.version}");
-            Debug.Log($"Project version: {GisProject.GetVersion()}");
-            if (AppState.instance == null)
-            {
+            if (AppState.instance == null) {
                 Debug.Log("instantiate app state");
                 m_appState = Instantiate(appState);
             }
-            //set globals
+            Debug.Log($"Virgis version : {Application.version}");
+            Debug.Log($"Project version: {GisProject.GetVersion()}");
+        }
+
+        protected new void Start() {
+            base.Start();
             m_appState.map = gameObject;
+            Debug.Log("Checking for Startup Project");
+            if (m_loadOnStartup != null)
+                Load(m_loadOnStartup);
         }
 
 

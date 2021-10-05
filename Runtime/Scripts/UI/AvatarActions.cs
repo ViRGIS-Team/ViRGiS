@@ -38,10 +38,10 @@ namespace Virgis
 
         public void Start()
         {
+            Debug.Log("Avatar awakens");
             m_appState = AppState.instance;
             m_appState.trackingSpace = MovementVector;
             m_appState.mainCamera = MainCamera;
-            Debug.Log("AppState awakens");
             m_thisRigidbody = GetComponent<Rigidbody>();
             m_thisRigidbody.detectCollisions = false;
             m_subs.Add(m_appState.ButtonStatus.Event.Subscribe(select));
@@ -49,6 +49,8 @@ namespace Virgis
             m_subs.Add(m_appState.Project.Event.Subscribe(onProjectLoad));
             m_subs.Add(m_appState.LayerUpdate.Event.Subscribe(LayerAdded));
             StartCoroutine(Orient());
+            if (m_appState.Project.Get() != null)
+                onProjectLoad(m_appState.Project.Get());
         }
 
         public void OnDestroy() {
