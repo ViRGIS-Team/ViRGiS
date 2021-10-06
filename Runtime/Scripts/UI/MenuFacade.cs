@@ -97,7 +97,7 @@ namespace Virgis {
         }
 
         public void onFileClicked() {
-            startMenu.SetActive(true);
+            startMenu.SetActive(! startMenu.activeSelf);
         }
 
         // Changes the state of menu buttons when edit session starts.
