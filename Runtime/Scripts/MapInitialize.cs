@@ -43,6 +43,7 @@ namespace Virgis {
         protected string m_loadOnStartup;
 
 
+
         ///<summary>
         ///Instantiates all singletons.
         /// </summary>
@@ -96,7 +97,7 @@ namespace Virgis {
             try {
                    initLayers(m_appState.project.RecordSets);
             } catch (Exception e) {
-                Debug.LogError($"Project File {file} failed :" + e.ToString());
+                 Debug.LogError($"Project File {file} failed :" + e.ToString());
                 return false;
             }
             OnLoad();
@@ -121,12 +122,13 @@ namespace Virgis {
 
 
         private void initLayers(List<RecordSet> layers) {
+            m_appState.tasks = new List<Coroutine>();
             foreach (RecordSet thisLayer in layers) {
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = CreateLayer(thisLayer);
                 temp.SetMetadata(thisLayer);
-                StartCoroutine(temp.Init(thisLayer).AsIEnumerator());
+                m_appState.tasks.Add(StartCoroutine(temp.Init(thisLayer).AsIEnumerator()));
             }
         }
 

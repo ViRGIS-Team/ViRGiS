@@ -163,7 +163,7 @@ public class EditableMesh : VirgisFeature
     /// <param name="args"></param>
     /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
     public void MoveAxisAction(MoveArgs args) {
-        if (GetComponent<MeshFilter>().sharedMesh.bounds.Contains(transform.InverseTransformPoint(args.pos)));
+        if (GetComponent<MeshFilter>().sharedMesh.bounds.Contains(transform.InverseTransformPoint(args.pos)))
         {
             if (args.translate != Vector3.zero)
                 transform.Translate(args.translate, Space.World);

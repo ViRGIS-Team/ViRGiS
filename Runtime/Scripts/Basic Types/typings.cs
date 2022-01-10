@@ -462,7 +462,7 @@ namespace Virgis {
                     from.ImportFromWkt(ref crs);
                 };
                 try {
-                    CoordinateTransformation trans = new CoordinateTransformation(from, AppState.instance.mapProj);
+                    CoordinateTransformation trans = AppState.instance.projectTransformer(from);
                     for (int i = 0; i < dMesh.VertexCount; i++) {
                         if (dMesh.IsVertex(i)) {
                             Vector3d vertex = dMesh.GetVertex(i);

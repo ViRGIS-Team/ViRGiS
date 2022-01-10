@@ -49,6 +49,7 @@ namespace Virgis {
         private IDisposable initsub;
         public Vector3 lastHitPosition;
         public SpatialReference projectCrs;
+        public List<Coroutine> tasks;
         public int editScale;
         public int currentView;
         public bool guiActive {
@@ -180,7 +181,7 @@ namespace Virgis {
             get => _crs;
         }
 
-        public CoordinateTransformation mapTrans {
+        public CoordinateTransformation  mapTrans {
             get => _trans;
         }
 
@@ -215,11 +216,23 @@ namespace Virgis {
             if (project.projectCrs != null) {
                 projectCrs.SetWellKnownGeogCS(project.projectCrs);
             } else {
-                projectCrs.SetWellKnownGeogCS("EPSG:4326");
+                projectCrs.SetWellKnownGeogCS("EPSG:4979");
             }
             string wkt;
             projectCrs.ExportToWkt(out wkt, null);
             Debug.Log("Project Crs : " + wkt);
+        }
+
+        public CoordinateTransformation projectTransformer(SpatialReference sr) {
+            CoordinateTransformationOptions op = new CoordinateTransformationOptions();
+            op.SetBallparkAllowed(false);
+            return new CoordinateTransformation(sr, mapProj, op);
+        }
+
+        public CoordinateTransformation projectOutTransformer(SpatialReference sr) {
+            CoordinateTransformationOptions op = new CoordinateTransformationOptions();
+            op.SetBallparkAllowed(false);
+            return new CoordinateTransformation(mapProj, sr, op);
         }
 
         public List<VirgisLayer> layers {

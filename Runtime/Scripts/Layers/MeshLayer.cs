@@ -50,12 +50,7 @@ namespace Virgis
                 DMesh3Builder meshBuilder = new DMesh3Builder();
                 try {
                     IOReadResult result = StandardMeshReader.ReadFile(filename, new ReadOptions(), meshBuilder);
-                } catch (Exception e) when (
-                    e is UnauthorizedAccessException ||
-                    e is DirectoryNotFoundException ||
-                    e is FileNotFoundException ||
-                    e is NotSupportedException
-                    ) {
+                } catch (Exception e)  {
                     Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
                     meshBuilder = new DMesh3Builder();
                 }
@@ -73,11 +68,17 @@ namespace Virgis
             Task.Factory.StartNew(() => {
 
                 DXF.DxfDocument doc;
-                using (Stream stream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
-                    doc = DXF.DxfDocument.Load(stream);
-                    stream.Close();
-                }
-                tcs1.SetResult(doc);
+                try {
+                    using (Stream stream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
+                        doc = DXF.DxfDocument.Load(stream);
+                        stream.Close();
+                    }
+                } catch (Exception e) {
+                    Debug.LogError("Failed to Load" + filename + " : " + e.ToString());
+                    doc = new DXF.DxfDocument();
+                    tcs1.SetResult(doc);
+                    throw e;
+                };
             });
             return t1;
         }
@@ -93,12 +94,7 @@ namespace Virgis
                         bPerVertexUVs = meshes[0].Mesh.HasVertexUVs
                     };
                     objWriter.Write(writer, meshes, opts);
-                } catch (Exception e) when (
-                   e is UnauthorizedAccessException ||
-                   e is DirectoryNotFoundException ||
-                   e is FileNotFoundException ||
-                   e is NotSupportedException
-                   ) {
+                } catch (Exception e)  {
                     Debug.LogError("Failed to Write" + filename + " : " + e.ToString());
                 }
             }  
@@ -128,12 +124,16 @@ namespace Virgis
                     // Try opening with netDxf - this will only open files in autoCAD version 2000 or later
                     //
                     if (layer.Crs != null && layer.Crs != "") SetCrs(Convert.TextToSR(layer.Crs));
-                    DXF.DxfDocument doc = await loadDxf(layer.Source);
+                    DXF.DxfDocument doc;
+                    using (Stream stream = File.Open(layer.Source, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
+                        doc = DXF.DxfDocument.Load(stream);
+                        stream.Close();
+                    }
                     string layout = doc.ActiveLayout;
                     IEnumerable<Face3d> faces = doc.Faces3d;
                     IEnumerable<PolyfaceMesh> pfs = doc.PolyfaceMeshes;
                     List<DCurve3> curves = new List<DCurve3>();
-                    CoordinateTransformation transform = new CoordinateTransformation(GetCrs(), AppState.instance.mapProj);
+                    CoordinateTransformation transform = AppState.instance.projectTransformer(GetCrs());
                     foreach (Face3d face in faces) {
                         List<Vector3d> tri = new List<Vector3d>();
                         tri.Add(face.FirstVertex.ToVector3d(transform));
@@ -300,7 +300,7 @@ namespace Virgis
                 DXF.DxfDocument doc = new DXF.DxfDocument();
                 CoordinateTransformation transform = null;
                 if (GetCrs() != null) {
-                    transform = new CoordinateTransformation(AppState.instance.mapProj, GetCrs());
+                    transform = AppState.instance.projectOutTransformer(GetCrs());
                 }
                 foreach (DMesh3 dmesh in features) {
                     foreach (Index3i tri in dmesh.Triangles()) {

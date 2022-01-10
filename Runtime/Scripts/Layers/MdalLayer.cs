@@ -44,10 +44,11 @@ namespace Virgis
                 mesh.AttachMetadata("properties", new Dictionary<string, object>{
                     { "Name", ds.meshes[i] }
                 });
-                if (layer.ContainsKey("Crs") && layer.Crs != null) {
+                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
                     mesh.RemoveMetadata("CRS");
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
+                mesh.Transform();
                 features.Add(mesh);
             }
             return;

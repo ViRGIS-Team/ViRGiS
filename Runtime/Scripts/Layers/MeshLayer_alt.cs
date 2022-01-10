@@ -165,7 +165,7 @@ namespace Virgis {
                     // Try opening with netDxf - this will only open files in autoCAD version 2000 or later
                     //
 
-                    DxfData result = await loadDxf(layer, new CoordinateTransformation(GetCrs(), AppState.instance.mapProj));
+                    DxfData result = await loadDxf(layer, AppState.instance.projectTransformer(GetCrs()));
                     vertexes = result.vertexes;
                     tris = result.tris;
                 } catch {
@@ -291,7 +291,7 @@ namespace Virgis {
                 DXF.DxfDocument doc = new DXF.DxfDocument();
                 CoordinateTransformation transform = null;
                 if (GetCrs() != null) {
-                    transform = new CoordinateTransformation(AppState.instance.mapProj, GetCrs());
+                    transform = AppState.instance.projectOutTransformer( GetCrs() );
                 }
                 foreach (DMesh3 dmesh in features) {
                     foreach (Index3i tri in dmesh.Triangles()) {

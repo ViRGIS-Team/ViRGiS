@@ -77,10 +77,19 @@ namespace Virgis {
         }
 
         public void onFileSelected(string file) {
+            // Kill off all of the existing layers
             if (m_appState.layers != null)  foreach (VirgisLayer layer in m_appState.layers) {
                   Destroy(layer.gameObject);
             }
             m_appState.clearLayers();
+
+            // kill off any tasks that could be generating layers at the moment
+            if (m_appState.tasks != null)
+                foreach (Coroutine task in m_appState.tasks) {
+                    if (task != null) StopCoroutine(task);
+                }
+
+            //create the new layers
             Debug.Log("File selected :" + file);
             gameObject.SetActive(false);
             if (! m_appState.map.GetComponent<MapInitialize>().Load(file)) {
