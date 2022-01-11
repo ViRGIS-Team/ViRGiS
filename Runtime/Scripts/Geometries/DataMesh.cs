@@ -54,14 +54,14 @@ public class DataMesh : VirgisFeature
         return m_mesh;
     }
 
-    public override Dictionary<string, object> GetMetadata() {
+    public override Dictionary<string, object> GetInfo() {
         if (m_mesh != null)
             return m_mesh.FindMetadata("properties") as Dictionary<string, object>;
         else
-            return transform.parent.GetComponent<IVirgisFeature>().GetMetadata();
+            return transform.parent.GetComponent<IVirgisFeature>().GetInfo();
     }
 
-    public override void SetMetadata(Dictionary<string, object> meta) {
+    public override void SetInfo(Dictionary<string, object> meta) {
         throw new System.NotImplementedException();
     }
 

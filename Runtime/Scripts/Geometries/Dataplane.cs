@@ -59,13 +59,13 @@ namespace Virgis
             return gameObject;
         }
 
-        public override Dictionary<string, object> GetMetadata() {
+        public override Dictionary<string, object> GetInfo() {
             Dictionary<string, object> temp = new Dictionary<string, object>(gisProperties);
             temp.Add("ID", gisId);
             return temp;
         }
 
-        public override void SetMetadata(Dictionary<string, object> meta) {
+        public override void SetInfo(Dictionary<string, object> meta) {
             throw new System.NotImplementedException();
         }
     }

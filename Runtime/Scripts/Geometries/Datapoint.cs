@@ -144,24 +144,28 @@ namespace Virgis
         }
 
 
-        public override Dictionary<string, object> GetMetadata() {
-            Dictionary<string, object> meta = feature.GetAll();
-            Geometry geom = (gameObject.transform.position.ToGeometry());
-            string wkt;
-            try {
-                GetLayer().GetCrs().ExportToWkt(out wkt, null);
-                geom.TransformTo(GetLayer().GetCrs());
-            } catch { }
-            double[] coords = new double[3];
-            geom.GetPoint(0, coords);
-            meta.Add("X Coordinate", coords[0].ToString());
-            meta.Add("Y Coordinate", coords[1].ToString());
-            meta.Add("Z Coordinate", coords[2].ToString());
-            geom.Dispose();
+        public override Dictionary<string, object> GetInfo() {
+            Dictionary<string, object> meta;
+            meta = GetLayer().GetInfo(this);
+            if (meta == default) {
+                meta = feature.GetAll();
+                Geometry geom = (gameObject.transform.position.ToGeometry());
+                string wkt;
+                try {
+                    GetLayer().GetCrs().ExportToWkt(out wkt, null);
+                    geom.TransformTo(GetLayer().GetCrs());
+                } catch { }
+                double[] coords = new double[3];
+                geom.GetPoint(0, coords);
+                meta.Add("X Coordinate", coords[0].ToString());
+                meta.Add("Y Coordinate", coords[1].ToString());
+                meta.Add("Z Coordinate", coords[2].ToString());
+                geom.Dispose();
+            }
             return meta;
         }
 
-        public override void SetMetadata(Dictionary<string, object> meta) {
+        public override void SetInfo(Dictionary<string, object> meta) {
             throw new NotImplementedException();
         }
     }

@@ -481,6 +481,10 @@ namespace Virgis {
         public void OnEdit(bool inSession) {
             // do nothing
         }
+
+        public virtual Dictionary<string, object> GetInfo(VirgisFeature feat) {
+            return default;
+        }
     }
 
     public abstract class VirgisLayer<T, S> : VirgisLayer where T : RecordSet {

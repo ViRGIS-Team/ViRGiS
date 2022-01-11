@@ -375,11 +375,11 @@ namespace Virgis
             return Center() + transform.TransformVector(Vector3.up) * m_symbology["line"].Transform.Scale.magnitude;
         }
 
-        public override Dictionary<string, object> GetMetadata() {
+        public override Dictionary<string, object> GetInfo() {
             return feature.GetAll();
         }
 
-        public override void SetMetadata(Dictionary<string, object> meta) {
+        public override void SetInfo(Dictionary<string, object> meta) {
             throw new NotImplementedException();
         }
     }

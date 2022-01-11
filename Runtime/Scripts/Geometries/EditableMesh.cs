@@ -226,14 +226,14 @@ public class EditableMesh : VirgisFeature
         return mf.mesh.ToDmesh(transform);
     }
 
-    public override Dictionary<string, object> GetMetadata() {
+    public override Dictionary<string, object> GetInfo() {
         if (m_dmesh != null)
             return m_dmesh.FindMetadata("properties") as Dictionary<string, object>;
         else
-            return transform.parent.GetComponent<IVirgisFeature>().GetMetadata();
+            return transform.parent.GetComponent<IVirgisFeature>().GetInfo();
     }
 
-    public override void SetMetadata(Dictionary<string, object> meta) {
+    public override void SetInfo(Dictionary<string, object> meta) {
         throw new NotImplementedException();
     }
 

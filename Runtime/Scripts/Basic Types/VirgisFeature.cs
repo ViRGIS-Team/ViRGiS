@@ -20,14 +20,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+using OSGeo.OGR;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
-using OSGeo.OGR;
 using System.Linq;
+using UnityEngine;
 
-namespace Virgis
-{
+namespace Virgis {
 
     /// <summary>
     /// Abstract parent for all in game entities
@@ -56,11 +55,11 @@ namespace Virgis
         VirgisFeature AddVertex(Vector3 position);
         void RemoveVertex(VirgisFeature vertex);
         T GetGeometry<T>();
-        Dictionary<string, object> GetMetadata();
-        void SetMetadata(Dictionary<string, object> meta);
 
         void Hover(Vector3 hit);
         void UnHover();
+        public Dictionary<string, object> GetInfo();
+        public void SetInfo(Dictionary<string, object> meta);
 
     }
 
@@ -200,9 +199,9 @@ namespace Virgis
             return _id;
         }
 
-        public abstract Dictionary<string, object> GetMetadata();
+        public abstract Dictionary<string, object> GetInfo();
 
-        public abstract void SetMetadata(Dictionary<string, object> meta);
+        public abstract void SetInfo(Dictionary<string, object> meta);
 
         public override bool Equals(object obj) {
             if (obj == null)
@@ -227,7 +226,7 @@ namespace Virgis
         /// </summary>
         public void Hover(Vector3 hit) {
             lastHit = hit;
-            Dictionary<string, object> meta = GetMetadata();
+            Dictionary<string, object> meta = GetInfo();
             if (meta != null && meta.Count > 0) {
                 string output = string.Join("\n", meta.Select(x => $"{x.Key}:\t{x.Value}"));
                 AppState.instance.Info.Set(output);
