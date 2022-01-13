@@ -20,49 +20,53 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using System.IO;
 
-public class FileListPanel : MonoBehaviour {
+namespace Virgis {
 
-    [System.Serializable]
-    public class FileSelectedEvent : UnityEvent<string> {
-    }
+    public class FileListPanel : MonoBehaviour {
 
-    private string _file;
-    private FileSelectedEvent _fileSelected = new FileSelectedEvent();
+        public Text text;
+        public Image icon;
+        public bool isDirectory = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public string File {
-        get => _file;
-        set {
-            _file = value;
-
-            // name to be displayed is the filename part without extension, 
-
-            string displayName = Path.GetFileName(_file);
-            GetComponentInChildren<Text>().text = displayName;
+        [System.Serializable]
+        public class FileSelectedEvent : UnityEvent<FileListPanel> {
         }
-    }
 
-    public void addFileSelectedListerner(UnityAction<string> action) {
-        _fileSelected.AddListener(action);
-    }
+        private string m_file;
+        private FileSelectedEvent m_fileSelected = new FileSelectedEvent();
 
-    public void onFileSelected() {
-        _fileSelected.Invoke(_file);
+
+        public string File {
+            get => m_file;
+            set {
+                m_file = value;
+
+                // name to be displayed is the filename part without extension, 
+
+                string displayName = Path.GetFileName(m_file);
+                text.text = displayName;
+            }
+        }
+
+        public string Directory {
+            set {
+                File = value;
+                icon.gameObject.SetActive(true);
+                isDirectory = true;
+            }
+        }
+
+        public void addFileSelectedListerner(UnityAction<FileListPanel> action) {
+            m_fileSelected.AddListener(action);
+        }
+
+        public void onFileSelected() {
+            m_fileSelected.Invoke(this);
+        }
     }
 }

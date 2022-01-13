@@ -23,7 +23,9 @@ SOFTWARE. */
 using System.IO;
 using System.Collections.Generic;
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 using UniRx;
 using Project;
 
@@ -36,20 +38,22 @@ namespace Virgis {
         public string projectDirectory;
         public string searchPattern;
         
-        private AppState m_appState;
-        private List<IDisposable> subs = new List<IDisposable>();
+        protected AppState m_appState;
+        protected List<IDisposable> m_subs = new List<IDisposable>();
+
+        protected SearchOption m_searchOptions = SearchOption.AllDirectories;
 
         // Start is called before the first frame update
-        void Start() {
+        protected void Start() {
             m_appState = AppState.instance;
             CreateFilePanels();
-            subs.Add(m_appState.Project.Event.Subscribe(OnProjectLoad));
+            m_subs.Add(m_appState.Project.Event.Subscribe(OnProjectLoad));
             if (m_appState.Project.Get() != null)
                 OnProjectLoad(m_appState.Project.Get());
         }
 
         private void OnDestroy() {
-            subs.ForEach(sub => sub.Dispose());
+            m_subs.ForEach(sub => sub.Dispose());
         }
 
         private void OnProjectLoad(GisProject proj) {
@@ -59,8 +63,43 @@ namespace Virgis {
         private void CreateFilePanels() {
             GameObject newFilePanel;
 
+            for (int i = 0; i < fileScrollView.transform.childCount; i++) {
+                Destroy(fileScrollView.transform.GetChild(i).gameObject);
+            }
+
+            if (Path.GetDirectoryName(projectDirectory) != null) {
+                newFilePanel = Instantiate(fileListPanelPrefab, fileScrollView.transform);
+
+                // obtain the panel script
+                FileListPanel panelScript = newFilePanel.GetComponentInChildren<FileListPanel>();
+
+                // set the filein the panel
+                panelScript.Directory = "..";
+
+                panelScript.addFileSelectedListerner(onFileSelected);
+            }
+
+            if (m_searchOptions == SearchOption.TopDirectoryOnly) {
+                foreach (string directory in Directory.GetDirectories(projectDirectory)) {
+
+                    if (! Regex.Match(Path.GetFileName(directory), @"^\..*").Success) {
+
+                        //Create this filelist panel
+                        newFilePanel = Instantiate(fileListPanelPrefab, fileScrollView.transform);
+
+                        // obtain the panel script
+                        FileListPanel panelScript = newFilePanel.GetComponentInChildren<FileListPanel>();
+
+                        // set the filein the panel
+                        panelScript.Directory = directory;
+
+                        panelScript.addFileSelectedListerner(onFileSelected);
+                    }
+                }
+            }
+
             // get the file list
-            foreach (string file in Directory.GetFiles(projectDirectory, searchPattern, SearchOption.AllDirectories)) {
+            foreach (string file in Directory.GetFiles(projectDirectory, searchPattern, m_searchOptions)) {
 
                 //Create this filelist panel
                 newFilePanel = (GameObject) Instantiate(fileListPanelPrefab, fileScrollView.transform );
@@ -74,26 +113,39 @@ namespace Virgis {
                 panelScript.addFileSelectedListerner(onFileSelected);
 
             };
+
+            fileScrollView.GetComponent<ScrollRect>().verticalNormalizedPosition = 0f;
         }
 
-        public void onFileSelected(string file) {
-            // Kill off all of the existing layers
-            if (m_appState.layers != null)  foreach (VirgisLayer layer in m_appState.layers) {
-                  Destroy(layer.gameObject);
-            }
-            m_appState.clearLayers();
+        public void onFileSelected(FileListPanel @event) {
+            if (!@event.isDirectory) {
+                // Kill off all of the existing layers
+                if (m_appState.layers != null)
+                    foreach (VirgisLayer layer in m_appState.layers) {
+                        Destroy(layer.gameObject);
+                    }
+                m_appState.clearLayers();
 
-            // kill off any tasks that could be generating layers at the moment
-            if (m_appState.tasks != null)
-                foreach (Coroutine task in m_appState.tasks) {
-                    if (task != null) StopCoroutine(task);
+                // kill off any tasks that could be generating layers at the moment
+                if (m_appState.tasks != null)
+                    foreach (Coroutine task in m_appState.tasks) {
+                        if (task != null)
+                            StopCoroutine(task);
+                    }
+
+                //create the new layers
+                Debug.Log($"File selected : {@event.File}");
+                gameObject.SetActive(false);
+                if (!m_appState.map.GetComponent<MapInitialize>().Load(@event.File)) {
+                    gameObject.SetActive(true);
                 }
-
-            //create the new layers
-            Debug.Log("File selected :" + file);
-            gameObject.SetActive(false);
-            if (! m_appState.map.GetComponent<MapInitialize>().Load(file)) {
-                gameObject.SetActive(true);
+            } else {
+                if (@event.File == "..") {
+                    projectDirectory = Path.GetDirectoryName(projectDirectory);
+                } else {
+                    projectDirectory = @event.File;
+                }
+                CreateFilePanels();
             }
         } 
     }
