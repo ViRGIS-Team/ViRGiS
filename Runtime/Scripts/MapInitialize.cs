@@ -78,6 +78,10 @@ namespace Virgis {
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
         public bool Load(string file) {
+            return _load(file);
+        }
+
+        protected virtual bool _load(string file) {
             Debug.Log("Starting  to load Project File");
             // Get Project definition - return if the file cannot be read - this will lead to an empty world
             m_projectJsonReader = new ProjectJsonReader();
@@ -121,7 +125,7 @@ namespace Virgis {
         public abstract VirgisLayer CreateLayer(RecordSet thisLayer);
 
 
-        private void initLayers(List<RecordSet> layers) {
+        protected void initLayers(List<RecordSet> layers) {
             m_appState.tasks = new List<Coroutine>();
             foreach (RecordSet thisLayer in layers) {
                 VirgisLayer temp = null;

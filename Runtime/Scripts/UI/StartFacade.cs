@@ -99,22 +99,23 @@ namespace Virgis {
             }
 
             // get the file list
-            foreach (string file in Directory.GetFiles(projectDirectory, searchPattern, m_searchOptions)) {
+            foreach (string file in Directory.GetFiles(projectDirectory, "*", m_searchOptions)) {
 
-                //Create this filelist panel
-                newFilePanel = (GameObject) Instantiate(fileListPanelPrefab, fileScrollView.transform );
+                if (!Regex.Match(Path.GetFileName(file), @"^\..*").Success && Regex.Match(Path.GetFileName(file), searchPattern).Success) {
 
-                // obtain the panel script
-                FileListPanel panelScript = newFilePanel.GetComponentInChildren<FileListPanel>();
+                    //Create this filelist panel
+                    newFilePanel = (GameObject) Instantiate(fileListPanelPrefab, fileScrollView.transform);
 
-                // set the filein the panel
-                panelScript.File = file;
+                    // obtain the panel script
+                    FileListPanel panelScript = newFilePanel.GetComponentInChildren<FileListPanel>();
 
-                panelScript.addFileSelectedListerner(onFileSelected);
+                    // set the filein the panel
+                    panelScript.File = file;
 
+                    panelScript.addFileSelectedListerner(onFileSelected);
+                }
             };
-
-            fileScrollView.GetComponent<ScrollRect>().verticalNormalizedPosition = 0f;
+            gameObject.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 1f;
         }
 
         public void onFileSelected(FileListPanel @event) {
