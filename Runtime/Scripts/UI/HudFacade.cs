@@ -31,7 +31,6 @@ public class HudFacade : MonoBehaviour
     public Text HudLeftText;
     public Text HudRightText;
     public Text HudCentreText;
-    public Slider HudPosition;
 
     private IDisposable startsub;
     private IDisposable stopsub;

@@ -18,6 +18,7 @@ namespace Virgis
         [Header ("Avatar Objects")]
         public Transform MovementVector; // reference to the active tracking space
         public Camera MainCamera; // the main camera for ray tracing
+        public float Acceleration; // controls how fast you speed up
 
         protected bool m_editSelected = false; // edit state 
         protected float m_selectedDistance; // distance to the selected marker``
@@ -94,7 +95,7 @@ namespace Virgis
         //
         // Internal methods common to both UIs
         //
-        protected void Pan(float pan)
+        public void Pan(float pan)
         {
             if (pan != 0)
             {
@@ -102,7 +103,7 @@ namespace Virgis
             }
         }
 
-        protected void Zoom(float zoom)
+        public void Zoom(float zoom)
         {
             if (zoom != 0)
             {
@@ -111,14 +112,14 @@ namespace Virgis
             }
         }
 
-        protected void Scale(float scale)
+        public void Scale(float scale)
         {
             Vector3 here = m_appState.map.transform.InverseTransformPoint(transform.position);
             m_appState.Zoom.Set(scale);
             transform.position = m_appState.map.transform.TransformPoint(here);
         }
 
-        protected void moveTo(Vector3 to)
+        public void moveTo(Vector3 to)
         {
             if (!m_axisEdit)
             {
@@ -205,6 +206,8 @@ namespace Virgis
                 m_currentPointerHit = null;
             }
         }
+
+
     }
 
 }
