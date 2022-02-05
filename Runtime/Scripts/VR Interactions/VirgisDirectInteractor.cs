@@ -35,15 +35,15 @@ namespace Virgis {
             if (!isActiveAndEnabled)
                 return;
 
-            model.position = transform.TransformPoint(0, -1, 0);
+            model.position = transform.TransformPoint(0, -.5f, 0);
             model.orientation = transform.rotation;
 
             model.select = isUISelectActive;
 
             List<Vector3> raycastPoints = model.raycastPoints;
             raycastPoints.Clear();
-            raycastPoints.Add(transform.TransformPoint(0, -1, 0));
-            raycastPoints.Add(transform.TransformPoint(0,1,0));
+            raycastPoints.Add(transform.TransformPoint(0, -.5f, 0));
+            raycastPoints.Add(transform.TransformPoint(0,.5f,0));
         }
     }
 }
