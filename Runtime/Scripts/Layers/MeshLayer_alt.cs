@@ -29,6 +29,7 @@ using g3;
 using System;
 using OSGeo.OGR;
 using OSGeo.OSR;
+using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
 using DXF = netDxf;
 using netDxf.Entities;
 
