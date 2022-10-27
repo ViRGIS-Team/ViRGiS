@@ -1,4 +1,24 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 using g3;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
@@ -11,7 +31,6 @@ using System.Threading.Tasks;
 using DelaunatorSharp;
 using System.Linq;
 using DXF = netDxf;
-using Mdal;
 
 namespace Virgis {
 
@@ -33,6 +52,7 @@ namespace Virgis {
     public enum SelectionType {
         SELECT,     // Select a sing;le vertex
         SELECTALL,  // Select all verteces
+        MOVEAXIS,   // select for Rotation and sizing event
         INFO,       // Slection Actin related to the Info screen
         BROADCAST   // Selection event rebroadcast by parent event. DO NOT retransmit to avoid endless circles
     }
@@ -124,7 +144,7 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Converts DCurve3 whihc is in Local Vector3d coordinates to Vector3[] World coordinates 
+        /// Converts DCurve3 in Local Vector3d coordinates to Vector3[] World coordinates 
         /// </summary>
         /// <param name="curve">input curve</param>
         /// <returns>Vector3[] in world coordinates</returns>
@@ -232,6 +252,12 @@ namespace Virgis {
             return ret.ToArray();
         }
 
+        /// <summary>
+        /// Converts World Space Vector3 positions to Points in the Geometry in Map Space coordinates
+        /// </summary>
+        /// <param name="geom"> Geometry top add the points to</param>
+        /// <param name="points"> Array of Vector3 positions</param>
+        /// <returns></returns>
         public static Geometry Vector3(this Geometry geom, Vector3[] points) {
             foreach (Vector3 point in points) {
                 Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(point);
@@ -344,8 +370,8 @@ namespace Virgis {
         /// <param name="dMesh">Source DMesh3</param>
         /// <returns>DMesh3</returns>
         public static DMesh3 Compactify(this DMesh3 dMesh) {
-            DMesh3 mesh = new DMesh3(dMesh);
-            //mesh.CompactCopy(dMesh);
+            DMesh3 mesh = new DMesh3();
+            mesh.CompactCopy(dMesh, true, true, true);
 
             if (dMesh.HasMetadata) {
                 string crs = dMesh.FindMetadata("CRS") as string;
@@ -356,17 +382,16 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Converts g3.DMesh3 to UnityEngine.Mesh.
+        /// Converts g3.DMesh3 to UnityEngine.Mesh. 
+        /// The Dmesh3 must be in Map or Local space coordinates
         /// The DMesh3 must be compact. If neccesary - run Compactify first.
         /// </summary>
         /// <param name="mesh">Dmesh3</param>
-        /// <param name="project"> Should the mesh be projected into virgis projection DEFAULT true</param>
         /// <returns>UnityEngine.Mesh</returns>
-        public static Mesh ToMesh(this DMesh3 mesh, Boolean project = true) {
+        public static Mesh ToMesh(this DMesh3 mesh) {
             Mesh unityMesh = new Mesh();
             unityMesh.MarkDynamic();
             unityMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
-            if (project && !mesh.Transform(AppState.instance.mapProj)) throw new Exception("Mesh Projection Failed");
             Vector3[] vertices = new Vector3[mesh.VertexCount];
             Color[] colors = new Color[mesh.VertexCount];
             Vector2[] uvs = new Vector2[mesh.VertexCount];
@@ -400,8 +425,32 @@ namespace Virgis {
             return unityMesh;
         }
 
-        public static bool Transform(this DMesh3 dMesh, SpatialReference to) {
+        /// <summary>
+        /// Convert a Unity Mesh to DMesh3 in Local Coordinates taking into account mapscale zoom etc
+        /// </summary>
+        /// <param name="mesh"> Unity Mesh</param>
+        /// <param name="tform"> Transform of the Gameobject the Mesh is attached to </param>
+        /// <param name="to">Optional CRS to use for the output DMesh3</param>
+        /// <returns>DMesh3</returns>
+        public static DMesh3 ToDmesh(this Mesh mesh, Transform tform) {
+            DMesh3 dmesh = new DMesh3();
+            foreach (Vector3 vertex in mesh.vertices) {
+                dmesh.AppendVertex(tform.TransformPoint(vertex).ToVector3D());
+            }
+            int[] tris = mesh.triangles;
+            for (int i = 0; i < tris.Length; i += 3) {
+                dmesh.AppendTriangle(tris[i], tris[i + 1], tris[i + 2]);
+            }
+            return dmesh;
+        }
+
+        /// <summary>
+        /// Transform Dmesh (either projected or unprojected) to Layer Local Space
+        /// </summary>
+        /// <returns>bool true if successful</returns>
+        public static bool Transform(this DMesh3 dMesh) {
             string crs = dMesh.FindMetadata("CRS") as string;
+            // if the Dmesh3 contains a CRS use that
             if (crs != null && crs != "") {
                 SpatialReference from = new SpatialReference(null);
                 if (crs.Contains("+proj")) {
@@ -413,7 +462,7 @@ namespace Virgis {
                     from.ImportFromWkt(ref crs);
                 };
                 try {
-                    CoordinateTransformation trans = new CoordinateTransformation(from, to);
+                    CoordinateTransformation trans = AppState.instance.projectTransformer(from);
                     for (int i = 0; i < dMesh.VertexCount; i++) {
                         if (dMesh.IsVertex(i)) {
                             Vector3d vertex = dMesh.GetVertex(i);
@@ -428,6 +477,7 @@ namespace Virgis {
                     return false;
                 }
             }
+            //else assume that the DMesh3 is in Local Space coordinates
             try {
                 for (int i = 0; i < dMesh.VertexCount; i++) {
                     if (dMesh.IsVertex(i)) {

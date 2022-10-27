@@ -1,5 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Collections;
+﻿/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
+using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using Project;
@@ -13,7 +34,8 @@ namespace Virgis
     {
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-            symbology = layer.Properties.Units;
+            isWriteable = true;
+            m_symbology = layer.Properties.Units;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
@@ -22,10 +44,11 @@ namespace Virgis
                 mesh.AttachMetadata("properties", new Dictionary<string, object>{
                     { "Name", ds.meshes[i] }
                 });
-                if (layer.ContainsKey("Crs") && layer.Crs != null) {
+                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
                     mesh.RemoveMetadata("CRS");
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
+                mesh.Transform();
                 features.Add(mesh);
             }
             return;
@@ -35,11 +58,12 @@ namespace Virgis
         {
             RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
-            meshes = new List<Transform>();
+            m_meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
                 await dMesh.CalculateUVsAsync();
-                meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial, true));
+                dMesh.Transform();
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial));
             }
             transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
             transform.rotation = layer.Transform.Rotate;

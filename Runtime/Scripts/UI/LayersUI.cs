@@ -1,4 +1,25 @@
-﻿using Project;
+﻿/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,27 +40,27 @@ namespace Virgis
         public GameObject layerPanelPrefab;
         public GameObject menus;
 
-        private AppState _appState;
-        private Dictionary<Guid, LayerUIPanel> _layersMap;
-        private IDisposable startsub;
-        private IDisposable stopsub;
-        private IDisposable layersub;
+        private AppState m_appState;
+        private Dictionary<Guid, LayerUIPanel> m_layersMap;
+        private IDisposable m_startsub;
+        private IDisposable m_stopsub;
+        private IDisposable m_layersub;
 
         // Start is called before the first frame update
         void Start()
         {
-            _appState = AppState.instance;
-            startsub = _appState.editSession.StartEvent.Subscribe(OnStartEditSession);
-            stopsub = _appState.editSession.EndEvent.Subscribe(OnEndEditSession);
-            layersub = _appState.LayerUpdate.Event.Subscribe(onLayerUpdate);
-            _layersMap = new Dictionary<Guid, LayerUIPanel>();
+            m_appState = AppState.instance;
+            m_startsub = m_appState.editSession.StartEvent.Subscribe(OnStartEditSession);
+            m_stopsub = m_appState.editSession.EndEvent.Subscribe(OnEndEditSession);
+            m_layersub = m_appState.LayerUpdate.Event.Subscribe(onLayerUpdate);
+            m_layersMap = new Dictionary<Guid, LayerUIPanel>();
             CreateLayerPanels();
         }
 
         private void OnDestroy() {
-            startsub.Dispose();
-            stopsub.Dispose();
-            layersub.Dispose();
+            m_startsub.Dispose();
+            m_stopsub.Dispose();
+            m_layersub.Dispose();
         }
 
         public void OnShowMenuButtonClicked()
@@ -51,10 +72,10 @@ namespace Virgis
         public void CreateLayerPanels()
         {
             // Delete any existing panel
-            foreach (var panel in _layersMap) {
+            foreach (var panel in m_layersMap) {
                 Destroy(panel.Value.gameObject);
             }
-            _layersMap.Clear();
+            m_layersMap.Clear();
 
             // appState.layers are actually Layer script (Component)
             AppState.instance.layers.ForEach(comp =>
@@ -66,13 +87,14 @@ namespace Virgis
                 // obtain the panel script
                 LayerUIPanel panelScript = newLayerPanel.GetComponentInChildren<LayerUIPanel>();
                 LayerUIContainer containerScript = newLayerPanel.GetComponentInChildren<LayerUIContainer>();
-                containerScript._layersMap = _layersMap;
+                containerScript.m_layersMap = m_layersMap;
                 // set the layer in the panel
                 containerScript.layer = layer;
+                panelScript.layer = layer;
 
                 containerScript.viewLayerToggle.isOn = layer.IsVisible();
 
-                _layersMap.Add(Guid.NewGuid(), panelScript);
+                m_layersMap.Add(Guid.NewGuid(), panelScript);
                 newLayerPanel.transform.SetParent(layersScrollView.transform, false);
             });
             LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
@@ -84,28 +106,20 @@ namespace Virgis
 
         private void OnStartEditSession(bool ignore)
         {
-            foreach (LayerUIPanel panel in _layersMap.Values)
+            foreach (LayerUIPanel panel in m_layersMap.Values)
             {
-                if (panel.editLayerToggle != null)
+                if (panel.layer.isWriteable && panel.editLayerToggle != null)
                     panel.editLayerToggle.interactable = true;
             }
         }
 
         private void OnEndEditSession(bool saved)
         {
-            foreach (LayerUIPanel panel in _layersMap.Values)
+            foreach (LayerUIPanel panel in m_layersMap.Values)
             {
                 if (panel.editLayerToggle != null)
                     panel.editLayerToggle.interactable = false;
             }
-        }
-
-        private void printEditStatus() {
-            string msg = "edit status: ";
-            foreach (LayerUIPanel l in _layersMap.Values) {
-                msg += $"({l.layer.GetMetadata().Id}: {l.layer.IsEditable()}) ";
-            }
-            Debug.Log(msg);
         }
     }
 }

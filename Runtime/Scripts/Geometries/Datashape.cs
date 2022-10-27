@@ -1,4 +1,24 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +34,6 @@ namespace Virgis
     /// </summary>
     public class Datashape : VirgisFeature {
 
-        protected bool BlockMove = false; // Is this component in a block move state
         public GameObject shapePrefab;
         protected GameObject Shape; // gameObject to be used for the shape
         protected List<VertexLookup> VertexTable = new List<VertexLookup>();
@@ -26,7 +45,7 @@ namespace Virgis
         public override void Selected(SelectionType button) {
             if (button == SelectionType.SELECTALL) {
                 gameObject.BroadcastMessage("Selected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
-                BlockMove = true;
+                m_blockMove = true;
                 GetComponentsInChildren<Dataline>().ToList<Dataline>().ForEach(item => item.Selected(SelectionType.SELECTALL));
             }
         }
@@ -34,7 +53,7 @@ namespace Virgis
         public override void UnSelected(SelectionType button) {
             if (button != SelectionType.BROADCAST) {
                 gameObject.BroadcastMessage("UnSelected", SelectionType.BROADCAST, SendMessageOptions.DontRequireReceiver);
-                BlockMove = false;
+                m_blockMove = false;
             }
         }
 
@@ -152,7 +171,7 @@ namespace Virgis
         }
 
         public override void RemoveVertex(VirgisFeature vertex) {
-            if (BlockMove) {
+            if (m_blockMove) {
                 Destroy(gameObject);
             } else {
                 _redraw();
@@ -232,11 +251,11 @@ namespace Virgis
             return result;
         }
 
-        public override Dictionary<string, object> GetMetadata() {
+        public override Dictionary<string, object> GetInfo() {
             return default;
         }
 
-        public override void SetMetadata(Dictionary<string, object> meta) {
+        public override void SetInfo(Dictionary<string, object> meta) {
             throw new NotImplementedException();
         }
     }

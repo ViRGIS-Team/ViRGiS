@@ -1,4 +1,25 @@
-using System.Collections;
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,17 +40,12 @@ namespace Virgis {
         public Material WireframeMaterial;
 
 
-        private Material bodyMain;
-
-        private Dictionary<string, Unit> symbology;
+        private Material m_bodyMain;
+        private Dictionary<string, Unit> m_symbology;
 
         new protected void Awake() {
             base.Awake();
             featureType = FeatureType.MESH;
-        }
-
-        private void OnDestroy() {
-            return;
         }
 
         protected override async Task _init() {
@@ -39,10 +55,10 @@ namespace Virgis {
         protected Task<int> Load() {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
-                symbology = layer.Properties.Units;
-                Color body = symbology.ContainsKey("body") ? (Color) symbology["body"].Color : Color.white;
-                bodyMain = Instantiate(MeshBaseMaterial);
-                bodyMain.SetColor("_BaseColor", body);
+                m_symbology = layer.Properties.Units;
+                Color body = m_symbology.ContainsKey("body") ? (Color) m_symbology["body"].Color : Color.white;
+                m_bodyMain = Instantiate(MeshBaseMaterial);
+                m_bodyMain.SetColor("_BaseColor", body);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -70,6 +86,14 @@ namespace Virgis {
                             tin.GetGeometryType() == wkbGeometryType.wkbTINZ ||
                             tin.GetGeometryType() == wkbGeometryType.wkbTINM ||
                             tin.GetGeometryType() == wkbGeometryType.wkbTINZM) {
+                            if (tin.GetSpatialReference() == null)
+                                tin.AssignSpatialReference(GetCrs());
+                            await _drawFeatureAsync(tin, feature);
+                        }
+                        else if (tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurface ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurfaceZ ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurfaceM ||
+                            tin.GetGeometryType() == wkbGeometryType.wkbPolyhedralSurfaceZM) {
                             if (tin.GetSpatialReference() == null)
                                 tin.AssignSpatialReference(GetCrs());
                             await _drawFeatureAsync(tin, feature);
@@ -114,16 +138,28 @@ namespace Virgis {
             }
 
             HashSet<Vector3d> vertexhash = new HashSet<Vector3d>();
-
+            double[] argout = new double[3];
+            Vector3d vertex;
+            Vector3d vertex0;
+            Vector3d lastvertex;
             for (int i = 0; i < trigeos.Count; i++) {
                 Geometry tri = trigeos[i];
                 Geometry linearring = tri.GetGeometryRef(0);
-                for (int j = 0; j < 3; j++) {
-                    double[] argout = new double[3];
+                int points = linearring.GetPointCount();
+                linearring.GetPoint(0, argout);
+                vertex0 = new Vector3d(argout);
+                vertexhash.Add(vertex0);
+                linearring.GetPoint(1, argout);
+                lastvertex = new Vector3d(argout);
+                vertexhash.Add(lastvertex);
+                for (int j = 2; j < points - 1; j++) {
                     linearring.GetPoint(j, argout);
-                    Vector3d vertex = new Vector3d(argout);
+                    vertex = new Vector3d(argout);
                     vertexhash.Add(vertex);
+                    trivects.Add(vertex0);
+                    trivects.Add(lastvertex);
                     trivects.Add(vertex);
+                    lastvertex = vertex;
                 }
                 tri.Dispose();
                 linearring.Dispose();
@@ -131,16 +167,16 @@ namespace Virgis {
 
             List<Vector3d> vertexes = vertexhash.ToList();
 
-            foreach (Vector3d vertex in trivects) {
-                tris.Add(vertexes.IndexOf(vertex));
+            foreach (Vector3d vert in trivects) {
+                tris.Add(vertexes.IndexOf(vert));
             }
 
             DMesh3 dmesh = DMesh3Builder.Build<Vector3d, int, int>(vertexes, tris);
             string crs;
             tin.GetSpatialReference().ExportToWkt(out crs, null);
             dmesh.AttachMetadata("CRS", crs );
-
-            mesh.Draw(dmesh, bodyMain, WireframeMaterial, true);
+            dmesh.Transform();
+            mesh.Draw(dmesh, m_bodyMain, WireframeMaterial);
 
             //if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false)) {
             //    //Set the label

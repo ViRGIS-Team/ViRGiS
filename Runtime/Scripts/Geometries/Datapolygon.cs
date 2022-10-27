@@ -1,4 +1,24 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,16 +32,16 @@ namespace Virgis
     /// </summary>
     public class Datapolygon : Datashape {
 
-        private float _tiling_size;
+        private float m_tiling_size;
 
         public override void VertexMove(MoveArgs data) {
-            if (!BlockMove) {
+            if (!m_blockMove) {
                 ShapeMoveVertex(data);
             }
         }
 
         public override void Translate(MoveArgs args) {
-            if (BlockMove) {
+            if (m_blockMove) {
                 transform.Translate(args.translate, Space.World);
             }
 
@@ -61,7 +81,7 @@ namespace Virgis
         /// <returns></returns>
         public GameObject Draw(List<Dataline> polygon, Material mat, float tiling_size = 10) {
 
-            _tiling_size = tiling_size;
+            m_tiling_size = tiling_size;
             
             lines = polygon;
 
@@ -99,15 +119,15 @@ namespace Virgis
             } catch (Exception e) {
                 Debug.Log(e.ToString());
             }
-            mat.SetVector("_Tiling", new Vector2(scaleX / _tiling_size, scaleY / _tiling_size));
+            mat.SetVector("_Tiling", new Vector2(scaleX / m_tiling_size, scaleY / m_tiling_size));
 
         }
 
-        public override Dictionary<string, object> GetMetadata() {
+        public override Dictionary<string, object> GetInfo() {
             return feature.GetAll();
         }
 
-        public override void SetMetadata(Dictionary<string, object> meta) {
+        public override void SetInfo(Dictionary<string, object> meta) {
             throw new NotImplementedException();
         }
     }

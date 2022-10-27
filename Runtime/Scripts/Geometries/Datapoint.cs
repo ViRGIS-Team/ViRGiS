@@ -1,5 +1,26 @@
 
-// copyright Runette Software Ltd, 2020. All rights reserved﻿using System.Collections;
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
@@ -31,14 +52,13 @@ namespace Virgis
 
 
         public override void Selected(SelectionType button){
+            base.Selected(button);
             thisRenderer.material = selectedMat;
-            if (button != SelectionType.BROADCAST){
-                transform.parent.SendMessageUpwards("Selected", button, SendMessageOptions.DontRequireReceiver);
-            }
         }
 
 
         public override void UnSelected(SelectionType button){
+            base.Selected(button);
             thisRenderer.material = mainMat;
             if (button != SelectionType.BROADCAST){
                 MoveArgs args = new MoveArgs();
@@ -66,7 +86,6 @@ namespace Virgis
                         break;
                 }
             }
-            transform.parent.SendMessageUpwards("UnSelected", button, SendMessageOptions.DontRequireReceiver);
         }
 
  
@@ -112,7 +131,7 @@ namespace Virgis
 
         public override void MoveAxis(MoveArgs args) {
             args.pos = transform.position;
-            transform.parent.GetComponent<IVirgisEntity>().MoveAxis(args);
+            base.MoveAxis(args);
         }
 
 
@@ -125,24 +144,28 @@ namespace Virgis
         }
 
 
-        public override Dictionary<string, object> GetMetadata() {
-            Dictionary<string, object> meta = feature.GetAll();
-            Geometry geom = (gameObject.transform.position.ToGeometry());
-            string wkt;
-            try {
-                GetLayer().GetCrs().ExportToWkt(out wkt, null);
-                geom.TransformTo(GetLayer().GetCrs());
-            } catch { }
-            double[] coords = new double[3];
-            geom.GetPoint(0, coords);
-            meta.Add("X Coordinate", coords[0].ToString());
-            meta.Add("Y Coordinate", coords[1].ToString());
-            meta.Add("Z Coordinate", coords[2].ToString());
-            geom.Dispose();
+        public override Dictionary<string, object> GetInfo() {
+            Dictionary<string, object> meta;
+            meta = GetLayer().GetInfo(this);
+            if (meta == default) {
+                meta = feature.GetAll();
+                Geometry geom = (gameObject.transform.position.ToGeometry());
+                string wkt;
+                try {
+                    GetLayer().GetCrs().ExportToWkt(out wkt, null);
+                    geom.TransformTo(GetLayer().GetCrs());
+                } catch { }
+                double[] coords = new double[3];
+                geom.GetPoint(0, coords);
+                meta.Add("X Coordinate", coords[0].ToString());
+                meta.Add("Y Coordinate", coords[1].ToString());
+                meta.Add("Z Coordinate", coords[2].ToString());
+                geom.Dispose();
+            }
             return meta;
         }
 
-        public override void SetMetadata(Dictionary<string, object> meta) {
+        public override void SetInfo(Dictionary<string, object> meta) {
             throw new NotImplementedException();
         }
     }

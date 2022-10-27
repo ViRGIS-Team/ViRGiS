@@ -1,4 +1,25 @@
-// copyright Runette Software Ltd, 2020. All rights reserved
+/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
 using Project;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,11 +39,11 @@ namespace Virgis {
         public GameObject LabelPrefab;
         public Material BaseMaterial;
 
-        private GameObject PointPrefab;
-        private Dictionary<string, Unit> symbology;
-        private float displacement;
-        private Material mainMat;
-        private Material selectedMat;
+        private GameObject m_pointPrefab;
+        private Dictionary<string, Unit> m_symbology;
+        private float m_displacement;
+        private Material m_mainMat;
+        private Material m_selectedMat;
 
         new protected void Awake() {
             base.Awake();
@@ -36,35 +57,35 @@ namespace Virgis {
         protected Task<int> Load() {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
-                symbology = layer.Properties.Units;
-                displacement = 1.0f;
-                if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Shape")) {
-                    Shapes shape = symbology["point"].Shape;
+                m_symbology = layer.Properties.Units;
+                m_displacement = 1.0f;
+                if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
+                    Shapes shape = m_symbology["point"].Shape;
                     switch (shape) {
                         case Shapes.Spheroid:
-                            PointPrefab = SpherePrefab;
+                            m_pointPrefab = SpherePrefab;
                             break;
                         case Shapes.Cuboid:
-                            PointPrefab = CubePrefab;
+                            m_pointPrefab = CubePrefab;
                             break;
                         case Shapes.Cylinder:
-                            PointPrefab = CylinderPrefab;
-                            displacement = 1.5f;
+                            m_pointPrefab = CylinderPrefab;
+                            m_displacement = 1.5f;
                             break;
                         default:
-                            PointPrefab = SpherePrefab;
+                            m_pointPrefab = SpherePrefab;
                             break;
                     }
                 } else {
-                    PointPrefab = SpherePrefab;
+                    m_pointPrefab = SpherePrefab;
                 }
 
-                Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-                Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-                mainMat = Instantiate(BaseMaterial);
-                mainMat.SetColor("_BaseColor", col);
-                selectedMat = Instantiate(BaseMaterial);
-                selectedMat.SetColor("_BaseColor", sel);
+                Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
+                Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+                m_mainMat = Instantiate(BaseMaterial);
+                m_mainMat.SetColor("_BaseColor", col);
+                m_selectedMat = Instantiate(BaseMaterial);
+                m_selectedMat.SetColor("_BaseColor", sel);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -128,31 +149,31 @@ namespace Virgis {
 
         protected VirgisFeature _drawFeature(Vector3 position, Feature feature = null) {
             //instantiate the prefab with coordinates defined above
-            GameObject dataPoint = Instantiate(PointPrefab, transform, false);
+            GameObject dataPoint = Instantiate(m_pointPrefab, transform, false);
             dataPoint.transform.position = position;
 
             // add the gis data from source
             Datapoint com = dataPoint.GetComponent<Datapoint>();
             if (feature != null) com.feature = feature;
-            com.SetMaterial(mainMat, selectedMat);
+            com.SetMaterial(m_mainMat, m_selectedMat);
 
             
 
             //Set the symbology
-            if (symbology.ContainsKey("point")) {
-                dataPoint.transform.localScale = symbology["point"].Transform.Scale;
-                dataPoint.transform.localRotation = symbology["point"].Transform.Rotate;
-                dataPoint.transform.Translate(symbology["point"].Transform.Position, Space.Self);
+            if (m_symbology.ContainsKey("point")) {
+                dataPoint.transform.localScale = m_symbology["point"].Transform.Scale;
+                dataPoint.transform.localRotation = m_symbology["point"].Transform.Rotate;
+                dataPoint.transform.Translate(m_symbology["point"].Transform.Position, Space.Self);
             }
 
 
             //Set the label
-            if (symbology.ContainsKey("point") && symbology["point"].ContainsKey("Label") && symbology["point"].Label != null && (feature?.ContainsKey(symbology["point"].Label) ?? false)) {
+            if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Label") && m_symbology["point"].Label != null && (feature?.ContainsKey(m_symbology["point"].Label) ?? false)) {
                 GameObject labelObject = Instantiate(LabelPrefab, dataPoint.transform, false);
                 labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
-                labelObject.transform.localPosition = Vector3.up * displacement;
+                labelObject.transform.localPosition = Vector3.up * m_displacement;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
-                labelText.text = (string) feature.Get(symbology["point"].Label);
+                labelText.text = (string) feature.Get(m_symbology["point"].Label);
             }
 
             return com;
@@ -186,9 +207,9 @@ namespace Virgis {
         }
 
         public override GameObject GetFeatureShape() {
-            GameObject fs = Instantiate(PointPrefab);
+            GameObject fs = Instantiate(m_pointPrefab);
             Datapoint com = fs.GetComponent<Datapoint>();
-            com.SetMaterial(mainMat, selectedMat);
+            com.SetMaterial(m_mainMat, m_selectedMat);
             return fs;
         }
 

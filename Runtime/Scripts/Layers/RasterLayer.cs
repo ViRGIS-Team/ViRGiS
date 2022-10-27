@@ -1,4 +1,26 @@
-﻿using System.Collections.Generic;
+﻿/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
+using System.Collections.Generic;
 using System;
 using System.IO;
 using UnityEngine;
@@ -20,27 +42,26 @@ namespace Virgis
         public List<GameObject> meshes;
         public Material HandleMaterial;
 
-        private GameObject model;
-        private Dictionary<string, Unit> symbology;
-        private Material mainMat;
-        private Material selectedMat;
+        private GameObject m_model;
+        private Dictionary<string, Unit> m_symbology;
+        private Material m_mainMat;
+        private Material m_selectedMat;
 
         new protected void Awake() {
             base.Awake();
             featureType = FeatureType.RASTER;
         }
 
-
         protected override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             await Load(layer);
-            symbology = layer.Properties.Units;
-            Color col = symbology.ContainsKey("point") ? (Color) symbology["point"].Color : Color.white;
-            Color sel = symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            mainMat = Instantiate(HandleMaterial);
-            mainMat.SetColor("_BaseColor", col);
-            selectedMat = Instantiate(HandleMaterial);
-            selectedMat.SetColor("_BaseColor", sel);
+            m_symbology = layer.Properties.Units;
+            Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
+            Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            m_mainMat = Instantiate(HandleMaterial);
+            m_mainMat.SetColor("_BaseColor", col);
+            m_selectedMat = Instantiate(HandleMaterial);
+            m_selectedMat.SetColor("_BaseColor", sel);
         }
 
         protected async Task Load(RecordSet layer) {
@@ -169,11 +190,11 @@ namespace Virgis
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
 
-            model = Instantiate(pointCloud, transform, false);
+            m_model = Instantiate(pointCloud, transform, false);
 
 
 
-            VisualEffect vfx = model.GetComponent<VisualEffect>();
+            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
             vfx.SetTexture("_Positions", features.positionMap);
             vfx.SetTexture("_Colors", features.colorMap);
             vfx.SetInt("_pointCount", features.pointCount);
@@ -187,18 +208,18 @@ namespace Virgis
             }
             GameObject centreHandle = Instantiate(handle, transform.position, Quaternion.identity);
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
-            centreHandle.GetComponent<Datapoint>().SetMaterial(mainMat, selectedMat);
+            centreHandle.GetComponent<Datapoint>().SetMaterial(m_mainMat, m_selectedMat);
             centreHandle.transform.parent = transform;
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
             base._set_visible();
-            VisualEffect vfx = model.GetComponent<VisualEffect>();
+            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
             vfx.SetTexture("_Positions", features.positionMap);
             vfx.SetTexture("_Colors", features.colorMap);
             vfx.SetInt("_pointCount", features.pointCount);
-            vfx.SetVector3("_size", symbology["point"].Transform.Scale);
+            vfx.SetVector3("_size", m_symbology["point"].Transform.Scale);
             vfx.Play();
         }
 
@@ -234,7 +255,7 @@ namespace Virgis
                         T.localScale /= RS;
                     }
                 }
-                VisualEffect vfx = model.GetComponent<VisualEffect>();
+                VisualEffect vfx = m_model.GetComponent<VisualEffect>();
                 vfx.SetVector3("_scale", transform.localScale);
             }
             changed = true;

@@ -1,9 +1,30 @@
-﻿using System.Collections.Generic;
+﻿/* MIT License
+
+Copyright (c) 2020 - 21 Runette Software
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice (and subsidiary notices) shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. */
+
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Project;
 using g3;
-using System;
-using UniRx;
 
 namespace Virgis
 {
@@ -15,85 +36,37 @@ namespace Virgis
         public Material MeshMaterial;
         public Material WireframeMaterial;
 
-        protected List<Transform> meshes;
-        protected Dictionary<string, Project.Unit> symbology;
-
-        private IDisposable startsub;
-        private IDisposable stopsub;
+        protected List<Transform> m_meshes; // List of the meshes in the layer
+        protected Dictionary<string, Project.Unit> m_symbology;
 
         new protected void Awake() {
             base.Awake();
             featureType = FeatureType.MESH;
         }
 
-        private void Start() {
-            AppState appState = AppState.instance;
-            startsub = appState.editSession.StartEvent.Subscribe(_onEditStart);
-            stopsub = appState.editSession.EndEvent.Subscribe(_onEditStop);
-        }
-
-        private void OnDestroy() {
-            startsub.Dispose();
-            stopsub.Dispose();
-        }
-
         protected override VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
-       
 
+        protected override VirgisFeature _addFeature(DMesh3 mesh) {
+            features.Add(mesh);
+            EditableMesh emesh = Instantiate(Mesh, transform).GetComponent<EditableMesh>();
+            m_meshes.Add(emesh.Draw(mesh, MeshMaterial, WireframeMaterial));
+            return emesh;
+        }
+       
         public override void Translate(MoveArgs args) {
             changed = true;
         }
 
-        /// https://answers.unity.com/questions/14170/scaling-an-object-from-a-different-center.html
-        public override void MoveAxis(MoveArgs args)
-        {
-            if (args.translate != Vector3.zero) transform.Translate(args.translate, Space.World);
-            args.rotate.ToAngleAxis(out float angle, out Vector3 axis);
-            transform.RotateAround(args.pos, axis, angle);
-            Vector3 A = transform.localPosition;
-            Vector3 B = transform.parent.InverseTransformPoint(args.pos);
-            Vector3 C = A - B;
-            float RS = args.scale;
-            Vector3 FP = B + C * RS;
-            if (FP.magnitude < float.MaxValue)
-            {
-                transform.localScale = transform.localScale * RS;
-                transform.localPosition = FP;
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    Transform T = transform.GetChild(i);
-                    if (T.GetComponent<Datapoint>() != null)
-                    {
-                        T.localScale /= RS;
-                    }
-                }
-            }
+        public override void MoveAxis(MoveArgs args) {
             changed = true;
+            EditableMesh[] dataFeatures = gameObject.GetComponentsInChildren<EditableMesh>();
+            dataFeatures.ToList<EditableMesh>().Find(item => args.id == item.GetId()).MoveAxisAction(args);
         }
 
         protected override void _checkpoint() { }
-
-
-        private void _onEditStart(bool test) {
-            if (IsEditable()) {
-                EditableMesh[] meshes = GetComponentsInChildren<EditableMesh>();
-                foreach (EditableMesh mesh in meshes) {
-                    mesh.OnEdit(true);
-                }
-            }
-        }
-
-        private void _onEditStop(bool test) {
-            if (IsEditable()) {
-                EditableMesh[] meshes = GetComponentsInChildren<EditableMesh>();
-                foreach (EditableMesh mesh in meshes) {
-                    mesh.OnEdit(false);
-                }
-            }
-        }
 
         protected override void _set_editable() {
             base._set_editable();
