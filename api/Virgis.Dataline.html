@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Dataline
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -89,11 +89,11 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></div>
     <div class="level2"><span class="xref">Dataline</span></div>
   </div>
-  <div classs="implements">
+  <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Virgis.IVirgisFeature.html">IVirgisFeature</a></div>
     <div><a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a></div>
@@ -108,6 +108,15 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_mr">VirgisFeature.mr</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_m_firstHitPosition">VirgisFeature.m_firstHitPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_m_nullifyHitPos">VirgisFeature.m_nullifyHitPos</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_m_blockMove">VirgisFeature.m_blockMove</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_label">VirgisFeature.label</a>
@@ -148,6 +157,9 @@
     <div>
       <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_GetLayer">VirgisFeature.GetLayer()</a>
     </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_OnEdit_System_Boolean_">VirgisFeature.OnEdit(Boolean)</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
@@ -159,12 +171,12 @@
   </h3>
   
   
-  <h4 id="Virgis_Dataline_curve" data-uid="Virgis.Dataline.curve">curve</h4>
+  <h4 id="Virgis_Dataline_Curve" data-uid="Virgis.Dataline.Curve">Curve</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DCurve3 curve</code></pre>
+    <pre><code class="lang-csharp hljs">public DCurve3 Curve</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -224,7 +236,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Virgis.VertexLookup.html">VertexLookup</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Virgis.VertexLookup.html">VertexLookup</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -328,13 +340,13 @@
   
   
   <a id="Virgis_Dataline_Draw_" data-uid="Virgis.Dataline.Draw*"></a>
-  <h4 id="Virgis_Dataline_Draw_Geometry_System_Collections_Generic_Dictionary_System_String_Unit__GameObject_GameObject_GameObject_Material_Material_Material_Material_System_Boolean_" data-uid="Virgis.Dataline.Draw(Geometry,System.Collections.Generic.Dictionary{System.String,Unit},GameObject,GameObject,GameObject,Material,Material,Material,Material,System.Boolean)">Draw(Geometry, Dictionary&lt;String, Unit&gt;, GameObject, GameObject, GameObject, Material, Material, Material, Material, Boolean)</h4>
+  <h4 id="Virgis_Dataline_Draw_Geometry_System_Collections_Generic_Dictionary_System_String_Unit__GameObject_GameObject_Material_Material_Material_Material_System_Boolean_" data-uid="Virgis.Dataline.Draw(Geometry,System.Collections.Generic.Dictionary{System.String,Unit},GameObject,GameObject,Material,Material,Material,Material,System.Boolean)">Draw(Geometry, Dictionary&lt;String, Unit&gt;, GameObject, GameObject, Material, Material, Material, Material, Boolean)</h4>
   <div class="markdown level1 summary"><p>Called to draw the line</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Draw(Geometry geom, Dictionary&lt;string, Unit&gt; symbology, GameObject LinePrefab, GameObject HandlePrefab, GameObject LabelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected, bool isring = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Draw(Geometry geom, Dictionary&lt;string, Unit&gt; symbology, GameObject handlePrefab, GameObject labelPrefab, Material mainMat, Material selectedMat, Material lineMain, Material lineSelected, bool isring = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -352,26 +364,20 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <span class="xref">Unit</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <span class="xref">Unit</span>&gt;</td>
         <td><span class="parametername">symbology</span></td>
         <td><p>The symbo,logy to be applied to the loine</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">GameObject</span></td>
-        <td><span class="parametername">LinePrefab</span></td>
-        <td><p>The prefab to be used for the line</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">GameObject</span></td>
-        <td><span class="parametername">HandlePrefab</span></td>
+        <td><span class="parametername">handlePrefab</span></td>
         <td><p>The prefab to be used for the handle</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">GameObject</span></td>
-        <td><span class="parametername">LabelPrefab</span></td>
+        <td><span class="parametername">labelPrefab</span></td>
         <td><p>the prefab to used for the label</p>
 </td>
       </tr>
@@ -396,7 +402,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">isring</span></td>
         <td></td>
       </tr>
@@ -404,13 +410,13 @@
   </table>
   
   
-  <a id="Virgis_Dataline_GetMetadata_" data-uid="Virgis.Dataline.GetMetadata*"></a>
-  <h4 id="Virgis_Dataline_GetMetadata" data-uid="Virgis.Dataline.GetMetadata">GetMetadata()</h4>
+  <a id="Virgis_Dataline_GetInfo_" data-uid="Virgis.Dataline.GetInfo*"></a>
+  <h4 id="Virgis_Dataline_GetInfo" data-uid="Virgis.Dataline.GetInfo">GetInfo()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Dictionary&lt;string, object&gt; GetMetadata()</code></pre>
+    <pre><code class="lang-csharp hljs">public override Dictionary&lt;string, object&gt; GetInfo()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -422,13 +428,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_GetMetadata">VirgisFeature.GetMetadata()</a></div>
+  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_GetInfo">VirgisFeature.GetInfo()</a></div>
   
   
   <a id="Virgis_Dataline_GetVertexes_" data-uid="Virgis.Dataline.GetVertexes*"></a>
@@ -639,13 +645,13 @@ If the last vertex is in the same (exact) position as the first vertex, the last
   <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_Selected_Virgis_SelectionType_">VirgisFeature.Selected(SelectionType)</a></div>
   
   
-  <a id="Virgis_Dataline_SetMetadata_" data-uid="Virgis.Dataline.SetMetadata*"></a>
-  <h4 id="Virgis_Dataline_SetMetadata_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Virgis.Dataline.SetMetadata(System.Collections.Generic.Dictionary{System.String,System.Object})">SetMetadata(Dictionary&lt;String, Object&gt;)</h4>
+  <a id="Virgis_Dataline_SetInfo_" data-uid="Virgis.Dataline.SetInfo*"></a>
+  <h4 id="Virgis_Dataline_SetInfo_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Virgis.Dataline.SetInfo(System.Collections.Generic.Dictionary{System.String,System.Object})">SetInfo(Dictionary&lt;String, Object&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void SetMetadata(Dictionary&lt;string, object&gt; meta)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void SetInfo(Dictionary&lt;string, object&gt; meta)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -658,14 +664,14 @@ If the last vertex is in the same (exact) position as the first vertex, the last
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td><span class="parametername">meta</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_SetMetadata_System_Collections_Generic_Dictionary_System_String_System_Object__">VirgisFeature.SetMetadata(Dictionary&lt;String, Object&gt;)</a></div>
+  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_SetInfo_System_Collections_Generic_Dictionary_System_String_System_Object__">VirgisFeature.SetInfo(Dictionary&lt;String, Object&gt;)</a></div>
   
   
   <a id="Virgis_Dataline_Translate_" data-uid="Virgis.Dataline.Translate*"></a>
@@ -724,6 +730,17 @@ If the last vertex is in the same (exact) position as the first vertex, the last
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_UnSelected_Virgis_SelectionType_">VirgisFeature.UnSelected(SelectionType)</a></div>
+  
+  
+  <a id="Virgis_Dataline_Update_" data-uid="Virgis.Dataline.Update*"></a>
+  <h4 id="Virgis_Dataline_Update" data-uid="Virgis.Dataline.Update">Update()</h4>
+  <div class="markdown level1 summary"><p>Every frame - realign the billboard</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update()</code></pre>
+  </div>
   
   
   <a id="Virgis_Dataline_VertexMove_" data-uid="Virgis.Dataline.VertexMove*"></a>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class StartFacade
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -88,7 +88,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">StartFacade</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
@@ -149,6 +149,78 @@
   </table>
   
   
+  <h4 id="Virgis_StartFacade_m_appState" data-uid="Virgis.StartFacade.m_appState">m_appState</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected AppState m_appState</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.AppState.html">AppState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_StartFacade_m_searchOptions" data-uid="Virgis.StartFacade.m_searchOptions">m_searchOptions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SearchOption m_searchOptions</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.searchoption">SearchOption</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_StartFacade_m_subs" data-uid="Virgis.StartFacade.m_subs">m_subs</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;IDisposable&gt; m_subs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <h4 id="Virgis_StartFacade_projectDirectory" data-uid="Virgis.StartFacade.projectDirectory">projectDirectory</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
@@ -166,7 +238,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -190,7 +262,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -200,12 +272,12 @@
   
   
   <a id="Virgis_StartFacade_onFileSelected_" data-uid="Virgis.StartFacade.onFileSelected*"></a>
-  <h4 id="Virgis_StartFacade_onFileSelected_System_String_" data-uid="Virgis.StartFacade.onFileSelected(System.String)">onFileSelected(String)</h4>
+  <h4 id="Virgis_StartFacade_onFileSelected_Virgis_FileListPanel_" data-uid="Virgis.StartFacade.onFileSelected(Virgis.FileListPanel)">onFileSelected(FileListPanel)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void onFileSelected(string file)</code></pre>
+    <pre><code class="lang-csharp hljs">public void onFileSelected(FileListPanel event)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -218,12 +290,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">file</span></td>
+        <td><a class="xref" href="Virgis.FileListPanel.html">FileListPanel</a></td>
+        <td><span class="parametername">event</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Virgis_StartFacade_Start_" data-uid="Virgis.StartFacade.Start*"></a>
+  <h4 id="Virgis_StartFacade_Start" data-uid="Virgis.StartFacade.Start">Start()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Start()</code></pre>
+  </div>
 </article>
           </div>
           

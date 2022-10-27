@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class LineSegment
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -89,11 +89,11 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="Virgis.VirgisFeature.html">VirgisFeature</a></div>
     <div class="level2"><span class="xref">LineSegment</span></div>
   </div>
-  <div classs="implements">
+  <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Virgis.IVirgisFeature.html">IVirgisFeature</a></div>
     <div><a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a></div>
@@ -108,6 +108,15 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_mr">VirgisFeature.mr</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_m_firstHitPosition">VirgisFeature.m_firstHitPosition</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_m_nullifyHitPos">VirgisFeature.m_nullifyHitPos</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_m_blockMove">VirgisFeature.m_blockMove</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_label">VirgisFeature.label</a>
@@ -154,6 +163,9 @@
     <div>
       <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_GetLayer">VirgisFeature.GetLayer()</a>
     </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_OnEdit_System_Boolean_">VirgisFeature.OnEdit(Boolean)</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
@@ -182,7 +194,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -206,7 +218,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -301,19 +313,19 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">vertStart</span></td>
         <td><p>vertex ID for the vertex at the start of the line segment</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">vertEnd</span></td>
         <td><p>vertex ID for the vertex at the end of the line segment </p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
         <td><span class="parametername">dia</span></td>
         <td><p>Diamtere of the line segement in Map.local units</p>
 </td>
@@ -322,13 +334,13 @@
   </table>
   
   
-  <a id="Virgis_LineSegment_GetMetadata_" data-uid="Virgis.LineSegment.GetMetadata*"></a>
-  <h4 id="Virgis_LineSegment_GetMetadata" data-uid="Virgis.LineSegment.GetMetadata">GetMetadata()</h4>
+  <a id="Virgis_LineSegment_GetInfo_" data-uid="Virgis.LineSegment.GetInfo*"></a>
+  <h4 id="Virgis_LineSegment_GetInfo" data-uid="Virgis.LineSegment.GetInfo">GetInfo()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Dictionary&lt;string, object&gt; GetMetadata()</code></pre>
+    <pre><code class="lang-csharp hljs">public override Dictionary&lt;string, object&gt; GetInfo()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -340,13 +352,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_GetMetadata">VirgisFeature.GetMetadata()</a></div>
+  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_GetInfo">VirgisFeature.GetInfo()</a></div>
   
   
   <a id="Virgis_LineSegment_MoveAxis_" data-uid="Virgis.LineSegment.MoveAxis*"></a>
@@ -490,6 +502,35 @@
   <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_Selected_Virgis_SelectionType_">VirgisFeature.Selected(SelectionType)</a></div>
   
   
+  <a id="Virgis_LineSegment_SetInfo_" data-uid="Virgis.LineSegment.SetInfo*"></a>
+  <h4 id="Virgis_LineSegment_SetInfo_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Virgis.LineSegment.SetInfo(System.Collections.Generic.Dictionary{System.String,System.Object})">SetInfo(Dictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void SetInfo(Dictionary&lt;string, object&gt; meta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="parametername">meta</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_SetInfo_System_Collections_Generic_Dictionary_System_String_System_Object__">VirgisFeature.SetInfo(Dictionary&lt;String, Object&gt;)</a></div>
+  
+  
   <a id="Virgis_LineSegment_SetMaterial_" data-uid="Virgis.LineSegment.SetMaterial*"></a>
   <h4 id="Virgis_LineSegment_SetMaterial_Material_Material_" data-uid="Virgis.LineSegment.SetMaterial(Material,Material)">SetMaterial(Material, Material)</h4>
   <div class="markdown level1 summary"></div>
@@ -522,35 +563,6 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_SetMaterial_Material_Material_">VirgisFeature.SetMaterial(Material, Material)</a></div>
-  
-  
-  <a id="Virgis_LineSegment_SetMetadata_" data-uid="Virgis.LineSegment.SetMetadata*"></a>
-  <h4 id="Virgis_LineSegment_SetMetadata_System_Collections_Generic_Dictionary_System_String_System_Object__" data-uid="Virgis.LineSegment.SetMetadata(System.Collections.Generic.Dictionary{System.String,System.Object})">SetMetadata(Dictionary&lt;String, Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void SetMetadata(Dictionary&lt;string, object&gt; meta)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
-        <td><span class="parametername">meta</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="Virgis.VirgisFeature.html#Virgis_VirgisFeature_SetMetadata_System_Collections_Generic_Dictionary_System_String_System_Object__">VirgisFeature.SetMetadata(Dictionary&lt;String, Object&gt;)</a></div>
   
   
   <a id="Virgis_LineSegment_UnSelected_" data-uid="Virgis.LineSegment.UnSelected*"></a>

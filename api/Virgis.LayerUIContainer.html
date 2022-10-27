@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class VirgisUIController
+    <title>Class LayerUIContainer
    | ViRGIS VR GIS </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class VirgisUIController
+    <meta name="title" content="Class LayerUIContainer
    | ViRGIS VR GIS ">
     <meta name="generator" content="docfx 2.59.4.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -79,38 +79,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Virgis.VirgisUIController">
+            <article class="content wrap" id="_content" data-uid="Virgis.LayerUIContainer">
   
   
-  <h1 id="Virgis_VirgisUIController" data-uid="Virgis.VirgisUIController" class="text-break">Class VirgisUIController
+  <h1 id="Virgis_LayerUIContainer" data-uid="Virgis.LayerUIContainer" class="text-break">Class LayerUIContainer
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">VirgisUIController</span></div>
+    <div class="level1"><span class="xref">LayerUIContainer</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Virgis_VirgisUIController_syntax">Syntax</h5>
+  <h5 id="Virgis_LayerUIContainer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class VirgisUIController : XRBaseController</code></pre>
+    <pre><code class="lang-csharp hljs">public class LayerUIContainer : MonoBehaviour</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="fields">Fields
   </h3>
   
   
-  <a id="Virgis_VirgisUIController_controllerNode_" data-uid="Virgis.VirgisUIController.controllerNode*"></a>
-  <h4 id="Virgis_VirgisUIController_controllerNode" data-uid="Virgis.VirgisUIController.controllerNode">controllerNode</h4>
-  <div class="markdown level1 summary"><p>The <see cref="!:XRNode"></see> for this controller.</p>
-</div>
+  <h4 id="Virgis_LayerUIContainer_layerNameText" data-uid="Virgis.LayerUIContainer.layerNameText">layerNameText</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public XRNode controllerNode { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Text layerNameText</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -120,21 +118,142 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">XRNode</span></td>
+        <td><span class="xref">Text</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Virgis_VirgisUIController_inputDevice_" data-uid="Virgis.VirgisUIController.inputDevice*"></a>
-  <h4 id="Virgis_VirgisUIController_inputDevice" data-uid="Virgis.VirgisUIController.inputDevice">inputDevice</h4>
-  <div class="markdown level1 summary"><p>(Read Only) The <see cref="!:InputDevice"></see> being used to read data from.</p>
-</div>
+  <h4 id="Virgis_LayerUIContainer_m_layersMap" data-uid="Virgis.LayerUIContainer.m_layersMap">m_layersMap</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InputDevice inputDevice { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;Guid, LayerUIPanel&gt; m_layersMap</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>, <a class="xref" href="Virgis.LayerUIPanel.html">LayerUIPanel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_LayerUIContainer_subLayerBox" data-uid="Virgis.LayerUIContainer.subLayerBox">subLayerBox</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject subLayerBox</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_LayerUIContainer_subLayerPanel" data-uid="Virgis.LayerUIContainer.subLayerPanel">subLayerPanel</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject subLayerPanel</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_LayerUIContainer_subPanels" data-uid="Virgis.LayerUIContainer.subPanels">subPanels</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GameObject&gt; subPanels</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<span class="xref">GameObject</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Virgis_LayerUIContainer_viewLayerToggle" data-uid="Virgis.LayerUIContainer.viewLayerToggle">viewLayerToggle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Toggle viewLayerToggle</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Toggle</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Virgis_LayerUIContainer_layer_" data-uid="Virgis.LayerUIContainer.layer*"></a>
+  <h4 id="Virgis_LayerUIContainer_layer" data-uid="Virgis.LayerUIContainer.layer">layer</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IVirgisLayer layer { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -146,7 +265,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">InputDevice</span></td>
+        <td><a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -155,13 +274,40 @@
   </h3>
   
   
-  <a id="Virgis_VirgisUIController_SelectEvent_" data-uid="Virgis.VirgisUIController.SelectEvent*"></a>
-  <h4 id="Virgis_VirgisUIController_SelectEvent_System_Boolean_" data-uid="Virgis.VirgisUIController.SelectEvent(System.Boolean)">SelectEvent(Boolean)</h4>
+  <a id="Virgis_LayerUIContainer_AddLayer_" data-uid="Virgis.LayerUIContainer.AddLayer*"></a>
+  <h4 id="Virgis_LayerUIContainer_AddLayer_Virgis_IVirgisLayer_" data-uid="Virgis.LayerUIContainer.AddLayer(Virgis.IVirgisLayer)">AddLayer(IVirgisLayer)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SelectEvent(bool thisEvent)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddLayer(IVirgisLayer layer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a></td>
+        <td><span class="parametername">layer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Virgis_LayerUIContainer_expand_" data-uid="Virgis.LayerUIContainer.expand*"></a>
+  <h4 id="Virgis_LayerUIContainer_expand_System_Boolean_" data-uid="Virgis.LayerUIContainer.expand(System.Boolean)">expand(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void expand(bool thisEvent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -176,90 +322,6 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">thisEvent</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Virgis_VirgisUIController_SendHapticImpulse_" data-uid="Virgis.VirgisUIController.SendHapticImpulse*"></a>
-  <h4 id="Virgis_VirgisUIController_SendHapticImpulse_System_Single_System_Single_" data-uid="Virgis.VirgisUIController.SendHapticImpulse(System.Single,System.Single)">SendHapticImpulse(Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool SendHapticImpulse(float amplitude, float duration)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
-        <td><span class="parametername">amplitude</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">Single</a></td>
-        <td><span class="parametername">duration</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Virgis_VirgisUIController_UpdateController_" data-uid="Virgis.VirgisUIController.UpdateController*"></a>
-  <h4 id="Virgis_VirgisUIController_UpdateController" data-uid="Virgis.VirgisUIController.UpdateController">UpdateController()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void UpdateController()</code></pre>
-  </div>
-  
-  
-  <a id="Virgis_VirgisUIController_UpdateInput_" data-uid="Virgis.VirgisUIController.UpdateInput*"></a>
-  <h4 id="Virgis_VirgisUIController_UpdateInput_XRControllerState_" data-uid="Virgis.VirgisUIController.UpdateInput(XRControllerState)">UpdateInput(XRControllerState)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void UpdateInput(XRControllerState controllerState)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">XRControllerState</span></td>
-        <td><span class="parametername">controllerState</span></td>
         <td></td>
       </tr>
     </tbody>

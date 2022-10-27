@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class VirgisLayer&lt;T, S&gt;
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -88,20 +88,21 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="Virgis.VirgisLayer.html">VirgisLayer</a></div>
     <div class="level2"><span class="xref">VirgisLayer&lt;T, S&gt;</span></div>
+      <div class="level3"><a class="xref" href="Virgis.ContainerLayer-2.html">ContainerLayer&lt;T, S&gt;</a></div>
       <div class="level3"><a class="xref" href="Virgis.GraphLayer.html">GraphLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.LineLayer.html">LineLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.MeshlayerProtoype.html">MeshlayerProtoype</a></div>
-      <div class="level3"><a class="xref" href="Virgis.OgrLayer.html">OgrLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.PointCloudLayer.html">PointCloudLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.PointLayer.html">PointLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.PolygonLayer.html">PolygonLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.RasterLayer.html">RasterLayer</a></div>
       <div class="level3"><a class="xref" href="Virgis.TinLayer.html">TinLayer</a></div>
+      <div class="level3"><a class="xref" href="Virgis.VoxelLayer.html">VoxelLayer</a></div>
   </div>
-  <div classs="implements">
+  <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Virgis.IVirgisLayer.html">IVirgisLayer</a></div>
     <div><a class="xref" href="Virgis.IVirgisEntity.html">IVirgisEntity</a></div>
@@ -115,22 +116,43 @@
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_featureType">VirgisLayer.featureType</a>
     </div>
     <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_sourceName">VirgisLayer.sourceName</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_subLayers">VirgisLayer.subLayers</a>
+    </div>
+    <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_changed">VirgisLayer.changed</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_isContainer">VirgisLayer.isContainer</a>
     </div>
     <div>
-      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__id">VirgisLayer._id</a>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_isWriteable">VirgisLayer.isWriteable</a>
     </div>
     <div>
-      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__editable">VirgisLayer._editable</a>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_m_id">VirgisLayer.m_id</a>
     </div>
     <div>
-      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__crs">VirgisLayer._crs</a>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_m_editable">VirgisLayer.m_editable</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_m_crs">VirgisLayer.m_crs</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Awake">VirgisLayer.Awake()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Start">VirgisLayer.Start()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_OnDestroy">VirgisLayer.OnDestroy()</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Init_RecordSet_">VirgisLayer.Init(RecordSet)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_SubInit_RecordSet_">VirgisLayer.SubInit(RecordSet)</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__init">VirgisLayer._init()</a>
@@ -140,6 +162,12 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__addFeature_Vector3___">VirgisLayer._addFeature(Vector3[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_AddFeature_DMesh3_">VirgisLayer.AddFeature(DMesh3)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__addFeature_DMesh3_">VirgisLayer._addFeature(DMesh3)</a>
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_Draw">VirgisLayer.Draw()</a>
@@ -214,6 +242,12 @@
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_SetCrs_SpatialReference_">VirgisLayer.SetCrs(SpatialReference)</a>
     </div>
     <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__onEditStart_System_Boolean_">VirgisLayer._onEditStart(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer__onEditStop_System_Boolean_">VirgisLayer._onEditStop(Boolean)</a>
+    </div>
+    <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_GetCrs">VirgisLayer.GetCrs()</a>
     </div>
     <div>
@@ -221,6 +255,12 @@
     </div>
     <div>
       <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_GetLayer">VirgisLayer.GetLayer()</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_OnEdit_System_Boolean_">VirgisLayer.OnEdit(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Virgis.VirgisLayer.html#Virgis_VirgisLayer_GetInfo_Virgis_VirgisFeature_">VirgisLayer.GetInfo(VirgisFeature)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
@@ -297,7 +337,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td><span class="parametername">obj</span></td>
         <td></td>
       </tr>
@@ -313,7 +353,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -357,7 +397,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -382,7 +422,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td></td>
       </tr>
     </tbody>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MeshExtensions
    | ViRGIS VR GIS ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     
     <link rel="shortcut icon" href="https://www.virgis.org/favicon.ico">
@@ -88,31 +88,31 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">MeshExtensions</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Virgis.html">Virgis</a></h6>
@@ -187,7 +187,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -239,15 +239,67 @@
   </table>
   
   
+  <a id="Virgis_MeshExtensions_ToDmesh_" data-uid="Virgis.MeshExtensions.ToDmesh*"></a>
+  <h4 id="Virgis_MeshExtensions_ToDmesh_Mesh_Transform_" data-uid="Virgis.MeshExtensions.ToDmesh(Mesh,Transform)">ToDmesh(Mesh, Transform)</h4>
+  <div class="markdown level1 summary"><p>Convert a Unity Mesh to DMesh3 in Local Coordinates taking into account mapscale zoom etc</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DMesh3 ToDmesh(this Mesh mesh, Transform tform)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Mesh</span></td>
+        <td><span class="parametername">mesh</span></td>
+        <td><p>Unity Mesh</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">tform</span></td>
+        <td><p>Transform of the Gameobject the Mesh is attached to </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DMesh3</span></td>
+        <td><p>DMesh3</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Virgis_MeshExtensions_ToMesh_" data-uid="Virgis.MeshExtensions.ToMesh*"></a>
-  <h4 id="Virgis_MeshExtensions_ToMesh_DMesh3_System_Boolean_" data-uid="Virgis.MeshExtensions.ToMesh(DMesh3,System.Boolean)">ToMesh(DMesh3, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Converts g3.DMesh3 to UnityEngine.Mesh.
+  <h4 id="Virgis_MeshExtensions_ToMesh_DMesh3_" data-uid="Virgis.MeshExtensions.ToMesh(DMesh3)">ToMesh(DMesh3)</h4>
+  <div class="markdown level1 summary"><p>Converts g3.DMesh3 to UnityEngine.Mesh. 
+The Dmesh3 must be in Map or Local space coordinates
 The DMesh3 must be compact. If neccesary - run Compactify first.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Mesh ToMesh(this DMesh3 mesh, bool project = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Mesh ToMesh(this DMesh3 mesh)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -263,12 +315,6 @@ The DMesh3 must be compact. If neccesary - run Compactify first.</p>
         <td><span class="xref">DMesh3</span></td>
         <td><span class="parametername">mesh</span></td>
         <td><p>Dmesh3</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">project</span></td>
-        <td><p>Should the mesh be projected into virgis projection DEFAULT true</p>
 </td>
       </tr>
     </tbody>
@@ -292,12 +338,13 @@ The DMesh3 must be compact. If neccesary - run Compactify first.</p>
   
   
   <a id="Virgis_MeshExtensions_Transform_" data-uid="Virgis.MeshExtensions.Transform*"></a>
-  <h4 id="Virgis_MeshExtensions_Transform_DMesh3_SpatialReference_" data-uid="Virgis.MeshExtensions.Transform(DMesh3,SpatialReference)">Transform(DMesh3, SpatialReference)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Virgis_MeshExtensions_Transform_DMesh3_" data-uid="Virgis.MeshExtensions.Transform(DMesh3)">Transform(DMesh3)</h4>
+  <div class="markdown level1 summary"><p>Transform Dmesh (either projected or unprojected) to Layer Local Space</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool Transform(this DMesh3 dMesh, SpatialReference to)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool Transform(this DMesh3 dMesh)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -314,11 +361,6 @@ The DMesh3 must be compact. If neccesary - run Compactify first.</p>
         <td><span class="parametername">dMesh</span></td>
         <td></td>
       </tr>
-      <tr>
-        <td><span class="xref">SpatialReference</span></td>
-        <td><span class="parametername">to</span></td>
-        <td></td>
-      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -331,8 +373,9 @@ The DMesh3 must be compact. If neccesary - run Compactify first.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>bool true if successful</p>
+</td>
       </tr>
     </tbody>
   </table>
