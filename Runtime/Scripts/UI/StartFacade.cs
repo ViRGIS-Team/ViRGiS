@@ -46,7 +46,6 @@ namespace Virgis {
         // Start is called before the first frame update
         protected void Start() {
             m_appState = AppState.instance;
-            CreateFilePanels();
             m_subs.Add(m_appState.Project.Event.Subscribe(OnProjectLoad));
             if (m_appState.Project.Get() != null)
                 OnProjectLoad(m_appState.Project.Get());
@@ -56,11 +55,21 @@ namespace Virgis {
             m_subs.ForEach(sub => sub.Dispose());
         }
 
+        /// <summary>
+        /// Action to be Taken when the Project has loaded. Normally just Hide the panels.
+        /// </summary>
+        /// <param name="proj"></param>
         private void OnProjectLoad(GisProject proj) {
             gameObject.SetActive(false);
         }
 
-        private void CreateFilePanels() {
+        /// <summary>
+        /// Call this to create the panels.
+        ///
+        /// Note - this will expect projectDirectory and searchPattern to be set.
+        /// This will not set the GameObject as Visible. You have to do that
+        /// </summary>
+        protected void CreateFilePanels() {
             GameObject newFilePanel;
 
             for (int i = 0; i < fileScrollView.transform.childCount; i++) {
@@ -118,7 +127,11 @@ namespace Virgis {
             gameObject.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 1f;
         }
 
-        public void onFileSelected(FileListPanel @event) {
+        /// <summary>
+        /// Actions that are taken when the user clicks on an item
+        /// </summary>
+        /// <param name="event"></param>
+        protected void onFileSelected(FileListPanel @event) {
             if (!@event.isDirectory) {
                 // Kill off all of the existing layers
                 if (m_appState.layers != null)
@@ -146,6 +159,7 @@ namespace Virgis {
                 } else {
                     projectDirectory = @event.File;
                 }
+                m_appState.SetConfig("CurrentFolder", @event.File);
                 CreateFilePanels();
             }
         } 

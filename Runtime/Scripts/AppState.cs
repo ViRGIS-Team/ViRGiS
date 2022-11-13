@@ -95,6 +95,11 @@ namespace Virgis {
             private set;
         }
 
+        /// <summary>
+        /// UniRx Subject that is triggered when a new configuration is loaded.
+        /// </summary>
+        public Subject<bool> ConfigEvent = new Subject<bool>();
+
         protected void Start() {
             
         }
@@ -275,6 +280,24 @@ namespace Virgis {
 
         public void StopDiscardEditSession() {
             _editSession.StopAndDiscard();
+        }
+
+        /// <summary>
+        /// Courtesy function to allow the creation of logic to set configuration items
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public virtual void SetConfig(string key, object value) {
+            //Do Nothing
+        }
+
+        /// <summary>
+        /// Courtesy Function to allow the retrieval of Configuration items
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public virtual object GetConfig(string key) {
+            return default;
         }
     }
 }

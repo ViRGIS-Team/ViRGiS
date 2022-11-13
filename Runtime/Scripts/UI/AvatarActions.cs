@@ -52,6 +52,7 @@ namespace Virgis
             StartCoroutine(Orient());
             if (m_appState.Project.Get() != null)
                 onProjectLoad(m_appState.Project.Get());
+            m_subs.Add(m_appState.ConfigEvent.Subscribe(onConfigLoaded));
         }
 
         public void OnDestroy() {
@@ -91,6 +92,15 @@ namespace Virgis
         protected virtual void LayerAdded(IVirgisLayer layer) {
             // do nothing
         }
+
+        /// <summary>
+        /// Overload this to set actions to be taken when the Config Loaded event is triggered
+        /// </summary>
+        /// <param name="thisEvent"></param>
+        protected virtual void onConfigLoaded(bool thisEvent) {
+            // do nothing
+        }
+        
 
         //
         // Internal methods common to both UIs
