@@ -98,7 +98,7 @@ namespace Virgis {
         /// <summary>
         /// UniRx Subject that is triggered when a new configuration is loaded.
         /// </summary>
-        public Subject<bool> ConfigEvent = new Subject<bool>();
+        public BehaviorSubject<bool> ConfigEvent = new BehaviorSubject<bool>(false);
 
         protected void Start() {
             
