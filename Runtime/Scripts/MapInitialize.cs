@@ -25,6 +25,7 @@ using Project;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.IO;
 using UnityEngine;
 
 namespace Virgis {
@@ -97,6 +98,7 @@ namespace Virgis {
                 return false;
             }
             m_appState.project = m_projectJsonReader.GetProject();
+            m_appState.project.path = Path.GetDirectoryName(file);
 
             try {
                    initLayers(m_appState.project.RecordSets);
