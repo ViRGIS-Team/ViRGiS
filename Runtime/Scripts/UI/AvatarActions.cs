@@ -55,6 +55,10 @@ namespace Virgis
             m_subs.Add(m_appState.ConfigEvent.Subscribe(onConfigLoaded));
         }
 
+        public void Update() {
+            // do nothing
+        }
+
         public void OnDestroy() {
             m_subs.ForEach(sub => sub.Dispose());
         }
