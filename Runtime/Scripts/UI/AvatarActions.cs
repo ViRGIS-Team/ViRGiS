@@ -22,8 +22,8 @@ namespace Virgis
 
         protected bool m_editSelected = false; // edit state 
         protected float m_selectedDistance; // distance to the selected marker``
-        protected Transform m_currentPointerHit; // current marker selected by pointer
-        protected Transform m_currentSelected; // current marker in selected state
+        protected Transform? m_currentPointerHit; // current marker selected by pointer
+        protected Transform? m_currentSelected; // current marker in selected state
 
         protected Vector3? m_from; // caches the last position indicated by the user to which to move the selected component
         protected AppState m_appState;
@@ -206,7 +206,7 @@ namespace Virgis
         {
             if (m_appState.InEditSession() && m_currentPointerHit != null && LayerIsEditable())
             {
-                m_currentPointerHit.SendMessage("AddVertex", pos, SendMessageOptions.DontRequireReceiver);
+                m_currentPointerHit?.SendMessage("AddVertex", pos, SendMessageOptions.DontRequireReceiver);
                 m_addVertexState = false;
             }
         }
@@ -220,8 +220,5 @@ namespace Virgis
                 m_currentPointerHit = null;
             }
         }
-
-
     }
-
 }

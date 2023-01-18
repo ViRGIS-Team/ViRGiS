@@ -23,14 +23,20 @@ using g3;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
+using OSGeo.GDAL;
 using System;
 using UnityEngine;
+using UnityEngine.Jobs;
+using Unity.Burst;
 using System.Collections.Generic;
 using System.Collections;
 using System.Threading.Tasks;
 using DelaunatorSharp;
 using System.Linq;
 using DXF = netDxf;
+using Project;
+using Unity.Jobs;
+using Unity.Collections;
 
 namespace Virgis {
 
@@ -526,6 +532,104 @@ namespace Virgis {
                 tcs1.SetResult(1);
             });
             return t1;
+        }
+
+        public static void CalculateMapUVs(this DMesh3 dMesh, Unit symbology) {
+            if (symbology.TextureImage is not null && symbology.TextureImage != "") {
+                dMesh.EnableVertexUVs(Vector2f.Zero);
+                Dataset raster = Gdal.Open(symbology.TextureImage, Access.GA_ReadOnly);
+                double[] gtRaw = new double[6];
+
+                double X_size = raster.RasterXSize;
+                double Y_size = raster.RasterYSize;
+
+                raster.GetGeoTransform(gtRaw);
+                if (gtRaw == null && gtRaw[1] == 0) {
+                    throw new Exception();
+                }
+
+                NativeArray<double> geoTransform = new NativeArray<double>(gtRaw, Allocator.Persistent);
+                NativeArray<double> U = new NativeArray<double>(dMesh.VertexCount, Allocator.Persistent);
+                NativeArray<double> V = new NativeArray<double>(dMesh.VertexCount, Allocator.Persistent);
+
+                NativeArray<Vector3d> vertices = new NativeArray<Vector3d>(dMesh.Vertices().ToArray<Vector3d>(), Allocator.Persistent);
+                double F = geoTransform[2] / geoTransform[5];
+
+                MapUV uv = new();
+                uv.F0= 1/( (geoTransform[1] - F * geoTransform[4]) * X_size);
+                uv.F1= F * uv.F0;
+                uv.F2 = 1 / (geoTransform[5] * Y_size);
+                uv.F3 = geoTransform[4] * uv.F2 * X_size;
+                uv.vertices = vertices;
+                uv.U= U;
+                uv.V= V;
+                uv.geoTransform= geoTransform;
+
+                JobHandle jh = uv.Schedule(vertices.Length, 10);
+                jh.Complete();
+
+                for (int i = 0; i < U.Length; i++) {
+                    dMesh.SetVertexUV(i, new Vector2f((float)U[i], (float) V[i]));
+                }
+
+                geoTransform.Dispose();
+                U.Dispose();
+                V.Dispose();
+                vertices.Dispose();
+                
+            } else {
+                dMesh.CalculateUVs();
+            }
+        }
+
+        public static Task<int> CalculateMapUVsAsync(this DMesh3 dMesh, Unit symbology) {
+
+            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+            Task<int> t1 = tcs1.Task;
+            t1.ConfigureAwait(false);
+
+            // Start a background task that will complete tcs1.Task
+            Task.Factory.StartNew(() => {
+                dMesh.CalculateMapUVs(symbology);
+                tcs1.SetResult(1);
+            });
+            return t1;
+        }
+
+        [BurstCompile]
+        struct MapUV : IJobParallelFor {
+            [ReadOnly]
+            public NativeArray<Vector3d> vertices;
+
+            [ReadOnly]
+            public NativeArray<double> geoTransform;
+
+            [ReadOnly]
+            public double F0;
+
+            [ReadOnly]
+            public double F1;
+
+            [ReadOnly]
+            public double F2;
+
+            [ReadOnly]
+            public double F3;
+
+            public NativeArray<double> U;
+            public NativeArray<double> V;
+
+            public void Execute(int job) {
+                Vector3d vertex = vertices[job];
+                double X_geo = vertex.x - geoTransform[0];
+                double Y_geo = vertex.y - geoTransform[3];
+
+                double X = F0 * X_geo - F1 * Y_geo;
+                double Y = F2 * Y_geo - F3 * X;
+
+                U[job] = X;
+                V[job] = 1 - Y;
+            }
         }
     }
 

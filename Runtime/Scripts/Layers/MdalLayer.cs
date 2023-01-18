@@ -26,6 +26,8 @@ using System.Threading.Tasks;
 using Project;
 using g3;
 using Mdal;
+using System.Security.Policy;
+using System;
 
 namespace Virgis
 {
@@ -48,7 +50,6 @@ namespace Virgis
                     mesh.RemoveMetadata("CRS");
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
-                mesh.Transform();
                 features.Add(mesh);
             }
             return;
@@ -59,11 +60,25 @@ namespace Virgis
             RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             m_meshes = new List<Transform>();
+            Material mat = null;
+
+            if (symbology.TryGetValue("body", out Unit bodySymbology)) {
+                if (bodySymbology.TextureImage is null ) {
+                    mat = MeshMaterial;
+                } else {
+                    mat = ImageMaterial;
+                    Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
+                    if (tex != null) {
+                        tex.wrapMode = TextureWrapMode.Clamp;
+                    }
+                    mat.SetTexture("_BaseMap", tex);
+                }
+            }
 
             foreach (DMesh3 dMesh in features) {
-                await dMesh.CalculateUVsAsync();
+                await dMesh.CalculateMapUVsAsync(bodySymbology);
                 dMesh.Transform();
-                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial));
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, mat, WireframeMaterial));
             }
             transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
             transform.rotation = layer.Transform.Rotate;

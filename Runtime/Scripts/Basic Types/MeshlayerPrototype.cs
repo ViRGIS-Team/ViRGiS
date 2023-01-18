@@ -35,6 +35,7 @@ namespace Virgis
         public GameObject Mesh;
         public Material MeshMaterial;
         public Material WireframeMaterial;
+        public Material ImageMaterial;
 
         protected List<Transform> m_meshes; // List of the meshes in the layer
         protected Dictionary<string, Project.Unit> m_symbology;

@@ -106,7 +106,7 @@ namespace Virgis
                             else
                                 pipe.Add(new {
                                     type = "filters.range",
-                                    limits = $"Z[:{noDataValue - 1}]"
+                                    limits = $"Z[:{noDataValue + 1}]"
                                 });
                         }
 

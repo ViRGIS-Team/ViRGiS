@@ -111,6 +111,14 @@ namespace Virgis
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
                         mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
+                        mesh.RemoveMetadata("properties");
+                        mesh.AttachMetadata("properties", new Dictionary<string, object>{
+                    { "Name", layer.DisplayName }
+                });
+                        if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                            mesh.RemoveMetadata("CRS");
+                            mesh.AttachMetadata("CRS", layer.Crs);
+                        };
                     }
                 }
                 m_symbology = layer.Properties.Units;
@@ -255,7 +263,7 @@ namespace Virgis
             }
         }
 
-        protected override Task _draw()
+        protected async override Task _draw()
         {
             RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ? layer.Position.ToVector3() : Vector3.zero;
@@ -264,11 +272,13 @@ namespace Virgis
             m_meshes = new List<Transform>();
 
             foreach (DMesh3 dMesh in features) {
+                await dMesh.CalculateUVsAsync();
+                dMesh.Transform();
                 m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
-            return Task.CompletedTask;
+            return;
         }
 
         protected override Task _save()

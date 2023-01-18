@@ -95,7 +95,7 @@ namespace Virgis
             if (layer.IsEditable()) panelScript.editLayerToggle.isOn = true;
             // when the Layers Menu screen is first displayed,
             // edit session could already be active
-            if (m_appState.editSession.IsActive())
+            if ((bool)m_appState?.editSession?.IsActive())
             {
                 // in edit session, layer can be set to edit
                 panelScript.editLayerToggle.interactable = true;
