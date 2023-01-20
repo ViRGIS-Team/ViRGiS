@@ -26,8 +26,8 @@ using System.Threading.Tasks;
 using Project;
 using g3;
 using Mdal;
-using System.Security.Policy;
 using System;
+using Stopwatch = System.Diagnostics.Stopwatch;
 
 namespace Virgis
 {
@@ -35,6 +35,7 @@ namespace Virgis
     public class MdalLayer : MeshlayerProtoype
     {
         protected override async Task _init() {
+            Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
             m_symbology = layer.Properties.Units;
@@ -52,20 +53,20 @@ namespace Virgis
                 };
                 features.Add(mesh);
             }
+            Debug.Log($"Mdal Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
             return;
         }
 
         protected override async Task _draw()
         {
+            Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             m_meshes = new List<Transform>();
-            Material mat = null;
+            Material mat = Instantiate(MeshMaterial);
 
             if (symbology.TryGetValue("body", out Unit bodySymbology)) {
-                if (bodySymbology.TextureImage is null ) {
-                    mat = MeshMaterial;
-                } else {
+                if (bodySymbology.TextureImage is not null ) {
                     mat = ImageMaterial;
                     Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
                     if (tex != null) {
@@ -77,12 +78,14 @@ namespace Virgis
 
             foreach (DMesh3 dMesh in features) {
                 await dMesh.CalculateMapUVsAsync(bodySymbology);
+                Debug.Log($"Time before Transform {stopWatch.Elapsed.TotalSeconds}");
                 dMesh.Transform();
+                Debug.Log($"Time after Transform {stopWatch.Elapsed.TotalSeconds}");
                 m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, mat, WireframeMaterial));
             }
-            transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
-            transform.rotation = layer.Transform.Rotate;
+            transform.SetPositionAndRotation(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position), layer.Transform.Rotate);
             transform.localScale = layer.Transform.Scale;
+            Debug.Log($"Mdal Layer Draw took : {stopWatch.Elapsed.TotalSeconds}");
         }
 
         protected override Task _save()

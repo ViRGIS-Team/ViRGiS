@@ -32,179 +32,177 @@ using Mdal;
 using g3;
 using OSGeo.GDAL;
 using System;
+using Stopwatch = System.Diagnostics.Stopwatch;
 
 namespace Virgis
 {
     public class DemLayer : MeshlayerProtoype {
-        protected override async Task _init() {
-            await Load();
+
+        private enum SourceType {
+            PDAL,
+            GDAL,
+            MDAL,
+            XYZ,
+            None
         }
 
-        protected Task<int> Load() {
+        protected override async Task _init() {
+            Stopwatch stopWatch = Stopwatch.StartNew();
+            RecordSet layer = _layer as RecordSet;
+            await Load(layer);
+            Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
+        }
 
-            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
-            Task<int> t1 = tcs1.Task;
-            t1.ConfigureAwait(false);
+        protected async Task Load(RecordSet layer) {
+            string ex = Path.GetExtension(layer.Source).ToLower();
+            // Determine the DAL to be used to load the data.
+            // GDAL data is loaded throu PDAL to get a mesh - but the pipeline is radically different
+            //
+            if (".2dm .nc .dat .adf .out .grb .hdf .slf .sww .xdmf .xmdf .tin".Contains(ex)) {
+                await LoadMdal(layer);
+            } else if (".bpf .json .e57 .mat .txt .las .nitf .npy .csd .pcd .ply .pts .qi .rxp .rdbx .sbet .slpk .bin ".Contains(ex) || new Regex(@"\.m\d\d").IsMatch(ex)) {
+                await LoadPDAL(layer, SourceType.PDAL);
+            } else if (".xyz".Contains(ex)) {
+                await LoadPDAL(layer, SourceType.XYZ);
+            }
+            {
+                await LoadPDAL(layer, SourceType.GDAL);
+            }
+        }
 
-            // Start a background task that will complete tcs1.Task
-            Task.Factory.StartNew(() => {
-                RecordSet layer = _layer as RecordSet;
-                string ex = Path.GetExtension(layer.Source).ToLower();
-                string sourcetype = null;
-                Datasource ds = null;
-                string proj = null;
-                double scalingFactor = 0;
-                string headerString;
+        /// <summary>
+        /// Load using PDAL
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <param name="sourceType"></param>
+        /// <returns></returns>
+        /// <exception cref="NotSupportedException"></exception>
+        private async Task LoadPDAL(RecordSet layer, SourceType sourceType) {
+            string proj = null;
+            double scalingFactor = 0;
+            string headerString;
+            (long, Pipeline) value() {
+
                 features = new List<DMesh3>();
 
-                // Determine the DAL to be used to load the data.
-                // GDAL data is loaded throu PDAL to get a mesh - but the pipeline is radically different
-                //
-                if (".2dm .nc .dat .adf .out .grb .hdf .slf .sww .xdmf .xmdf .tin".Contains(ex))
-                    sourcetype = "mdal";
-                else if (".bpf .json .e57 .mat .txt .las .nitf .npy .csd .pcd .ply .pts .qi .rxp .rdbx .sbet .slpk .bin .xyz ".Contains(ex) || new Regex(@"\.m\d\d").IsMatch(ex))
-                    sourcetype = "pdal";
-                else
-                    sourcetype = "gdal";
+                List<object> pipe = new();
 
-                //Loading through PDAL
-                if (sourcetype != "mdal") {
-                    List<object> pipe = new List<object>();
+                // Set up the pipline for GDAL data
+                // Get the metadata through GDAL first
+                if (sourceType == SourceType.GDAL) {
+                    Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
+                    int numBands = raster.RasterCount;
+                    if (numBands <= 0)
+                        throw new NotSupportedException($" No Data in file {layer.Source}");
+                    proj = raster.GetProjection();
 
-                    // Set up the pipline for GDAL data
-                    // Get the metadata thjrough GDAL first
-                    if (sourcetype == "gdal") {
-                        Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
-                        int numBands = raster.RasterCount;
-                        if (numBands <= 0)
-                            throw new NotSupportedException($" No Data in file {layer.Source}");
-                        proj = raster.GetProjection();
-
-                        //Make the header string from the number of bands - assume band-1 is elevation
-                        headerString = "Z";
-                        for (int i = 1; i < numBands; i++) {
-                            headerString += $",M{i}";
-                        }
-
-                        pipe.Add(new {
-                            type = "readers.gdal",
-                            filename = layer.Source,
-                            header = headerString
-                        });
-
-                        //get the null value and filter out null data
-                        Band band1 = raster.GetRasterBand(1);
-                        double noDataValue;
-                        int hasval;
-                        band1.GetNoDataValue(out noDataValue, out hasval);
-                        if (hasval == 1) {
-                            if (noDataValue < 0)
-                                pipe.Add(new {
-                                    type = "filters.range",
-                                    limits = $"Z[{noDataValue + 1}:]"
-                                });
-                            else
-                                pipe.Add(new {
-                                    type = "filters.range",
-                                    limits = $"Z[:{noDataValue + 1}]"
-                                });
-                        }
-
-                        // Get the size and pixel size of the raster
-                        // if the raster has more than 40,000 data points, using poisson sampling to down size
-                        long datapoints = raster.RasterXSize * raster.RasterYSize;
-                        if (datapoints > 40000) {
-                            try {
-                                double[] geoTransform = new double[6];
-                                raster.GetGeoTransform(geoTransform);
-                                if (geoTransform == null && geoTransform[1] == 0) {
-                                    throw new Exception();
-                                }
-                                scalingFactor = Math.Sqrt(datapoints / 40000d * geoTransform[1]);
-                            } catch {
-                                scalingFactor = Math.Sqrt(datapoints / 40000d);
-                            };
-
-                            pipe.Add(new {
-                                type = "filters.sample",
-                                radius = scalingFactor
-                            });
-                        }
-                        band1.FlushCache();
-                        band1.Dispose();
-                        raster.FlushCache();
-                        raster.Dispose();
-                        // special treatment for .xyz files that are not handled well by the defaults
-                    } else if (ex == ".xyz")
-                        pipe.Add(new {
-                            type = "readers.text",
-                            filename = layer.Source,
-                        });
-
-                    // for PDAL data - use the default reader
-                    else
-                        pipe.Add(layer.Source);
-
-                    // if there is a filter definituion in the RecordSet, add that
-                    if (layer.Properties.Filter != null) {
-                        foreach (Dictionary<string, object> item in layer.Properties.Filter)
-                            pipe.Add(item);
+                    //Make the header string from the number of bands - assume band-1 is elevation
+                    headerString = "Z";
+                    for (int i = 1; i < numBands; i++) {
+                        headerString += $",M{i}";
                     }
-
-                    // if there is a Color Interpolation definition in the RecordSet, add that
-                    if (layer.Properties.ColorInterp != null) {
-                        Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
-                        ci.Add("type", "filters.colorinterp");
-                        ci["dimension"] = "Z";
-                        pipe.Add(ci);
-                    }
-
-                    // create a Mesh using Delaunay traingulation
                     pipe.Add(new {
-                        type = "filters.delaunay"
+                        type = "readers.gdal",
+                        filename = layer.Source,
+                        header = headerString
                     });
 
-                    // serialize the pipeline to json
-                    string json = JsonConvert.SerializeObject(new {
-                        pipeline = pipe.ToArray()
-                    });
-
-                    Debug.Log(json);
-
-                    // create and run the piplene
-                    Pipeline pipeline = new Pipeline(json);
-                    long pointCount = pipeline.Execute();
-                    using (PointViewIterator views = pipeline.Views) {
-                        views.Reset();
-                        while (views.HasNext()) {
-                            PointView view = views.Next;
-                            if (view != null) {
-                                DMesh3 mesh = view.getMesh();
-                                mesh.RemoveMetadata("properties");  
-                                // set the CRS based on what is known
-                                if (proj != null) {
-                                    mesh.RemoveMetadata("CRS");
-                                    mesh.AttachMetadata("CRS", proj);
-                                }
-                                if (layer.ContainsKey("Crs") && layer.Crs != null) {
-                                    mesh.RemoveMetadata("CRS");
-                                    mesh.AttachMetadata("CRS", layer.Crs);
-                                };
-                                features.Add(mesh);
-                            }
-                        }
+                    //get the null value and filter out null data
+                    Band band1 = raster.GetRasterBand(1);
+                    band1.GetNoDataValue(out double noDataValue, out int hasval);
+                    if (hasval == 1) {
+                        if (noDataValue < 0)
+                            pipe.Add(new {
+                                type = "filters.range",
+                                limits = $"Z[{noDataValue + 1}:]"
+                            });
+                        else
+                            pipe.Add(new {
+                                type = "filters.range",
+                                limits = $"Z[:{noDataValue - 1}]"
+                            });
                     }
-                    pipeline.Dispose();
-                } else {
-                    // for MDAL files - load the mesh directly
-                    ds = Datasource.Load(layer.Source);
 
-                    for (int i = 0; i < ds.meshes.Length; i++) {
-                        DMesh3 mesh = ds.GetMesh(i);
-                        mesh.RemoveMetadata("properties");
-                        mesh.AttachMetadata("properties", new Dictionary<string, object>{
-                        { "Name", ds.meshes[i] }
+                    // Get the size and pixel size of the raster
+                    // if the raster has more than 40,000 data points, using poisson sampling to down size
+                    long datapoints = raster.RasterXSize * raster.RasterYSize;
+                    if (datapoints > 40000) {
+                        try {
+                            double[] geoTransform = new double[6];
+                            raster.GetGeoTransform(geoTransform);
+                            if (geoTransform == null && geoTransform[1] == 0) {
+                                throw new Exception();
+                            }
+                            scalingFactor = Math.Sqrt(datapoints / 40000d * geoTransform[1]);
+                        } catch {
+                            scalingFactor = Math.Sqrt(datapoints / 40000d);
+                        };
+
+                        pipe.Add(new {
+                            type = "filters.sample",
+                            radius = scalingFactor
+                        });
+                    }
+                    band1.FlushCache();
+                    band1.Dispose();
+                    raster.FlushCache();
+                    raster.Dispose();
+                    // special treatment for .xyz files that are not handled well by the defaults
+                } else if (sourceType == SourceType.XYZ)
+                    pipe.Add(new {
+                        type = "readers.text",
+                        filename = layer.Source,
                     });
+
+                // for PDAL data - use the default reader
+                else
+                    pipe.Add(layer.Source);
+
+                // if there is a filter definituion in the RecordSet, add that
+                if (layer.Properties.Filter != null) {
+                    foreach (Dictionary<string, object> item in layer.Properties.Filter)
+                        pipe.Add(item);
+                }
+
+                // if there is a Color Interpolation definition in the RecordSet, add that
+                if (layer.Properties.ColorInterp != null) {
+                    Dictionary<string, object> ci = new(layer.Properties.ColorInterp) {
+                        { "type", "filters.colorinterp" }
+                    };
+                    ci["dimension"] = "Z";
+                    pipe.Add(ci);
+                }
+
+                // create a Mesh using Delaunay traingulation
+                pipe.Add(new {
+                    type = "filters.delaunay"
+                });
+
+                // serialize the pipeline to json
+                string json = JsonConvert.SerializeObject(new {
+                    pipeline = pipe.ToArray()
+                });
+
+                Debug.Log(json);
+
+                // create and run the piplene
+                Pipeline pipeline = new(json);
+                long pointCount = pipeline.Execute();
+                return (pointCount, pipeline);
+            }
+            Task<(long, Pipeline)> task = new(value);
+            task.Start();
+            (long pointCount, Pipeline pipeLine) = await task;
+
+            // Process Pipeline
+            using (PointViewIterator views = pipeLine.Views) {
+                views.Reset();
+                while (views.HasNext()) {
+                    PointView view = views.Next;
+                    if (view != null) {
+                        BakedMesh bm = await BakedMesh.Initialize(view);
+                        DMesh3 mesh = bm.Dmesh;
+                        mesh.RemoveMetadata("properties");
                         // set the CRS based on what is known
                         if (proj != null) {
                             mesh.RemoveMetadata("CRS");
@@ -217,28 +215,59 @@ namespace Virgis
                         features.Add(mesh);
                     }
                 }
-                tcs1.SetResult(1);
-            });
-            return t1;
+            }
+            pipeLine.Dispose();
+        }
+
+        private async Task LoadMdal(RecordSet layer) {
+            // for MDAL files - load the mesh directly
+            Datasource ds = await Datasource.LoadAsync(layer.Source);
+            features = new List<DMesh3>();
+            for (int i = 0; i < ds.meshes.Length; i++) {
+                DMesh3 mesh = await ds.GetMeshAsync(i);
+                mesh.RemoveMetadata("properties");
+                mesh.AttachMetadata("properties", new Dictionary<string, object>{
+                    { "Name", ds.meshes[i] }
+                });
+                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                    mesh.RemoveMetadata("CRS");
+                    mesh.AttachMetadata("CRS", layer.Crs);
+                };
+                mesh.Transform();
+                features.Add(mesh);
+            }
         }
 
         protected override async Task _draw() {
+            Stopwatch stopWatch= Stopwatch.StartNew();
             RecordSet layer = GetMetadata();
             Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             m_meshes = new List<Transform>();
+            Material mat = Instantiate(MeshMaterial);
+
+            if (symbology.TryGetValue("body", out Unit bodySymbology)) {
+
+                if (bodySymbology.TextureImage is not null) {
+                    mat = ImageMaterial;
+                    Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
+                    if (tex != null) {
+                        tex.wrapMode = TextureWrapMode.Clamp;
+                    }
+                    mat.SetTexture("_BaseMap", tex);
+                }
+            }
 
             foreach (DMesh3 dMesh in features) {
                 if (dMesh.HasVertexColors) {
                     MeshMaterial.SetInt("_hasColor", 1);
                 }
-                await dMesh.CalculateUVsAsync();
+                await dMesh.CalculateMapUVsAsync(bodySymbology);
                 dMesh.Transform();
-                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial));
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, mat, WireframeMaterial));
             }
-            transform.position = AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position);
-            transform.rotation = layer.Transform.Rotate;
+            transform.SetPositionAndRotation(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position), layer.Transform.Rotate);
             transform.localScale = layer.Transform.Scale;
-
+            Debug.Log($"Dem Layer Draw Took {stopWatch.Elapsed.TotalSeconds}");
         }
 
         protected override Task _save()

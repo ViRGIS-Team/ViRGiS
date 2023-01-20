@@ -22,6 +22,7 @@ SOFTWARE. */
 
 using System.Collections.Generic;
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
@@ -63,8 +64,23 @@ namespace Virgis
             m_selectedMat.SetColor("_BaseColor", sel);
         }
 
-        protected Task<int> Load(RecordSet layer) {
-            Task<int> t1 = new Task<int>(() => {
+        protected async Task Load(RecordSet layer) {
+            (long, Pipeline) result = await LoadAsync(layer);
+            Pipeline pipeline = result.Item2;
+            PointViewIterator views = pipeline.Views;
+            if (views != null) {
+                PointView view = views != null ? views.Next : null;
+                if (view != null) {
+                    features = await BakedPointCloud.Initialize(view);
+                    view.Dispose();
+                }
+                views.Dispose();
+            }
+            pipeline.Dispose();
+        }
+
+        protected Task<(long, Pipeline)> LoadAsync(RecordSet layer) {
+            Task<(long, Pipeline)> t1 = new Task<(long, Pipeline)>(() => {
                 List<object> pipe = new List<object>();
 
                 string ex = Path.GetExtension(layer.Source).ToLower();
@@ -106,23 +122,16 @@ namespace Virgis
                     pipeline = pipe.ToArray()
                 });
 
+                Stopwatch stopWatch = Stopwatch.StartNew();
                 Pipeline pipeline = new Pipeline(json);
                 if (pipeline.Valid == false)
                     throw new System.NotSupportedException("Layer : " + layer.Id + "  - PDAL Pipeline is not valid - check Layer configuration");
                 long pointCount = pipeline.Execute();
-                PointViewIterator views = pipeline.Views;
-                if (views != null) {
-                    PointView view = views != null ? views.Next : null;
-                    if (view != null) {
-                        features = BakedPointCloud.Initialize(view.GetBpcData());
-                        view.Dispose();
-                    }
-                    views.Dispose();
-                }
-                pipeline.Dispose();
-                return 1;
+                UnityEngine.Debug.Log($"PointCloud PDAL took {stopWatch.Elapsed.TotalSeconds}");
+                stopWatch.Stop();
+                return (pointCount, pipeline);
             });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
+            t1.Start();
             return t1;
         }
 
@@ -133,6 +142,7 @@ namespace Virgis
 
         protected override Task _draw()
         {
+            Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = GetMetadata();
             transform.position = layer.Position != null ?  layer.Position.ToVector3() : Vector3.zero ;
             if (layer.Transform != null) transform.Translate(AppState.instance.map.transform.TransformVector((Vector3)layer.Transform.Position ));
@@ -141,9 +151,9 @@ namespace Virgis
             m_model = Instantiate(pointCloud, transform, false);
 
             VisualEffect vfx = m_model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", features.positionMap);
-            vfx.SetTexture("_Colors", features.colorMap);
-            vfx.SetInt("_pointCount", features.pointCount);
+            vfx.SetTexture("_Positions", features.PositionMap);
+            vfx.SetTexture("_Colors", features.ColorMap);
+            vfx.SetInt("_pointCount", features.PointCount);
             vfx.SetVector3("_size", symbology["point"].Transform.Scale);
             vfx.Play();
 
@@ -156,15 +166,16 @@ namespace Virgis
             centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
             centreHandle.GetComponent<Datapoint>().SetMaterial(m_mainMat, m_selectedMat);
             centreHandle.transform.parent = transform;
+            UnityEngine.Debug.Log($"PointCloud Draw took {stopWatch.Elapsed.TotalSeconds}");
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
             base._set_visible();
             VisualEffect vfx = m_model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", features.positionMap);
-            vfx.SetTexture("_Colors", features.colorMap);
-            vfx.SetInt("_pointCount", features.pointCount);
+            vfx.SetTexture("_Positions", features.PositionMap);
+            vfx.SetTexture("_Colors", features.ColorMap);
+            vfx.SetInt("_pointCount", features.PointCount);
             vfx.SetVector3("_size", m_symbology["point"].Transform.Scale);
             vfx.Play();
         }

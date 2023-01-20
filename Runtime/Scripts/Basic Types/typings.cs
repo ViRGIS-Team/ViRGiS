@@ -31,6 +31,7 @@ using Unity.Burst;
 using System.Collections.Generic;
 using System.Collections;
 using System.Threading.Tasks;
+using Stopwatch = System.Diagnostics.Stopwatch;
 using DelaunatorSharp;
 using System.Linq;
 using DXF = netDxf;
@@ -565,12 +566,14 @@ namespace Virgis {
                 uv.V= V;
                 uv.geoTransform= geoTransform;
 
+                Stopwatch stopwatch= Stopwatch.StartNew();
                 JobHandle jh = uv.Schedule(vertices.Length, 10);
                 jh.Complete();
-
+                Debug.Log($"uv Job took {stopwatch.Elapsed.TotalSeconds}");
                 for (int i = 0; i < U.Length; i++) {
                     dMesh.SetVertexUV(i, new Vector2f((float)U[i], (float) V[i]));
                 }
+                Debug.Log($"uv total took {stopwatch.Elapsed.TotalSeconds}");
 
                 geoTransform.Dispose();
                 U.Dispose();
@@ -832,6 +835,12 @@ namespace Virgis {
             if (task.IsFaulted) {
                 throw task.Exception;
             }
+        }
+    }
+
+    public static class JobExtensions {
+        public static IEnumerator WaitFor(this JobHandle job) {
+            yield return new WaitUntil(() => job.IsCompleted);
         }
     }
 }

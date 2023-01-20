@@ -95,7 +95,7 @@ namespace Virgis
 
                 foreach (VoxelMesh vmesh in features) {
 
-                BakedPointCloud pc = BakedPointCloud.Initialize(vmesh.ToBpcData(crs));
+                /*akedPointCloud pc = BakedPointCloud.Initialize(vmesh.ToBpcData(crs));
 
                 m_model = Instantiate(pointCloud, transform, false);
 
@@ -104,7 +104,7 @@ namespace Virgis
                 vfx.SetTexture("_Colors", pc.colorMap);
                 vfx.SetInt("_pointCount", pc.pointCount);
                 vfx.SetVector3("_size", new Vector3(10,10,10));
-                vfx.Play();
+                vfx.Play();*/
             }
 
             //if (layer.Transform != null) {
@@ -123,7 +123,7 @@ namespace Virgis
 
     public static class VoxelMeshExtensions {
 
-        public static BpcData ToBpcData(this VoxelMesh vmesh, SpatialReference crs = null) {
+/*        public static BpcData ToBpcData(this VoxelMesh vmesh, SpatialReference crs = null) {
             BpcData bpc = new BpcData();
             bpc.size = (ulong)vmesh.Count;
             List<Vector3d> positions = new List<Vector3d>();
@@ -152,7 +152,7 @@ namespace Virgis
             bpc.positions = positions;
             //bpc.colors = colors;
             return bpc;
-        }
+        }*/
     }
 }
 
