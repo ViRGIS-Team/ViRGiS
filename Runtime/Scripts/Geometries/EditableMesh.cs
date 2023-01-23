@@ -58,6 +58,7 @@ public class EditableMesh : VirgisFeature
             Mesh mesh = mf.sharedMesh;
             m_currentHitTri = null;
             m_currentHit = transform.InverseTransformPoint(AppState.instance.lastHitPosition);
+            m_aabb.Build();
             m_currentHitTri = m_aabb.FindNearestTriangle(m_currentHit);
             Vector3d V0 = new Vector3d();
             Vector3d V1 = new Vector3d();
@@ -252,7 +253,10 @@ public class EditableMesh : VirgisFeature
 
     public override VirgisFeature AddVertex(Vector3 position) {
         Vector3d localPosition = (Vector3d) transform.InverseTransformPoint(position);
-        int currentHitTri = m_aabb.FindNearestTriangle(localPosition);
+        int currentHitTri;
+        m_aabb = new DMeshAABBTree3(m_dmesh, true);
+        currentHitTri = m_aabb.FindNearestTriangle(localPosition);
+        m_aabb.Build();
         Vector3d V0 = new Vector3d();
         Vector3d V1 = new Vector3d();
         Vector3d V2 = new Vector3d();

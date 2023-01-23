@@ -183,7 +183,7 @@ namespace Virgis
                         }
                         tris.Add(new Index3i(tri.ToArray()));
                     }
-                } catch {
+                } catch (Exception e){
                     //
                     // if netDXF fails - try opening in GDAL that can open AutoCAD 2 file
                     //
@@ -220,15 +220,39 @@ namespace Virgis
                                         LinearRing.CloseRings();
                                         DCurve3 curve = new DCurve3();
                                         curve.FromGeometry(LinearRing, GetCrs());
-                                        if (curve.VertexCount != 4) {
+                                        if (curve.VertexCount > 5) {
                                             Debug.LogError("incorrect face size");
                                         } else {
-                                            curves.Add(curve);
+                                            if (curve.VertexCount == 4) {
+                                                curves.Add(curve);
+                                            } else {
+                                                List<Vector3d> vertices = curve.Vertices as List<Vector3d>;
+                                                Vector3d[] tri1 = new Vector3d[4] {
+                                                    vertices[0],
+                                                    vertices[1],
+                                                    vertices[2],
+                                                    vertices[0]
+                                                };
+                                                DCurve3 curve1 = new();
+                                                curve1.SetVertices(tri1);
+                                                curve1.Closed = geom.IsRing();
+                                                curves.Add(curve1);
+                                                Vector3d[] tri2 = new Vector3d[4] {
+                                                    vertices[0],
+                                                    vertices[2],
+                                                    vertices[3],
+                                                    vertices[0]
+                                                };
+                                                DCurve3 curve2 = new();
+                                                curve2.SetVertices(tri2);
+                                                curve2.Closed = geom.IsRing();
+                                                curves.Add(curve2);
+                                            }
                                         }
                                     }
                                 }
                                 //
-                                // for each tri, check to make sure that vertcie are in the vertex list and add the tri to the tri list
+                                // for each tri, check to make sure that vertices are in the vertex list and add the tri to the tri list
                                 //
                                 foreach (DCurve3 curve in curves) {
                                     List<int> tri = new List<int>();
@@ -273,7 +297,6 @@ namespace Virgis
 
             foreach (DMesh3 dMesh in features) {
                 await dMesh.CalculateUVsAsync();
-                dMesh.Transform();
                 m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, MeshMaterial, WireframeMaterial));
             }
             transform.rotation = layer.Transform.Rotate;

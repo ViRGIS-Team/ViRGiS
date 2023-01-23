@@ -101,9 +101,9 @@ namespace Virgis {
             m_appState.project.path = Path.GetDirectoryName(file);
 
             try {
-                   initLayers(m_appState.project.RecordSets);
+                initLayers(m_appState.project.RecordSets);
             } catch (Exception e) {
-                 Debug.LogError($"Project File {file} failed :" + e.ToString());
+                Debug.LogError($"Project File {file} failed :" + e.ToString());
                 return false;
             }
             OnLoad();
@@ -156,7 +156,11 @@ namespace Virgis {
         {
             foreach (IVirgisLayer layer in m_appState.layers)
             {
-                layer.Draw();
+                try {
+                    layer.Draw();
+                } catch(Exception e) {
+                    Debug.LogError($"Project Layer {layer.sourceName} hasfailed to draw :" + e.ToString());
+                }
             }
         }
 
