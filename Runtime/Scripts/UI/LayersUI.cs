@@ -77,6 +77,8 @@ namespace Virgis
             }
             m_layersMap.Clear();
 
+            AppState.instance.layers.Sort((x,y) => x.GetMetadata().Id.CompareTo(y.GetMetadata().Id));
+
             // appState.layers are actually Layer script (Component)
             AppState.instance.layers.ForEach(comp =>
             {

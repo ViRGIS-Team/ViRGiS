@@ -30,6 +30,7 @@ namespace Virgis {
     public class LayerPanelEditSelectedEvent : UnityEvent<LayerUIPanel, bool> {}
 
     public class LayerUIPanel : MonoBehaviour {
+        public Toggle viewLayerToggle;
         public Toggle editLayerToggle;
         public Text layerNameText;
 
@@ -58,7 +59,7 @@ namespace Virgis {
                 GameObject featureShape = layer.GetFeatureShape();
                 if (featureShape != null) {
                     featureShape.transform.parent = transform;
-                    featureShape.transform.localPosition = new Vector3(-60f, 0f, 0f);
+                    featureShape.transform.localPosition = new Vector3(106f, 0f, 0f);
                     featureShape.transform.localRotation = Quaternion.identity;
                     featureShape.transform.localScale = new Vector3(20f,20f,0.1f);
                 }
@@ -69,6 +70,11 @@ namespace Virgis {
             if (m_editSelectedEvent == null)
                 m_editSelectedEvent = new LayerPanelEditSelectedEvent();
             m_editSelectedEvent.AddListener(action);
+        }
+
+        public void OnViewToogleChanged(bool thisEvent) {
+            layer.SetVisible(thisEvent);
+            layer.MessageUpwards("OnSublayerVisibilityChange", (layer.sourceName, thisEvent));
         }
 
         private void OnEditToggleValueChange(bool enabled) {

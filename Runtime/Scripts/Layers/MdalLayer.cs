@@ -26,73 +26,129 @@ using System.Threading.Tasks;
 using Project;
 using g3;
 using Mdal;
+using OSGeo.OSR;
 using System;
 using Stopwatch = System.Diagnostics.Stopwatch;
+using System.IO;
 
 namespace Virgis
 {
 
     public class MdalLayer : MeshlayerProtoype
     {
+
+        List<string> meshUris;
+
+        Material m_Mat;
+
+        /// <summary>
+        /// Initialize the layer and create features as a list of Dmesh3 in local y up coordinates
+        /// </summary>
+        /// <returns></returns>
         protected override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
+            meshUris = new ();
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
             m_symbology = layer.Properties.Units;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();
+            if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                SetCrs(Convert.TextToSR(layer.Crs));
+            }
+            m_Mat = Instantiate(MeshMaterial);
+            Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
+
+            if (symbology.TryGetValue("body", out Unit bodySymbology)) {
+                if (bodySymbology.TextureImage is not null) {
+                    m_Mat = ImageMaterial;
+                    Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
+                    if (tex != null) {
+                        tex.wrapMode = TextureWrapMode.Clamp;
+                    }
+                    m_Mat.SetTexture("_BaseMap", tex);
+                }
+            }
             for (int i = 0; i < ds.meshes.Length; i++) {
-                DMesh3 mesh = await ds.GetMeshAsync(i);
+                MdalMesh mmesh = await ds.GetMeshAsync(i);
+                meshUris.Add(mmesh.uri);
+                DMesh3 mesh = mmesh;
+                mmesh.Dispose();
                 mesh.RemoveMetadata("properties");
                 mesh.AttachMetadata("properties", new Dictionary<string, object>{
                     { "Name", ds.meshes[i] }
                 });
-                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                if (GetCrs() != null)
+                {
                     mesh.RemoveMetadata("CRS");
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
+                await mesh.CalculateMapUVsAsync(bodySymbology);
+                mesh.Transform();
                 features.Add(mesh);
             }
             Debug.Log($"Mdal Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
             return;
         }
 
-        protected override async Task _draw()
+
+        /// <summary>
+        /// Draw the MDAL mesh
+        /// 
+        /// Note that features is a list of DMesh3 in local y up coordinates
+        /// m_mesh is a List of transforms to the individual Gameobjects created from each Dmesh3
+        /// </summary>
+        /// <returns></returns>
+        protected override Task _draw()
         {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = GetMetadata();
-            Dictionary<string, Unit> symbology = GetMetadata().Properties.Units;
             m_meshes = new List<Transform>();
-            Material mat = Instantiate(MeshMaterial);
-
-            if (symbology.TryGetValue("body", out Unit bodySymbology)) {
-                if (bodySymbology.TextureImage is not null ) {
-                    mat = ImageMaterial;
-                    Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
-                    if (tex != null) {
-                        tex.wrapMode = TextureWrapMode.Clamp;
-                    }
-                    mat.SetTexture("_BaseMap", tex);
-                }
-            }
 
             foreach (DMesh3 dMesh in features) {
-                await dMesh.CalculateMapUVsAsync(bodySymbology);
-                Debug.Log($"Time before Transform {stopWatch.Elapsed.TotalSeconds}");
-                dMesh.Transform();
-                Debug.Log($"Time after Transform {stopWatch.Elapsed.TotalSeconds}");
-                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, mat, WireframeMaterial));
+                m_meshes.Add(Instantiate(Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, m_Mat, WireframeMaterial));
             }
             transform.SetPositionAndRotation(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position), layer.Transform.Rotate);
             transform.localScale = layer.Transform.Scale;
             Debug.Log($"Mdal Layer Draw took : {stopWatch.Elapsed.TotalSeconds}");
+            return Task.CompletedTask;
         }
 
         protected override Task _save()
         {
-            _layer.Transform.Position = AppState.instance.map.transform.InverseTransformVector(transform.position);
-            _layer.Transform.Rotate = transform.rotation;
-            _layer.Transform.Scale = transform.localScale;
+            RecordSet layer = _layer;
+            layer.Transform.Position = Vector3.zero;
+            layer.Transform.Rotate = transform.rotation;
+            layer.Transform.Scale = transform.localScale;
+            EditableMesh[] emeshes = GetComponentsInChildren<EditableMesh>();
+            string ex = Path.GetExtension(layer.Source).ToLower();
+            features = new List<DMesh3>();
+            CoordinateTransformation trans = null;
+            if (GetCrs() != null) {
+                trans = AppState.instance.projectOutTransformer(GetCrs());
+            } else {
+                //TODO
+            }
+            for ( int j = 0; j < emeshes.Length; j++) {
+                EditableMesh mesh = emeshes[j];
+                DMesh3 dmesh = mesh.GetMesh();
+                if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
+                    dmesh.RemoveMetadata("CRS");
+                    dmesh.AttachMetadata("CRS", layer.Crs);
+                };
+                features.Add(dmesh);
+                DMesh3 dmesh2 = dmesh.Compactify();
+                for (int i = 0; i < dmesh2.VertexCount; i++) {
+                    if (dmesh2.IsVertex(i)) {
+                        Vector3d vertex = dmesh2.GetVertex(i);
+                        double[] dV = new double[3] { vertex.x, vertex.z, vertex.y };
+                        trans.TransformPoint(dV);
+                        dmesh2.SetVertex(i, new Vector3d(dV));
+                    }
+                };
+                MdalMesh m = MdalMesh.SaveFromDMesh(dmesh2, meshUris[j]);
+                m.Dispose();
+            }
             return Task.CompletedTask;
         }
     }

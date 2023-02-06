@@ -50,17 +50,14 @@ namespace Virgis
         public void expand(bool thisEvent) 
         {
             subLayerBox.SetActive(thisEvent);
-            RectTransform trans = transform as RectTransform;
+            RectTransform tran = transform as RectTransform;
             if (thisEvent) {
-                
-                trans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 40 + 40 * subPanels.Count);
+                tran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 40 + 40 * subPanels.Count);
             } else {
-                trans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 40);
-                //foreach (GameObject panel in subPanels)
-                //    Destroy(panel);
-                //subPanels.Clear();
+                tran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 40 );
             }
-            trans.ForceUpdateRectTransforms();
+            tran.ForceUpdateRectTransforms();
+            LayoutRebuilder.MarkLayoutForRebuild(transform as RectTransform);
         }
 
         public IVirgisLayer layer {
@@ -74,10 +71,12 @@ namespace Virgis
                     : m_layer.GetMetadata().DisplayName;
                 layerNameText.text = displayName;
                 if (layer.isContainer) {
+                    (subLayerBox.transform as RectTransform).SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, -40, 40 * layer.subLayers.Count);
                     foreach (VirgisLayer subLayer in layer.subLayers) {
                         AddLayer(subLayer);
                     }
                 } else {
+                    (subLayerBox.transform as RectTransform).SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, -40, 40);
                     AddLayer(layer);
                 }
             }
@@ -105,6 +104,8 @@ namespace Virgis
                 // not in edit session, layer cannot be set to edit
                 panelScript.editLayerToggle.interactable = false;
             }
+
+            panelScript.viewLayerToggle.isOn = layer.IsVisible();
             m_layersMap.Add(layer.GetId(), panelScript);
             (transform as RectTransform).ForceUpdateRectTransforms();
         }

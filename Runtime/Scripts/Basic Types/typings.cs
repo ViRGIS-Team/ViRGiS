@@ -294,10 +294,14 @@ namespace Virgis {
                     poly.Outer = p2d;
                 } else {
                     try {
-                        poly.AddHole(p2d, true, true);
-                    } catch {
-                        p2d.Reverse();
-                        poly.AddHole(p2d, true, true);
+                        try {
+                            poly.AddHole(p2d, true, true);
+                        } catch (Exception e) {
+                            p2d.Reverse();
+                            poly.AddHole(p2d, true, true);
+                        }
+                    } catch (Exception e) {
+                        // skip this hole
                     }
                 }
             }
@@ -459,30 +463,9 @@ namespace Virgis {
             string crs = dMesh.FindMetadata("CRS") as string;
             // if the Dmesh3 contains a CRS use that
             if (crs != null && crs != "") {
-                SpatialReference from = new SpatialReference(null);
-                if (crs.Contains("+proj")) {
-                    from.ImportFromProj4(crs);
-                } else if (crs.StartsWith("epsg") || crs.StartsWith("EPSG")) {
-                    int epsg = int.Parse(crs.Split(':')[1]);
-                    from.ImportFromEPSG(epsg);
-                } else {
-                    from.ImportFromWkt(ref crs);
-                };
-                try {
-                    CoordinateTransformation trans = AppState.instance.projectTransformer(from);
-                    for (int i = 0; i < dMesh.VertexCount; i++) {
-                        if (dMesh.IsVertex(i)) {
-                            Vector3d vertex = dMesh.GetVertex(i);
-                            double[] dV = new double[3] { vertex.x, vertex.y, vertex.z };
-                            trans.TransformPoint(dV);
-                            AppState.instance.mapTrans.TransformPoint(dV);
-                            dMesh.SetVertex(i, new Vector3d(dV));
-                        }
-                    };
-                    return true;
-                } catch {
-                    return false;
-                }
+                SpatialReference from = Convert.TextToSR(crs);
+                CoordinateTransformation trans = AppState.instance.projectTransformer(from);
+                return dMesh.Transform(trans);
             }
             //else assume that the DMesh3 is in Local Space coordinates
             try {
@@ -490,6 +473,23 @@ namespace Virgis {
                     if (dMesh.IsVertex(i)) {
                         Vector3d vertex = dMesh.GetVertex(i);
                         double[] dV = new double[3] { vertex.x, vertex.y, vertex.z };
+                        AppState.instance.mapTrans.TransformPoint(dV);
+                        dMesh.SetVertex(i, new Vector3d(dV));
+                    }
+                };
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        public static bool Transform(this DMesh3 dMesh, CoordinateTransformation transformer) {
+            try {
+                for (int i = 0; i < dMesh.VertexCount; i++) {
+                    if (dMesh.IsVertex(i)) {
+                        Vector3d vertex = dMesh.GetVertex(i);
+                        double[] dV = new double[3] { vertex.x, vertex.y, vertex.z };
+                        transformer.TransformPoint(dV);
                         AppState.instance.mapTrans.TransformPoint(dV);
                         dMesh.SetVertex(i, new Vector3d(dV));
                     }
@@ -652,7 +652,7 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Cibvert vector3D in Y-up coordinate frame to a netDXF Vector3 in z-up coordinate frame
+        /// Convert vector3D in Y-up coordinate frame to a netDXF Vector3 in z-up coordinate frame
         /// using the optional CoordinateTranform to reproject the dpoint if present
         /// </summary>
         /// <param name="v"> Vector3d</param>
@@ -683,25 +683,75 @@ namespace Virgis {
 
         public static object Get(this Feature feature, string name) {
             int fieldCount = feature.GetFieldCount();
-            object ret = null;
             for (int i = 0; i < fieldCount; i++) {
                 FieldDefn fd = feature.GetFieldDefnRef(i);
                 if (fd.GetName() == name) {
                     FieldType ft = fd.GetFieldType();
                     switch (ft) {
                         case FieldType.OFTString:
-                            ret = feature.GetFieldAsString(i);
-                            break;
+                            return feature.GetFieldAsString(i);
                         case FieldType.OFTReal:
-                            ret = feature.GetFieldAsDouble(i);
-                            break;
+                            return feature.GetFieldAsDouble(i);
                         case FieldType.OFTInteger:
-                            ret = feature.GetFieldAsInteger(i);
+                            return feature.GetFieldAsInteger(i);
+                        case FieldType.OFTIntegerList:
                             break;
+                        case FieldType.OFTRealList:
+                            break;
+                        case FieldType.OFTStringList:
+                            break;
+                        case FieldType.OFTWideString:
+                            return feature.GetFieldAsString(i);
+                        case FieldType.OFTWideStringList:
+                            break;
+                        case FieldType.OFTBinary:
+                            break;
+                        case FieldType.OFTDate:
+                            break;
+                        case FieldType.OFTTime:
+                            break;
+                        case FieldType.OFTDateTime:
+                            break;
+                        case FieldType.OFTInteger64:
+                            return feature.GetFieldAsInteger(i);
+                        case FieldType.OFTInteger64List:
+                            break;
+                        default:
+                            return null;
                     }
                 }
             }
-            return ret;
+            return null;
+        }
+
+        public static string GetString(this Feature feature, string name) {
+            object value = feature.Get(name);
+            try {
+                return value.ToString();
+            }
+            catch (Exception e)
+            {
+                return null;
+                ;
+            }
+        }
+
+        public static double GetDouble(this Feature feature, string name) {
+            object value = feature.Get(name);
+            try {
+                return System.Convert.ToDouble(value);
+            } catch (Exception e) {
+                return Double.Parse((string)value);
+            }
+        }
+
+        public static int GetInt(this Feature feature, string name) {
+            object value = feature.Get(name);
+            try {
+                return System.Convert.ToInt32(value);
+            } catch (Exception e) {
+                return Int32.Parse((string) value);
+            }
         }
 
         public static Dictionary<string, object> GetAll(this Feature feature) {

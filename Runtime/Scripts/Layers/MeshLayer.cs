@@ -331,15 +331,15 @@ namespace Virgis
             }
             if (ex == ".dxf") {
                 DXF.DxfDocument doc = new DXF.DxfDocument();
-                CoordinateTransformation transform = null;
+                CoordinateTransformation trans = null;
                 if (GetCrs() != null) {
-                    transform = AppState.instance.projectOutTransformer(GetCrs());
+                    trans = AppState.instance.projectOutTransformer(GetCrs());
                 }
                 foreach (DMesh3 dmesh in features) {
                     foreach (Index3i tri in dmesh.Triangles()) {
-                        DXF.Vector3 v1 = dmesh.GetVertex(tri.a).ToDxfVector3(transform);
-                        DXF.Vector3 v2 = dmesh.GetVertex(tri.b).ToDxfVector3(transform);
-                        DXF.Vector3 v3 = dmesh.GetVertex(tri.c).ToDxfVector3(transform);
+                        DXF.Vector3 v1 = dmesh.GetVertex(tri.a).ToDxfVector3(trans);
+                        DXF.Vector3 v2 = dmesh.GetVertex(tri.b).ToDxfVector3(trans);
+                        DXF.Vector3 v3 = dmesh.GetVertex(tri.c).ToDxfVector3(trans);
                         doc.AddEntity(new Face3d(v1, v2, v3));
                     }
                 }
@@ -347,7 +347,6 @@ namespace Virgis
                     doc.Save(stream);
                     stream.Close();
                 }
-
             }
             return Task.CompletedTask;
         }

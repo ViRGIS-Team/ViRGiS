@@ -77,6 +77,7 @@ namespace Virgis {
         void SetEditable(bool inSession);
         bool IsEditable();
         void SetCrs(SpatialReference crs);
+        void MessageUpwards(string method, object args);
     }
 
     /// <summary>
@@ -484,6 +485,10 @@ namespace Virgis {
 
         public virtual Dictionary<string, object> GetInfo(VirgisFeature feat) {
             return default;
+        }
+
+        public void MessageUpwards(string method, object args) {
+            transform.SendMessageUpwards(method, args, SendMessageOptions.DontRequireReceiver);
         }
     }
 
