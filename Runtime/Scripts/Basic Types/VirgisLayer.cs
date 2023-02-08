@@ -32,54 +32,6 @@ using UnityEngine;
 
 namespace Virgis {
 
-    public interface IVirgisLayer : IVirgisEntity {
-
-        FeatureType featureType {
-            get; 
-        }
-
-        string sourceName {
-            get; set;
-        }
-
-        public bool isContainer {
-            get; 
-        }
-
-        List<IVirgisLayer> subLayers {
-            get;
-        }
-
-        public bool isWriteable {
-            get;
-            set;
-        }
-
-        public bool changed {
-            get;
-            set;
-        }
-
-        VirgisFeature AddFeature(Vector3[] geometry);
-        VirgisFeature AddFeature(DMesh3 mesh);
-        Task Init(RecordSet layer);
-        Task SubInit(RecordSet layer);
-        Task Draw();
-        void CheckPoint();
-        Task<RecordSet> Save();
-        VirgisFeature GetFeature(Guid id);
-        GameObject GetFeatureShape();
-        RecordSet GetMetadata();
-        SpatialReference GetCrs();
-        void SetMetadata(RecordSet meta);
-        void SetVisible(bool visible);
-        bool IsVisible();
-        void SetEditable(bool inSession);
-        bool IsEditable();
-        void SetCrs(SpatialReference crs);
-        void MessageUpwards(string method, object args);
-    }
-
     /// <summary>
     /// Abstract parent for all Layer entities
     /// </summary>
@@ -138,6 +90,14 @@ namespace Virgis {
             m_subs.ForEach(item => item.Dispose());
         }
 
+        public void Destroy() {
+            Destroy(gameObject);
+        }
+
+        public virtual bool Load(string file) {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Called to initialise this layer
         /// 
@@ -176,11 +136,17 @@ namespace Virgis {
         /// <summary>
         /// Call this to create a new feature
         /// </summary>
-        /// <param name="position">Vector3 where to create the new layer</param>
-        public VirgisFeature AddFeature(Vector3[] geometry) {
+        /// <param name="position">Vector3 or DMesh3</param>
+        public IVirgisFeature AddFeature<T>(T geometry) {
             if (AppState.instance.InEditSession() && IsEditable()) {
                 changed = true;
-                return _addFeature(geometry);
+                switch (geometry) {
+                    case Vector3[] v:
+                        return _addFeature(v);
+                    case DMesh3 d:
+                        return _addFeature(d);
+                    default: return null;
+                }
             }
             return null;
         }
@@ -189,28 +155,7 @@ namespace Virgis {
         /// implement the layer specfiic code for creating a new feature here
         /// </summary>
         /// <param name=position"></param>
-        protected abstract VirgisFeature _addFeature(Vector3[] geometry);
-
-        /// <summary>
-        /// Call this to create a new feature from a DMesh3 object in Map Space coordinates
-        /// </summary>
-        /// <param name="position">Vector3 where to create the new layer</param>
-        public VirgisFeature AddFeature(DMesh3 mesh) {
-            if (AppState.instance.InEditSession() && IsEditable()) {
-                changed = true;
-                return _addFeature(mesh);
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// implement the layer specfiic code for creating a new feature here
-        /// </summary>
-        /// <param name=position"></param>
-        protected virtual VirgisFeature _addFeature(DMesh3 mesh)
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract IVirgisFeature _addFeature<T>(T geometry);
 
         /// <summary>
         /// Draw the layer based upon the features in the features RecordSet
@@ -322,12 +267,12 @@ namespace Virgis {
         /// </summary>
         /// <param name="coords"> coordinates </param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
-        public VirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
+        public IVirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
             List<VirgisFeature> list = transform.GetComponentsInChildren<VirgisFeature>().ToList();
             list = list.FindAll(item => !exclude.Contains(item.GetId()));
             KdTree<VirgisFeature> tree = new KdTree<VirgisFeature>();
             tree.AddAll(list);
-            return tree.FindClosest(transform.position) as VirgisFeature;
+            return tree.FindClosest(transform.position);
         }
 
         /// <summary>
@@ -335,7 +280,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="id"> ID</param>
         /// <returns>returns the featue contained in an enitity of type S</returns>
-        public VirgisFeature GetFeature(Guid id) {
+        public IVirgisFeature GetFeature(Guid id) {
             return GetComponents<VirgisFeature>().ToList().Find(item => item.GetId() == id);
         }
 
@@ -475,8 +420,14 @@ namespace Virgis {
             return (this.m_id.Equals(other.GetId()));
         }
 
-        public VirgisLayer GetLayer() {
-            return this;
+        public T GetLayer<T>() {
+            switch (typeof(T)) {
+                case Type virgislayer when virgislayer == typeof(VirgisLayer):
+                    return (T) System.Convert.ChangeType(this, typeof(T));
+                case Type virgislayer when virgislayer == typeof(IVirgisLayer):
+                    return (T) System.Convert.ChangeType(this as IVirgisLayer, typeof(T));
+            }
+            return default;
         }
 
         public void OnEdit(bool inSession) {
@@ -544,5 +495,8 @@ namespace Virgis {
             return (this.m_id.Equals(other.GetId()));
         }
 
+        protected override IVirgisFeature _addFeature<D>(D geometry) {
+            throw new NotImplementedException();
+        }
     }
 }

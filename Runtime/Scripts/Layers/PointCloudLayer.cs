@@ -135,7 +135,7 @@ namespace Virgis
             return t1;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
+        protected VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }

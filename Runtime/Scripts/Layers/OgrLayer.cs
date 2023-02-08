@@ -60,43 +60,48 @@ namespace Virgis {
             foreach (Layer thisLayer in features) {
                 wkbGeometryType type = thisLayer.GetGeomType();
                 OgrReader.Flatten(ref type);
+                VirgisLayer<RecordSet, Layer> l;
                 switch (type) {
                     case wkbGeometryType.wkbPoint:
                         subLayers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
-                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        subLayers.Last().SetMetadata(layer);
-                        subLayers.Last().sourceName = thisLayer.GetName();
-                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                        await subLayers.Last().SubInit(layer);
+                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                        l.SetFeatures(thisLayer);
+                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                        l.SetMetadata(layer);
+                        l.sourceName = thisLayer.GetName();
+                        l.isWriteable = m_ogrReader.isWriteable;
+                        await l.SubInit(layer);
                         break;
                     case wkbGeometryType.wkbLineString:
                         subLayers.Add(Instantiate(LineLayer, transform).GetComponent<LineLayer>());
-                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        subLayers.Last().SetMetadata(layer);
-                        subLayers.Last().sourceName = thisLayer.GetName();
-                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                        await subLayers.Last().SubInit(layer);
+                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                        l.SetFeatures(thisLayer);
+                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                        l.SetMetadata(layer);
+                        l.sourceName = thisLayer.GetName();
+                        l.isWriteable = m_ogrReader.isWriteable;
+                        await l.SubInit(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
                         subLayers.Add(Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
-                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        subLayers.Last().SetMetadata(layer);
-                        subLayers.Last().sourceName = thisLayer.GetName();
-                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                        await subLayers.Last().SubInit(layer);
+                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                        l.SetFeatures(thisLayer);
+                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                        l.SetMetadata(layer);
+                        l.sourceName = thisLayer.GetName();
+                        l.isWriteable = m_ogrReader.isWriteable;
+                        await l.SubInit(layer);
                         break;
                     case wkbGeometryType.wkbTIN:
                     case wkbGeometryType.wkbPolyhedralSurface:
                         subLayers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
-                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                        subLayers.Last().SetMetadata(layer);
-                        subLayers.Last().sourceName = thisLayer.GetName();
-                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                        await subLayers.Last().SubInit(layer);
+                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                        l.SetFeatures(thisLayer);
+                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                        l.SetMetadata(layer);
+                        l.sourceName = thisLayer.GetName();
+                        l.isWriteable = m_ogrReader.isWriteable;
+                        await l.SubInit(layer);
                         break;
                     //
                     // If feature type is unknown, process each feature seperately
@@ -118,68 +123,72 @@ namespace Virgis {
                             VirgisLayer<RecordSet, Layer> layerToAdd = null;
                             switch (ftype) {
                                 case wkbGeometryType.wkbLineString:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
-                                        if (l.GetType() == typeof(LineLayer)) {
-                                            layerToAdd = l;
+                                    foreach (VirgisLayer<RecordSet, Layer> lay in subLayers) {
+                                        if (lay.GetType() == typeof(LineLayer)) {
+                                            layerToAdd = lay;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
                                         subLayers.Add(Instantiate(LineLayer, transform).GetComponent<LineLayer>());
-                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                                        subLayers.Last().SetMetadata(layer);
-                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                                        await subLayers.Last().SubInit(layer);
+                                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                                        l.SetFeatures(thisLayer);
+                                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        l.SetMetadata(layer);
+                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        await l.SubInit(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbPolygon:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
-                                        if (l.GetType() == typeof(PolygonLayer)) {
-                                            layerToAdd = l;
+                                    foreach (VirgisLayer<RecordSet, Layer> lay in subLayers) {
+                                        if (lay.GetType() == typeof(PolygonLayer)) {
+                                            layerToAdd = lay;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
                                         subLayers.Add(Instantiate(PolygonLayer, transform).GetComponent<PolygonLayer>());
-                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                                        subLayers.Last().SetMetadata(layer);
-                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                                        await subLayers.Last().SubInit(layer);
+                                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                                        l.SetFeatures(thisLayer);
+                                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        l.SetMetadata(layer);
+                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        await l.SubInit(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbPoint:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
-                                        if (l.GetType() == typeof(PointLayer)) {
-                                            layerToAdd = l;
+                                    foreach (VirgisLayer<RecordSet, Layer> lay in subLayers) {
+                                        if (lay.GetType() == typeof(PointLayer)) {
+                                            layerToAdd = lay;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
                                         subLayers.Add(Instantiate(PointLayer, transform).GetComponent<PointLayer>());
-                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                                        subLayers.Last().SetMetadata(layer);
-                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                                        await subLayers.Last().SubInit(layer);
+                                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                                        l.SetFeatures(thisLayer);
+                                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        l.SetMetadata(layer);
+                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        await l.SubInit(layer);
                                     }
                                     break;
                                 case wkbGeometryType.wkbTIN:
                                 case wkbGeometryType.wkbPolyhedralSurface:
-                                    foreach (VirgisLayer<RecordSet, Layer> l in subLayers) {
-                                        if (l.GetType() == typeof(TinLayer)) {
-                                            layerToAdd = l;
+                                    foreach (VirgisLayer<RecordSet, Layer> lay in subLayers) {
+                                        if (lay.GetType() == typeof(TinLayer)) {
+                                            layerToAdd = lay;
                                             break;
                                         }
                                     }
                                     if (layerToAdd == null) {
                                         subLayers.Add(Instantiate(TinLayer, transform).GetComponent<TinLayer>());
-                                        subLayers.Last().SetCrs(OgrReader.getSR(thisLayer, layer));
-                                        (subLayers.Last() as VirgisLayer<RecordSet, Layer>).SetFeatures(thisLayer);
-                                        subLayers.Last().SetMetadata(layer);
-                                        subLayers.Last().isWriteable = m_ogrReader.isWriteable;
-                                        await subLayers.Last().SubInit(layer);
+                                        l = subLayers.Last() as VirgisLayer<RecordSet, Layer>;
+                                        l.SetFeatures(thisLayer);
+                                        l.SetCrs(OgrReader.getSR(thisLayer, layer));
+                                        l.SetMetadata(layer);
+                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        await l.SubInit(layer);
                                     }
                                     geom.Dispose();
                                     break;
@@ -188,10 +197,6 @@ namespace Virgis {
                         return;
                 }
             }
-        }
-
-        protected override VirgisFeature _addFeature(Vector3[] geometry) {
-            throw new NotImplementedException();
         }
     }
 }

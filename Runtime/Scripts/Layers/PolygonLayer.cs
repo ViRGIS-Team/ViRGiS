@@ -131,7 +131,7 @@ namespace Virgis
             return t1;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] line)
+        protected VirgisFeature _addFeature(Vector3[] line)
         {
             changed = true;
             Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);

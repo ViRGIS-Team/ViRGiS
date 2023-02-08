@@ -65,10 +65,6 @@ namespace Virgis {
             return t1;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] line) {
-            throw new System.NotImplementedException();
-        }
-
         protected async override Task _draw() {
             RecordSet layer = GetMetadata();
             if (layer.Properties.BBox != null) {

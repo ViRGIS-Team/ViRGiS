@@ -39,70 +39,22 @@ namespace Virgis {
     // app states, such as EditSession, etc.
     //
     // Singleton pattern taken from https://learn.unity.com/tutorial/level-generation
-    public class AppState : MonoBehaviour {
-        public static AppState instance = null;
+    public class AppState : State {
 
-        private EditSession _editSession;
-        private List<VirgisLayer> _layers;
+        public new static AppState instance {
+            get {
+                return State.instance as AppState;
+            }
+            private set {
+                State.instance = value;
+            }
+        }
+
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
         private IDisposable initsub;
-        public Vector3 lastHitPosition;
+
         public SpatialReference projectCrs;
-        public List<Coroutine> tasks;
-        public int editScale;
-        public int currentView;
-        public bool guiActive {
-            get {
-                return lhguiActive || rhguiActive;
-            }
-        }
-        public bool lhguiActive = false;
-        public bool rhguiActive = false;
-        public OrientEvent Orientation {
-            get;
-            private set;
-        }
-
-        public InfoEvent Info {
-            get;
-            private set;
-        }
-
-        public ZoomEvent Zoom {
-            get;
-            private set;
-        }
-
-        public ButtonStatus ButtonStatus{
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Use this to get the project change event
-        /// </summary>
-        public ProjectChange Project {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Event that is triggered when a layer is added
-        /// </summary>
-        public LayerChange LayerUpdate {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// UniRx Subject that is triggered when a new configuration is loaded.
-        /// </summary>
-        public BehaviorSubject<bool> ConfigEvent = new BehaviorSubject<bool>(false);
-
-        protected void Start() {
-            
-        }
 
         protected void Awake() {
             Debug.Log("AppState awakens");
@@ -116,7 +68,7 @@ namespace Virgis {
             }
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
-            _layers = new List<VirgisLayer>();
+            _layers = new List<IVirgisLayer>();
             Zoom = new ZoomEvent();
             Project = new ProjectChange();
             Info = new InfoEvent();
@@ -152,27 +104,11 @@ namespace Virgis {
             initsub.Dispose();
         }
 
-        /// <summary>
-        /// Init is called after a project has been fully loaded.
-        /// </summary>
-        /// 
-        /// Call this method everytime a new project has been loaded,
-        /// e.g. New Project, Open Project
-        public virtual void Init() { }
-
-        public EditSession editSession {
-            get => _editSession;
-        }
-
-
-        public GameObject map {
-            get; set;
-        }
 
         /// <summary>
         /// Use this to change or get the project
         /// </summary>
-        public GisProject project {
+        public new GisProject project {
             get {
                 return Project.Get();
             } 
@@ -240,64 +176,14 @@ namespace Virgis {
             return new CoordinateTransformation(mapProj, sr, op);
         }
 
-        public List<VirgisLayer> layers {
-            get => _layers;
-        }
-
-        public void addLayer(VirgisLayer layer) {
-            _layers.Add(layer);
-            if (_layers.Count == 1)
-                _editSession.editableLayer = (IVirgisLayer) _layers[0];
-            if (_layers.Count == 2 && _layers[0].GetMetadata().DataType == RecordSetDataType.MapBox)
-                _editSession.editableLayer = (IVirgisLayer) _layers[1];
-            LayerUpdate.AddLayer(layer);
-        }
-
-        public void clearLayers() {
-            _layers.Clear();
-        }
-
-        public Camera mainCamera {
-            get; set;
-        }
-
-        public Transform trackingSpace {
-            get; set;
-        }
-
-        public bool InEditSession() {
-            return _editSession.IsActive();
-        }
-
-        public void StartEditSession() {
-            _editSession.Start();
-            editScale = 5;
-        }
-
-        public void StopSaveEditSession() {
-            _editSession.StopAndSave();
-        }
-
-        public void StopDiscardEditSession() {
-            _editSession.StopAndDiscard();
-        }
-
-        /// <summary>
-        /// Courtesy function to allow the creation of logic to set configuration items
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
-        public virtual void SetConfig(string key, object value) {
-            //Do Nothing
-        }
-
-        /// <summary>
-        /// Courtesy Function to allow the retrieval of Configuration items
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public virtual object GetConfig(string key) {
-            return default;
+        public override float SetScale(float zoom) {
+            if (zoom != 0) {
+                instance.map.transform.localScale = Vector3.one / zoom;
+                float scale = instance.map.transform.InverseTransformVector(Vector3.right).magnitude;
+                Zoom.OnNext(scale);
+                return scale;
+            }
+            return 0;
         }
     }
 }

@@ -254,7 +254,7 @@ namespace Virgis
             throw new NotImplementedException();
         }
 
-        public override VirgisFeature AddVertex(Vector3 position) {
+        public override IVirgisFeature AddVertex(Vector3 position) {
             int seg = Curve.NearestSegment(position);
             LineSegment segment = VertexTable.Find(item => item.Vertex == seg).Line;
             return AddVertex(segment, position);
@@ -298,7 +298,7 @@ namespace Virgis
             return vertex;
         }
 
-        public override void RemoveVertex(VirgisFeature vertex) {
+        public void RemoveVertex(VirgisFeature vertex) {
             if (m_blockMove) {
                 Destroy(gameObject);
             } else {

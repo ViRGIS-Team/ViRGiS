@@ -92,7 +92,7 @@ namespace Virgis {
             return t1;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry) {
+        protected VirgisFeature _addFeature(Vector3[] geometry) {
             VirgisFeature newFeature = _drawFeature(geometry[0], new Feature(new FeatureDefn(null)));
             changed = true;
             return newFeature;

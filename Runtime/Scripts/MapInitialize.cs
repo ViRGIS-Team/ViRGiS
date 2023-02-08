@@ -38,7 +38,7 @@ namespace Virgis {
     /// </summary>
     public abstract class MapInitialize : VirgisLayer
     {
-        public AppState appState;
+        public State appState;
         protected AppState m_appState;
         private ProjectJsonReader m_projectJsonReader;
         protected string m_loadOnStartup;
@@ -53,7 +53,7 @@ namespace Virgis {
             Debug.Log("Map awakens");
             if (AppState.instance == null) {
                 Debug.Log("instantiate app state");
-                m_appState = Instantiate(appState);
+                m_appState = Instantiate(appState) as AppState;
             }
             Debug.Log($"Virgis version : {Application.version}");
             Debug.Log($"Project version: {GisProject.GetVersion()}");
@@ -78,7 +78,7 @@ namespace Virgis {
         /// 
         /// It loads the Project file, reads it for the layers and calls Draw to render each layer
         /// </summary>
-        public bool Load(string file) {
+        public override bool Load(string file) {
             return _load(file);
         }
 
@@ -143,7 +143,7 @@ namespace Virgis {
             throw new System.NotImplementedException();
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
+        protected override IVirgisFeature _addFeature<T>(T geometry)
         {
             throw new System.NotImplementedException();
         }

@@ -135,7 +135,7 @@ namespace Virgis
         }
 
 
-        public override VirgisFeature GetClosest(Vector3 coords, Guid[] excludes) {
+        public override IVirgisFeature GetClosest(Vector3 coords, Guid[] excludes) {
             return this;
         }
 
@@ -146,14 +146,14 @@ namespace Virgis
 
         public override Dictionary<string, object> GetInfo() {
             Dictionary<string, object> meta;
-            meta = GetLayer().GetInfo(this);
+            meta = GetLayer<VirgisLayer>().GetInfo(this);
             if (meta == default) {
                 meta = feature.GetAll();
                 Geometry geom = (gameObject.transform.position.ToGeometry());
                 string wkt;
                 try {
-                    GetLayer().GetCrs().ExportToWkt(out wkt, null);
-                    geom.TransformTo(GetLayer().GetCrs());
+                    GetLayer<VirgisLayer>().GetCrs().ExportToWkt(out wkt, null);
+                    geom.TransformTo(GetLayer<VirgisLayer>().GetCrs());
                 } catch { }
                 double[] coords = new double[3];
                 geom.GetPoint(0, coords);

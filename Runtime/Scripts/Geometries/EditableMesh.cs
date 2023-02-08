@@ -251,7 +251,7 @@ public class EditableMesh : VirgisFeature
         mcs.ToList().ForEach(item => Destroy(item));
     }
 
-    public override VirgisFeature AddVertex(Vector3 position) {
+    public override IVirgisFeature AddVertex(Vector3 position) {
         Vector3d localPosition = (Vector3d) transform.InverseTransformPoint(position);
         int currentHitTri;
         m_aabb = new DMeshAABBTree3(m_dmesh, true);

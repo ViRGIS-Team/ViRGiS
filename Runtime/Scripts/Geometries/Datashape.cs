@@ -165,12 +165,12 @@ namespace Virgis
             }
         }
 
-        public override VirgisFeature AddVertex(Vector3 position) {
+        public override IVirgisFeature AddVertex(Vector3 position) {
             _redraw();
             return base.AddVertex(position);
         }
 
-        public override void RemoveVertex(VirgisFeature vertex) {
+        public void RemoveVertex(VirgisFeature vertex) {
             if (m_blockMove) {
                 Destroy(gameObject);
             } else {

@@ -123,7 +123,7 @@ namespace Virgis
             return t1;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] line)
+        protected VirgisFeature _addFeature(Vector3[] line)
         {
             Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
             geom.AssignSpatialReference(AppState.instance.mapProj);

@@ -28,40 +28,6 @@ using UnityEngine;
 
 namespace Virgis {
 
-    /// <summary>
-    /// Abstract parent for all in game entities
-    /// </summary>
-    public interface IVirgisEntity
-    {
-        void Selected(SelectionType button);
-        void UnSelected(SelectionType button);
-        Guid GetId();
-        VirgisFeature GetClosest(Vector3 coords, Guid[] exclude);
-        void MoveAxis(MoveArgs args);
-        void Translate(MoveArgs args);
-        void MoveTo(MoveArgs args);
-        void VertexMove(MoveArgs args);
-        VirgisLayer GetLayer();
-        void OnEdit(bool inSession);
-    }
-
-    /// <summary>
-    /// Abstract Parent for all symbology relevant in game entities
-    /// </summary>
-    public interface IVirgisFeature : IVirgisEntity
-    {
-        void SetMaterial(Material mainMat, Material selectedMat);
-        //void MoveTo(Vector3 newPos);
-        VirgisFeature AddVertex(Vector3 position);
-        void RemoveVertex(VirgisFeature vertex);
-        T GetGeometry<T>();
-
-        void Hover(Vector3 hit);
-        void UnHover();
-        public Dictionary<string, object> GetInfo();
-        public void SetInfo(Dictionary<string, object> meta);
-
-    }
 
     public abstract class VirgisFeature : MonoBehaviour, IVirgisFeature
     {
@@ -81,6 +47,10 @@ namespace Virgis {
         void Awake()
         {
             _id = Guid.NewGuid();
+        }
+
+        public void Destroy() {
+            Destroy(gameObject);
         }
 
 
@@ -162,7 +132,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="coords"> Vector3 Target Coordinates </param>
         /// <returns> Vector3 in world space coordinates </returns>
-        public virtual VirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
+        public virtual IVirgisFeature GetClosest(Vector3 coords, Guid[] exclude) {
             throw new System.NotImplementedException();
         }
 
@@ -171,7 +141,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="position">Vector3</param>
         /// <returns>VirgisComponent The new vertex</returns>
-        public virtual VirgisFeature AddVertex(Vector3 position) {
+        public virtual IVirgisFeature AddVertex(Vector3 position) {
             // do nothing
             return this;
         }
@@ -180,7 +150,7 @@ namespace Virgis {
         /// call this to remove a vertxe from a feature
         /// </summary>
         /// <param name="vertex">Vertex to remove</param>
-        public virtual void RemoveVertex(VirgisFeature vertex) {
+        public virtual void RemoveVertex(IVirgisFeature vertex) {
             // do nothing
             throw new System.NotImplementedException();
         }
@@ -240,8 +210,8 @@ namespace Virgis {
             AppState.instance.Info.Set("");
         }
 
-        public VirgisLayer GetLayer() {
-            return transform.parent.GetComponent<IVirgisEntity>().GetLayer();
+        public T GetLayer<T>() {
+            return transform.parent.GetComponent<IVirgisEntity>().GetLayer<T>();
         }
 
         public virtual void OnEdit(bool inSession) {

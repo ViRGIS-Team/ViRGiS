@@ -45,12 +45,12 @@ namespace Virgis
             featureType = FeatureType.MESH;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
+        protected override IVirgisFeature _addFeature<T>(T geometry)
         {
             throw new System.NotImplementedException();
         }
 
-        protected override VirgisFeature _addFeature(DMesh3 mesh) {
+        protected VirgisFeature _addFeature(DMesh3 mesh) {
             features.Add(mesh);
             EditableMesh emesh = Instantiate(Mesh, transform).GetComponent<EditableMesh>();
             m_meshes.Add(emesh.Draw(mesh, MeshMaterial, WireframeMaterial));

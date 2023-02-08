@@ -187,11 +187,6 @@ namespace Virgis
             return t1;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
-        {
-            throw new System.NotImplementedException();
-        }
-
         protected override Task _draw()
         {
             Stopwatch stopWatch = Stopwatch.StartNew();

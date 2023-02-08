@@ -122,7 +122,7 @@ namespace Virgis
                 SendMessageUpwards("Translate", args, SendMessageOptions.DontRequireReceiver);
         }
 
-        public override VirgisFeature AddVertex(Vector3 position) {
+        public override IVirgisFeature AddVertex(Vector3 position) {
             GetComponentInParent<Dataline>().AddVertex( this, position);
             return this;
         }

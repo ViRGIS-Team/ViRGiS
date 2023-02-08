@@ -67,11 +67,6 @@ namespace Virgis
             return;
         }
 
-        protected override VirgisFeature _addFeature(Vector3[] geometry)
-        {
-            throw new System.NotImplementedException();
-        }
-
         protected override void _checkpoint()
         {
             foreach (IVirgisLayer layer in subLayers)
