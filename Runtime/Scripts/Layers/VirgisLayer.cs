@@ -209,7 +209,7 @@ namespace Virgis {
         /// Called to save the current layer data to source
         /// </summary>
         /// <returns>A copy of the data save dot the source</returns>
-        public virtual async Task<RecordSet> Save() {
+        public virtual async Task<RecordSet> Save(bool flag = false) {
             if (changed) {
                 await _save();
             }
@@ -440,6 +440,26 @@ namespace Virgis {
 
         public void MessageUpwards(string method, object args) {
             transform.SendMessageUpwards(method, args, SendMessageOptions.DontRequireReceiver);
+        }
+
+        VirgisFeature IVirgisLayer.AddFeature<T>(T geometry) {
+            throw new NotImplementedException();
+        }
+
+        VirgisFeature IVirgisLayer.GetFeature(Guid id) {
+            throw new NotImplementedException();
+        }
+
+        VirgisFeature IVirgisEntity.GetClosest(Vector3 coords, Guid[] exclude) {
+            throw new NotImplementedException();
+        }
+
+        public Dictionary<string, object> GetInfo() {
+            throw new NotImplementedException();
+        }
+
+        public void SetInfo(Dictionary<string, object> meta) {
+            throw new NotImplementedException();
         }
     }
 

@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using g3;
 
 namespace Virgis
 {
@@ -184,8 +185,8 @@ namespace Virgis
         /// <summary>
         /// Draws a single feature based on world scale coordinates
         /// </summary>
-        /// <param name="line"> Vector3[] coordinates</param>
-        /// <param name="feature">Featire (optinal)</param>
+        /// <param name="line"> Geometry</param>
+        /// <param name="feature">Feature (optinal)</param>
         protected VirgisFeature _drawFeature(Geometry line, Feature feature = null)
         {
             GameObject dataLine = Instantiate(m_linePrefab, transform, false);
@@ -195,8 +196,16 @@ namespace Virgis
             if (feature != null)
                 com.feature = feature;
 
+            //DEBUG
+            line.ExportToIsoWkt(out string wkt);
+
             //Draw the line
-            com.Draw(line, m_symbology, m_handlePrefab, LabelPrefab, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected);
+            DCurve3 curve = new();
+            curve.FromGeometry(line);
+
+            //string type = geom.GetGeometryType().ToString();
+            //bool IsRing = geom.IsRing();
+            com.Draw(curve, m_symbology, m_handlePrefab, LabelPrefab, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, line.IsRing());
 
             return com;
         }
@@ -219,7 +228,7 @@ namespace Virgis
         {
             Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             foreach (Dataline dataFeature in dataFeatures) {
-                Feature feature = dataFeature.feature;
+                Feature feature = dataFeature.feature as Feature;
                 Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
                 geom.AssignSpatialReference(AppState.instance.mapProj);
                 geom.Vector3(dataFeature.GetVertexPositions());

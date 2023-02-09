@@ -196,7 +196,7 @@ namespace Virgis {
             long n = features.GetFeatureCount(0);
             for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
             foreach (Datapoint pointFunc in pointFuncs) {
-                Feature feature = pointFunc.feature;
+                Feature feature = pointFunc.feature as Feature;
                 Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
                 geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);

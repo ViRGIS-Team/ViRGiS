@@ -26,6 +26,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using OSGeo.OGR;
+using g3;
 
 namespace Virgis
 {
@@ -218,14 +219,16 @@ namespace Virgis
             List<Dataline> polygon = new List<Dataline>();
             List<Geometry> LinearRings = new List<Geometry>();
             for (int i = 0; i < poly.GetGeometryCount(); i++) LinearRings.Add(poly.GetGeometryRef(i));
-            // Darw the LinearRing
+            // Draw the LinearRing
             foreach (Geometry LinearRing in LinearRings) {
                 wkbGeometryType type = LinearRing.GetGeometryType();
                 if ( type== wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
                     GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
                     LinearRing.CloseRings();
-                    com.Draw(LinearRing, m_symbology, m_handlePrefab, null, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, true);
+                    DCurve3 curve = new DCurve3();
+                    curve.FromGeometry(LinearRing);
+                    com.Draw(curve, m_symbology, m_handlePrefab, null, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, true);
                     polygon.Add(com);
                 }
             }
@@ -254,7 +257,7 @@ namespace Virgis
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             foreach (Datapolygon dataFeature in dataFeatures)
             {
-                Feature feature = dataFeature.feature;
+                Feature feature = dataFeature.feature as Feature;
                 Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
                 geom.AssignSpatialReference(AppState.instance.mapProj);
                 Dataline[] poly = dataFeature.GetComponentsInChildren<Dataline>();

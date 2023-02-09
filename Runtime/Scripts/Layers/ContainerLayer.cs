@@ -56,7 +56,7 @@ namespace Virgis {
 
         protected override async Task _save() {
             foreach (IVirgisLayer layer in subLayers) {
-                await layer.Save();
+                await (layer as VirgisLayer).Save();
             }
             return;
         }

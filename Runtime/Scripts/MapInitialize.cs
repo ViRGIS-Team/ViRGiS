@@ -178,13 +178,13 @@ namespace Virgis {
         /// </summary>
         /// <param name="all"></param>
         /// <returns></returns>
-        public async Task<RecordSet> Save(bool all = true) {
+        public override async Task<RecordSet> Save(bool all = true) {
             try {
                 Debug.Log("MapInitialize.Save starts");
                 if (m_appState.project != null) {
                     if (all) {
                         foreach (IVirgisLayer com in m_appState.layers) {
-                            RecordSet alayer = await com.Save();
+                            RecordSet alayer = await (com as VirgisLayer).Save();
                             int index = m_appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
                             m_appState.project.RecordSets[index] = alayer;
                         }
