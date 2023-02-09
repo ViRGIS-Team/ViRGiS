@@ -420,14 +420,8 @@ namespace Virgis {
             return (this.m_id.Equals(other.GetId()));
         }
 
-        public T GetLayer<T>() {
-            switch (typeof(T)) {
-                case Type virgislayer when virgislayer == typeof(VirgisLayer):
-                    return (T) System.Convert.ChangeType(this, typeof(T));
-                case Type virgislayer when virgislayer == typeof(IVirgisLayer):
-                    return (T) System.Convert.ChangeType(this as IVirgisLayer, typeof(T));
-            }
-            return default;
+        public IVirgisLayer GetLayer() {
+            return this;
         }
 
         public void OnEdit(bool inSession) {
