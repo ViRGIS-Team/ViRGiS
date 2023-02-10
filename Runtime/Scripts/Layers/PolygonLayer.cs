@@ -27,6 +27,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using OSGeo.OGR;
 using g3;
+using System.Linq;
 
 namespace Virgis
 {
@@ -206,11 +207,14 @@ namespace Virgis
             if (feature != null)
                 p.feature = feature;
 
-            if (m_symbology.ContainsKey("body") && m_symbology["body"].ContainsKey("Label") && m_symbology["body"].Label != null && (feature?.ContainsKey(m_symbology["body"].Label) ?? false))
+            if (m_symbology.ContainsKey("body") && m_symbology["body"].ContainsKey("Label") && 
+                    m_symbology["body"].Label != null && (feature?.ContainsKey(m_symbology["body"].Label
+                ) ?? false))
             {
                 //Set the label
                 GameObject labelObject = Instantiate(LabelPrefab, dataPoly.transform, false);
-                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) * m_symbology["point"].Transform.Scale.magnitude, Space.Self);
+                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) * 
+                                                m_symbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = (string)feature.Get(m_symbology["body"].Label);
             }
@@ -222,13 +226,28 @@ namespace Virgis
             // Draw the LinearRing
             foreach (Geometry LinearRing in LinearRings) {
                 wkbGeometryType type = LinearRing.GetGeometryType();
-                if ( type== wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
+                if ( type== wkbGeometryType.wkbLinearRing || 
+                            type == wkbGeometryType.wkbLineString25D || 
+                            type == wkbGeometryType.wkbLineString
+                    ) {
                     GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
                     LinearRing.CloseRings();
                     DCurve3 curve = new DCurve3();
                     curve.FromGeometry(LinearRing);
-                    com.Draw(curve, m_symbology, m_handlePrefab, null, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, true);
+                    com.Draw(curve,
+                        m_symbology.ToDictionary(
+                            item => item.Key,
+                            item => item.Value as UnitPrototype
+                        ), 
+                        m_handlePrefab, 
+                        null, 
+                        m_mainMat, 
+                        m_selectedMat, 
+                        m_lineMain, 
+                        m_lineSelected, 
+                        true
+                    );
                     polygon.Add(com);
                 }
             }

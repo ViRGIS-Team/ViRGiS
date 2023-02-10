@@ -97,6 +97,7 @@ namespace Virgis {
                 Debug.LogError($"Project File {file} is empty");
                 return false;
             }
+
             m_appState.project = m_projectJsonReader.GetProject();
             m_appState.project.path = Path.GetDirectoryName(file);
 
@@ -178,19 +179,17 @@ namespace Virgis {
         /// </summary>
         /// <param name="all"></param>
         /// <returns></returns>
-        public override async Task<RecordSet> Save(bool all = true) {
+        public override async Task<RecordSetPrototype> Save(bool all = true) {
             try {
                 Debug.Log("MapInitialize.Save starts");
                 if (m_appState.project != null) {
                     if (all) {
                         foreach (IVirgisLayer com in m_appState.layers) {
-                            RecordSet alayer = await (com as VirgisLayer).Save();
+                            RecordSet alayer = await (com as VirgisLayer).Save() as RecordSet;
                             int index = m_appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
                             m_appState.project.RecordSets[index] = alayer;
                         }
                     }
-                    m_appState.project.Scale[m_appState.currentView] = m_appState.Zoom.Get();
-                    m_appState.project.Cameras[m_appState.currentView] = m_appState.mainCamera.transform.position.ToPoint();
                     m_projectJsonReader.SetProject(m_appState.project);
                     await m_projectJsonReader.Save();
                 }

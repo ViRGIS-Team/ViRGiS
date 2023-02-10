@@ -105,7 +105,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"> The RecordSet object that defines this layer</param>
         /// 
-        public async Task Init(RecordSet layer) {
+        public async Task Init(RecordSetPrototype layer) {
             await SubInit(layer);
             await Draw();
             Debug.Log($"Loaded Layer : {layer.DisplayName}");
@@ -117,7 +117,7 @@ namespace Virgis {
         /// </summary>
         /// <param name="layer"> The RecordSet object that defines this layer</param>
         /// 
-        public async Task SubInit(RecordSet layer) {
+        public async Task SubInit(RecordSetPrototype layer) {
             try {
                 await _init();
                 gameObject.SetActive(layer.Visible);
@@ -209,7 +209,7 @@ namespace Virgis {
         /// Called to save the current layer data to source
         /// </summary>
         /// <returns>A copy of the data save dot the source</returns>
-        public virtual async Task<RecordSet> Save(bool flag = false) {
+        public virtual async Task<RecordSetPrototype> Save(bool flag = false) {
             if (changed) {
                 await _save();
             }
@@ -298,7 +298,7 @@ namespace Virgis {
         /// Get the metadata for this Layer
         /// </summary>
         /// <returns></returns>
-        public RecordSet GetMetadata() {
+        public RecordSetPrototype GetMetadata() {
             return _layer;
         }
 
@@ -306,8 +306,8 @@ namespace Virgis {
         /// Sets the layer Metadata
         /// </summary>
         /// <param name="layer">Data tyoe that inherits form RecordSet</param>
-        public void SetMetadata(RecordSet layer) {
-            _layer = layer;
+        public void SetMetadata(RecordSetPrototype layer) {
+            _layer = layer as RecordSet;
         }
 
         /// <summary>

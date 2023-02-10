@@ -202,10 +202,19 @@ namespace Virgis
             //Draw the line
             DCurve3 curve = new();
             curve.FromGeometry(line);
-
-            //string type = geom.GetGeometryType().ToString();
-            //bool IsRing = geom.IsRing();
-            com.Draw(curve, m_symbology, m_handlePrefab, LabelPrefab, m_mainMat, m_selectedMat, m_lineMain, m_lineSelected, line.IsRing());
+            com.Draw(curve, 
+                m_symbology.ToDictionary(
+                    item => item.Key,
+                item => item.Value as UnitPrototype
+                ), 
+                m_handlePrefab, 
+                LabelPrefab, 
+                m_mainMat, 
+                m_selectedMat,
+                m_lineMain, 
+                m_lineSelected, 
+                line.IsRing()
+            );
 
             return com;
         }

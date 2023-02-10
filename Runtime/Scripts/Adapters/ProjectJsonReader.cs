@@ -65,6 +65,11 @@ namespace Virgis
             if (project.ProjectVersion != GisProject.GetVersion()) {
                 Debug.LogError("This project was created in a different version of ViRGIS and may not be loaded correctly");
             }
+            if (project.Guid == Guid.Empty) {
+                project.Guid = Guid.NewGuid();
+                SetProject(project);
+                Save();
+            }
             return project;
         }
 

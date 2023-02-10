@@ -104,18 +104,17 @@ namespace Virgis {
             initsub.Dispose();
         }
 
-
         /// <summary>
         /// Use this to change or get the project
         /// </summary>
         public new GisProject project {
             get {
-                return Project.Get();
+                return Project.Get() as GisProject;
             } 
             set {
                 Project.Set(value);
                 initProj();
-            } 
+            }
         }
 
         public  SpatialReference mapProj {
@@ -184,6 +183,15 @@ namespace Virgis {
                 return scale;
             }
             return 0;
+        }
+
+        public override void addLayer(IVirgisLayer layer) {
+            _layers.Add(layer);
+            if (_layers.Count == 1)
+                _editSession.editableLayer = _layers[0];
+            if (_layers.Count == 2 && (_layers[0].GetMetadata() as RecordSet).DataType == RecordSetDataType.MapBox)
+                _editSession.editableLayer = _layers[1];
+            LayerUpdate.AddLayer(layer);
         }
     }
 }
