@@ -175,16 +175,6 @@ namespace Virgis {
             return new CoordinateTransformation(mapProj, sr, op);
         }
 
-        public override float SetScale(float zoom) {
-            if (zoom != 0) {
-                instance.map.transform.localScale = Vector3.one / zoom;
-                float scale = instance.map.transform.InverseTransformVector(Vector3.right).magnitude;
-                Zoom.OnNext(scale);
-                return scale;
-            }
-            return 0;
-        }
-
         public override void addLayer(IVirgisLayer layer) {
             _layers.Add(layer);
             if (_layers.Count == 1)

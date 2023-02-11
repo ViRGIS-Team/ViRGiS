@@ -38,9 +38,7 @@ namespace Virgis {
     /// </summary>
     public abstract class MapInitialize : MapInitializePrototype
     {
-        protected new AppState m_appState;
         private ProjectJsonReader m_projectJsonReader;
-
 
         ///<summary>
         ///Instantiates all singletons.
@@ -50,7 +48,7 @@ namespace Virgis {
             Debug.Log("Map awakens");
             if (AppState.instance == null) {
                 Debug.Log("instantiate app state");
-                m_appState = Instantiate(appState) as AppState;
+                Instantiate(appState);
             }
             Debug.Log($"Virgis version : {Application.version}");
             Debug.Log($"Project version: {GisProject.GetVersion()}");
@@ -58,7 +56,7 @@ namespace Virgis {
 
         protected new void Start() {
             base.Start();
-            m_appState.map = gameObject;
+            AppState.instance.map = gameObject;
             Debug.Log("Checking for Startup Project");
             if (m_loadOnStartup != null)
                 Load(m_loadOnStartup);
@@ -90,18 +88,18 @@ namespace Virgis {
                 return false;
             }
 
-            m_appState.project = m_projectJsonReader.GetProject();
-            m_appState.project.path = Path.GetDirectoryName(file);
+            AppState.instance.project = m_projectJsonReader.GetProject();
+            AppState.instance.project.path = Path.GetDirectoryName(file);
 
             try {
-                initLayers(m_appState.project.RecordSets);
+                initLayers(AppState.instance.project.RecordSets);
             } catch (Exception e) {
                 Debug.LogError($"Project File {file} failed :" + e.ToString());
                 return false;
             }
             OnLoad();
             //set globals
-            m_appState.Project.Complete();
+            AppState.instance.Project.Complete();
             Debug.Log("Completed load Project File");
             return true;
         }
@@ -116,13 +114,13 @@ namespace Virgis {
 
 
         protected void initLayers(List<RecordSet> layers) {
-            m_appState.tasks = new List<Coroutine>();
+            AppState.instance.tasks = new List<Coroutine>();
             foreach (RecordSet thisLayer in layers) {
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = CreateLayer(thisLayer);
                 temp.SetMetadata(thisLayer);
-                m_appState.tasks.Add(StartCoroutine(temp.Init(thisLayer).AsIEnumerator()));
+                AppState.instance.tasks.Add(StartCoroutine(temp.Init(thisLayer).AsIEnumerator()));
             }
         }
 
@@ -132,7 +130,7 @@ namespace Virgis {
         /// </summary>
         public new void Draw()
         {
-            foreach (IVirgisLayer layer in m_appState.layers)
+            foreach (IVirgisLayer layer in AppState.instance.layers)
             {
                 try {
                     layer.Draw();
@@ -159,15 +157,15 @@ namespace Virgis {
         public override async Task<RecordSetPrototype> Save(bool all = true) {
             try {
                 Debug.Log("MapInitialize.Save starts");
-                if (m_appState.project != null) {
+                if (AppState.instance.project != null) {
                     if (all) {
-                        foreach (IVirgisLayer com in m_appState.layers) {
+                        foreach (IVirgisLayer com in AppState.instance.layers) {
                             RecordSet alayer = await (com as VirgisLayer).Save() as RecordSet;
-                            int index = m_appState.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
-                            m_appState.project.RecordSets[index] = alayer;
+                            int index = AppState.instance.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
+                            AppState.instance.project.RecordSets[index] = alayer;
                         }
                     }
-                    m_projectJsonReader.SetProject(m_appState.project);
+                    m_projectJsonReader.SetProject(AppState.instance.project);
                     await m_projectJsonReader.Save();
                 }
                 return default;
