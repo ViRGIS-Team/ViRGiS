@@ -36,19 +36,16 @@ namespace Virgis {
     /// 
     /// It is run once at Startup
     /// </summary>
-    public abstract class MapInitialize : VirgisLayer
+    public abstract class MapInitialize : MapInitializePrototype
     {
-        public State appState;
-        protected AppState m_appState;
+        protected new AppState m_appState;
         private ProjectJsonReader m_projectJsonReader;
-        protected string m_loadOnStartup;
-
 
 
         ///<summary>
         ///Instantiates all singletons.
         /// </summary>
-        protected new void Awake()
+        protected void Awake()
         {
             Debug.Log("Map awakens");
             if (AppState.instance == null) {
@@ -68,11 +65,6 @@ namespace Virgis {
         }
 
 
-        protected override Task _init() {
-            throw new NotImplementedException();
-        }
-
-
         /// 
         /// This is the initialisation script.
         /// 
@@ -82,7 +74,7 @@ namespace Virgis {
             return _load(file);
         }
 
-        protected virtual bool _load(string file) {
+        protected override bool _load(string file) {
             Debug.Log("Starting  to load Project File");
             // Get Project definition - return if the file cannot be read - this will lead to an empty world
             m_projectJsonReader = new ProjectJsonReader();
@@ -115,11 +107,6 @@ namespace Virgis {
         }
 
         /// <summary>
-        /// Override this call to add functionality after the Project has loaded
-        /// </summary>
-        public abstract void OnLoad();
-
-        /// <summary>
         /// override this call in the consuming project to process the individual layers.
         /// This allows the consuming project to define the layer types
         /// </summary>
@@ -139,21 +126,11 @@ namespace Virgis {
             }
         }
 
-        public void Add(MoveArgs args)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        protected override IVirgisFeature _addFeature<T>(T geometry)
-        {
-            throw new System.NotImplementedException();
-        }
-
 
         /// <summary>
         /// This cll initiates the drawing of the bvirtual spce and calls `Draw ` on each layer in turn.
         /// </summary>
-        new void Draw()
+        public new void Draw()
         {
             foreach (IVirgisLayer layer in m_appState.layers)
             {
