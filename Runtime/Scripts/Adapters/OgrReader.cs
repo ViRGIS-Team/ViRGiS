@@ -52,7 +52,6 @@ namespace Virgis {
             }
         }
 
-
         public async Task  Load(string source, int update, SourceType type) {
             if (type == SourceType.File) {
                 fileName = source;

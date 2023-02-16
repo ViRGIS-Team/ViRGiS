@@ -18,7 +18,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE. */
+SOFTWARE. *//*
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,18 +28,22 @@ using Project;
 using g3;
 using System;
 using OSGeo.OGR;
-using OSGeo.OSR;
+using SpatialReference = OSGeo.OSR.SpatialReference;
 using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
 using DXF = netDxf;
 using netDxf.Entities;
 
 namespace Virgis {
-    public class MeshLayerAlt : MeshlayerProtoype {
+    public class MeshLayerAlt : MeshlayerPrototype {
         private Layer m_entities;
 
         private struct DxfData {
             public List<Vector3d> vertexes;
             public List<Index3i> tris;
+        }
+
+        public SpatialReference GetCrs() {
+            return m_crs as SpatialReference;
         }
 
         private Task<DMesh3Builder> loadObj(string filename) {
@@ -313,3 +317,4 @@ namespace Virgis {
     }
 }
 
+*/

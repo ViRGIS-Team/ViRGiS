@@ -68,7 +68,7 @@ namespace Virgis
             if (project.Guid == Guid.Empty) {
                 project.Guid = Guid.NewGuid();
                 SetProject(project);
-                Save();
+                Save().RunSynchronously();
             }
             return project;
         }

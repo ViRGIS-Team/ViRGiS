@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.IO;
 using UnityEngine;
+using Unity.Netcode;
 
 namespace Virgis {
 
@@ -36,8 +37,10 @@ namespace Virgis {
     /// 
     /// It is run once at Startup
     /// </summary>
-    public abstract class MapInitialize : MapInitializePrototype
+    public abstract class ServerInitialize : MapInitializePrototype
     {
+        public State appState;
+        
         private ProjectJsonReader m_projectJsonReader;
 
         ///<summary>
@@ -50,13 +53,13 @@ namespace Virgis {
                 Debug.Log("instantiate app state");
                 Instantiate(appState);
             }
+            AppState.instance.server = gameObject;
             Debug.Log($"Virgis version : {Application.version}");
             Debug.Log($"Project version: {GisProject.GetVersion()}");
         }
 
         protected new void Start() {
             base.Start();
-            AppState.instance.map = gameObject;
             Debug.Log("Checking for Startup Project");
             if (m_loadOnStartup != null)
                 Load(m_loadOnStartup);
@@ -119,14 +122,14 @@ namespace Virgis {
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = CreateLayer(thisLayer);
-                temp.SetMetadata(thisLayer);
+                if (!temp.Spawn(State.instance.map.transform)) Debug.Log("reparent failed");
                 AppState.instance.tasks.Add(StartCoroutine(temp.Init(thisLayer).AsIEnumerator()));
             }
         }
 
 
         /// <summary>
-        /// This cll initiates the drawing of the bvirtual spce and calls `Draw ` on each layer in turn.
+        /// This call initiates the drawing of the virtual space and calls `Draw ` on each layer in turn.
         /// </summary>
         public new void Draw()
         {

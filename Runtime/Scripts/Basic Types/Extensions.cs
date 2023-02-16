@@ -384,6 +384,7 @@ namespace Virgis {
             }
             catch (Exception e)
             {
+                _ = e;
                 return null;
                 ;
             }
@@ -394,6 +395,7 @@ namespace Virgis {
             try {
                 return System.Convert.ToDouble(value);
             } catch (Exception e) {
+                _ = e;
                 return Double.Parse((string)value);
             }
         }
@@ -403,6 +405,7 @@ namespace Virgis {
             try {
                 return System.Convert.ToInt32(value);
             } catch (Exception e) {
+                _ = e;
                 return Int32.Parse((string) value);
             }
         }

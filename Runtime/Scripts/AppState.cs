@@ -50,6 +50,8 @@ namespace Virgis {
             }
         }
 
+        public GameObject server;
+
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
         private IDisposable initsub;
@@ -182,6 +184,10 @@ namespace Virgis {
             if (_layers.Count == 2 && (_layers[0].GetMetadata() as RecordSet).DataType == RecordSetDataType.MapBox)
                 _editSession.editableLayer = _layers[1];
             LayerUpdate.AddLayer(layer);
+        }
+
+        public override bool LoadProject(string path) {
+            return server.GetComponent<IVirgisLayer>()?.Load(path) ?? false;
         }
     }
 }
