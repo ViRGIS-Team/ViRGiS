@@ -28,7 +28,6 @@ using UnityEngine.UI;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using System.Linq;
-using Unity.Netcode;
 
 namespace Virgis {
 
@@ -37,8 +36,6 @@ namespace Virgis {
         private GameObject m_pointPrefab;
         private Dictionary<string, Unit> m_symbology;
         private float m_displacement;
-        private Material m_mainMat;
-        private Material m_selectedMat;
         private PointLayer parent;
 
         public override async Task _init() {
@@ -51,44 +48,38 @@ namespace Virgis {
         }
 
         protected Task<int> Load() {
-            Task<int> t1 = new Task<int>(() => {
-                RecordSet layer = _layer as RecordSet;
-                m_symbology = layer.Properties.Units;
-                m_displacement = 1.0f;
-                if (m_symbology.ContainsKey("point") &&
-                    m_symbology["point"].ContainsKey("Shape")) {
-                    Shapes shape = m_symbology["point"].Shape;
-                    switch (shape) {
-                        case Shapes.Spheroid:
-                            m_pointPrefab = parent.SpherePrefab;
-                            break;
-                        case Shapes.Cuboid:
-                            m_pointPrefab = parent.CubePrefab;
-                            break;
-                        case Shapes.Cylinder:
-                            m_pointPrefab = parent.CylinderPrefab;
-                            m_displacement = 1.5f;
-                            break;
-                        default:
-                            m_pointPrefab = parent.SpherePrefab;
-                            break;
-                    }
-                } else {
-                    m_pointPrefab = parent.SpherePrefab;
+            RecordSet layer = _layer as RecordSet;
+            m_symbology = layer.Properties.Units;
+            m_displacement = 1.0f;
+            if (m_symbology.ContainsKey("point") &&
+                m_symbology["point"].ContainsKey("Shape")) {
+                Shapes shape = m_symbology["point"].Shape;
+                switch (shape) {
+                    case Shapes.Spheroid:
+                        m_pointPrefab = parent.SpherePrefab;
+                        break;
+                    case Shapes.Cuboid:
+                        m_pointPrefab = parent.CubePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        m_pointPrefab = parent.CylinderPrefab;
+                        m_displacement = 1.5f;
+                        break;
+                    default:
+                        m_pointPrefab = parent.SpherePrefab;
+                        break;
                 }
+            } else {
+                m_pointPrefab = parent.SpherePrefab;
+            }
 
-                Color col = m_symbology.ContainsKey("point") ? 
-                    (Color) m_symbology["point"].Color : Color.white;
-                Color sel = m_symbology.ContainsKey("point") ? 
-                    new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-                m_mainMat = Instantiate(parent.BaseMaterial);
-                m_mainMat.SetColor("_BaseColor", col);
-                m_selectedMat = Instantiate(parent.BaseMaterial);
-                m_selectedMat.SetColor("_BaseColor", sel);
-                return 1;
-            });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
-            return t1;
+            Color col = m_symbology.ContainsKey("point") ? 
+                (Color) m_symbology["point"].Color : Color.white;
+            Color sel = m_symbology.ContainsKey("point") ? 
+                new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            parent.SetMaterial(col);
+            parent.SetMaterial(sel);
+            return Task.FromResult(0);
         }
 
         protected VirgisFeature _addFeature(Vector3[] geometry) {
@@ -96,8 +87,6 @@ namespace Virgis {
             changed = true;
             return newFeature;
         }
-
-
 
         public override async Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
@@ -151,16 +140,12 @@ namespace Virgis {
         protected VirgisFeature _drawFeature(Vector3 position, Feature feature = null) {
             //instantiate the prefab with coordinates defined above
             GameObject dataPoint = Instantiate(m_pointPrefab, transform, false);
-            dataPoint.GetComponent<NetworkObject>().Spawn();
-            dataPoint.transform.parent= transform;
-            dataPoint.transform.position = position;
+            Datapoint com = dataPoint.GetComponent<Datapoint>();
+            com.Spawn(transform);
 
             // add the gis data from source
-            Datapoint com = dataPoint.GetComponent<Datapoint>();
+            dataPoint.transform.position = position;
             if (feature != null) com.feature = feature;
-            com.SetMaterial(m_mainMat, m_selectedMat);
-
-            
 
             //Set the symbology
             if (m_symbology.ContainsKey("point")) {
@@ -214,7 +199,6 @@ namespace Virgis {
         public override GameObject GetFeatureShape() {
             GameObject fs = Instantiate(m_pointPrefab);
             Datapoint com = fs.GetComponent<Datapoint>();
-            com.SetMaterial(m_mainMat, m_selectedMat);
             return fs;
         }
 

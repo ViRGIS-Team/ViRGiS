@@ -40,10 +40,6 @@ namespace Virgis
         private GameObject m_handlePrefab;
         private GameObject m_linePrefab;
         private Dictionary<string, Unit> m_symbology;
-        private Material m_mainMat;
-        private Material m_selectedMat;
-        private Material m_lineMain;
-        private Material m_lineSelected;
         private LineLayer parent;
 
         public override async Task _init() {
@@ -56,63 +52,55 @@ namespace Virgis
         }
 
         protected Task<int> Load() {
-            Task<int> t1 = new Task<int>(() => {
-                RecordSet layer = _layer as RecordSet;
-                m_symbology = layer.Properties.Units;
+            RecordSet layer = _layer as RecordSet;
+            m_symbology = layer.Properties.Units;
 
-                if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
-                    Shapes shape = m_symbology["point"].Shape;
-                    switch (shape) {
-                        case Shapes.Spheroid:
-                            m_handlePrefab = parent.SpherePrefab;
-                            break;
-                        case Shapes.Cuboid:
-                            m_handlePrefab = parent.CubePrefab;
-                            break;
-                        case Shapes.Cylinder:
-                            m_handlePrefab = parent.CylinderPrefab;
-                            break;
-                        default:
-                            m_handlePrefab = parent.SpherePrefab;
-                            break;
-                    }
-                } else {
-                    m_handlePrefab = parent.SpherePrefab;
+            if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
+                Shapes shape = m_symbology["point"].Shape;
+                switch (shape) {
+                    case Shapes.Spheroid:
+                        m_handlePrefab = parent.SpherePrefab;
+                        break;
+                    case Shapes.Cuboid:
+                        m_handlePrefab = parent.CubePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        m_handlePrefab = parent.CylinderPrefab;
+                        break;
+                    default:
+                        m_handlePrefab = parent.SpherePrefab;
+                        break;
                 }
+            } else {
+                m_handlePrefab = parent.SpherePrefab;
+            }
 
-                if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
-                    Shapes shape = m_symbology["line"].Shape;
-                    switch (shape) {
-                        case Shapes.Cuboid:
-                            m_linePrefab = parent.CuboidLinePrefab;
-                            break;
-                        case Shapes.Cylinder:
-                            m_linePrefab = parent.CylinderLinePrefab;
-                            break;
-                        default:
-                            m_linePrefab = parent.CylinderLinePrefab;
-                            break;
-                    }
-                } else {
-                    m_linePrefab = parent.CylinderLinePrefab;
+            if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
+                Shapes shape = m_symbology["line"].Shape;
+                switch (shape) {
+                    case Shapes.Cuboid:
+                        m_linePrefab = parent.CuboidLinePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        m_linePrefab = parent.CylinderLinePrefab;
+                        break;
+                    default:
+                        m_linePrefab = parent.CylinderLinePrefab;
+                        break;
                 }
+            } else {
+                m_linePrefab = parent.CylinderLinePrefab;
+            }
 
-                Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
-                Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-                Color line = m_symbology.ContainsKey("line") ? (Color) m_symbology["line"].Color : Color.white;
-                Color lineSel = m_symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-                m_mainMat = Instantiate(parent.PointBaseMaterial);
-                m_mainMat.SetColor("_BaseColor", col);
-                m_selectedMat = Instantiate(parent.PointBaseMaterial);
-                m_selectedMat.SetColor("_BaseColor", sel);
-                m_lineMain = Instantiate(parent.LineBaseMaterial);
-                m_lineMain.SetColor("_BaseColor", line);
-                m_lineSelected = Instantiate(parent.LineBaseMaterial);
-                m_lineSelected.SetColor("_BaseColor", lineSel);
-                return 1;
-            });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
-            return t1;
+            Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
+            Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            Color line = m_symbology.ContainsKey("line") ? (Color) m_symbology["line"].Color : Color.white;
+            Color lineSel = m_symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
+            parent.SetMaterial(col);
+            parent.SetMaterial(sel);
+            parent.SetMaterial(line);
+            parent.SetMaterial(lineSel);
+            return Task.FromResult(1);
         }
 
         protected VirgisFeature _addFeature(Vector3[] line)
@@ -184,6 +172,8 @@ namespace Virgis
 
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
+            com.Spawn(transform);
+
             if (feature != null)
                 com.feature = feature;
 
@@ -199,11 +189,7 @@ namespace Virgis
                 item => item.Value as UnitPrototype
                 ), 
                 m_handlePrefab, 
-                parent.LabelPrefab, 
-                m_mainMat, 
-                m_selectedMat,
-                m_lineMain, 
-                m_lineSelected, 
+                parent.LabelPrefab,
                 line.IsRing()
             );
 
@@ -245,24 +231,8 @@ namespace Virgis
         {
             GameObject fs = Instantiate(m_handlePrefab);
             Datapoint com = fs.GetComponent<Datapoint>();
-            com.SetMaterial(m_mainMat, m_selectedMat);
+            com.SetMaterial(0);
             return fs;
         }
-
-        public override void Translate(MoveArgs args)
-        {
-            changed = true;
-            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId())?.transform.Translate(args.translate, Space.World);
-        }
-
-
-        public override void MoveAxis(MoveArgs args)
-        {
-            changed = true;
-            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            dataFeatures.ToList<Dataline>().Find(item => args.id == item.GetId()).MoveAxisAction(args);
-        }
-
     }
 }

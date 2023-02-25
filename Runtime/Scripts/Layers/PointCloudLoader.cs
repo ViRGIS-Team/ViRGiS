@@ -156,10 +156,6 @@ namespace Virgis
                 transform.localScale = layer.Transform.Scale;
                 vfx.SetVector3("_scale", layer.Transform.Scale);
             }
-            GameObject centreHandle = Instantiate(parent.handle, transform.position, Quaternion.identity);
-            centreHandle.transform.localScale = AppState.instance.map.transform.TransformVector((Vector3)symbology["handle"].Transform.Scale);
-            centreHandle.GetComponent<Datapoint>().SetMaterial(m_mainMat, m_selectedMat);
-            centreHandle.transform.parent = transform;
             UnityEngine.Debug.Log($"PointCloud Draw took {stopWatch.Elapsed.TotalSeconds}");
             return Task.CompletedTask;
         }

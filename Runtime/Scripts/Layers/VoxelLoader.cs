@@ -44,13 +44,12 @@ namespace Virgis
         protected new void Awake()
         {
             base.Awake();
-            isContainer = false;
         }
 
         public override async Task _init()
         {
             RecordSet layer = _layer as RecordSet;
-            isWriteable = true;
+            //isWriteable = true;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<VoxelMesh>();
             for (int i = 0; i < ds.meshes.Length; i++) {

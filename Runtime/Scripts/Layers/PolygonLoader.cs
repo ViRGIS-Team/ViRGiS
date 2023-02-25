@@ -42,11 +42,6 @@ namespace Virgis
         private GameObject m_linePrefab;
 
         private Dictionary<string, Unit> m_symbology;
-        private Material m_mainMat;
-        private Material m_selectedMat;
-        private Material m_lineMain;
-        private Material m_lineSelected;
-        private Material m_bodyMain;
         private PolygonLayer parent;
 
         public override async Task _init() {
@@ -59,73 +54,64 @@ namespace Virgis
         }
 
         protected Task<int> Load() {
-            Task<int> t1 = new Task<int>(() => {
-                RecordSet layer = _layer as RecordSet;
-                m_symbology = layer.Properties.Units;
+            RecordSet layer = _layer as RecordSet;
+            m_symbology = layer.Properties.Units;
 
-                if (m_symbology.ContainsKey("point") &&
-                    m_symbology["point"].ContainsKey("Shape")) {
-                    Shapes shape = m_symbology["point"].Shape;
-                    switch (shape) {
-                        case Shapes.Spheroid:
-                            m_handlePrefab = parent.SpherePrefab;
-                            break;
-                        case Shapes.Cuboid:
-                            m_handlePrefab = parent.CubePrefab;
-                            break;
-                        case Shapes.Cylinder:
-                            m_handlePrefab = parent.CylinderPrefab;
-                            break;
-                        default:
-                            m_handlePrefab = parent.SpherePrefab;
-                            break;
-                    }
-                } else {
-                    m_handlePrefab = parent.SpherePrefab;
+            if (m_symbology.ContainsKey("point") &&
+                m_symbology["point"].ContainsKey("Shape")) {
+                Shapes shape = m_symbology["point"].Shape;
+                switch (shape) {
+                    case Shapes.Spheroid:
+                        m_handlePrefab = parent.SpherePrefab;
+                        break;
+                    case Shapes.Cuboid:
+                        m_handlePrefab = parent.CubePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        m_handlePrefab = parent.CylinderPrefab;
+                        break;
+                    default:
+                        m_handlePrefab = parent.SpherePrefab;
+                        break;
                 }
+            } else {
+                m_handlePrefab = parent.SpherePrefab;
+            }
 
-                if (m_symbology.ContainsKey("line") && 
-                    m_symbology["line"].ContainsKey("Shape")) {
-                    Shapes shape = m_symbology["line"].Shape;
-                    switch (shape) {
-                        case Shapes.Cuboid:
-                            m_linePrefab = parent.CuboidLinePrefab;
-                            break;
-                        case Shapes.Cylinder:
-                            m_linePrefab = parent.CylinderLinePrefab;
-                            break;
-                        default:
-                            m_linePrefab = parent.CylinderLinePrefab;
-                            break;
-                    }
-                } else {
-                    m_linePrefab = parent.CylinderLinePrefab;
+            if (m_symbology.ContainsKey("line") && 
+                m_symbology["line"].ContainsKey("Shape")) {
+                Shapes shape = m_symbology["line"].Shape;
+                switch (shape) {
+                    case Shapes.Cuboid:
+                        m_linePrefab = parent.CuboidLinePrefab;
+                        break;
+                    case Shapes.Cylinder:
+                        m_linePrefab = parent.CylinderLinePrefab;
+                        break;
+                    default:
+                        m_linePrefab = parent.CylinderLinePrefab;
+                        break;
                 }
+            } else {
+                m_linePrefab = parent.CylinderLinePrefab;
+            }
 
-                Color col = m_symbology.ContainsKey("point") ? 
-                    (Color) m_symbology["point"].Color : Color.white;
-                Color sel = m_symbology.ContainsKey("point") ?
-                    new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-                Color line = m_symbology.ContainsKey("line") ? 
-                    (Color) m_symbology["line"].Color : Color.white;
-                Color lineSel = m_symbology.ContainsKey("line") ? 
-                    new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-                Color body = m_symbology.ContainsKey("body") ? 
-                    (Color) m_symbology["body"].Color : Color.white;
-                m_mainMat = Instantiate(parent.PointBaseMaterial);
-                m_mainMat.SetColor("_BaseColor", col);
-                m_selectedMat = Instantiate(parent.PointBaseMaterial);
-                m_selectedMat.SetColor("_BaseColor", sel);
-                m_lineMain = Instantiate(parent.LineBaseMaterial);
-                m_lineMain.SetColor("_BaseColor", line);
-                m_lineSelected = Instantiate(parent.LineBaseMaterial);
-                m_lineSelected.SetColor("_BaseColor", lineSel);
-                m_bodyMain = Instantiate(parent.BodyBaseMaterial);
-                m_bodyMain.SetColor("_BaseColor", body);
-                return 1;
-            });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
-            return t1;
+            Color col = m_symbology.ContainsKey("point") ? 
+                (Color) m_symbology["point"].Color : Color.white;
+            Color sel = m_symbology.ContainsKey("point") ?
+                new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
+            Color line = m_symbology.ContainsKey("line") ? 
+                (Color) m_symbology["line"].Color : Color.white;
+            Color lineSel = m_symbology.ContainsKey("line") ? 
+                new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
+            Color body = m_symbology.ContainsKey("body") ? 
+                (Color) m_symbology["body"].Color : Color.white;
+            parent.SetMaterial(col);
+            parent.SetMaterial(sel);
+            parent.SetMaterial(line);
+            parent.SetMaterial(lineSel);
+            parent.SetMaterial(body);
+            return Task.FromResult(1);
         }
 
         protected VirgisFeature _addFeature(Vector3[] line)
@@ -198,6 +184,7 @@ namespace Virgis
 
             // add the gis data from geoJSON
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
+            p.Spawn(transform);
 
             if (feature != null)
                 p.feature = feature;
@@ -227,6 +214,7 @@ namespace Virgis
                     ) {
                     GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
+                    com.Spawn(dataPoly.transform);
                     LinearRing.CloseRings();
                     DCurve3 curve = new DCurve3();
                     curve.FromGeometry(LinearRing);
@@ -236,11 +224,7 @@ namespace Virgis
                             item => item.Value as UnitPrototype
                         ), 
                         m_handlePrefab, 
-                        null, 
-                        m_mainMat, 
-                        m_selectedMat, 
-                        m_lineMain, 
-                        m_lineSelected, 
+                        null,
                         true
                     );
                     polygon.Add(com);
@@ -248,7 +232,7 @@ namespace Virgis
             }
 
             //Draw the Polygon
-            p.Draw(polygon, m_bodyMain);
+            p.Draw(polygon);
 
             return p;
         }
@@ -294,7 +278,7 @@ namespace Virgis
         {
             GameObject fs = Instantiate(m_handlePrefab);
             Datapoint dp = fs.GetComponent<Datapoint>();
-            dp.SetMaterial(m_mainMat, m_selectedMat);
+            dp.SetMaterial(0);
             return fs;
         }
     }

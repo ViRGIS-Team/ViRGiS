@@ -24,6 +24,7 @@ using Project;
 using System.Threading.Tasks;
 using OSGeo.OGR;
 using System.Linq;
+using UnityEngine;
 
 namespace Virgis {
     public class OgrLoader : VirgisLoader<Layer[]> {
@@ -75,10 +76,10 @@ namespace Virgis {
                             throw new System.Exception("reparenting failed");
                         l.sourceName = thisLayer.GetName();
                         l.isWriteable = m_ogrReader.isWriteable;
-                        await l.SubInit(layer);
                         loader = l.gameObject.AddComponent<LineLoader>();
                         (loader as LineLoader).SetFeatures(thisLayer);
                         (loader as LineLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
+                        await l.SubInit(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
                         subLayers.Add(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
