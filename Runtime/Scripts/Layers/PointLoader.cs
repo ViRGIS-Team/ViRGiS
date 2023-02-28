@@ -28,6 +28,7 @@ using UnityEngine.UI;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using System.Linq;
+using Unity.Netcode;
 
 namespace Virgis {
 
@@ -197,7 +198,7 @@ namespace Virgis {
         }
 
         public override GameObject GetFeatureShape() {
-            GameObject fs = Instantiate(m_pointPrefab);
+            GameObject fs = Instantiate(m_pointPrefab, parent.transform);
             Datapoint com = fs.GetComponent<Datapoint>();
             return fs;
         }

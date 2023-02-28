@@ -229,8 +229,9 @@ namespace Virgis
 
         public override GameObject GetFeatureShape()
         {
-            GameObject fs = Instantiate(m_handlePrefab);
+            GameObject fs = Instantiate(m_handlePrefab, parent.transform);
             Datapoint com = fs.GetComponent<Datapoint>();
+            com.Spawn(parent.transform);
             com.SetMaterial(0);
             return fs;
         }
