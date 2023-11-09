@@ -168,7 +168,9 @@ namespace Virgis
                 }
 
                 // if there is a Color Interpolation definition in the RecordSet, add that
-                pipe.Add(m_bodySymbology.GetCI());
+                if (m_bodySymbology.GetCI(out Dictionary<string, object> ci)) {
+                    pipe.Add(ci);
+                }
 
                 // create a Mesh using Delaunay traingulation
                 pipe.Add(new {
