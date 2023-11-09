@@ -1,6 +1,6 @@
 ﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -49,6 +49,7 @@ namespace Virgis
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
+            await SetMaterial();
             await Load(layer);
             Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
         }
@@ -212,6 +213,7 @@ namespace Virgis
                             mesh.RemoveMetadata("CRS");
                             mesh.AttachMetadata("CRS", layer.Crs);
                         };
+                        mesh.Transform();
                         features.Add(mesh);
                     }
                 }
@@ -236,39 +238,6 @@ namespace Virgis
                 mesh.Transform();
                 features.Add(mesh);
             }
-        }
-
-        public override async Task _draw() {
-            Stopwatch stopWatch= Stopwatch.StartNew();
-            RecordSet layer = GetMetadata() as RecordSet;
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
-            m_meshes = new List<Transform>();
-            DemLayer parent = m_parent as DemLayer;
-            Material mat = Instantiate(parent.MeshMaterial);
-
-            if (symbology.TryGetValue("body", out Unit bodySymbology)) {
-
-                if (bodySymbology.TextureImage is not null) {
-                    mat = parent.ImageMaterial;
-                    Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
-                    if (tex != null) {
-                        tex.wrapMode = TextureWrapMode.Clamp;
-                    }
-                    mat.SetTexture("_BaseMap", tex);
-                }
-            }
-
-            foreach (DMesh3 dMesh in features) {
-                if (dMesh.HasVertexColors) {
-                    parent.MeshMaterial.SetInt("_hasColor", 1);
-                }
-                await dMesh.CalculateMapUVsAsync(bodySymbology);
-                dMesh.Transform();
-                m_meshes.Add(Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>().Draw(dMesh, mat, parent.WireframeMaterial));
-            }
-            transform.SetPositionAndRotation(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position), layer.Transform.Rotate);
-            transform.localScale = layer.Transform.Scale;
-            Debug.Log($"Dem Layer Draw Took {stopWatch.Elapsed.TotalSeconds}");
         }
 
         public override Task _save()

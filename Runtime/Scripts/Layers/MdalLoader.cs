@@ -1,6 +1,6 @@
 ﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,6 @@ using Project;
 using g3;
 using Mdal;
 using OSGeo.OSR;
-using System;
 using Stopwatch = System.Diagnostics.Stopwatch;
 using System.IO;
 
@@ -55,6 +54,7 @@ namespace Virgis
             meshUris = new ();
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
+            await SetMaterial();
             m_symbology = layer.Properties.Units;
             parent = m_parent as MdalLayer;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
@@ -62,19 +62,7 @@ namespace Virgis
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
                 SetCrs(Convert.TextToSR(layer.Crs));
             }
-            m_Mat = Instantiate(parent.MeshMaterial);
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
 
-            if (symbology.TryGetValue("body", out Unit bodySymbology)) {
-                if (bodySymbology.TextureImage is not null) {
-                    m_Mat = parent.ImageMaterial;
-                    Texture tex = await TextureImage.Get(new Uri(bodySymbology.TextureImage));
-                    if (tex != null) {
-                        tex.wrapMode = TextureWrapMode.Clamp;
-                    }
-                    m_Mat.SetTexture("_BaseMap", tex);
-                }
-            }
             for (int i = 0; i < ds.meshes.Length; i++) {
                 MdalMesh mmesh = await ds.GetMeshAsync(i);
                 meshUris.Add(mmesh.uri);
@@ -89,7 +77,6 @@ namespace Virgis
                     mesh.RemoveMetadata("CRS");
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
-                await mesh.CalculateMapUVsAsync(bodySymbology);
                 mesh.Transform();
                 features.Add(mesh);
             }

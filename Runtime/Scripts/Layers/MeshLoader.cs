@@ -1,6 +1,6 @@
 ﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +38,6 @@ namespace Virgis
     public class MeshLoader : MeshloaderPrototype
     {
         private Layer m_entities;
-        private MeshLayer parent;
 
         public SpatialReference GetCrs() {
             return m_crs as SpatialReference;
@@ -109,7 +108,8 @@ namespace Virgis
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
-            parent = m_parent as MeshLayer;
+
+            await SetMaterial();
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
@@ -148,12 +148,12 @@ namespace Virgis
                     IEnumerable<Face3d> faces = doc.Faces3d;
                     IEnumerable<PolyfaceMesh> pfs = doc.PolyfaceMeshes;
                     List<DCurve3> curves = new List<DCurve3>();
-                    CoordinateTransformation transform = AppState.instance.projectTransformer(GetCrs());
+                    CoordinateTransformation transformer = AppState.instance.projectTransformer(GetCrs());
                     foreach (Face3d face in faces) {
                         List<Vector3d> tri = new List<Vector3d>();
-                        tri.Add(face.FirstVertex.ToVector3d(transform));
-                        tri.Add(face.SecondVertex.ToVector3d(transform));
-                        tri.Add(face.ThirdVertex.ToVector3d(transform));
+                        tri.Add(face.FirstVertex.ToVector3d(transformer));
+                        tri.Add(face.SecondVertex.ToVector3d(transformer));
+                        tri.Add(face.ThirdVertex.ToVector3d(transformer));
                         if (face.FourthVertex != face.ThirdVertex) {
                             Debug.Log(" Not a Triangle");
                         }
@@ -167,9 +167,9 @@ namespace Virgis
                             List<Vector3d> tri = new List<Vector3d>();
                             List<short> verts = face.VertexIndexes;
                             for (int i = 0; i < 3; i++) {
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[0]) - 1].Position.ToVector3d(transform));
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[1]) - 1].Position.ToVector3d(transform));
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[2]) - 1].Position.ToVector3d(transform));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[0]) - 1].Position.ToVector3d(transformer));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[1]) - 1].Position.ToVector3d(transformer));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[2]) - 1].Position.ToVector3d(transformer));
                             }
                             curves.Add(new DCurve3(tri, false, true));
                         }
@@ -287,34 +287,12 @@ namespace Virgis
                 try {
                     dmesh.CompactInPlace();
                 } catch { }
-                features = new List<DMesh3>();
-                features.Add(dmesh);
+                features = new List<DMesh3> {
+                    dmesh
+                };
                 m_symbology = layer.Properties.Units;
                 return;
             }
-        }
-
-        public async override Task _draw()
-        {
-            RecordSet layer = GetMetadata() as RecordSet;
-            transform.position = layer.Position != null ? 
-                layer.Position.ToVector3() :
-                Vector3.zero;
-            transform.Translate(AppState.instance.map.transform
-                .TransformVector((Vector3) layer.Transform.Position)
-            );
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
-            m_meshes = new List<Transform>();
-
-            foreach (DMesh3 dMesh in features) {
-                await dMesh.CalculateUVsAsync();
-                m_meshes.Add(Instantiate(parent.Mesh, transform)
-                    .GetComponent<EditableMesh>()
-                    .Draw(dMesh, parent.MeshMaterial, parent.WireframeMaterial));
-            }
-            transform.rotation = layer.Transform.Rotate;
-            transform.localScale = layer.Transform.Scale;
-            return;
         }
 
         public override Task _save()

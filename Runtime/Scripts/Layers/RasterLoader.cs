@@ -1,6 +1,6 @@
 ﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -36,9 +36,6 @@ namespace Virgis
     public class RasterLoader : VirgisLoader<BakedPointCloud>
     {
         private GameObject m_model;
-        private Dictionary<string, Unit> m_symbology;
-        private Material m_mainMat;
-        private Material m_selectedMat;
         private double m_PixelSize;
         private const float m_PixelScaleFactor = 9;
         private RasterLayer parent;
@@ -48,15 +45,6 @@ namespace Virgis
             RecordSet layer = _layer as RecordSet;
             parent = m_parent as RasterLayer;
             await Load(layer);
-            m_symbology = layer.Properties.Units;
-            Color col = m_symbology.ContainsKey("point") ?
-                (Color) m_symbology["point"].Color : Color.white;
-            Color sel = m_symbology.ContainsKey("point") ?
-                new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            m_mainMat = Instantiate(parent.HandleMaterial);
-            m_mainMat.SetColor("_BaseColor", col);
-            m_selectedMat = Instantiate(parent.HandleMaterial);
-            m_selectedMat.SetColor("_BaseColor", sel);
             Debug.Log($"Raster Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
         }
 
@@ -191,6 +179,8 @@ namespace Virgis
 
             m_model = Instantiate(parent.pointCloud, transform, false);
 
+            PointCloud com = m_model.GetComponent<PointCloud>();
+            com.Spawn(transform);
 
 
             VisualEffect vfx = m_model.GetComponent<VisualEffect>();

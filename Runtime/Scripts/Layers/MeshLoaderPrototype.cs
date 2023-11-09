@@ -1,6 +1,6 @@
 ﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using g3;
 using Project;
+using System.Threading.Tasks;
+using System;
 
 namespace Virgis
 {
@@ -32,10 +34,37 @@ namespace Virgis
     {
         protected List<Transform> m_meshes; // List of the meshes in the layer
         protected Dictionary<string, Unit> m_symbology;
+        protected Unit m_bodySymbology;
 
         public override IVirgisFeature _addFeature<T>(T geometry)
         {
             throw new System.NotImplementedException();
+        }
+
+        public async override Task _draw() {
+            RecordSet layer = GetMetadata() as RecordSet;
+            MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+            m_meshes = new List<Transform>();
+
+            transform.position = layer.Position != null ?
+                layer.Position.ToVector3() :
+                Vector3.zero;
+            transform.Translate(AppState.instance.map.transform
+                .TransformVector((Vector3) layer.Transform.Position)
+            );
+
+            foreach (DMesh3 dMesh in features) {
+                if (dMesh.HasVertexColors) {
+                    parent.MeshMaterial.SetInt("_hasColor", 1);
+                }
+                await dMesh.CalculateMapUVsAsync(m_bodySymbology);
+                m_meshes.Add(Instantiate(parent.Mesh, transform)
+                    .GetComponent<EditableMesh>()
+                    .Draw(dMesh, parent.MeshMaterial, parent.WireframeMaterial));
+            }
+            transform.rotation = layer.Transform.Rotate;
+            transform.localScale = layer.Transform.Scale;
+            return;
         }
 
         protected VirgisFeature _addFeature(DMesh3 mesh) {
@@ -48,6 +77,24 @@ namespace Virgis
       
 
         public override void _checkpoint() { }
+
+        protected async Task SetMaterial() {
+            RecordSet layer = GetMetadata() as RecordSet;
+            MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+
+            m_symbology = layer.Properties.Units;
+            m_symbology.TryGetValue("body", out m_bodySymbology);
+
+            m_parent.SetMaterial(m_bodySymbology.Color);
+            if (m_bodySymbology.TextureImage is not null) {
+                Material mat = parent.ImageMaterial;
+                Texture tex = await TextureImage.Get(new Uri(m_bodySymbology.TextureImage));
+                if (tex != null) {
+                    tex.wrapMode = TextureWrapMode.Clamp;
+                }
+                mat.SetTexture("_BaseMap", tex);
+            }
+        }
     }
 }
 

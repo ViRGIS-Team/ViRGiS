@@ -167,7 +167,7 @@ namespace Virgis {
 
         public CoordinateTransformation projectTransformer(SpatialReference sr) {
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
-            op.SetBallparkAllowed(false);
+            op.SetBallparkAllowed(true);
             return new CoordinateTransformation(sr, mapProj, op);
         }
 
@@ -177,14 +177,7 @@ namespace Virgis {
             return new CoordinateTransformation(mapProj, sr, op);
         }
 
-        public override void addLayer(IVirgisLayer layer) {
-            _layers.Add(layer);
-            if (_layers.Count == 1)
-                _editSession.editableLayer = _layers[0];
-            if (_layers.Count == 2 && (_layers[0].GetMetadata() as RecordSet).DataType == RecordSetDataType.MapBox)
-                _editSession.editableLayer = _layers[1];
-            LayerUpdate.AddLayer(layer);
-        }
+
 
         public override bool LoadProject(string path) {
             return server.GetComponent<IVirgisLayer>()?.Load(path) ?? false;

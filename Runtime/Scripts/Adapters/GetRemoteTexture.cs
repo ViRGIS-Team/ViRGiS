@@ -59,7 +59,8 @@ namespace Virgis
                 else
                 {
                     //return valid results:
-                    return DownloadHandlerTexture.GetContent(www);
+                    Texture2D tex =  DownloadHandlerTexture.GetContent(www);
+                    return tex;
                 }
             }
         }
