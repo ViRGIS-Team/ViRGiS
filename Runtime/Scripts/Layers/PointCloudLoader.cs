@@ -1,6 +1,6 @@
 ﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,19 +35,19 @@ namespace Virgis
     public class PointCloudLoader : VirgisLoader<BakedPointCloud>
     {
         private GameObject m_model;
-        private Dictionary<string, Unit> m_symbology;
         private Material m_mainMat;
         private Material m_selectedMat;
         private PointCloudLayer parent;
+        private Dictionary<string, Unit> m_Symbology;
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
             parent = m_parent as PointCloudLayer;
             await Load(layer);
-            m_symbology = layer.Properties.Units;
-            Color col = m_symbology.ContainsKey("point") ? 
-                (Color) m_symbology["point"].Color : Color.white;
-            Color sel = m_symbology.ContainsKey("point") ? 
+            m_Symbology = layer.Properties.Units;
+            Color col = m_Symbology.ContainsKey("point") ? 
+                (Color) m_Symbology["point"].Color : Color.white;
+            Color sel = m_Symbology.ContainsKey("point") ? 
                 new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             m_mainMat = Instantiate(parent.HandleMaterial);
             m_mainMat.SetColor("_BaseColor", col);
@@ -98,9 +98,15 @@ namespace Virgis
                     });
                 }
 
-                if (layer.Properties.ColorInterp != null) {
-                    Dictionary<string, object> ci = new Dictionary<string, object>(layer.Properties.ColorInterp);
-                    ci.Add("type", "filters.colorinterp");
+                if (m_Symbology.TryGetValue("body", out Unit bodySymbology) &&
+                    bodySymbology.ColorMode == ColorMode.SinglebandColor &&
+                    bodySymbology.ColorInterp != null) {
+                    Dictionary<string, object> ci = new(bodySymbology.ColorInterp) {
+                        {
+                            "type",
+                            "filters.colorinterp"
+                        }
+                    };
                     pipe.Add(ci);
                 }
 
@@ -140,7 +146,6 @@ namespace Virgis
             if (layer.Transform != null) transform.
                     Translate(AppState.instance.map.transform.
                     TransformVector((Vector3)layer.Transform.Position ));
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
 
             m_model = Instantiate(parent.pointCloud, transform, false);
 
@@ -148,7 +153,7 @@ namespace Virgis
             vfx.SetTexture("_Positions", features.PositionMap);
             vfx.SetTexture("_Colors", features.ColorMap);
             vfx.SetInt("_pointCount", features.PointCount);
-            vfx.SetVector3("_size", symbology["point"].Transform.Scale);
+            vfx.SetVector3("_size", m_Symbology["point"].Transform.Scale);
             vfx.Play();
 
             if (layer.Transform != null) {
@@ -165,7 +170,7 @@ namespace Virgis
             vfx.SetTexture("_Positions", features.PositionMap);
             vfx.SetTexture("_Colors", features.ColorMap);
             vfx.SetInt("_pointCount", features.PointCount);
-            vfx.SetVector3("_size", m_symbology["point"].Transform.Scale);
+            vfx.SetVector3("_size", m_Symbology["point"].Transform.Scale);
             vfx.Play();
         }
 

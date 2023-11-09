@@ -39,10 +39,12 @@ namespace Virgis
         private double m_PixelSize;
         private const float m_PixelScaleFactor = 9;
         private RasterLayer parent;
+        private Dictionary<string, Unit> m_Symbology;
 
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
+            m_Symbology = layer.Properties.Units;
             parent = m_parent as RasterLayer;
             await Load(layer);
             Debug.Log($"Raster Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
@@ -138,12 +140,15 @@ namespace Virgis
                     type = "filters.projpipeline",
                     coord_op = "+proj=axisswap +order=1,-3,2"
                 });
-
-                if (layer.Properties.ColorMode == ColorMode.SinglebandColor && layer.Properties.ColorInterp != null) {
-                    Dictionary<string, object> ci = new(layer.Properties.ColorInterp) {
+                
+                if (m_Symbology.TryGetValue("body", out Unit bodySymbology) && 
+                    bodySymbology.ColorMode == ColorMode.SinglebandColor && 
+                    bodySymbology.ColorInterp != null) 
+                {
+                    Dictionary<string, object> ci = new(bodySymbology.ColorInterp) {
                         {
                             "type",
-                            "filters.colorinterp"
+             "filters.colorinterp"
                         }
                     };
                     pipe.Add(ci);
@@ -175,7 +180,6 @@ namespace Virgis
             if (layer.Transform != null) transform
                     .Translate(AppState.instance.map.transform
                     .TransformVector((Vector3)layer.Transform.Position ));
-            Dictionary<string, Unit> symbology = layer.Properties.Units;
 
             m_model = Instantiate(parent.pointCloud, transform, false);
 

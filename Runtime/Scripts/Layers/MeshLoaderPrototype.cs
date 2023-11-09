@@ -53,14 +53,17 @@ namespace Virgis
                 .TransformVector((Vector3) layer.Transform.Position)
             );
 
+            Material mat = parent.GetMaterial(0);
+            Material wf = parent.GetMaterial(1);
+
             foreach (DMesh3 dMesh in features) {
                 if (dMesh.HasVertexColors) {
-                    parent.MeshMaterial.SetInt("_hasColor", 1);
+                    mat.SetFloat("_hasColor", 1f);
                 }
                 await dMesh.CalculateMapUVsAsync(m_bodySymbology);
                 m_meshes.Add(Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
-                    .Draw(dMesh, parent.MeshMaterial, parent.WireframeMaterial));
+                    .Draw(dMesh, mat, wf));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
@@ -86,13 +89,14 @@ namespace Virgis
             m_symbology.TryGetValue("body", out m_bodySymbology);
 
             m_parent.SetMaterial(m_bodySymbology.Color);
+            m_parent.SetMaterial(m_bodySymbology.Color);
             if (m_bodySymbology.TextureImage is not null) {
-                Material mat = parent.ImageMaterial;
+                Material imat = parent.ImageMaterial;
                 Texture tex = await TextureImage.Get(new Uri(m_bodySymbology.TextureImage));
                 if (tex != null) {
                     tex.wrapMode = TextureWrapMode.Clamp;
                 }
-                mat.SetTexture("_BaseMap", tex);
+                imat.SetTexture("_BaseMap", tex);
             }
         }
     }

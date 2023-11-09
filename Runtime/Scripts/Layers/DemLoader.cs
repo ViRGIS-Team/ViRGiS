@@ -82,6 +82,8 @@ namespace Virgis
             string proj = null;
             double scalingFactor = 0;
             string headerString;
+
+
             (long, Pipeline) value() {
 
                 features = new List<DMesh3>();
@@ -166,13 +168,7 @@ namespace Virgis
                 }
 
                 // if there is a Color Interpolation definition in the RecordSet, add that
-                if (layer.Properties.ColorInterp != null) {
-                    Dictionary<string, object> ci = new(layer.Properties.ColorInterp) {
-                        { "type", "filters.colorinterp" }
-                    };
-                    ci["dimension"] = "Z";
-                    pipe.Add(ci);
-                }
+                pipe.Add(m_bodySymbology.GetCI());
 
                 // create a Mesh using Delaunay traingulation
                 pipe.Add(new {

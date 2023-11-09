@@ -38,8 +38,6 @@ namespace Virgis
 
         List<string> meshUris;
 
-        Material m_Mat;
-        private MdalLayer parent;
 
         public SpatialReference GetCrs() {
             return m_crs as SpatialReference;
@@ -56,7 +54,6 @@ namespace Virgis
             isWriteable = true;
             await SetMaterial();
             m_symbology = layer.Properties.Units;
-            parent = m_parent as MdalLayer;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
@@ -92,25 +89,25 @@ namespace Virgis
         /// m_mesh is a List of transforms to the individual Gameobjects created from each Dmesh3
         /// </summary>
         /// <returns></returns>
-        public override Task _draw()
-        {
-            Stopwatch stopWatch = Stopwatch.StartNew();
-            RecordSet layer = GetMetadata() as RecordSet;
-            m_meshes = new List<Transform>();
+        //public override Task _draw()
+        //{
+        //    Stopwatch stopWatch = Stopwatch.StartNew();
+        //    RecordSet layer = GetMetadata() as RecordSet;
+        //    m_meshes = new List<Transform>();
 
-            foreach (DMesh3 dMesh in features) {
-                m_meshes.Add(Instantiate(parent.Mesh, transform)
-                    .GetComponent<EditableMesh>()
-                    .Draw(dMesh, m_Mat, parent.WireframeMaterial));
-            }
-            transform.SetPositionAndRotation(AppState.instance.map.transform
-                .TransformVector((Vector3) layer.Transform.Position),
-                    layer.Transform.Rotate
-                );
-            transform.localScale = layer.Transform.Scale;
-            Debug.Log($"Mdal Layer Draw took : {stopWatch.Elapsed.TotalSeconds}");
-            return Task.CompletedTask;
-        }
+        //    foreach (DMesh3 dMesh in features) {
+        //        m_meshes.Add(Instantiate(parent.Mesh, transform)
+        //            .GetComponent<EditableMesh>()
+        //            .Draw(dMesh, m_Mat, parent.WireframeMaterial));
+        //    }
+        //    transform.SetPositionAndRotation(AppState.instance.map.transform
+        //        .TransformVector((Vector3) layer.Transform.Position),
+        //            layer.Transform.Rotate
+        //        );
+        //    transform.localScale = layer.Transform.Scale;
+        //    Debug.Log($"Mdal Layer Draw took : {stopWatch.Elapsed.TotalSeconds}");
+        //    return Task.CompletedTask;
+        //}
 
         public override Task _save()
         {
