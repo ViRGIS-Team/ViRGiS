@@ -59,6 +59,8 @@ namespace Virgis
             foreach (DMesh3 dMesh in features) {
                 if (dMesh.HasVertexColors) {
                     mat.SetFloat("_hasColor", 1f);
+                } else {
+                    mat.SetFloat("_hasColor", 0f);
                 }
                 await dMesh.CalculateMapUVsAsync(m_bodySymbology);
                 m_meshes.Add(Instantiate(parent.Mesh, transform)
