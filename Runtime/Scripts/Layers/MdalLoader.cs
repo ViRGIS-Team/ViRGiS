@@ -132,7 +132,7 @@ namespace Virgis
                     dmesh.AttachMetadata("CRS", layer.Crs);
                 };
                 features.Add(dmesh);
-                DMesh3 dmesh2 = dmesh.Compactify();
+                DMesh3 dmesh2 = new(dmesh);
                 for (int i = 0; i < dmesh2.VertexCount; i++) {
                     if (dmesh2.IsVertex(i)) {
                         Vector3d vertex = dmesh2.GetVertex(i);

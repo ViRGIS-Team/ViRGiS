@@ -212,7 +212,6 @@ namespace Virgis
                             mesh.AttachMetadata("CRS", layer.Crs);
                         };
                         mesh.Transform();
-                        mesh.ReverseOrientation(false);
                         features.Add(mesh);
                     }
                 }
