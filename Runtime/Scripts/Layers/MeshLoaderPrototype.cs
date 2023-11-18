@@ -36,6 +36,13 @@ namespace Virgis
         protected Dictionary<string, Unit> m_symbology;
         protected Unit m_bodySymbology;
 
+        public override Task _init(){
+            RecordSet layer = GetMetadata() as RecordSet;
+            m_symbology = layer.Properties.Units;
+            m_symbology.TryGetValue("body", out m_bodySymbology);
+            return Task.CompletedTask;
+        }
+
         public override IVirgisFeature _addFeature<T>(T geometry)
         {
             throw new System.NotImplementedException();
@@ -52,20 +59,18 @@ namespace Virgis
             transform.Translate(AppState.instance.map.transform
                 .TransformVector((Vector3) layer.Transform.Position)
             );
-
-            Material mat = parent.GetMaterial(0);
-            Material wf = parent.GetMaterial(1);
+            
+            bool HasVertexColors = false;
+            foreach (DMesh3 dMesh in features)
+                if (dMesh.HasVertexColors) HasVertexColors = true;
+            await SetMaterial(HasVertexColors);
 
             foreach (DMesh3 dMesh in features) {
-                if (dMesh.HasVertexColors) {
-                    mat.SetFloat("_hasColor", 1f);
-                } else {
-                    mat.SetFloat("_hasColor", 0f);
-                }
+                HasVertexColors |= dMesh.HasVertexColors;
                 await dMesh.CalculateMapUVsAsync(m_bodySymbology);
                 m_meshes.Add(Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
-                    .Draw(dMesh, mat, wf));
+                    .Draw(dMesh));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
@@ -76,31 +81,32 @@ namespace Virgis
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
             features.Add(mesh);
             EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
-            m_meshes.Add(emesh.Draw(mesh, parent.MeshMaterial, parent.WireframeMaterial));
+            m_meshes.Add(emesh.Draw(mesh));
             return emesh;
         }
       
 
         public override void _checkpoint() { }
 
-        protected async Task SetMaterial() {
-            RecordSet layer = GetMetadata() as RecordSet;
-            MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+        protected async Task SetMaterial(bool hasColor = false) 
+        {
+            Dictionary<string, float> prop = new();
+            Texture2D tex;
 
-            m_symbology = layer.Properties.Units;
-            m_symbology.TryGetValue("body", out m_bodySymbology);
-
-            m_parent.SetMaterial(m_bodySymbology.Color);
+            if (hasColor) {
+                prop.Add("_hasColor", 1f);
+            } else {
+                prop.Add("_hasColor", 0f);
+            }
+            m_parent.SetMaterial(m_bodySymbology.Color, prop);
             m_parent.SetMaterial(m_bodySymbology.Color);
             if (m_bodySymbology.TextureImage is not null) {
-                Material imat = parent.ImageMaterial;
-                Texture tex = await TextureImage.Get(new Uri(m_bodySymbology.TextureImage));
+                tex = await TextureImage.Get(new Uri(m_bodySymbology.TextureImage));
                 if (tex != null) {
                     tex.wrapMode = TextureWrapMode.Clamp;
                 }
-                imat.SetTexture("_BaseMap", tex);
+                m_parent.SetMaterial(m_bodySymbology.Color, tex);
             }
         }
     }
 }
-

@@ -48,11 +48,11 @@ namespace Virgis
         /// </summary>
         /// <returns></returns>
         public override async Task _init() {
+            await base._init();
             Stopwatch stopWatch = Stopwatch.StartNew();
             meshUris = new ();
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
-            await SetMaterial();
             m_symbology = layer.Properties.Units;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();

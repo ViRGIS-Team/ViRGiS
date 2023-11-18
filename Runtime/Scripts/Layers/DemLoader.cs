@@ -33,6 +33,7 @@ using Mdal;
 using g3;
 using System;
 using Stopwatch = System.Diagnostics.Stopwatch;
+using UnityEngine.Animations;
 
 namespace Virgis
 {
@@ -47,9 +48,9 @@ namespace Virgis
         }
 
         public override async Task _init() {
+            await base._init();
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
-            await SetMaterial();
             await Load(layer);
             Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
         }

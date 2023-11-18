@@ -106,10 +106,10 @@ namespace Virgis
         }
 
         public override async Task _init() {
+            await base._init();
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
 
-            await SetMaterial();
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
