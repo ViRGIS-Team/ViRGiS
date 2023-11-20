@@ -24,6 +24,7 @@ using OSGeo.OSR;
 using Gdal = OSGeo.GDAL.Gdal;
 using Project;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System;
 using System.IO;
@@ -181,6 +182,23 @@ namespace Virgis {
 
         public override bool LoadProject(string path) {
             return server.GetComponent<IVirgisLayer>()?.Load(path) ?? false;
+        }
+
+        public override void UnloadProject() {
+
+            clearLayers();
+
+            // kill off any tasks that could be generating layers at the moment
+            if (tasks != null)
+                foreach (IEnumerator task in tasks) {
+                    if (task != null)
+                        StopCoroutine(task);
+                }
+
+            //Kill all map entities
+            for (int i = map.transform.childCount - 1; i>= 0; i--) {
+                Destroy(map.transform.GetChild(i).gameObject);
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ SOFTWARE. */
 using Project;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Threading.Tasks;
 using System.IO;
 using UnityEngine;
@@ -116,13 +117,15 @@ namespace Virgis {
 
 
         protected void initLayers(List<RecordSet> layers) {
-            AppState.instance.tasks = new List<Coroutine>();
+            AppState.instance.tasks = new ();
             foreach (RecordSet thisLayer in layers) {
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = CreateLayer(thisLayer);
                 if (!temp.Spawn(State.instance.map.transform)) Debug.Log("reparent failed");
-                AppState.instance.tasks.Add(StartCoroutine(temp.Init(thisLayer).AsIEnumerator()));
+                IEnumerator task = temp.Init(thisLayer).AsIEnumerator();
+                StartCoroutine(task);
+                AppState.instance.tasks.Add(task);
             }
         }
 
