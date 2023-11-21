@@ -189,17 +189,13 @@ namespace Virgis {
 
             clearLayers();
 
-            // kill off any tasks that could be generating layers at the moment
-            if (tasks != null)
-                foreach (IEnumerator task in tasks) {
-                    if (task != null)
-                        StopCoroutine(task);
-                }
-
             //Kill all map entities
             if (map != null)
-                for (int i = map.transform.childCount - 1 ; i>= 0; i--) {
-                    Destroy(map.transform.GetChild(i).gameObject);
+                for (int i = map.transform.childCount - 1 ; i>= 0; i--) { 
+                    GameObject go = map.transform.GetChild(i).gameObject;
+                    VirgisLayer layer = go.GetComponent<VirgisLayer>();
+                    layer.DeSpawn();
+                    Destroy(layer);
                 }
         }
 

@@ -117,16 +117,12 @@ namespace Virgis {
 
 
         protected void initLayers(List<RecordSet> layers) {
-            AppState.instance.tasks = new ();
             foreach (RecordSet thisLayer in layers) {
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = CreateLayer(thisLayer);
-                State appState = State.instance;
                 if (!temp.Spawn(State.instance.map.transform)) Debug.Log("reparent failed");
-                IEnumerator task = temp.Init(thisLayer).AsIEnumerator();
-                StartCoroutine(task);
-                AppState.instance.tasks.Add(task);
+                StartCoroutine(temp.Init(thisLayer));
             }
         }
 

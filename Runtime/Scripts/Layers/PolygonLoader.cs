@@ -175,14 +175,11 @@ namespace Virgis
         {
             Geometry center = poly.Centroid();
             center.AssignSpatialReference(poly.GetSpatialReference());
-
-
             //Create the GameObjects
             GameObject dataPoly = Instantiate(parent.PolygonPrefab, center.TransformWorld()[0], Quaternion.identity, transform);
 
 
 
-            // add the gis data from geoJSON
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
             p.Spawn(transform);
 
