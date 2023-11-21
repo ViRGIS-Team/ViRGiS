@@ -208,7 +208,7 @@ namespace Virgis
                     ) {
                     GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
-                    com.Spawn(dataPoly.transform);
+                    com.Spawn(transform);
                     LinearRing.CloseRings();
                     DCurve3 curve = new DCurve3();
                     curve.FromGeometry(LinearRing);
