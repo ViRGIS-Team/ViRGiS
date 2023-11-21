@@ -25,6 +25,7 @@ using Gdal = OSGeo.GDAL.Gdal;
 using Project;
 using System.Collections.Generic;
 using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using System;
 using System.IO;
@@ -196,9 +197,20 @@ namespace Virgis {
                 }
 
             //Kill all map entities
-            for (int i = map.transform.childCount - 1; i>= 0; i--) {
-                Destroy(map.transform.GetChild(i).gameObject);
-            }
+            if (map != null)
+                for (int i = map.transform.childCount - 1 ; i>= 0; i--) {
+                    Destroy(map.transform.GetChild(i).gameObject);
+                }
         }
+
+        public async override Task Exit() {
+            Debug.Log("QuitButton.OnClick save before quit");
+            if (map.TryGetComponent(out ServerInitialize mi))
+                await mi.Save(false);
+            Debug.Log("QuitButton.OnClick now quit");
+            UnloadProject();
+            Application.Quit();
+        }
+
     }
 }

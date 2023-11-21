@@ -49,7 +49,7 @@ namespace Virgis {
         protected void Awake()
         {
             Debug.Log("Map awakens");
-            if (AppState.instance == null) {
+            if (State.instance == null) {
                 Debug.Log("instantiate app state");
                 Instantiate(appState);
             }
@@ -122,6 +122,7 @@ namespace Virgis {
                 VirgisLayer temp = null;
                 Debug.Log("Loading Layer : " + thisLayer.DisplayName);
                 temp = CreateLayer(thisLayer);
+                State appState = State.instance;
                 if (!temp.Spawn(State.instance.map.transform)) Debug.Log("reparent failed");
                 IEnumerator task = temp.Init(thisLayer).AsIEnumerator();
                 StartCoroutine(task);
