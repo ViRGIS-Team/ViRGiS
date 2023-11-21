@@ -1,6 +1,6 @@
 /* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -176,10 +176,7 @@ namespace Virgis
             Geometry center = poly.Centroid();
             center.AssignSpatialReference(poly.GetSpatialReference());
             //Create the GameObjects
-            GameObject dataPoly = Instantiate(parent.PolygonPrefab, center.TransformWorld()[0], Quaternion.identity, transform);
-
-
-
+            GameObject dataPoly = Instantiate(parent.PolygonPrefab, transform, false);
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
             p.Spawn(transform);
 
