@@ -26,6 +26,7 @@ using Project;
 using System.Collections.Generic;
 using System.Collections;
 using System.Threading.Tasks;
+using Unity.Netcode;
 using UnityEngine;
 using System;
 using System.IO;
@@ -192,10 +193,7 @@ namespace Virgis {
             //Kill all map entities
             if (map != null)
                 for (int i = map.transform.childCount - 1 ; i>= 0; i--) { 
-                    GameObject go = map.transform.GetChild(i).gameObject;
-                    VirgisLayer layer = go.GetComponent<VirgisLayer>();
-                    layer.DeSpawn();
-                    Destroy(layer);
+                    NetworkObject.Destroy( map.transform.GetChild(i).gameObject.GetComponent<VirgisLayer>());
                 }
         }
 
