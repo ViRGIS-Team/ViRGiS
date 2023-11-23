@@ -191,10 +191,15 @@ namespace Virgis {
             clearLayers();
 
             //Kill all map entities
-            if (map != null)
-                for (int i = map.transform.childCount - 1 ; i>= 0; i--) { 
-                    NetworkObject.Destroy( map.transform.GetChild(i).gameObject.GetComponent<VirgisLayer>());
+            if (map != null){
+                for (int i = map.transform.childCount -1; i>=0;  i--){
+                    if ( map.transform.GetChild(i).TryGetComponent(out VirgisLayer sublayer)){
+                        sublayer.Destroy();
+                        NetworkObject no = sublayer.GetComponent<NetworkObject>();
+                        no.Despawn();
+                    }
                 }
+            }
         }
 
         public async override Task Exit() {
