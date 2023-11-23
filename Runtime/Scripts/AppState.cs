@@ -188,8 +188,6 @@ namespace Virgis {
 
         public override void UnloadProject() {
 
-            clearLayers();
-
             //Kill all map entities
             if (map != null){
                 for (int i = map.transform.childCount -1; i>=0;  i--){
