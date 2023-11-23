@@ -73,7 +73,6 @@ namespace Virgis {
             }
             DontDestroyOnLoad(gameObject);
             _editSession = new EditSession();
-            _layers = new List<IVirgisLayer>();
             Zoom = new ZoomEvent();
             Project = new ProjectChange();
             Info = new InfoEvent();

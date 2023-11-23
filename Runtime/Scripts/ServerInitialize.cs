@@ -132,7 +132,7 @@ namespace Virgis {
         /// </summary>
         public new void Draw()
         {
-            foreach (IVirgisLayer layer in AppState.instance.layers)
+            foreach (IVirgisLayer layer in AppState.instance.Layers)
             {
                 try {
                     layer.Draw();
@@ -161,7 +161,7 @@ namespace Virgis {
                 Debug.Log("MapInitialize.Save starts");
                 if (AppState.instance.project != null) {
                     if (all) {
-                        foreach (IVirgisLayer com in AppState.instance.layers) {
+                        foreach (IVirgisLayer com in AppState.instance.Layers) {
                             RecordSet alayer = await (com as VirgisLayer).Save() as RecordSet;
                             int index = AppState.instance.project.RecordSets.FindIndex(x => x.Id == alayer.Id);
                             AppState.instance.project.RecordSets[index] = alayer;
