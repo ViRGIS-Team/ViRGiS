@@ -49,7 +49,7 @@ namespace Virgis {
 
         protected Task<int> Load() {
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer.Properties.Units;
+            m_symbology = layer.Units;
             m_displacement = 1.0f;
             if (m_symbology.ContainsKey("point") &&
                 m_symbology["point"].ContainsKey("Shape")) {

@@ -44,7 +44,7 @@ namespace Virgis
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
-            m_Symbology = layer.Properties.Units;
+            m_Symbology = layer.Units;
             parent = m_parent as RasterLayer;
             await Load(layer);
             Debug.Log($"Raster Layer Load took : {stopWatch.Elapsed.TotalSeconds}");

@@ -50,7 +50,7 @@ namespace Virgis {
         protected Task<int> Load() {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
-                m_symbology = layer.Properties.Units;
+                m_symbology = layer.Units;
                 Color body = m_symbology.ContainsKey("body") ? (Color) m_symbology["body"].Color : Color.white;
                 m_bodyMain = Instantiate(parent.MeshBaseMaterial);
                 m_bodyMain.SetColor("_BaseColor", body);

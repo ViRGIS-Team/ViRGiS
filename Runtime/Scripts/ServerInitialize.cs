@@ -24,7 +24,6 @@ SOFTWARE. */
 using Project;
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Threading.Tasks;
 using System.IO;
 using UnityEngine;
@@ -55,7 +54,7 @@ namespace Virgis {
             }
             AppState.instance.server = gameObject;
             Debug.Log($"Virgis version : {Application.version}");
-            Debug.Log($"Project version: {GisProject.GetVersion()}");
+            Debug.Log($"Project version: {new GisProject().GetVersion()}");
         }
 
         protected new void Start() {

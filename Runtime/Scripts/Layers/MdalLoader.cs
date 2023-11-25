@@ -53,7 +53,7 @@ namespace Virgis
             meshUris = new ();
             RecordSet layer = _layer as RecordSet;
             isWriteable = true;
-            m_symbology = layer.Properties.Units;
+            m_symbology = layer.Units;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {

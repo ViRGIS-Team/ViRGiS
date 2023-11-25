@@ -38,7 +38,7 @@ namespace Virgis
 
         public override Task _init(){
             RecordSet layer = GetMetadata() as RecordSet;
-            m_symbology = layer.Properties.Units;
+            m_symbology = layer.Units;
             m_symbology.TryGetValue("body", out m_bodySymbology);
             return Task.CompletedTask;
         }

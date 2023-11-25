@@ -44,7 +44,7 @@ namespace Virgis
             RecordSet layer = _layer as RecordSet;
             parent = m_parent as PointCloudLayer;
             await Load(layer);
-            m_Symbology = layer.Properties.Units;
+            m_Symbology = layer.Units;
             Color col = m_Symbology.ContainsKey("point") ? 
                 (Color) m_Symbology["point"].Color : Color.white;
             Color sel = m_Symbology.ContainsKey("point") ? 

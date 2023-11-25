@@ -128,7 +128,7 @@ namespace Virgis
                         };
                     }
                 }
-                m_symbology = layer.Properties.Units;
+                m_symbology = layer.Units;
             }
             if (ex == ".dxf") {
                 List<Vector3d> vertexes = new List<Vector3d>();
@@ -290,7 +290,7 @@ namespace Virgis
                 features = new List<DMesh3> {
                     dmesh
                 };
-                m_symbology = layer.Properties.Units;
+                m_symbology = layer.Units;
                 return;
             }
         }
