@@ -96,10 +96,10 @@ namespace Virgis
             Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             Color line = m_symbology.ContainsKey("line") ? (Color) m_symbology["line"].Color : Color.white;
             Color lineSel = m_symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-            parent.SetMaterial(col);
-            parent.SetMaterial(sel);
-            parent.SetMaterial(line);
-            parent.SetMaterial(lineSel);
+            parent.SetMaterial("point",col);
+            parent.SetMaterial("point_sel",sel);
+            parent.SetMaterial("line", line);
+            parent.SetMaterial("line_sel",lineSel);
             return Task.FromResult(1);
         }
 

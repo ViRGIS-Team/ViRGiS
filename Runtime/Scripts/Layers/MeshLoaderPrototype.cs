@@ -39,7 +39,9 @@ namespace Virgis
         public override Task _init(){
             RecordSet layer = GetMetadata() as RecordSet;
             m_symbology = layer.Units;
-            m_symbology.TryGetValue("body", out m_bodySymbology);
+            if ( ! m_symbology.TryGetValue("body", out m_bodySymbology)) {
+                m_bodySymbology = new ();
+            };
             return Task.CompletedTask;
         }
 
@@ -98,14 +100,14 @@ namespace Virgis
             } else {
                 prop.Add("_hasColor", 0f);
             }
-            m_parent.SetMaterial(m_bodySymbology.Color, prop);
-            m_parent.SetMaterial(m_bodySymbology.Color);
+            m_parent.SetMaterial("body", m_bodySymbology.Color, prop);
+            m_parent.SetMaterial("wireframe", m_bodySymbology.Color);
             if (m_bodySymbology.TextureImage is not null) {
                 tex = await TextureImage.Get(new Uri(m_bodySymbology.TextureImage));
                 if (tex != null) {
                     tex.wrapMode = TextureWrapMode.Clamp;
                 }
-                m_parent.SetMaterial(m_bodySymbology.Color, tex);
+                m_parent.SetMaterial("image", m_bodySymbology.Color, tex);
             }
         }
     }

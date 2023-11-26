@@ -77,8 +77,8 @@ namespace Virgis {
                 (Color) m_symbology["point"].Color : Color.white;
             Color sel = m_symbology.ContainsKey("point") ? 
                 new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            parent.SetMaterial(col);
-            parent.SetMaterial(sel);
+            parent.SetMaterial( "point", col);
+            parent.SetMaterial("point_sel", sel);
             return Task.FromResult(0);
         }
 

@@ -106,11 +106,11 @@ namespace Virgis
                 new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
             Color body = m_symbology.ContainsKey("body") ? 
                 (Color) m_symbology["body"].Color : Color.white;
-            parent.SetMaterial(col);
-            parent.SetMaterial(sel);
-            parent.SetMaterial(line);
-            parent.SetMaterial(lineSel);
-            parent.SetMaterial(body);
+            parent.SetMaterial("point", col);
+            parent.SetMaterial("point_sel", sel);
+            parent.SetMaterial("line", line);
+            parent.SetMaterial("line_sel", lineSel);
+            parent.SetMaterial("body", body);
             return Task.FromResult(1);
         }
 
