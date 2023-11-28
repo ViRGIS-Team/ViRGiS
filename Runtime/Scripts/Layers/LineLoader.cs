@@ -232,7 +232,7 @@ namespace Virgis
             GameObject fs = Instantiate(m_handlePrefab, parent.transform);
             Datapoint com = fs.GetComponent<Datapoint>();
             com.Spawn(parent.transform);
-            //com.SetMaterial(0);
+            com.Draw();
             return fs;
         }
     }

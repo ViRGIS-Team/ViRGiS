@@ -78,7 +78,6 @@ namespace Virgis {
             Color sel = m_symbology.ContainsKey("point") ? 
                 new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
             parent.SetMaterial( "point", col);
-            parent.SetMaterial("point_sel", sel);
             return Task.FromResult(0);
         }
 
@@ -142,6 +141,7 @@ namespace Virgis {
             GameObject dataPoint = Instantiate(m_pointPrefab, transform, false);
             Datapoint com = dataPoint.GetComponent<Datapoint>();
             com.Spawn(transform);
+            com.Draw();
 
             // add the gis data from source
             dataPoint.transform.position = position;
@@ -199,6 +199,7 @@ namespace Virgis {
         public override GameObject GetFeatureShape() {
             GameObject fs = Instantiate(m_pointPrefab, parent.transform);
             Datapoint com = fs.GetComponent<Datapoint>();
+            com.Draw();
             return fs;
         }
 
