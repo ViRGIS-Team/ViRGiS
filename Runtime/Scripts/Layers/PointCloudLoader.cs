@@ -39,20 +39,15 @@ namespace Virgis
         private Material m_selectedMat;
         private PointCloudLayer parent;
         private Dictionary<string, Unit> m_Symbology;
+        protected Unit m_bodySymbology;
 
-        public override async Task _init() {
-            RecordSet layer = _layer as RecordSet;
-            parent = m_parent as PointCloudLayer;
-            await Load(layer);
+        public override async Task _init(){
+            RecordSet layer = GetMetadata() as RecordSet;
             m_Symbology = layer.Units;
-            Color col = m_Symbology.ContainsKey("point") ? 
-                (Color) m_Symbology["point"].Color : Color.white;
-            Color sel = m_Symbology.ContainsKey("point") ? 
-                new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            m_mainMat = Instantiate(parent.HandleMaterial);
-            m_mainMat.SetColor("_BaseColor", col);
-            m_selectedMat = Instantiate(parent.HandleMaterial);
-            m_selectedMat.SetColor("_BaseColor", sel);
+            if ( ! m_Symbology.TryGetValue("point", out m_bodySymbology)) {
+                m_bodySymbology = new ();
+            };
+            await Load(layer);
         }
 
         protected async Task Load(RecordSet layer) {
