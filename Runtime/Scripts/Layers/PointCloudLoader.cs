@@ -140,13 +140,13 @@ namespace Virgis
             PointCloud com = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
             com.Spawn(parent.transform);
-            com.Bpc.Set(features.PositionMap, features.ColorMap);
+            com.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount);
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
             PointCloud com = parent.GetComponent<PointCloud>();
-            com.Bpc.Set(features.PositionMap, features.ColorMap);
+            com.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount);
         }
 
         public override void _checkpoint() { }
