@@ -23,7 +23,6 @@ SOFTWARE. */
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.VFX;
 using System.Threading.Tasks;
 using System.IO;
 using Project;
@@ -34,9 +33,6 @@ namespace Virgis
 {
     public class PointCloudLoader : VirgisLoader<BakedPointCloud>
     {
-        private GameObject m_model;
-        private Material m_mainMat;
-        private Material m_selectedMat;
         private PointCloudLayer parent;
         private Dictionary<string, Unit> m_Symbology;
         protected Unit m_bodySymbology;
@@ -134,7 +130,6 @@ namespace Virgis
 
         public override Task _draw()
         {
-            Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ?
                 layer.Position.ToVector3() : Vector3.zero ;
@@ -142,41 +137,26 @@ namespace Virgis
                     Translate(AppState.instance.map.transform.
                     TransformVector((Vector3)layer.Transform.Position ));
 
-            m_model = Instantiate(parent.pointCloud, transform, false);
-
-            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", features.PositionMap);
-            vfx.SetTexture("_Colors", features.ColorMap);
-            vfx.SetInt("_pointCount", features.PointCount);
-            vfx.SetVector3("_size", m_Symbology["point"].Transform.Scale);
-            vfx.Play();
-
-            if (layer.Transform != null) {
-                transform.rotation = layer.Transform.Rotate;
-                transform.localScale = layer.Transform.Scale;
-                vfx.SetVector3("_scale", layer.Transform.Scale);
-            }
-            UnityEngine.Debug.Log($"PointCloud Draw took {stopWatch.Elapsed.TotalSeconds}");
+            PointCloud com = Instantiate(parent.pointCloud, transform, false)
+                .GetComponent<PointCloud>();
+            com.Spawn(parent.transform);
+            com.Bpc.Set(features.PositionMap, features.ColorMap);
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
-            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", features.PositionMap);
-            vfx.SetTexture("_Colors", features.ColorMap);
-            vfx.SetInt("_pointCount", features.PointCount);
-            vfx.SetVector3("_size", m_Symbology["point"].Transform.Scale);
-            vfx.Play();
+            PointCloud com = parent.GetComponent<PointCloud>();
+            com.Bpc.Set(features.PositionMap, features.ColorMap);
         }
 
         public override void _checkpoint() { }
 
         public override Task _save()
         {
-            _layer.Position = transform.position.ToPoint();
+            _layer.Position = parent.transform.position.ToPoint();
             _layer.Transform.Position = Vector3.zero;
-            _layer.Transform.Rotate = transform.rotation;
-            _layer.Transform.Scale = transform.localScale;
+            _layer.Transform.Rotate = parent.transform.rotation;
+            _layer.Transform.Scale = parent.transform.localScale;
             return Task.CompletedTask;
         }
     }
