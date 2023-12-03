@@ -25,7 +25,6 @@ using UnityEngine;
 using g3;
 using Project;
 using System.Threading.Tasks;
-using System;
 
 namespace Virgis
 {
@@ -63,16 +62,13 @@ namespace Virgis
             );
             
             bool HasVertexColors = false;
-            foreach (DMesh3 dMesh in features)
-                if (dMesh.HasVertexColors) HasVertexColors = true;
-            await SetMaterial(HasVertexColors);
 
             foreach (DMesh3 dMesh in features) {
                 HasVertexColors |= dMesh.HasVertexColors;
                 await dMesh.CalculateMapUVsAsync(m_bodySymbology);
                 m_meshes.Add(Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
-                    .Draw(dMesh));
+                    .Draw(dMesh, m_bodySymbology));
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
@@ -83,32 +79,12 @@ namespace Virgis
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
             features.Add(mesh);
             EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
-            m_meshes.Add(emesh.Draw(mesh));
+            m_meshes.Add(emesh.Draw(mesh, m_bodySymbology));
             return emesh;
         }
       
 
         public override void _checkpoint() { }
 
-        protected async Task SetMaterial(bool hasColor = false) 
-        {
-            Dictionary<string, float> prop = new();
-            Texture2D tex;
-
-            if (hasColor) {
-                prop.Add("_hasColor", 1f);
-            } else {
-                prop.Add("_hasColor", 0f);
-            }
-            m_parent.SetMaterial("body", m_bodySymbology.Color, prop);
-            m_parent.SetMaterial("wireframe", m_bodySymbology.Color);
-            if (m_bodySymbology.TextureImage is not null) {
-                tex = await TextureImage.Get(new Uri(m_bodySymbology.TextureImage));
-                if (tex != null) {
-                    tex.wrapMode = TextureWrapMode.Clamp;
-                }
-                m_parent.SetMaterial("image", m_bodySymbology.Color, tex);
-            }
-        }
     }
 }

@@ -73,11 +73,14 @@ namespace Virgis {
                 m_pointPrefab = parent.SpherePrefab;
             }
 
-            Color col = m_symbology.ContainsKey("point") ? 
-                (Color) m_symbology["point"].Color : Color.white;
-            Color sel = m_symbology.ContainsKey("point") ? 
-                new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            parent.SetMaterial( "point", col);
+            foreach (string key in m_symbology.Keys) {
+                Unit unit = m_symbology[key];
+                SerializableMaterialHash hash = new() {
+                    Name = key,
+                    Color = unit.Color,
+                };
+                m_materials.Add(key, hash);
+            }
             return Task.FromResult(0);
         }
 
@@ -141,11 +144,12 @@ namespace Virgis {
             GameObject dataPoint = Instantiate(m_pointPrefab, transform, false);
             Datapoint com = dataPoint.GetComponent<Datapoint>();
             com.Spawn(transform);
-            com.Draw();
+            SerializableMaterialHash point_hash;
+            if (! m_materials.TryGetValue("point", out point_hash)) point_hash = new();
+            com.SetMaterial(point_hash);
 
             // add the gis data from source
             dataPoint.transform.position = position;
-            if (feature != null) com.feature = feature;
 
             //Set the symbology
             if (m_symbology.ContainsKey("point")) {
@@ -181,25 +185,28 @@ namespace Virgis {
         public override void _checkpoint() {
         }
         public override Task _save() {
-            Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
-            List<Feature> thisFeatures = new List<Feature>();
-            long n = features.GetFeatureCount(0);
-            for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
-            foreach (Datapoint pointFunc in pointFuncs) {
-                Feature feature = pointFunc.feature as Feature;
-                Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
-                geom.TransformTo(GetCrs());
-                feature.SetGeometryDirectly(geom);
-                features.CreateFeature(feature);
-            }
-            features.SyncToDisk();
+            //Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
+            //List<Feature> thisFeatures = new List<Feature>();
+            //long n = features.GetFeatureCount(0);
+            //for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
+            //foreach (Datapoint pointFunc in pointFuncs) {
+            //    Feature feature = pointFunc.feature as Feature;
+            //    Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
+            //    geom.TransformTo(GetCrs());
+            //    feature.SetGeometryDirectly(geom);
+            //    features.CreateFeature(feature);
+            //}
+            //features.SyncToDisk();
             return Task.CompletedTask;
         }
 
         public override GameObject GetFeatureShape() {
             GameObject fs = Instantiate(m_pointPrefab, parent.transform);
             Datapoint com = fs.GetComponent<Datapoint>();
-            com.Draw();
+            SerializableMaterialHash point_hash;
+            if (!m_materials.TryGetValue("point", out point_hash))
+                point_hash = new();
+            //com.SetMaterial(point_hash);
             return fs;
         }
 

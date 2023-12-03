@@ -1,6 +1,6 @@
 /* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -92,14 +92,14 @@ namespace Virgis
                 m_linePrefab = parent.CylinderLinePrefab;
             }
 
-            Color col = m_symbology.ContainsKey("point") ? (Color) m_symbology["point"].Color : Color.white;
-            Color sel = m_symbology.ContainsKey("point") ? new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            Color line = m_symbology.ContainsKey("line") ? (Color) m_symbology["line"].Color : Color.white;
-            Color lineSel = m_symbology.ContainsKey("line") ? new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-            parent.SetMaterial("point",col);
-            parent.SetMaterial("point_sel",sel);
-            parent.SetMaterial("line", line);
-            parent.SetMaterial("line_sel",lineSel);
+            foreach(string key in m_symbology.Keys) {
+                Unit unit = m_symbology[key];
+                SerializableMaterialHash hash = new() {
+                    Name = key,
+                    Color = unit.Color,
+                };
+                m_materials.Add(key, hash);
+            }
             return Task.FromResult(1);
         }
 
@@ -173,21 +173,17 @@ namespace Virgis
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
             com.Spawn(transform);
+            com.Symbology = m_symbology.ToDictionary(
+                    item => item.Key,
+                    item => item.Value as UnitPrototype
+                );
 
-            if (feature != null)
-                com.feature = feature;
-
-            //DEBUG
-            line.ExportToIsoWkt(out string wkt);
 
             //Draw the line
             DCurve3 curve = new();
             curve.FromGeometry(line);
             com.Draw(curve, 
-                m_symbology.ToDictionary(
-                    item => item.Key,
-                item => item.Value as UnitPrototype
-                ), 
+                m_materials,
                 m_handlePrefab, 
                 parent.LabelPrefab,
                 line.IsRing()
@@ -212,7 +208,7 @@ namespace Virgis
 
         public override Task _save()
         {
-            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+/*            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
             foreach (Dataline dataFeature in dataFeatures) {
                 Feature feature = dataFeature.feature as Feature;
                 Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
@@ -222,7 +218,7 @@ namespace Virgis
                 feature.SetGeometryDirectly(geom);
                 features.SetFeature(feature);
             };
-            features.SyncToDisk();
+            features.SyncToDisk();*/
             return Task.CompletedTask;
 
         }
@@ -232,7 +228,10 @@ namespace Virgis
             GameObject fs = Instantiate(m_handlePrefab, parent.transform);
             Datapoint com = fs.GetComponent<Datapoint>();
             com.Spawn(parent.transform);
-            com.Draw();
+            SerializableMaterialHash point_hash;
+            if (!m_materials.TryGetValue("point", out point_hash))
+                point_hash = new();
+            //com.SetMaterial(point_hash);
             return fs;
         }
     }

@@ -160,7 +160,7 @@ namespace Virgis {
                         mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
                     }
                 }
-                m_symbology = layer.Properties.Units;
+                Symbology = layer.Properties.Units;
             }
             if (ex == ".dxf") {
             List<Vector3d> vertexes = new List<Vector3d>();
@@ -246,7 +246,7 @@ namespace Virgis {
                 dmesh.CompactInPlace();
                 features = new List<DMesh3>();
                 features.Add(dmesh);
-                m_symbology = layer.Properties.Units;
+                Symbology = layer.Properties.Units;
                 return;
             }
         }

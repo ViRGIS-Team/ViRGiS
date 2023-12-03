@@ -34,7 +34,6 @@ namespace Virgis {
 
     public class TinLoader : VirgisLoader<Layer> {
 
-        private Material m_bodyMain;
         private Dictionary<string, Unit> m_symbology;
         private TinLayer parent;
 
@@ -51,9 +50,14 @@ namespace Virgis {
             Task<int> t1 = new Task<int>(() => {
                 RecordSet layer = _layer as RecordSet;
                 m_symbology = layer.Units;
-                Color body = m_symbology.ContainsKey("body") ? (Color) m_symbology["body"].Color : Color.white;
-                m_bodyMain = Instantiate(parent.MeshBaseMaterial);
-                m_bodyMain.SetColor("_BaseColor", body);
+                foreach (string key in m_symbology.Keys) {
+                    Unit unit = m_symbology[key];
+                    SerializableMaterialHash hash = new() {
+                        Name = key,
+                        Color = unit.Color,
+                    };
+                    m_materials.Add(key, hash);
+                }
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -117,9 +121,6 @@ namespace Virgis {
 
             EditableMesh mesh = dataTIN.GetComponent<EditableMesh>();
 
-            if (feature != null)
-                mesh.feature = feature;
-
             List<Geometry> trigeos = new List<Geometry>();
             List<Vector3d> trivects = new List<Vector3d>();
             List<int> tris = new List<int>();
@@ -167,7 +168,10 @@ namespace Virgis {
             tin.GetSpatialReference().ExportToWkt(out crs, null);
             dmesh.AttachMetadata("CRS", crs );
             dmesh.Transform();
-            mesh.Draw(dmesh);
+
+            Unit body;
+            if (!m_symbology.TryGetValue("body", out body)) body = new();
+            mesh.Draw(dmesh, body );
 
             //if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false)) {
             //    //Set the label

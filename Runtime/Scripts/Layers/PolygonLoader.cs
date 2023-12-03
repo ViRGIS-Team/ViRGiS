@@ -96,21 +96,14 @@ namespace Virgis
                 m_linePrefab = parent.CylinderLinePrefab;
             }
 
-            Color col = m_symbology.ContainsKey("point") ? 
-                (Color) m_symbology["point"].Color : Color.white;
-            Color sel = m_symbology.ContainsKey("point") ?
-                new Color(1 - col.r, 1 - col.g, 1 - col.b, col.a) : Color.red;
-            Color line = m_symbology.ContainsKey("line") ? 
-                (Color) m_symbology["line"].Color : Color.white;
-            Color lineSel = m_symbology.ContainsKey("line") ? 
-                new Color(1 - line.r, 1 - line.g, 1 - line.b, line.a) : Color.red;
-            Color body = m_symbology.ContainsKey("body") ? 
-                (Color) m_symbology["body"].Color : Color.white;
-            parent.SetMaterial("point", col);
-            parent.SetMaterial("point_sel", sel);
-            parent.SetMaterial("line", line);
-            parent.SetMaterial("line_sel", lineSel);
-            parent.SetMaterial("body", body);
+            foreach (string key in m_symbology.Keys) {
+                Unit unit = m_symbology[key];
+                SerializableMaterialHash hash = new() {
+                    Name = key,
+                    Color = unit.Color,
+                };
+                m_materials.Add(key, hash);
+            }
             return Task.FromResult(1);
         }
 
@@ -180,9 +173,6 @@ namespace Virgis
             Datapolygon p = dataPoly.GetComponent<Datapolygon>();
             p.Spawn(transform);
 
-            if (feature != null)
-                p.feature = feature;
-
             if (m_symbology.ContainsKey("body") && m_symbology["body"].ContainsKey("Label") && 
                     m_symbology["body"].Label != null && (feature?.ContainsKey(m_symbology["body"].Label
                 ) ?? false))
@@ -209,14 +199,15 @@ namespace Virgis
                     GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                     Dataline com = dataLine.GetComponent<Dataline>();
                     com.Spawn(dataPoly.transform);
+                    com.Symbology = m_symbology.ToDictionary(
+                            item => item.Key,
+                            item => item.Value as UnitPrototype
+                        );
                     LinearRing.CloseRings();
                     DCurve3 curve = new DCurve3();
                     curve.FromGeometry(LinearRing);
                     com.Draw(curve,
-                        m_symbology.ToDictionary(
-                            item => item.Key,
-                            item => item.Value as UnitPrototype
-                        ), 
+                        m_materials, 
                         m_handlePrefab, 
                         null,
                         true
@@ -249,19 +240,19 @@ namespace Virgis
             Datapolygon[] dataFeatures = gameObject.GetComponentsInChildren<Datapolygon>();
             foreach (Datapolygon dataFeature in dataFeatures)
             {
-                Feature feature = dataFeature.feature as Feature;
-                Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
-                geom.AssignSpatialReference(AppState.instance.mapProj);
-                Dataline[] poly = dataFeature.GetComponentsInChildren<Dataline>();
-                foreach (Dataline perimeter in poly) {
-                    Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
-                    lr.Vector3(perimeter.GetVertexPositions());
-                    lr.CloseRings();
-                    geom.AddGeometryDirectly(lr);
-                }
-                geom.TransformTo(GetCrs());
-                feature.SetGeometryDirectly(geom);
-                features.SetFeature(feature);
+                //Feature feature = dataFeature.feature as Feature;
+                //Geometry geom = new Geometry(wkbGeometryType.wkbPolygon);
+                //geom.AssignSpatialReference(AppState.instance.mapProj);
+                //Dataline[] poly = dataFeature.GetComponentsInChildren<Dataline>();
+                //foreach (Dataline perimeter in poly) {
+                //    Geometry lr = new Geometry(wkbGeometryType.wkbLinearRing);
+                //    lr.Vector3(perimeter.GetVertexPositions());
+                //    lr.CloseRings();
+                //    geom.AddGeometryDirectly(lr);
+                //}
+                //geom.TransformTo(GetCrs());
+                //feature.SetGeometryDirectly(geom);
+                //features.SetFeature(feature);
             }
             features.SyncToDisk();
             return Task.CompletedTask;
@@ -273,7 +264,10 @@ namespace Virgis
             GameObject fs = Instantiate(m_handlePrefab, parent.transform);
             Datapoint dp = fs.GetComponent<Datapoint>();
             dp.Spawn(parent.transform);
-            //dp.SetMaterial(0);
+            SerializableMaterialHash point_hash;
+            if (!m_materials.TryGetValue("point", out point_hash))
+                point_hash = new();
+            //dp.SetMaterial(point_hash);
             return fs;
         }
     }
