@@ -23,12 +23,9 @@ SOFTWARE. */
 using OSGeo.OSR;
 using Gdal = OSGeo.GDAL.Gdal;
 using Project;
-using System.Threading.Tasks;
-using Unity.Netcode;
 using UnityEngine;
 using System;
 using System.IO;
-using UniRx;
 using OSGeo;
 using Mdal;
 using Pdal;
@@ -50,8 +47,6 @@ namespace Virgis {
                 State.instance = value;
             }
         }
-
-        public GameObject server;
 
         private SpatialReference _crs;
         private CoordinateTransformation _trans;
@@ -78,7 +73,7 @@ namespace Virgis {
             Orientation = new OrientEvent();
             LayerUpdate = new LayerChange();
 
-            initsub = Project.Event.Subscribe(proj => Init());
+
             try {
                 GdalConfiguration.ConfigureOgr();
             } catch (Exception e) {
@@ -103,7 +98,7 @@ namespace Virgis {
         }
 
         private void OnDestroy() {
-            initsub.Dispose();
+
         }
 
         /// <summary>
@@ -115,7 +110,6 @@ namespace Virgis {
             } 
             set {
                 Project.Set(value);
-                initProj();
             }
         }
 
@@ -130,7 +124,7 @@ namespace Virgis {
         /// <summary>
         /// Tasks to be run after a project is loaded
         /// </summary>
-        public void initProj() {
+        public override void InitProj() {
             if (project != null) {
                 _crs = new SpatialReference($@"PROJCRS[""virgis"",
                     BASEGEOGCRS[""WGS 84"",
@@ -176,35 +170,5 @@ namespace Virgis {
             op.SetBallparkAllowed(false);
             return new CoordinateTransformation(mapProj, sr, op);
         }
-
-
-
-        public override bool LoadProject(string path) {
-            return server.GetComponent<IVirgisLayer>()?.Load(path) ?? false;
-        }
-
-        public override void UnloadProject() {
-
-            //Kill all map entities
-            if (map != null){
-                for (int i = map.transform.childCount -1; i>=0;  i--){
-                    if ( map.transform.GetChild(i).TryGetComponent(out VirgisLayer sublayer)){
-                        sublayer.Destroy();
-                        NetworkObject no = sublayer.GetComponent<NetworkObject>();
-                        no.Despawn();
-                    }
-                }
-            }
-        }
-
-        public async override Task Exit() {
-            Debug.Log("QuitButton.OnClick save before quit");
-            if (map.TryGetComponent(out ServerInitialize mi))
-                await mi.Save(false);
-            Debug.Log("QuitButton.OnClick now quit");
-            UnloadProject();
-            Application.Quit();
-        }
-
     }
 }

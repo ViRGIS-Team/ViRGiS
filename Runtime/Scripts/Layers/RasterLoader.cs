@@ -178,7 +178,7 @@ namespace Virgis
             transform.position = layer.Position != null ?
                 layer.Position.ToVector3() : Vector3.zero ;
             if (layer.Transform != null) transform
-                    .Translate(AppState.instance.map.transform
+                    .Translate(AppState.instance.Map.transform
                     .TransformVector((Vector3)layer.Transform.Position ));
 
             m_model = Instantiate(parent.pointCloud, transform, false);

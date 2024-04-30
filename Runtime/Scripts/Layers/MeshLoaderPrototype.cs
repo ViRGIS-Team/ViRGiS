@@ -57,7 +57,7 @@ namespace Virgis
             transform.position = layer.Position != null ?
                 layer.Position.ToVector3() :
                 Vector3.zero;
-            transform.Translate(AppState.instance.map.transform
+            transform.Translate(AppState.instance.Map.transform
                 .TransformVector((Vector3) layer.Transform.Position)
             );
             
