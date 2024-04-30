@@ -84,7 +84,7 @@ namespace Virgis {
             List<Vector3d> vertexes = curve.Vertices as List<Vector3d>;
             for (int i = 0; i < curve.VertexCount; i++) {
                 Vector3 local = (Vector3) vertexes[i];
-                ret.Add(AppState.instance.map.transform.TransformVector(local));
+                ret.Add(AppState.instance.Map.transform.TransformVector(local));
             }
             return ret.ToArray();
         }
@@ -95,7 +95,7 @@ namespace Virgis {
         /// <param name="curve">DCurve3 in local map space coordinates</param>
         /// <returns>Vcetor3 in world space coordinates</returns>
         public static Vector3 WorldCenter(this DCurve3 curve) {
-            return AppState.instance.map.transform.TransformVector((Vector3) curve.Center());
+            return AppState.instance.Map.transform.TransformVector((Vector3) curve.Center());
         }
     }
 
@@ -131,7 +131,7 @@ namespace Virgis {
                     double[] argout = new double[3];
                     geom.GetPoint(i, argout);
                     Vector3 mapLocal = (Vector3) new Vector3d(argout);
-                    ret.Add(AppState.instance.map.transform.TransformPoint(mapLocal));
+                    ret.Add(AppState.instance.Map.transform.TransformPoint(mapLocal));
                 }
             else {
                 throw new NotSupportedException("no Points in geometry");
@@ -147,7 +147,7 @@ namespace Virgis {
         /// <returns></returns>
         public static Geometry Vector3(this Geometry geom, Vector3[] points) {
             foreach (Vector3 point in points) {
-                Vector3 mapLocal = AppState.instance.map.transform.InverseTransformPoint(point);
+                Vector3 mapLocal = AppState.instance.Map.transform.InverseTransformPoint(point);
                 geom.AddPoint(mapLocal.x, mapLocal.z, mapLocal.y);
             }
             return geom;

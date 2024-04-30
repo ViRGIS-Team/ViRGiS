@@ -75,7 +75,7 @@ namespace Virgis {
                 double[] argout = vector3tolocation(position, sr);
                 return new Vector3d(argout[0], argout[1], argout[2]);
             }
-            return AppState.instance.map.transform.InverseTransformPoint(position);
+            return AppState.instance.Map.transform.InverseTransformPoint(position);
         }
 
         static private double[] vector3tolocation(Vector3 position, SpatialReference sr = null) {

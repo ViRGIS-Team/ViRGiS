@@ -78,7 +78,7 @@ namespace Virgis
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ? layer.Position.ToVector3() : Vector3.zero;
             if (layer.Transform != null)
-                transform.Translate(AppState.instance.map.transform.TransformVector((Vector3) layer.Transform.Position));
+                transform.Translate(AppState.instance.Map.transform.TransformVector((Vector3) layer.Transform.Position));
             Dictionary<string, Unit> symbology = layer.Units;
 
             SpatialReference crs = null;
