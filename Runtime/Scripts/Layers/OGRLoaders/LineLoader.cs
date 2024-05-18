@@ -23,8 +23,6 @@ SOFTWARE. */
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using Project;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using g3;
@@ -35,80 +33,16 @@ namespace Virgis
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class LineLoader : VirgisLoader<Layer>
+    public class LineLoader : LineLoaderPrototype<Layer>
     {
-        private GameObject m_handlePrefab;
-        private GameObject m_linePrefab;
-        private Dictionary<string, Unit> m_symbology;
-        private LineLayer parent;
-
         public override async Task _init() {
             parent = m_parent as LineLayer;
+            m_symbology = (GetMetadata() as RecordSet).Units;
             await Load();
         }
 
         public SpatialReference GetCrs() {
             return m_crs as SpatialReference;
-        }
-
-        protected Task<int> Load() {
-            RecordSet layer = _layer as RecordSet;
-            m_symbology = layer.Units;
-
-            if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["point"].Shape;
-                switch (shape) {
-                    case Shapes.Spheroid:
-                        m_handlePrefab = parent.SpherePrefab;
-                        break;
-                    case Shapes.Cuboid:
-                        m_handlePrefab = parent.CubePrefab;
-                        break;
-                    case Shapes.Cylinder:
-                        m_handlePrefab = parent.CylinderPrefab;
-                        break;
-                    default:
-                        m_handlePrefab = parent.SpherePrefab;
-                        break;
-                }
-            } else {
-                m_handlePrefab = parent.SpherePrefab;
-            }
-
-            if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["line"].Shape;
-                switch (shape) {
-                    case Shapes.Cuboid:
-                        m_linePrefab = parent.CuboidLinePrefab;
-                        break;
-                    case Shapes.Cylinder:
-                        m_linePrefab = parent.CylinderLinePrefab;
-                        break;
-                    default:
-                        m_linePrefab = parent.CylinderLinePrefab;
-                        break;
-                }
-            } else {
-                m_linePrefab = parent.CylinderLinePrefab;
-            }
-
-            foreach(string key in m_symbology.Keys) {
-                Unit unit = m_symbology[key];
-                SerializableMaterialHash hash = new() {
-                    Name = key,
-                    Color = unit.Color,
-                };
-                m_materials.Add(key, hash);
-            }
-            return Task.FromResult(1);
-        }
-
-        protected VirgisFeature _addFeature(Vector3[] line)
-        {
-            Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
-            geom.AssignSpatialReference(AppState.instance.mapProj);
-            geom.Vector3(line);
-            return _drawFeature(geom, new Feature(new FeatureDefn(null)));
         }
 
         public override async Task _draw()
@@ -134,7 +68,9 @@ namespace Virgis
                         ) {
                             if (line.GetSpatialReference() == null)
                                 line.AssignSpatialReference(GetCrs());
-                            await _drawFeatureAsync(line, feature);
+                            DCurve3 curve = new();
+                            curve.FromGeometry(line);
+                            await _drawFeatureAsync(curve);
                         } else if
                             (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
                             line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
@@ -146,7 +82,9 @@ namespace Virgis
                                 Geometry Line2 = line.GetGeometryRef(k);
                                 if (Line2.GetSpatialReference() == null)
                                     Line2.AssignSpatialReference(GetCrs());
-                                await _drawFeatureAsync(Line2, feature);
+                                DCurve3 curve = new();
+                                curve.FromGeometry(Line2);
+                                await _drawFeatureAsync(curve);
                             }
                         }
                         line.Dispose();
@@ -161,50 +99,7 @@ namespace Virgis
         }
 
 
-        /// <summary>
-        /// Draws a single feature based on world scale coordinates
-        /// </summary>
-        /// <param name="line"> Geometry</param>
-        /// <param name="feature">Feature (optinal)</param>
-        protected VirgisFeature _drawFeature(Geometry line, Feature feature = null)
-        {
-            GameObject dataLine = Instantiate(m_linePrefab, transform, false);
 
-            //set the gisProject properties
-            Dataline com = dataLine.GetComponent<Dataline>();
-            com.Spawn(transform);
-            com.Symbology = m_symbology.ToDictionary(
-                    item => item.Key,
-                    item => item.Value as UnitPrototype
-                );
-
-
-            //Draw the line
-            DCurve3 curve = new();
-            curve.FromGeometry(line);
-            com.Draw(curve, 
-                m_materials,
-                m_handlePrefab, 
-                parent.LabelPrefab,
-                line.IsRing()
-            );
-
-            return com;
-        }
-
-        protected Task<int> _drawFeatureAsync(Geometry line, Feature feature = null) {
-
-            Task<int> t1 = new Task<int>(() => {
-                _drawFeature(line, feature);
-                return 1;
-            });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
-            return t1;
-        }
-
-        public override void _checkpoint()
-        {
-        }
 
         public override Task _save()
         {
@@ -221,18 +116,6 @@ namespace Virgis
             features.SyncToDisk();*/
             return Task.CompletedTask;
 
-        }
-
-        public override GameObject GetFeatureShape()
-        {
-            GameObject fs = Instantiate(m_handlePrefab, parent.transform);
-            Datapoint com = fs.GetComponent<Datapoint>();
-            com.Spawn(parent.transform);
-            SerializableMaterialHash point_hash;
-            if (!m_materials.TryGetValue("point", out point_hash))
-                point_hash = new();
-            //com.SetMaterial(point_hash);
-            return fs;
         }
     }
 }
