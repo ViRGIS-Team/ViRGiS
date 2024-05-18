@@ -206,11 +206,11 @@ namespace Virgis
                     LinearRing.CloseRings();
                     DCurve3 curve = new DCurve3();
                     curve.FromGeometry(LinearRing);
+                    curve.Closed = true;
                     com.Draw(curve,
                         m_materials, 
                         m_handlePrefab, 
-                        null,
-                        true
+                        null
                     );
                     polygon.Add(com);
                 }
