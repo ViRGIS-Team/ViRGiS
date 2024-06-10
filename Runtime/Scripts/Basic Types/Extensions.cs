@@ -62,15 +62,28 @@ namespace Virgis {
             if (geom.Transform(AppState.instance.mapTrans) != 0)
                 throw new NotSupportedException("axis change failed");
             int n = geom.GetPointCount();
-            Vector3d[] ls = new Vector3d[n];
+            List<Vector3d> ls = new();
+            double[] start = new double[3];
             for (int i = 0; i < n; i++) {
                 double[] argout = new double[3];
                 geom.GetPoint(i, argout);
-                ls[i] = new Vector3d(argout);
+                if (i == 0) {
+                    start = argout;
+                } else {
+                    if (i + 1 == n && (
+                        start[0] == argout[0] &&
+                        start[1] == argout[1] &&
+                        start[2] == argout[2]
+                        )) {
+                        // this is the end of a ring
+                        curve.Closed = true;
+                        break;
+                    }
+                }
+                ls.Add(new Vector3d(argout));
             }
             curve.ClearVertices();
             curve.SetVertices(ls);
-            curve.Closed = geom.IsRing();
             return curve;
         }
 
@@ -157,7 +170,7 @@ namespace Virgis {
     public static class MeshExtensionsGeo {
 
         /// <summary>
-        /// Transform Dmesh (either projected or unprojected) to Layer Local Space
+        /// Transform projected Dmesh to World Space
         /// </summary>
         /// <returns>bool true if successful</returns>
         public static bool Transform(this DMesh3 dMesh) {
@@ -168,20 +181,7 @@ namespace Virgis {
                 CoordinateTransformation trans = AppState.instance.projectTransformer(from);
                 return dMesh.Transform(trans);
             }
-            //else assume that the DMesh3 is in Local Space coordinates
-            try {
-                for (int i = 0; i < dMesh.VertexCount; i++) {
-                    if (dMesh.IsVertex(i)) {
-                        Vector3d vertex = dMesh.GetVertex(i);
-                        double[] dV = new double[3] { vertex.x, vertex.y, vertex.z };
-                        AppState.instance.mapTrans.TransformPoint(dV);
-                        dMesh.SetVertex(i, new Vector3d(dV));
-                    }
-                };
-                return true;
-            } catch {
-                return false;
-            }
+            return false;
         }
 
         public static bool Transform(this DMesh3 dMesh, CoordinateTransformation transformer) {

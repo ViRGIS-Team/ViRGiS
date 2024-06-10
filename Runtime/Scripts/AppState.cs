@@ -65,13 +65,15 @@ namespace Virgis {
                 Destroy(gameObject);
             }
             DontDestroyOnLoad(gameObject);
-            _editSession = new EditSession();
-            Zoom = new ZoomEvent();
-            Project = new ProjectChange();
-            Info = new InfoEvent();
-            ButtonStatus = new ButtonStatus();
-            Orientation = new OrientEvent();
-            LayerUpdate = new LayerChange();
+            _editSession = new();
+            Zoom = new();
+            MapScale = new();
+            GridScale = new();
+            Project = new();
+            Info = new();
+            ButtonStatus = new();
+            Orientation = new();
+            LayerUpdate = new();
 
 
             try {

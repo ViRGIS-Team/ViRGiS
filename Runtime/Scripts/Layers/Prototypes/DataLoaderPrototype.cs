@@ -23,7 +23,7 @@ namespace Virgis {
                         pl.transform.rotation = subLayer.Transform.Rotate;
                         pl.transform.localScale = subLayer.Transform.Scale;
                         pl.sourceName = subLayer.Name;
-                        pl.isWriteable = true;
+                        pl.IsWriteable = true;
                         DataPointLoader ploader = pl.gameObject.AddComponent<DataPointLoader>();
                         ploader.SetFeatures(features);
                         ploader.Unit = subLayer;
@@ -38,11 +38,26 @@ namespace Virgis {
                         ll.transform.rotation = subLayer.Transform.Rotate;
                         ll.transform.localScale = subLayer.Transform.Scale;
                         ll.sourceName = subLayer.Name;
-                        ll.isWriteable = true;
+                        ll.IsWriteable = true;
                         DataLineLoader loader = ll.gameObject.AddComponent<DataLineLoader>();
                         loader.SetFeatures(features);
                         loader.Unit = subLayer;
                         await ll.SubInit(layer);
+                        break;
+                    case DataUnitRepresent.Area:
+                        m_parent.AddSubLayer(Instantiate(parent.AreaLayer, transform).GetComponent<PolygonLayer>());
+                        PolygonLayer pll = subLayers.Last() as PolygonLayer;
+                        if (!pll.Spawn(transform))
+                            throw new System.Exception("reparenting failed");
+                        pll.transform.position = subLayer.Transform.Position;
+                        pll.transform.rotation = subLayer.Transform.Rotate;
+                        pll.transform.localScale = subLayer.Transform.Scale;
+                        pll.sourceName = subLayer.Name;
+                        pll.IsWriteable = true;
+                        DataAreaLoader plloader = pll.gameObject.AddComponent<DataAreaLoader>();
+                        plloader.SetFeatures(features);
+                        plloader.Unit = subLayer;
+                        await pll.SubInit(layer);
                         break;
                 }
             }
@@ -50,10 +65,6 @@ namespace Virgis {
         }
 
         public override Task _draw() {
-            return Task.CompletedTask;
-        }
-
-        public override Task _save() {
             return Task.CompletedTask;
         }
     }

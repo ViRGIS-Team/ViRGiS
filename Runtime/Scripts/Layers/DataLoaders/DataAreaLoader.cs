@@ -35,12 +35,11 @@ namespace Virgis
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class DataLineLoader : LineLoaderPrototype<DataTable>
+    public class DataAreaLoader : PolygonLoaderPrototype<DataTable>
     {
         public DataUnit Unit;
 
         public override async Task _init() {
-            parent = m_parent as LineLayer;
             m_symbology = Unit.Units;
             await Load();
         }
@@ -76,7 +75,20 @@ namespace Virgis
                 curve.AppendVertex(AppState.instance.Map.transform.TransformVector((Vector3) pos3d));
                 curve.SetData(row.Field<long>("__FID"));
             }
-            await _drawFeatureAsync(curve, "data");
+            DCurve3 ring = new();
+
+            for (int i=0; i<curve.VertexCount; i++) {
+                Vector3d v = curve.GetVertex(i);
+                long fid = curve.GetData<long>(i);
+                // Insert top vertex for this data point
+                ring.InsertVertex(v, i);
+                ring.InsertData(fid, i);
+
+                // Insert bottom vertex for this data point
+                ring.InsertVertex(new Vector3d(v.x, 0, v.z), i + 1);
+                ring.InsertData(fid, i + 1);
+            }
+            await _drawFeatureAsync(new List<DCurve3>() { ring }, "data");
         }
 
         protected override object GetNextFID() {

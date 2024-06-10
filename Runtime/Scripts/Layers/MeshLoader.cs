@@ -108,7 +108,7 @@ namespace Virgis
         public override async Task _init() {
             await base._init();
             RecordSet layer = _layer as RecordSet;
-            isWriteable = true;
+            IsWriteable = true;
 
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {

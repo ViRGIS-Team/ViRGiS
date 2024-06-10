@@ -52,7 +52,7 @@ namespace Virgis
             Stopwatch stopWatch = Stopwatch.StartNew();
             meshUris = new ();
             RecordSet layer = _layer as RecordSet;
-            isWriteable = true;
+            IsWriteable = true;
             m_symbology = layer.Units;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<DMesh3>();

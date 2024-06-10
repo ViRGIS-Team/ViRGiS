@@ -22,29 +22,35 @@ SOFTWARE. */
 
 using Project;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 using g3;
+using System.Linq;
 using System.Collections;
+using static Codice.Client.Common.WebApi.WebApiEndpoints;
 
 namespace Virgis
 {
 
     /// <summary>
-    /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
+    /// Controls an instance of a Polygon Layer
     /// </summary>
-    public abstract class LineLoaderPrototype<T> : VirgisLoader<T>
+    public abstract class PolygonLoaderPrototype<T> : VirgisLoader<T>
     {
         protected GameObject m_handlePrefab;
         protected GameObject m_linePrefab;
+
         protected Dictionary<string, Unit> m_symbology;
-        protected LineLayer parent;
+        protected PolygonLayer parent;
+
 
         protected Task<int> Load() {
+            parent = m_parent as PolygonLayer;
             RecordSet layer = _layer as RecordSet;
 
-            if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
+            if (m_symbology.ContainsKey("point") &&
+                m_symbology["point"].ContainsKey("Shape")) {
                 Shapes shape = m_symbology["point"].Shape;
                 switch (shape) {
                     case Shapes.Spheroid:
@@ -64,7 +70,8 @@ namespace Virgis
                 m_handlePrefab = parent.SpherePrefab;
             }
 
-            if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
+            if (m_symbology.ContainsKey("line") && 
+                m_symbology["line"].ContainsKey("Shape")) {
                 Shapes shape = m_symbology["line"].Shape;
                 switch (shape) {
                     case Shapes.Cuboid:
@@ -81,7 +88,7 @@ namespace Virgis
                 m_linePrefab = parent.CylinderLinePrefab;
             }
 
-            foreach(string key in m_symbology.Keys) {
+            foreach (string key in m_symbology.Keys) {
                 Unit unit = m_symbology[key];
                 SerializableMaterialHash hash = new() {
                     Name = key,
@@ -92,45 +99,59 @@ namespace Virgis
             return Task.FromResult(1);
         }
 
-        protected VirgisFeature _addFeature(Vector3[] line)
-        {
-            DCurve3 curve = new(line, false);
-
-            return _drawFeature(curve, "");
-        }
-
-        /// <summary>
-        /// Draws a single feature based on world space coordinates
-        /// </summary>
-        /// <param name="line"> Geometry</param>
-        /// <param name="fid">Feature ID</param>
-        /// <param name="label">Label Text</param>
-        protected VirgisFeature _drawFeature(DCurve3 line, object fid, string label = null)
-        {
-            GameObject dataLine = Instantiate(m_linePrefab, transform);
-
-            //set the gisProject properties
-            Dataline com = dataLine.GetComponent<Dataline>();
-            com.SetFID(fid);
-            com.Spawn(transform);
-            com.Symbology = m_symbology.ToDictionary(
-                    item => item.Key,
-                    item => item.Value as UnitPrototype
-                );
-
-            com.Draw(line, 
-                m_materials,
-                m_handlePrefab, 
-                parent.LabelPrefab
+        protected VirgisFeature _addFeature(Vector3[] line) {
+            changed = true;
+            return _drawFeature(
+                new() { new DCurve3(line.Cast<Vector3d>(), true) },
+                GetNextFID()
             );
-
-            return com;
         }
 
-        protected Task<int> _drawFeatureAsync(DCurve3 line, object fid, string label = null) {
+        protected VirgisFeature _drawFeature(List<DCurve3> poly, object fid, string label = "")
+        {
+            //Create the GameObjects
+            GameObject dataPoly = Instantiate(parent.PolygonPrefab, transform, false);
+            Datapolygon p = dataPoly.GetComponent<Datapolygon>();
+            p.SetFID(fid);
+            if (label !=  "") {
+                //Set the label
+                GameObject labelObject = Instantiate(parent.LabelPrefab, dataPoly.transform, false);
+                labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) *
+                                                m_symbology["point"].Transform.Scale.magnitude, Space.Self);
+                Text labelText = labelObject.GetComponentInChildren<Text>();
+                labelText.text = label;
+            }
+            p.Spawn(transform);
+
+            // Draw the LinearRings
+            List<Dataline> polygon = new();
+            foreach (DCurve3 curve in poly) {
+                GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
+                Dataline com = dataLine.GetComponent<Dataline>();
+                com.Spawn(dataPoly.transform);
+                com.Symbology = m_symbology.ToDictionary(
+                        item => item.Key,
+                        item => item.Value as UnitPrototype
+                    );
+                curve.Closed = true;
+                com.Draw(curve,
+                    m_materials, 
+                    m_handlePrefab, 
+                    null
+                );
+                polygon.Add(com);
+            }
+
+            //Draw the Polygon
+            p.Draw(polygon);
+
+            return p;
+        }
+
+        protected Task<int> _drawFeatureAsync(List<DCurve3> poly, object fid, string label = "") {
 
             Task<int> t1 = new Task<int>(() => {
-                _drawFeature(line, fid, label);
+                _drawFeature(poly, fid, label);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());

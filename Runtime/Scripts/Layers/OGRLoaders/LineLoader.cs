@@ -24,6 +24,8 @@ using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using Project;
 using System.Threading.Tasks;
+using System.Collections;
+using System;
 using UnityEngine;
 using g3;
 
@@ -70,7 +72,7 @@ namespace Virgis
                                 line.AssignSpatialReference(GetCrs());
                             DCurve3 curve = new();
                             curve.FromGeometry(line);
-                            await _drawFeatureAsync(curve);
+                            await _drawFeatureAsync(curve, feature.GetFID());
                         } else if
                             (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
                             line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
@@ -84,7 +86,7 @@ namespace Virgis
                                     Line2.AssignSpatialReference(GetCrs());
                                 DCurve3 curve = new();
                                 curve.FromGeometry(Line2);
-                                await _drawFeatureAsync(curve);
+                                await _drawFeatureAsync(curve, feature.GetFID());
                             }
                         }
                         line.Dispose();
@@ -98,24 +100,34 @@ namespace Virgis
             }
         }
 
+        protected override object GetNextFID() {
+            features.ResetReading();
+            long highest = 0;
+            while (true) {
+                Feature feature = features.GetNextFeature();
+                if (feature == null)
+                    break;
+                long fid = feature.GetFID();
+                highest = Math.Max(fid, highest);
+            }
+            return highest + 1;
+        }
 
 
-
-        public override Task _save()
+        protected override IEnumerator hydrate()
         {
-/*            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-            foreach (Dataline dataFeature in dataFeatures) {
-                Feature feature = dataFeature.feature as Feature;
-                Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
-                geom.AssignSpatialReference(AppState.instance.mapProj);
-                geom.Vector3(dataFeature.GetVertexPositions());
-                geom.TransformTo(GetCrs());
-                feature.SetGeometryDirectly(geom);
-                features.SetFeature(feature);
-            };
-            features.SyncToDisk();*/
-            return Task.CompletedTask;
-
+            /*            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
+                        foreach (Dataline dataFeature in dataFeatures) {
+                            Feature feature = dataFeature.feature as Feature;
+                            Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
+                            geom.AssignSpatialReference(AppState.instance.mapProj);
+                            geom.Vector3(dataFeature.GetVertexPositions());
+                            geom.TransformTo(GetCrs());
+                            feature.SetGeometryDirectly(geom);
+                            features.SetFeature(feature);
+                        };
+                        features.SyncToDisk();*/
+            return null;
         }
     }
 }

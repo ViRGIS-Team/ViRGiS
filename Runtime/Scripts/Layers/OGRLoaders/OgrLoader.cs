@@ -62,7 +62,7 @@ namespace Virgis {
                         l = subLayers.Last() as PointLayer;
                         if (! l.Spawn(transform)) throw new System.Exception("reparenting failed");
                         l.sourceName = thisLayer.GetName();
-                        l.isWriteable = m_ogrReader.isWriteable;
+                        l.IsWriteable = m_ogrReader.isWriteable;
                         loader = l.gameObject.AddComponent<PointLoader>();
                         (loader as PointLoader).SetFeatures(thisLayer);
                         (loader as PointLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -74,7 +74,7 @@ namespace Virgis {
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         l.sourceName = thisLayer.GetName();
-                        l.isWriteable = m_ogrReader.isWriteable;
+                        l.IsWriteable = m_ogrReader.isWriteable;
                         loader = l.gameObject.AddComponent<LineLoader>();
                         (loader as LineLoader).SetFeatures(thisLayer);
                         (loader as LineLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -86,7 +86,7 @@ namespace Virgis {
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         l.sourceName = thisLayer.GetName();
-                        l.isWriteable = m_ogrReader.isWriteable;
+                        l.IsWriteable = m_ogrReader.isWriteable;
                         loader = l.gameObject.AddComponent<PolygonLoader>();
                         (loader as PolygonLoader).SetFeatures(thisLayer);
                         (loader as PolygonLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -99,7 +99,7 @@ namespace Virgis {
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         l.sourceName = thisLayer.GetName();
-                        l.isWriteable = m_ogrReader.isWriteable;
+                        l.IsWriteable = m_ogrReader.isWriteable;
                         loader = l.gameObject.AddComponent<TinLoader>();
                         (loader as TinLoader).SetFeatures(thisLayer);
                         (loader as TinLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -136,7 +136,7 @@ namespace Virgis {
                                         l = subLayers.Last() as LineLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.isWriteable;
                                         loader = l.gameObject.AddComponent<LineLoader>();
                                         (loader as LineLoader).SetFeatures(thisLayer);
                                         (loader as LineLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -155,7 +155,7 @@ namespace Virgis {
                                         l = subLayers.Last() as PolygonLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.isWriteable;
                                         loader = l.gameObject.AddComponent<PolygonLoader>();
                                         (loader as PolygonLoader).SetFeatures(thisLayer);
                                         (loader as PolygonLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -174,7 +174,7 @@ namespace Virgis {
                                         l = subLayers.Last() as PointLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.isWriteable;
                                         loader = l.gameObject.AddComponent<PointLoader>();
                                         (loader as PointLoader).SetFeatures(thisLayer);
                                         (loader as PointLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -194,7 +194,7 @@ namespace Virgis {
                                         l = subLayers.Last() as TinLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.isWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.isWriteable;
                                         loader = l.gameObject.AddComponent<TinLoader>();
                                         (loader as TinLoader).SetFeatures(thisLayer);
                                         (loader as TinLoader).SetCrs(OgrReader.getSR(thisLayer, layer));

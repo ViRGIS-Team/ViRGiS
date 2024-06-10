@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Project;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace Virgis {
     public abstract class PointLoaderPrototype<T> : VirgisLoader<T> {
         protected GameObject m_pointPrefab;
-        protected Dictionary<string, Unit> m_symbology;
-        protected float m_displacement;
         protected PointLayer parent;
+        protected Dictionary<string, Unit> m_symbology;
 
         protected Task<int> Load() {
             parent = m_parent as PointLayer;
@@ -43,6 +43,7 @@ namespace Virgis {
                     Color = unit.Color,
                 };
                 m_materials.Add(key, hash);
+                if (key == "point") m_parent.m_DefaultCol.Value = hash;
             }
             return Task.FromResult(0);
         }
@@ -52,18 +53,20 @@ namespace Virgis {
         /// </summary>
         /// <param name="position"> Vector3 position</param>
 
-        protected VirgisFeature DrawFeature(Vector3 position, string label = "") {
+        protected VirgisFeature DrawFeature(Vector3 position, object fid, string label = "") {
             //instantiate the prefab with coordinates defined above
-            GameObject dataPoint = Instantiate(m_pointPrefab, transform, false);
+            GameObject dataPoint = Instantiate(m_pointPrefab, transform);
             Datapoint com = dataPoint.GetComponent<Datapoint>();
+            com.SetFID(fid);
             com.Spawn(transform);
             SerializableMaterialHash point_hash;
             if (!m_materials.TryGetValue("point", out point_hash))
                 point_hash = new();
             com.SetMaterial(point_hash);
 
-            // add the gis data from source
+            // add the data from source
             dataPoint.transform.position = position;
+            var localPostion = dataPoint.transform.localPosition;
 
             //Set the symbology
             if (m_symbology.ContainsKey("point")) {
@@ -87,38 +90,50 @@ namespace Virgis {
             return com;
         }
 
-        protected Task<int> DrawFeatureAsync(Vector3 position, string label = "") {
+        protected Task<int> DrawFeatureAsync(Vector3 position, object fid, string label = "") {
             Task<int> t1 = new Task<int>(() => {
-                DrawFeature(position, label);
+                DrawFeature(position, fid, label);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
             return t1;
         }
 
-        public override GameObject GetFeatureShape() {
-            GameObject fs = Instantiate(m_pointPrefab, parent.transform);
-            Datapoint com = fs.GetComponent<Datapoint>();
-            SerializableMaterialHash point_hash;
-            if (!m_materials.TryGetValue("point", out point_hash))
-                point_hash = new();
-            //com.SetMaterial(point_hash);
-            return fs;
+        public override Shapes GetFeatureShape() {
+            if (m_symbology.ContainsKey("point") &&
+                m_symbology["point"].ContainsKey("Shape")) {
+                return m_symbology["point"].Shape;
+            }
+            return Shapes.None;
         }
 
         public override void _checkpoint() {
         }
 
         protected VirgisFeature _addFeature(Vector3[] geometry) {
-            VirgisFeature newFeature = DrawFeature(geometry[0]);
+            VirgisFeature newFeature = DrawFeature(geometry[0], GetNextFID());
             changed = true;
             return newFeature;
         }
 
         public void RemoveVertex(VirgisFeature vertex) {
-            if (AppState.instance.InEditSession() && IsEditable()) {
+            if (AppState.instance.InEditSession() && IsWriteable) {
                 Destroy(vertex.gameObject);
             }
         }
+
+        protected abstract object GetNextFID();
+
+        public async override Task _save() {
+            IEnumerator saver = hydrate();
+            while (saver.MoveNext()) {
+                await Task.Yield();
+            };
+            await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
+            return;
+        }
+
+        protected abstract IEnumerator hydrate();
+
     }
 }

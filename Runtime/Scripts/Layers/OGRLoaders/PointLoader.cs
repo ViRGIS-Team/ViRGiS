@@ -26,6 +26,8 @@ using UnityEngine;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using System.Linq;
+using System;
+using System.Collections;
 
 namespace Virgis {
 
@@ -65,7 +67,7 @@ namespace Virgis {
                             point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
                             point.GetGeometryType() == wkbGeometryType.wkbPointM ||
                             point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                            point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await DrawFeatureAsync(item, label));
+                            point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await DrawFeatureAsync(item, feature.GetFID(), label));
                         } else if
                            (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
                             point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
@@ -79,7 +81,7 @@ namespace Virgis {
                                     label = "";
                                 }
                                 Geometry Point2 = point.GetGeometryRef(k);
-                                Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await DrawFeatureAsync(item, label));
+                                Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await DrawFeatureAsync(item, feature.GetFID(), label));
                             }
                         }
                         point.Dispose();
@@ -93,20 +95,39 @@ namespace Virgis {
             }
         }
 
-        public override Task _save() {
-            //Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
-            //List<Feature> thisFeatures = new List<Feature>();
-            //long n = features.GetFeatureCount(0);
-            //for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
-            //foreach (Datapoint pointFunc in pointFuncs) {
-            //    Feature feature = pointFunc.feature as Feature;
-            //    Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
-            //    geom.TransformTo(GetCrs());
-            //    feature.SetGeometryDirectly(geom);
-            //    features.CreateFeature(feature);
-            //}
-            //features.SyncToDisk();
-            return Task.CompletedTask;
+        protected override IEnumerator hydrate() {
+            Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
+            foreach (Datapoint pointFunc in pointFuncs) {
+                Feature feature = features.GetFeature(pointFunc.GetFID<long>());
+                bool n = false;
+                if (feature == null) {
+                    feature = new Feature(features.GetLayerDefn());
+                    n = true;
+                }
+                Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
+                geom.TransformTo(GetCrs());
+                feature.SetGeometryDirectly(geom);
+                if (n) {
+                    features.CreateFeature(feature);
+                } else {
+                    features.SetFeature(feature);
+                }
+                yield return null;
+            }
+            features.SyncToDisk();
+        }
+
+        protected override object GetNextFID() {
+            features.ResetReading();
+            long highest = 0;
+            while (true) {
+                Feature feature = features.GetNextFeature();
+                if (feature == null)
+                    break;
+                long fid = feature.GetFID();
+                highest = Math.Max(fid, highest);
+            }
+            return highest + 1;
         }
     }
 }
