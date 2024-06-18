@@ -59,6 +59,21 @@ namespace Virgis {
                         plloader.Unit = subLayer;
                         await pll.SubInit(layer);
                         break;
+                    case DataUnitRepresent.Manifold:
+                        m_parent.AddSubLayer(Instantiate(parent.ManifoldLayer, transform).GetComponent<MeshLayer>());
+                        MeshLayer ml = subLayers.Last() as MeshLayer;
+                        if (!ml.Spawn(transform))
+                            throw new System.Exception("reparenting failed");
+                        ml.transform.position = subLayer.Transform.Position;
+                        ml.transform.rotation = subLayer.Transform.Rotate;
+                        ml.transform.localScale = subLayer.Transform.Scale;
+                        ml.sourceName = subLayer.Name;
+                        ml.IsWriteable = true;
+                        DataManifoldLoader mloader = ml.gameObject.AddComponent<DataManifoldLoader>();
+                        mloader.SetFeatures(features);
+                        mloader.Unit = subLayer;
+                        await ml.SubInit(layer);
+                        break;
                 }
             }
             return;

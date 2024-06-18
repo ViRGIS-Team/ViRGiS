@@ -30,14 +30,14 @@ using Project;
 using Pdal;
 using OSGeo.GDAL;
 using Mdal;
-using g3;
+using VirgisGeometry;
 using System;
 using Stopwatch = System.Diagnostics.Stopwatch;
-using UnityEngine.Animations;
+using System.Collections;
 
 namespace Virgis
 {
-    public class DemLoader : MeshloaderPrototype {
+    public class DemLoader : MeshloaderPrototype<string> {
 
         private enum SourceType {
             PDAL,
@@ -51,11 +51,13 @@ namespace Virgis
             await base._init();
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
-            await Load(layer);
+            m_symbology = layer.Units;
+            Load();
+            await LoadLayer(layer);
             Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
         }
 
-        protected async Task Load(RecordSet layer) {
+        private async Task LoadLayer(RecordSet layer) {
             string ex = Path.GetExtension(layer.Source).ToLower();
             // Determine the DAL to be used to load the data.
             // GDAL data is loaded throu PDAL to get a mesh - but the pipeline is radically different
@@ -87,7 +89,7 @@ namespace Virgis
 
             (long, Pipeline) value() {
 
-                features = new List<DMesh3>();
+                m_Meshes = new List<DMesh3>();
 
                 List<object> pipe = new();
 
@@ -214,7 +216,7 @@ namespace Virgis
                         };
                         mesh.Transform();
                         mesh.Clockwise = true;
-                        features.Add(mesh);
+                        m_Meshes.Add(mesh);
                     }
                 }
             }
@@ -224,7 +226,7 @@ namespace Virgis
         private async Task LoadMdal(RecordSet layer) {
             // for MDAL files - load the mesh directly
             Datasource ds = await Datasource.LoadAsync(layer.Source);
-            features = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
                 DMesh3 mesh = await ds.GetMeshAsync(i);
                 mesh.RemoveMetadata("properties");
@@ -236,7 +238,7 @@ namespace Virgis
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
                 mesh.Transform();
-                features.Add(mesh);
+                m_Meshes.Add(mesh);
             }
         }
 
@@ -247,6 +249,14 @@ namespace Virgis
             _layer.Transform.Rotate = transform.rotation;
             _layer.Transform.Scale = transform.localScale;
             return Task.CompletedTask;
+        }
+
+        protected override object GetNextFID() {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerator hydrate() {
+            throw new NotImplementedException();
         }
     }
 }

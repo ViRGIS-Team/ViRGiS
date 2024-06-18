@@ -28,7 +28,7 @@ using Project;
 using Mdal;
 using Pdal;
 using OSGeo.OSR;
-using g3;
+using VirgisGeometry;
 
 
 namespace Virgis

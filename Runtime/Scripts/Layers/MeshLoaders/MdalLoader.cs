@@ -24,21 +24,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using Project;
-using g3;
+using VirgisGeometry;
 using Mdal;
 using OSGeo.OSR;
 using Stopwatch = System.Diagnostics.Stopwatch;
 using System.IO;
+using System.Collections;
 
 namespace Virgis
 {
 
-    public class MdalLoader : MeshloaderPrototype
+    public class MdalLoader : MeshloaderPrototype<List<string>>
     {
-
-        List<string> meshUris;
-
-
         public SpatialReference GetCrs() {
             return m_crs as SpatialReference;
         }
@@ -48,21 +45,21 @@ namespace Virgis
         /// </summary>
         /// <returns></returns>
         public override async Task _init() {
-            await base._init();
             Stopwatch stopWatch = Stopwatch.StartNew();
-            meshUris = new ();
+            features = new ();
             RecordSet layer = _layer as RecordSet;
-            IsWriteable = true;
             m_symbology = layer.Units;
+            Load();
+            IsWriteable = true;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
-            features = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
                 SetCrs(Convert.TextToSR(layer.Crs));
             }
 
             for (int i = 0; i < ds.meshes.Length; i++) {
                 MdalMesh mmesh = await ds.GetMeshAsync(i);
-                meshUris.Add(mmesh.uri);
+                features.Add(mmesh.uri);
                 DMesh3 mesh = mmesh;
                 mmesh.Dispose();
                 mesh.RemoveMetadata("properties");
@@ -75,7 +72,7 @@ namespace Virgis
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
                 mesh.Transform();
-                features.Add(mesh);
+                m_Meshes.Add(mesh);
             }
             Debug.Log($"Mdal Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
             return;
@@ -117,7 +114,7 @@ namespace Virgis
             layer.Transform.Scale = transform.localScale;
             EditableMesh[] emeshes = GetComponentsInChildren<EditableMesh>();
             string ex = Path.GetExtension(layer.Source).ToLower();
-            features = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
             CoordinateTransformation trans = null;
             if (GetCrs() != null) {
                 trans = AppState.instance.projectOutTransformer(GetCrs());
@@ -131,7 +128,7 @@ namespace Virgis
                     dmesh.RemoveMetadata("CRS");
                     dmesh.AttachMetadata("CRS", layer.Crs);
                 };
-                features.Add(dmesh);
+                m_Meshes.Add(dmesh);
                 DMesh3 dmesh2 = new(dmesh);
                 for (int i = 0; i < dmesh2.VertexCount; i++) {
                     if (dmesh2.IsVertex(i)) {
@@ -141,10 +138,18 @@ namespace Virgis
                         dmesh2.SetVertex(i, new Vector3d(dV));
                     }
                 };
-                MdalMesh m = MdalMesh.SaveFromDMesh(dmesh2, meshUris[j]);
+                MdalMesh m = MdalMesh.SaveFromDMesh(dmesh2, features[j]);
                 m.Dispose();
             }
             return Task.CompletedTask;
+        }
+
+        protected override object GetNextFID() {
+            throw new System.NotImplementedException();
+        }
+
+        protected override IEnumerator hydrate() {
+            throw new System.NotImplementedException();
         }
     }
 }

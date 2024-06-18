@@ -25,10 +25,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using g3;
+using VirgisGeometry;
 using System.Linq;
 using System.Collections;
-using static Codice.Client.Common.WebApi.WebApiEndpoints;
 
 namespace Virgis
 {

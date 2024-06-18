@@ -25,17 +25,18 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System.IO;
 using Project;
-using g3;
+using VirgisGeometry;
 using System;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
 using DXF = netDxf;
 using netDxf.Entities;
+using System.Collections;
 
 namespace Virgis
 {
-    public class MeshLoader : MeshloaderPrototype
+    public class MeshLoader : MeshloaderPrototype<string>
     {
         private Layer m_entities;
 
@@ -106,15 +107,16 @@ namespace Virgis
         }
 
         public override async Task _init() {
-            await base._init();
             RecordSet layer = _layer as RecordSet;
+            m_symbology = layer.Units;
+            Load();
             IsWriteable = true;
 
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
-                features = meshes.Meshes;
-                foreach (DMesh3 mesh in features) {
+                m_Meshes = meshes.Meshes;
+                foreach (DMesh3 mesh in m_Meshes) {
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
                         mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
@@ -287,10 +289,9 @@ namespace Virgis
                 try {
                     dmesh.CompactInPlace();
                 } catch { }
-                features = new List<DMesh3> {
+                m_Meshes = new List<DMesh3> {
                     dmesh
                 };
-                m_symbology = layer.Units;
                 return;
             }
         }
@@ -304,13 +305,13 @@ namespace Virgis
             layer.Transform.Scale = transform.localScale;
             EditableMesh[] meshes = GetComponentsInChildren<EditableMesh>();
             string ex = Path.GetExtension(layer.Source).ToLower();
-            features = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
             foreach (EditableMesh mesh in meshes) {
-                features.Add(mesh.GetMesh());
+                m_Meshes.Add(mesh.GetMesh());
             }
             if (ex == ".obj") {
                 List<WriteMesh> wmeshes = new List<WriteMesh>();
-                foreach (DMesh3 dmesh in features) {
+                foreach (DMesh3 dmesh in m_Meshes) {
                     DMesh3 mesh = new DMesh3(dmesh);
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
@@ -326,7 +327,7 @@ namespace Virgis
                 if (GetCrs() != null) {
                     trans = AppState.instance.projectOutTransformer(GetCrs());
                 }
-                foreach (DMesh3 dmesh in features) {
+                foreach (DMesh3 dmesh in m_Meshes) {
                     foreach (Index3i tri in dmesh.Triangles()) {
                         DXF.Vector3 v1 = dmesh.GetVertex(tri.a).ToDxfVector3(trans);
                         DXF.Vector3 v2 = dmesh.GetVertex(tri.b).ToDxfVector3(trans);
@@ -340,6 +341,14 @@ namespace Virgis
                 }
             }
             return Task.CompletedTask;
+        }
+
+        protected override object GetNextFID() {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerator hydrate() {
+            throw new NotImplementedException();
         }
     }
 }

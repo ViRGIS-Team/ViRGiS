@@ -146,7 +146,7 @@ namespace Virgis {
                         AXIS[""(N)"", north, ORDER[2], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]]]");
                             }
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
-            op.SetOperation("+proj=axisswap +order=1,3,2");
+            op.SetOperation("+proj=axisswap +order=1,3,2",false);
             _trans = new CoordinateTransformation(_crs, _crs, op);
             if (_trans == null)
                 throw new NotSupportedException("transformation failed");

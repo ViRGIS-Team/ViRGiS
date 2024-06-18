@@ -27,7 +27,7 @@ using System;
 using UnityEngine;
 using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
-using g3;
+using VirgisGeometry;
 using System.Collections;
 
 namespace Virgis

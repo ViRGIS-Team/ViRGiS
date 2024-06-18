@@ -22,7 +22,7 @@ SOFTWARE. */
 
 using Project;
 using System.Threading.Tasks;
-using g3;
+using VirgisGeometry;
 using System.Data;
 using System;
 using System.Collections;

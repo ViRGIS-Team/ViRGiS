@@ -7,6 +7,7 @@ using System.IO;
 using Project;
 using CsvHelper;
 using System.Globalization;
+using CsvHelper.Configuration;
 
 namespace Virgis {
 
@@ -15,8 +16,13 @@ namespace Virgis {
         public override async Task _init() {
             IsWriteable = true;
             features = new();
+
+            CsvConfiguration config = new(CultureInfo.InvariantCulture) {
+                DetectDelimiter = true,
+                DetectDelimiterValues= new string[] { ",", ";", "|", "\t", " " }
+            };
             using (StreamReader reader = new((_layer as RecordSet).Source))
-            using (CsvReader csv = new(reader, CultureInfo.InvariantCulture))
+            using (CsvReader csv = new(reader, config))
             {
                 using (CsvDataReader dr = new(csv))
                 {

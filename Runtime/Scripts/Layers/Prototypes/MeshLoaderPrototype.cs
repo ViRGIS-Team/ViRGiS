@@ -22,26 +22,26 @@ SOFTWARE. */
 
 using System.Collections.Generic;
 using UnityEngine;
-using g3;
+using VirgisGeometry;
 using Project;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Virgis
 {
 
-    public abstract class MeshloaderPrototype : VirgisLoader<List<DMesh3>>
+    public abstract class MeshloaderPrototype<T> : VirgisLoader<T>
     {
-        protected List<Transform> m_meshes; // List of the meshes in the layer
+        // List of the meshes in the layer - as DMesh3 in Local Space coordinates
         protected Dictionary<string, Unit> m_symbology;
+        protected List<DMesh3> m_Meshes = new();
         protected Unit m_bodySymbology;
 
-        public override Task _init(){
+        protected void Load(){
             RecordSet layer = GetMetadata() as RecordSet;
-            m_symbology = layer.Units;
             if ( ! m_symbology.TryGetValue("body", out m_bodySymbology)) {
                 m_bodySymbology = new ();
             };
-            return Task.CompletedTask;
         }
 
         public override IVirgisFeature _addFeature<T>(T geometry)
@@ -52,7 +52,6 @@ namespace Virgis
         public async override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
-            m_meshes = new List<Transform>();
 
             transform.position = layer.Position != null ?
                 layer.Position.ToVector3() :
@@ -63,12 +62,12 @@ namespace Virgis
             
             bool HasVertexColors = false;
 
-            foreach (DMesh3 dMesh in features) {
+            foreach (DMesh3 dMesh in m_Meshes) {
                 HasVertexColors |= dMesh.HasVertexColors;
                 await dMesh.CalculateMapUVsAsync(m_bodySymbology);
-                m_meshes.Add(Instantiate(parent.Mesh, transform)
+                Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
-                    .Draw(dMesh, m_bodySymbology));
+                    .Draw(dMesh, m_bodySymbology);
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
@@ -77,14 +76,27 @@ namespace Virgis
 
         protected VirgisFeature _addFeature(DMesh3 mesh) {
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
-            features.Add(mesh);
+            m_Meshes.Add(mesh);
             EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
-            m_meshes.Add(emesh.Draw(mesh, m_bodySymbology));
+            emesh.Draw(mesh, m_bodySymbology);
             return emesh;
         }
       
 
         public override void _checkpoint() { }
+
+        protected abstract object GetNextFID();
+
+        public async override Task _save() {
+            IEnumerator saver = hydrate();
+            while (saver.MoveNext()) {
+                await Task.Yield();
+            };
+            await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
+            return;
+        }
+
+        protected abstract IEnumerator hydrate();
 
     }
 }

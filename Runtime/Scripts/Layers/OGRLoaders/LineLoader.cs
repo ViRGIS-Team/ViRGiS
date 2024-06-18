@@ -27,7 +27,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System;
 using UnityEngine;
-using g3;
+using VirgisGeometry;
 
 namespace Virgis
 {

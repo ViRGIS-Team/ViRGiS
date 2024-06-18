@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Project;
 using System;
 using System.Collections;
-using g3;
+using VirgisGeometry;
 
 namespace Virgis {
     public class DataPointLoader : PointLoaderPrototype<DataTable> {
