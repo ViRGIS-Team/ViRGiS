@@ -48,7 +48,6 @@ namespace Virgis
         }
 
         public override async Task _init() {
-            await base._init();
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
             m_symbology = layer.Units;
