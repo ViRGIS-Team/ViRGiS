@@ -55,6 +55,9 @@ namespace Virgis
             }
             DCurve3 curve = new();
             curve.Closed = false;
+            AxisOrder ax = Unit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -68,11 +71,8 @@ namespace Virgis
                 } catch (Exception) {
                     throw new Exception($"DataUnit {Unit.Name} had invalid data");
                 }
-                //Note that at this point the point is in Map Space Coordinates 
-                //and needs to be converted to World Space Coordinates
-                //there is no projection for data so this is just the map scale
-                Vector3d pos3d = new Vector3d(x, y, z);
-                curve.AppendVertex(AppState.instance.Map.transform.TransformVector((Vector3) pos3d));
+                Vector3d pos3d = new Vector3d(x, y, z) { axisOrder = ax};
+                curve.AppendVertex(pos3d);
                 curve.SetData(row.Field<long>("__FID"));
             }
             DCurve3 ring = new();
@@ -85,7 +85,10 @@ namespace Virgis
                 ring.InsertData(fid, i);
 
                 // Insert bottom vertex for this data point
-                ring.InsertVertex(new Vector3d(v.x, 0, v.z), i + 1);
+                if (v.axisOrder == AxisOrder.EUN)
+                    ring.InsertVertex(new Vector3d(v.x, 0, v.z) { axisOrder = v.axisOrder }, i + 1);
+                else
+                    ring.InsertVertex(new Vector3d(v.x, v.y, 0) { axisOrder = v.axisOrder }, i + 1);
                 ring.InsertData(fid, i + 1);
             }
             await _drawFeatureAsync(new List<DCurve3>() { ring }, "data");

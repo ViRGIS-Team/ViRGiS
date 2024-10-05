@@ -28,6 +28,7 @@ using SpatialReference = OSGeo.OSR.SpatialReference;
 using System.Linq;
 using System;
 using System.Collections;
+using VirgisGeometry;
 
 namespace Virgis {
 
@@ -61,13 +62,17 @@ namespace Virgis {
                         string t = type.ToString();
                         string label = "";
                         if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Label") && m_symbology["point"].Label != null && (feature?.ContainsKey(m_symbology["point"].Label) ?? false)) {
-                            label = (string) feature.Get(m_symbology["point"].Label);
+                            label = feature.Get<string>(m_symbology["point"].Label);
                         }
                         if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
                             point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
                             point.GetGeometryType() == wkbGeometryType.wkbPointM ||
                             point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
-                            point.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await DrawFeatureAsync(item, feature.GetFID(), label));
+                            point
+                                .ToVector3d(AppState.instance.mapProj)
+                                .ToList()
+                                .ForEach(async item => 
+                                    await DrawFeatureAsync((Vector3)item, feature.GetFID(), label));
                         } else if
                            (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
                             point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
@@ -76,12 +81,16 @@ namespace Virgis {
                             int n = point.GetGeometryCount();
                             for (int k = 0; k < n; k++) {
                                 if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Label") && m_symbology["point"].Label != null && (feature?.ContainsKey(m_symbology["point"].Label) ?? false)) {
-                                    label = (string) feature.Get(m_symbology["point"].Label);
+                                    label = feature.Get<string>(m_symbology["point"].Label);
                                 } else {
                                     label = "";
                                 }
-                                Geometry Point2 = point.GetGeometryRef(k);
-                                Point2.TransformWorld(GetCrs()).ToList<Vector3>().ForEach(async item => await DrawFeatureAsync(item, feature.GetFID(), label));
+                                Geometry point2 = point.GetGeometryRef(k);
+                                point2
+                                .ToVector3d(AppState.instance.mapProj)
+                                .ToList()
+                                .ForEach(async item =>
+                                    await DrawFeatureAsync((Vector3) item, feature.GetFID(), label));
                             }
                         }
                         point.Dispose();
@@ -104,7 +113,7 @@ namespace Virgis {
                     feature = new Feature(features.GetLayerDefn());
                     n = true;
                 }
-                Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
+                Geometry geom = ((Vector3d)pointFunc.gameObject.transform.position).ToGeometry();
                 geom.TransformTo(GetCrs());
                 feature.SetGeometryDirectly(geom);
                 if (n) {

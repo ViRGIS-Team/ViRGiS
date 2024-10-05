@@ -99,7 +99,7 @@ namespace Virgis
                     m_symbology["body"].Label != null && (feature?.ContainsKey(m_symbology["body"].Label
                 ) ?? false))
             {
-                label = (string)feature.Get(m_symbology["body"].Label);
+                label = feature.Get<string>(m_symbology["body"].Label);
             }
 
             // Get the linear rings as Dcurve3
@@ -114,8 +114,9 @@ namespace Virgis
                             type == wkbGeometryType.wkbLineString
                     ) {
                     LinearRing.CloseRings();
-                    DCurve3 curve = new DCurve3();
-                    curve.FromGeometry(LinearRing);
+                    DCurve3 curve = LinearRing.ToCurve(
+                       AppState.instance.mapProj
+                        );
                     curve.Closed = true;
                     polygon.Add(curve);
                 }

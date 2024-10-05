@@ -29,18 +29,19 @@ using System;
 using System.Collections.ObjectModel;
 using UnityEngine;
 using VirgisGeometry;
+using OSGeo.OSR;
 
 
 namespace Virgis {
 
     public static class Vector3ExtensionMethods {
         /// <summary>
-        /// Convert Vector3 World Space location to Position taking account of zoom, scale and mapscale
+        /// Convert Vector3d Map Space location to Position in stated CRS or epsg:4326 by default
         /// </summary>
-        /// <param name="position">Vector3 World Space coordinates</param>
+        /// <param name="position">Vector3 Map Space coordinates</param>
         /// <param name="crs">ICRSObject to use for projection</param>
         /// <returns>Position</returns>
-        static public IPosition ToPosition(this Vector3 position, ICRSObject crs = null) {
+        static public IPosition ToPosition(this Vector3d position, ICRSObject crs = null) {
             SpatialReference sr = new SpatialReference(null);
             if (crs == null) {
                 sr.SetWellKnownGeogCS("EPSG:4326");
@@ -59,63 +60,56 @@ namespace Virgis {
                         break;
                 }
             }
-            double[] argout = vector3tolocation(position, sr);
-            return new Position(argout[0], argout[1], argout[2]);
+            double[] args = new[] {position.x, position.y, position.z};
+
+            AppState.instance
+                .projectOutTransformer(sr)
+                .TransformPoint(args);
+            return new Position(args[0], args[1], args[2]);
         }
 
         /// <summary>
-        /// Convert Vector3 World Space location to projected Vector3d taking account of zoom, scale and mapscale
-        /// NOTE - if no SR defined then the Vector3d returned is in Map Space coordinates
-        /// </summary>
-        /// <param name="position">Vector3 World Space coordinates</param>
-        /// <param name="sr"> Spatial Reference to be used for the result</param>
-        /// <returns>Vector3d location</returns>
-        static public Vector3d ToVector3D(this Vector3 position, SpatialReference sr = null) {
-            if (sr != null) {
-                double[] argout = vector3tolocation(position, sr);
-                return new Vector3d(argout[0], argout[1], argout[2]);
-            }
-            return AppState.instance.Map.transform.InverseTransformPoint(position);
-        }
-
-        static private double[] vector3tolocation(Vector3 position, SpatialReference sr = null) {
-            Geometry geom = position.ToGeometry();
-            // if no Spatial Reference the the Vector3d returned is in Map Space coords
-            if (sr != null) geom.TransformTo(sr);
-            double[] argout = new double[3];
-            geom.GetPoint(0, argout);
-            return argout;
-        }
-
-        /// <summary>
-        /// Converts a Vector3 position in World Space coordinates into a Geometry in Map Space Coordinates
-        /// </summary>
+        /// Converts a Vector3d position in Map Space coordinates into a valid Geometry with CRS set
+        /// (the CRS being the model engineering projection - Geometry.transform to change that)
         /// <param name="position">Vector3 position in World Space Coordinates</param>
         /// <returns>Geometry</returns>
-        static public Geometry ToGeometry(this Vector3 position) {
+        static public Geometry ToGeometry(this Vector3d position) {
             Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
             geom.AssignSpatialReference(AppState.instance.mapProj);
-            geom.Vector3(new Vector3[1] { position });
+            geom.AddPoint(position.x,position.y, position.z );
             return geom;
         }
 
         /// <summary>
-        /// Converts Vector3 World Space Location to Point taking accoun t of zoom, scale and mapscale
+        /// Converts Vector3d Map Space Location to Point
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        public static Point ToPoint(this Vector3 point) {
+        public static Point ToPoint(this Vector3d point) {
             return new Point(point.ToPosition());
         }
     }
 
     public static class PointExtensionsMethods {
-        static public Vector3 ToVector3(this Point point) {
-            return point.ToGeometry().TransformWorld()[0];
+        static public Geometry ToGeometry(this Point point) {
+            return point.Coordinates.ToGeometry(point.CRS);
         }
 
-        static public Geometry ToGeometry(this Point point) {
-            return (point.Coordinates).ToGeometry(point.CRS);
+
+        /// <summary>
+        /// Convert Point (with arbitrary CRS) to Vector3d in Map Space
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        static public Vector3d ToVector3d(this Point point) {
+            Geometry geom = point.ToGeometry();
+            SpatialReference sr = geom.GetSpatialReference();
+            geom.Transform(
+                AppState.instance.projectTransformer(sr)
+                );
+            double[] argouts = new double[3];
+            geom.GetPoint(0,argouts);
+            return new Vector3d(argouts) { axisOrder = sr.GetAxisOrder() };
         }
     }
 
@@ -130,22 +124,10 @@ namespace Virgis {
             return new Vector2((float) position.Latitude, (float) position.Longitude);
         }
 
-
-        /// <summary>
-        /// Converts Iposition to Vector3 World Space coordinates takling account of zoom, scale and mapscale
-        /// </summary>
-        /// <param name="position">IPosition</param>
-        /// <returns>Vector3</returns>
-        public static Vector3 Vector3(this IPosition position, ICRSObject crs = null) {
-            if (crs == null)
-                crs = new NamedCRS("EPSG:4326");
-            return position.ToGeometry(crs).TransformWorld()[0];
-        }
-
-        public static Geometry ToGeometry(this IPosition position, ICRSObject crs) {
+        public static Geometry ToGeometry(this IPosition position, ICRSObject crs = null) {
             Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
             SpatialReference sr = new SpatialReference(null);
-            if (crs == null)
+            if (crs is null)
                 crs = new NamedCRS("EPSG:4326");
             switch (crs.Type) {
                 case CRSType.Name:
@@ -198,18 +180,6 @@ namespace Virgis {
             }
             return result;
         }
-
-        /// <summary>
-        /// Converts LineString to Vector3[] in world space taking account of zoom, scale and map scale
-        /// </summary>
-        /// <param name="line">LineString</param>
-        /// <returns>Vector3[] World Space Locations</returns>
-        static public Vector3[] Vector3(this LineString line) {
-            Vector3[] result = new Vector3[line.Coordinates.Count];
-            Geometry geom = line.ToGeometry();
-            return geom.TransformWorld();
-        }
-
 
         static public Geometry ToGeometry(this LineString line) {
             Geometry geom = new Geometry(wkbGeometryType.wkbLineString);

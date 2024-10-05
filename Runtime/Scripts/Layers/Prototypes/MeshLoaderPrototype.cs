@@ -26,6 +26,7 @@ using VirgisGeometry;
 using Project;
 using System.Threading.Tasks;
 using System.Collections;
+using OSGeo.GDAL;
 
 namespace Virgis
 {
@@ -54,7 +55,7 @@ namespace Virgis
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
 
             transform.position = layer.Position != null ?
-                layer.Position.ToVector3() :
+                (Vector3)layer.Position.ToVector3d() :
                 Vector3.zero;
             transform.Translate(AppState.instance.Map.transform
                 .TransformVector((Vector3) layer.Transform.Position)
@@ -64,7 +65,14 @@ namespace Virgis
 
             foreach (DMesh3 dMesh in m_Meshes) {
                 HasVertexColors |= dMesh.HasVertexColors;
-                await dMesh.CalculateMapUVsAsync(m_bodySymbology);
+                if (m_bodySymbology.TextureImage is not null &&
+                    m_bodySymbology.TextureImage != ""
+                ) {
+                    Dataset raster = Gdal.Open(m_bodySymbology.TextureImage, Access.GA_ReadOnly);
+                    await dMesh.CalculateMapUVsAsync(raster);
+                } else {
+                    dMesh.CalculateUVs();
+                }
                 Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
                     .Draw(dMesh, m_bodySymbology);

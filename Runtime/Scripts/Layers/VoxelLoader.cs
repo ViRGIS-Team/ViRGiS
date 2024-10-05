@@ -76,7 +76,7 @@ namespace Virgis
 
         public override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
-            transform.position = layer.Position != null ? layer.Position.ToVector3() : Vector3.zero;
+            transform.position = layer.Position != null ? (Vector3)layer.Position.ToVector3d() : Vector3.zero;
             if (layer.Transform != null)
                 transform.Translate(AppState.instance.Map.transform.TransformVector((Vector3) layer.Transform.Position));
             Dictionary<string, Unit> symbology = layer.Units;
@@ -84,7 +84,7 @@ namespace Virgis
             SpatialReference crs = null;
 
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
-                crs = Convert.TextToSR(layer.Crs);
+                crs = OsrExtensions.TextToSR(layer.Crs);
             }
 
                 foreach (VoxelMesh vmesh in features) {

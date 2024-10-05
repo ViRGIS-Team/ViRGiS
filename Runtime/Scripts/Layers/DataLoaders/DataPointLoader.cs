@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Project;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using VirgisGeometry;
 
 namespace Virgis {
@@ -26,6 +27,10 @@ namespace Virgis {
             {
                 throw new Exception($"DataUnit {Unit.Name} has invalid columns");
             }
+            List<Task<int>> tasks = new();
+            AxisOrder ax = Unit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -43,17 +48,15 @@ namespace Virgis {
                 if (Unit.LabelRange != null && features.Columns.Contains(Unit.LabelRange)) {
                     label = row.Field<string>(features.Columns[Unit.LabelRange]);
                 }
-                // Note - at this point x,y and z are in Map Space coordinates and
-                // need to be converted to World Space. There is no project on data
-                // so this should just be to adjust for the map scale
-                Vector3d pos3d = new Vector3d(x,y,z);
-                Vector3 pos = AppState.instance.Map.transform.TransformVector((Vector3) pos3d);
-                DrawFeatureAsync(
-                    pos,
+
+                Vector3d pos3d = new Vector3d(x, y, z) { axisOrder = ax };
+                tasks.Add(DrawFeatureAsync(
+                    (Vector3)pos3d,
                     row.Field<long>("__FID"),
                     label
-                );
+                ));
             }
+            await Task.WhenAll(tasks);
         }
 
         protected override IEnumerator hydrate() {
@@ -68,7 +71,7 @@ namespace Virgis {
                     row["__FID"] = fid;
                     features.Rows.Add(row);
                 }
-                Vector3d pos = pointFunc.gameObject.transform.position.ToVector3D();
+                Vector3d pos = pointFunc.gameObject.transform.position;
                 row[Unit.XRange] = pos.x.ToString();
                 row[Unit.YRange] = pos.y.ToString();
                 if (Unit.ZRange != null)

@@ -54,7 +54,7 @@ namespace Virgis
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             m_Meshes = new List<DMesh3>();
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
-                SetCrs(Convert.TextToSR(layer.Crs));
+                SetCrs(OsrExtensions.TextToSR(layer.Crs));
             }
 
             for (int i = 0; i < ds.meshes.Length; i++) {

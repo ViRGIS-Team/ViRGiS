@@ -244,7 +244,7 @@ namespace Virgis
 
         public override Task _save()
         {
-            _layer.Position = transform.position.ToPoint();
+            _layer.Position = ((Vector3d)transform.position).ToPoint();
             _layer.Transform.Position = Vector3.zero;
             _layer.Transform.Rotate = transform.rotation;
             _layer.Transform.Scale = transform.localScale;

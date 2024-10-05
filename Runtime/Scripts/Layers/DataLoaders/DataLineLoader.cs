@@ -56,6 +56,9 @@ namespace Virgis
             }
             DCurve3 curve = new();
             curve.Closed = false;
+            AxisOrder ax = Unit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -69,11 +72,9 @@ namespace Virgis
                 } catch (Exception) {
                     throw new Exception($"DataUnit {Unit.Name} had invalid data");
                 }
-                //Note that at this point the point is in Map Space Coordinates 
-                //and needs to be converted to World Space Coordinates
-                //there is no projection for data so this is just the map scale
-                Vector3d pos3d = new Vector3d(x, y, z);
-                curve.AppendVertex(AppState.instance.Map.transform.TransformVector((Vector3) pos3d));
+
+                Vector3d pos3d = new Vector3d(x, y, z) {axisOrder = ax };
+                curve.AppendVertex( pos3d);
                 curve.SetData(row.Field<long>("__FID"));
             }
             await _drawFeatureAsync(curve, "data");

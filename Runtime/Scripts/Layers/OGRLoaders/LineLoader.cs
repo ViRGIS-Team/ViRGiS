@@ -70,8 +70,7 @@ namespace Virgis
                         ) {
                             if (line.GetSpatialReference() == null)
                                 line.AssignSpatialReference(GetCrs());
-                            DCurve3 curve = new();
-                            curve.FromGeometry(line);
+                            DCurve3 curve = line.ToCurve(AppState.instance.mapProj);
                             await _drawFeatureAsync(curve, feature.GetFID());
                         } else if
                             (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
@@ -84,8 +83,7 @@ namespace Virgis
                                 Geometry Line2 = line.GetGeometryRef(k);
                                 if (Line2.GetSpatialReference() == null)
                                     Line2.AssignSpatialReference(GetCrs());
-                                DCurve3 curve = new();
-                                curve.FromGeometry(Line2);
+                                DCurve3 curve = Line2.ToCurve(AppState.instance.mapProj);
                                 await _drawFeatureAsync(curve, feature.GetFID());
                             }
                         }

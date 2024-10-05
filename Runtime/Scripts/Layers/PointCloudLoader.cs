@@ -28,6 +28,7 @@ using System.IO;
 using Project;
 using Pdal;
 using Newtonsoft.Json;
+using VirgisGeometry;
 
 namespace Virgis
 {
@@ -132,7 +133,7 @@ namespace Virgis
         {
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ?
-                layer.Position.ToVector3() : Vector3.zero ;
+                (Vector3)layer.Position.ToVector3d() : Vector3.zero ;
             if (layer.Transform != null) transform.
                     Translate(AppState.instance.Map.transform.
                     TransformVector((Vector3)layer.Transform.Position ));
@@ -153,7 +154,7 @@ namespace Virgis
 
         public override Task _save()
         {
-            _layer.Position = parent.transform.position.ToPoint();
+            _layer.Position = ((Vector3d)parent.transform.position).ToPoint();
             _layer.Transform.Position = Vector3.zero;
             _layer.Transform.Rotate = parent.transform.rotation;
             _layer.Transform.Scale = parent.transform.localScale;
