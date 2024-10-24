@@ -23,7 +23,6 @@ SOFTWARE. */
 using VirgisGeometry;
 using OSGeo.OSR;
 using DXF = netDxf;
-using System.Diagnostics;
 
 namespace Virgis {
 
