@@ -93,6 +93,12 @@ namespace Virgis
                     Name = key,
                     Color = unit.Color,
                 };
+                if (key == "body") {
+                    hash.AddProperty(new() {
+                        Key = "_TextureSwitch",
+                        Value = 0
+                    });
+                }
                 m_materials.Add(key, hash);
             }
             return Task.FromResult(1);
@@ -142,7 +148,7 @@ namespace Virgis
             }
 
             //Draw the Polygon
-            p.Draw(polygon);
+            p.Draw(polygon, m_materials);
 
             return p;
         }
