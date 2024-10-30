@@ -42,7 +42,7 @@ namespace Virgis
 
         public override async Task _init(){
             RecordSet _layer = GetMetadata() as RecordSet;
-            PointCloudLayer parent = m_parent as PointCloudLayer;
+            parent = m_parent as PointCloudLayer;
             m_Symbology = _layer.Units;
             (long, Pipeline) result = await LoadAsync(_layer);
             Pipeline pipeline = result.Item2;
@@ -143,10 +143,6 @@ namespace Virgis
             );
             m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, 1f);
             return Task.CompletedTask;
-        }
-
-        public override void _set_visible() {
-            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, 1f);
         }
 
         public override void _checkpoint() { }

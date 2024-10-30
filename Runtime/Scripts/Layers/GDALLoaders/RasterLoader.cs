@@ -22,9 +22,7 @@ SOFTWARE. */
 
 using System.Collections.Generic;
 using System;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.VFX;
 using System.Threading.Tasks;
 using Project;
 using Pdal;
@@ -190,10 +188,6 @@ namespace Virgis
             }
             Debug.Log($"Raster Layer Draw took {stopWatch.Elapsed.TotalSeconds}");
             return Task.CompletedTask;
-        }
-
-        public override void _set_visible() {
-            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, (float) m_PixelSize * m_PixelScaleFactor);
         }
 
         public override void _checkpoint() { }
