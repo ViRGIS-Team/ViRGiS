@@ -29,26 +29,22 @@ using Project;
 using Pdal;
 using Newtonsoft.Json;
 using VirgisGeometry;
+using System.Linq;
 
 namespace Virgis
 {
     public class PointCloudLoader : VirgisLoader<BakedPointCloud>
     {
         private PointCloudLayer parent;
+
         private Dictionary<string, Unit> m_Symbology;
-        protected Unit m_bodySymbology;
+        private PointCloud m_model;
 
         public override async Task _init(){
-            RecordSet layer = GetMetadata() as RecordSet;
-            m_Symbology = layer.Units;
-            if ( ! m_Symbology.TryGetValue("point", out m_bodySymbology)) {
-                m_bodySymbology = new ();
-            };
-            await Load(layer);
-        }
-
-        protected async Task Load(RecordSet layer) {
-            (long, Pipeline) result = await LoadAsync(layer);
+            RecordSet _layer = GetMetadata() as RecordSet;
+            PointCloudLayer parent = m_parent as PointCloudLayer;
+            m_Symbology = _layer.Units;
+            (long, Pipeline) result = await LoadAsync(_layer);
             Pipeline pipeline = result.Item2;
             PointViewIterator views = pipeline.Views;
             if (views != null) {
@@ -138,16 +134,19 @@ namespace Virgis
                     Translate(AppState.instance.Map.transform.
                     TransformVector((Vector3)layer.Transform.Position ));
 
-            PointCloud com = Instantiate(parent.pointCloud, transform, false)
+            m_model = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
-            com.Spawn(parent.transform);
-            com.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount);
+            m_model.Spawn(parent.transform);
+            m_model.Symbology = m_Symbology.ToDictionary(
+                item => item.Key,
+                item => item.Value as UnitPrototype
+            );
+            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, 1f);
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
-            PointCloud com = parent.GetComponent<PointCloud>();
-            com.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount);
+            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, 1f);
         }
 
         public override void _checkpoint() { }

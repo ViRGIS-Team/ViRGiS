@@ -22,6 +22,7 @@ SOFTWARE. */
 
 using System.Collections.Generic;
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace Virgis
 {
     public class RasterLoader : VirgisLoader<BakedPointCloud>
     {
-        private GameObject m_model;
+        private PointCloud m_model;
         private double m_PixelSize;
         private const float m_PixelScaleFactor = 9;
         private RasterLayer parent;
@@ -47,11 +48,6 @@ namespace Virgis
             RecordSet layer = _layer as RecordSet;
             m_Symbology = layer.Units;
             parent = m_parent as RasterLayer;
-            await Load(layer);
-            Debug.Log($"Raster Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
-        }
-
-        protected async Task Load(RecordSet layer) {
             (long, Pipeline) result = await LoadAsync(layer);
             Pipeline pipeline = result.Item2;
             PointViewIterator views = pipeline.Views;
@@ -64,6 +60,7 @@ namespace Virgis
                 views.Dispose();
             }
             pipeline.Dispose();
+            Debug.Log($"Raster Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
         }
 
 
@@ -175,42 +172,28 @@ namespace Virgis
         public override Task _draw()
         {
             Stopwatch stopWatch = Stopwatch.StartNew();
-            RecordSet layer = GetMetadata() as RecordSet;
-            transform.position = layer.Position != null ?
-                (Vector3)layer.Position.ToVector3d() : Vector3.zero ;
-            if (layer.Transform != null) transform
+            RecordSet _layer = GetMetadata() as RecordSet;
+            transform.position = _layer.Position != null ?
+                (Vector3)_layer.Position.ToVector3d() : Vector3.zero ;
+            if (_layer.Transform != null) transform
                     .Translate(AppState.instance.Map.transform
-                    .TransformVector((Vector3)layer.Transform.Position ));
+                    .TransformVector((Vector3)_layer.Transform.Position ));
 
-            m_model = Instantiate(parent.pointCloud, transform, false);
+            m_model = Instantiate(parent.pointCloud, transform, false)
+                .GetComponent<PointCloud>();
+            m_model.Spawn(transform);
+            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, (float) m_PixelSize * m_PixelScaleFactor);
 
-            PointCloud com = m_model.GetComponent<PointCloud>();
-            com.Spawn(transform);
-
-
-            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", features.PositionMap);
-            vfx.SetTexture("_Colors", features.ColorMap);
-            vfx.SetInt("_pointCount", features.PointCount);
-            vfx.SetVector3("_size", (float)m_PixelSize * m_PixelScaleFactor * Vector3.one);
-            vfx.Play();
-
-            if (layer.Transform != null) {
-                transform.rotation = layer.Transform.Rotate;
-                transform.localScale = layer.Transform.Scale;
-                vfx.SetVector3("_scale", layer.Transform.Scale);
+            if (_layer.Transform != null) {
+                transform.rotation = _layer.Transform.Rotate;
+                transform.localScale = _layer.Transform.Scale;
             }
             Debug.Log($"Raster Layer Draw took {stopWatch.Elapsed.TotalSeconds}");
             return Task.CompletedTask;
         }
 
         public override void _set_visible() {
-            VisualEffect vfx = m_model.GetComponent<VisualEffect>();
-            vfx.SetTexture("_Positions", features.PositionMap);
-            vfx.SetTexture("_Colors", features.ColorMap);
-            vfx.SetInt("_pointCount", features.PointCount);
-            vfx.SetVector3("_size", (float) m_PixelSize * m_PixelScaleFactor * Vector3.one );
-            vfx.Play();
+            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, (float) m_PixelSize * m_PixelScaleFactor);
         }
 
         public override void _checkpoint() { }
