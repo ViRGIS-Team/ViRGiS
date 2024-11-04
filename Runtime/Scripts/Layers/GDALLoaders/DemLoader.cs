@@ -69,8 +69,71 @@ namespace Virgis
                 await LoadPDAL(layer, SourceType.XYZ);
             }
             {
-                await LoadPDAL(layer, SourceType.GDAL);
+                await LoadGDAL(layer);
             }
+        }
+
+        /// <summary>
+        /// Load using GDAL
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <returns></returns>
+        private async Task LoadGDAL(RecordSet layer) {
+            string proj = null;
+            double scalingFactor = 0;
+            string headerString;
+
+            (long, Pipeline) value() {
+                m_Meshes = new List<DMesh3>();
+
+                // Get the raster
+                Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
+                int numBands = raster.RasterCount;
+                if (numBands <= 0)
+                    throw new NotSupportedException($" No Data in file {layer.Source}");
+                proj = raster.GetProjection();
+
+                // band-1 is elevation
+                Band band1 = raster.GetRasterBand(1);
+
+                // get the null value
+                band1.GetNoDataValue(out double noDataValue, out int hasval);
+
+                // Get the size and pixel size of the raster
+                // if the raster has more than 40,000 data points, set the scaling factor
+                long datapoints = raster.RasterXSize * raster.RasterYSize;
+                if (datapoints > 40000) {
+                    try {
+                        double[] geoTransform = new double[6];
+                        raster.GetGeoTransform(geoTransform);
+                        if (geoTransform == null && geoTransform[1] == 0) {
+                            throw new Exception();
+                        }
+                        scalingFactor = Math.Sqrt(datapoints / 40000d * geoTransform[1]);
+                    } catch {
+                        scalingFactor = Math.Sqrt(datapoints / 40000d);
+                    };
+                }
+
+                List<Vector3d> vertices = new();
+
+
+                for (int y = 0; y < raster.RasterYSize; y++)
+                    for (int x = 0; x < raster.RasterXSize; x++) {
+                        
+                    }
+
+
+                band1.FlushCache();
+                band1.Dispose();
+                raster.FlushCache();
+                raster.Dispose();
+                return (default, default);
+
+            }
+            Task<(long, Pipeline)> task = new(value);
+            task.Start();
+            (long pointCount, Pipeline pipeLine) = await task;
         }
 
         /// <summary>
@@ -81,10 +144,6 @@ namespace Virgis
         /// <returns></returns>
         /// <exception cref="NotSupportedException"></exception>
         private async Task LoadPDAL(RecordSet layer, SourceType sourceType) {
-            string proj = null;
-            double scalingFactor = 0;
-            string headerString;
-
 
             (long, Pipeline) value() {
 
@@ -92,68 +151,8 @@ namespace Virgis
 
                 List<object> pipe = new();
 
-                // Set up the pipline for GDAL data
-                // Get the metadata through GDAL first
-                if (sourceType == SourceType.GDAL) {
-                    Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
-                    int numBands = raster.RasterCount;
-                    if (numBands <= 0)
-                        throw new NotSupportedException($" No Data in file {layer.Source}");
-                    proj = raster.GetProjection();
-
-                    //Make the header string from the number of bands - assume band-1 is elevation
-                    headerString = "Z";
-                    for (int i = 1; i < numBands; i++) {
-                        headerString += $",M{i}";
-                    }
-                    pipe.Add(new {
-                        type = "readers.gdal",
-                        filename = layer.Source,
-                        header = headerString
-                    });
-
-                    //get the null value and filter out null data
-                    Band band1 = raster.GetRasterBand(1);
-                    band1.GetNoDataValue(out double noDataValue, out int hasval);
-                    if (hasval == 1) {
-                        if (noDataValue < 0)
-                            pipe.Add(new {
-                                type = "filters.range",
-                                limits = $"Z[{noDataValue + 1}:]"
-                            });
-                        else
-                            pipe.Add(new {
-                                type = "filters.range",
-                                limits = $"Z[:{noDataValue - 1}]"
-                            });
-                    }
-
-                    // Get the size and pixel size of the raster
-                    // if the raster has more than 40,000 data points, using poisson sampling to down size
-                    long datapoints = raster.RasterXSize * raster.RasterYSize;
-                    if (datapoints > 40000) {
-                        try {
-                            double[] geoTransform = new double[6];
-                            raster.GetGeoTransform(geoTransform);
-                            if (geoTransform == null && geoTransform[1] == 0) {
-                                throw new Exception();
-                            }
-                            scalingFactor = Math.Sqrt(datapoints / 40000d * geoTransform[1]);
-                        } catch {
-                            scalingFactor = Math.Sqrt(datapoints / 40000d);
-                        };
-
-                        pipe.Add(new {
-                            type = "filters.sample",
-                            radius = scalingFactor
-                        });
-                    }
-                    band1.FlushCache();
-                    band1.Dispose();
-                    raster.FlushCache();
-                    raster.Dispose();
-                    // special treatment for .xyz files that are not handled well by the defaults
-                } else if (sourceType == SourceType.XYZ)
+                // special treatment for .xyz files that are not handled well by the defaults
+                if (sourceType == SourceType.XYZ)
                     pipe.Add(new {
                         type = "readers.text",
                         filename = layer.Source,
@@ -205,10 +204,6 @@ namespace Virgis
                         DMesh3 mesh = bm.Dmesh;
                         mesh.RemoveMetadata("properties");
                         // set the CRS based on what is known
-                        if (proj != null) {
-                            mesh.RemoveMetadata("CRS");
-                            mesh.AttachMetadata("CRS", proj);
-                        }
                         if (layer.ContainsKey("Crs") && layer.Crs != null) {
                             mesh.RemoveMetadata("CRS");
                             mesh.AttachMetadata("CRS", layer.Crs);
