@@ -57,6 +57,7 @@ namespace Virgis
             AxisOrder ax = Unit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
+            curve.axisOrder = ax;
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -75,6 +76,7 @@ namespace Virgis
                 curve.SetData(row.Field<long>("__FID"));
             }
             DCurve3 ring = new();
+            ring.axisOrder = ax;
 
             for (int i=0; i<curve.VertexCount; i++) {
                 Vector3d v = curve.GetVertex(i);
@@ -84,7 +86,7 @@ namespace Virgis
                 ring.InsertData(fid, i);
 
                 // Insert bottom vertex for this data point
-                if (v.axisOrder == AxisOrder.EUN)
+                if (ax == AxisOrder.EUN)
                     ring.InsertVertex(new Vector3d(v.x, 0, v.z) { axisOrder = v.axisOrder }, i + 1);
                 else
                     ring.InsertVertex(new Vector3d(v.x, v.y, 0) { axisOrder = v.axisOrder }, i + 1);

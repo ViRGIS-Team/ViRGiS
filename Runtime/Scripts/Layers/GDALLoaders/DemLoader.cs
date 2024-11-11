@@ -34,6 +34,8 @@ using VirgisGeometry;
 using System;
 using Stopwatch = System.Diagnostics.Stopwatch;
 using System.Collections;
+using OSGeo.OSR;
+using System.Linq;
 
 namespace Virgis
 {
@@ -79,61 +81,76 @@ namespace Virgis
         /// <param name="layer"></param>
         /// <returns></returns>
         private async Task LoadGDAL(RecordSet layer) {
-            string proj = null;
-            double scalingFactor = 0;
-            string headerString;
 
-            (long, Pipeline) value() {
-                m_Meshes = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
 
+            //bool value() {
                 // Get the raster
-                Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
-                int numBands = raster.RasterCount;
-                if (numBands <= 0)
-                    throw new NotSupportedException($" No Data in file {layer.Source}");
-                proj = raster.GetProjection();
+            Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
+            int numBands = raster.RasterCount;
+            if (numBands <= 0)
+                throw new NotSupportedException($" No Data in file {layer.Source}");
 
-                // band-1 is elevation
-                Band band1 = raster.GetRasterBand(1);
+            //Get the CoordinateTransformoer
+            SpatialReference sr = raster.GetSpatialRef();
 
-                // get the null value
-                band1.GetNoDataValue(out double noDataValue, out int hasval);
+            // band-1 is elevation
+            Band band1 = raster.GetRasterBand(1);
 
-                // Get the size and pixel size of the raster
-                // if the raster has more than 40,000 data points, set the scaling factor
-                long datapoints = raster.RasterXSize * raster.RasterYSize;
-                if (datapoints > 40000) {
-                    try {
-                        double[] geoTransform = new double[6];
-                        raster.GetGeoTransform(geoTransform);
-                        if (geoTransform == null && geoTransform[1] == 0) {
-                            throw new Exception();
-                        }
-                        scalingFactor = Math.Sqrt(datapoints / 40000d * geoTransform[1]);
-                    } catch {
-                        scalingFactor = Math.Sqrt(datapoints / 40000d);
-                    };
-                }
+            // get the null value
+            band1.GetNoDataValue(out double noDataValue, out int hasval);
+            if (hasval == 0)
+                noDataValue = 0;
+            band1.GetMinimum(out double min, out int hasMin);
+            band1.GetMaximum(out double max, out int hasMax);
 
-                List<Vector3d> vertices = new();
+            Gradient grad = new();
 
-
-                for (int y = 0; y < raster.RasterYSize; y++)
-                    for (int x = 0; x < raster.RasterXSize; x++) {
-                        
-                    }
-
-
-                band1.FlushCache();
-                band1.Dispose();
-                raster.FlushCache();
-                raster.Dispose();
-                return (default, default);
-
+            if (hasMin == 1 && hasMax == 1) {
+                GradientColorKey[] colors = new GradientColorKey[3];
+                colors[0] = new(Color.red, 0);
+                colors[1] = new(Color.green, 0.5f);
+                colors[2] = new(Color.blue, 1.0f);
+                GradientAlphaKey[] alphas = new GradientAlphaKey[2];
+                alphas[0] = new(1,0);
+                alphas[1] = new(1, 1);
+                grad.SetKeys(colors, alphas);
+                grad.mode = GradientMode.PerceptualBlend;
             }
-            Task<(long, Pipeline)> task = new(value);
-            task.Start();
-            (long pointCount, Pipeline pipeLine) = await task;
+
+
+            if (band1.ToMesh(out DMesh3 mesh)) {
+                mesh.EnableVertexColors(Color.white);
+                foreach (int vid in mesh.VertexIndices()) {
+                    if (Math.Abs(mesh.GetVertex(vid).z) >= Math.Abs(noDataValue)) {
+                        MeshResult result = mesh.RemoveVertex(vid);
+                        if (result != MeshResult.Ok) {
+                            Debug.Log("vertex removal failed " + result.ToString());
+                        };
+                    } else {
+                        mesh.SetVertexColor(vid, grad.Evaluate( (float)((mesh.GetVertex(vid).z - min)/(max - min))));
+                    }
+                }
+                Reducer r = new(mesh);
+                r.MinimizeQuadricPositionError = false;
+                mesh.RemoveMetadata("CRS");
+                mesh.AttachMetadata("CRS", sr);
+                mesh.axisOrder = sr.GetAxisOrder();
+                mesh.Transform();
+                //r.ReduceToTriangleCount(20000);
+                m_Meshes.Add(mesh);
+            }
+
+            band1.FlushCache();
+            band1.Dispose();
+            raster.FlushCache();
+            raster.Dispose();
+            return;
+
+            //}
+            //Task<(long, Pipeline)> task = new(value);
+            //task.Start();
+            //(long pointCount, Pipeline pipeLine) = await task;
         }
 
         /// <summary>
