@@ -27,6 +27,7 @@ using System.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Virgis {
 
@@ -35,6 +36,7 @@ namespace Virgis {
     /// </summary>
     public class DataManifoldLoader : MeshloaderPrototype<DataTable> {
         public DataUnit Unit;
+        public Gradient Grad;
 
         public override Task _init() {
             m_symbology = Unit.Units;

@@ -11,6 +11,7 @@ namespace Virgis {
     public class DataPointLoader : PointLoaderPrototype<DataTable> {
 
         public DataUnit Unit;
+        public Gradient Grad;
 
         public override async Task _init() {
             m_symbology = Unit.Units;

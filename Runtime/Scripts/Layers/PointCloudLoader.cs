@@ -28,22 +28,17 @@ using System.IO;
 using Project;
 using Pdal;
 using Newtonsoft.Json;
-using VirgisGeometry;
 using System.Linq;
 
 namespace Virgis
 {
-    public class PointCloudLoader : VirgisLoader<BakedPointCloud>
+    public class PointCloudLoader : PointCloudLoaderPrototype<BakedPointCloud>
     {
-        private PointCloudLayer parent;
-
-        private Dictionary<string, Unit> m_Symbology;
-        private PointCloud m_model;
 
         public override async Task _init(){
             RecordSet _layer = GetMetadata() as RecordSet;
             parent = m_parent as PointCloudLayer;
-            m_Symbology = _layer.Units;
+            m_symbology = _layer.Units;
             (long, Pipeline) result = await LoadAsync(_layer);
             Pipeline pipeline = result.Item2;
             PointViewIterator views = pipeline.Views;
@@ -86,7 +81,7 @@ namespace Virgis
                     });
                 }
 
-                if (m_Symbology.TryGetValue("body", out Unit bodySymbology) &&
+                if (m_symbology.TryGetValue("body", out Unit bodySymbology) &&
                     bodySymbology.ColorMode == ColorMode.SinglebandColor &&
                     bodySymbology.ColorInterp != null) {
                     Dictionary<string, object> ci = new(bodySymbology.ColorInterp) {
@@ -120,40 +115,34 @@ namespace Virgis
             return t1;
         }
 
-        protected VirgisFeature _addFeature(Vector3[] geometry)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override Task _draw()
-        {
+        public override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ?
-                (Vector3)layer.Position.ToVector3d() : Vector3.zero ;
-            if (layer.Transform != null) transform.
+                (Vector3) layer.Position.ToVector3d() : Vector3.zero;
+            if (layer.Transform != null)
+                transform.
                     Translate(AppState.instance.Map.transform.
-                    TransformVector((Vector3)layer.Transform.Position ));
+                    TransformVector((Vector3) layer.Transform.Position));
 
             m_model = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
             m_model.Spawn(parent.transform);
-            m_model.Symbology = m_Symbology.ToDictionary(
+            m_model.Symbology = m_symbology.ToDictionary(
                 item => item.Key,
                 item => item.Value as UnitPrototype
             );
-            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, 1f);
+            float size = 1.0f;
+            if (m_symbology.TryGetValue("point", out Unit value)) {
+                size = value.Transform.Scale.magnitude;
+            }
+            if (features != null)
+                m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, size);
             return Task.CompletedTask;
         }
 
-        public override void _checkpoint() { }
-
-        public override Task _save()
+        protected VirgisFeature _addFeature(Vector3[] geometry)
         {
-            _layer.Position = ((Vector3d)parent.transform.position).ToPoint();
-            _layer.Transform.Position = Vector3.zero;
-            _layer.Transform.Rotate = parent.transform.rotation;
-            _layer.Transform.Scale = parent.transform.localScale;
-            return Task.CompletedTask;
+            throw new System.NotImplementedException();
         }
     }
 }
