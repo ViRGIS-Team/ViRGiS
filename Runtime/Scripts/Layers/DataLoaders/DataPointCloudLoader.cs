@@ -16,8 +16,18 @@ namespace Virgis {
         public DataUnit Unit;
         public Gradient Grad;
 
+        private bool b_InterpolateColor;
+
         public async override Task _init() {
             m_symbology = Unit.Units;
+            if (Unit.Units.TryGetValue("point", out Unit unit)){
+                if (unit.ColorMode == ColorMode.SinglebandColor && unit.ColorMap != null) {
+                    if (unit.ColorMap.Type == ColorMapType.Interpolate) {
+                        Grad = unit.ColorMap.GetGradient();
+                        b_InterpolateColor = true;
+                    }
+                }
+            }
             await Load();
         }
         public override Task _draw() {
@@ -74,7 +84,7 @@ namespace Virgis {
             }
             float range = max - min;
             for (int i = 0; i < bpc.PointCount; i++) {
-                if (Unit.LabelRange != null) {
+                if (Unit.LabelRange != null && b_InterpolateColor) {
                     colors[i] = Grad.Evaluate((positions[i].a - min) / range);
                 } else {
                     if (Unit.Units.TryGetValue("point", out Unit unit))
