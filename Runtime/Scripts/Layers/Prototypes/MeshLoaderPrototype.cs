@@ -40,7 +40,9 @@ namespace Virgis
 
         protected void Load(){
             RecordSet layer = GetMetadata() as RecordSet;
-            if ( ! m_symbology.TryGetValue("body", out m_bodySymbology)) {
+            if (m_symbology.TryGetValue("body", out m_bodySymbology)) {
+                SetupColormap(m_bodySymbology);
+            } else {
                 m_bodySymbology = new ();
             };
         }

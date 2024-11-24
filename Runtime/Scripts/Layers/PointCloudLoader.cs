@@ -38,7 +38,10 @@ namespace Virgis
         public override async Task _init(){
             RecordSet _layer = GetMetadata() as RecordSet;
             parent = m_parent as PointCloudLayer;
-            m_symbology = _layer.Units;
+            m_Symbology = _layer.Units;
+            if (m_Symbology.TryGetValue("point", out Unit unit)) {
+                SetupColormap(unit);
+            }
             (long, Pipeline) result = await LoadAsync(_layer);
             Pipeline pipeline = result.Item2;
             PointViewIterator views = pipeline.Views;
@@ -81,7 +84,7 @@ namespace Virgis
                     });
                 }
 
-                if (m_symbology.TryGetValue("body", out Unit bodySymbology) &&
+                if (m_Symbology.TryGetValue("body", out Unit bodySymbology) &&
                     bodySymbology.ColorMode == ColorMode.SinglebandColor &&
                     bodySymbology.ColorInterp != null) {
                     Dictionary<string, object> ci = new(bodySymbology.ColorInterp) {
@@ -127,12 +130,12 @@ namespace Virgis
             m_model = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
             m_model.Spawn(parent.transform);
-            m_model.Symbology = m_symbology.ToDictionary(
+            m_model.Symbology = m_Symbology.ToDictionary(
                 item => item.Key,
                 item => item.Value as UnitPrototype
             );
             float size = 1.0f;
-            if (m_symbology.TryGetValue("point", out Unit value)) {
+            if (m_Symbology.TryGetValue("point", out Unit value)) {
                 size = value.Transform.Scale.magnitude;
             }
             if (features != null)

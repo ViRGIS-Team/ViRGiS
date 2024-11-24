@@ -104,21 +104,6 @@ namespace Virgis
             band1.GetMinimum(out double min, out int hasMin);
             band1.GetMaximum(out double max, out int hasMax);
 
-            Gradient grad = new();
-
-            if (hasMin == 1 && hasMax == 1) {
-                GradientColorKey[] colors = new GradientColorKey[3];
-                colors[0] = new(Color.red, 0);
-                colors[1] = new(Color.green, 0.5f);
-                colors[2] = new(Color.blue, 1.0f);
-                GradientAlphaKey[] alphas = new GradientAlphaKey[2];
-                alphas[0] = new(1,0);
-                alphas[1] = new(1, 1);
-                grad.SetKeys(colors, alphas);
-                grad.mode = GradientMode.PerceptualBlend;
-            }
-
-
             if (band1.ToMesh(out DMesh3 mesh)) {
                 mesh.EnableVertexColors(Color.white);
                 foreach (int vid in mesh.VertexIndices()) {
@@ -128,7 +113,18 @@ namespace Virgis
                             Debug.Log("vertex removal failed " + result.ToString());
                         };
                     } else {
-                        mesh.SetVertexColor(vid, grad.Evaluate( (float)((mesh.GetVertex(vid).z - min)/(max - min))));
+                        switch (m_ColorInterp) {
+                            case e_ColorInterp.Interpolate:
+                                mesh.SetVertexColor(vid, Grad.Evaluate((float) ((mesh.GetVertex(vid).z - min) / (max - min))));
+                                break;
+                            case e_ColorInterp.CategoryValue:
+                                mesh.SetVertexColor(vid, m_bodySymbology.ColorMap.GetCategoryValue((float)((mesh.GetVertex(vid).z - min) / (max - min))));
+                                break;
+                            default:
+                                mesh.SetVertexColor(vid, (Color)m_bodySymbology.Color);
+                                break;
+                        }
+                        
                     }
                 }
                 Reducer r = new(mesh);
@@ -142,7 +138,6 @@ namespace Virgis
             }
 
             band1.FlushCache();
-            band1.Dispose();
             raster.FlushCache();
             raster.Dispose();
             return;

@@ -32,7 +32,7 @@ namespace Virgis
     {
         protected PointCloudLayer parent;
 
-        protected Dictionary<string, Unit> m_symbology;
+        protected Dictionary<string, Unit> m_Symbology;
         protected PointCloud m_model;
 
         protected Task<int> Load() {

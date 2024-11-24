@@ -14,19 +14,11 @@ namespace Virgis {
     public class DataPointCloudLoader : PointCloudLoaderPrototype<DataTable> {
 
         public DataUnit Unit;
-        public Gradient Grad;
-
-        private bool b_InterpolateColor;
 
         public async override Task _init() {
-            m_symbology = Unit.Units;
-            if (Unit.Units.TryGetValue("point", out Unit unit)){
-                if (unit.ColorMode == ColorMode.SinglebandColor && unit.ColorMap != null) {
-                    if (unit.ColorMap.Type == ColorMapType.Interpolate) {
-                        Grad = unit.ColorMap.GetGradient();
-                        b_InterpolateColor = true;
-                    }
-                }
+            m_Symbology = Unit.Units;
+            if (m_Symbology.TryGetValue("point", out Unit unit )){
+                SetupColormap(unit);
             }
             await Load();
         }
@@ -83,13 +75,27 @@ namespace Virgis {
                     max = m;
             }
             float range = max - min;
-            for (int i = 0; i < bpc.PointCount; i++) {
-                if (Unit.LabelRange != null && b_InterpolateColor) {
-                    colors[i] = Grad.Evaluate((positions[i].a - min) / range);
-                } else {
-                    if (Unit.Units.TryGetValue("point", out Unit unit))
-                        colors[i] = (Color)unit.Color;
+            float size = 1.0f;
+            Unit value;
+            Color color = Color.white;
+            if (m_Symbology.TryGetValue("point", out value)) {
+                size = value.Transform.Scale.magnitude;
+                color = value.Color;
+            } 
+            if (Unit.LabelRange != null && m_ColorInterp != e_ColorInterp.None) {
+                for (int i = 0; i < bpc.PointCount; i++) {
+                    switch (m_ColorInterp) {
+                        case e_ColorInterp.Interpolate:
+                            colors[i] = Grad.Evaluate((positions[i].a - min) / range);
+                            break;
+                        case e_ColorInterp.CategoryValue:
+                            colors[i] = value.ColorMap.GetCategoryValue((positions[i].a - min) / range); 
+                            break;
+                    }
                 }
+            } else {
+                for (int i = 0; i < bpc.PointCount; i++)
+                    colors[i] = (Color)value.Color;
             }
             bpc.PositionMap.Apply(false, false);
             bpc.ColorMap.Apply(false, false);
@@ -104,14 +110,11 @@ namespace Virgis {
             m_model = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
             m_model.Spawn(parent.transform);
-            m_model.Symbology = m_symbology.ToDictionary(
+            m_model.Symbology = m_Symbology.ToDictionary(
                 item => item.Key,
                 item => item.Value as UnitPrototype
             );
-            float size = 1.0f;
-            if (m_symbology.TryGetValue("point", out Unit value)) {
-                size = value.Transform.Scale.magnitude;
-            }
+            
             m_model.Bpc.Set(bpc.PositionMap, bpc.ColorMap, bpc.PointCount, size);
             return Task.CompletedTask;
         }
