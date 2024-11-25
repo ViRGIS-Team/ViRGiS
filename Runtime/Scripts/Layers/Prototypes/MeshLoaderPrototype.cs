@@ -27,6 +27,7 @@ using Project;
 using System.Threading.Tasks;
 using System.Collections;
 using OSGeo.GDAL;
+using System;
 
 namespace Virgis
 {
@@ -47,9 +48,19 @@ namespace Virgis
             };
         }
 
-        public override IVirgisFeature _addFeature<T>(T geometry)
-        {
-            throw new System.NotImplementedException();
+        public override IVirgisFeature _addFeature<T>(T geometry) {
+            switch (geometry) {
+                case DMesh3 mesh:
+                    changed = true;
+                    MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+                    m_Meshes.Add(mesh);
+                    EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
+                    emesh.Draw(mesh, m_bodySymbology);
+                    emesh.OnEdit(true);
+                    return emesh;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         public async override Task _draw() {
@@ -83,15 +94,6 @@ namespace Virgis
             transform.localScale = layer.Transform.Scale;
             return;
         }
-
-        protected VirgisFeature _addFeature(DMesh3 mesh) {
-            MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
-            m_Meshes.Add(mesh);
-            EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
-            emesh.Draw(mesh, m_bodySymbology);
-            return emesh;
-        }
-      
 
         public override void _checkpoint() { }
 

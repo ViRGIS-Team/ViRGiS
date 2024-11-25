@@ -110,10 +110,15 @@ namespace Virgis {
         public override void _checkpoint() {
         }
 
-        protected VirgisFeature _addFeature(Vector3[] geometry) {
-            VirgisFeature newFeature = DrawFeature(geometry[0], GetNextFID());
-            changed = true;
-            return newFeature;
+        public override IVirgisFeature _addFeature<T>(T geometry) {
+            switch (geometry) {
+                case Vector3 v:
+                    VirgisFeature newFeature = DrawFeature(v, GetNextFID());
+                    changed = true;
+                    return newFeature;
+                default:
+                    throw new System.Exception("Incorrect Type passed to _addFeature");
+            }
         }
 
         public void RemoveVertex(VirgisFeature vertex) {

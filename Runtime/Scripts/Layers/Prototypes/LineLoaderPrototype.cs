@@ -88,15 +88,20 @@ namespace Virgis
                     Color = unit.Color,
                 };
                 m_materials.Add(key, hash);
+                if (key == "point")
+                    m_parent.m_DefaultCol.Value = hash;
             }
             return Task.FromResult(1);
         }
 
-        protected VirgisFeature _addFeature(Vector3[] line)
-        {
-            DCurve3 curve = new(line, false);
-
-            return _drawFeature(curve, "");
+        public override IVirgisFeature _addFeature<T>(T geometry) {
+            switch (geometry) {
+                case Vector3[] line:
+                    DCurve3 curve = new(line, false);
+                    return _drawFeature(curve, "");
+                default:
+                    throw new System.Exception("Incorrect Type passed to _addFeature");
+            }
         }
 
         /// <summary>

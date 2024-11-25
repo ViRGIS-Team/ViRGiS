@@ -100,16 +100,27 @@ namespace Virgis
                     });
                 }
                 m_materials.Add(key, hash);
+                if (key == "point")
+                    m_parent.m_DefaultCol.Value = hash;
             }
             return Task.FromResult(1);
         }
 
-        protected VirgisFeature _addFeature(Vector3[] line) {
-            changed = true;
-            return _drawFeature(
-                new() { new DCurve3(line.Cast<Vector3d>(), true) },
-                GetNextFID()
-            );
+        public override IVirgisFeature _addFeature<T>(T geometry) {
+            switch (geometry) {
+                case Vector3[] line:
+                    changed = true;
+                    return _drawFeature(
+                        new List<DCurve3>() { 
+                            new DCurve3(line, true) { 
+                                axisOrder = AxisOrder.EUN 
+                            } 
+                        },
+                        GetNextFID()
+                    );
+                default:
+                    throw new System.Exception("Incorrect Type passed to _addFeature");
+            }
         }
 
         protected VirgisFeature _drawFeature(List<DCurve3> poly, object fid, string label = "")
