@@ -66,7 +66,7 @@ namespace Virgis
         public async override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
-
+            parent.IsWriteable = ! layer.Properties.ReadOnly;
             transform.position = layer.Position != null ?
                 (Vector3)layer.Position.ToVector3d() :
                 Vector3.zero;
