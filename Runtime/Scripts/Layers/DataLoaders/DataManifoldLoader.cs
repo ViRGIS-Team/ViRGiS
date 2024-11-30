@@ -67,7 +67,7 @@ namespace Virgis {
                 points.Add(new Vector3d(x, y, z));
             }
             m_Meshes = new() {
-                DMesh3Builder.Build<Vector3d, Index2i>(points),
+                DMesh3Builder.Build<Vector3d, Index2i>(points, null, AxisOrder.ENU),
                 };
             return Task.CompletedTask;
         }
