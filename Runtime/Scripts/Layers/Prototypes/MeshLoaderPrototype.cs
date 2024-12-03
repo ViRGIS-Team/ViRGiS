@@ -48,7 +48,7 @@ namespace Virgis
             };
         }
 
-        public override IVirgisFeature _addFeature<T>(T geometry) {
+        public override IVirgisFeature _addFeature<S>(S geometry) {
             switch (geometry) {
                 case DMesh3 mesh:
                     changed = true;

@@ -36,7 +36,6 @@ namespace Virgis {
     /// </summary>
     public class DataManifoldLoader : MeshloaderPrototype<DataTable> {
         public DataUnit Unit;
-        public Gradient Grad;
 
         public override Task _init() {
             m_symbology = Unit.Units;

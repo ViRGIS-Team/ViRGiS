@@ -38,7 +38,6 @@ namespace Virgis
     public class DataAreaLoader : PolygonLoaderPrototype<DataTable>
     {
         public DataUnit Unit;
-        public Gradient Grad;
 
         public override async Task _init() {
             m_symbology = Unit.Units;

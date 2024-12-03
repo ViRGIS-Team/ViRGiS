@@ -94,7 +94,7 @@ namespace Virgis
             return Task.FromResult(1);
         }
 
-        public override IVirgisFeature _addFeature<T>(T geometry) {
+        public override IVirgisFeature _addFeature<S>(S geometry) {
             switch (geometry) {
                 case Vector3[] line:
                     DCurve3 curve = new(line, false);

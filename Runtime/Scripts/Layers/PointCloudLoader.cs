@@ -142,10 +142,5 @@ namespace Virgis
                 m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, size);
             return Task.CompletedTask;
         }
-
-        protected VirgisFeature _addFeature(Vector3[] geometry)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

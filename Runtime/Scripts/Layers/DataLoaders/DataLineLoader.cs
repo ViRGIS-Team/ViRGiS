@@ -38,7 +38,6 @@ namespace Virgis
     public class DataLineLoader : LineLoaderPrototype<DataTable>
     {
         public DataUnit Unit;
-        public Gradient Grad;
 
         public override async Task _init() {
             parent = m_parent as LineLayer;

@@ -66,10 +66,12 @@ namespace Virgis {
         public static bool Transform(this DMesh3 dMesh) {
             var crs = dMesh.FindMetadata("CRS");
             // if the Dmesh3 contains a CRS use that
-            if (crs != null && crs != "") {
+            if (crs != null ) {
                 SpatialReference from;
                 switch (crs) {
                     case string s:
+                        if (s == "")
+                            return false;
                         from = OsrExtensions.TextToSR(s);
                         break;
                     case SpatialReference sr:

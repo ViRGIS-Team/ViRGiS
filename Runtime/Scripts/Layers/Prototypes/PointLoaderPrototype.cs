@@ -110,7 +110,7 @@ namespace Virgis {
         public override void _checkpoint() {
         }
 
-        public override IVirgisFeature _addFeature<T>(T geometry) {
+        public override IVirgisFeature _addFeature<S>(S geometry) {
             switch (geometry) {
                 case Vector3 v:
                     VirgisFeature newFeature = DrawFeature(v, GetNextFID());
