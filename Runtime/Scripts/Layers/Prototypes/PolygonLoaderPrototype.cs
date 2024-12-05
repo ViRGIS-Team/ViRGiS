@@ -101,7 +101,7 @@ namespace Virgis
                 }
                 m_materials.Add(key, hash);
                 if (key == "point")
-                    m_parent.m_DefaultCol.Value = hash;
+                    m_parent.DefaultCol.Value = hash;
             }
             return Task.FromResult(1);
         }

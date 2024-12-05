@@ -66,7 +66,6 @@ namespace Virgis {
             }
             DontDestroyOnLoad(gameObject);
             _editSession = new();
-            Zoom = new();
             MapScale = new();
             GridScale = new();
             Project = new();

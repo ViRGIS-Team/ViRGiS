@@ -43,7 +43,7 @@ namespace Virgis {
                     Color = unit.Color,
                 };
                 m_materials.Add(key, hash);
-                if (key == "point") m_parent.m_DefaultCol.Value = hash;
+                if (key == "point") m_parent.DefaultCol.Value = hash;
             }
             return Task.FromResult(0);
         }
