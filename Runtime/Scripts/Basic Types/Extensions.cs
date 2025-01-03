@@ -82,7 +82,7 @@ namespace Virgis {
                         return false;
                 }
                 CoordinateTransformation trans = AppState.instance.projectTransformer(from);
-                return dMesh.Project(trans, AppState.instance.projectCrs.GetAxisOrder());
+                return dMesh.Project(trans, AxisOrder.ENU);
             }
             dMesh.axisOrder = AxisOrder.EUN;
             return false;
