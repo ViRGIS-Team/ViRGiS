@@ -181,7 +181,7 @@ namespace Virgis
                             double3 flatverts = new(position[0], position[1], 1);
                             double3 xy = math.mul(revGT, flatverts);
                             if (xy.x < demWidth && xy.y < demHeight) {
-                                position[2] = elevationValues[(int) (xy.y * demWidth + xy.x)];
+                                position[2] = elevationValues[ ((int)xy.y * (int)demWidth + (int)xy.x)];
                             }
 
                             // transform back to project coordinates
