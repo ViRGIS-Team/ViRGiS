@@ -22,40 +22,53 @@ SOFTWARE. */
 
 using System.Collections.Generic;
 using UnityEngine;
-using g3;
+using VirgisGeometry;
 using Project;
 using System.Threading.Tasks;
+using System.Collections;
+using OSGeo.GDAL;
+using System;
 
 namespace Virgis
 {
 
-    public abstract class MeshloaderPrototype : VirgisLoader<List<DMesh3>>
+    public abstract class MeshloaderPrototype<T> : VirgisLoader<T>
     {
-        protected List<Transform> m_meshes; // List of the meshes in the layer
+        // List of the meshes in the layer - as DMesh3 in Local Space coordinates
         protected Dictionary<string, Unit> m_symbology;
+        protected List<DMesh3> m_Meshes = new();
         protected Unit m_bodySymbology;
 
-        public override Task _init(){
+        protected void Load(){
             RecordSet layer = GetMetadata() as RecordSet;
-            m_symbology = layer.Units;
-            if ( ! m_symbology.TryGetValue("body", out m_bodySymbology)) {
+            if (m_symbology.TryGetValue("body", out m_bodySymbology)) {
+                SetupColormap(m_bodySymbology);
+            } else {
                 m_bodySymbology = new ();
             };
-            return Task.CompletedTask;
         }
 
-        public override IVirgisFeature _addFeature<T>(T geometry)
-        {
-            throw new System.NotImplementedException();
+        public override IVirgisFeature _addFeature<S>(S geometry) {
+            switch (geometry) {
+                case DMesh3 mesh:
+                    changed = true;
+                    MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+                    m_Meshes.Add(mesh);
+                    EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
+                    emesh.Draw(mesh, m_bodySymbology);
+                    emesh.OnEdit(true);
+                    return emesh;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         public async override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
-            m_meshes = new List<Transform>();
-
+            parent.IsWriteable = ! layer.Properties.ReadOnly;
             transform.position = layer.Position != null ?
-                layer.Position.ToVector3() :
+                (Vector3)layer.Position.ToVector3d() :
                 Vector3.zero;
             transform.Translate(AppState.instance.Map.transform
                 .TransformVector((Vector3) layer.Transform.Position)
@@ -63,28 +76,39 @@ namespace Virgis
             
             bool HasVertexColors = false;
 
-            foreach (DMesh3 dMesh in features) {
+            foreach (DMesh3 dMesh in m_Meshes) {
                 HasVertexColors |= dMesh.HasVertexColors;
-                await dMesh.CalculateMapUVsAsync(m_bodySymbology);
-                m_meshes.Add(Instantiate(parent.Mesh, transform)
+                if (m_bodySymbology.TextureImage is not null &&
+                    m_bodySymbology.TextureImage != ""
+                ) {
+                    Dataset raster = Gdal.Open(m_bodySymbology.TextureImage, Access.GA_ReadOnly);
+                    await dMesh.CalculateMapUVsAsync(raster);
+                } else {
+                    dMesh.CalculateUVs();
+                }
+                Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
-                    .Draw(dMesh, m_bodySymbology));
+                    .Draw(dMesh, m_bodySymbology);
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
             return;
         }
 
-        protected VirgisFeature _addFeature(DMesh3 mesh) {
-            MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
-            features.Add(mesh);
-            EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
-            m_meshes.Add(emesh.Draw(mesh, m_bodySymbology));
-            return emesh;
-        }
-      
-
         public override void _checkpoint() { }
+
+        protected abstract object GetNextFID();
+
+        public async override Task _save() {
+            IEnumerator saver = hydrate();
+            while (saver.MoveNext()) {
+                await Task.Yield();
+            };
+            await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
+            return;
+        }
+
+        protected abstract IEnumerator hydrate();
 
     }
 }

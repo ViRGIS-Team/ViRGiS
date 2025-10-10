@@ -29,23 +29,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Virgis
-{
+namespace Virgis {
 
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class DataLineLoader : LineLoaderPrototype<DataTable>
-    {
+    public class DataManifoldLoader : MeshloaderPrototype<DataTable> {
         public DataUnit Unit;
 
-        public override async Task _init() {
-            parent = m_parent as LineLayer;
+        public override Task _init() {
             m_symbology = Unit.Units;
-            await Load();
-        }
-
-        public override async Task _draw() {
+            Load();
             if (Unit.XRange == null ||
                 !features.Columns.Contains(Unit.XRange) ||
                 Unit.YRange == null ||
@@ -54,11 +48,7 @@ namespace Virgis
                ) {
                 throw new Exception($"DataUnit {Unit.Name} has invalid columns");
             }
-            DCurve3 curve = new();
-            curve.Closed = false;
-            AxisOrder ax = Unit.AxisOrder;
-            if (ax == default)
-                ax = AxisOrder.ENU;
+            List<Vector3d> points = new ();
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -72,12 +62,13 @@ namespace Virgis
                 } catch (Exception) {
                     throw new Exception($"DataUnit {Unit.Name} had invalid data");
                 }
-
-                Vector3d pos3d = new Vector3d(x, y, z) {axisOrder = ax };
-                curve.AppendVertex( pos3d);
-                curve.SetData(row.Field<long>("__FID"));
+                //Note that at this point the point is in Map Space Coordinates 
+                points.Add(new Vector3d(x, y, z));
             }
-            await _drawFeatureAsync(curve, "data");
+            m_Meshes = new() {
+                DMesh3Builder.Build<Vector3d, Index2i>(points, null, AxisOrder.ENU),
+                };
+            return Task.CompletedTask;
         }
 
         protected override object GetNextFID() {
@@ -116,3 +107,4 @@ namespace Virgis
         }
     }
 }
+

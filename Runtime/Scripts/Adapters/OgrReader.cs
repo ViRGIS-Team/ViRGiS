@@ -21,6 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 using OSGeo.OGR;
+using OSGeo.OSR;
 using Project;
 using System;
 using System.Collections.Generic;
@@ -151,7 +152,7 @@ namespace Virgis {
                     return crs;
                 return AppState.instance.projectCrs;
             }
-            return Convert.TextToSR(metadata.Crs);
+            return OsrExtensions.TextToSR(metadata.Crs);
         }
 
         public void Dispose() {

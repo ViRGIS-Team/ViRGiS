@@ -25,17 +25,17 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System.IO;
 using Project;
-using g3;
+using VirgisGeometry;
 using System;
 using OSGeo.OGR;
-using SpatialReference = OSGeo.OSR.SpatialReference;
-using CoordinateTransformation = OSGeo.OSR.CoordinateTransformation;
+using OSGeo.OSR;
 using DXF = netDxf;
 using netDxf.Entities;
+using System.Collections;
 
 namespace Virgis
 {
-    public class MeshLoader : MeshloaderPrototype
+    public class MeshLoader : MeshloaderPrototype<string>
     {
         private Layer m_entities;
 
@@ -106,15 +106,16 @@ namespace Virgis
         }
 
         public override async Task _init() {
-            await base._init();
             RecordSet layer = _layer as RecordSet;
-            isWriteable = true;
+            m_symbology = layer.Units;
+            Load();
+            IsWriteable = true;
 
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
-                features = meshes.Meshes;
-                foreach (DMesh3 mesh in features) {
+                m_Meshes = meshes.Meshes;
+                foreach (DMesh3 mesh in m_Meshes) {
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
                         mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
@@ -138,7 +139,7 @@ namespace Virgis
                     //
                     // Try opening with netDxf - this will only open files in autoCAD version 2000 or later
                     //
-                    if (layer.Crs != null && layer.Crs != "") SetCrs(Convert.TextToSR(layer.Crs));
+                    if (layer.Crs != null && layer.Crs != "") SetCrs(OsrExtensions.TextToSR(layer.Crs));
                     DXF.DxfDocument doc;
                     using (Stream stream = File.Open(layer.Source, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
                         doc = DXF.DxfDocument.Load(stream);
@@ -148,16 +149,16 @@ namespace Virgis
                     IEnumerable<Face3d> faces = doc.Faces3d;
                     IEnumerable<PolyfaceMesh> pfs = doc.PolyfaceMeshes;
                     List<DCurve3> curves = new List<DCurve3>();
-                    CoordinateTransformation transformer = AppState.instance.projectTransformer(GetCrs());
+                    AxisOrder ax = GetCrs().GetAxisOrder();
                     foreach (Face3d face in faces) {
                         List<Vector3d> tri = new List<Vector3d>();
-                        tri.Add(face.FirstVertex.ToVector3d(transformer));
-                        tri.Add(face.SecondVertex.ToVector3d(transformer));
-                        tri.Add(face.ThirdVertex.ToVector3d(transformer));
+                        tri.Add(face.FirstVertex.ToVector3d(ax));
+                        tri.Add(face.SecondVertex.ToVector3d(ax));
+                        tri.Add(face.ThirdVertex.ToVector3d(ax));
                         if (face.FourthVertex != face.ThirdVertex) {
                             Debug.Log(" Not a Triangle");
                         }
-                        curves.Add(new DCurve3(tri, false, true));
+                        curves.Add(new DCurve3(tri, true, true));
                     }
                     //
                     // Add the Polyface Meshes
@@ -167,11 +168,11 @@ namespace Virgis
                             List<Vector3d> tri = new List<Vector3d>();
                             List<short> verts = face.VertexIndexes;
                             for (int i = 0; i < 3; i++) {
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[0]) - 1].Position.ToVector3d(transformer));
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[1]) - 1].Position.ToVector3d(transformer));
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[2]) - 1].Position.ToVector3d(transformer));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[0]) - 1].Position.ToVector3d(ax));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[1]) - 1].Position.ToVector3d(ax));
+                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[2]) - 1].Position.ToVector3d(ax));
                             }
-                            curves.Add(new DCurve3(tri, false, true));
+                            curves.Add(new DCurve3(tri, true, true));
                         }
                     }
                     //
@@ -200,6 +201,7 @@ namespace Virgis
 
                     m_entities = ogrReader.GetLayers()[0];
                     SetCrs(OgrReader.getSR(m_entities, layer));
+                    AxisOrder ax = GetCrs().GetAxisOrder();
                     RecordSet metadata = GetMetadata() as RecordSet;
                     if (metadata.Properties.BBox != null) {
                         m_entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
@@ -226,15 +228,15 @@ namespace Virgis
                                 wkbGeometryType type = LinearRing.GetGeometryType();
                                 if (type == wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
                                     LinearRing.CloseRings();
-                                    DCurve3 curve = new DCurve3();
-                                    curve.FromGeometry(LinearRing, GetCrs());
-                                    if (curve.VertexCount > 5) {
+                                    DCurve3 curve = LinearRing.ToCurve(GetCrs());
+                                    if (curve.VertexCount > 4) {
                                         Debug.LogError("incorrect face size");
                                     } else {
-                                        if (curve.VertexCount == 4) {
+                                        if (curve.VertexCount == 3) {
                                             curves.Add(curve);
                                         } else {
                                             List<Vector3d> vertices = curve.Vertices as List<Vector3d>;
+                                            vertices.ForEach(v => { v.axisOrder = GetCrs().GetAxisOrder();});
                                             Vector3d[] tri1 = new Vector3d[4] {
                                                     vertices[0],
                                                     vertices[1],
@@ -253,7 +255,7 @@ namespace Virgis
                                                 };
                                             DCurve3 curve2 = new();
                                             curve2.SetVertices(tri2);
-                                            curve2.Closed = geom.IsRing();
+                                            curve2.Closed = true;
                                             curves.Add(curve2);
                                         }
                                     }
@@ -285,32 +287,56 @@ namespace Virgis
                 vertexes.ForEach(v => dmesh.AppendVertex(v));
                 tris.ForEach(t => dmesh.AppendTriangle(t));
                 try {
+                    if (GetCrs() != null) {
+                        dmesh.RemoveMetadata("CRS");
+                        dmesh.AttachMetadata("CRS", layer.Crs);
+                    };
+                    dmesh.Transform();
                     dmesh.CompactInPlace();
-                } catch { }
-                features = new List<DMesh3> {
-                    dmesh
-                };
-                m_symbology = layer.Units;
-                return;
+                } catch ( Exception e) 
+                {
+                    Debug.LogError(e.Message);
+                }
+                if (!dmesh.CheckValidity(out MeshResult res2)) {
+                    UnityEngine.Debug.Log("Loading Mesh created a defective mesh " + res2.ToString());
+                }
+                MeshConnectedComponents components = new (dmesh);
+
+                // Find connected components
+                components.FindConnectedT();
+
+                m_Meshes = new();
+
+                if (components.Components.Count > 1) {
+                    // Extract each connected submesh
+                    foreach (var comp in components.Components) {
+                        DMesh3 submesh = new DSubmesh3Legacy(dmesh, comp.Indices).SubMesh;
+                        m_Meshes.Add(submesh);
+                    }
+                } else {
+                    m_Meshes.Add(dmesh);
+                }
+
+                    return;
             }
         }
 
         public override Task _save()
         {
             RecordSet layer = _layer as RecordSet;
-            layer.Position = transform.position.ToPoint();
+            layer.Position = ((Vector3d)transform.position).ToPoint();
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
             EditableMesh[] meshes = GetComponentsInChildren<EditableMesh>();
             string ex = Path.GetExtension(layer.Source).ToLower();
-            features = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
             foreach (EditableMesh mesh in meshes) {
-                features.Add(mesh.GetMesh());
+                m_Meshes.Add(mesh.GetMesh());
             }
             if (ex == ".obj") {
                 List<WriteMesh> wmeshes = new List<WriteMesh>();
-                foreach (DMesh3 dmesh in features) {
+                foreach (DMesh3 dmesh in m_Meshes) {
                     DMesh3 mesh = new DMesh3(dmesh);
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
@@ -326,7 +352,7 @@ namespace Virgis
                 if (GetCrs() != null) {
                     trans = AppState.instance.projectOutTransformer(GetCrs());
                 }
-                foreach (DMesh3 dmesh in features) {
+                foreach (DMesh3 dmesh in m_Meshes) {
                     foreach (Index3i tri in dmesh.Triangles()) {
                         DXF.Vector3 v1 = dmesh.GetVertex(tri.a).ToDxfVector3(trans);
                         DXF.Vector3 v2 = dmesh.GetVertex(tri.b).ToDxfVector3(trans);
@@ -340,6 +366,14 @@ namespace Virgis
                 }
             }
             return Task.CompletedTask;
+        }
+
+        protected override object GetNextFID() {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerator hydrate() {
+            throw new NotImplementedException();
         }
     }
 }

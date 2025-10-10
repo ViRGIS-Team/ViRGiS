@@ -1,6 +1,6 @@
-/* MIT License
+﻿/* MIT License
 
-Copyright (c) 2020 - 21 Runette Software
+Copyright (c) 2020 - 23 Runette Software
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,34 +21,40 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
 using System.Collections.Generic;
+using UnityEngine;
 using System.Threading.Tasks;
-using OSGeo.OGR;
+using Project;
+using VirgisGeometry;
 
-namespace Virgis {
+namespace Virgis
+{
+    public class PointCloudLoaderPrototype<T> : VirgisLoader<T>
+    {
+        protected PointCloudLayer parent;
 
-    public class GraphLoader : VirgisLoader<Layer[]> {
+        protected Dictionary<string, Unit> m_Symbology;
+        protected PointCloud m_model;
 
-        private readonly List<VirgisLayer> _layers = new();
+        protected Task<int> Load() {
+            parent = m_parent as PointCloudLayer;
+            return Task.FromResult(0);
+        }
 
-        public override Task _init() {
+        protected VirgisFeature _addFeature(Vector3[] geometry)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+        public override void _checkpoint() { }
+
+        public override Task _save()
+        {
+            _layer.Position = ((Vector3d)parent.transform.position).ToPoint();
+            _layer.Transform.Position = Vector3.zero;
+            _layer.Transform.Rotate = parent.transform.rotation;
+            _layer.Transform.Scale = parent.transform.localScale;
             return Task.CompletedTask;
-        }
-
-        public override Task _draw() {
-            return Task.CompletedTask;
-        }
-
-
-        public override void _checkpoint() {
-        }
-
-
-        public async override Task _save() {
-
-            foreach (VirgisLayer thisLayer in _layers) {
-                await thisLayer.Save();
-            }
-            return;
         }
     }
 }

@@ -28,26 +28,21 @@ using System.IO;
 using Project;
 using Pdal;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace Virgis
 {
-    public class PointCloudLoader : VirgisLoader<BakedPointCloud>
+    public class PointCloudLoader : PointCloudLoaderPrototype<BakedPointCloud>
     {
-        private PointCloudLayer parent;
-        private Dictionary<string, Unit> m_Symbology;
-        protected Unit m_bodySymbology;
 
         public override async Task _init(){
-            RecordSet layer = GetMetadata() as RecordSet;
-            m_Symbology = layer.Units;
-            if ( ! m_Symbology.TryGetValue("point", out m_bodySymbology)) {
-                m_bodySymbology = new ();
-            };
-            await Load(layer);
-        }
-
-        protected async Task Load(RecordSet layer) {
-            (long, Pipeline) result = await LoadAsync(layer);
+            RecordSet _layer = GetMetadata() as RecordSet;
+            parent = m_parent as PointCloudLayer;
+            m_Symbology = _layer.Units;
+            if (m_Symbology.TryGetValue("point", out Unit unit)) {
+                SetupColormap(unit);
+            }
+            (long, Pipeline) result = await LoadAsync(_layer);
             Pipeline pipeline = result.Item2;
             PointViewIterator views = pipeline.Views;
             if (views != null) {
@@ -123,40 +118,28 @@ namespace Virgis
             return t1;
         }
 
-        protected VirgisFeature _addFeature(Vector3[] geometry)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override Task _draw()
-        {
+        public override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ?
-                layer.Position.ToVector3() : Vector3.zero ;
-            if (layer.Transform != null) transform.
+                (Vector3) layer.Position.ToVector3d() : Vector3.zero;
+            if (layer.Transform != null)
+                transform.
                     Translate(AppState.instance.Map.transform.
-                    TransformVector((Vector3)layer.Transform.Position ));
+                    TransformVector((Vector3) layer.Transform.Position));
 
-            PointCloud com = Instantiate(parent.pointCloud, transform, false)
+            m_model = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
-            com.Spawn(parent.transform);
-            com.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount);
-            return Task.CompletedTask;
-        }
-
-        public override void _set_visible() {
-            PointCloud com = parent.GetComponent<PointCloud>();
-            com.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount);
-        }
-
-        public override void _checkpoint() { }
-
-        public override Task _save()
-        {
-            _layer.Position = parent.transform.position.ToPoint();
-            _layer.Transform.Position = Vector3.zero;
-            _layer.Transform.Rotate = parent.transform.rotation;
-            _layer.Transform.Scale = parent.transform.localScale;
+            m_model.Spawn(parent.transform);
+            m_model.Symbology = m_Symbology.ToDictionary(
+                item => item.Key,
+                item => item.Value as UnitPrototype
+            );
+            float size = 1.0f;
+            if (m_Symbology.TryGetValue("point", out Unit value)) {
+                size = value.Transform.Scale.magnitude;
+            }
+            if (features != null)
+                m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, size);
             return Task.CompletedTask;
         }
     }

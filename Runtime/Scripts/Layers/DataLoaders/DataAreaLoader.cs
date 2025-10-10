@@ -35,12 +35,11 @@ namespace Virgis
     /// <summary>
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
-    public class DataLineLoader : LineLoaderPrototype<DataTable>
+    public class DataAreaLoader : PolygonLoaderPrototype<DataTable>
     {
         public DataUnit Unit;
 
         public override async Task _init() {
-            parent = m_parent as LineLayer;
             m_symbology = Unit.Units;
             await Load();
         }
@@ -59,6 +58,7 @@ namespace Virgis
             AxisOrder ax = Unit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
+            curve.axisOrder = ax;
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -72,12 +72,28 @@ namespace Virgis
                 } catch (Exception) {
                     throw new Exception($"DataUnit {Unit.Name} had invalid data");
                 }
-
-                Vector3d pos3d = new Vector3d(x, y, z) {axisOrder = ax };
-                curve.AppendVertex( pos3d);
+                Vector3d pos3d = new Vector3d(x, y, z) { axisOrder = ax};
+                curve.AppendVertex(pos3d);
                 curve.SetData(row.Field<long>("__FID"));
             }
-            await _drawFeatureAsync(curve, "data");
+            DCurve3 ring = new();
+            ring.axisOrder = ax;
+
+            for (int i=0; i<curve.VertexCount; i++) {
+                Vector3d v = curve.GetVertex(i);
+                long fid = curve.GetData<long>(i);
+                // Insert top vertex for this data point
+                ring.InsertVertex(v, i);
+                ring.InsertData(fid, i);
+
+                // Insert bottom vertex for this data point
+                if (ax == AxisOrder.EUN)
+                    ring.InsertVertex(new Vector3d(v.x, 0, v.z) { axisOrder = v.axisOrder }, i + 1);
+                else
+                    ring.InsertVertex(new Vector3d(v.x, v.y, 0) { axisOrder = v.axisOrder }, i + 1);
+                ring.InsertData(fid, i + 1);
+            }
+            await _drawFeatureAsync(new List<DCurve3>() { ring }, "data");
         }
 
         protected override object GetNextFID() {

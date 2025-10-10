@@ -65,13 +65,14 @@ namespace Virgis {
                 Destroy(gameObject);
             }
             DontDestroyOnLoad(gameObject);
-            _editSession = new EditSession();
-            Zoom = new ZoomEvent();
-            Project = new ProjectChange();
-            Info = new InfoEvent();
-            ButtonStatus = new ButtonStatus();
-            Orientation = new OrientEvent();
-            LayerUpdate = new LayerChange();
+            _editSession = new();
+            MapScale = new();
+            GridScale = new();
+            Project = new();
+            Info = new();
+            ButtonStatus = new();
+            Orientation = new();
+            LayerUpdate = new();
 
 
             try {
@@ -144,10 +145,10 @@ namespace Virgis {
                         AXIS[""(N)"", north, ORDER[2], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]]]");
                             }
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
-            op.SetOperation("+proj=axisswap +order=1,3,2");
-            _trans = new CoordinateTransformation(_crs, _crs, op);
-            if (_trans == null)
-                throw new NotSupportedException("transformation failed");
+            //op.SetOperation("+proj=axisswap +order=1,3,2",false);
+            //_trans = new CoordinateTransformation(_crs, _crs, op);
+            //if (_trans == null)
+            //    throw new NotSupportedException("transformation failed");
             projectCrs = new SpatialReference(null);
             if (project.projectCrs != null) {
                 projectCrs.SetWellKnownGeogCS(project.projectCrs);

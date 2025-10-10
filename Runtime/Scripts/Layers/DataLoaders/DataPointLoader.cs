@@ -3,6 +3,9 @@ using System.Data;
 using System.Threading.Tasks;
 using Project;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using VirgisGeometry;
 
 namespace Virgis {
     public class DataPointLoader : PointLoaderPrototype<DataTable> {
@@ -24,15 +27,19 @@ namespace Virgis {
             {
                 throw new Exception($"DataUnit {Unit.Name} has invalid columns");
             }
+            List<Task<int>> tasks = new();
+            AxisOrder ax = Unit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             foreach (DataRow row in features.Rows) {
-                float x = 0;
-                float y = 0;
-                float z = 0;
+                double x = 0;
+                double y = 0;
+                double z = 0;
                 try {
-                    x = float.Parse(row.Field<string>(features.Columns[Unit.XRange]));
-                    y = float.Parse(row.Field<string>(features.Columns[Unit.YRange]));
+                    x = double.Parse(row.Field<string>(features.Columns[Unit.XRange]));
+                    y = double.Parse(row.Field<string>(features.Columns[Unit.YRange]));
                     z = Unit.ZRange != null ?
-                        float.Parse(row.Field<string>(features.Columns[Unit.ZRange])) :
+                        double.Parse(row.Field<string>(features.Columns[Unit.ZRange])) :
                         0;
                 } catch(Exception) {
                     throw new Exception($"DataUnit {Unit.Name} had invalid data");
@@ -41,24 +48,43 @@ namespace Virgis {
                 if (Unit.LabelRange != null && features.Columns.Contains(Unit.LabelRange)) {
                     label = row.Field<string>(features.Columns[Unit.LabelRange]);
                 }
-                await DrawFeatureAsync(new Vector3(x, y, z), label);
+
+                Vector3d pos3d = new Vector3d(x, y, z) { axisOrder = ax };
+                tasks.Add(DrawFeatureAsync(
+                    (Vector3)pos3d,
+                    row.Field<long>("__FID"),
+                    label
+                ));
             }
+            await Task.WhenAll(tasks);
         }
 
-        public override Task _save() {
-            //Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
-            //List<Feature> thisFeatures = new List<Feature>();
-            //long n = features.GetFeatureCount(0);
-            //for (int i = 0; i < (int) n; i++) features.DeleteFeature(i);
-            //foreach (Datapoint pointFunc in pointFuncs) {
-            //    Feature feature = pointFunc.feature as Feature;
-            //    Geometry geom = (pointFunc.gameObject.transform.position.ToGeometry());
-            //    geom.TransformTo(GetCrs());
-            //    feature.SetGeometryDirectly(geom);
-            //    features.CreateFeature(feature);
-            //}
-            //features.SyncToDisk();
-            return Task.CompletedTask;
+        protected override IEnumerator hydrate() {
+            System.Diagnostics.Stopwatch watch = new();
+            watch.Start();
+            Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
+            foreach (Datapoint pointFunc in pointFuncs) {
+                long fid = pointFunc.GetFID<long>();
+                DataRow row = features.Rows.Find(fid);
+                if (row == null) {
+                    row = features.NewRow();
+                    row["__FID"] = fid;
+                    features.Rows.Add(row);
+                }
+                Vector3d pos = pointFunc.gameObject.transform.position;
+                row[Unit.XRange] = pos.x.ToString();
+                row[Unit.YRange] = pos.y.ToString();
+                if (Unit.ZRange != null)
+                    row[Unit.ZRange] = pos.z.ToString();
+                if (watch.ElapsedMilliseconds > 100) {
+                    watch.Restart();
+                    yield return null;
+                }
+            };
+        }
+
+        protected override object GetNextFID() {
+            return "";
         }
     }
 }

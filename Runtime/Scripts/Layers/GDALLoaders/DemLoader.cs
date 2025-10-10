@@ -30,14 +30,16 @@ using Project;
 using Pdal;
 using OSGeo.GDAL;
 using Mdal;
-using g3;
+using VirgisGeometry;
 using System;
 using Stopwatch = System.Diagnostics.Stopwatch;
-using UnityEngine.Animations;
+using System.Collections;
+using OSGeo.OSR;
+using System.Linq;
 
 namespace Virgis
 {
-    public class DemLoader : MeshloaderPrototype {
+    public class DemLoader : MeshloaderPrototype<string> {
 
         private enum SourceType {
             PDAL,
@@ -48,14 +50,15 @@ namespace Virgis
         }
 
         public override async Task _init() {
-            await base._init();
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
-            await Load(layer);
+            m_symbology = layer.Units;
+            Load();
+            await LoadLayer(layer);
             Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
         }
 
-        protected async Task Load(RecordSet layer) {
+        private async Task LoadLayer(RecordSet layer) {
             string ex = Path.GetExtension(layer.Source).ToLower();
             // Determine the DAL to be used to load the data.
             // GDAL data is loaded throu PDAL to get a mesh - but the pipeline is radically different
@@ -68,8 +71,81 @@ namespace Virgis
                 await LoadPDAL(layer, SourceType.XYZ);
             }
             {
-                await LoadPDAL(layer, SourceType.GDAL);
+                await LoadGDAL(layer);
             }
+        }
+
+        /// <summary>
+        /// Load using GDAL
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <returns></returns>
+        private async Task LoadGDAL(RecordSet layer) {
+
+            m_Meshes = new List<DMesh3>();
+
+            //bool value() {
+                // Get the raster
+            Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
+            int numBands = raster.RasterCount;
+            if (numBands <= 0)
+                throw new NotSupportedException($" No Data in file {layer.Source}");
+
+            //Get the CoordinateTransformoer
+            SpatialReference sr = raster.GetSpatialRef();
+
+            // band-1 is elevation
+            Band band1 = raster.GetRasterBand(1);
+
+            // get the null value
+            band1.GetNoDataValue(out double noDataValue, out int hasval);
+            if (hasval == 0)
+                noDataValue = 0;
+            band1.GetMinimum(out double min, out int hasMin);
+            band1.GetMaximum(out double max, out int hasMax);
+
+            if (band1.ToMesh(out DMesh3 mesh)) {
+                mesh.EnableVertexColors(Color.white);
+                foreach (int vid in mesh.VertexIndices()) {
+                    if (Math.Abs(mesh.GetVertex(vid).z) >= Math.Abs(noDataValue)) {
+                        MeshResult result = mesh.RemoveVertex(vid);
+                        if (result != MeshResult.Ok) {
+                            Debug.Log("vertex removal failed " + result.ToString());
+                        };
+                    } else {
+                        switch (m_ColorInterp) {
+                            case e_ColorInterp.Interpolate:
+                                mesh.SetVertexColor(vid, Grad.Evaluate((float) ((mesh.GetVertex(vid).z - min) / (max - min))));
+                                break;
+                            case e_ColorInterp.CategoryValue:
+                                mesh.SetVertexColor(vid, m_bodySymbology.ColorMap.GetCategoryValue((float)((mesh.GetVertex(vid).z - min) / (max - min))));
+                                break;
+                            default:
+                                mesh.SetVertexColor(vid, (Color)m_bodySymbology.Color);
+                                break;
+                        }
+                        
+                    }
+                }
+                Reducer r = new(mesh);
+                r.MinimizeQuadricPositionError = false;
+                mesh.RemoveMetadata("CRS");
+                mesh.AttachMetadata("CRS", sr);
+                mesh.axisOrder = sr.GetAxisOrder();
+                mesh.Transform();
+                //r.ReduceToTriangleCount(20000);
+                m_Meshes.Add(mesh);
+            }
+
+            band1.FlushCache();
+            raster.FlushCache();
+            raster.Dispose();
+            return;
+
+            //}
+            //Task<(long, Pipeline)> task = new(value);
+            //task.Start();
+            //(long pointCount, Pipeline pipeLine) = await task;
         }
 
         /// <summary>
@@ -80,79 +156,15 @@ namespace Virgis
         /// <returns></returns>
         /// <exception cref="NotSupportedException"></exception>
         private async Task LoadPDAL(RecordSet layer, SourceType sourceType) {
-            string proj = null;
-            double scalingFactor = 0;
-            string headerString;
-
 
             (long, Pipeline) value() {
 
-                features = new List<DMesh3>();
+                m_Meshes = new List<DMesh3>();
 
                 List<object> pipe = new();
 
-                // Set up the pipline for GDAL data
-                // Get the metadata through GDAL first
-                if (sourceType == SourceType.GDAL) {
-                    Dataset raster = Gdal.Open(layer.Source, Access.GA_ReadOnly);
-                    int numBands = raster.RasterCount;
-                    if (numBands <= 0)
-                        throw new NotSupportedException($" No Data in file {layer.Source}");
-                    proj = raster.GetProjection();
-
-                    //Make the header string from the number of bands - assume band-1 is elevation
-                    headerString = "Z";
-                    for (int i = 1; i < numBands; i++) {
-                        headerString += $",M{i}";
-                    }
-                    pipe.Add(new {
-                        type = "readers.gdal",
-                        filename = layer.Source,
-                        header = headerString
-                    });
-
-                    //get the null value and filter out null data
-                    Band band1 = raster.GetRasterBand(1);
-                    band1.GetNoDataValue(out double noDataValue, out int hasval);
-                    if (hasval == 1) {
-                        if (noDataValue < 0)
-                            pipe.Add(new {
-                                type = "filters.range",
-                                limits = $"Z[{noDataValue + 1}:]"
-                            });
-                        else
-                            pipe.Add(new {
-                                type = "filters.range",
-                                limits = $"Z[:{noDataValue - 1}]"
-                            });
-                    }
-
-                    // Get the size and pixel size of the raster
-                    // if the raster has more than 40,000 data points, using poisson sampling to down size
-                    long datapoints = raster.RasterXSize * raster.RasterYSize;
-                    if (datapoints > 40000) {
-                        try {
-                            double[] geoTransform = new double[6];
-                            raster.GetGeoTransform(geoTransform);
-                            if (geoTransform == null && geoTransform[1] == 0) {
-                                throw new Exception();
-                            }
-                            scalingFactor = Math.Sqrt(datapoints / 40000d * geoTransform[1]);
-                        } catch {
-                            scalingFactor = Math.Sqrt(datapoints / 40000d);
-                        };
-
-                        pipe.Add(new {
-                            type = "filters.sample",
-                            radius = scalingFactor
-                        });
-                    }
-                    band1.FlushCache();
-                    band1.Dispose();
-                    raster.FlushCache();
-                    raster.Dispose();
-                    // special treatment for .xyz files that are not handled well by the defaults
-                } else if (sourceType == SourceType.XYZ)
+                // special treatment for .xyz files that are not handled well by the defaults
+                if (sourceType == SourceType.XYZ)
                     pipe.Add(new {
                         type = "readers.text",
                         filename = layer.Source,
@@ -204,17 +216,13 @@ namespace Virgis
                         DMesh3 mesh = bm.Dmesh;
                         mesh.RemoveMetadata("properties");
                         // set the CRS based on what is known
-                        if (proj != null) {
-                            mesh.RemoveMetadata("CRS");
-                            mesh.AttachMetadata("CRS", proj);
-                        }
                         if (layer.ContainsKey("Crs") && layer.Crs != null) {
                             mesh.RemoveMetadata("CRS");
                             mesh.AttachMetadata("CRS", layer.Crs);
                         };
                         mesh.Transform();
                         mesh.Clockwise = true;
-                        features.Add(mesh);
+                        m_Meshes.Add(mesh);
                     }
                 }
             }
@@ -224,7 +232,7 @@ namespace Virgis
         private async Task LoadMdal(RecordSet layer) {
             // for MDAL files - load the mesh directly
             Datasource ds = await Datasource.LoadAsync(layer.Source);
-            features = new List<DMesh3>();
+            m_Meshes = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
                 DMesh3 mesh = await ds.GetMeshAsync(i);
                 mesh.RemoveMetadata("properties");
@@ -236,17 +244,25 @@ namespace Virgis
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
                 mesh.Transform();
-                features.Add(mesh);
+                m_Meshes.Add(mesh);
             }
         }
 
         public override Task _save()
         {
-            _layer.Position = transform.position.ToPoint();
+            _layer.Position = ((Vector3d)transform.position).ToPoint();
             _layer.Transform.Position = Vector3.zero;
             _layer.Transform.Rotate = transform.rotation;
             _layer.Transform.Scale = transform.localScale;
             return Task.CompletedTask;
+        }
+
+        protected override object GetNextFID() {
+            throw new NotImplementedException();
+        }
+
+        protected override IEnumerator hydrate() {
+            throw new NotImplementedException();
         }
     }
 }
