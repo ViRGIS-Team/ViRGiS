@@ -297,10 +297,27 @@ namespace Virgis
                 {
                     Debug.LogError(e.Message);
                 }
-                m_Meshes = new List<DMesh3> {
-                    dmesh
-                };
-                return;
+                if (!dmesh.CheckValidity(out MeshResult res2)) {
+                    UnityEngine.Debug.Log("Loading Mesh created a defective mesh " + res2.ToString());
+                }
+                MeshConnectedComponents components = new (dmesh);
+
+                // Find connected components
+                components.FindConnectedT();
+
+                m_Meshes = new();
+
+                if (components.Components.Count > 1) {
+                    // Extract each connected submesh
+                    foreach (var comp in components.Components) {
+                        DMesh3 submesh = new DSubmesh3Legacy(dmesh, comp.Indices).SubMesh;
+                        m_Meshes.Add(submesh);
+                    }
+                } else {
+                    m_Meshes.Add(dmesh);
+                }
+
+                    return;
             }
         }
 
