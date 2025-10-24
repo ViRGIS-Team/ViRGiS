@@ -84,10 +84,10 @@ namespace Virgis
                     });
                 }
 
-                if (m_Symbology.TryGetValue("body", out Unit bodySymbology) &&
-                    bodySymbology.ColorMode == ColorMode.SinglebandColor &&
-                    bodySymbology.ColorInterp != null) {
-                    Dictionary<string, object> ci = new(bodySymbology.ColorInterp) {
+                if (m_Symbology.TryGetValue("point", out Unit pointSymbology) &&
+                    pointSymbology.ColorMode == ColorMode.SinglebandColor &&
+                    pointSymbology.ColorInterp != null) {
+                    Dictionary<string, object> ci = new(pointSymbology.ColorInterp) {
                         {
                             "type",
                             "filters.colorinterp"
