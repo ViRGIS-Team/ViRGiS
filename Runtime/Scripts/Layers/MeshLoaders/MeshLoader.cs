@@ -20,6 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+using CsvHelper;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
@@ -131,176 +132,133 @@ namespace Virgis
                 }
                 m_symbology = layer.Units;
             }
+
             if (ex == ".dxf") {
-                List<Vector3d> vertexes = new List<Vector3d>();
-                List<Index3i> tris = new List<Index3i>();
+                //
+                // Try opening with netDxf - this will only open files in autoCAD version 2000 or later
+                //
+                if (layer.Crs != null && layer.Crs != "") SetCrs(OsrExtensions.TextToSR(layer.Crs));
+                DMesh3Builder builder = new();
+                DxfReader reader = new();
+                IOReadResult result;
+                using (Stream stream = File.Open(layer.Source, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
+                    result = reader.Read(stream, new ReadOptions(), builder);
+                    stream.Close();
+                }
 
-                try {
-                    //
-                    // Try opening with netDxf - this will only open files in autoCAD version 2000 or later
-                    //
-                    if (layer.Crs != null && layer.Crs != "") SetCrs(OsrExtensions.TextToSR(layer.Crs));
-                    DXF.DxfDocument doc;
-                    using (Stream stream = File.Open(layer.Source, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
-                        doc = DXF.DxfDocument.Load(stream);
-                        stream.Close();
-                    }
-                    string layout = doc.ActiveLayout;
-                    IEnumerable<Face3d> faces = doc.Faces3d;
-                    IEnumerable<PolyfaceMesh> pfs = doc.PolyfaceMeshes;
-                    List<DCurve3> curves = new List<DCurve3>();
-                    AxisOrder ax = GetCrs().GetAxisOrder();
-                    foreach (Face3d face in faces) {
-                        List<Vector3d> tri = new List<Vector3d>();
-                        tri.Add(face.FirstVertex.ToVector3d(ax));
-                        tri.Add(face.SecondVertex.ToVector3d(ax));
-                        tri.Add(face.ThirdVertex.ToVector3d(ax));
-                        if (face.FourthVertex != face.ThirdVertex) {
-                            Debug.Log(" Not a Triangle");
-                        }
-                        curves.Add(new DCurve3(tri, true, true));
-                    }
-                    //
-                    // Add the Polyface Meshes
-                    //
-                    foreach (PolyfaceMesh pfmesh in pfs) {
-                        foreach (PolyfaceMeshFace face in pfmesh.Faces) {
-                            List<Vector3d> tri = new List<Vector3d>();
-                            List<short> verts = face.VertexIndexes;
-                            for (int i = 0; i < 3; i++) {
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[0]) - 1].Position.ToVector3d(ax));
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[1]) - 1].Position.ToVector3d(ax));
-                                tri.Add(pfmesh.Vertexes[Math.Abs(verts[2]) - 1].Position.ToVector3d(ax));
-                            }
-                            curves.Add(new DCurve3(tri, true, true));
-                        }
-                    }
-                    //
-                    // for each face, check to make sure that vertices are in the vertex list and add the tri to the tri list
-                    //
-                    foreach (DCurve3 curve in curves) {
-                        List<int> tri = new List<int>();
-                        for (int i = 0; i < 3; i++) {
-                            Vector3d v = curve.GetVertex(i);
-                            int index = vertexes.IndexOf(v);
-                            if (index == -1) {
-                                vertexes.Add(v);
-                                index = vertexes.IndexOf(v);
-                            }
-                            tri.Add(index);
-                        }
-                        tris.Add(new Index3i(tri.ToArray()));
-                    }
-                } catch (Exception e){
-                    _ = e;
-                    //
-                    // if netDXF fails - try opening in GDAL that can open AutoCAD 2 file
-                    //
-                    using OgrReader ogrReader = new OgrReader();
-                    await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1, layer.Properties.SourceType);
+                switch (result.code) {
+                    case IOCode.Ok:
+                        break;
+                    case IOCode.GenericReaderError:
+                        throw new Exception(result.message);
+                    case IOCode.FormatNotSupportedError: {
+                        //
+                        // if netDXF fails - try opening in GDAL that can open AutoCAD 2 file
+                        //
+                        builder = new DMesh3Builder();
+                        builder.AppendNewMesh(false, false, false, false);
+                        using OgrReader ogrReader = new OgrReader();
+                        await ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1,
+                            layer.Properties.SourceType);
 
-                    m_entities = ogrReader.GetLayers()[0];
-                    SetCrs(OgrReader.getSR(m_entities, layer));
-                    AxisOrder ax = GetCrs().GetAxisOrder();
-                    RecordSet metadata = GetMetadata() as RecordSet;
-                    if (metadata.Properties.BBox != null) {
-                        m_entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
-                    }
-                    await ogrReader.GetFeaturesAsync(m_entities);
-                    foreach (Feature feature in ogrReader.features) {
-                        Geometry geom = feature.GetGeometryRef();
-                        if (geom == null)
-                            continue;
-                        wkbGeometryType ftype = geom.GetGeometryType();
-                        OgrReader.Flatten(ref ftype);
-                        //
-                        // Get the faces
-                        //
-                        if (ftype == wkbGeometryType.wkbPolygon) {
-                            List<Geometry> LinearRings = new List<Geometry>();
-                            List<DCurve3> curves = new List<DCurve3>();
-                            for (int i = 0; i < geom.GetGeometryCount(); i++)
-                                LinearRings.Add(geom.GetGeometryRef(i));
+                        m_entities = ogrReader.GetLayers()[0];
+                        SetCrs(OgrReader.getSR(m_entities, layer));
+                        AxisOrder ax = GetCrs().GetAxisOrder();
+                        RecordSet metadata = GetMetadata() as RecordSet;
+                        if (metadata.Properties.BBox != null) {
+                            m_entities.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1],
+                                metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
+                        }
+
+                        await ogrReader.GetFeaturesAsync(m_entities);
+                        foreach (Feature feature in ogrReader.features) {
+                            Geometry geom = feature.GetGeometryRef();
+                            if (geom == null)
+                                continue;
+                            wkbGeometryType ftype = geom.GetGeometryType();
+                            OgrReader.Flatten(ref ftype);
                             //
-                            // Load the faces as a list of DCurve3
+                            // Get the faces
                             //
-                            foreach (Geometry LinearRing in LinearRings) {
-                                wkbGeometryType type = LinearRing.GetGeometryType();
-                                if (type == wkbGeometryType.wkbLinearRing || type == wkbGeometryType.wkbLineString25D || type == wkbGeometryType.wkbLineString) {
-                                    LinearRing.CloseRings();
-                                    DCurve3 curve = LinearRing.ToCurve(GetCrs());
-                                    if (curve.VertexCount > 4) {
-                                        Debug.LogError("incorrect face size");
-                                    } else {
-                                        if (curve.VertexCount == 3) {
-                                            curves.Add(curve);
+                            if (ftype == wkbGeometryType.wkbPolygon) {
+                                List<Geometry> LinearRings = new List<Geometry>();
+                                List<DCurve3> curves = new List<DCurve3>();
+                                for (int i = 0; i < geom.GetGeometryCount(); i++)
+                                    LinearRings.Add(geom.GetGeometryRef(i));
+                                //
+                                // Load the faces as a list of DCurve3
+                                //
+                                foreach (Geometry LinearRing in LinearRings) {
+                                    wkbGeometryType type = LinearRing.GetGeometryType();
+                                    if (type == wkbGeometryType.wkbLinearRing ||
+                                        type == wkbGeometryType.wkbLineString25D ||
+                                        type == wkbGeometryType.wkbLineString) {
+                                        LinearRing.CloseRings();
+                                        DCurve3 curve = LinearRing.ToCurve(GetCrs());
+                                        if (curve.VertexCount > 4) {
+                                            Debug.LogError("incorrect face size");
                                         } else {
-                                            List<Vector3d> vertices = curve.Vertices as List<Vector3d>;
-                                            vertices.ForEach(v => { v.axisOrder = GetCrs().GetAxisOrder();});
-                                            Vector3d[] tri1 = new Vector3d[4] {
-                                                    vertices[0],
-                                                    vertices[1],
-                                                    vertices[2],
-                                                    vertices[0]
+                                            if (curve.VertexCount == 3) {
+                                                curves.Add(curve);
+                                            } else {
+                                                List<Vector3d> vertices = curve.Vertices as List<Vector3d>;
+                                                Vector3d[] tri1 = new Vector3d[4] {
+                                                    vertices[0], vertices[1], vertices[2], vertices[0]
                                                 };
-                                            DCurve3 curve1 = new();
-                                            curve1.SetVertices(tri1);
-                                            curve1.Closed = geom.IsRing();
-                                            curves.Add(curve1);
-                                            Vector3d[] tri2 = new Vector3d[4] {
-                                                    vertices[0],
-                                                    vertices[2],
-                                                    vertices[3],
-                                                    vertices[0]
+                                                DCurve3 curve1 = new();
+                                                curve1.SetVertices(tri1);
+                                                curve1.Closed = geom.IsRing();
+                                                curves.Add(curve1);
+                                                Vector3d[] tri2 = new Vector3d[4] {
+                                                    vertices[0], vertices[2], vertices[3], vertices[0]
                                                 };
-                                            DCurve3 curve2 = new();
-                                            curve2.SetVertices(tri2);
-                                            curve2.Closed = true;
-                                            curves.Add(curve2);
+                                                DCurve3 curve2 = new();
+                                                curve2.SetVertices(tri2);
+                                                curve2.Closed = true;
+                                                curves.Add(curve2);
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            //
-                            // for each tri, check to make sure that vertices are in the vertex list and add the tri to the tri list
-                            //
-                            foreach (DCurve3 curve in curves) {
-                                List<int> tri = new List<int>();
-                                for (int i = 0; i < 3; i++) {
-                                    Vector3d v = curve.GetVertex(i);
-                                    int index = vertexes.IndexOf(v);
-                                    if (index == -1) {
-                                        vertexes.Add(v);
-                                        index = vertexes.IndexOf(v);
-                                    }
-                                    tri.Add(index);
+
+                                //
+                                // for each tri, check to make sure that vertices are in the vertex list and add the tri to the tri list
+                                //
+                                foreach (DCurve3 curve in curves) {
+                                    Vector3d v = curve.GetVertex(0);
+                                    int a = builder.AppendVertex(v.x, v.y, v.z);
+                                    v = curve.GetVertex(1);
+                                    int b = builder.AppendVertex(v.x, v.y, v.z);
+                                    v = curve.GetVertex(2);
+                                    int c = builder.AppendVertex(v.x, v.y, v.z);
+                                    builder.AppendTriangle(a, b, c);
                                 }
-                                tris.Add(new Index3i(tri.ToArray()));
                             }
                         }
+
+                        break;
                     }
                 }
-                //
-                // vertexes and tris should now describe a mesh
-                //
-                DMesh3 dmesh = new DMesh3(false, false, false, false);
-                vertexes.ForEach(v => dmesh.AppendVertex(v));
-                tris.ForEach(t => dmesh.AppendTriangle(t));
+
+                DMesh3 dmesh = builder.Meshes[0];
+
                 try {
                     if (GetCrs() != null) {
                         dmesh.RemoveMetadata("CRS");
                         dmesh.AttachMetadata("CRS", layer.Crs);
-                    };
+                    }
+                    
                     dmesh.Transform();
                     dmesh.CompactInPlace();
-                } catch ( Exception e) 
-                {
+                } catch (Exception e) {
                     Debug.LogError(e.Message);
                 }
+
                 if (!dmesh.CheckValidity(out MeshResult res2)) {
                     UnityEngine.Debug.Log("Loading Mesh created a defective mesh " + res2.ToString());
                 }
-                MeshConnectedComponents components = new (dmesh);
+
+                MeshConnectedComponents components = new(dmesh);
 
                 // Find connected components
                 components.FindConnectedT();
@@ -316,8 +274,6 @@ namespace Virgis
                 } else {
                     m_Meshes.Add(dmesh);
                 }
-
-                    return;
             }
         }
 
@@ -347,21 +303,19 @@ namespace Virgis
                 saveObj(layer.Source, wmeshes);
             }
             if (ex == ".dxf") {
-                DXF.DxfDocument doc = new DXF.DxfDocument();
+                
                 CoordinateTransformation trans = null;
                 if (GetCrs() != null) {
                     trans = AppState.instance.projectOutTransformer(GetCrs());
                 }
+                List<WriteMesh> wmeshes = new ();
                 foreach (DMesh3 dmesh in m_Meshes) {
-                    foreach (Index3i tri in dmesh.Triangles()) {
-                        DXF.Vector3 v1 = dmesh.GetVertex(tri.a).ToDxfVector3(trans);
-                        DXF.Vector3 v2 = dmesh.GetVertex(tri.b).ToDxfVector3(trans);
-                        DXF.Vector3 v3 = dmesh.GetVertex(tri.c).ToDxfVector3(trans);
-                        doc.AddEntity(new Face3d(v1, v2, v3));
-                    }
+                    wmeshes.Add(new WriteMesh(dmesh));
                 }
+                
                 using (Stream stream = File.Open(layer.Source, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite)) {
-                    doc.Save(stream);
+                    DxfWriter writer = new ();
+                    writer.Write(stream, wmeshes, new WriteOptions());
                     stream.Close();
                 }
             }

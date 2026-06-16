@@ -22,41 +22,10 @@ SOFTWARE. */
 
 using VirgisGeometry;
 using OSGeo.OSR;
-using DXF = netDxf;
 
 namespace Virgis {
 
-    public static class VirgisVectorExtensionsGeo {
-
-        /// <summary>
-        /// Convert vector3D to a netDXF Vector3 in z-up coordinate frame
-        /// using the optional CoordinateTranform to reproject the dpoint if present
-        /// </summary>
-        /// <param name="v"> Vector3d</param>
-        /// <param name="transform">Coordinate Transform</param>
-        /// <returns>DXF.Vector3</returns>
-        public static DXF.Vector3 ToDxfVector3(this Vector3d v, CoordinateTransformation transform = null, AxisOrder ax = default) {
-            v.ChangeAxisOrderTo(ax == default ? AxisOrder.ENU : ax);
-            double[] vlocal = new double[3] { v.x, v.y, v.z };
-            if (transform != null) {
-                transform.TransformPoint(vlocal);
-            }
-            return new DXF.Vector3(vlocal[0], vlocal[1], vlocal[2]);
-        }
-    }
     
-    public static class DXFExtensions {
-        /// <summary>
-        /// Convert a netDXF Vector3 in z-up coordinate frame to a Vector3D 
-        /// </summary>
-        /// <param name="v">DXF.Vector3</param>
-        /// <returns>Vector3d</returns>
-        public static Vector3d ToVector3d(this DXF.Vector3 v, AxisOrder ax = default) {
-            return new Vector3d((float) v.X, (float) v.Y, (float) v.Z) { 
-                axisOrder = ax == default ? AxisOrder.ENU : ax
-                };
-        }
-    }
 
     public static class VirgisMeshExtensions {
         /// <summary>
