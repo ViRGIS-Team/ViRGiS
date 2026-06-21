@@ -142,7 +142,7 @@ namespace Virgis
                 DxfReader reader = new();
                 IOReadResult result;
                 using (Stream stream = File.Open(layer.Source, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) {
-                    result = reader.Read(stream, new ReadOptions(), builder);
+                    result = reader.Read(stream, new ReadOptions(), builder, GetCrs().GetAxisOrder());
                     stream.Close();
                 }
 
