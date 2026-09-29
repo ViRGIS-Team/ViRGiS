@@ -30,6 +30,7 @@ using OSGeo.OSR;
 using Stopwatch = System.Diagnostics.Stopwatch;
 using System.IO;
 using System.Collections;
+using System.Linq;
 
 namespace Virgis
 {
@@ -48,8 +49,8 @@ namespace Virgis
             Stopwatch stopWatch = Stopwatch.StartNew();
             features = new ();
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer.Units;
-            Load();
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             m_Meshes = new List<DMesh3>();
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {

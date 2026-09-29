@@ -27,6 +27,7 @@ using System.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Virgis
@@ -40,8 +41,8 @@ namespace Virgis
         public DataUnit Unit;
 
         public override async Task _init() {
-            m_symbology = Unit.Units;
-            await Load();
+            m_symbology = Unit.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
         }
 
         public override async Task _draw() {

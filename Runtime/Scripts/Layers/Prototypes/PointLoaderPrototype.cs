@@ -9,9 +9,8 @@ namespace Virgis {
     public abstract class PointLoaderPrototype<T> : VirgisLoader<T> {
         protected GameObject m_pointPrefab;
         protected PointLayer parent;
-        protected Dictionary<string, Unit> m_symbology;
 
-        protected Task<int> Load() {
+        public override void ReadSymbology() {
             parent = m_parent as PointLayer;
             m_displacement = 1.0f;
             if (m_symbology.ContainsKey("point") &&
@@ -36,8 +35,10 @@ namespace Virgis {
                 m_pointPrefab = parent.SpherePrefab;
             }
 
+            m_materials = new Dictionary<string, SerializableMaterialHash>();
+
             foreach (string key in m_symbology.Keys) {
-                Unit unit = m_symbology[key];
+                UnitPrototype unit = m_symbology[key];
                 SerializableMaterialHash hash = new() {
                     Name = key,
                     Color = unit.Color,
@@ -45,7 +46,6 @@ namespace Virgis {
                 m_materials.Add(key, hash);
                 if (key == "point") m_parent.DefaultCol.Value = hash;
             }
-            return Task.FromResult(0);
         }
 
         /// <summary>
@@ -105,9 +105,6 @@ namespace Virgis {
                 return m_symbology["point"].Shape;
             }
             return Shapes.None;
-        }
-
-        public override void _checkpoint() {
         }
 
         public override IVirgisFeature _addFeature<S>(S geometry) {

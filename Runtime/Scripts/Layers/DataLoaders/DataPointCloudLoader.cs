@@ -20,7 +20,7 @@ namespace Virgis {
             if (m_Symbology.TryGetValue("point", out Unit unit )){
                 SetupColormap(unit);
             }
-            await Load();
+            ReadSymbology();
         }
         public override Task _draw() {
             BakedPointCloud bpc = new((ulong)features.Rows.Count);

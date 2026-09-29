@@ -38,10 +38,10 @@ namespace Virgis
     {
         protected GameObject m_handlePrefab;
         protected GameObject m_linePrefab;
-        protected Dictionary<string, Unit> m_symbology;
         protected LineLayer parent;
 
-        protected Task<int> Load() {
+        public override void ReadSymbology() {
+            parent = m_parent as LineLayer;
             RecordSet layer = _layer as RecordSet;
 
             if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
@@ -82,7 +82,7 @@ namespace Virgis
             }
 
             foreach(string key in m_symbology.Keys) {
-                Unit unit = m_symbology[key];
+                UnitPrototype unit = m_symbology[key];
                 SerializableMaterialHash hash = new() {
                     Name = key,
                     Color = unit.Color,
@@ -91,7 +91,6 @@ namespace Virgis
                 if (key == "point")
                     m_parent.DefaultCol.Value = hash;
             }
-            return Task.FromResult(1);
         }
 
         public override IVirgisFeature _addFeature<S>(S geometry) {
@@ -140,10 +139,6 @@ namespace Virgis
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
             return t1;
-        }
-
-        public override void _checkpoint()
-        {
         }
 
         public override Shapes GetFeatureShape() {

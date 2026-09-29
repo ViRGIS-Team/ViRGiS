@@ -33,35 +33,26 @@ namespace Virgis {
 
 
     public class TinLoader : VirgisLoader<Layer> {
-
-        private Dictionary<string, Unit> m_symbology;
+        
         private TinLayer parent;
 
         public override async Task _init() {
-            parent = m_parent as TinLayer;
-            await Load();
+            RecordSet layer = _layer as RecordSet;
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
         }
 
         public SpatialReference GetCrs() {
             return m_crs as SpatialReference;
         }
 
-        protected Task<int> Load() {
-            Task<int> t1 = new Task<int>(() => {
-                RecordSet layer = _layer as RecordSet;
-                m_symbology = layer.Units;
-                foreach (string key in m_symbology.Keys) {
-                    Unit unit = m_symbology[key];
-                    SerializableMaterialHash hash = new() {
-                        Name = key,
-                        Color = unit.Color,
-                    };
-                    m_materials.Add(key, hash);
-                }
-                return 1;
-            });
-            t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
-            return t1;
+        public override void ReadSymbology() {
+            parent = m_parent as TinLayer;
+            foreach (string key in m_symbology.Keys) {
+                UnitPrototype unit = m_symbology[key];
+                SerializableMaterialHash hash = new() { Name = key, Color = unit.Color, };
+                m_materials.Add(key, hash);
+            }
         }
 
         public async override Task _draw() {
@@ -169,7 +160,7 @@ namespace Virgis {
             dmesh.AttachMetadata("CRS", crs );
             dmesh.Transform();
 
-            Unit body;
+            UnitPrototype body;
             if (!m_symbology.TryGetValue("body", out body)) body = new();
             mesh.Draw(dmesh, body );
 
@@ -182,10 +173,6 @@ namespace Virgis {
             //}
 
             return mesh;
-
-        }
-
-        public override void _checkpoint() {
 
         }
 

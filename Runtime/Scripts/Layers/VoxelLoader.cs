@@ -66,14 +66,6 @@ namespace Virgis
             return;
         }
 
-        public override void _checkpoint()
-        {
-            foreach (IVirgisLayer layer in subLayers)
-            {
-                layer.CheckPoint();
-            }
-        }
-
         public override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ? (Vector3)layer.Position.ToVector3d() : Vector3.zero;

@@ -36,8 +36,8 @@ namespace Virgis {
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer.Units;
-            await Load();
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
         }
 
         public SpatialReference GetCrs() {

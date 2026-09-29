@@ -35,18 +35,16 @@ namespace Virgis
         protected Dictionary<string, Unit> m_Symbology;
         protected PointCloud m_model;
 
-        protected Task<int> Load() {
+        public override void ReadSymbology() {
             parent = m_parent as PointCloudLayer;
-            return Task.FromResult(0);
+
         }
 
         protected VirgisFeature _addFeature(Vector3[] geometry)
         {
             throw new System.NotImplementedException();
         }
-
-
-        public override void _checkpoint() { }
+        
 
         public override Task _save()
         {

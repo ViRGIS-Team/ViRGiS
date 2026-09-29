@@ -27,6 +27,7 @@ using System.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Virgis {
@@ -38,8 +39,8 @@ namespace Virgis {
         public DataUnit Unit;
 
         public override Task _init() {
-            m_symbology = Unit.Units;
-            Load();
+            m_symbology =  m_symbology = Unit.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
             if (Unit.XRange == null ||
                 !features.Columns.Contains(Unit.XRange) ||
                 Unit.YRange == null ||

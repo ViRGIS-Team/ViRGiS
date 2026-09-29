@@ -243,8 +243,6 @@ namespace Virgis
             return Task.CompletedTask;
         }
 
-        public override void _checkpoint() { }
-
         public override Task _save()
         {
             _layer.Position = ((Vector3d)transform.position).ToPoint();

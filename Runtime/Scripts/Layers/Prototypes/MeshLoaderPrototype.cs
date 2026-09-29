@@ -35,13 +35,12 @@ namespace Virgis
     public abstract class MeshloaderPrototype<T> : VirgisLoader<T>
     {
         // List of the meshes in the layer - as DMesh3 in Local Space coordinates
-        protected Dictionary<string, Unit> m_symbology;
         protected List<DMesh3> m_Meshes = new();
-        protected Unit m_bodySymbology;
+        protected UnitPrototype m_bodySymbology;
 
-        protected void Load(){
+        public override void ReadSymbology(){
             RecordSet layer = GetMetadata() as RecordSet;
-            if (m_symbology.TryGetValue("body", out m_bodySymbology)) {
+            if (m_symbology.TryGetValue("body", out m_bodySymbology )) {
                 SetupColormap(m_bodySymbology);
             } else {
                 m_bodySymbology = new ();
@@ -78,10 +77,10 @@ namespace Virgis
 
             foreach (DMesh3 dMesh in m_Meshes) {
                 HasVertexColors |= dMesh.HasVertexColors;
-                if (m_bodySymbology.TextureImage is not null &&
-                    m_bodySymbology.TextureImage != ""
+                string textureImage = (m_bodySymbology as Unit).TextureImage;
+                if ( ! String.IsNullOrEmpty(textureImage) 
                 ) {
-                    Dataset raster = Gdal.Open(m_bodySymbology.TextureImage, Access.GA_ReadOnly);
+                    Dataset raster = Gdal.Open(textureImage, Access.GA_ReadOnly);
                     await dMesh.CalculateMapUVsAsync(raster);
                 } else {
                     dMesh.CalculateUVs();
@@ -94,8 +93,6 @@ namespace Virgis
             transform.localScale = layer.Transform.Scale;
             return;
         }
-
-        public override void _checkpoint() { }
 
         protected abstract object GetNextFID();
 

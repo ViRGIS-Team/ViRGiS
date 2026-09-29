@@ -52,8 +52,8 @@ namespace Virgis
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer.Units;
-            Load();
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
             await LoadLayer(layer);
             Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
         }

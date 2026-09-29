@@ -33,6 +33,7 @@ using OSGeo.OSR;
 using DXF = netDxf;
 using netDxf.Entities;
 using System.Collections;
+using System.Linq;
 
 namespace Virgis
 {
@@ -108,8 +109,8 @@ namespace Virgis
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer.Units;
-            Load();
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
             IsWriteable = true;
 
             string ex = Path.GetExtension(layer.Source).ToLower();
@@ -130,7 +131,6 @@ namespace Virgis
                         };
                     }
                 }
-                m_symbology = layer.Units;
             }
 
             if (ex == ".dxf") {

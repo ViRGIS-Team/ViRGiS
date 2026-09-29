@@ -26,6 +26,7 @@ using Project;
 using System.Threading.Tasks;
 using System.Collections;
 using System;
+using System.Linq;
 using UnityEngine;
 using VirgisGeometry;
 
@@ -38,9 +39,9 @@ namespace Virgis
     public class LineLoader : LineLoaderPrototype<Layer>
     {
         public override async Task _init() {
-            parent = m_parent as LineLayer;
-            m_symbology = (GetMetadata() as RecordSet).Units;
-            await Load();
+            RecordSet layer = _layer as RecordSet;
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
         }
 
         public SpatialReference GetCrs() {

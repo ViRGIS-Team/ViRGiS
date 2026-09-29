@@ -29,6 +29,7 @@ using OSGeo.OGR;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using VirgisGeometry;
 using System.Collections;
+using System.Linq;
 
 namespace Virgis
 {
@@ -40,8 +41,9 @@ namespace Virgis
     {
 
         public override async Task _init() {
-            m_symbology = (GetMetadata() as RecordSet).Units;
-            await Load();
+            RecordSet layer = _layer as RecordSet;
+            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            ReadSymbology();
         }
 
         public SpatialReference GetCrs() {
