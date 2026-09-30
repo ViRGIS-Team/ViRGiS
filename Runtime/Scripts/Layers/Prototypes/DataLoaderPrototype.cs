@@ -28,7 +28,7 @@ namespace Virgis {
                         pl.IsWriteable = true;
                         DataPointLoader ploader = pl.gameObject.AddComponent<DataPointLoader>();
                         ploader.SetFeatures(features);
-                        ploader.Unit = subLayer;
+                        ploader.DataUnit = subLayer;
                         await pl.SubInit(layer);
                         break;
                     case DataUnitRepresent.Line:
@@ -43,7 +43,7 @@ namespace Virgis {
                         ll.IsWriteable = true;
                         DataLineLoader loader = ll.gameObject.AddComponent<DataLineLoader>();
                         loader.SetFeatures(features);
-                        loader.Unit = subLayer;
+                        loader.DataUnit = subLayer;
                         await ll.SubInit(layer);
                         break;
                     case DataUnitRepresent.Area:
@@ -58,7 +58,7 @@ namespace Virgis {
                         pll.IsWriteable = true;
                         DataAreaLoader plloader = pll.gameObject.AddComponent<DataAreaLoader>();
                         plloader.SetFeatures(features);
-                        plloader.Unit = subLayer;
+                        plloader.DataUnit = subLayer;
                         await pll.SubInit(layer);
                         break;
                     case DataUnitRepresent.Manifold:
@@ -73,7 +73,7 @@ namespace Virgis {
                         ml.IsWriteable = true;
                         DataManifoldLoader mloader = ml.gameObject.AddComponent<DataManifoldLoader>();
                         mloader.SetFeatures(features);
-                        mloader.Unit = subLayer;
+                        mloader.DataUnit = subLayer;
                         await ml.SubInit(layer);
                         break;
                     case DataUnitRepresent.PointCloud:
@@ -88,7 +88,7 @@ namespace Virgis {
                         pc.IsWriteable = true;
                         DataPointCloudLoader pcloader = pc.gameObject.AddComponent<DataPointCloudLoader>();
                         pcloader.SetFeatures(features);
-                        pcloader.Unit = subLayer;
+                        pcloader.DataUnit = subLayer;
                         await pc.SubInit(layer);
                         break;
                 }

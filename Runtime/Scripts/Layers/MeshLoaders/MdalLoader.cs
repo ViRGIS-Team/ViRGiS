@@ -49,6 +49,7 @@ namespace Virgis
             Stopwatch stopWatch = Stopwatch.StartNew();
             features = new ();
             RecordSet layer = _layer as RecordSet;
+            DataUnit = new() { Representation = DataUnitRepresent.Manifold };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
             Datasource ds = await Datasource.LoadAsync(layer.Source);

@@ -42,6 +42,7 @@ namespace Virgis
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
+            DataUnit = new() { Representation = DataUnitRepresent.PointCloud };
             m_Symbology = layer.Units;
             if (m_Symbology.TryGetValue("point", out Unit unit)) {
                 SetupColormap(unit);

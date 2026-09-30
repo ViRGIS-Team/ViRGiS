@@ -10,26 +10,24 @@ using VirgisGeometry;
 
 namespace Virgis {
     public class DataPointLoader : PointLoaderPrototype<DataTable> {
-
-        public DataUnit Unit;
-
+        
         public override async Task _init() {
-            MSymbology = Unit.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = (DataUnit as DataUnit)?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
         }
 
         public override async Task _draw() {
-            if (Unit.XRange == null ||
-                !features.Columns.Contains(Unit.XRange) ||
-                Unit.YRange == null ||
-                !features.Columns.Contains(Unit.YRange) ||
-                (Unit.ZRange != null && !features.Columns.Contains(Unit.ZRange))
+            if (DataUnit.XRange == null ||
+                !features.Columns.Contains(DataUnit.XRange) ||
+                DataUnit.YRange == null ||
+                !features.Columns.Contains(DataUnit.YRange) ||
+                (DataUnit.ZRange != null && !features.Columns.Contains(DataUnit.ZRange))
                )
             {
-                throw new Exception($"DataUnit {Unit.Name} has invalid columns");
+                throw new Exception($"DataUnit {DataUnit.Name} has invalid columns");
             }
             List<Task<int>> tasks = new();
-            AxisOrder ax = Unit.AxisOrder;
+            AxisOrder ax = DataUnit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
             foreach (DataRow row in features.Rows) {
@@ -37,17 +35,17 @@ namespace Virgis {
                 double y = 0;
                 double z = 0;
                 try {
-                    x = double.Parse(row.Field<string>(features.Columns[Unit.XRange]));
-                    y = double.Parse(row.Field<string>(features.Columns[Unit.YRange]));
-                    z = Unit.ZRange != null ?
-                        double.Parse(row.Field<string>(features.Columns[Unit.ZRange])) :
+                    x = double.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
+                    y = double.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
+                    z = DataUnit.ZRange != null ?
+                        double.Parse(row.Field<string>(features.Columns[DataUnit.ZRange])) :
                         0;
                 } catch(Exception) {
-                    throw new Exception($"DataUnit {Unit.Name} had invalid data");
+                    throw new Exception($"DataUnit {DataUnit.Name} had invalid data");
                 }
                 string label = "";
-                if (Unit.LabelRange != null && features.Columns.Contains(Unit.LabelRange)) {
-                    label = row.Field<string>(features.Columns[Unit.LabelRange]);
+                if (DataUnit.LabelRange != null && features.Columns.Contains(DataUnit.LabelRange)) {
+                    label = row.Field<string>(features.Columns[DataUnit.LabelRange]);
                 }
 
                 Vector3d pos3d = new Vector3d(x, y, z) { axisOrder = ax };
@@ -73,10 +71,10 @@ namespace Virgis {
                     features.Rows.Add(row);
                 }
                 Vector3d pos = pointFunc.gameObject.transform.position;
-                row[Unit.XRange] = pos.x.ToString();
-                row[Unit.YRange] = pos.y.ToString();
-                if (Unit.ZRange != null)
-                    row[Unit.ZRange] = pos.z.ToString();
+                row[DataUnit.XRange] = pos.x.ToString();
+                row[DataUnit.YRange] = pos.y.ToString();
+                if (DataUnit.ZRange != null)
+                    row[DataUnit.ZRange] = pos.z.ToString();
                 if (watch.ElapsedMilliseconds > 100) {
                     watch.Restart();
                     yield return null;

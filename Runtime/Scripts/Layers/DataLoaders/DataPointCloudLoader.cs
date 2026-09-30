@@ -13,10 +13,8 @@ namespace Virgis {
 
     public class DataPointCloudLoader : PointCloudLoaderPrototype<DataTable> {
 
-        public DataUnit Unit;
-
         public async override Task _init() {
-            m_Symbology = Unit.Units;
+            m_Symbology = (DataUnit as DataUnit)?.Units;
             if (m_Symbology.TryGetValue("point", out Unit unit )){
                 SetupColormap(unit);
             }
@@ -26,17 +24,17 @@ namespace Virgis {
             BakedPointCloud bpc = new((ulong)features.Rows.Count);
             NativeArray<Color> positions = bpc.PositionMap.GetRawTextureData<Color>();
             NativeArray<Color32> colors = bpc.ColorMap.GetRawTextureData<Color32>();
-            if (Unit.XRange == null ||
-                !features.Columns.Contains(Unit.XRange) ||
-                Unit.YRange == null ||
-                !features.Columns.Contains(Unit.YRange) ||
-                (Unit.ZRange != null && !features.Columns.Contains(Unit.ZRange)) ||
-                (Unit.LabelRange != null && !features.Columns.Contains(Unit.LabelRange))
+            if (DataUnit.XRange == null ||
+                !features.Columns.Contains(DataUnit.XRange) ||
+                DataUnit.YRange == null ||
+                !features.Columns.Contains(DataUnit.YRange) ||
+                (DataUnit.ZRange != null && !features.Columns.Contains(DataUnit.ZRange)) ||
+                (DataUnit.LabelRange != null && !features.Columns.Contains(DataUnit.LabelRange))
                ) {
-                throw new Exception($"DataUnit {Unit.Name} has invalid columns");
+                throw new Exception($"DataUnit {DataUnit.Name} has invalid columns");
             }
             List<Task<int>> tasks = new();
-            AxisOrder ax = Unit.AxisOrder;
+            AxisOrder ax = DataUnit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
 
@@ -49,20 +47,20 @@ namespace Virgis {
                 float z = 0;
                 float m = 0;
                 try {
-                    x = float.Parse(row.Field<string>(features.Columns[Unit.XRange]));
-                    y = float.Parse(row.Field<string>(features.Columns[Unit.YRange]));
-                    z = Unit.ZRange != null ?
-                        float.Parse(row.Field<string>(features.Columns[Unit.ZRange])) :
+                    x = float.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
+                    y = float.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
+                    z = DataUnit.ZRange != null ?
+                        float.Parse(row.Field<string>(features.Columns[DataUnit.ZRange])) :
                         0;
-                    m = Unit.LabelRange != null ?
-                        float.Parse(row.Field<string>(features.Columns[Unit.LabelRange])) :
+                    m = DataUnit.LabelRange != null ?
+                        float.Parse(row.Field<string>(features.Columns[DataUnit.LabelRange])) :
                         0;
                 } catch (Exception) {
-                    throw new Exception($"DataUnit {Unit.Name} had invalid data");
+                    throw new Exception($"DataUnit {DataUnit.Name} had invalid data");
                 }
                 string label = "";
-                if (Unit.LabelRange != null && features.Columns.Contains(Unit.LabelRange)) {
-                    label = row.Field<string>(features.Columns[Unit.LabelRange]);
+                if (DataUnit.LabelRange != null && features.Columns.Contains(DataUnit.LabelRange)) {
+                    label = row.Field<string>(features.Columns[DataUnit.LabelRange]);
                 }
                 if (ax == AxisOrder.EUN) {
                     positions[i] = new(x, y, z, m);
@@ -82,7 +80,7 @@ namespace Virgis {
                 size = value.Transform.Scale.magnitude;
                 color = value.Color;
             } 
-            if (Unit.LabelRange != null && MColorInterp != EColorInterp.None) {
+            if (DataUnit.LabelRange != null && MColorInterp != EColorInterp.None) {
                 for (int i = 0; i < bpc.PointCount; i++) {
                     switch (MColorInterp) {
                         case EColorInterp.Interpolate:

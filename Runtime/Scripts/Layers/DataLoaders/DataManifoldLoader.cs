@@ -36,18 +36,17 @@ namespace Virgis {
     /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
     public class DataManifoldLoader : MeshloaderPrototype<DataTable> {
-        public DataUnit Unit;
-
+        
         public override Task _init() {
-            MSymbology = Unit.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = (DataUnit as DataUnit)?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
-            if (Unit.XRange == null ||
-                !features.Columns.Contains(Unit.XRange) ||
-                Unit.YRange == null ||
-                !features.Columns.Contains(Unit.YRange) ||
-                (Unit.ZRange != null && !features.Columns.Contains(Unit.ZRange))
+            if (DataUnit.XRange == null ||
+                !features.Columns.Contains(DataUnit.XRange) ||
+                DataUnit.YRange == null ||
+                !features.Columns.Contains(DataUnit.YRange) ||
+                (DataUnit.ZRange != null && !features.Columns.Contains(DataUnit.ZRange))
                ) {
-                throw new Exception($"DataUnit {Unit.Name} has invalid columns");
+                throw new Exception($"DataUnit {DataUnit.Name} has invalid columns");
             }
             List<Vector3d> points = new ();
             foreach (DataRow row in features.Rows) {
@@ -55,13 +54,13 @@ namespace Virgis {
                 double y = 0;
                 double z = 0;
                 try {
-                    x = double.Parse(row.Field<string>(features.Columns[Unit.XRange]));
-                    y = double.Parse(row.Field<string>(features.Columns[Unit.YRange]));
-                    z = Unit.ZRange != null ?
-                        double.Parse(row.Field<string>(features.Columns[Unit.ZRange])) :
+                    x = double.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
+                    y = double.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
+                    z = DataUnit.ZRange != null ?
+                        double.Parse(row.Field<string>(features.Columns[DataUnit.ZRange])) :
                         0;
                 } catch (Exception) {
-                    throw new Exception($"DataUnit {Unit.Name} had invalid data");
+                    throw new Exception($"DataUnit {DataUnit.Name} had invalid data");
                 }
                 //Note that at this point the point is in Map Space Coordinates 
                 points.Add(new Vector3d(x, y, z));
@@ -95,10 +94,10 @@ namespace Virgis {
                         row["__FID"] = fid;
                         features.Rows.Add(row);
                     }
-                    row[Unit.XRange] = v.x.ToString();
-                    row[Unit.YRange] = v.y.ToString();
-                    if (Unit.ZRange != null)
-                        row[Unit.ZRange] = v.z.ToString();
+                    row[DataUnit.XRange] = v.x.ToString();
+                    row[DataUnit.YRange] = v.y.ToString();
+                    if (DataUnit.ZRange != null)
+                        row[DataUnit.ZRange] = v.z.ToString();
                     if (watch.ElapsedMilliseconds > 100) {
                         watch.Restart();
                         yield return null;

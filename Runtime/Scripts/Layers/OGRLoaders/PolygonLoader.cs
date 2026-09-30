@@ -42,6 +42,7 @@ namespace Virgis
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
+            DataUnit = new() { Representation = DataUnitRepresent.Area };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
         }
