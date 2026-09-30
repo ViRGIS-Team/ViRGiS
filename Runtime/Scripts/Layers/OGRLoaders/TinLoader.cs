@@ -38,20 +38,20 @@ namespace Virgis {
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
         }
 
         public SpatialReference GetCrs() {
-            return m_crs as SpatialReference;
+            return MCrs as SpatialReference;
         }
 
         public override void ReadSymbology() {
-            parent = m_parent as TinLayer;
-            foreach (string key in m_symbology.Keys) {
-                UnitPrototype unit = m_symbology[key];
+            parent = MParent as TinLayer;
+            foreach (string key in MSymbology.Keys) {
+                UnitPrototype unit = MSymbology[key];
                 SerializableMaterialHash hash = new() { Name = key, Color = unit.Color, };
-                m_materials.Add(key, hash);
+                MMaterials.Add(key, hash);
             }
         }
 
@@ -161,7 +161,7 @@ namespace Virgis {
             dmesh.Transform();
 
             UnitPrototype body;
-            if (!m_symbology.TryGetValue("body", out body)) body = new();
+            if (!MSymbology.TryGetValue("body", out body)) body = new();
             mesh.Draw(dmesh, body );
 
             //if (symbology.ContainsKey("body") && symbology["body"].ContainsKey("Label") && symbology["body"].Label != null && (feature?.ContainsKey(symbology["body"].Label) ?? false)) {

@@ -36,7 +36,7 @@ namespace Virgis
         protected PointCloud m_model;
 
         public override void ReadSymbology() {
-            parent = m_parent as PointCloudLayer;
+            parent = MParent as PointCloudLayer;
 
         }
 

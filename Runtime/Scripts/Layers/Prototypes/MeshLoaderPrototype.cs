@@ -40,7 +40,7 @@ namespace Virgis
 
         public override void ReadSymbology(){
             RecordSet layer = GetMetadata() as RecordSet;
-            if (m_symbology.TryGetValue("body", out m_bodySymbology )) {
+            if (MSymbology.TryGetValue("body", out m_bodySymbology )) {
                 SetupColormap(m_bodySymbology);
             } else {
                 m_bodySymbology = new ();
@@ -51,7 +51,7 @@ namespace Virgis
             switch (geometry) {
                 case DMesh3 mesh:
                     changed = true;
-                    MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+                    MeshlayerPrototype parent = MParent as MeshlayerPrototype;
                     m_Meshes.Add(mesh);
                     EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
                     emesh.Draw(mesh, m_bodySymbology);
@@ -64,7 +64,7 @@ namespace Virgis
 
         public async override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
-            MeshlayerPrototype parent = m_parent as MeshlayerPrototype;
+            MeshlayerPrototype parent = MParent as MeshlayerPrototype;
             parent.IsWriteable = ! layer.Properties.ReadOnly;
             transform.position = layer.Position != null ?
                 (Vector3)layer.Position.ToVector3d() :

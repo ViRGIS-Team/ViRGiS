@@ -11,11 +11,11 @@ namespace Virgis {
         protected PointLayer parent;
 
         public override void ReadSymbology() {
-            parent = m_parent as PointLayer;
-            m_displacement = 1.0f;
-            if (m_symbology.ContainsKey("point") &&
-                m_symbology["point"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["point"].Shape;
+            parent = MParent as PointLayer;
+            MDisplacement = 1.0f;
+            if (MSymbology.ContainsKey("point") &&
+                MSymbology["point"].ContainsKey("Shape")) {
+                Shapes shape = MSymbology["point"].Shape;
                 switch (shape) {
                     case Shapes.Spheroid:
                         m_pointPrefab = parent.SpherePrefab;
@@ -25,7 +25,7 @@ namespace Virgis {
                         break;
                     case Shapes.Cylinder:
                         m_pointPrefab = parent.CylinderPrefab;
-                        m_displacement = 1.5f;
+                        MDisplacement = 1.5f;
                         break;
                     default:
                         m_pointPrefab = parent.SpherePrefab;
@@ -35,16 +35,16 @@ namespace Virgis {
                 m_pointPrefab = parent.SpherePrefab;
             }
 
-            m_materials = new Dictionary<string, SerializableMaterialHash>();
+            MMaterials = new Dictionary<string, SerializableMaterialHash>();
 
-            foreach (string key in m_symbology.Keys) {
-                UnitPrototype unit = m_symbology[key];
+            foreach (string key in MSymbology.Keys) {
+                UnitPrototype unit = MSymbology[key];
                 SerializableMaterialHash hash = new() {
                     Name = key,
                     Color = unit.Color,
                 };
-                m_materials.Add(key, hash);
-                if (key == "point") m_parent.DefaultCol.Value = hash;
+                MMaterials.Add(key, hash);
+                if (key == "point") MParent.DefaultCol.Value = hash;
             }
         }
 
@@ -60,7 +60,7 @@ namespace Virgis {
             com.SetFID(fid);
             com.Spawn(transform);
             SerializableMaterialHash point_hash;
-            if (!m_materials.TryGetValue("point", out point_hash))
+            if (!MMaterials.TryGetValue("point", out point_hash))
                 point_hash = new();
             com.SetMaterial(point_hash);
 
@@ -69,10 +69,10 @@ namespace Virgis {
             var localPostion = dataPoint.transform.localPosition;
 
             //Set the symbology
-            if (m_symbology.ContainsKey("point")) {
-                dataPoint.transform.localScale = m_symbology["point"].Transform.Scale;
-                dataPoint.transform.localRotation = m_symbology["point"].Transform.Rotate;
-                dataPoint.transform.Translate(m_symbology["point"].Transform.Position, Space.Self);
+            if (MSymbology.ContainsKey("point")) {
+                dataPoint.transform.localScale = MSymbology["point"].Transform.Scale;
+                dataPoint.transform.localRotation = MSymbology["point"].Transform.Rotate;
+                dataPoint.transform.Translate(MSymbology["point"].Transform.Position, Space.Self);
             }
 
 
@@ -82,7 +82,7 @@ namespace Virgis {
                                                      dataPoint.transform, false
                                                      );
                 labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
-                labelObject.transform.localPosition = Vector3.up * m_displacement;
+                labelObject.transform.localPosition = Vector3.up * MDisplacement;
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = label;
             }
@@ -100,9 +100,9 @@ namespace Virgis {
         }
 
         public override Shapes GetFeatureShape() {
-            if (m_symbology.ContainsKey("point") &&
-                m_symbology["point"].ContainsKey("Shape")) {
-                return m_symbology["point"].Shape;
+            if (MSymbology.ContainsKey("point") &&
+                MSymbology["point"].ContainsKey("Shape")) {
+                return MSymbology["point"].Shape;
             }
             return Shapes.None;
         }

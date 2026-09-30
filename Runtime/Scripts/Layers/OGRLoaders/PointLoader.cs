@@ -36,12 +36,12 @@ namespace Virgis {
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
         }
 
         public SpatialReference GetCrs() {
-            return m_crs as SpatialReference;
+            return MCrs as SpatialReference;
         }
 
         public override async Task _draw() {
@@ -61,8 +61,8 @@ namespace Virgis {
                         wkbGeometryType type = point.GetGeometryType();
                         string t = type.ToString();
                         string label = "";
-                        if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Label") && m_symbology["point"].Label != null && (feature?.ContainsKey(m_symbology["point"].Label) ?? false)) {
-                            label = feature.Get<string>(m_symbology["point"].Label);
+                        if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Label") && MSymbology["point"].Label != null && (feature?.ContainsKey(MSymbology["point"].Label) ?? false)) {
+                            label = feature.Get<string>(MSymbology["point"].Label);
                         }
                         if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
                             point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
@@ -80,8 +80,8 @@ namespace Virgis {
                             point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
                             int n = point.GetGeometryCount();
                             for (int k = 0; k < n; k++) {
-                                if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Label") && m_symbology["point"].Label != null && (feature?.ContainsKey(m_symbology["point"].Label) ?? false)) {
-                                    label = feature.Get<string>(m_symbology["point"].Label);
+                                if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Label") && MSymbology["point"].Label != null && (feature?.ContainsKey(MSymbology["point"].Label) ?? false)) {
+                                    label = feature.Get<string>(MSymbology["point"].Label);
                                 } else {
                                     label = "";
                                 }

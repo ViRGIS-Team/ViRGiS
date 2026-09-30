@@ -42,7 +42,7 @@ namespace Virgis {
             // Load Dataset
             //
             RecordSet layer = _layer as RecordSet;
-            parent = m_parent as OgrLayer;
+            parent = MParent as OgrLayer;
             m_ogrReader = new OgrReader();
             await m_ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1,
                 layer.Properties.SourceType);
@@ -58,7 +58,7 @@ namespace Virgis {
                 IVirgisLoader loader;
                 switch (type) {
                     case wkbGeometryType.wkbPoint:
-                        m_parent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
                         l = subLayers.Last() as PointLayer;
                         if (! l.Spawn(transform)) throw new System.Exception("reparenting failed");
                         l.sourceName = thisLayer.GetName();
@@ -69,7 +69,7 @@ namespace Virgis {
                         await l.SubInit(layer);
                         break;
                     case wkbGeometryType.wkbLineString:
-                        m_parent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
                         l = subLayers.Last() as LineLayer;
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -81,7 +81,7 @@ namespace Virgis {
                         await l.SubInit(layer);
                         break;
                     case wkbGeometryType.wkbPolygon:
-                        m_parent.AddSubLayer(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
                         l = subLayers.Last() as PolygonLayer;
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -94,7 +94,7 @@ namespace Virgis {
                         break;
                     case wkbGeometryType.wkbTIN:
                     case wkbGeometryType.wkbPolyhedralSurface:
-                        m_parent.AddSubLayer(Instantiate(parent.TinLayer, transform).GetComponent<TinLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.TinLayer, transform).GetComponent<TinLayer>());
                         l = subLayers.Last() as TinLayer;
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -132,7 +132,7 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        m_parent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
+                                        MParent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
                                         l = subLayers.Last() as LineLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
@@ -151,7 +151,7 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        m_parent.AddSubLayer(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
+                                        MParent.AddSubLayer(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
                                         l = subLayers.Last() as PolygonLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
@@ -170,7 +170,7 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        m_parent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
+                                        MParent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
                                         l = subLayers.Last() as PointLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
@@ -190,7 +190,7 @@ namespace Virgis {
                                         }
                                     }
                                     if (layerToAdd == null) {
-                                        m_parent.AddSubLayer(Instantiate(parent.TinLayer, transform).GetComponent<TinLayer>());
+                                        MParent.AddSubLayer(Instantiate(parent.TinLayer, transform).GetComponent<TinLayer>());
                                         l = subLayers.Last() as TinLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");

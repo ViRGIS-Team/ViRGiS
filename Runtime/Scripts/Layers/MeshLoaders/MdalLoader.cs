@@ -38,7 +38,7 @@ namespace Virgis
     public class MdalLoader : MeshloaderPrototype<List<string>>
     {
         public SpatialReference GetCrs() {
-            return m_crs as SpatialReference;
+            return MCrs as SpatialReference;
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Virgis
             Stopwatch stopWatch = Stopwatch.StartNew();
             features = new ();
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             m_Meshes = new List<DMesh3>();

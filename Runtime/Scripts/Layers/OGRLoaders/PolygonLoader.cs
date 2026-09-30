@@ -42,12 +42,12 @@ namespace Virgis
 
         public override async Task _init() {
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
         }
 
         public SpatialReference GetCrs() {
-            return m_crs as SpatialReference;
+            return MCrs as SpatialReference;
         }
 
         public override async Task _draw()
@@ -97,11 +97,11 @@ namespace Virgis
         protected async Task _drawPoly(Geometry poly,  Feature feature)
         {
             string label = "";
-            if (m_symbology.ContainsKey("body") && m_symbology["body"].ContainsKey("Label") && 
-                    m_symbology["body"].Label != null && (feature?.ContainsKey(m_symbology["body"].Label
+            if (MSymbology.ContainsKey("body") && MSymbology["body"].ContainsKey("Label") && 
+                    MSymbology["body"].Label != null && (feature?.ContainsKey(MSymbology["body"].Label
                 ) ?? false))
             {
-                label = feature.Get<string>(m_symbology["body"].Label);
+                label = feature.Get<string>(MSymbology["body"].Label);
             }
 
             // Get the linear rings as Dcurve3

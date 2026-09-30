@@ -82,13 +82,13 @@ namespace Virgis {
                 size = value.Transform.Scale.magnitude;
                 color = value.Color;
             } 
-            if (Unit.LabelRange != null && m_ColorInterp != e_ColorInterp.None) {
+            if (Unit.LabelRange != null && MColorInterp != EColorInterp.None) {
                 for (int i = 0; i < bpc.PointCount; i++) {
-                    switch (m_ColorInterp) {
-                        case e_ColorInterp.Interpolate:
-                            colors[i] = Grad.Evaluate((positions[i].a - min) / range);
+                    switch (MColorInterp) {
+                        case EColorInterp.Interpolate:
+                            colors[i] = grad.Evaluate((positions[i].a - min) / range);
                             break;
-                        case e_ColorInterp.CategoryValue:
+                        case EColorInterp.CategoryValue:
                             colors[i] = value.ColorMap.GetCategoryValue((positions[i].a - min) / range); 
                             break;
                     }

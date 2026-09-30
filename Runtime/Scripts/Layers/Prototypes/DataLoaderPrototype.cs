@@ -10,14 +10,14 @@ namespace Virgis {
 
         public async override Task _init() {
             RecordSet layer = _layer as RecordSet;
-            DataLayerPrototype parent = m_parent as DataLayerPrototype;
+            DataLayerPrototype parent = MParent as DataLayerPrototype;
             List<DataUnit> dataUnits = layer.DataUnits;
 
             // set up sub layers
             foreach (DataUnit subLayer in dataUnits) {
                 switch (subLayer.Representation) {
                     case DataUnitRepresent.Points:
-                        m_parent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
                         PointLayer pl = subLayers.Last() as PointLayer;
                         if (!pl.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -32,7 +32,7 @@ namespace Virgis {
                         await pl.SubInit(layer);
                         break;
                     case DataUnitRepresent.Line:
-                        m_parent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
                         LineLayer ll = subLayers.Last() as LineLayer;
                         if (!ll.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -47,7 +47,7 @@ namespace Virgis {
                         await ll.SubInit(layer);
                         break;
                     case DataUnitRepresent.Area:
-                        m_parent.AddSubLayer(Instantiate(parent.AreaLayer, transform).GetComponent<PolygonLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.AreaLayer, transform).GetComponent<PolygonLayer>());
                         PolygonLayer pll = subLayers.Last() as PolygonLayer;
                         if (!pll.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -62,7 +62,7 @@ namespace Virgis {
                         await pll.SubInit(layer);
                         break;
                     case DataUnitRepresent.Manifold:
-                        m_parent.AddSubLayer(Instantiate(parent.ManifoldLayer, transform).GetComponent<MeshLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.ManifoldLayer, transform).GetComponent<MeshLayer>());
                         MeshLayer ml = subLayers.Last() as MeshLayer;
                         if (!ml.Spawn(transform))
                             throw new System.Exception("reparenting failed");
@@ -77,7 +77,7 @@ namespace Virgis {
                         await ml.SubInit(layer);
                         break;
                     case DataUnitRepresent.PointCloud:
-                        m_parent.AddSubLayer(Instantiate(parent.PointCloudLayer, transform).GetComponent<PointCloudLayer>());
+                        MParent.AddSubLayer(Instantiate(parent.PointCloudLayer, transform).GetComponent<PointCloudLayer>());
                         PointCloudLayer pc = subLayers.Last() as PointCloudLayer;
                         if (!pc.Spawn(transform))
                             throw new System.Exception("reparenting failed");

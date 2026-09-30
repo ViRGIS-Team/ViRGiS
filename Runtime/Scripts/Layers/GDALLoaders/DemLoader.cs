@@ -52,7 +52,7 @@ namespace Virgis
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             RecordSet layer = _layer as RecordSet;
-            m_symbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
             await LoadLayer(layer);
             Debug.Log($"Dem Layer Load took {stopWatch.Elapsed.TotalSeconds}");
@@ -113,11 +113,11 @@ namespace Virgis
                             Debug.Log("vertex removal failed " + result.ToString());
                         };
                     } else {
-                        switch (m_ColorInterp) {
-                            case e_ColorInterp.Interpolate:
-                                mesh.SetVertexColor(vid, Grad.Evaluate((float) ((mesh.GetVertex(vid).z - min) / (max - min))));
+                        switch (MColorInterp) {
+                            case EColorInterp.Interpolate:
+                                mesh.SetVertexColor(vid, grad.Evaluate((float) ((mesh.GetVertex(vid).z - min) / (max - min))));
                                 break;
-                            case e_ColorInterp.CategoryValue:
+                            case EColorInterp.CategoryValue:
                                 mesh.SetVertexColor(vid, m_bodySymbology.ColorMap.GetCategoryValue((float)((mesh.GetVertex(vid).z - min) / (max - min))));
                                 break;
                             default:

@@ -43,12 +43,12 @@ namespace Virgis
 
 
         public override void ReadSymbology() {
-            parent = m_parent as PolygonLayer;
+            parent = MParent as PolygonLayer;
             RecordSet layer = _layer as RecordSet;
 
-            if (m_symbology.ContainsKey("point") &&
-                m_symbology["point"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["point"].Shape;
+            if (MSymbology.ContainsKey("point") &&
+                MSymbology["point"].ContainsKey("Shape")) {
+                Shapes shape = MSymbology["point"].Shape;
                 switch (shape) {
                     case Shapes.Spheroid:
                         m_handlePrefab = parent.SpherePrefab;
@@ -67,9 +67,9 @@ namespace Virgis
                 m_handlePrefab = parent.SpherePrefab;
             }
 
-            if (m_symbology.ContainsKey("line") && 
-                m_symbology["line"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["line"].Shape;
+            if (MSymbology.ContainsKey("line") && 
+                MSymbology["line"].ContainsKey("Shape")) {
+                Shapes shape = MSymbology["line"].Shape;
                 switch (shape) {
                     case Shapes.Cuboid:
                         m_linePrefab = parent.CuboidLinePrefab;
@@ -85,8 +85,8 @@ namespace Virgis
                 m_linePrefab = parent.CylinderLinePrefab;
             }
 
-            foreach (string key in m_symbology.Keys) {
-                UnitPrototype unit = m_symbology[key];
+            foreach (string key in MSymbology.Keys) {
+                UnitPrototype unit = MSymbology[key];
                 SerializableMaterialHash hash = new() {
                     Name = key,
                     Color = unit.Color,
@@ -97,9 +97,9 @@ namespace Virgis
                         Value = 0
                     });
                 }
-                m_materials.Add(key, hash);
+                MMaterials.Add(key, hash);
                 if (key == "point")
-                    m_parent.DefaultCol.Value = hash;
+                    MParent.DefaultCol.Value = hash;
             }
         }
 
@@ -130,7 +130,7 @@ namespace Virgis
                 //Set the label
                 GameObject labelObject = Instantiate(parent.LabelPrefab, dataPoly.transform, false);
                 labelObject.transform.Translate(dataPoly.transform.TransformVector(Vector3.up) *
-                                                m_symbology["point"].Transform.Scale.magnitude, Space.Self);
+                                                MSymbology["point"].Transform.Scale.magnitude, Space.Self);
                 Text labelText = labelObject.GetComponentInChildren<Text>();
                 labelText.text = label;
             }
@@ -142,13 +142,13 @@ namespace Virgis
                 GameObject dataLine = Instantiate(m_linePrefab, dataPoly.transform, false);
                 Dataline com = dataLine.GetComponent<Dataline>();
                 com.Spawn(dataPoly.transform);
-                com.Symbology = m_symbology.ToDictionary(
+                com.Symbology = MSymbology.ToDictionary(
                         item => item.Key,
                         item => item.Value as UnitPrototype
                     );
                 curve.Closed = true;
                 com.Draw(curve,
-                    m_materials, 
+                    MMaterials, 
                     m_handlePrefab, 
                     null
                 );
@@ -156,7 +156,7 @@ namespace Virgis
             }
 
             //Draw the Polygon
-            p.Draw(polygon, m_materials);
+            p.Draw(polygon, MMaterials);
 
             return p;
         }
@@ -172,9 +172,9 @@ namespace Virgis
         }
 
         public override Shapes GetFeatureShape() {
-            if (m_symbology.ContainsKey("point") &&
-                m_symbology["point"].ContainsKey("Shape")) {
-                return m_symbology["point"].Shape;
+            if (MSymbology.ContainsKey("point") &&
+                MSymbology["point"].ContainsKey("Shape")) {
+                return MSymbology["point"].Shape;
             }
             return Shapes.None;
         }

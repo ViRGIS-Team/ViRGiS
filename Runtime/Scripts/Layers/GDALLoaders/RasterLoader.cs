@@ -46,7 +46,7 @@ namespace Virgis
             if (m_Symbology.TryGetValue("point", out Unit unit)) {
                 SetupColormap(unit);
             }
-            parent = m_parent as RasterLayer;
+            parent = MParent as RasterLayer;
             Load(layer);
             Debug.Log($"Raster Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
         }
@@ -195,12 +195,12 @@ namespace Virgis
                             (float) position[1],
                             1.0f
                             );
-                        if (m_ColorInterp != e_ColorInterp.None) {
-                            switch (m_ColorInterp) {
-                                case e_ColorInterp.Interpolate:
-                                    colorMap[ptr] = Grad.Evaluate((float) ((m - min) / range));
+                        if (MColorInterp != EColorInterp.None) {
+                            switch (MColorInterp) {
+                                case EColorInterp.Interpolate:
+                                    colorMap[ptr] = grad.Evaluate((float) ((m - min) / range));
                                     break;
-                                case e_ColorInterp.CategoryValue:
+                                case EColorInterp.CategoryValue:
                                     colorMap[ptr] = value.ColorMap.GetCategoryValue((float) ((m - min) / range));
                                     break;
                             }

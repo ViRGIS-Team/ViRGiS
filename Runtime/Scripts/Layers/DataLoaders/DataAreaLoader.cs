@@ -41,7 +41,7 @@ namespace Virgis
         public DataUnit Unit;
 
         public override async Task _init() {
-            m_symbology = Unit.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
+            MSymbology = Unit.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
         }
 

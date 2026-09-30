@@ -41,11 +41,11 @@ namespace Virgis
         protected LineLayer parent;
 
         public override void ReadSymbology() {
-            parent = m_parent as LineLayer;
+            parent = MParent as LineLayer;
             RecordSet layer = _layer as RecordSet;
 
-            if (m_symbology.ContainsKey("point") && m_symbology["point"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["point"].Shape;
+            if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Shape")) {
+                Shapes shape = MSymbology["point"].Shape;
                 switch (shape) {
                     case Shapes.Spheroid:
                         m_handlePrefab = parent.SpherePrefab;
@@ -64,8 +64,8 @@ namespace Virgis
                 m_handlePrefab = parent.SpherePrefab;
             }
 
-            if (m_symbology.ContainsKey("line") && m_symbology["line"].ContainsKey("Shape")) {
-                Shapes shape = m_symbology["line"].Shape;
+            if (MSymbology.ContainsKey("line") && MSymbology["line"].ContainsKey("Shape")) {
+                Shapes shape = MSymbology["line"].Shape;
                 switch (shape) {
                     case Shapes.Cuboid:
                         m_linePrefab = parent.CuboidLinePrefab;
@@ -81,15 +81,15 @@ namespace Virgis
                 m_linePrefab = parent.CylinderLinePrefab;
             }
 
-            foreach(string key in m_symbology.Keys) {
-                UnitPrototype unit = m_symbology[key];
+            foreach(string key in MSymbology.Keys) {
+                UnitPrototype unit = MSymbology[key];
                 SerializableMaterialHash hash = new() {
                     Name = key,
                     Color = unit.Color,
                 };
-                m_materials.Add(key, hash);
+                MMaterials.Add(key, hash);
                 if (key == "point")
-                    m_parent.DefaultCol.Value = hash;
+                    MParent.DefaultCol.Value = hash;
             }
         }
 
@@ -117,13 +117,13 @@ namespace Virgis
             Dataline com = dataLine.GetComponent<Dataline>();
             com.SetFID(fid);
             com.Spawn(transform);
-            com.Symbology = m_symbology.ToDictionary(
+            com.Symbology = MSymbology.ToDictionary(
                     item => item.Key,
                     item => item.Value as UnitPrototype
                 );
 
             com.Draw(line, 
-                m_materials,
+                MMaterials,
                 m_handlePrefab, 
                 parent.LabelPrefab
             );
@@ -142,9 +142,9 @@ namespace Virgis
         }
 
         public override Shapes GetFeatureShape() {
-            if (m_symbology.ContainsKey("point") &&
-                m_symbology["point"].ContainsKey("Shape")) {
-                return m_symbology["point"].Shape;
+            if (MSymbology.ContainsKey("point") &&
+                MSymbology["point"].ContainsKey("Shape")) {
+                return MSymbology["point"].Shape;
             }
             return Shapes.None;
         }

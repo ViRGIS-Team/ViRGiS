@@ -37,7 +37,7 @@ namespace Virgis
 
         public override async Task _init(){
             RecordSet _layer = GetMetadata() as RecordSet;
-            parent = m_parent as PointCloudLayer;
+            parent = MParent as PointCloudLayer;
             m_Symbology = _layer.Units;
             if (m_Symbology.TryGetValue("point", out Unit unit)) {
                 SetupColormap(unit);
