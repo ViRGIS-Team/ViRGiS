@@ -80,6 +80,8 @@ namespace Virgis
             } else {
                 m_linePrefab = parent.CylinderLinePrefab;
             }
+            
+            MMaterials = new Dictionary<string, SerializableMaterialHash>();
 
             foreach(string key in MSymbology.Keys) {
                 UnitPrototype unit = MSymbology[key];
