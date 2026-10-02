@@ -65,7 +65,7 @@ namespace Virgis {
             com.SetMaterial(point_hash);
 
             // add the data from source
-            dataPoint.transform.position = position;
+            dataPoint.transform.localPosition = position;
             var localPostion = dataPoint.transform.localPosition;
 
             //Set the symbology

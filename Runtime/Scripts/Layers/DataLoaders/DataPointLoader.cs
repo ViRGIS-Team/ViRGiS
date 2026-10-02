@@ -62,7 +62,11 @@ namespace Virgis {
             System.Diagnostics.Stopwatch watch = new();
             watch.Start();
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
+            AxisOrder ax = DataUnit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             foreach (Datapoint pointFunc in pointFuncs) {
+                if (! pointFunc.changed) continue;
                 long fid = pointFunc.GetFID<long>();
                 DataRow row = features.Rows.Find(fid);
                 if (row == null) {
@@ -70,16 +74,16 @@ namespace Virgis {
                     row["__FID"] = fid;
                     features.Rows.Add(row);
                 }
-                Vector3d pos = pointFunc.gameObject.transform.position;
+                Vector3d pos = pointFunc.gameObject.transform.localPosition;
+                pos.ChangeAxisOrderTo(ax);
                 row[DataUnit.XRange] = pos.x.ToString();
                 row[DataUnit.YRange] = pos.y.ToString();
                 if (DataUnit.ZRange != null)
                     row[DataUnit.ZRange] = pos.z.ToString();
-                if (watch.ElapsedMilliseconds > 100) {
-                    watch.Restart();
-                    yield return null;
-                }
-            };
+                if (watch.ElapsedMilliseconds < 100) continue;
+                yield return null;
+                watch.Restart(); 
+            }
         }
 
         protected override object GetNextFID() {

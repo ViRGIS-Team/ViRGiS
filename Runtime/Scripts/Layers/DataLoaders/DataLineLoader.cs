@@ -58,6 +58,7 @@ namespace Virgis
             AxisOrder ax = DataUnit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
+            curve.axisOrder = ax;
             foreach (DataRow row in features.Rows) {
                 double x = 0;
                 double y = 0;
@@ -85,6 +86,9 @@ namespace Virgis
 
         protected override IEnumerator hydrate() {
             System.Diagnostics.Stopwatch watch = new();
+            AxisOrder ax = DataUnit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             watch.Start();
             Dataline[] lineFuncs = gameObject.GetComponentsInChildren<Dataline>();
             foreach (Dataline lineFunc in lineFuncs) {
@@ -102,6 +106,7 @@ namespace Virgis
                         row["__FID"] = fid;
                         features.Rows.Add(row);
                     }
+                    v.ChangeAxisOrderTo(ax);
                     row[DataUnit.XRange] = v.x.ToString();
                     row[DataUnit.YRange] = v.y.ToString();
                     if (DataUnit.ZRange != null)

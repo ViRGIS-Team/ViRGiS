@@ -91,7 +91,7 @@ namespace Virgis
                     ring.InsertVertex(new Vector3d(v.x, 0, v.z) { axisOrder = v.axisOrder }, i + 1);
                 else
                     ring.InsertVertex(new Vector3d(v.x, v.y, 0) { axisOrder = v.axisOrder }, i + 1);
-                ring.InsertData(fid, i + 1);
+                ring.InsertData(0, i + 1);
             }
             await _drawFeatureAsync(new List<DCurve3>() { ring }, "data");
         }
@@ -102,6 +102,9 @@ namespace Virgis
 
         protected override IEnumerator hydrate() {
             System.Diagnostics.Stopwatch watch = new();
+            AxisOrder ax = DataUnit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             watch.Start();
             Dataline[] lineFuncs = gameObject.GetComponentsInChildren<Dataline>();
             foreach (Dataline lineFunc in lineFuncs) {
@@ -119,6 +122,7 @@ namespace Virgis
                         row["__FID"] = fid;
                         features.Rows.Add(row);
                     }
+                    v.ChangeAxisOrderTo(ax);
                     row[DataUnit.XRange] = v.x.ToString();
                     row[DataUnit.YRange] = v.y.ToString();
                     if (DataUnit.ZRange != null)
