@@ -33,12 +33,15 @@ using VirgisGeometry;
 namespace Virgis {
 
     public class PointLoader : PointLoaderPrototype<Layer> {
+        
+        private wkbGeometryType _mType;
 
-        public override async Task _init() {
-            RecordSet layer = _layer as RecordSet;
+        public override Task _init() {
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.Points };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
+            return Task.CompletedTask;
         }
 
         public SpatialReference GetCrs() {
@@ -47,7 +50,7 @@ namespace Virgis {
 
         public override async Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
-            if (layer.Properties.BBox != null) {
+            if (layer?.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], 
                     layer.Properties.BBox[1], layer.Properties.BBox[2], 
                     layer.Properties.BBox[3]);
@@ -55,79 +58,125 @@ namespace Virgis {
             SetCrs(OgrReader.getSR(features, layer));
             using (OgrReader ogrReader = new OgrReader()) {
                 await ogrReader.GetFeaturesAsync(features);
-                foreach (Feature feature in ogrReader.features) {
+                foreach (Feature feature in ogrReader.Features) {
                     int geoCount = feature.GetDefnRef().GetGeomFieldCount();
                     for (int j = 0; j < geoCount; j++) {
                         Geometry point = feature.GetGeomFieldRef(j);
-                        wkbGeometryType type = point.GetGeometryType();
-                        string t = type.ToString();
+                        _mType = point.GetGeometryType();
                         string label = "";
-                        if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Label") && MSymbology["point"].Label != null && (feature?.ContainsKey(MSymbology["point"].Label) ?? false)) {
+                        if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Label") && MSymbology["point"].Label != null && (feature.ContainsKey(MSymbology["point"].Label))) {
                             label = feature.Get<string>(MSymbology["point"].Label);
                         }
-                        if (point.GetGeometryType() == wkbGeometryType.wkbPoint ||
-                            point.GetGeometryType() == wkbGeometryType.wkbPoint25D ||
-                            point.GetGeometryType() == wkbGeometryType.wkbPointM ||
-                            point.GetGeometryType() == wkbGeometryType.wkbPointZM) {
+                        if (_mType == wkbGeometryType.wkbPoint ||
+                            _mType == wkbGeometryType.wkbPoint25D ||
+                            _mType == wkbGeometryType.wkbPointM ||
+                            _mType == wkbGeometryType.wkbPointZM) {
                             point
-                                .ToVector3d(AppState.instance.mapProj)
+                                .ToVector3d(AppState.Instance.MapProj)
                                 .ToList()
                                 .ForEach(async item => 
-                                    await DrawFeatureAsync((Vector3)item, feature.GetFID(), label));
+                                    await DrawFeatureAsync((Vector3)item, feature.GetFID(), 0, label));
                         } else if
-                           (point.GetGeometryType() == wkbGeometryType.wkbMultiPoint ||
-                            point.GetGeometryType() == wkbGeometryType.wkbMultiPoint25D ||
-                            point.GetGeometryType() == wkbGeometryType.wkbMultiPointM ||
-                            point.GetGeometryType() == wkbGeometryType.wkbMultiPointZM) {
+                           (_mType == wkbGeometryType.wkbMultiPoint ||
+                            _mType == wkbGeometryType.wkbMultiPoint25D ||
+                            _mType == wkbGeometryType.wkbMultiPointM ||
+                            _mType == wkbGeometryType.wkbMultiPointZM) {
                             int n = point.GetGeometryCount();
                             for (int k = 0; k < n; k++) {
-                                if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Label") && MSymbology["point"].Label != null && (feature?.ContainsKey(MSymbology["point"].Label) ?? false)) {
+                                if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Label") && MSymbology["point"].Label != null && (feature.ContainsKey(MSymbology["point"].Label))) {
                                     label = feature.Get<string>(MSymbology["point"].Label);
                                 } else {
                                     label = "";
                                 }
                                 Geometry point2 = point.GetGeometryRef(k);
                                 point2
-                                .ToVector3d(AppState.instance.mapProj)
+                                .ToVector3d(AppState.Instance.MapProj)
                                 .ToList()
                                 .ForEach(async item =>
-                                    await DrawFeatureAsync((Vector3) item, feature.GetFID(), label));
+                                    await DrawFeatureAsync((Vector3) item, feature.GetFID(), k, label));
                             }
                         }
                         point.Dispose();
                     }
                 }
             }
-            if (layer.Transform != null) {
-                transform.position = AppState.instance.Map.transform.TransformPoint(layer.Transform.Position);
+            if (layer?.Transform != null) {
+                transform.position = AppState.Instance.Map.transform.TransformPoint(layer.Transform.Position);
                 transform.rotation = layer.Transform.Rotate;
                 transform.localScale = layer.Transform.Scale;
             }
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
+            System.Diagnostics.Stopwatch watch = new();
+            watch.Start();
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
             foreach (Datapoint pointFunc in pointFuncs) {
-                Feature feature = features.GetFeature(pointFunc.GetFID<long>());
-                bool n = false;
-                if (feature == null) {
-                    feature = new Feature(features.GetLayerDefn());
-                    n = true;
+                try {
+                    if (!pointFunc.changed) continue;
+                    Feature feature = features.GetFeature(pointFunc.GetFid<long>());
+                    bool n = false;
+                    if (feature == null) {
+                        feature = new Feature(features.GetLayerDefn());
+                        n = true;
+                    }
+
+                    if (feature.GetDefnRef().GetGeomFieldCount() > 1)
+                        throw new NotImplementedException("Save is not supported on this type of Geometry");
+                    Vector3d pos = pointFunc.gameObject.transform.localPosition;
+                    Geometry geom;
+
+                    switch (_mType) {
+                        case wkbGeometryType.wkbPoint:
+                        case wkbGeometryType.wkbPointM:
+                        case wkbGeometryType.wkbPointZM:
+                        case wkbGeometryType.wkbPoint25D:
+                            geom = pos.ToGeometry(_mType);
+                            geom.TransformTo(GetCrs());
+                            feature.SetGeometryDirectly(geom);
+                            break;
+                        case wkbGeometryType.wkbMultiPoint:
+                        case wkbGeometryType.wkbMultiPoint25D:
+                        case wkbGeometryType.wkbMultiPointM:
+                        case wkbGeometryType.wkbMultiPointZM:
+                            Geometry parentGeom = feature.GetGeometryRef();
+                            wkbGeometryType type;
+                            if (parentGeom.GetGeometryCount() > 0) {
+                                type = parentGeom.GetGeometryRef(0).GetGeometryType();
+                            } else {
+                                type = wkbGeometryType.wkbMultiPoint;
+                            }
+
+                            parentGeom.RemoveGeometry(pointFunc.GetGid<int>());
+
+                            geom = pos.ToGeometry(type);
+                            geom.TransformTo(GetCrs());
+                            parentGeom.AddGeometryDirectly(geom);
+                            parentGeom.Dispose();
+                            break;
+                        default:
+                            throw new NotImplementedException("Save is not supported on this type of Geometry");
+                    }
+
+                    if (n) {
+                        features.CreateFeature(feature);
+                    } else {
+                        features.SetFeature(feature);
+                    }
+
+                    features.Dispose();
+                    if (watch.ElapsedMilliseconds < 100) continue;
+                } catch (Exception e) {
+                    Debug.LogException(e);
                 }
-                Geometry geom = ((Vector3d)pointFunc.gameObject.transform.position).ToGeometry();
-                geom.TransformTo(GetCrs());
-                feature.SetGeometryDirectly(geom);
-                if (n) {
-                    features.CreateFeature(feature);
-                } else {
-                    features.SetFeature(feature);
-                }
+                
                 yield return null;
+                watch.Restart();
             }
             features.SyncToDisk();
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             features.ResetReading();
             long highest = 0;
             while (true) {

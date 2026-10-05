@@ -23,6 +23,7 @@ SOFTWARE. */
 using Project;
 using System.Threading.Tasks;
 using OSGeo.OGR;
+using System.Collections;
 using System.Linq;
 
 namespace Virgis {
@@ -41,7 +42,7 @@ namespace Virgis {
             //
             // Load Dataset
             //
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             parent = MParent as OgrLayer;
             m_ogrReader = new OgrReader();
             await m_ogrReader.Load(layer.Source, layer.Properties.ReadOnly ? 0 : 1,
@@ -59,10 +60,10 @@ namespace Virgis {
                 switch (type) {
                     case wkbGeometryType.wkbPoint:
                         MParent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
-                        l = subLayers.Last() as PointLayer;
+                        l = SubLayers.Last() as PointLayer;
                         if (! l.Spawn(transform)) throw new System.Exception("reparenting failed");
-                        l.sourceName = thisLayer.GetName();
-                        l.IsWriteable = m_ogrReader.isWriteable;
+                        l.SourceName = thisLayer.GetName();
+                        l.IsWriteable = m_ogrReader.IsWriteable;
                         loader = l.gameObject.AddComponent<PointLoader>();
                         (loader as PointLoader).SetFeatures(thisLayer);
                         (loader as PointLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -70,11 +71,11 @@ namespace Virgis {
                         break;
                     case wkbGeometryType.wkbLineString:
                         MParent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
-                        l = subLayers.Last() as LineLayer;
+                        l = SubLayers.Last() as LineLayer;
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
-                        l.sourceName = thisLayer.GetName();
-                        l.IsWriteable = m_ogrReader.isWriteable;
+                        l.SourceName = thisLayer.GetName();
+                        l.IsWriteable = m_ogrReader.IsWriteable;
                         loader = l.gameObject.AddComponent<LineLoader>();
                         (loader as LineLoader).SetFeatures(thisLayer);
                         (loader as LineLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -82,11 +83,11 @@ namespace Virgis {
                         break;
                     case wkbGeometryType.wkbPolygon:
                         MParent.AddSubLayer(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
-                        l = subLayers.Last() as PolygonLayer;
+                        l = SubLayers.Last() as PolygonLayer;
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
-                        l.sourceName = thisLayer.GetName();
-                        l.IsWriteable = m_ogrReader.isWriteable;
+                        l.SourceName = thisLayer.GetName();
+                        l.IsWriteable = m_ogrReader.IsWriteable;
                         loader = l.gameObject.AddComponent<PolygonLoader>();
                         (loader as PolygonLoader).SetFeatures(thisLayer);
                         (loader as PolygonLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -95,11 +96,11 @@ namespace Virgis {
                     case wkbGeometryType.wkbTIN:
                     case wkbGeometryType.wkbPolyhedralSurface:
                         MParent.AddSubLayer(Instantiate(parent.TinLayer, transform).GetComponent<TinLayer>());
-                        l = subLayers.Last() as TinLayer;
+                        l = SubLayers.Last() as TinLayer;
                         if (!l.Spawn(transform))
                             throw new System.Exception("reparenting failed");
-                        l.sourceName = thisLayer.GetName();
-                        l.IsWriteable = m_ogrReader.isWriteable;
+                        l.SourceName = thisLayer.GetName();
+                        l.IsWriteable = m_ogrReader.IsWriteable;
                         loader = l.gameObject.AddComponent<TinLoader>();
                         (loader as TinLoader).SetFeatures(thisLayer);
                         (loader as TinLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -114,7 +115,7 @@ namespace Virgis {
                             thisLayer.SetSpatialFilterRect(metadata.Properties.BBox[0], metadata.Properties.BBox[1], metadata.Properties.BBox[2], metadata.Properties.BBox[3]);
                         }
                         await m_ogrReader.GetFeaturesAsync(thisLayer);
-                        foreach (Feature feature in m_ogrReader.features) {
+                        foreach (Feature feature in m_ogrReader.Features) {
                             if (feature == null)
                                 continue;
                             Geometry geom = feature.GetGeometryRef();
@@ -125,7 +126,7 @@ namespace Virgis {
                             VirgisLayer layerToAdd = null;
                             switch (ftype) {
                                 case wkbGeometryType.wkbLineString:
-                                    foreach (VirgisLayer lay in subLayers) {
+                                    foreach (VirgisLayer lay in SubLayers) {
                                         if (lay.GetType() == typeof(LineLayer)) {
                                             layerToAdd = lay;
                                             break;
@@ -133,10 +134,10 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         MParent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
-                                        l = subLayers.Last() as LineLayer;
+                                        l = SubLayers.Last() as LineLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.IsWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.IsWriteable;
                                         loader = l.gameObject.AddComponent<LineLoader>();
                                         (loader as LineLoader).SetFeatures(thisLayer);
                                         (loader as LineLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -144,7 +145,7 @@ namespace Virgis {
                                     }
                                     break;
                                 case wkbGeometryType.wkbPolygon:
-                                    foreach (VirgisLayer lay in subLayers) {
+                                    foreach (VirgisLayer lay in SubLayers) {
                                         if (lay.GetType() == typeof(PolygonLayer)) {
                                             layerToAdd = lay;
                                             break;
@@ -152,10 +153,10 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         MParent.AddSubLayer(Instantiate(parent.PolygonLayer, transform).GetComponent<PolygonLayer>());
-                                        l = subLayers.Last() as PolygonLayer;
+                                        l = SubLayers.Last() as PolygonLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.IsWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.IsWriteable;
                                         loader = l.gameObject.AddComponent<PolygonLoader>();
                                         (loader as PolygonLoader).SetFeatures(thisLayer);
                                         (loader as PolygonLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -163,7 +164,7 @@ namespace Virgis {
                                     }
                                     break;
                                 case wkbGeometryType.wkbPoint:
-                                    foreach (VirgisLayer lay in subLayers) {
+                                    foreach (VirgisLayer lay in SubLayers) {
                                         if (lay.GetType() == typeof(PointLayer)) {
                                             layerToAdd = lay;
                                             break;
@@ -171,10 +172,10 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         MParent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
-                                        l = subLayers.Last() as PointLayer;
+                                        l = SubLayers.Last() as PointLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.IsWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.IsWriteable;
                                         loader = l.gameObject.AddComponent<PointLoader>();
                                         (loader as PointLoader).SetFeatures(thisLayer);
                                         (loader as PointLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -183,7 +184,7 @@ namespace Virgis {
                                     break;
                                 case wkbGeometryType.wkbTIN:
                                 case wkbGeometryType.wkbPolyhedralSurface:
-                                    foreach (VirgisLayer lay in subLayers) {
+                                    foreach (VirgisLayer lay in SubLayers) {
                                         if (lay.GetType() == typeof(TinLayer)) {
                                             layerToAdd = lay;
                                             break;
@@ -191,10 +192,10 @@ namespace Virgis {
                                     }
                                     if (layerToAdd == null) {
                                         MParent.AddSubLayer(Instantiate(parent.TinLayer, transform).GetComponent<TinLayer>());
-                                        l = subLayers.Last() as TinLayer;
+                                        l = SubLayers.Last() as TinLayer;
                                         if (!l.Spawn(transform))
                                             throw new System.Exception("reparenting failed");
-                                        l.IsWriteable = m_ogrReader.isWriteable;
+                                        l.IsWriteable = m_ogrReader.IsWriteable;
                                         loader = l.gameObject.AddComponent<TinLoader>();
                                         (loader as TinLoader).SetFeatures(thisLayer);
                                         (loader as TinLoader).SetCrs(OgrReader.getSR(thisLayer, layer));
@@ -215,6 +216,10 @@ namespace Virgis {
 
         public override Task _save() {
             return Task.CompletedTask;
+        }
+
+        protected override IEnumerator Hydrate() {
+            throw new System.NotImplementedException();
         }
     }
 }

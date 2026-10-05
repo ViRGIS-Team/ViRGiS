@@ -9,7 +9,7 @@ namespace Virgis {
     public abstract class DataLoaderPrototype : VirgisLoader<DataTable> {
 
         public async override Task _init() {
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             DataLayerPrototype parent = MParent as DataLayerPrototype;
             List<DataUnit> dataUnits = layer.DataUnits;
 
@@ -18,13 +18,13 @@ namespace Virgis {
                 switch (subLayer.Representation) {
                     case DataUnitRepresent.Points:
                         MParent.AddSubLayer(Instantiate(parent.PointLayer, transform).GetComponent<PointLayer>());
-                        PointLayer pl = subLayers.Last() as PointLayer;
+                        PointLayer pl = SubLayers.Last() as PointLayer;
                         if (!pl.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         pl.transform.position = subLayer.Transform.Position;
                         pl.transform.rotation = subLayer.Transform.Rotate;
                         pl.transform.localScale = subLayer.Transform.Scale;
-                        pl.sourceName = subLayer.Name;
+                        pl.SourceName = subLayer.Name;
                         pl.IsWriteable = true;
                         DataPointLoader ploader = pl.gameObject.AddComponent<DataPointLoader>();
                         ploader.SetFeatures(features);
@@ -33,13 +33,13 @@ namespace Virgis {
                         break;
                     case DataUnitRepresent.Line:
                         MParent.AddSubLayer(Instantiate(parent.LineLayer, transform).GetComponent<LineLayer>());
-                        LineLayer ll = subLayers.Last() as LineLayer;
+                        LineLayer ll = SubLayers.Last() as LineLayer;
                         if (!ll.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         ll.transform.position = subLayer.Transform.Position;
                         ll.transform.rotation = subLayer.Transform.Rotate;
                         ll.transform.localScale = subLayer.Transform.Scale;
-                        ll.sourceName = subLayer.Name;
+                        ll.SourceName = subLayer.Name;
                         ll.IsWriteable = true;
                         DataLineLoader loader = ll.gameObject.AddComponent<DataLineLoader>();
                         loader.SetFeatures(features);
@@ -48,13 +48,13 @@ namespace Virgis {
                         break;
                     case DataUnitRepresent.Area:
                         MParent.AddSubLayer(Instantiate(parent.AreaLayer, transform).GetComponent<PolygonLayer>());
-                        PolygonLayer pll = subLayers.Last() as PolygonLayer;
+                        PolygonLayer pll = SubLayers.Last() as PolygonLayer;
                         if (!pll.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         pll.transform.position = subLayer.Transform.Position;
                         pll.transform.rotation = subLayer.Transform.Rotate;
                         pll.transform.localScale = subLayer.Transform.Scale;
-                        pll.sourceName = subLayer.Name;
+                        pll.SourceName = subLayer.Name;
                         pll.IsWriteable = true;
                         DataAreaLoader plloader = pll.gameObject.AddComponent<DataAreaLoader>();
                         plloader.SetFeatures(features);
@@ -63,13 +63,13 @@ namespace Virgis {
                         break;
                     case DataUnitRepresent.Manifold:
                         MParent.AddSubLayer(Instantiate(parent.ManifoldLayer, transform).GetComponent<MeshLayer>());
-                        MeshLayer ml = subLayers.Last() as MeshLayer;
+                        MeshLayer ml = SubLayers.Last() as MeshLayer;
                         if (!ml.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         ml.transform.position = subLayer.Transform.Position;
                         ml.transform.rotation = subLayer.Transform.Rotate;
                         ml.transform.localScale = subLayer.Transform.Scale;
-                        ml.sourceName = subLayer.Name;
+                        ml.SourceName = subLayer.Name;
                         ml.IsWriteable = true;
                         DataManifoldLoader mloader = ml.gameObject.AddComponent<DataManifoldLoader>();
                         mloader.SetFeatures(features);
@@ -78,13 +78,13 @@ namespace Virgis {
                         break;
                     case DataUnitRepresent.PointCloud:
                         MParent.AddSubLayer(Instantiate(parent.PointCloudLayer, transform).GetComponent<PointCloudLayer>());
-                        PointCloudLayer pc = subLayers.Last() as PointCloudLayer;
+                        PointCloudLayer pc = SubLayers.Last() as PointCloudLayer;
                         if (!pc.Spawn(transform))
                             throw new System.Exception("reparenting failed");
                         pc.transform.position = subLayer.Transform.Position;
                         pc.transform.rotation = subLayer.Transform.Rotate;
                         pc.transform.localScale = subLayer.Transform.Scale;
-                        pc.sourceName = subLayer.Name;
+                        pc.SourceName = subLayer.Name;
                         pc.IsWriteable = true;
                         DataPointCloudLoader pcloader = pc.gameObject.AddComponent<DataPointCloudLoader>();
                         pcloader.SetFeatures(features);

@@ -1,38 +1,37 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Project;
 using UnityEngine.UI;
 using System.Collections;
 
 namespace Virgis {
     public abstract class PointLoaderPrototype<T> : VirgisLoader<T> {
-        protected GameObject m_pointPrefab;
-        protected PointLayer parent;
+        private GameObject _mPointPrefab;
+        private PointLayer _mParent;
 
         public override void ReadSymbology() {
-            parent = MParent as PointLayer;
+            _mParent = MParent as PointLayer;
             MDisplacement = 1.0f;
             if (MSymbology.ContainsKey("point") &&
                 MSymbology["point"].ContainsKey("Shape")) {
                 Shapes shape = MSymbology["point"].Shape;
                 switch (shape) {
                     case Shapes.Spheroid:
-                        m_pointPrefab = parent.SpherePrefab;
+                        _mPointPrefab = _mParent?.SpherePrefab;
                         break;
                     case Shapes.Cuboid:
-                        m_pointPrefab = parent.CubePrefab;
+                        _mPointPrefab = _mParent?.CubePrefab;
                         break;
                     case Shapes.Cylinder:
-                        m_pointPrefab = parent.CylinderPrefab;
+                        _mPointPrefab = _mParent?.CylinderPrefab;
                         MDisplacement = 1.5f;
                         break;
                     default:
-                        m_pointPrefab = parent.SpherePrefab;
+                        _mPointPrefab = _mParent?.SpherePrefab;
                         break;
                 }
             } else {
-                m_pointPrefab = parent.SpherePrefab;
+                _mPointPrefab = _mParent?.SpherePrefab;
             }
 
             MMaterials = new Dictionary<string, SerializableMaterialHash>();
@@ -47,26 +46,28 @@ namespace Virgis {
                 if (key == "point") MParent.DefaultCol.Value = hash;
             }
         }
-
+        
         /// <summary>
-        /// Draws a single feature based on world space coordinates
+        ///  Draws a single feature based on world space coordinates
         /// </summary>
-        /// <param name="position"> Vector3 position</param>
-
-        protected VirgisFeature DrawFeature(Vector3 position, object fid, string label = "") {
+        /// <param name="position">Vector3 loaclPosition</param>
+        /// <param name="fid">Feature Id</param>
+        /// <param name="gid">Geometry Id</param>
+        /// <param name="label">Label fpr this faeture</param>
+        /// <returns></returns>
+        private VirgisFeature DrawFeature(Vector3 position, object fid, object gid,string label = "") {
             //instantiate the prefab with coordinates defined above
-            GameObject dataPoint = Instantiate(m_pointPrefab, transform);
+            GameObject dataPoint = Instantiate(_mPointPrefab, transform);
             Datapoint com = dataPoint.GetComponent<Datapoint>();
-            com.SetFID(fid);
+            com.SetFid(fid);
+            com.SetGid(gid);
             com.Spawn(transform);
-            SerializableMaterialHash point_hash;
-            if (!MMaterials.TryGetValue("point", out point_hash))
-                point_hash = new();
-            com.SetMaterial(point_hash);
+            if (!MMaterials.TryGetValue("point", out SerializableMaterialHash pointHash))
+                pointHash = new();
+            com.SetMaterial(pointHash);
 
             // add the data from source
             dataPoint.transform.localPosition = position;
-            var localPostion = dataPoint.transform.localPosition;
 
             //Set the symbology
             if (MSymbology.ContainsKey("point")) {
@@ -78,7 +79,7 @@ namespace Virgis {
 
             //Set the label
             if (label != "") {
-                GameObject labelObject = Instantiate(parent.LabelPrefab,
+                GameObject labelObject = Instantiate(_mParent.LabelPrefab,
                                                      dataPoint.transform, false
                                                      );
                 labelObject.transform.localScale = labelObject.transform.localScale * Vector3.one.magnitude / dataPoint.transform.localScale.magnitude;
@@ -90,9 +91,9 @@ namespace Virgis {
             return com;
         }
 
-        protected Task<int> DrawFeatureAsync(Vector3 position, object fid, string label = "") {
+        protected Task<int> DrawFeatureAsync(Vector3 position, object fid, object gid, string label = "") {
             Task<int> t1 = new Task<int>(() => {
-                DrawFeature(position, fid, label);
+                DrawFeature(position, fid, gid, label);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -110,7 +111,7 @@ namespace Virgis {
         public override IVirgisFeature _addFeature<S>(S geometry) {
             switch (geometry) {
                 case Vector3 v:
-                    VirgisFeature newFeature = DrawFeature(v, GetNextFID());
+                    VirgisFeature newFeature = DrawFeature(v, GetNextFid(), 0);
                     changed = true;
                     return newFeature;
                 default:
@@ -119,23 +120,21 @@ namespace Virgis {
         }
 
         public void RemoveVertex(VirgisFeature vertex) {
-            if (AppState.instance.InEditSession() && IsWriteable) {
+            if (AppState.Instance.InEditSession() && IsWriteable) {
                 Destroy(vertex.gameObject);
             }
         }
 
-        protected abstract object GetNextFID();
+        protected abstract object GetNextFid();
 
         public async override Task _save() {
-            IEnumerator saver = hydrate();
+            IEnumerator saver = Hydrate();
             while (saver.MoveNext()) {
                 await Task.Yield();
-            };
+            }
             await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
-            return;
-        }
 
-        protected abstract IEnumerator hydrate();
+        }
 
     }
 }

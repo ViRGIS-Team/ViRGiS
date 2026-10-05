@@ -27,21 +27,22 @@ using System.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using UnityEngine;
 
 namespace Virgis
 {
 
     /// <summary>
-    /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
+    /// The parent entity for an instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
     public class DataLineLoader : LineLoaderPrototype<DataTable>
     {
 
-        public override async Task _init() {
+        public override Task _init() {
             MSymbology = (DataUnit as DataUnit)?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
+            return Task.CompletedTask;
         }
 
         public override async Task _draw() {
@@ -53,16 +54,15 @@ namespace Virgis
                ) {
                 throw new Exception($"DataUnit {DataUnit.Name} has invalid columns");
             }
-            DCurve3 curve = new();
-            curve.Closed = false;
+            DCurve3 curve = new() { Closed = false };
             AxisOrder ax = DataUnit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
             curve.axisOrder = ax;
             foreach (DataRow row in features.Rows) {
-                double x = 0;
-                double y = 0;
-                double z = 0;
+                double x;
+                double y;
+                double z;
                 try {
                     x = double.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
                     y = double.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
@@ -73,18 +73,18 @@ namespace Virgis
                     throw new Exception($"DataUnit {DataUnit.Name} had invalid data");
                 }
 
-                Vector3d pos3d = new Vector3d(x, y, z) {axisOrder = ax };
-                curve.AppendVertex( pos3d);
+                Vector3d pos3D = new Vector3d(x, y, z) {axisOrder = ax };
+                curve.AppendVertex( pos3D);
                 curve.SetData(row.Field<long>("__FID"));
             }
-            await _drawFeatureAsync(curve, "data");
+            await _drawFeatureAsync(curve, "data", 0);
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             return "";
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
             System.Diagnostics.Stopwatch watch = new();
             AxisOrder ax = DataUnit.AxisOrder;
             if (ax == default)
@@ -92,31 +92,33 @@ namespace Virgis
             watch.Start();
             Dataline[] lineFuncs = gameObject.GetComponentsInChildren<Dataline>();
             foreach (Dataline lineFunc in lineFuncs) {
-                IEnumerator<long> fids = lineFunc.Curve.GetDataItr<long>().GetEnumerator();
-                long fid = 0;
+                if (! lineFunc.changed) continue;
+                using IEnumerator<long> fids = lineFunc.Curve.GetDataItr<long>().GetEnumerator();
                 foreach (Vector3d v in lineFunc.Curve.Vertices) {
+                    long fid;
                     if (fids.MoveNext()) {
                         fid = fids.Current;
                     } else {
                         throw new Exception("DataLineLoader - Invalid FIDs in Curve");
                     }
+
                     DataRow row = features.Rows.Find(fid);
                     if (row == null) {
                         row = features.NewRow();
                         row["__FID"] = fid;
                         features.Rows.Add(row);
                     }
+
                     v.ChangeAxisOrderTo(ax);
-                    row[DataUnit.XRange] = v.x.ToString();
-                    row[DataUnit.YRange] = v.y.ToString();
+                    row[DataUnit.XRange] = v.x.ToString(CultureInfo.InvariantCulture);
+                    row[DataUnit.YRange] = v.y.ToString(CultureInfo.InvariantCulture);
                     if (DataUnit.ZRange != null)
-                        row[DataUnit.ZRange] = v.z.ToString();
-                    if (watch.ElapsedMilliseconds > 100) {
-                        watch.Restart();
-                        yield return null;
-                    };
-                };
-            };
+                        row[DataUnit.ZRange] = v.z.ToString(CultureInfo.InvariantCulture);
+                    if (watch.ElapsedMilliseconds < 100) continue;
+                    watch.Restart();
+                    yield return null;
+                }
+            }
         }
     }
 }

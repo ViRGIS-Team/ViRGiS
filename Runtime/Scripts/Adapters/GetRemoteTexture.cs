@@ -40,7 +40,7 @@ namespace Virgis
                 var asyncOp = www.SendWebRequest();
 
                 //await until it's done: 
-                while (asyncOp.isDone == false)
+                while (!asyncOp.isDone)
                 {
                     await Task.Delay(1000 / 30);//30 hertz
                 }
@@ -56,12 +56,10 @@ namespace Virgis
                     //nothing to return on error:
                     return null;
                 }
-                else
-                {
-                    //return valid results:
-                    Texture2D tex =  DownloadHandlerTexture.GetContent(www);
-                    return tex;
-                }
+
+                //return valid results:
+                Texture2D tex =  DownloadHandlerTexture.GetContent(www);
+                return tex;
             }
         }
 

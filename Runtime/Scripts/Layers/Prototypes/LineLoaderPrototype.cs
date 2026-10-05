@@ -32,53 +32,53 @@ namespace Virgis
 {
 
     /// <summary>
-    /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
+    /// The parent entity for an instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
     public abstract class LineLoaderPrototype<T> : VirgisLoader<T>
     {
-        protected GameObject m_handlePrefab;
-        protected GameObject m_linePrefab;
-        protected LineLayer parent;
+        private GameObject _mHandlePrefab;
+        private GameObject _mLinePrefab;
+        private LineLayer _mParent;
 
         public override void ReadSymbology() {
-            parent = MParent as LineLayer;
-            RecordSet layer = _layer as RecordSet;
+            _mParent = MParent as LineLayer;
+            RecordSet layer = Layer as RecordSet;
 
             if (MSymbology.ContainsKey("point") && MSymbology["point"].ContainsKey("Shape")) {
                 Shapes shape = MSymbology["point"].Shape;
                 switch (shape) {
                     case Shapes.Spheroid:
-                        m_handlePrefab = parent.SpherePrefab;
+                        _mHandlePrefab = _mParent?.SpherePrefab;
                         break;
                     case Shapes.Cuboid:
-                        m_handlePrefab = parent.CubePrefab;
+                        _mHandlePrefab = _mParent?.CubePrefab;
                         break;
                     case Shapes.Cylinder:
-                        m_handlePrefab = parent.CylinderPrefab;
+                        _mHandlePrefab = _mParent?.CylinderPrefab;
                         break;
                     default:
-                        m_handlePrefab = parent.SpherePrefab;
+                        _mHandlePrefab = _mParent?.SpherePrefab;
                         break;
                 }
             } else {
-                m_handlePrefab = parent.SpherePrefab;
+                _mHandlePrefab = _mParent?.SpherePrefab;
             }
 
             if (MSymbology.ContainsKey("line") && MSymbology["line"].ContainsKey("Shape")) {
                 Shapes shape = MSymbology["line"].Shape;
                 switch (shape) {
                     case Shapes.Cuboid:
-                        m_linePrefab = parent.CuboidLinePrefab;
+                        _mLinePrefab = _mParent?.CuboidLinePrefab;
                         break;
                     case Shapes.Cylinder:
-                        m_linePrefab = parent.CylinderLinePrefab;
+                        _mLinePrefab = _mParent?.CylinderLinePrefab;
                         break;
                     default:
-                        m_linePrefab = parent.CylinderLinePrefab;
+                        _mLinePrefab = _mParent?.CylinderLinePrefab;
                         break;
                 }
             } else {
-                m_linePrefab = parent.CylinderLinePrefab;
+                _mLinePrefab = _mParent?.CylinderLinePrefab;
             }
             
             MMaterials = new Dictionary<string, SerializableMaterialHash>();
@@ -99,7 +99,7 @@ namespace Virgis
             switch (geometry) {
                 case Vector3[] line:
                     DCurve3 curve = new(line, false);
-                    return _drawFeature(curve, "");
+                    return DrawFeature(curve, "", 0);
                 default:
                     throw new System.Exception("Incorrect Type passed to _addFeature");
             }
@@ -110,33 +110,35 @@ namespace Virgis
         /// </summary>
         /// <param name="line"> Geometry</param>
         /// <param name="fid">Feature ID</param>
+        /// <param name="gid"></param>
         /// <param name="label">Label Text</param>
-        protected VirgisFeature _drawFeature(DCurve3 line, object fid, string label = null)
+        private VirgisFeature DrawFeature(DCurve3 line, object fid, object gid, string label = null)
         {
-            GameObject dataLine = Instantiate(m_linePrefab, transform);
+            GameObject dataLine = Instantiate(_mLinePrefab, transform);
 
             //set the gisProject properties
             Dataline com = dataLine.GetComponent<Dataline>();
-            com.SetFID(fid);
+            com.SetFid(fid);
+            com.SetGid(gid);
             com.Spawn(transform);
             com.Symbology = MSymbology.ToDictionary(
                     item => item.Key,
-                    item => item.Value as UnitPrototype
+                    item => item.Value
                 );
 
             com.Draw(line, 
                 MMaterials,
-                m_handlePrefab, 
-                parent.LabelPrefab
+                _mHandlePrefab, 
+                _mParent.LabelPrefab
             );
 
             return com;
         }
 
-        protected Task<int> _drawFeatureAsync(DCurve3 line, object fid, string label = null) {
+        protected Task<int> _drawFeatureAsync(DCurve3 line, object fid, object gid, string label = null) {
 
             Task<int> t1 = new Task<int>(() => {
-                _drawFeature(line, fid, label);
+                DrawFeature(line, fid, gid, label);
                 return 1;
             });
             t1.Start(TaskScheduler.FromCurrentSynchronizationContext());
@@ -151,17 +153,14 @@ namespace Virgis
             return Shapes.None;
         }
 
-        protected abstract object GetNextFID();
+        protected abstract object GetNextFid();
 
         public async override Task _save() {
-            IEnumerator saver = hydrate();
+            IEnumerator saver = Hydrate();
             while (saver.MoveNext()) {
                 await Task.Yield();
-            };
+            }
             await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
-            return;
         }
-
-        protected abstract IEnumerator hydrate();
     }
 }

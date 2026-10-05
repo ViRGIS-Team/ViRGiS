@@ -5,15 +5,17 @@ using Project;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using VirgisGeometry;
 
 namespace Virgis {
     public class DataPointLoader : PointLoaderPrototype<DataTable> {
         
-        public override async Task _init() {
+        public override Task _init() {
             MSymbology = (DataUnit as DataUnit)?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
+            return Task.CompletedTask;
         }
 
         public override async Task _draw() {
@@ -31,9 +33,9 @@ namespace Virgis {
             if (ax == default)
                 ax = AxisOrder.ENU;
             foreach (DataRow row in features.Rows) {
-                double x = 0;
-                double y = 0;
-                double z = 0;
+                double x;
+                double y;
+                double z;
                 try {
                     x = double.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
                     y = double.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
@@ -48,17 +50,18 @@ namespace Virgis {
                     label = row.Field<string>(features.Columns[DataUnit.LabelRange]);
                 }
 
-                Vector3d pos3d = new Vector3d(x, y, z) { axisOrder = ax };
+                Vector3d pos3D = new Vector3d(x, y, z) { axisOrder = ax };
                 tasks.Add(DrawFeatureAsync(
-                    (Vector3)pos3d,
+                    (Vector3)pos3D,
                     row.Field<long>("__FID"),
+                    0,
                     label
                 ));
             }
             await Task.WhenAll(tasks);
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
             System.Diagnostics.Stopwatch watch = new();
             watch.Start();
             Datapoint[] pointFuncs = gameObject.GetComponentsInChildren<Datapoint>();
@@ -67,7 +70,7 @@ namespace Virgis {
                 ax = AxisOrder.ENU;
             foreach (Datapoint pointFunc in pointFuncs) {
                 if (! pointFunc.changed) continue;
-                long fid = pointFunc.GetFID<long>();
+                long fid = pointFunc.GetFid<long>();
                 DataRow row = features.Rows.Find(fid);
                 if (row == null) {
                     row = features.NewRow();
@@ -76,17 +79,17 @@ namespace Virgis {
                 }
                 Vector3d pos = pointFunc.gameObject.transform.localPosition;
                 pos.ChangeAxisOrderTo(ax);
-                row[DataUnit.XRange] = pos.x.ToString();
-                row[DataUnit.YRange] = pos.y.ToString();
+                row[DataUnit.XRange] = pos.x.ToString(CultureInfo.InvariantCulture);
+                row[DataUnit.YRange] = pos.y.ToString(CultureInfo.InvariantCulture);
                 if (DataUnit.ZRange != null)
-                    row[DataUnit.ZRange] = pos.z.ToString();
+                    row[DataUnit.ZRange] = pos.z.ToString(CultureInfo.InvariantCulture);
                 if (watch.ElapsedMilliseconds < 100) continue;
                 yield return null;
                 watch.Restart(); 
             }
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             return "";
         }
     }

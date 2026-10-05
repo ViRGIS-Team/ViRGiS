@@ -26,6 +26,7 @@ using Project;
 using System.Threading.Tasks;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using VirgisGeometry;
@@ -34,15 +35,19 @@ namespace Virgis
 {
 
     /// <summary>
-    /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
+    /// The parent entity for an instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
     public class LineLoader : LineLoaderPrototype<Layer>
     {
-        public override async Task _init() {
-            RecordSet layer = _layer as RecordSet;
+        
+        private wkbGeometryType _mType;
+        
+        public override Task _init() {
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.Line };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
+            return Task.CompletedTask;
         }
 
         public SpatialReference GetCrs() {
@@ -52,12 +57,12 @@ namespace Virgis
         public override async Task _draw()
         {
             RecordSet layer = GetMetadata()as RecordSet;
-            if (layer.Properties.BBox != null) {
+            if (layer?.Properties.BBox != null) {
                 features.SetSpatialFilterRect(layer.Properties.BBox[0], layer.Properties.BBox[1], layer.Properties.BBox[2], layer.Properties.BBox[3]);
             }
             using (OgrReader ogrReader = new OgrReader()) {
                 await ogrReader.GetFeaturesAsync(features);
-                foreach (Feature feature in ogrReader.features) {
+                foreach (Feature feature in ogrReader.Features) {
                     if (feature == null)
                         continue;
                     int geoCount = feature.GetDefnRef().GetGeomFieldCount();
@@ -65,42 +70,48 @@ namespace Virgis
                         Geometry line = feature.GetGeomFieldRef(j);
                         if (line == null)
                             continue;
-                        if (line.GetGeometryType() == wkbGeometryType.wkbLineString ||
-                            line.GetGeometryType() == wkbGeometryType.wkbLineString25D ||
-                            line.GetGeometryType() == wkbGeometryType.wkbLineStringM ||
-                            line.GetGeometryType() == wkbGeometryType.wkbLineStringZM
-                        ) {
-                            if (line.GetSpatialReference() == null)
-                                line.AssignSpatialReference(GetCrs());
-                            DCurve3 curve = line.ToCurve(AppState.instance.mapProj);
-                            await _drawFeatureAsync(curve, feature.GetFID());
-                        } else if
-                            (line.GetGeometryType() == wkbGeometryType.wkbMultiLineString ||
-                            line.GetGeometryType() == wkbGeometryType.wkbMultiLineString25D ||
-                            line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringM ||
-                            line.GetGeometryType() == wkbGeometryType.wkbMultiLineStringZM
-                         ) {
-                            int n = line.GetGeometryCount();
-                            for (int k = 0; k < n; k++) {
-                                Geometry Line2 = line.GetGeometryRef(k);
-                                if (Line2.GetSpatialReference() == null)
-                                    Line2.AssignSpatialReference(GetCrs());
-                                DCurve3 curve = Line2.ToCurve(AppState.instance.mapProj);
-                                await _drawFeatureAsync(curve, feature.GetFID());
-                            }
+                        _mType = line.GetGeometryType();
+                        DCurve3 curve;
+
+                        switch (_mType) {
+                            case wkbGeometryType.wkbLineString:
+                            case wkbGeometryType.wkbLineString25D:
+                            case wkbGeometryType.wkbLineStringM: 
+                            case wkbGeometryType.wkbLineStringZM:
+                                if (line.GetSpatialReference() == null)
+                                    line.AssignSpatialReference(GetCrs());
+                                curve = line.ToCurve(AppState.Instance.MapProj);
+                                await _drawFeatureAsync(curve, feature.GetFID(), 0);
+                                break;
+                            case wkbGeometryType.wkbMultiLineString:
+                            case wkbGeometryType.wkbMultiLineString25D:
+                            case wkbGeometryType.wkbMultiLineStringM:
+                            case wkbGeometryType.wkbMultiLineStringZM:
+                                int n = line.GetGeometryCount();
+                                for (int k = 0; k < n; k++) {
+                                    Geometry line2 = line.GetGeometryRef(k);
+                                    if (line2.GetSpatialReference() == null)
+                                        line2.AssignSpatialReference(GetCrs());
+                                    curve = line2.ToCurve(AppState.Instance.MapProj);
+                                    await _drawFeatureAsync(curve, feature.GetFID(), k);
+                                }
+
+                                break;
+                            default:
+                                throw new Exception("Layer Type Fault");
                         }
                         line.Dispose();
                     }
                 }
             }
-            if (layer.Transform != null) {
-                transform.position = AppState.instance.Map.transform.TransformPoint(layer.Transform.Position);
+            if (layer?.Transform != null) {
+                transform.position = AppState.Instance.Map.transform.TransformPoint(layer.Transform.Position);
                 transform.rotation = layer.Transform.Rotate;
                 transform.localScale = layer.Transform.Scale;
             }
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             features.ResetReading();
             long highest = 0;
             while (true) {
@@ -114,20 +125,80 @@ namespace Virgis
         }
 
 
-        protected override IEnumerator hydrate()
+        protected override IEnumerator Hydrate()
         {
-            /*            Dataline[] dataFeatures = gameObject.GetComponentsInChildren<Dataline>();
-                        foreach (Dataline dataFeature in dataFeatures) {
-                            Feature feature = dataFeature.feature as Feature;
-                            Geometry geom = new Geometry(wkbGeometryType.wkbLineString25D);
-                            geom.AssignSpatialReference(AppState.instance.mapProj);
-                            geom.Vector3(dataFeature.GetVertexPositions());
+            System.Diagnostics.Stopwatch watch = new();
+            watch.Start();
+            Dataline[] lineFuncs = gameObject.GetComponentsInChildren<Dataline>();
+            foreach (Dataline lineFunc in lineFuncs) {
+                try {
+                    if (!lineFunc.changed) continue;
+                    using IEnumerator<long> fids = lineFunc.Curve.GetDataItr<long>().GetEnumerator();
+
+                    Feature feature = features.GetFeature(lineFunc.GetFid<long>());
+                    bool n = false;
+                    if (feature == null) {
+                        feature = new Feature(features.GetLayerDefn());
+                        n = true;
+                    }
+
+                    if (feature.GetDefnRef().GetGeomFieldCount() > 1)
+                        throw new NotImplementedException("Save is not supported on this type of Geometry");
+                    Geometry geom;
+
+                    switch (_mType) {
+                        case wkbGeometryType.wkbLineString:
+                        case wkbGeometryType.wkbLineString25D:
+                        case wkbGeometryType.wkbLineStringM:
+                        case wkbGeometryType.wkbLineStringZM:
+                            geom = new(_mType);
+                            geom.AssignSpatialReference(AppState.Instance.MapProj);
+                            geom.FromCurve(lineFunc.Curve, AxisOrder.ENU);
                             geom.TransformTo(GetCrs());
                             feature.SetGeometryDirectly(geom);
-                            features.SetFeature(feature);
-                        };
-                        features.SyncToDisk();*/
-            return null;
+                            break;
+                        case wkbGeometryType.wkbMultiLineString:
+                        case wkbGeometryType.wkbMultiLineString25D:
+                        case wkbGeometryType.wkbMultiLineStringM:
+                        case wkbGeometryType.wkbMultiLineStringZM:
+                            Geometry parentGeom = feature.GetGeometryRef();
+                            wkbGeometryType type;
+                            if (parentGeom.GetGeometryCount() > 0) {
+                                type = parentGeom.GetGeometryRef(0).GetGeometryType();
+                            } else {
+                                type = wkbGeometryType.wkbLineString;
+                            }
+
+                            parentGeom.RemoveGeometry(lineFunc.GetGid<int>());
+                            geom = new(type);
+                            geom.AssignSpatialReference(AppState.Instance.MapProj);
+                            geom.FromCurve(lineFunc.Curve, AxisOrder.ENU);
+                            geom.TransformTo(GetCrs());
+                            parentGeom.AddGeometryDirectly(geom);
+                            parentGeom.Dispose();
+                            break;
+                        default:
+                            throw new NotImplementedException("Save is not supported on this type of Geometry");
+                    }
+
+                    feature.SetGeometryDirectly(geom);
+                    if (n) {
+                        features.CreateFeature(feature);
+                    } else {
+                        features.SetFeature(feature);
+                    }
+
+                    features.Dispose();
+                    geom.Dispose();
+                    if (watch.ElapsedMilliseconds < 100) continue;
+                } catch (Exception e) {
+                    Debug.LogException(e);
+                }
+
+                yield return null;
+                watch.Restart();
+            }
+            features.SyncToDisk();
         }
     }
 }

@@ -20,6 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+using netDxf.Collections;
 using OSGeo.OGR;
 using OSGeo.OSR;
 using Project;
@@ -35,40 +36,40 @@ namespace Virgis {
 
     public class OgrReader: IDisposable
     {
-        public string fileName;
-        public List<Feature> features;
+        private string _fileName;
+        public List<Feature> Features;
 
-        private readonly List<Layer> m_layers = new List<Layer>();
-        private DataSource m_datasource;
-        private int m_update;
+        private readonly List<Layer> _mLayers = new List<Layer>();
+        private DataSource _mDatasource;
+        private int _mUpdate;
 
         public List<Layer> GetLayers()
         {
-            return m_layers;
+            return _mLayers;
         }
 
-        public bool isWriteable {
+        public bool IsWriteable {
             get {
-                return m_update != 0;
+                return _mUpdate != 0;
             }
         }
 
         public async Task  Load(string source, int update, SourceType type) {
             if (type == SourceType.File) {
-                fileName = source;
+                _fileName = source;
             } else if (type.ToString().Contains("vsi")) {
-                fileName = $"\\{type}\\{source}";
+                _fileName = $"\\{type}\\{source}";
             } else {
-                fileName = $"{type}:{source}";
+                _fileName = $"{type}:{source}";
             }
-            m_update = update;
+            _mUpdate = update;
             await Load();
         }
 
         private Task<int> Load() {
             try
             {
-                TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+                TaskCompletionSource<int> tcs1 = new();
                 Task<int> t1 = tcs1.Task;
                 t1.ConfigureAwait(false);
 
@@ -76,12 +77,12 @@ namespace Virgis {
                 Task.Factory.StartNew(() =>
                 {
                     try {
-                        m_datasource = Ogr.Open(fileName, m_update);
-                        if (m_datasource == null)
+                        _mDatasource = Ogr.Open(_fileName, _mUpdate);
+                        if (_mDatasource == null)
                             throw (new FileNotFoundException());
-                        for (int i = 0; i < m_datasource.GetLayerCount(); i++)
-                            m_layers.Add(m_datasource.GetLayerByIndex(i));
-                        if (m_layers.Count == 0)
+                        for (int i = 0; i < _mDatasource.GetLayerCount(); i++)
+                            _mLayers.Add(_mDatasource.GetLayerByIndex(i));
+                        if (_mLayers.Count == 0)
                             throw (new NotSupportedException());
                         tcs1.SetResult(1);
                     } catch (Exception e) {
@@ -92,13 +93,13 @@ namespace Virgis {
             }
             catch (Exception e) 
             {
-                Debug.LogError("Failed to Load" + fileName + " : " + e.ToString());
-                throw e;
+                Debug.LogError("Failed to Load" + _fileName + " : " + e.ToString());
+                throw;
             }
         }
 
         public Task<int> GetFeaturesAsync(Layer layer) {
-            TaskCompletionSource<int> tcs1 = new TaskCompletionSource<int>();
+            TaskCompletionSource<int> tcs1 = new();
             Task<int> t1 = tcs1.Task;
             t1.ConfigureAwait(false);
 
@@ -116,12 +117,12 @@ namespace Virgis {
 
         public void GetFeatures(Layer layer) {
             layer.ResetReading();
-            features = new List<Feature>();
+            Features = new List<Feature>();
             Feature f = null;
             do {
                 f = layer.GetNextFeature();
                 if (f != null)
-                    features.Add(f);
+                    Features.Add(f);
             } while (f != null);
         }
 
@@ -150,13 +151,27 @@ namespace Virgis {
                 SpatialReference crs = layer.GetSpatialRef();
                 if (crs != null)
                     return crs;
-                return AppState.instance.projectCrs;
+                return AppState.Instance.ProjectCrs;
             }
             return OsrExtensions.TextToSR(metadata.Crs);
         }
 
         public void Dispose() {
-            m_datasource?.Dispose();
+            try {
+                if (Features is not null)
+                    foreach (Feature feature in Features) {
+                        feature.Dispose();
+                    }
+
+                if (_mLayers is not null)
+                    foreach (Layer mLayer in _mLayers) {
+                        mLayer.Dispose();
+                    }
+
+                _mDatasource?.Dispose();
+            } catch (Exception e) {
+                Debug.LogException(e);
+            }
         }
     }
 }

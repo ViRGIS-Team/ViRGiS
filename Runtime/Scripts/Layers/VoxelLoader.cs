@@ -28,6 +28,8 @@ using Project;
 using Mdal;
 using Pdal;
 using OSGeo.OSR;
+using System;
+using System.Collections;
 using VirgisGeometry;
 
 
@@ -48,7 +50,7 @@ namespace Virgis
 
         public override async Task _init()
         {
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             //isWriteable = true;
             Datasource ds = await Datasource.LoadAsync(layer.Source);
             features = new List<VoxelMesh>();
@@ -70,7 +72,7 @@ namespace Virgis
             RecordSet layer = GetMetadata() as RecordSet;
             transform.position = layer.Position != null ? (Vector3)layer.Position.ToVector3d() : Vector3.zero;
             if (layer.Transform != null)
-                transform.Translate(AppState.instance.Map.transform.TransformVector((Vector3) layer.Transform.Position));
+                transform.Translate(AppState.Instance.Map.transform.TransformVector((Vector3) layer.Transform.Position));
             Dictionary<string, Unit> symbology = layer.Units;
 
             SpatialReference crs = null;
@@ -104,6 +106,10 @@ namespace Virgis
         public override Task _save()
         {
             return Task.CompletedTask;
+        }
+        
+        protected override IEnumerator Hydrate() {
+            throw new NotImplementedException();
         }
     }
 
@@ -139,7 +145,9 @@ namespace Virgis
             //bpc.colors = colors;
             return bpc;
         }*/
+
     }
+    
 }
 
 

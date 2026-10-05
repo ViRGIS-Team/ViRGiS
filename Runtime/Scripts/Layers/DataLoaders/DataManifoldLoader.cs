@@ -28,12 +28,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 namespace Virgis {
 
     /// <summary>
-    /// The parent entity for a instance of a Line Layer - that holds one MultiLineString FeatureCollection
+    /// The parent entity for an instance of a Line Layer - that holds one MultiLineString FeatureCollection
     /// </summary>
     public class DataManifoldLoader : MeshloaderPrototype<DataTable> {
         
@@ -50,9 +49,9 @@ namespace Virgis {
             }
             List<Vector3d> points = new ();
             foreach (DataRow row in features.Rows) {
-                double x = 0;
-                double y = 0;
-                double z = 0;
+                double x;
+                double y;
+                double z;
                 try {
                     x = double.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
                     y = double.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
@@ -65,45 +64,28 @@ namespace Virgis {
                 //Note that at this point the point is in Map Space Coordinates 
                 points.Add(new Vector3d(x, y, z));
             }
-            m_Meshes = new() {
+            MMeshes = new() {
                 DMesh3Builder.Build<Vector3d, Index2i>(points, null, AxisOrder.ENU),
                 };
             return Task.CompletedTask;
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             return "";
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
             System.Diagnostics.Stopwatch watch = new();
             watch.Start();
-            Dataline[] lineFuncs = gameObject.GetComponentsInChildren<Dataline>();
-            foreach (Dataline lineFunc in lineFuncs) {
-                IEnumerator<long> fids = lineFunc.Curve.GetDataItr<long>().GetEnumerator();
-                long fid = 0;
-                foreach (Vector3d v in lineFunc.Curve.Vertices) {
-                    if (fids.MoveNext()) {
-                        fid = fids.Current;
-                    } else {
-                        throw new Exception("DataLineLoader - Invalid FIDs in Curve");
-                    }
-                    DataRow row = features.Rows.Find(fid);
-                    if (row == null) {
-                        row = features.NewRow();
-                        row["__FID"] = fid;
-                        features.Rows.Add(row);
-                    }
-                    row[DataUnit.XRange] = v.x.ToString();
-                    row[DataUnit.YRange] = v.y.ToString();
-                    if (DataUnit.ZRange != null)
-                        row[DataUnit.ZRange] = v.z.ToString();
-                    if (watch.ElapsedMilliseconds > 100) {
-                        watch.Restart();
-                        yield return null;
-                    };
-                };
-            };
+            EditableMesh emesh = gameObject.GetComponentInChildren<EditableMesh>();
+            foreach (Vector3d v in emesh.Umesh.DMesh3.Vertices()) {
+
+
+                if (watch.ElapsedMilliseconds > 100) {
+                    watch.Restart();
+                    yield return null;
+                }
+            }
         }
     }
 }

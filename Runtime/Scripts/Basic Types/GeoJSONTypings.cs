@@ -34,7 +34,7 @@ using OSGeo.OSR;
 
 namespace Virgis {
 
-    public static class Vector3ExtensionMethods {
+    public static class GeoJsonExtensionMethods {
         /// <summary>
         /// Convert Vector3d Map Space location to Position in stated CRS or epsg:4326 by default
         /// </summary>
@@ -62,23 +62,13 @@ namespace Virgis {
             }
             double[] args = new[] {position.x, position.y, position.z};
 
-            AppState.instance
-                .projectOutTransformer(sr)
+            AppState.Instance
+                .ProjectOutTransformer(sr)
                 .TransformPoint(args);
             return new Position(args[0], args[1], args[2]);
         }
 
-        /// <summary>
-        /// Converts a Vector3d position in Map Space coordinates into a valid Geometry with CRS set
-        /// (the CRS being the model engineering projection - Geometry.transform to change that)
-        /// <param name="position">Vector3 position in World Space Coordinates</param>
-        /// <returns>Geometry</returns>
-        static public Geometry ToGeometry(this Vector3d position) {
-            Geometry geom = new Geometry(wkbGeometryType.wkbPoint);
-            geom.AssignSpatialReference(AppState.instance.mapProj);
-            geom.AddPoint(position.x,position.y, position.z );
-            return geom;
-        }
+
 
         /// <summary>
         /// Converts Vector3d Map Space Location to Point
@@ -88,9 +78,7 @@ namespace Virgis {
         public static Point ToPoint(this Vector3d point) {
             return new Point(point.ToPosition());
         }
-    }
 
-    public static class PointExtensionsMethods {
         static public Geometry ToGeometry(this Point point) {
             return point.Coordinates.ToGeometry(point.CRS);
         }
@@ -105,15 +93,12 @@ namespace Virgis {
             Geometry geom = point.ToGeometry();
             SpatialReference sr = geom.GetSpatialReference();
             geom.Transform(
-                AppState.instance.projectTransformer(sr)
+                AppState.Instance.ProjectTransformer(sr)
                 );
             double[] argouts = new double[3];
             geom.GetPoint(0,argouts);
             return new Vector3d(argouts) { axisOrder = sr.GetAxisOrder() };
         }
-    }
-
-    public static class PositionExtensionMethods {
 
         /// <summary>
         /// Converts IPosition to UnityEngine.vector2
@@ -154,9 +139,7 @@ namespace Virgis {
             geom.AddPoint(position.Latitude, position.Longitude, alt ?? 0.0);
             return geom;
         }
-    }
 
-    public static class LineExtensionMethods {
         /// <summary>
         /// Converts LineString Vertex i to a Position
         /// </summary>

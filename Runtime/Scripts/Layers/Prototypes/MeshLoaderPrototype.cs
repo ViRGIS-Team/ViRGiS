@@ -35,16 +35,16 @@ namespace Virgis
     public abstract class MeshloaderPrototype<T> : VirgisLoader<T>
     {
         // List of the meshes in the layer - as DMesh3 in Local Space coordinates
-        protected List<DMesh3> m_Meshes = new();
-        protected UnitPrototype m_bodySymbology;
+        protected List<DMesh3> MMeshes = new();
+        protected UnitPrototype MBodySymbology;
 
         public override void ReadSymbology(){
             RecordSet layer = GetMetadata() as RecordSet;
-            if (MSymbology.TryGetValue("body", out m_bodySymbology )) {
-                SetupColormap(m_bodySymbology);
+            if (MSymbology.TryGetValue("body", out MBodySymbology )) {
+                SetupColormap(MBodySymbology);
             } else {
-                m_bodySymbology = new ();
-            };
+                MBodySymbology = new ();
+            }
         }
 
         public override IVirgisFeature _addFeature<S>(S geometry) {
@@ -52,9 +52,9 @@ namespace Virgis
                 case DMesh3 mesh:
                     changed = true;
                     MeshlayerPrototype parent = MParent as MeshlayerPrototype;
-                    m_Meshes.Add(mesh);
+                    MMeshes.Add(mesh);
                     EditableMesh emesh = Instantiate(parent.Mesh, transform).GetComponent<EditableMesh>();
-                    emesh.Draw(mesh, m_bodySymbology);
+                    emesh.Draw(mesh, MBodySymbology);
                     emesh.OnEdit(true);
                     return emesh;
                 default:
@@ -69,15 +69,15 @@ namespace Virgis
             transform.position = layer.Position != null ?
                 (Vector3)layer.Position.ToVector3d() :
                 Vector3.zero;
-            transform.Translate(AppState.instance.Map.transform
+            transform.Translate(AppState.Instance.Map.transform
                 .TransformVector((Vector3) layer.Transform.Position)
             );
             
             bool HasVertexColors = false;
 
-            foreach (DMesh3 dMesh in m_Meshes) {
+            foreach (DMesh3 dMesh in MMeshes) {
                 HasVertexColors |= dMesh.HasVertexColors;
-                string textureImage = (m_bodySymbology as Unit).TextureImage;
+                string textureImage = (MBodySymbology as Unit).TextureImage;
                 if ( ! String.IsNullOrEmpty(textureImage) 
                 ) {
                     Dataset raster = Gdal.Open(textureImage, Access.GA_ReadOnly);
@@ -87,25 +87,22 @@ namespace Virgis
                 }
                 Instantiate(parent.Mesh, transform)
                     .GetComponent<EditableMesh>()
-                    .Draw(dMesh, m_bodySymbology);
+                    .Draw(dMesh, MBodySymbology);
             }
             transform.rotation = layer.Transform.Rotate;
             transform.localScale = layer.Transform.Scale;
-            return;
         }
 
-        protected abstract object GetNextFID();
+        protected abstract object GetNextFid();
 
         public async override Task _save() {
-            IEnumerator saver = hydrate();
+            IEnumerator saver = Hydrate();
             while (saver.MoveNext()) {
                 await Task.Yield();
-            };
+            }
             await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
-            return;
         }
-
-        protected abstract IEnumerator hydrate();
+        
 
     }
 }

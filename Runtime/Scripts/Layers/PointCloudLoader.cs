@@ -28,6 +28,8 @@ using System.IO;
 using Project;
 using Pdal;
 using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Linq;
 
 namespace Virgis
@@ -76,7 +78,7 @@ namespace Virgis
 
                 if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
                     string crs;
-                    AppState.instance.mapProj.ExportToProj4(out crs);
+                    AppState.Instance.MapProj.ExportToProj4(out crs);
                     pipe.Add(new {
                         type = "filters.reprojection",
                         in_srs = layer.Crs,
@@ -124,7 +126,7 @@ namespace Virgis
                 (Vector3) layer.Position.ToVector3d() : Vector3.zero;
             if (layer.Transform != null)
                 transform.
-                    Translate(AppState.instance.Map.transform.
+                    Translate(AppState.Instance.Map.transform.
                     TransformVector((Vector3) layer.Transform.Position));
 
             m_model = Instantiate(parent.pointCloud, transform, false)
@@ -136,11 +138,15 @@ namespace Virgis
             );
             float size = 1.0f;
             if (m_Symbology.TryGetValue("point", out Unit value)) {
-                size = value.Transform.Scale.magnitude;
+                size = value.Transform.Scale.Magnitude;
             }
             if (features != null)
-                m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, size);
+                m_model.bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, size);
             return Task.CompletedTask;
+        }
+        
+        protected override IEnumerator Hydrate() {
+            throw new NotImplementedException();
         }
     }
 }

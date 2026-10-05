@@ -39,36 +39,35 @@ namespace Virgis {
     // Singleton pattern taken from https://learn.unity.com/tutorial/level-generation
     public class AppState : State {
 
-        public new static AppState instance {
+        public new static AppState Instance {
             get {
-                return State.instance as AppState;
+                return State.Instance as AppState;
             }
             private set {
-                State.instance = value;
+                State.Instance = value;
             }
         }
 
         private SpatialReference _crs;
-        private CoordinateTransformation _trans;
-        private IDisposable initsub;
+        private IDisposable _initsub;
 
-        public SpatialReference projectCrs;
+        public SpatialReference ProjectCrs;
 
         protected void Awake() {
             Debug.Log("AppState awakens");
-            if (instance == null) {
+            if (Instance == null) {
                 Debug.Log("AppState instance assigned");
-                instance = this;
-            } else if (instance != this) {
+                Instance = this;
+            } else if (Instance != this) {
                 // there cannot be another instance
                 Debug.Log("AppState found another instance");
                 Destroy(gameObject);
             }
             DontDestroyOnLoad(gameObject);
-            _editSession = new();
+            EditSession = new();
             MapScale = new();
             GridScale = new();
-            Project = new();
+            ProjectChange = new();
             Info = new();
             ButtonStatus = new();
             Orientation = new();
@@ -79,17 +78,17 @@ namespace Virgis {
                 GdalConfiguration.ConfigureOgr();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
-            };
+            }
             try {
                 GdalConfiguration.ConfigureGdal();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
-            };
+            }
             try {
                 PdalConfiguration.ConfigurePdal();
             } catch (Exception e) {
                 Debug.LogError(e.ToString());
-            };
+            }
             try {
                 Debug.Log($" MDAL Version : {MdalConfiguration.ConfigureMdal()}");
             } catch (Exception e) {
@@ -98,44 +97,40 @@ namespace Virgis {
             Gdal.SetConfigOption("CURL_CA_BUNDLE", Path.Combine(Application.streamingAssetsPath, "gdal", "cacert.pem"));
         }
 
-        private void OnDestroy() {
-
-        }
-
         /// <summary>
         /// Use this to change or get the project
         /// </summary>
-        public new GisProject project {
+        public new GisProject Project {
             get {
-                return Project.Get() as GisProject;
+                return ProjectChange.Get() as GisProject;
             } 
             set {
-                Project.Set(value);
+                ProjectChange.Set(value);
             }
         }
 
-        public  SpatialReference mapProj {
+        public  SpatialReference MapProj {
             get => _crs;
         }
 
         public CoordinateTransformation  mapTrans {
-            get => _trans;
+            get;
         }
 
         /// <summary>
         /// Tasks to be run after a project is loaded
         /// </summary>
         public override void InitProj() {
-            if (project != null) {
+            if (Project != null) {
                 _crs = new SpatialReference($@"PROJCRS[""virgis"",
                     BASEGEOGCRS[""WGS 84"",
                     DATUM[""World Geodetic System 1984"", ELLIPSOID[""WGS 84"", 6378137, 298.257223563, LENGTHUNIT[""metre"", 1]], ID[""EPSG"", 6326]], PRIMEM[""Greenwich"", 0, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8901]]],
                     CONVERSION[
                         ""unknown"", METHOD[""Transverse Mercator"", ID[""EPSG"", 9807]],
                         PARAMETER
-                        [""Latitude of natural origin"", {project.Origin.Coordinates.Latitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8801]],
+                        [""Latitude of natural origin"", {Project.Origin.Coordinates.Latitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8801]],
                         PARAMETER
-                        [""Longitude of natural origin"", {project.Origin.Coordinates.Longitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8802]],
+                        [""Longitude of natural origin"", {Project.Origin.Coordinates.Longitude}, ANGLEUNIT[""degree"", 0.0174532925199433], ID[""EPSG"", 8802]],
                         PARAMETER[""Scale factor at natural origin"", 1, SCALEUNIT[""unity"", 1], ID[""EPSG"", 8805]],
                         PARAMETER[""False easting"", 0, LENGTHUNIT[""metre"", 1], ID[""EPSG"", 8806]],
                         PARAMETER[""False northing"", 0, LENGTHUNIT[""metre"", 1], ID[""EPSG"", 8807]]
@@ -143,33 +138,25 @@ namespace Virgis {
                         CS[Cartesian, 2],
                         AXIS[""(E)"", east, ORDER[1], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]],
                         AXIS[""(N)"", north, ORDER[2], LENGTHUNIT[""metre"", 1, ID[""EPSG"", 9001]]]]");
-                            }
-            CoordinateTransformationOptions op = new CoordinateTransformationOptions();
-            //op.SetOperation("+proj=axisswap +order=1,3,2",false);
-            //_trans = new CoordinateTransformation(_crs, _crs, op);
-            //if (_trans == null)
-            //    throw new NotSupportedException("transformation failed");
-            projectCrs = new SpatialReference(null);
-            if (project.projectCrs != null) {
-                projectCrs.SetWellKnownGeogCS(project.projectCrs);
-            } else {
-                projectCrs.SetWellKnownGeogCS("EPSG:4979");
             }
-            string wkt;
-            projectCrs.ExportToWkt(out wkt, null);
+
+            ProjectCrs = new SpatialReference(null);
+            ProjectCrs.SetWellKnownGeogCS(Project is { ProjectCrs: not null } ? Project.ProjectCrs : "EPSG:4979");
+
+            ProjectCrs.ExportToWkt(out string wkt, null);
             Debug.Log("Project Crs : " + wkt);
         }
 
-        public CoordinateTransformation projectTransformer(SpatialReference sr) {
+        public CoordinateTransformation ProjectTransformer(SpatialReference sr) {
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
             op.SetBallparkAllowed(true);
-            return new CoordinateTransformation(sr, mapProj, op);
+            return new CoordinateTransformation(sr, MapProj, op);
         }
 
-        public CoordinateTransformation projectOutTransformer(SpatialReference sr) {
+        public CoordinateTransformation ProjectOutTransformer(SpatialReference sr) {
             CoordinateTransformationOptions op = new CoordinateTransformationOptions();
             op.SetBallparkAllowed(false);
-            return new CoordinateTransformation(mapProj, sr, op);
+            return new CoordinateTransformation(MapProj, sr, op);
         }
     }
 }

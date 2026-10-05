@@ -51,7 +51,7 @@ namespace Virgis
 
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.Manifold };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
@@ -83,7 +83,7 @@ namespace Virgis
         /// <returns></returns>
         private async Task LoadGDAL(RecordSet layer) {
 
-            m_Meshes = new List<DMesh3>();
+            MMeshes = new List<DMesh3>();
 
             //bool value() {
                 // Get the raster
@@ -119,10 +119,10 @@ namespace Virgis
                                 mesh.SetVertexColor(vid, grad.Evaluate((float) ((mesh.GetVertex(vid).z - min) / (max - min))));
                                 break;
                             case EColorInterp.CategoryValue:
-                                mesh.SetVertexColor(vid, m_bodySymbology.ColorMap.GetCategoryValue((float)((mesh.GetVertex(vid).z - min) / (max - min))));
+                                mesh.SetVertexColor(vid, MBodySymbology.ColorMap.GetCategoryValue((float)((mesh.GetVertex(vid).z - min) / (max - min))));
                                 break;
                             default:
-                                mesh.SetVertexColor(vid, (Color)m_bodySymbology.Color);
+                                mesh.SetVertexColor(vid, (Color)MBodySymbology.Color);
                                 break;
                         }
                         
@@ -135,7 +135,7 @@ namespace Virgis
                 mesh.axisOrder = sr.GetAxisOrder();
                 mesh.Transform();
                 //r.ReduceToTriangleCount(20000);
-                m_Meshes.Add(mesh);
+                MMeshes.Add(mesh);
             }
 
             band1.FlushCache();
@@ -160,7 +160,7 @@ namespace Virgis
 
             (long, Pipeline) value() {
 
-                m_Meshes = new List<DMesh3>();
+                MMeshes = new List<DMesh3>();
 
                 List<object> pipe = new();
 
@@ -182,7 +182,7 @@ namespace Virgis
                 }
 
                 // if there is a Color Interpolation definition in the RecordSet, add that
-                if (m_bodySymbology.GetCI(out Dictionary<string, object> ci)) {
+                if (MBodySymbology.GetCi(out Dictionary<string, object> ci)) {
                     pipe.Add(ci);
                 }
 
@@ -223,7 +223,7 @@ namespace Virgis
                         };
                         mesh.Transform();
                         mesh.Clockwise = true;
-                        m_Meshes.Add(mesh);
+                        MMeshes.Add(mesh);
                     }
                 }
             }
@@ -233,7 +233,7 @@ namespace Virgis
         private async Task LoadMdal(RecordSet layer) {
             // for MDAL files - load the mesh directly
             Datasource ds = await Datasource.LoadAsync(layer.Source);
-            m_Meshes = new List<DMesh3>();
+            MMeshes = new List<DMesh3>();
             for (int i = 0; i < ds.meshes.Length; i++) {
                 DMesh3 mesh = await ds.GetMeshAsync(i);
                 mesh.RemoveMetadata("properties");
@@ -245,24 +245,24 @@ namespace Virgis
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
                 mesh.Transform();
-                m_Meshes.Add(mesh);
+                MMeshes.Add(mesh);
             }
         }
 
         public override Task _save()
         {
-            _layer.Position = ((Vector3d)transform.position).ToPoint();
-            _layer.Transform.Position = Vector3.zero;
-            _layer.Transform.Rotate = transform.rotation;
-            _layer.Transform.Scale = transform.localScale;
+            Layer.Position = ((Vector3d)transform.position).ToPoint();
+            Layer.Transform.Position = Vector3.zero;
+            Layer.Transform.Rotate = transform.rotation;
+            Layer.Transform.Scale = transform.localScale;
             return Task.CompletedTask;
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             throw new NotImplementedException();
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
             throw new NotImplementedException();
         }
     }

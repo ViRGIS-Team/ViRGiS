@@ -28,7 +28,7 @@ using VirgisGeometry;
 
 namespace Virgis
 {
-    public class PointCloudLoaderPrototype<T> : VirgisLoader<T>
+    public abstract class PointCloudLoaderPrototype<T> : VirgisLoader<T>
     {
         protected PointCloudLayer parent;
 
@@ -48,10 +48,10 @@ namespace Virgis
 
         public override Task _save()
         {
-            _layer.Position = ((Vector3d)parent.transform.position).ToPoint();
-            _layer.Transform.Position = Vector3.zero;
-            _layer.Transform.Rotate = parent.transform.rotation;
-            _layer.Transform.Scale = parent.transform.localScale;
+            Layer.Position = ((Vector3d)parent.transform.position).ToPoint();
+            Layer.Transform.Position = Vector3.zero;
+            Layer.Transform.Rotate = parent.transform.rotation;
+            Layer.Transform.Scale = parent.transform.localScale;
             return Task.CompletedTask;
         }
     }

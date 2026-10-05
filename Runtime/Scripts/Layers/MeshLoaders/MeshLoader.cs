@@ -108,7 +108,7 @@ namespace Virgis
         }
 
         public override async Task _init() {
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.Manifold };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
@@ -117,8 +117,8 @@ namespace Virgis
             string ex = Path.GetExtension(layer.Source).ToLower();
             if (ex != ".dxf") {
                 DMesh3Builder meshes = await loadObj(layer.Source);
-                m_Meshes = meshes.Meshes;
-                foreach (DMesh3 mesh in m_Meshes) {
+                MMeshes = meshes.Meshes;
+                foreach (DMesh3 mesh in MMeshes) {
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
                         mesh.SetVertex(idx, new Vector3d(vtx.x, vtx.z, vtx.y));
@@ -172,7 +172,7 @@ namespace Virgis
                         }
 
                         await ogrReader.GetFeaturesAsync(m_entities);
-                        foreach (Feature feature in ogrReader.features) {
+                        foreach (Feature feature in ogrReader.Features) {
                             Geometry geom = feature.GetGeometryRef();
                             if (geom == null)
                                 continue;
@@ -264,36 +264,36 @@ namespace Virgis
                 // Find connected components
                 components.FindConnectedT();
 
-                m_Meshes = new();
+                MMeshes = new();
 
                 if (components.Components.Count > 1) {
                     // Extract each connected submesh
                     foreach (var comp in components.Components) {
                         DMesh3 submesh = new DSubmesh3Legacy(dmesh, comp.Indices).SubMesh;
-                        m_Meshes.Add(submesh);
+                        MMeshes.Add(submesh);
                     }
                 } else {
-                    m_Meshes.Add(dmesh);
+                    MMeshes.Add(dmesh);
                 }
             }
         }
 
         public override Task _save()
         {
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             layer.Position = ((Vector3d)transform.position).ToPoint();
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
             EditableMesh[] meshes = GetComponentsInChildren<EditableMesh>();
             string ex = Path.GetExtension(layer.Source).ToLower();
-            m_Meshes = new List<DMesh3>();
+            MMeshes = new List<DMesh3>();
             foreach (EditableMesh mesh in meshes) {
-                m_Meshes.Add(mesh.GetMesh());
+                MMeshes.Add(mesh.GetMesh());
             }
             if (ex == ".obj") {
                 List<WriteMesh> wmeshes = new List<WriteMesh>();
-                foreach (DMesh3 dmesh in m_Meshes) {
+                foreach (DMesh3 dmesh in MMeshes) {
                     DMesh3 mesh = new DMesh3(dmesh);
                     foreach (int idx in mesh.VertexIndices()) {
                         Vector3d vtx = mesh.GetVertex(idx);
@@ -307,10 +307,10 @@ namespace Virgis
                 
                 CoordinateTransformation trans = null;
                 if (GetCrs() != null) {
-                    trans = AppState.instance.projectOutTransformer(GetCrs());
+                    trans = AppState.Instance.ProjectOutTransformer(GetCrs());
                 }
                 List<WriteMesh> wmeshes = new ();
-                foreach (DMesh3 dmesh in m_Meshes) {
+                foreach (DMesh3 dmesh in MMeshes) {
                     wmeshes.Add(new WriteMesh(dmesh));
                 }
                 
@@ -323,11 +323,11 @@ namespace Virgis
             return Task.CompletedTask;
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             throw new NotImplementedException();
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
             throw new NotImplementedException();
         }
     }

@@ -29,6 +29,7 @@ using Project;
 using Pdal;
 using OSGeo.GDAL;
 using OSGeo.OSR;
+using System.Collections;
 using Stopwatch = System.Diagnostics.Stopwatch;
 using VirgisGeometry;
 
@@ -41,7 +42,7 @@ namespace Virgis
 
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.PointCloud };
             m_Symbology = layer.Units;
             if (m_Symbology.TryGetValue("point", out Unit unit)) {
@@ -135,12 +136,12 @@ namespace Virgis
 
             // set the stride based on the BPC width for accuracy
             int stride = scaleFactor==1? 1: (int)datapoints / (features.Width * features.Height);
-            CoordinateTransformation transformer = AppState.instance.projectTransformer(sr);
+            CoordinateTransformation transformer = AppState.Instance.ProjectTransformer(sr);
             CoordinateTransformation demTransformer = null;
             CoordinateTransformation demOutTransformer = null;
             if (demSR != null) {
-                demTransformer = AppState.instance.projectTransformer(demSR);
-                demOutTransformer = AppState.instance.projectOutTransformer(demSR);
+                demTransformer = AppState.Instance.ProjectTransformer(demSR);
+                demOutTransformer = AppState.Instance.ProjectOutTransformer(demSR);
             }
 
             Unit value;
@@ -228,13 +229,13 @@ namespace Virgis
             transform.position = _layer.Position != null ?
                 (Vector3)_layer.Position.ToVector3d() : Vector3.zero ;
             if (_layer.Transform != null) transform
-                    .Translate(AppState.instance.Map.transform
+                    .Translate(AppState.Instance.Map.transform
                     .TransformVector((Vector3)_layer.Transform.Position ));
 
             m_model = Instantiate(parent.pointCloud, transform, false)
                 .GetComponent<PointCloud>();
             m_model.Spawn(transform);
-            m_model.Bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, (float) m_PixelSize * 9f);
+            m_model.bpc.Set(features.PositionMap, features.ColorMap, features.PointCount, (float) m_PixelSize * 9f);
 
             if (_layer.Transform != null) {
                 transform.rotation = _layer.Transform.Rotate;
@@ -246,11 +247,15 @@ namespace Virgis
 
         public override Task _save()
         {
-            _layer.Position = ((Vector3d)transform.position).ToPoint();
-            _layer.Transform.Position = Vector3.zero;
-            _layer.Transform.Rotate = transform.rotation;
-            _layer.Transform.Scale = transform.localScale;
+            Layer.Position = ((Vector3d)transform.position).ToPoint();
+            Layer.Transform.Position = Vector3.zero;
+            Layer.Transform.Rotate = transform.rotation;
+            Layer.Transform.Scale = transform.localScale;
             return Task.CompletedTask;
+        }
+
+        protected override IEnumerator Hydrate() {
+            throw new NotImplementedException();
         }
     }
 }

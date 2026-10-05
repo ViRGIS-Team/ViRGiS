@@ -48,12 +48,12 @@ namespace Virgis
         public override async Task _init() {
             Stopwatch stopWatch = Stopwatch.StartNew();
             features = new ();
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.Manifold };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
             Datasource ds = await Datasource.LoadAsync(layer.Source);
-            m_Meshes = new List<DMesh3>();
+            MMeshes = new List<DMesh3>();
             if (layer.ContainsKey("Crs") && layer.Crs != null && layer.Crs != "") {
                 SetCrs(OsrExtensions.TextToSR(layer.Crs));
             }
@@ -73,7 +73,7 @@ namespace Virgis
                     mesh.AttachMetadata("CRS", layer.Crs);
                 };
                 mesh.Transform();
-                m_Meshes.Add(mesh);
+                MMeshes.Add(mesh);
             }
             Debug.Log($"Mdal Layer Load took : {stopWatch.Elapsed.TotalSeconds}");
             return;
@@ -109,16 +109,16 @@ namespace Virgis
 
         public override Task _save()
         {
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             layer.Transform.Position = Vector3.zero;
             layer.Transform.Rotate = transform.rotation;
             layer.Transform.Scale = transform.localScale;
             EditableMesh[] emeshes = GetComponentsInChildren<EditableMesh>();
             string ex = Path.GetExtension(layer.Source).ToLower();
-            m_Meshes = new List<DMesh3>();
+            MMeshes = new List<DMesh3>();
             CoordinateTransformation trans = null;
             if (GetCrs() != null) {
-                trans = AppState.instance.projectOutTransformer(GetCrs());
+                trans = AppState.Instance.ProjectOutTransformer(GetCrs());
             } else {
                 //TODO
             }
@@ -129,7 +129,7 @@ namespace Virgis
                     dmesh.RemoveMetadata("CRS");
                     dmesh.AttachMetadata("CRS", layer.Crs);
                 };
-                m_Meshes.Add(dmesh);
+                MMeshes.Add(dmesh);
                 DMesh3 dmesh2 = new(dmesh);
                 for (int i = 0; i < dmesh2.VertexCount; i++) {
                     if (dmesh2.IsVertex(i)) {
@@ -145,11 +145,11 @@ namespace Virgis
             return Task.CompletedTask;
         }
 
-        protected override object GetNextFID() {
+        protected override object GetNextFid() {
             throw new System.NotImplementedException();
         }
 
-        protected override IEnumerator hydrate() {
+        protected override IEnumerator Hydrate() {
             throw new System.NotImplementedException();
         }
     }

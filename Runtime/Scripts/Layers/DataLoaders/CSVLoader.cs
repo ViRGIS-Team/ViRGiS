@@ -7,10 +7,11 @@ using Project;
 using CsvHelper;
 using System.Globalization;
 using CsvHelper.Configuration;
+using System.Collections;
 
 namespace Virgis {
 
-    public class CSVLoader : DataLoaderPrototype {
+    public class CsvLoader : DataLoaderPrototype {
 
         public override async Task _init() {
             IsWriteable = true;
@@ -18,9 +19,9 @@ namespace Virgis {
 
             CsvConfiguration config = new(CultureInfo.InvariantCulture) {
                 DetectDelimiter = true,
-                DetectDelimiterValues= new string[] { ",", ";", "|", "\t", " " }
+                DetectDelimiterValues= new[] { ",", ";", "|", "\t", " " }
             };
-            using (StreamReader reader = new((_layer as RecordSet).Source))
+            using (StreamReader reader = new((Layer as RecordSet).Source))
             using (CsvReader csv = new(reader, config))
             {
                 using (CsvDataReader dr = new(csv))
@@ -30,7 +31,7 @@ namespace Virgis {
                     features.Columns.Add(fid);
                     long i = 0;
                     foreach (DataRow row in features.Rows) {
-                        row.SetField<long>(fid, i);
+                        row.SetField(fid, i);
                         i++;
                     }
                     features.PrimaryKey = new[] { fid };
@@ -42,11 +43,16 @@ namespace Virgis {
             await base._init();
         }
 
-        public async override Task _save() {
-            using (StreamWriter writer = new((_layer as RecordSet).Source))
+        public override Task _save() {
+            using (StreamWriter writer = new((Layer as RecordSet).Source))
             using (CsvWriter csv = new(writer, CultureInfo.InvariantCulture)) {
                 csv.WriteRecords(Records());
             }
+            return Task.CompletedTask;
+        }
+
+        protected override IEnumerator Hydrate() {
+            throw new System.NotImplementedException();
         }
 
         private IEnumerable<dynamic> Records() {

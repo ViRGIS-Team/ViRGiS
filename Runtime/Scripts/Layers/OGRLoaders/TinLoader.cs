@@ -25,6 +25,7 @@ using System.Linq;
 using UnityEngine;
 using Project;
 using OSGeo.OGR;
+using System.Collections;
 using SpatialReference = OSGeo.OSR.SpatialReference;
 using System.Threading.Tasks;
 using VirgisGeometry;
@@ -37,7 +38,7 @@ namespace Virgis {
         private TinLayer parent;
 
         public override async Task _init() {
-            RecordSet layer = _layer as RecordSet;
+            RecordSet layer = Layer as RecordSet;
             DataUnit = new() { Representation = DataUnitRepresent.Manifold };
             MSymbology = layer?.Units.ToDictionary(x => x.Key, x => (UnitPrototype)x.Value);
             ReadSymbology();
@@ -56,6 +57,10 @@ namespace Virgis {
             }
         }
 
+        protected override IEnumerator Hydrate() {
+            throw new System.NotImplementedException();
+        }
+
         public async override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             if (layer.Properties.BBox != null) {
@@ -63,7 +68,7 @@ namespace Virgis {
             }
             using (OgrReader ogrReader = new OgrReader()) {
                 await ogrReader.GetFeaturesAsync(features);
-                foreach (Feature feature in ogrReader.features) {
+                foreach (Feature feature in ogrReader.Features) {
                     int geoCount = feature.GetDefnRef().GetGeomFieldCount();
                     for (int j = 0; j < geoCount; j++) {
                         Geometry tin = feature.GetGeomFieldRef(j);
@@ -90,7 +95,7 @@ namespace Virgis {
                 }
             }
             if (layer.Transform != null) {
-                transform.position = AppState.instance.Map.transform.TransformPoint(layer.Transform.Position);
+                transform.position = AppState.Instance.Map.transform.TransformPoint(layer.Transform.Position);
                 transform.rotation = layer.Transform.Rotate;
                 transform.localScale = layer.Transform.Scale;
             }

@@ -3,23 +3,29 @@ using UnityEngine;
 using Unity.Collections;
 using Project;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System;
 using VirgisGeometry;
 using Pdal;
+using System.Collections;
 using System.Linq;
 
 namespace Virgis {
 
     public class DataPointCloudLoader : PointCloudLoaderPrototype<DataTable> {
 
-        public async override Task _init() {
+        public override Task _init() {
             m_Symbology = (DataUnit as DataUnit)?.Units;
-            if (m_Symbology.TryGetValue("point", out Unit unit )){
+            if (m_Symbology != null && m_Symbology.TryGetValue("point", out Unit unit )){
                 SetupColormap(unit);
             }
             ReadSymbology();
+            return Task.CompletedTask;
         }
+
+        protected override IEnumerator Hydrate() {
+            throw new NotImplementedException();
+        }
+
         public override Task _draw() {
             BakedPointCloud bpc = new((ulong)features.Rows.Count);
             NativeArray<Color> positions = bpc.PositionMap.GetRawTextureData<Color>();
@@ -33,7 +39,6 @@ namespace Virgis {
                ) {
                 throw new Exception($"DataUnit {DataUnit.Name} has invalid columns");
             }
-            List<Task<int>> tasks = new();
             AxisOrder ax = DataUnit.AxisOrder;
             if (ax == default)
                 ax = AxisOrder.ENU;
@@ -42,10 +47,10 @@ namespace Virgis {
             float max = float.MinValue;
             for (int i =0; i < features.Rows.Count; i++) {
                 DataRow row = features.Rows[i];
-                float x = 0;
-                float y = 0;
-                float z = 0;
-                float m = 0;
+                float x;
+                float y;
+                float z;
+                float m;
                 try {
                     x = float.Parse(row.Field<string>(features.Columns[DataUnit.XRange]));
                     y = float.Parse(row.Field<string>(features.Columns[DataUnit.YRange]));
@@ -74,11 +79,8 @@ namespace Virgis {
             }
             float range = max - min;
             float size = 1.0f;
-            Unit value;
-            Color color = Color.white;
-            if (m_Symbology.TryGetValue("point", out value)) {
-                size = value.Transform.Scale.magnitude;
-                color = value.Color;
+            if (m_Symbology.TryGetValue("point", out Unit value)) {
+                size = value.Transform.Scale.Magnitude;
             } 
             if (DataUnit.LabelRange != null && MColorInterp != EColorInterp.None) {
                 for (int i = 0; i < bpc.PointCount; i++) {
@@ -87,22 +89,27 @@ namespace Virgis {
                             colors[i] = grad.Evaluate((positions[i].a - min) / range);
                             break;
                         case EColorInterp.CategoryValue:
-                            colors[i] = value.ColorMap.GetCategoryValue((positions[i].a - min) / range); 
+                            if (value != null) {
+                                colors[i] = value.ColorMap.GetCategoryValue((positions[i].a - min) / range);
+                            }
+
                             break;
                     }
                 }
             } else {
                 for (int i = 0; i < bpc.PointCount; i++)
-                    colors[i] = (Color)value.Color;
+                    if (value != null) {
+                        colors[i] = (Color) value.Color;
+                    }
             }
             bpc.PositionMap.Apply(false, false);
             bpc.ColorMap.Apply(false, false);
             RecordSet layer = GetMetadata() as RecordSet;
-            transform.position = layer.Position != null ?
+            transform.position = layer != null && layer.Position != null ?
                 (Vector3) layer.Position.ToVector3d() : Vector3.zero;
-            if (layer.Transform != null)
+            if (layer is { Transform: not null })
                 transform.
-                    Translate(AppState.instance.Map.transform.
+                    Translate(AppState.Instance.Map.transform.
                     TransformVector((Vector3) layer.Transform.Position));
 
             m_model = Instantiate(parent.pointCloud, transform, false)
@@ -113,7 +120,7 @@ namespace Virgis {
                 item => item.Value as UnitPrototype
             );
             
-            m_model.Bpc.Set(bpc.PositionMap, bpc.ColorMap, bpc.PointCount, size);
+            m_model.bpc.Set(bpc.PositionMap, bpc.ColorMap, bpc.PointCount, size);
             return Task.CompletedTask;
         }
     }
