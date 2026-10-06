@@ -27,7 +27,9 @@ using System.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using UnityEngine;
 
 namespace Virgis {
 
@@ -48,6 +50,7 @@ namespace Virgis {
                 throw new Exception($"DataUnit {DataUnit.Name} has invalid columns");
             }
             List<Vector3d> points = new ();
+            List<int> vertexMap = new();
             foreach (DataRow row in features.Rows) {
                 double x;
                 double y;
@@ -63,10 +66,12 @@ namespace Virgis {
                 }
                 //Note that at this point the point is in Map Space Coordinates 
                 points.Add(new Vector3d(x, y, z));
+                vertexMap.Add((int) row.Field<long>("__FID"));
             }
             MMeshes = new() {
                 DMesh3Builder.Build<Vector3d, Index2i>(points, null, AxisOrder.ENU),
                 };
+            MMeshes[0].VertexMap = vertexMap.ToArray();
             return Task.CompletedTask;
         }
 
@@ -76,16 +81,38 @@ namespace Virgis {
 
         protected override IEnumerator Hydrate() {
             System.Diagnostics.Stopwatch watch = new();
+            AxisOrder ax = DataUnit.AxisOrder;
+            if (ax == default)
+                ax = AxisOrder.ENU;
             watch.Start();
             EditableMesh emesh = gameObject.GetComponentInChildren<EditableMesh>();
+            int i = 0;
             foreach (Vector3d v in emesh.SerialMesh.DMesh3.Vertices()) {
+                try {
+                    long fid = emesh.SerialMesh.DMesh3.VertexMap[i];
+                    DataRow row = features.Rows.Find(fid);
+                    if (row == null) {
+                        row = features.NewRow();
+                        row["__FID"] = fid;
+                        features.Rows.Add(row);
+                    }
+                    
+                    v.ChangeAxisOrderTo(ax);
+                    row[DataUnit.XRange] = v.x.ToString(CultureInfo.InvariantCulture);
+                    row[DataUnit.YRange] = v.y.ToString(CultureInfo.InvariantCulture);
+                    if (DataUnit.ZRange != null)
+                        row[DataUnit.ZRange] = v.z.ToString(CultureInfo.InvariantCulture);
+                    row["__FID"] = fid;
 
+                    i++;
 
-                if (watch.ElapsedMilliseconds > 100) {
-                    watch.Restart();
-                    yield return null;
+                    if (watch.ElapsedMilliseconds < 100) continue;
+                } catch (Exception e) {
+                    Debug.LogException(e);
                 }
-            }
+                yield return null;
+                watch.Restart();
+                }
         }
     }
 }

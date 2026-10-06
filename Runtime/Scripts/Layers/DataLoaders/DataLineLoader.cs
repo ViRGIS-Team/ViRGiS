@@ -115,8 +115,8 @@ namespace Virgis
                     if (DataUnit.ZRange != null)
                         row[DataUnit.ZRange] = v.z.ToString(CultureInfo.InvariantCulture);
                     if (watch.ElapsedMilliseconds < 100) continue;
-                    watch.Restart();
                     yield return null;
+                    watch.Restart();
                 }
             }
         }
