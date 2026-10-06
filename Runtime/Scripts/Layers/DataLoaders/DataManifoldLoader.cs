@@ -78,7 +78,7 @@ namespace Virgis {
             System.Diagnostics.Stopwatch watch = new();
             watch.Start();
             EditableMesh emesh = gameObject.GetComponentInChildren<EditableMesh>();
-            foreach (Vector3d v in emesh.Umesh.DMesh3.Vertices()) {
+            foreach (Vector3d v in emesh.SerialMesh.DMesh3.Vertices()) {
 
 
                 if (watch.ElapsedMilliseconds > 100) {
