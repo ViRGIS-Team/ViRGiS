@@ -73,10 +73,10 @@ namespace Virgis
                 .TransformVector((Vector3) layer.Transform.Position)
             );
             
-            bool HasVertexColors = false;
+            bool hasVertexColors = false;
 
             foreach (DMesh3 dMesh in MMeshes) {
-                HasVertexColors |= dMesh.HasVertexColors;
+                hasVertexColors |= dMesh.HasVertexColors;
                 string textureImage = (MBodySymbology as Unit).TextureImage;
                 if ( ! String.IsNullOrEmpty(textureImage) 
                 ) {
@@ -102,7 +102,5 @@ namespace Virgis
             }
             await transform.parent.GetComponent<VirgisLayer>().GetLoader()._save();
         }
-        
-
     }
 }
