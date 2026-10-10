@@ -65,6 +65,7 @@ namespace Virgis
         public async override Task _draw() {
             RecordSet layer = GetMetadata() as RecordSet;
             MeshlayerPrototype parent = MParent as MeshlayerPrototype;
+            if (parent is null || layer is null) throw new Exception("Mesh Layer has no parent or layer definition");
             parent.IsWriteable = ! layer.Properties.ReadOnly;
             transform.position = layer.Position != null ?
                 (Vector3)layer.Position.ToVector3d() :

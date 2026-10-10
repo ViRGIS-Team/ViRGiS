@@ -37,7 +37,7 @@ namespace Virgis {
     // app states, such as EditSession, etc.
     //
     // Singleton pattern taken from https://learn.unity.com/tutorial/level-generation
-    public class AppState : State {
+    public abstract class AppState : State {
 
         public new static AppState Instance {
             get {
